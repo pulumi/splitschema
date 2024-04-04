@@ -7,11 +7,13 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"slices"
 	"strings"
+	"sync"
 
+	ccmap "github.com/orcaman/concurrent-map/v2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"go.mongodb.org/mongo-driver/bson"
 	yaml "gopkg.in/yaml.v3"
 )
 
@@ -23,28 +25,10 @@ func WritePackageSpec(path string, pkg *schema.PackageSpec) error {
 	pkgCopy.Types = nil
 	resources := pkg.Resources
 	pkgCopy.Resources = nil
-	language := pkg.Language
-	pkgCopy.Language = nil
-	config := pkg.Config
-	pkgCopy.Config = schema.ConfigSpec{}
-	provider := pkg.Provider
-	pkgCopy.Provider = schema.ResourceSpec{}
 
-	writer := NewWriter(path, "json", "  ")
-	if err := writer.WriteData("index", pkgCopy); err != nil {
+	writer := NewFormatter(path, "json", "    ")
+	if err := writer.WriteData("core", pkgCopy); err != nil {
 		return err
-	}
-	if err := writer.WriteData("config", config); err != nil {
-		return err
-	}
-	if err := writer.WriteData("provider", provider); err != nil {
-		return err
-	}
-
-	for langName, lang := range language {
-		if err := writer.WriteData(filepath.Join("languages", langName), lang); err != nil {
-			return err
-		}
 	}
 
 	typeTokens := make(map[string]string, len(types))
@@ -86,27 +70,292 @@ func WritePackageSpec(path string, pkg *schema.PackageSpec) error {
 	return nil
 }
 
-func ReadPackageSpec(path string) (schema.PackageSpec, error) {
-	bytes, err := os.ReadFile(path)
+func ReadPackageSpec(path string) (*schema.PackageSpec, error) {
+	partialPkg := NewPartialPackage(path)
+	core, err := partialPkg.getCore()
 	if err != nil {
-		return schema.PackageSpec{}, err
+		return nil, err
 	}
-	var pkg schema.PackageSpec
-	err = bson.Unmarshal(bytes, &pkg)
-	return pkg, err
+	resourceTokens, err := partialPkg.GetResourceTokens()
+	if err != nil {
+		return nil, err
+	}
+	core.Resources = make(map[string]schema.ResourceSpec, len(resourceTokens))
+	for _, v := range resourceTokens {
+		res, err := partialPkg.GetResource(v)
+		if err != nil {
+			return nil, err
+		}
+		core.Resources[v] = *res
+	}
+
+	functionTokens, err := partialPkg.GetFunctionTokens()
+	if err != nil {
+		return nil, err
+	}
+	core.Functions = make(map[string]schema.FunctionSpec, len(functionTokens))
+	for _, v := range functionTokens {
+		fn, err := partialPkg.GetFunction(v)
+		if err != nil {
+			return nil, err
+		}
+		core.Functions[v] = *fn
+	}
+
+	typeTokens, err := partialPkg.GetTypeTokens()
+	if err != nil {
+		return nil, err
+	}
+	core.Types = make(map[string]schema.ComplexTypeSpec, len(typeTokens))
+	for _, v := range typeTokens {
+		typ, err := partialPkg.GetType(v)
+		if err != nil {
+			return nil, err
+		}
+		core.Types[v] = *typ
+	}
+	return core, nil
 }
 
-type writer struct {
+type partialPackage struct {
+	core *schema.PackageSpec
+
+	formatter             formatter
+	resourceTokenMappings map[string]string
+	resourceTokensList    []string
+	resourceTokensRead    bool
+	resourceTokensLock    sync.Mutex
+	resources             ccmap.ConcurrentMap[string, *schema.ResourceSpec]
+
+	functionTokenMappings map[string]string
+	functionTokensList    []string
+	functionTokensRead    bool
+	functionTokensLock    sync.Mutex
+	functions             ccmap.ConcurrentMap[string, *schema.FunctionSpec]
+
+	typeTokenMappings map[string]string
+	typeTokensList    []string
+	typeTokensRead    bool
+	typeTokenLock     sync.Mutex
+	types             ccmap.ConcurrentMap[string, *schema.ComplexTypeSpec]
+}
+
+func NewPartialPackage(basePath string) partialPackage {
+	return partialPackage{
+		formatter: NewFormatter(basePath, "json", ""),
+		resources: ccmap.New[*schema.ResourceSpec](),
+		types:     ccmap.New[*schema.ComplexTypeSpec](),
+		functions: ccmap.New[*schema.FunctionSpec](),
+	}
+}
+
+func (p *partialPackage) getCore() (*schema.PackageSpec, error) {
+	if p.core != nil {
+		return p.core, nil
+	}
+	var core schema.PackageSpec
+	if err := p.formatter.ReadData("core", &core); err != nil {
+		return nil, err
+	}
+	p.core = &core
+	return p.core, nil
+}
+
+func (p *partialPackage) GetResource(token string) (*schema.ResourceSpec, error) {
+	if spec, ok := p.resources.Get(token); ok {
+		return spec, nil
+	}
+	tokens, _, err := p.getResourceTokenMappings()
+	if err != nil {
+		return nil, err
+	}
+	path, ok := tokens[token]
+	if !ok {
+		return nil, nil
+	}
+	var spec schema.ResourceSpec
+	description, err := p.formatter.ReadSpec(path, &spec)
+	if err != nil {
+		return nil, err
+	}
+	if description != nil {
+		spec.Description = *description
+	}
+	if !p.resources.SetIfAbsent(token, &spec) {
+		// Use the first written spec if another goroutine wrote the spec first.
+		if spec, ok := p.resources.Get(token); ok {
+			return spec, nil
+		}
+	}
+	return &spec, nil
+}
+
+// GetResourceTokens returns the resource tokens for the package sorted alphabetically.
+func (p *partialPackage) GetResourceTokens() ([]string, error) {
+	_, tokens, err := p.getResourceTokenMappings()
+	return tokens, err
+}
+
+func (p *partialPackage) GetFunction(token string) (*schema.FunctionSpec, error) {
+	if spec, ok := p.functions.Get(token); ok {
+		return spec, nil
+	}
+	tokens, _, err := p.getFunctionTokenMappings()
+	if err != nil {
+		return nil, err
+	}
+	path, ok := tokens[token]
+	if !ok {
+		return nil, nil
+	}
+	var spec schema.FunctionSpec
+	description, err := p.formatter.ReadSpec(path, &spec)
+	if err != nil {
+		return nil, err
+	}
+	if description != nil {
+		spec.Description = *description
+	}
+	if !p.functions.SetIfAbsent(token, &spec) {
+		// Use the first written spec if another goroutine wrote the spec first.
+		if spec, ok := p.functions.Get(token); ok {
+			return spec, nil
+		}
+	}
+	return &spec, nil
+}
+
+func (p *partialPackage) GetFunctionTokens() ([]string, error) {
+	_, tokens, err := p.getFunctionTokenMappings()
+	return tokens, err
+}
+
+func (p *partialPackage) GetType(token string) (*schema.ComplexTypeSpec, error) {
+	if spec, ok := p.types.Get(token); ok {
+		return spec, nil
+	}
+	tokens, _, err := p.getTypeTokenMappings()
+	if err != nil {
+		return nil, err
+	}
+	path, ok := tokens[token]
+	if !ok {
+		return nil, nil
+	}
+	var spec schema.ComplexTypeSpec
+	description, err := p.formatter.ReadSpec(path, &spec)
+	if err != nil {
+		return nil, err
+	}
+	if description != nil {
+		spec.Description = *description
+	}
+	if !p.types.SetIfAbsent(token, &spec) {
+		// Use the first written spec if another goroutine wrote the spec first.
+		if spec, ok := p.types.Get(token); ok {
+			return spec, nil
+		}
+	}
+	return &spec, nil
+}
+
+func (p *partialPackage) GetTypeTokens() ([]string, error) {
+	_, tokens, err := p.getTypeTokenMappings()
+	return tokens, err
+}
+
+// getResourceTokenMappings returns the resource token mappings and a sorted list of resource tokens.
+func (p *partialPackage) getResourceTokenMappings() (map[string]string, []string, error) {
+	if p.resourceTokensRead {
+		return p.resourceTokenMappings, p.resourceTokensList, nil
+	}
+
+	p.resourceTokensLock.Lock()
+	defer p.resourceTokensLock.Unlock()
+	if p.resourceTokensRead {
+		return p.resourceTokenMappings, p.resourceTokensList, nil
+	}
+
+	var resourceTokenMappings map[string]string
+	if err := p.formatter.ReadData("resources", &resourceTokenMappings); err != nil {
+		return nil, nil, err
+	}
+	resourceTokensList := make([]string, 0, len(resourceTokenMappings))
+	for token := range resourceTokenMappings {
+		resourceTokensList = append(resourceTokensList, token)
+	}
+	slices.Sort(resourceTokensList)
+
+	p.resourceTokenMappings = resourceTokenMappings
+	p.resourceTokensList = resourceTokensList
+	p.resourceTokensRead = true
+	return p.resourceTokenMappings, p.resourceTokensList, nil
+}
+
+func (p *partialPackage) getTypeTokenMappings() (map[string]string, []string, error) {
+	if p.typeTokensRead {
+		return p.typeTokenMappings, p.typeTokensList, nil
+	}
+
+	p.typeTokenLock.Lock()
+	defer p.typeTokenLock.Unlock()
+	if p.typeTokensRead {
+		return p.typeTokenMappings, p.typeTokensList, nil
+	}
+
+	var typeTokenMappings map[string]string
+	if err := p.formatter.ReadData("types", &typeTokenMappings); err != nil {
+		return nil, nil, err
+	}
+	typeTokensList := make([]string, 0, len(typeTokenMappings))
+	for token := range typeTokenMappings {
+		typeTokensList = append(typeTokensList, token)
+	}
+	slices.Sort(typeTokensList)
+
+	p.typeTokenMappings = typeTokenMappings
+	p.typeTokensList = typeTokensList
+	p.typeTokensRead = true
+	return p.typeTokenMappings, p.typeTokensList, nil
+}
+
+func (p *partialPackage) getFunctionTokenMappings() (map[string]string, []string, error) {
+	if p.functionTokensRead {
+		return p.functionTokenMappings, p.functionTokensList, nil
+	}
+
+	p.functionTokensLock.Lock()
+	defer p.functionTokensLock.Unlock()
+	if p.functionTokensRead {
+		return p.functionTokenMappings, p.functionTokensList, nil
+	}
+
+	var functionTokenMappings map[string]string
+	if err := p.formatter.ReadData("functions", &functionTokenMappings); err != nil {
+		return nil, nil, err
+	}
+	functionTokensList := make([]string, 0, len(functionTokenMappings))
+	for token := range functionTokenMappings {
+		functionTokensList = append(functionTokensList, token)
+	}
+	slices.Sort(functionTokensList)
+	p.functionTokenMappings = functionTokenMappings
+	p.functionTokensList = functionTokensList
+	p.functionTokensRead = true
+	return p.functionTokenMappings, p.functionTokensList, nil
+}
+
+type formatter struct {
 	basePath string
 	format   string
 	indent   string
 }
 
-func NewWriter(basePath, format, indent string) writer {
-	return writer{basePath: basePath, format: format, indent: indent}
+func NewFormatter(basePath, format, indent string) formatter {
+	return formatter{basePath: basePath, format: format, indent: indent}
 }
 
-func (w writer) WriteType(token string, spec schema.ComplexTypeSpec) (string, error) {
+func (w *formatter) WriteType(token string, spec schema.ComplexTypeSpec) (string, error) {
 	var markdown string
 	if strings.ContainsRune(spec.Description, '\n') {
 		markdown = spec.Description
@@ -115,7 +364,7 @@ func (w writer) WriteType(token string, spec schema.ComplexTypeSpec) (string, er
 	return w.WriteSpec(token, "types", spec, markdown)
 }
 
-func (w writer) WriteResource(token string, spec schema.ResourceSpec) (string, error) {
+func (w *formatter) WriteResource(token string, spec schema.ResourceSpec) (string, error) {
 	var markdown string
 	if strings.ContainsRune(spec.Description, '\n') {
 		markdown = spec.Description
@@ -124,7 +373,7 @@ func (w writer) WriteResource(token string, spec schema.ResourceSpec) (string, e
 	return w.WriteSpec(token, "resources", spec, markdown)
 }
 
-func (w writer) WriteFunction(token string, spec schema.FunctionSpec) (string, error) {
+func (w *formatter) WriteFunction(token string, spec schema.FunctionSpec) (string, error) {
 	var markdown string
 	if strings.ContainsRune(spec.Description, '\n') {
 		markdown = spec.Description
@@ -133,20 +382,12 @@ func (w writer) WriteFunction(token string, spec schema.FunctionSpec) (string, e
 	return w.WriteSpec(token, "functions", spec, markdown)
 }
 
-func (w writer) WriteSpec(token string, kind string, data any, markdown string) (string, error) {
-	t, err := tokens.ParseTypeToken(token)
+func (w *formatter) WriteSpec(token string, kind string, data any, markdown string) (string, error) {
+	// Handle module names which include type name after "/"
+	path, err := getPath(token, kind)
 	if err != nil {
 		return "", err
 	}
-
-	modName := t.Module().Name().String()
-	typeName := t.Name().String()
-	// Handle module names which include type name after "/"
-	if parts := strings.Split(modName, "/"); len(parts) > 0 {
-		modName = parts[0]
-	}
-	filename := makeFileName(typeName)
-	path := filepath.Join(modName, kind, filename)
 	if markdown != "" {
 		if err := w.WriteFile(path+".md", []byte(markdown)); err != nil {
 			return "", err
@@ -159,7 +400,42 @@ func (w writer) WriteSpec(token string, kind string, data any, markdown string) 
 	return path, nil
 }
 
-func (w writer) WriteData(pathExExt string, data any) error {
+func (w *formatter) ReadSpec(path string, data any) (description *string, err error) {
+	descriptionBytes, err := w.ReadFile(path + ".md")
+	if err != nil {
+		if !os.IsNotExist(err) {
+			return nil, err
+		}
+	} else {
+		descriptionStr := string(descriptionBytes)
+		description = &descriptionStr
+	}
+	err = w.ReadData(path, data)
+	if err != nil {
+		return nil, err
+	}
+	return description, nil
+}
+
+func (w *formatter) ReadData(pathExExt string, data any) error {
+	if w.format == "json" {
+		bytes, err := w.ReadFile(pathExExt + ".json")
+		if err != nil {
+			return err
+		}
+		return json.Unmarshal(bytes, data)
+	}
+	if w.format == "yaml" {
+		bytes, err := w.ReadFile(pathExExt + ".yaml")
+		if err != nil {
+			return err
+		}
+		return yaml.Unmarshal(bytes, data)
+	}
+	return fmt.Errorf("unsupported format: %s", w.format)
+}
+
+func (w *formatter) WriteData(pathExExt string, data any) error {
 	var bytes []byte
 	var err error
 	var path string
@@ -173,6 +449,8 @@ func (w writer) WriteData(pathExExt string, data any) error {
 	} else if w.format == "yaml" {
 		path = pathExExt + ".yaml"
 		bytes, err = yaml.Marshal(data)
+	} else {
+		return fmt.Errorf("unsupported format: %s", w.format)
 	}
 	if err != nil {
 		return err
@@ -180,11 +458,32 @@ func (w writer) WriteData(pathExExt string, data any) error {
 	return w.WriteFile(path, bytes)
 }
 
-func (w writer) WriteFile(path string, bytes []byte) error {
+func (w *formatter) ReadFile(path string) ([]byte, error) {
+	return os.ReadFile(filepath.Join(w.basePath, path))
+}
+
+func (w *formatter) WriteFile(path string, bytes []byte) error {
 	if err := os.MkdirAll(filepath.Join(w.basePath, filepath.Dir(path)), 0755); err != nil {
 		return err
 	}
 	return os.WriteFile(filepath.Join(w.basePath, path), bytes, fs.FileMode(0644))
+}
+
+func getPath(token string, kind string) (string, error) {
+	t, err := tokens.ParseTypeToken(token)
+	if err != nil {
+		return "", err
+	}
+
+	modName := t.Module().Name().String()
+	typeName := t.Name().String()
+
+	if parts := strings.Split(modName, "/"); len(parts) > 0 {
+		modName = parts[0]
+	}
+	filename := makeFileName(typeName)
+	path := filepath.Join(modName, kind, filename)
+	return path, nil
 }
 
 func makeFileName(s string) string {

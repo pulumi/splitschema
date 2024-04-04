@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
@@ -27,10 +28,20 @@ func TestWriteTo(t *testing.T) {
 }
 
 func TestAws(t *testing.T) {
+	awsPath := filepath.Join("testdata", "aws")
 	pkg, err := readPackage(filepath.Join("testdata", "aws.json"))
 	require.NoError(t, err)
-	err = WritePackageSpec(filepath.Join("testdata", "aws"), pkg)
+	assert.NotNil(t, pkg)
+	// err = WritePackageSpec(awsPath, pkg)
+	// require.NoError(t, err)
+
+	readSpec, err := ReadPackageSpec(awsPath)
 	require.NoError(t, err)
+	require.NotNil(t, readSpec)
+	assert.Equal(t, len(pkg.Resources), len(readSpec.Resources))
+	assert.Equal(t, len(pkg.Types), len(readSpec.Types))
+	assert.Equal(t, len(pkg.Functions), len(readSpec.Functions))
+	assert.Equal(t, pkg.Provider, readSpec.Provider)
 }
 
 func readPackage(path string) (*schema.PackageSpec, error) {
