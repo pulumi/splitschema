@@ -12,15 +12,20 @@ import (
 	yaml "gopkg.in/yaml.v3"
 )
 
-func WritePackageSpec(path string, pkg *schema.PackageSpec) error {
-	return WritePackageSpecWithMetadata(path, pkg, nil)
+func WritePackageSpec(path string, pkg *schema.PackageSpec, opts ...WriteOption) error {
+	return WritePackageSpecWithMetadata(path, pkg, nil, opts...)
 }
 
-func WritePackageSpecWithMetadata(path string, pkg *schema.PackageSpec, metadata *PackageMetadata) error {
-	return WritePackageSpecWithTypedMetadata(path, pkg, metadata)
+func WritePackageSpecWithMetadata(path string, pkg *schema.PackageSpec, metadata *PackageMetadata, opts ...WriteOption) error {
+	return WritePackageSpecWithTypedMetadata(path, pkg, metadata, opts...)
 }
 
-func WritePackageSpecWithTypedMetadata[Resource, Function, Type any](path string, pkg *schema.PackageSpec, metadata *TypedPackageMetadata[Resource, Function, Type]) error {
+func WritePackageSpecWithTypedMetadata[Resource, Function, Type any](path string, pkg *schema.PackageSpec, metadata *TypedPackageMetadata[Resource, Function, Type], opts ...WriteOption) error {
+	options := &WriteOptions{}
+	for _, opt := range opts {
+		opt.Apply(options)
+	}
+
 	pkgCopy := *pkg
 	functions := pkg.Functions
 	pkgCopy.Functions = nil
@@ -29,7 +34,11 @@ func WritePackageSpecWithTypedMetadata[Resource, Function, Type any](path string
 	resources := pkg.Resources
 	pkgCopy.Resources = nil
 
-	writer := NewWriter(path, "json", "    ")
+	indent := "    "
+	if options.Compact {
+		indent = ""
+	}
+	writer := NewWriter(path, "json", indent)
 	if err := writer.WriteData("core", pkgCopy, ""); err != nil {
 		return err
 	}
@@ -98,6 +107,26 @@ func WritePackageSpecWithTypedMetadata[Resource, Function, Type any](path string
 	}
 
 	return nil
+}
+
+func WriteOptionCompact() WriteOption {
+	return optionFunc(func(opts *WriteOptions) {
+		opts.Compact = true
+	})
+}
+
+type WriteOption interface {
+	Apply(*WriteOptions)
+}
+
+type WriteOptions struct {
+	Compact bool
+}
+
+type optionFunc func(*WriteOptions)
+
+func (o optionFunc) Apply(opts *WriteOptions) {
+	o(opts)
 }
 
 type PackageMetadata = TypedPackageMetadata[any, any, any]

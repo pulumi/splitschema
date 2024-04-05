@@ -101,7 +101,7 @@ func TestAwsWrite(t *testing.T) {
 	pkg, err := readPackage(filepath.Join("testdata", "aws.json"))
 	require.NoError(t, err)
 	assert.NotNil(t, pkg)
-	err = WritePackageSpec(awsPath, pkg)
+	err = WritePackageSpec(awsPath, pkg, WriteOptionCompact())
 	require.NoError(t, err)
 }
 
