@@ -12,6 +12,8 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+//go:generate go run e2e_testdata.go
+
 //go:embed testdata/aws/*
 var awsEmbeddedSplit embed.FS
 

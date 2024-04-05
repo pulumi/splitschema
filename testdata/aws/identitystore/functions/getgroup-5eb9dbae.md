@@ -1,1 +1,0 @@
-Use this data source to get an Identity Store Group.
