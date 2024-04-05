@@ -1,242 +1,242 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the sampling rule.\n"
-        },
-        "attributes": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Matches attributes derived from the request.\n"
-        },
-        "fixedRate": {
-            "type": "number",
-            "description": "The percentage of matching requests to instrument, after the reservoir is exhausted.\n"
-        },
-        "host": {
-            "type": "string",
-            "description": "Matches the hostname from a request URL.\n"
-        },
-        "httpMethod": {
-            "type": "string",
-            "description": "Matches the HTTP method of a request.\n"
-        },
-        "priority": {
-            "type": "integer",
-            "description": "The priority of the sampling rule.\n"
-        },
-        "reservoirSize": {
-            "type": "integer",
-            "description": "A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.\n"
-        },
-        "resourceArn": {
-            "type": "string",
-            "description": "Matches the ARN of the AWS resource on which the service runs.\n"
-        },
-        "ruleName": {
-            "type": "string",
-            "description": "The name of the sampling rule.\n"
-        },
-        "serviceName": {
-            "type": "string",
-            "description": "Matches the `name` that the service uses to identify itself in segments.\n"
-        },
-        "serviceType": {
-            "type": "string",
-            "description": "Matches the `origin` that the service uses to identify its type in segments.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "urlPath": {
-            "type": "string",
-            "description": "Matches the path from a request URL.\n"
-        },
-        "version": {
-            "type": "integer",
-            "description": "The version of the sampling rule format (`1` )\n"
-        }
-    },
-    "required": [
-        "arn",
-        "fixedRate",
-        "host",
-        "httpMethod",
-        "priority",
-        "reservoirSize",
-        "resourceArn",
-        "serviceName",
-        "serviceType",
-        "tagsAll",
-        "urlPath",
-        "version"
-    ],
-    "inputProperties": {
-        "attributes": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Matches attributes derived from the request.\n"
-        },
-        "fixedRate": {
-            "type": "number",
-            "description": "The percentage of matching requests to instrument, after the reservoir is exhausted.\n"
-        },
-        "host": {
-            "type": "string",
-            "description": "Matches the hostname from a request URL.\n"
-        },
-        "httpMethod": {
-            "type": "string",
-            "description": "Matches the HTTP method of a request.\n"
-        },
-        "priority": {
-            "type": "integer",
-            "description": "The priority of the sampling rule.\n"
-        },
-        "reservoirSize": {
-            "type": "integer",
-            "description": "A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.\n"
-        },
-        "resourceArn": {
-            "type": "string",
-            "description": "Matches the ARN of the AWS resource on which the service runs.\n"
-        },
-        "ruleName": {
-            "type": "string",
-            "description": "The name of the sampling rule.\n",
-            "willReplaceOnChanges": true
-        },
-        "serviceName": {
-            "type": "string",
-            "description": "Matches the `name` that the service uses to identify itself in segments.\n"
-        },
-        "serviceType": {
-            "type": "string",
-            "description": "Matches the `origin` that the service uses to identify its type in segments.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
-        },
-        "urlPath": {
-            "type": "string",
-            "description": "Matches the path from a request URL.\n"
-        },
-        "version": {
-            "type": "integer",
-            "description": "The version of the sampling rule format (`1` )\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "fixedRate",
-        "host",
-        "httpMethod",
-        "priority",
-        "reservoirSize",
-        "resourceArn",
-        "serviceName",
-        "serviceType",
-        "urlPath",
-        "version"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering SamplingRule resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the sampling rule.\n"
-            },
-            "attributes": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the sampling rule.\n"
                 },
-                "description": "Matches attributes derived from the request.\n"
-            },
-            "fixedRate": {
-                "type": "number",
-                "description": "The percentage of matching requests to instrument, after the reservoir is exhausted.\n"
-            },
-            "host": {
-                "type": "string",
-                "description": "Matches the hostname from a request URL.\n"
-            },
-            "httpMethod": {
-                "type": "string",
-                "description": "Matches the HTTP method of a request.\n"
-            },
-            "priority": {
-                "type": "integer",
-                "description": "The priority of the sampling rule.\n"
-            },
-            "reservoirSize": {
-                "type": "integer",
-                "description": "A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.\n"
-            },
-            "resourceArn": {
-                "type": "string",
-                "description": "Matches the ARN of the AWS resource on which the service runs.\n"
-            },
-            "ruleName": {
-                "type": "string",
-                "description": "The name of the sampling rule.\n",
-                "willReplaceOnChanges": true
-            },
-            "serviceName": {
-                "type": "string",
-                "description": "Matches the `name` that the service uses to identify itself in segments.\n"
-            },
-            "serviceType": {
-                "type": "string",
-                "description": "Matches the `origin` that the service uses to identify its type in segments.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "attributes": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Matches attributes derived from the request.\n"
                 },
-                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "fixedRate": {
+                    "type": "number",
+                    "description": "The percentage of matching requests to instrument, after the reservoir is exhausted.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "host": {
+                    "type": "string",
+                    "description": "Matches the hostname from a request URL.\n"
+                },
+                "httpMethod": {
+                    "type": "string",
+                    "description": "Matches the HTTP method of a request.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "The priority of the sampling rule.\n"
+                },
+                "reservoirSize": {
+                    "type": "integer",
+                    "description": "A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.\n"
+                },
+                "resourceArn": {
+                    "type": "string",
+                    "description": "Matches the ARN of the AWS resource on which the service runs.\n"
+                },
+                "ruleName": {
+                    "type": "string",
+                    "description": "The name of the sampling rule.\n"
+                },
+                "serviceName": {
+                    "type": "string",
+                    "description": "Matches the `name` that the service uses to identify itself in segments.\n"
+                },
+                "serviceType": {
+                    "type": "string",
+                    "description": "Matches the `origin` that the service uses to identify its type in segments.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "urlPath": {
+                    "type": "string",
+                    "description": "Matches the path from a request URL.\n"
+                },
+                "version": {
+                    "type": "integer",
+                    "description": "The version of the sampling rule format (`1` )\n"
+                }
             },
-            "urlPath": {
-                "type": "string",
-                "description": "Matches the path from a request URL.\n"
+            "required": [
+                "arn",
+                "fixedRate",
+                "host",
+                "httpMethod",
+                "priority",
+                "reservoirSize",
+                "resourceArn",
+                "serviceName",
+                "serviceType",
+                "tagsAll",
+                "urlPath",
+                "version"
+            ],
+            "inputProperties": {
+                "attributes": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Matches attributes derived from the request.\n"
+                },
+                "fixedRate": {
+                    "type": "number",
+                    "description": "The percentage of matching requests to instrument, after the reservoir is exhausted.\n"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "Matches the hostname from a request URL.\n"
+                },
+                "httpMethod": {
+                    "type": "string",
+                    "description": "Matches the HTTP method of a request.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "The priority of the sampling rule.\n"
+                },
+                "reservoirSize": {
+                    "type": "integer",
+                    "description": "A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.\n"
+                },
+                "resourceArn": {
+                    "type": "string",
+                    "description": "Matches the ARN of the AWS resource on which the service runs.\n"
+                },
+                "ruleName": {
+                    "type": "string",
+                    "description": "The name of the sampling rule.\n",
+                    "willReplaceOnChanges": true
+                },
+                "serviceName": {
+                    "type": "string",
+                    "description": "Matches the `name` that the service uses to identify itself in segments.\n"
+                },
+                "serviceType": {
+                    "type": "string",
+                    "description": "Matches the `origin` that the service uses to identify its type in segments.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+                },
+                "urlPath": {
+                    "type": "string",
+                    "description": "Matches the path from a request URL.\n"
+                },
+                "version": {
+                    "type": "integer",
+                    "description": "The version of the sampling rule format (`1` )\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "version": {
-                "type": "integer",
-                "description": "The version of the sampling rule format (`1` )\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "fixedRate",
+                "host",
+                "httpMethod",
+                "priority",
+                "reservoirSize",
+                "resourceArn",
+                "serviceName",
+                "serviceType",
+                "urlPath",
+                "version"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SamplingRule resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the sampling rule.\n"
+                    },
+                    "attributes": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Matches attributes derived from the request.\n"
+                    },
+                    "fixedRate": {
+                        "type": "number",
+                        "description": "The percentage of matching requests to instrument, after the reservoir is exhausted.\n"
+                    },
+                    "host": {
+                        "type": "string",
+                        "description": "Matches the hostname from a request URL.\n"
+                    },
+                    "httpMethod": {
+                        "type": "string",
+                        "description": "Matches the HTTP method of a request.\n"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "description": "The priority of the sampling rule.\n"
+                    },
+                    "reservoirSize": {
+                        "type": "integer",
+                        "description": "A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.\n"
+                    },
+                    "resourceArn": {
+                        "type": "string",
+                        "description": "Matches the ARN of the AWS resource on which the service runs.\n"
+                    },
+                    "ruleName": {
+                        "type": "string",
+                        "description": "The name of the sampling rule.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "serviceName": {
+                        "type": "string",
+                        "description": "Matches the `name` that the service uses to identify itself in segments.\n"
+                    },
+                    "serviceType": {
+                        "type": "string",
+                        "description": "Matches the `origin` that the service uses to identify its type in segments.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "urlPath": {
+                        "type": "string",
+                        "description": "Matches the path from a request URL.\n"
+                    },
+                    "version": {
+                        "type": "integer",
+                        "description": "The version of the sampling rule format (`1` )\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

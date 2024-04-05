@@ -1,40 +1,40 @@
 {
-    "properties": {
-        "defaultEmailOption": {
-            "type": "string",
-            "description": "Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.\n"
-        },
-        "emailMessage": {
-            "type": "string",
-            "description": "Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.\n"
-        },
-        "emailMessageByLink": {
-            "type": "string",
-            "description": "Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.\n"
-        },
-        "emailSubject": {
-            "type": "string",
-            "description": "Subject line for the email message template. Conflicts with `email_verification_subject` argument.\n"
-        },
-        "emailSubjectByLink": {
-            "type": "string",
-            "description": "Subject line for the email message template for sending a confirmation link to the user.\n"
-        },
-        "smsMessage": {
-            "type": "string",
-            "description": "SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.\n"
+            "properties": {
+                "defaultEmailOption": {
+                    "type": "string",
+                    "description": "Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.\n"
+                },
+                "emailMessage": {
+                    "type": "string",
+                    "description": "Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.\n"
+                },
+                "emailMessageByLink": {
+                    "type": "string",
+                    "description": "Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.\n"
+                },
+                "emailSubject": {
+                    "type": "string",
+                    "description": "Subject line for the email message template. Conflicts with `email_verification_subject` argument.\n"
+                },
+                "emailSubjectByLink": {
+                    "type": "string",
+                    "description": "Subject line for the email message template for sending a confirmation link to the user.\n"
+                },
+                "smsMessage": {
+                    "type": "string",
+                    "description": "SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "emailMessage",
+                        "emailMessageByLink",
+                        "emailSubject",
+                        "emailSubjectByLink",
+                        "smsMessage"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "emailMessage",
-                "emailMessageByLink",
-                "emailSubject",
-                "emailSubjectByLink",
-                "smsMessage"
-            ]
-        }
-    }
-}

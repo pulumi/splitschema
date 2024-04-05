@@ -1,40 +1,40 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getAccessKeys.\n",
-        "properties": {
-            "user": {
-                "type": "string",
-                "description": "Name of the IAM user associated with the access keys.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "user"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getAccessKeys.\n",
-        "properties": {
-            "accessKeys": {
-                "description": "List of the IAM access keys associated with the specified user. See below.\n",
-                "items": {
-                    "$ref": "#/types/aws:iam/getAccessKeysAccessKey:getAccessKeysAccessKey"
+            "inputs": {
+                "description": "A collection of arguments for invoking getAccessKeys.\n",
+                "properties": {
+                    "user": {
+                        "type": "string",
+                        "description": "Name of the IAM user associated with the access keys.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object",
+                "required": [
+                    "user"
+                ]
             },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "user": {
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getAccessKeys.\n",
+                "properties": {
+                    "accessKeys": {
+                        "description": "List of the IAM access keys associated with the specified user. See below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:iam/getAccessKeysAccessKey:getAccessKeysAccessKey"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "accessKeys",
+                    "user",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "accessKeys",
-            "user",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

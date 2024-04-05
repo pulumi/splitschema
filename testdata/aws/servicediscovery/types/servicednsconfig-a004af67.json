@@ -1,26 +1,26 @@
 {
-    "properties": {
-        "dnsRecords": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:servicediscovery/ServiceDnsConfigDnsRecord:ServiceDnsConfigDnsRecord"
+            "properties": {
+                "dnsRecords": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:servicediscovery/ServiceDnsConfigDnsRecord:ServiceDnsConfigDnsRecord"
+                    },
+                    "description": "An array that contains one DnsRecord object for each resource record set.\n"
+                },
+                "namespaceId": {
+                    "type": "string",
+                    "description": "The ID of the namespace to use for DNS configuration.\n",
+                    "willReplaceOnChanges": true
+                },
+                "routingPolicy": {
+                    "type": "string",
+                    "description": "The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "description": "An array that contains one DnsRecord object for each resource record set.\n"
-        },
-        "namespaceId": {
-            "type": "string",
-            "description": "The ID of the namespace to use for DNS configuration.\n",
-            "willReplaceOnChanges": true
-        },
-        "routingPolicy": {
-            "type": "string",
-            "description": "The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED\n",
-            "willReplaceOnChanges": true
+            "type": "object",
+            "required": [
+                "dnsRecords",
+                "namespaceId"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "dnsRecords",
-        "namespaceId"
-    ]
-}

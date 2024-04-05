@@ -1,51 +1,51 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getPrompt.\n",
-        "properties": {
-            "instanceId": {
-                "type": "string",
-                "description": "Reference to the hosting Amazon Connect Instance\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getPrompt.\n",
+                "properties": {
+                    "instanceId": {
+                        "type": "string",
+                        "description": "Reference to the hosting Amazon Connect Instance\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Returns information on a specific Prompt by name\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "instanceId",
+                    "name"
+                ]
             },
-            "name": {
-                "type": "string",
-                "description": "Returns information on a specific Prompt by name\n"
+            "outputs": {
+                "description": "A collection of values returned by getPrompt.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the Prompt.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "promptId": {
+                        "description": "Identifier for the prompt.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "instanceId",
+                    "name",
+                    "promptId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "instanceId",
-            "name"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getPrompt.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the Prompt.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "instanceId": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "promptId": {
-                "description": "Identifier for the prompt.\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "arn",
-            "instanceId",
-            "name",
-            "promptId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

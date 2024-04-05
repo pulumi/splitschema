@@ -1,125 +1,125 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN)\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "The domain description.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the domain. If omitted, this provider will assign a random, unique name.\n"
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "workflowExecutionRetentionPeriodInDays": {
-            "type": "string",
-            "description": "Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "name",
-        "namePrefix",
-        "tagsAll",
-        "workflowExecutionRetentionPeriodInDays"
-    ],
-    "inputProperties": {
-        "description": {
-            "type": "string",
-            "description": "The domain description.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the domain. If omitted, this provider will assign a random, unique name.\n",
-            "willReplaceOnChanges": true
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "workflowExecutionRetentionPeriodInDays": {
-            "type": "string",
-            "description": "Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "workflowExecutionRetentionPeriodInDays"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Domain resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN)\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "The domain description.\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the domain. If omitted, this provider will assign a random, unique name.\n",
-                "willReplaceOnChanges": true
-            },
-            "namePrefix": {
-                "type": "string",
-                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN)\n"
                 },
-                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "description": {
+                    "type": "string",
+                    "description": "The domain description.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "name": {
+                    "type": "string",
+                    "description": "The name of the domain. If omitted, this provider will assign a random, unique name.\n"
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "workflowExecutionRetentionPeriodInDays": {
+                    "type": "string",
+                    "description": "Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.\n"
+                }
             },
-            "workflowExecutionRetentionPeriodInDays": {
-                "type": "string",
-                "description": "Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "name",
+                "namePrefix",
+                "tagsAll",
+                "workflowExecutionRetentionPeriodInDays"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "The domain description.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the domain. If omitted, this provider will assign a random, unique name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "workflowExecutionRetentionPeriodInDays": {
+                    "type": "string",
+                    "description": "Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "workflowExecutionRetentionPeriodInDays"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Domain resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN)\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The domain description.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the domain. If omitted, this provider will assign a random, unique name.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "namePrefix": {
+                        "type": "string",
+                        "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "workflowExecutionRetentionPeriodInDays": {
+                        "type": "string",
+                        "description": "Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

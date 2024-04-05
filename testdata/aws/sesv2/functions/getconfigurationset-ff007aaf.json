@@ -1,99 +1,99 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getConfigurationSet.\n",
-        "properties": {
-            "configurationSetName": {
-                "type": "string",
-                "description": "The name of the configuration set.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getConfigurationSet.\n",
+                "properties": {
+                    "configurationSetName": {
+                        "type": "string",
+                        "description": "The name of the configuration set.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the container recipe.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "configurationSetName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getConfigurationSet.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string"
+                    },
+                    "configurationSetName": {
+                        "type": "string"
+                    },
+                    "deliveryOptions": {
+                        "description": "An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.\n",
+                        "items": {
+                            "$ref": "#/types/aws:sesv2/getConfigurationSetDeliveryOption:getConfigurationSetDeliveryOption"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "reputationOptions": {
+                        "description": "An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.\n",
+                        "items": {
+                            "$ref": "#/types/aws:sesv2/getConfigurationSetReputationOption:getConfigurationSetReputationOption"
+                        },
+                        "type": "array"
+                    },
+                    "sendingOptions": {
+                        "description": "An object that defines whether or not Amazon SES can send email that you send using the configuration set.\n",
+                        "items": {
+                            "$ref": "#/types/aws:sesv2/getConfigurationSetSendingOption:getConfigurationSetSendingOption"
+                        },
+                        "type": "array"
+                    },
+                    "suppressionOptions": {
+                        "description": "An object that contains information about the suppression list preferences for your account.\n",
+                        "items": {
+                            "$ref": "#/types/aws:sesv2/getConfigurationSetSuppressionOption:getConfigurationSetSuppressionOption"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the container recipe.\n",
+                        "type": "object"
+                    },
+                    "trackingOptions": {
+                        "description": "An object that defines the open and click tracking options for emails that you send using the configuration set.\n",
+                        "items": {
+                            "$ref": "#/types/aws:sesv2/getConfigurationSetTrackingOption:getConfigurationSetTrackingOption"
+                        },
+                        "type": "array"
+                    },
+                    "vdmOptions": {
+                        "description": "An object that contains information about the VDM preferences for your configuration set.\n",
+                        "items": {
+                            "$ref": "#/types/aws:sesv2/getConfigurationSetVdmOption:getConfigurationSetVdmOption"
+                        },
+                        "type": "array"
+                    }
                 },
-                "description": "Key-value map of resource tags for the container recipe.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "configurationSetName"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getConfigurationSet.\n",
-        "properties": {
-            "arn": {
-                "type": "string"
-            },
-            "configurationSetName": {
-                "type": "string"
-            },
-            "deliveryOptions": {
-                "description": "An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.\n",
-                "items": {
-                    "$ref": "#/types/aws:sesv2/getConfigurationSetDeliveryOption:getConfigurationSetDeliveryOption"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "reputationOptions": {
-                "description": "An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.\n",
-                "items": {
-                    "$ref": "#/types/aws:sesv2/getConfigurationSetReputationOption:getConfigurationSetReputationOption"
-                },
-                "type": "array"
-            },
-            "sendingOptions": {
-                "description": "An object that defines whether or not Amazon SES can send email that you send using the configuration set.\n",
-                "items": {
-                    "$ref": "#/types/aws:sesv2/getConfigurationSetSendingOption:getConfigurationSetSendingOption"
-                },
-                "type": "array"
-            },
-            "suppressionOptions": {
-                "description": "An object that contains information about the suppression list preferences for your account.\n",
-                "items": {
-                    "$ref": "#/types/aws:sesv2/getConfigurationSetSuppressionOption:getConfigurationSetSuppressionOption"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value map of resource tags for the container recipe.\n",
+                "required": [
+                    "arn",
+                    "configurationSetName",
+                    "deliveryOptions",
+                    "reputationOptions",
+                    "sendingOptions",
+                    "suppressionOptions",
+                    "tags",
+                    "trackingOptions",
+                    "vdmOptions",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "trackingOptions": {
-                "description": "An object that defines the open and click tracking options for emails that you send using the configuration set.\n",
-                "items": {
-                    "$ref": "#/types/aws:sesv2/getConfigurationSetTrackingOption:getConfigurationSetTrackingOption"
-                },
-                "type": "array"
-            },
-            "vdmOptions": {
-                "description": "An object that contains information about the VDM preferences for your configuration set.\n",
-                "items": {
-                    "$ref": "#/types/aws:sesv2/getConfigurationSetVdmOption:getConfigurationSetVdmOption"
-                },
-                "type": "array"
             }
-        },
-        "required": [
-            "arn",
-            "configurationSetName",
-            "deliveryOptions",
-            "reputationOptions",
-            "sendingOptions",
-            "suppressionOptions",
-            "tags",
-            "trackingOptions",
-            "vdmOptions",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

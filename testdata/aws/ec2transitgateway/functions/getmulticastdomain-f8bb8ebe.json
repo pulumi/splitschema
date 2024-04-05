@@ -1,120 +1,120 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getMulticastDomain.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getMulticastDomainFilter:getMulticastDomainFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getMulticastDomain.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getMulticastDomainFilter:getMulticastDomainFilter"
+                        },
+                        "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the EC2 Transit Gateway Multicast Domain.\n"
+                    },
+                    "transitGatewayMulticastDomainId": {
+                        "type": "string",
+                        "description": "Identifier of the EC2 Transit Gateway Multicast Domain.\n"
+                    }
                 },
-                "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value tags for the EC2 Transit Gateway Multicast Domain.\n"
-            },
-            "transitGatewayMulticastDomainId": {
-                "type": "string",
-                "description": "Identifier of the EC2 Transit Gateway Multicast Domain.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getMulticastDomain.\n",
-        "properties": {
-            "arn": {
-                "description": "EC2 Transit Gateway Multicast Domain ARN.\n",
-                "type": "string"
-            },
-            "associations": {
-                "description": "EC2 Transit Gateway Multicast Domain Associations\n",
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getMulticastDomainAssociation:getMulticastDomainAssociation"
-                },
-                "type": "array"
-            },
-            "autoAcceptSharedAssociations": {
-                "description": "Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain.\n",
-                "type": "string"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getMulticastDomainFilter:getMulticastDomainFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "igmpv2Support": {
-                "description": "Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain.\n",
-                "type": "string"
-            },
-            "members": {
-                "description": "EC2 Multicast Domain Group Members\n",
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getMulticastDomainMember:getMulticastDomainMember"
-                },
-                "type": "array"
-            },
-            "ownerId": {
-                "description": "Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.\n",
-                "type": "string"
-            },
-            "sources": {
-                "description": "EC2 Multicast Domain Group Sources\n",
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getMulticastDomainSource:getMulticastDomainSource"
-                },
-                "type": "array"
-            },
-            "state": {
-                "type": "string"
-            },
-            "staticSourcesSupport": {
-                "description": "Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value tags for the EC2 Transit Gateway Multicast Domain.\n",
                 "type": "object"
             },
-            "transitGatewayAttachmentId": {
-                "description": "The ID of the transit gateway attachment.\n",
-                "type": "string"
-            },
-            "transitGatewayId": {
-                "description": "EC2 Transit Gateway identifier.\n",
-                "type": "string"
-            },
-            "transitGatewayMulticastDomainId": {
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getMulticastDomain.\n",
+                "properties": {
+                    "arn": {
+                        "description": "EC2 Transit Gateway Multicast Domain ARN.\n",
+                        "type": "string"
+                    },
+                    "associations": {
+                        "description": "EC2 Transit Gateway Multicast Domain Associations\n",
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getMulticastDomainAssociation:getMulticastDomainAssociation"
+                        },
+                        "type": "array"
+                    },
+                    "autoAcceptSharedAssociations": {
+                        "description": "Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain.\n",
+                        "type": "string"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getMulticastDomainFilter:getMulticastDomainFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "igmpv2Support": {
+                        "description": "Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain.\n",
+                        "type": "string"
+                    },
+                    "members": {
+                        "description": "EC2 Multicast Domain Group Members\n",
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getMulticastDomainMember:getMulticastDomainMember"
+                        },
+                        "type": "array"
+                    },
+                    "ownerId": {
+                        "description": "Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.\n",
+                        "type": "string"
+                    },
+                    "sources": {
+                        "description": "EC2 Multicast Domain Group Sources\n",
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getMulticastDomainSource:getMulticastDomainSource"
+                        },
+                        "type": "array"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "staticSourcesSupport": {
+                        "description": "Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the EC2 Transit Gateway Multicast Domain.\n",
+                        "type": "object"
+                    },
+                    "transitGatewayAttachmentId": {
+                        "description": "The ID of the transit gateway attachment.\n",
+                        "type": "string"
+                    },
+                    "transitGatewayId": {
+                        "description": "EC2 Transit Gateway identifier.\n",
+                        "type": "string"
+                    },
+                    "transitGatewayMulticastDomainId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "associations",
+                    "autoAcceptSharedAssociations",
+                    "igmpv2Support",
+                    "members",
+                    "ownerId",
+                    "sources",
+                    "state",
+                    "staticSourcesSupport",
+                    "tags",
+                    "transitGatewayAttachmentId",
+                    "transitGatewayId",
+                    "transitGatewayMulticastDomainId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "associations",
-            "autoAcceptSharedAssociations",
-            "igmpv2Support",
-            "members",
-            "ownerId",
-            "sources",
-            "state",
-            "staticSourcesSupport",
-            "tags",
-            "transitGatewayAttachmentId",
-            "transitGatewayId",
-            "transitGatewayMulticastDomainId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

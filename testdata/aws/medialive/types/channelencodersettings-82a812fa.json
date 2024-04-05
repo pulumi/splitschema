@@ -1,68 +1,68 @@
 {
-    "properties": {
-        "audioDescriptions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:medialive/ChannelEncoderSettingsAudioDescription:ChannelEncoderSettingsAudioDescription"
+            "properties": {
+                "audioDescriptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:medialive/ChannelEncoderSettingsAudioDescription:ChannelEncoderSettingsAudioDescription"
+                    },
+                    "description": "Audio descriptions for the channel. See Audio Descriptions for more details.\n"
+                },
+                "availBlanking": {
+                    "$ref": "#/types/aws:medialive/ChannelEncoderSettingsAvailBlanking:ChannelEncoderSettingsAvailBlanking",
+                    "description": "Settings for ad avail blanking. See Avail Blanking for more details.\n"
+                },
+                "captionDescriptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:medialive/ChannelEncoderSettingsCaptionDescription:ChannelEncoderSettingsCaptionDescription"
+                    },
+                    "description": "Caption Descriptions. See Caption Descriptions for more details.\n"
+                },
+                "globalConfiguration": {
+                    "$ref": "#/types/aws:medialive/ChannelEncoderSettingsGlobalConfiguration:ChannelEncoderSettingsGlobalConfiguration",
+                    "description": "Configuration settings that apply to the event as a whole. See Global Configuration for more details.\n"
+                },
+                "motionGraphicsConfiguration": {
+                    "$ref": "#/types/aws:medialive/ChannelEncoderSettingsMotionGraphicsConfiguration:ChannelEncoderSettingsMotionGraphicsConfiguration",
+                    "description": "Settings for motion graphics. See Motion Graphics Configuration for more details.\n"
+                },
+                "nielsenConfiguration": {
+                    "$ref": "#/types/aws:medialive/ChannelEncoderSettingsNielsenConfiguration:ChannelEncoderSettingsNielsenConfiguration",
+                    "description": "Nielsen configuration settings. See Nielsen Configuration for more details.\n"
+                },
+                "outputGroups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:medialive/ChannelEncoderSettingsOutputGroup:ChannelEncoderSettingsOutputGroup"
+                    },
+                    "description": "Output groups for the channel. See Output Groups for more details.\n"
+                },
+                "timecodeConfig": {
+                    "$ref": "#/types/aws:medialive/ChannelEncoderSettingsTimecodeConfig:ChannelEncoderSettingsTimecodeConfig",
+                    "description": "Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.\n"
+                },
+                "videoDescriptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:medialive/ChannelEncoderSettingsVideoDescription:ChannelEncoderSettingsVideoDescription"
+                    },
+                    "description": "Video Descriptions. See Video Descriptions for more details.\n"
+                }
             },
-            "description": "Audio descriptions for the channel. See Audio Descriptions for more details.\n"
-        },
-        "availBlanking": {
-            "$ref": "#/types/aws:medialive/ChannelEncoderSettingsAvailBlanking:ChannelEncoderSettingsAvailBlanking",
-            "description": "Settings for ad avail blanking. See Avail Blanking for more details.\n"
-        },
-        "captionDescriptions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:medialive/ChannelEncoderSettingsCaptionDescription:ChannelEncoderSettingsCaptionDescription"
-            },
-            "description": "Caption Descriptions. See Caption Descriptions for more details.\n"
-        },
-        "globalConfiguration": {
-            "$ref": "#/types/aws:medialive/ChannelEncoderSettingsGlobalConfiguration:ChannelEncoderSettingsGlobalConfiguration",
-            "description": "Configuration settings that apply to the event as a whole. See Global Configuration for more details.\n"
-        },
-        "motionGraphicsConfiguration": {
-            "$ref": "#/types/aws:medialive/ChannelEncoderSettingsMotionGraphicsConfiguration:ChannelEncoderSettingsMotionGraphicsConfiguration",
-            "description": "Settings for motion graphics. See Motion Graphics Configuration for more details.\n"
-        },
-        "nielsenConfiguration": {
-            "$ref": "#/types/aws:medialive/ChannelEncoderSettingsNielsenConfiguration:ChannelEncoderSettingsNielsenConfiguration",
-            "description": "Nielsen configuration settings. See Nielsen Configuration for more details.\n"
-        },
-        "outputGroups": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:medialive/ChannelEncoderSettingsOutputGroup:ChannelEncoderSettingsOutputGroup"
-            },
-            "description": "Output groups for the channel. See Output Groups for more details.\n"
-        },
-        "timecodeConfig": {
-            "$ref": "#/types/aws:medialive/ChannelEncoderSettingsTimecodeConfig:ChannelEncoderSettingsTimecodeConfig",
-            "description": "Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.\n"
-        },
-        "videoDescriptions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:medialive/ChannelEncoderSettingsVideoDescription:ChannelEncoderSettingsVideoDescription"
-            },
-            "description": "Video Descriptions. See Video Descriptions for more details.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "outputGroups",
-        "timecodeConfig"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "availBlanking",
-                "captionDescriptions",
+            "type": "object",
+            "required": [
                 "outputGroups",
-                "timecodeConfig",
-                "videoDescriptions"
-            ]
+                "timecodeConfig"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "availBlanking",
+                        "captionDescriptions",
+                        "outputGroups",
+                        "timecodeConfig",
+                        "videoDescriptions"
+                    ]
+                }
+            }
         }
-    }
-}

@@ -1,160 +1,160 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the DataSync Location for the FSx Ontap File System.\n"
-        },
-        "creationTime": {
-            "type": "string"
-        },
-        "fsxFilesystemArn": {
-            "type": "string",
-            "description": "ARN of the FSx Ontap File System.\n"
-        },
-        "protocol": {
-            "$ref": "#/types/aws:datasync/LocationFsxOntapFileSystemProtocol:LocationFsxOntapFileSystemProtocol",
-            "description": "The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.\n"
-        },
-        "securityGroupArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):\n* Network File System (NFS): TCP ports 111, 635, and 2049\n* Server Message Block (SMB): TCP port 445\n"
-        },
-        "storageVirtualMachineArn": {
-            "type": "string",
-            "description": "The ARN of the SVM in your file system where you want to copy data to of from.\n\nThe following arguments are optional:\n"
-        },
-        "subdirectory": {
-            "type": "string",
-            "description": "Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "uri": {
-            "type": "string",
-            "description": "URI of the FSx ONTAP file system location\n"
-        }
-    },
-    "required": [
-        "arn",
-        "creationTime",
-        "fsxFilesystemArn",
-        "protocol",
-        "securityGroupArns",
-        "storageVirtualMachineArn",
-        "subdirectory",
-        "tagsAll",
-        "uri"
-    ],
-    "inputProperties": {
-        "protocol": {
-            "$ref": "#/types/aws:datasync/LocationFsxOntapFileSystemProtocol:LocationFsxOntapFileSystemProtocol",
-            "description": "The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.\n",
-            "willReplaceOnChanges": true
-        },
-        "securityGroupArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):\n* Network File System (NFS): TCP ports 111, 635, and 2049\n* Server Message Block (SMB): TCP port 445\n",
-            "willReplaceOnChanges": true
-        },
-        "storageVirtualMachineArn": {
-            "type": "string",
-            "description": "The ARN of the SVM in your file system where you want to copy data to of from.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "subdirectory": {
-            "type": "string",
-            "description": "Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "protocol",
-        "securityGroupArns",
-        "storageVirtualMachineArn"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering LocationFsxOntapFileSystem resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the DataSync Location for the FSx Ontap File System.\n"
-            },
-            "creationTime": {
-                "type": "string"
-            },
-            "fsxFilesystemArn": {
-                "type": "string",
-                "description": "ARN of the FSx Ontap File System.\n"
-            },
-            "protocol": {
-                "$ref": "#/types/aws:datasync/LocationFsxOntapFileSystemProtocol:LocationFsxOntapFileSystemProtocol",
-                "description": "The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.\n",
-                "willReplaceOnChanges": true
-            },
-            "securityGroupArns": {
-                "type": "array",
-                "items": {
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the DataSync Location for the FSx Ontap File System.\n"
+                },
+                "creationTime": {
                     "type": "string"
                 },
-                "description": "The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):\n* Network File System (NFS): TCP ports 111, 635, and 2049\n* Server Message Block (SMB): TCP port 445\n",
-                "willReplaceOnChanges": true
-            },
-            "storageVirtualMachineArn": {
-                "type": "string",
-                "description": "The ARN of the SVM in your file system where you want to copy data to of from.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "subdirectory": {
-                "type": "string",
-                "description": "Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "fsxFilesystemArn": {
+                    "type": "string",
+                    "description": "ARN of the FSx Ontap File System.\n"
                 },
-                "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "protocol": {
+                    "$ref": "#/types/aws:datasync/LocationFsxOntapFileSystemProtocol:LocationFsxOntapFileSystemProtocol",
+                    "description": "The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.\n"
                 },
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "securityGroupArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):\n* Network File System (NFS): TCP ports 111, 635, and 2049\n* Server Message Block (SMB): TCP port 445\n"
+                },
+                "storageVirtualMachineArn": {
+                    "type": "string",
+                    "description": "The ARN of the SVM in your file system where you want to copy data to of from.\n\nThe following arguments are optional:\n"
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "uri": {
+                    "type": "string",
+                    "description": "URI of the FSx ONTAP file system location\n"
+                }
             },
-            "uri": {
-                "type": "string",
-                "description": "URI of the FSx ONTAP file system location\n"
+            "required": [
+                "arn",
+                "creationTime",
+                "fsxFilesystemArn",
+                "protocol",
+                "securityGroupArns",
+                "storageVirtualMachineArn",
+                "subdirectory",
+                "tagsAll",
+                "uri"
+            ],
+            "inputProperties": {
+                "protocol": {
+                    "$ref": "#/types/aws:datasync/LocationFsxOntapFileSystemProtocol:LocationFsxOntapFileSystemProtocol",
+                    "description": "The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "securityGroupArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):\n* Network File System (NFS): TCP ports 111, 635, and 2049\n* Server Message Block (SMB): TCP port 445\n",
+                    "willReplaceOnChanges": true
+                },
+                "storageVirtualMachineArn": {
+                    "type": "string",
+                    "description": "The ARN of the SVM in your file system where you want to copy data to of from.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "protocol",
+                "securityGroupArns",
+                "storageVirtualMachineArn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering LocationFsxOntapFileSystem resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the DataSync Location for the FSx Ontap File System.\n"
+                    },
+                    "creationTime": {
+                        "type": "string"
+                    },
+                    "fsxFilesystemArn": {
+                        "type": "string",
+                        "description": "ARN of the FSx Ontap File System.\n"
+                    },
+                    "protocol": {
+                        "$ref": "#/types/aws:datasync/LocationFsxOntapFileSystemProtocol:LocationFsxOntapFileSystemProtocol",
+                        "description": "The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "securityGroupArns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):\n* Network File System (NFS): TCP ports 111, 635, and 2049\n* Server Message Block (SMB): TCP port 445\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "storageVirtualMachineArn": {
+                        "type": "string",
+                        "description": "The ARN of the SVM in your file system where you want to copy data to of from.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "subdirectory": {
+                        "type": "string",
+                        "description": "Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "uri": {
+                        "type": "string",
+                        "description": "URI of the FSx ONTAP file system location\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

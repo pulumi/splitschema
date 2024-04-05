@@ -1,146 +1,146 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the parameter group.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description for the parameter group.\n"
-        },
-        "family": {
-            "type": "string",
-            "description": "The engine version that the parameter group can be used with.\n\nThe following arguments are optional:\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
-        },
-        "parameters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:memorydb/ParameterGroupParameter:ParameterGroupParameter"
-            },
-            "description": "Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "family",
-        "name",
-        "namePrefix",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "description": {
-            "type": "string",
-            "description": "Description for the parameter group.\n",
-            "willReplaceOnChanges": true
-        },
-        "family": {
-            "type": "string",
-            "description": "The engine version that the parameter group can be used with.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
-            "willReplaceOnChanges": true
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
-            "willReplaceOnChanges": true
-        },
-        "parameters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:memorydb/ParameterGroupParameter:ParameterGroupParameter"
-            },
-            "description": "Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "family"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ParameterGroup resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the parameter group.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "Description for the parameter group.\n",
-                "willReplaceOnChanges": true
-            },
-            "family": {
-                "type": "string",
-                "description": "The engine version that the parameter group can be used with.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
-                "willReplaceOnChanges": true
-            },
-            "namePrefix": {
-                "type": "string",
-                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
-                "willReplaceOnChanges": true
-            },
-            "parameters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:memorydb/ParameterGroupParameter:ParameterGroupParameter"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the parameter group.\n"
                 },
-                "description": "Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "description": {
+                    "type": "string",
+                    "description": "Description for the parameter group.\n"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "family": {
+                    "type": "string",
+                    "description": "The engine version that the parameter group can be used with.\n\nThe following arguments are optional:\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "name": {
+                    "type": "string",
+                    "description": "Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:memorydb/ParameterGroupParameter:ParameterGroupParameter"
+                    },
+                    "description": "Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "family",
+                "name",
+                "namePrefix",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description for the parameter group.\n",
+                    "willReplaceOnChanges": true
+                },
+                "family": {
+                    "type": "string",
+                    "description": "The engine version that the parameter group can be used with.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:memorydb/ParameterGroupParameter:ParameterGroupParameter"
+                    },
+                    "description": "Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "family"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ParameterGroup resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the parameter group.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description for the parameter group.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "family": {
+                        "type": "string",
+                        "description": "The engine version that the parameter group can be used with.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "namePrefix": {
+                        "type": "string",
+                        "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "parameters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:memorydb/ParameterGroupParameter:ParameterGroupParameter"
+                        },
+                        "description": "Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

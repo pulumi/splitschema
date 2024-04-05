@@ -1,115 +1,115 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getTargetGroup.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Full ARN of the target group.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Unique name of the target group.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Mapping of tags, each pair of which must exactly match a pair on the desired target group.\n\n\u003e **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getTargetGroup.\n",
-        "properties": {
-            "arn": {
-                "type": "string"
-            },
-            "arnSuffix": {
-                "type": "string"
-            },
-            "connectionTermination": {
-                "type": "boolean"
-            },
-            "deregistrationDelay": {
-                "type": "integer"
-            },
-            "healthCheck": {
-                "$ref": "#/types/aws:lb/getTargetGroupHealthCheck:getTargetGroupHealthCheck"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "lambdaMultiValueHeadersEnabled": {
-                "type": "boolean"
-            },
-            "loadBalancingAlgorithmType": {
-                "type": "string"
-            },
-            "loadBalancingCrossZoneEnabled": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "port": {
-                "type": "integer"
-            },
-            "preserveClientIp": {
-                "type": "string"
-            },
-            "protocol": {
-                "type": "string"
-            },
-            "protocolVersion": {
-                "type": "string"
-            },
-            "proxyProtocolV2": {
-                "type": "boolean"
-            },
-            "slowStart": {
-                "type": "integer"
-            },
-            "stickiness": {
-                "$ref": "#/types/aws:lb/getTargetGroupStickiness:getTargetGroupStickiness"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getTargetGroup.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Full ARN of the target group.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Unique name of the target group.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Mapping of tags, each pair of which must exactly match a pair on the desired target group.\n\n\u003e **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.\n"
+                    }
                 },
                 "type": "object"
             },
-            "targetType": {
-                "type": "string"
-            },
-            "vpcId": {
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getTargetGroup.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string"
+                    },
+                    "arnSuffix": {
+                        "type": "string"
+                    },
+                    "connectionTermination": {
+                        "type": "boolean"
+                    },
+                    "deregistrationDelay": {
+                        "type": "integer"
+                    },
+                    "healthCheck": {
+                        "$ref": "#/types/aws:lb/getTargetGroupHealthCheck:getTargetGroupHealthCheck"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "lambdaMultiValueHeadersEnabled": {
+                        "type": "boolean"
+                    },
+                    "loadBalancingAlgorithmType": {
+                        "type": "string"
+                    },
+                    "loadBalancingCrossZoneEnabled": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "integer"
+                    },
+                    "preserveClientIp": {
+                        "type": "string"
+                    },
+                    "protocol": {
+                        "type": "string"
+                    },
+                    "protocolVersion": {
+                        "type": "string"
+                    },
+                    "proxyProtocolV2": {
+                        "type": "boolean"
+                    },
+                    "slowStart": {
+                        "type": "integer"
+                    },
+                    "stickiness": {
+                        "$ref": "#/types/aws:lb/getTargetGroupStickiness:getTargetGroupStickiness"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "targetType": {
+                        "type": "string"
+                    },
+                    "vpcId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "arnSuffix",
+                    "connectionTermination",
+                    "deregistrationDelay",
+                    "healthCheck",
+                    "lambdaMultiValueHeadersEnabled",
+                    "loadBalancingAlgorithmType",
+                    "loadBalancingCrossZoneEnabled",
+                    "name",
+                    "port",
+                    "preserveClientIp",
+                    "protocol",
+                    "protocolVersion",
+                    "proxyProtocolV2",
+                    "slowStart",
+                    "stickiness",
+                    "tags",
+                    "targetType",
+                    "vpcId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "arnSuffix",
-            "connectionTermination",
-            "deregistrationDelay",
-            "healthCheck",
-            "lambdaMultiValueHeadersEnabled",
-            "loadBalancingAlgorithmType",
-            "loadBalancingCrossZoneEnabled",
-            "name",
-            "port",
-            "preserveClientIp",
-            "protocol",
-            "protocolVersion",
-            "proxyProtocolV2",
-            "slowStart",
-            "stickiness",
-            "tags",
-            "targetType",
-            "vpcId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

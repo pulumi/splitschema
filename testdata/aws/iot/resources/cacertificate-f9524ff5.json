@@ -1,188 +1,188 @@
 {
-    "properties": {
-        "active": {
-            "type": "boolean",
-            "description": "Boolean flag to indicate if the certificate should be active for device authentication.\n"
-        },
-        "allowAutoRegistration": {
-            "type": "boolean",
-            "description": "Boolean flag to indicate if the certificate should be active for device regisration.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the created CA certificate.\n"
-        },
-        "caCertificatePem": {
-            "type": "string",
-            "description": "PEM encoded CA certificate.\n",
-            "secret": true
-        },
-        "certificateMode": {
-            "type": "string",
-            "description": "The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.\n"
-        },
-        "customerVersion": {
-            "type": "integer",
-            "description": "The customer version of the CA certificate.\n"
-        },
-        "generationId": {
-            "type": "string",
-            "description": "The generation ID of the CA certificate.\n"
-        },
-        "registrationConfig": {
-            "$ref": "#/types/aws:iot/CaCertificateRegistrationConfig:CaCertificateRegistrationConfig",
-            "description": "Information about the registration configuration. See below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "validities": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:iot/CaCertificateValidity:CaCertificateValidity"
-            },
-            "description": "When the CA certificate is valid.\n"
-        },
-        "verificationCertificatePem": {
-            "type": "string",
-            "description": "PEM encoded verification certificate containing the common name of a registration code. Review\n[CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.\n",
-            "secret": true
-        }
-    },
-    "required": [
-        "active",
-        "allowAutoRegistration",
-        "arn",
-        "caCertificatePem",
-        "customerVersion",
-        "generationId",
-        "tagsAll",
-        "validities"
-    ],
-    "inputProperties": {
-        "active": {
-            "type": "boolean",
-            "description": "Boolean flag to indicate if the certificate should be active for device authentication.\n"
-        },
-        "allowAutoRegistration": {
-            "type": "boolean",
-            "description": "Boolean flag to indicate if the certificate should be active for device regisration.\n"
-        },
-        "caCertificatePem": {
-            "type": "string",
-            "description": "PEM encoded CA certificate.\n",
-            "secret": true,
-            "willReplaceOnChanges": true
-        },
-        "certificateMode": {
-            "type": "string",
-            "description": "The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.\n",
-            "willReplaceOnChanges": true
-        },
-        "registrationConfig": {
-            "$ref": "#/types/aws:iot/CaCertificateRegistrationConfig:CaCertificateRegistrationConfig",
-            "description": "Information about the registration configuration. See below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "verificationCertificatePem": {
-            "type": "string",
-            "description": "PEM encoded verification certificate containing the common name of a registration code. Review\n[CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.\n",
-            "secret": true,
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "active",
-        "allowAutoRegistration",
-        "caCertificatePem"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering CaCertificate resources.\n",
-        "properties": {
-            "active": {
-                "type": "boolean",
-                "description": "Boolean flag to indicate if the certificate should be active for device authentication.\n"
-            },
-            "allowAutoRegistration": {
-                "type": "boolean",
-                "description": "Boolean flag to indicate if the certificate should be active for device regisration.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the created CA certificate.\n"
-            },
-            "caCertificatePem": {
-                "type": "string",
-                "description": "PEM encoded CA certificate.\n",
-                "secret": true,
-                "willReplaceOnChanges": true
-            },
-            "certificateMode": {
-                "type": "string",
-                "description": "The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.\n",
-                "willReplaceOnChanges": true
-            },
-            "customerVersion": {
-                "type": "integer",
-                "description": "The customer version of the CA certificate.\n"
-            },
-            "generationId": {
-                "type": "string",
-                "description": "The generation ID of the CA certificate.\n"
-            },
-            "registrationConfig": {
-                "$ref": "#/types/aws:iot/CaCertificateRegistrationConfig:CaCertificateRegistrationConfig",
-                "description": "Information about the registration configuration. See below.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Boolean flag to indicate if the certificate should be active for device authentication.\n"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "allowAutoRegistration": {
+                    "type": "boolean",
+                    "description": "Boolean flag to indicate if the certificate should be active for device regisration.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
-            },
-            "validities": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:iot/CaCertificateValidity:CaCertificateValidity"
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the created CA certificate.\n"
                 },
-                "description": "When the CA certificate is valid.\n"
+                "caCertificatePem": {
+                    "type": "string",
+                    "description": "PEM encoded CA certificate.\n",
+                    "secret": true
+                },
+                "certificateMode": {
+                    "type": "string",
+                    "description": "The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.\n"
+                },
+                "customerVersion": {
+                    "type": "integer",
+                    "description": "The customer version of the CA certificate.\n"
+                },
+                "generationId": {
+                    "type": "string",
+                    "description": "The generation ID of the CA certificate.\n"
+                },
+                "registrationConfig": {
+                    "$ref": "#/types/aws:iot/CaCertificateRegistrationConfig:CaCertificateRegistrationConfig",
+                    "description": "Information about the registration configuration. See below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "validities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:iot/CaCertificateValidity:CaCertificateValidity"
+                    },
+                    "description": "When the CA certificate is valid.\n"
+                },
+                "verificationCertificatePem": {
+                    "type": "string",
+                    "description": "PEM encoded verification certificate containing the common name of a registration code. Review\n[CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.\n",
+                    "secret": true
+                }
             },
-            "verificationCertificatePem": {
-                "type": "string",
-                "description": "PEM encoded verification certificate containing the common name of a registration code. Review\n[CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.\n",
-                "secret": true,
-                "willReplaceOnChanges": true
+            "required": [
+                "active",
+                "allowAutoRegistration",
+                "arn",
+                "caCertificatePem",
+                "customerVersion",
+                "generationId",
+                "tagsAll",
+                "validities"
+            ],
+            "inputProperties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Boolean flag to indicate if the certificate should be active for device authentication.\n"
+                },
+                "allowAutoRegistration": {
+                    "type": "boolean",
+                    "description": "Boolean flag to indicate if the certificate should be active for device regisration.\n"
+                },
+                "caCertificatePem": {
+                    "type": "string",
+                    "description": "PEM encoded CA certificate.\n",
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                },
+                "certificateMode": {
+                    "type": "string",
+                    "description": "The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "registrationConfig": {
+                    "$ref": "#/types/aws:iot/CaCertificateRegistrationConfig:CaCertificateRegistrationConfig",
+                    "description": "Information about the registration configuration. See below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "verificationCertificatePem": {
+                    "type": "string",
+                    "description": "PEM encoded verification certificate containing the common name of a registration code. Review\n[CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.\n",
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "active",
+                "allowAutoRegistration",
+                "caCertificatePem"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CaCertificate resources.\n",
+                "properties": {
+                    "active": {
+                        "type": "boolean",
+                        "description": "Boolean flag to indicate if the certificate should be active for device authentication.\n"
+                    },
+                    "allowAutoRegistration": {
+                        "type": "boolean",
+                        "description": "Boolean flag to indicate if the certificate should be active for device regisration.\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the created CA certificate.\n"
+                    },
+                    "caCertificatePem": {
+                        "type": "string",
+                        "description": "PEM encoded CA certificate.\n",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "certificateMode": {
+                        "type": "string",
+                        "description": "The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "customerVersion": {
+                        "type": "integer",
+                        "description": "The customer version of the CA certificate.\n"
+                    },
+                    "generationId": {
+                        "type": "string",
+                        "description": "The generation ID of the CA certificate.\n"
+                    },
+                    "registrationConfig": {
+                        "$ref": "#/types/aws:iot/CaCertificateRegistrationConfig:CaCertificateRegistrationConfig",
+                        "description": "Information about the registration configuration. See below.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "validities": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:iot/CaCertificateValidity:CaCertificateValidity"
+                        },
+                        "description": "When the CA certificate is valid.\n"
+                    },
+                    "verificationCertificatePem": {
+                        "type": "string",
+                        "description": "PEM encoded verification certificate containing the common name of a registration code. Review\n[CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.\n",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

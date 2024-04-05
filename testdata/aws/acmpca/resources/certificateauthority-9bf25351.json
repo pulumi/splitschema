@@ -1,211 +1,211 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the certificate authority.\n"
-        },
-        "certificate": {
-            "type": "string",
-            "description": "Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.\n"
-        },
-        "certificateAuthorityConfiguration": {
-            "$ref": "#/types/aws:acmpca/CertificateAuthorityCertificateAuthorityConfiguration:CertificateAuthorityCertificateAuthorityConfiguration",
-            "description": "Nested argument containing algorithms and certificate subject information. Defined below.\n"
-        },
-        "certificateChain": {
-            "type": "string",
-            "description": "Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.\n"
-        },
-        "certificateSigningRequest": {
-            "type": "string",
-            "description": "The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.\n"
-        },
-        "enabled": {
-            "type": "boolean",
-            "description": "Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.\n"
-        },
-        "keyStorageSecurityStandard": {
-            "type": "string",
-            "description": "Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).\n"
-        },
-        "notAfter": {
-            "type": "string",
-            "description": "Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.\n"
-        },
-        "notBefore": {
-            "type": "string",
-            "description": "Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.\n"
-        },
-        "permanentDeletionTimeInDays": {
-            "type": "integer",
-            "description": "Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n"
-        },
-        "revocationConfiguration": {
-            "$ref": "#/types/aws:acmpca/CertificateAuthorityRevocationConfiguration:CertificateAuthorityRevocationConfiguration",
-            "description": "Nested argument containing revocation configuration. Defined below.\n"
-        },
-        "serial": {
-            "type": "string",
-            "description": "Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "type": {
-            "type": "string",
-            "description": "Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.\n"
-        },
-        "usageMode": {
-            "type": "string",
-            "description": "Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "certificate",
-        "certificateAuthorityConfiguration",
-        "certificateChain",
-        "certificateSigningRequest",
-        "keyStorageSecurityStandard",
-        "notAfter",
-        "notBefore",
-        "serial",
-        "tagsAll",
-        "usageMode"
-    ],
-    "inputProperties": {
-        "certificateAuthorityConfiguration": {
-            "$ref": "#/types/aws:acmpca/CertificateAuthorityCertificateAuthorityConfiguration:CertificateAuthorityCertificateAuthorityConfiguration",
-            "description": "Nested argument containing algorithms and certificate subject information. Defined below.\n"
-        },
-        "enabled": {
-            "type": "boolean",
-            "description": "Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.\n"
-        },
-        "keyStorageSecurityStandard": {
-            "type": "string",
-            "description": "Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).\n",
-            "willReplaceOnChanges": true
-        },
-        "permanentDeletionTimeInDays": {
-            "type": "integer",
-            "description": "Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n"
-        },
-        "revocationConfiguration": {
-            "$ref": "#/types/aws:acmpca/CertificateAuthorityRevocationConfiguration:CertificateAuthorityRevocationConfiguration",
-            "description": "Nested argument containing revocation configuration. Defined below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.\n",
-            "willReplaceOnChanges": true
-        },
-        "usageMode": {
-            "type": "string",
-            "description": "Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.\n"
-        }
-    },
-    "requiredInputs": [
-        "certificateAuthorityConfiguration"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering CertificateAuthority resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the certificate authority.\n"
-            },
-            "certificate": {
-                "type": "string",
-                "description": "Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.\n"
-            },
-            "certificateAuthorityConfiguration": {
-                "$ref": "#/types/aws:acmpca/CertificateAuthorityCertificateAuthorityConfiguration:CertificateAuthorityCertificateAuthorityConfiguration",
-                "description": "Nested argument containing algorithms and certificate subject information. Defined below.\n"
-            },
-            "certificateChain": {
-                "type": "string",
-                "description": "Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.\n"
-            },
-            "certificateSigningRequest": {
-                "type": "string",
-                "description": "The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.\n"
-            },
-            "enabled": {
-                "type": "boolean",
-                "description": "Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.\n"
-            },
-            "keyStorageSecurityStandard": {
-                "type": "string",
-                "description": "Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).\n",
-                "willReplaceOnChanges": true
-            },
-            "notAfter": {
-                "type": "string",
-                "description": "Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.\n"
-            },
-            "notBefore": {
-                "type": "string",
-                "description": "Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.\n"
-            },
-            "permanentDeletionTimeInDays": {
-                "type": "integer",
-                "description": "Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n"
-            },
-            "revocationConfiguration": {
-                "$ref": "#/types/aws:acmpca/CertificateAuthorityRevocationConfiguration:CertificateAuthorityRevocationConfiguration",
-                "description": "Nested argument containing revocation configuration. Defined below.\n"
-            },
-            "serial": {
-                "type": "string",
-                "description": "Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the certificate authority.\n"
                 },
-                "description": "Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "certificate": {
+                    "type": "string",
+                    "description": "Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "certificateAuthorityConfiguration": {
+                    "$ref": "#/types/aws:acmpca/CertificateAuthorityCertificateAuthorityConfiguration:CertificateAuthorityCertificateAuthorityConfiguration",
+                    "description": "Nested argument containing algorithms and certificate subject information. Defined below.\n"
+                },
+                "certificateChain": {
+                    "type": "string",
+                    "description": "Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.\n"
+                },
+                "certificateSigningRequest": {
+                    "type": "string",
+                    "description": "The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.\n"
+                },
+                "keyStorageSecurityStandard": {
+                    "type": "string",
+                    "description": "Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).\n"
+                },
+                "notAfter": {
+                    "type": "string",
+                    "description": "Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.\n"
+                },
+                "notBefore": {
+                    "type": "string",
+                    "description": "Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.\n"
+                },
+                "permanentDeletionTimeInDays": {
+                    "type": "integer",
+                    "description": "Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n"
+                },
+                "revocationConfiguration": {
+                    "$ref": "#/types/aws:acmpca/CertificateAuthorityRevocationConfiguration:CertificateAuthorityRevocationConfiguration",
+                    "description": "Nested argument containing revocation configuration. Defined below.\n"
+                },
+                "serial": {
+                    "type": "string",
+                    "description": "Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.\n"
+                },
+                "usageMode": {
+                    "type": "string",
+                    "description": "Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.\n"
+                }
             },
-            "type": {
-                "type": "string",
-                "description": "Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "certificate",
+                "certificateAuthorityConfiguration",
+                "certificateChain",
+                "certificateSigningRequest",
+                "keyStorageSecurityStandard",
+                "notAfter",
+                "notBefore",
+                "serial",
+                "tagsAll",
+                "usageMode"
+            ],
+            "inputProperties": {
+                "certificateAuthorityConfiguration": {
+                    "$ref": "#/types/aws:acmpca/CertificateAuthorityCertificateAuthorityConfiguration:CertificateAuthorityCertificateAuthorityConfiguration",
+                    "description": "Nested argument containing algorithms and certificate subject information. Defined below.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.\n"
+                },
+                "keyStorageSecurityStandard": {
+                    "type": "string",
+                    "description": "Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).\n",
+                    "willReplaceOnChanges": true
+                },
+                "permanentDeletionTimeInDays": {
+                    "type": "integer",
+                    "description": "Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n"
+                },
+                "revocationConfiguration": {
+                    "$ref": "#/types/aws:acmpca/CertificateAuthorityRevocationConfiguration:CertificateAuthorityRevocationConfiguration",
+                    "description": "Nested argument containing revocation configuration. Defined below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "usageMode": {
+                    "type": "string",
+                    "description": "Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.\n"
+                }
             },
-            "usageMode": {
-                "type": "string",
-                "description": "Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.\n"
+            "requiredInputs": [
+                "certificateAuthorityConfiguration"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CertificateAuthority resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the certificate authority.\n"
+                    },
+                    "certificate": {
+                        "type": "string",
+                        "description": "Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.\n"
+                    },
+                    "certificateAuthorityConfiguration": {
+                        "$ref": "#/types/aws:acmpca/CertificateAuthorityCertificateAuthorityConfiguration:CertificateAuthorityCertificateAuthorityConfiguration",
+                        "description": "Nested argument containing algorithms and certificate subject information. Defined below.\n"
+                    },
+                    "certificateChain": {
+                        "type": "string",
+                        "description": "Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.\n"
+                    },
+                    "certificateSigningRequest": {
+                        "type": "string",
+                        "description": "The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.\n"
+                    },
+                    "keyStorageSecurityStandard": {
+                        "type": "string",
+                        "description": "Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "notAfter": {
+                        "type": "string",
+                        "description": "Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.\n"
+                    },
+                    "notBefore": {
+                        "type": "string",
+                        "description": "Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.\n"
+                    },
+                    "permanentDeletionTimeInDays": {
+                        "type": "integer",
+                        "description": "Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n"
+                    },
+                    "revocationConfiguration": {
+                        "$ref": "#/types/aws:acmpca/CertificateAuthorityRevocationConfiguration:CertificateAuthorityRevocationConfiguration",
+                        "description": "Nested argument containing revocation configuration. Defined below.\n"
+                    },
+                    "serial": {
+                        "type": "string",
+                        "description": "Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "usageMode": {
+                        "type": "string",
+                        "description": "Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

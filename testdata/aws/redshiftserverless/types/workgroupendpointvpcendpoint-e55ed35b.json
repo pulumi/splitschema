@@ -1,29 +1,29 @@
 {
-    "properties": {
-        "networkInterfaces": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:redshiftserverless/WorkgroupEndpointVpcEndpointNetworkInterface:WorkgroupEndpointVpcEndpointNetworkInterface"
+            "properties": {
+                "networkInterfaces": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:redshiftserverless/WorkgroupEndpointVpcEndpointNetworkInterface:WorkgroupEndpointVpcEndpointNetworkInterface"
+                    },
+                    "description": "The network interfaces of the endpoint.. See `Network Interface` below.\n"
+                },
+                "vpcEndpointId": {
+                    "type": "string",
+                    "description": "The DNS address of the VPC endpoint.\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The port that Amazon Redshift Serverless listens on.\n"
+                }
             },
-            "description": "The network interfaces of the endpoint.. See `Network Interface` below.\n"
-        },
-        "vpcEndpointId": {
-            "type": "string",
-            "description": "The DNS address of the VPC endpoint.\n"
-        },
-        "vpcId": {
-            "type": "string",
-            "description": "The port that Amazon Redshift Serverless listens on.\n"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "networkInterfaces",
+                        "vpcEndpointId",
+                        "vpcId"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "networkInterfaces",
-                "vpcEndpointId",
-                "vpcId"
-            ]
-        }
-    }
-}

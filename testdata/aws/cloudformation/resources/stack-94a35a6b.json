@@ -1,252 +1,252 @@
 {
-    "properties": {
-        "capabilities": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of capabilities.\nValid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`\n"
-        },
-        "disableRollback": {
-            "type": "boolean",
-            "description": "Set to true to disable rollback of the stack if stack creation failed.\nConflicts with `on_failure`.\n"
-        },
-        "iamRoleArn": {
-            "type": "string",
-            "description": "The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Stack name.\n"
-        },
-        "notificationArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of SNS topic ARNs to publish stack related events.\n"
-        },
-        "onFailure": {
-            "type": "string",
-            "description": "Action to be taken if stack creation fails. This must be\none of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.\n"
-        },
-        "outputs": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of outputs from the stack.\n"
-        },
-        "parameters": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of Parameter structures that specify input parameters for the stack.\n"
-        },
-        "policyBody": {
-            "type": "string",
-            "description": "Structure containing the stack policy body.\nConflicts w/ `policy_url`.\n"
-        },
-        "policyUrl": {
-            "type": "string",
-            "description": "Location of a file containing the stack policy.\nConflicts w/ `policy_body`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "templateBody": {
-            "type": "string",
-            "description": "Structure containing the template body (max size: 51,200 bytes).\n"
-        },
-        "templateUrl": {
-            "type": "string",
-            "description": "Location of a file containing the template body (max size: 460,800 bytes).\n"
-        },
-        "timeoutInMinutes": {
-            "type": "integer",
-            "description": "The amount of time that can pass before the stack status becomes `CREATE_FAILED`.\n"
-        }
-    },
-    "required": [
-        "name",
-        "outputs",
-        "parameters",
-        "policyBody",
-        "tagsAll",
-        "templateBody"
-    ],
-    "inputProperties": {
-        "capabilities": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of capabilities.\nValid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`\n"
-        },
-        "disableRollback": {
-            "type": "boolean",
-            "description": "Set to true to disable rollback of the stack if stack creation failed.\nConflicts with `on_failure`.\n",
-            "willReplaceOnChanges": true
-        },
-        "iamRoleArn": {
-            "type": "string",
-            "description": "The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Stack name.\n",
-            "willReplaceOnChanges": true
-        },
-        "notificationArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of SNS topic ARNs to publish stack related events.\n"
-        },
-        "onFailure": {
-            "type": "string",
-            "description": "Action to be taken if stack creation fails. This must be\none of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.\n",
-            "willReplaceOnChanges": true
-        },
-        "parameters": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of Parameter structures that specify input parameters for the stack.\n"
-        },
-        "policyBody": {
-            "type": "string",
-            "description": "Structure containing the stack policy body.\nConflicts w/ `policy_url`.\n"
-        },
-        "policyUrl": {
-            "type": "string",
-            "description": "Location of a file containing the stack policy.\nConflicts w/ `policy_body`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "templateBody": {
-            "type": "string",
-            "description": "Structure containing the template body (max size: 51,200 bytes).\n"
-        },
-        "templateUrl": {
-            "type": "string",
-            "description": "Location of a file containing the template body (max size: 460,800 bytes).\n"
-        },
-        "timeoutInMinutes": {
-            "type": "integer",
-            "description": "The amount of time that can pass before the stack status becomes `CREATE_FAILED`.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Stack resources.\n",
-        "properties": {
-            "capabilities": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "capabilities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of capabilities.\nValid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`\n"
                 },
-                "description": "A list of capabilities.\nValid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`\n"
-            },
-            "disableRollback": {
-                "type": "boolean",
-                "description": "Set to true to disable rollback of the stack if stack creation failed.\nConflicts with `on_failure`.\n",
-                "willReplaceOnChanges": true
-            },
-            "iamRoleArn": {
-                "type": "string",
-                "description": "The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Stack name.\n",
-                "willReplaceOnChanges": true
-            },
-            "notificationArns": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "disableRollback": {
+                    "type": "boolean",
+                    "description": "Set to true to disable rollback of the stack if stack creation failed.\nConflicts with `on_failure`.\n"
                 },
-                "description": "A list of SNS topic ARNs to publish stack related events.\n"
-            },
-            "onFailure": {
-                "type": "string",
-                "description": "Action to be taken if stack creation fails. This must be\none of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.\n",
-                "willReplaceOnChanges": true
-            },
-            "outputs": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "iamRoleArn": {
+                    "type": "string",
+                    "description": "The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.\n"
                 },
-                "description": "A map of outputs from the stack.\n"
-            },
-            "parameters": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "name": {
+                    "type": "string",
+                    "description": "Stack name.\n"
                 },
-                "description": "A map of Parameter structures that specify input parameters for the stack.\n"
-            },
-            "policyBody": {
-                "type": "string",
-                "description": "Structure containing the stack policy body.\nConflicts w/ `policy_url`.\n"
-            },
-            "policyUrl": {
-                "type": "string",
-                "description": "Location of a file containing the stack policy.\nConflicts w/ `policy_body`.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "notificationArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of SNS topic ARNs to publish stack related events.\n"
                 },
-                "description": "Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "onFailure": {
+                    "type": "string",
+                    "description": "Action to be taken if stack creation fails. This must be\none of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "outputs": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of outputs from the stack.\n"
+                },
+                "parameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of Parameter structures that specify input parameters for the stack.\n"
+                },
+                "policyBody": {
+                    "type": "string",
+                    "description": "Structure containing the stack policy body.\nConflicts w/ `policy_url`.\n"
+                },
+                "policyUrl": {
+                    "type": "string",
+                    "description": "Location of a file containing the stack policy.\nConflicts w/ `policy_body`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "templateBody": {
+                    "type": "string",
+                    "description": "Structure containing the template body (max size: 51,200 bytes).\n"
+                },
+                "templateUrl": {
+                    "type": "string",
+                    "description": "Location of a file containing the template body (max size: 460,800 bytes).\n"
+                },
+                "timeoutInMinutes": {
+                    "type": "integer",
+                    "description": "The amount of time that can pass before the stack status becomes `CREATE_FAILED`.\n"
+                }
             },
-            "templateBody": {
-                "type": "string",
-                "description": "Structure containing the template body (max size: 51,200 bytes).\n"
+            "required": [
+                "name",
+                "outputs",
+                "parameters",
+                "policyBody",
+                "tagsAll",
+                "templateBody"
+            ],
+            "inputProperties": {
+                "capabilities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of capabilities.\nValid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`\n"
+                },
+                "disableRollback": {
+                    "type": "boolean",
+                    "description": "Set to true to disable rollback of the stack if stack creation failed.\nConflicts with `on_failure`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "iamRoleArn": {
+                    "type": "string",
+                    "description": "The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Stack name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "notificationArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of SNS topic ARNs to publish stack related events.\n"
+                },
+                "onFailure": {
+                    "type": "string",
+                    "description": "Action to be taken if stack creation fails. This must be\none of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "parameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of Parameter structures that specify input parameters for the stack.\n"
+                },
+                "policyBody": {
+                    "type": "string",
+                    "description": "Structure containing the stack policy body.\nConflicts w/ `policy_url`.\n"
+                },
+                "policyUrl": {
+                    "type": "string",
+                    "description": "Location of a file containing the stack policy.\nConflicts w/ `policy_body`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "templateBody": {
+                    "type": "string",
+                    "description": "Structure containing the template body (max size: 51,200 bytes).\n"
+                },
+                "templateUrl": {
+                    "type": "string",
+                    "description": "Location of a file containing the template body (max size: 460,800 bytes).\n"
+                },
+                "timeoutInMinutes": {
+                    "type": "integer",
+                    "description": "The amount of time that can pass before the stack status becomes `CREATE_FAILED`.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "templateUrl": {
-                "type": "string",
-                "description": "Location of a file containing the template body (max size: 460,800 bytes).\n"
-            },
-            "timeoutInMinutes": {
-                "type": "integer",
-                "description": "The amount of time that can pass before the stack status becomes `CREATE_FAILED`.\n",
-                "willReplaceOnChanges": true
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Stack resources.\n",
+                "properties": {
+                    "capabilities": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of capabilities.\nValid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`\n"
+                    },
+                    "disableRollback": {
+                        "type": "boolean",
+                        "description": "Set to true to disable rollback of the stack if stack creation failed.\nConflicts with `on_failure`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "iamRoleArn": {
+                        "type": "string",
+                        "description": "The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Stack name.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "notificationArns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of SNS topic ARNs to publish stack related events.\n"
+                    },
+                    "onFailure": {
+                        "type": "string",
+                        "description": "Action to be taken if stack creation fails. This must be\none of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "outputs": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of outputs from the stack.\n"
+                    },
+                    "parameters": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of Parameter structures that specify input parameters for the stack.\n"
+                    },
+                    "policyBody": {
+                        "type": "string",
+                        "description": "Structure containing the stack policy body.\nConflicts w/ `policy_url`.\n"
+                    },
+                    "policyUrl": {
+                        "type": "string",
+                        "description": "Location of a file containing the stack policy.\nConflicts w/ `policy_body`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "templateBody": {
+                        "type": "string",
+                        "description": "Structure containing the template body (max size: 51,200 bytes).\n"
+                    },
+                    "templateUrl": {
+                        "type": "string",
+                        "description": "Location of a file containing the template body (max size: 460,800 bytes).\n"
+                    },
+                    "timeoutInMinutes": {
+                        "type": "integer",
+                        "description": "The amount of time that can pass before the stack status becomes `CREATE_FAILED`.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

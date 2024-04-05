@@ -1,50 +1,50 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getImagePipelines.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:imagebuilder/getImagePipelinesFilter:getImagePipelinesFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getImagePipelines.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:imagebuilder/getImagePipelinesFilter:getImagePipelinesFilter"
+                        },
+                        "description": "Configuration block(s) for filtering. Detailed below.\n"
+                    }
                 },
-                "description": "Configuration block(s) for filtering. Detailed below.\n"
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getImagePipelines.\n",
+                "properties": {
+                    "arns": {
+                        "description": "Set of ARNs of the matched Image Builder Image Pipelines.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:imagebuilder/getImagePipelinesFilter:getImagePipelinesFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "names": {
+                        "description": "Set of names of the matched Image Builder Image Pipelines.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "arns",
+                    "names",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getImagePipelines.\n",
-        "properties": {
-            "arns": {
-                "description": "Set of ARNs of the matched Image Builder Image Pipelines.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:imagebuilder/getImagePipelinesFilter:getImagePipelinesFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "names": {
-                "description": "Set of names of the matched Image Builder Image Pipelines.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            }
-        },
-        "required": [
-            "arns",
-            "names",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

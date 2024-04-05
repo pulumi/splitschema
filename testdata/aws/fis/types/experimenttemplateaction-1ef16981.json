@@ -1,39 +1,39 @@
 {
-    "properties": {
-        "actionId": {
-            "type": "string",
-            "description": "ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the action.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Friendly name of the action.\n"
-        },
-        "parameters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:fis/ExperimentTemplateActionParameter:ExperimentTemplateActionParameter"
+            "properties": {
+                "actionId": {
+                    "type": "string",
+                    "description": "ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the action.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Friendly name of the action.\n"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:fis/ExperimentTemplateActionParameter:ExperimentTemplateActionParameter"
+                    },
+                    "description": "Parameter(s) for the action, if applicable. See below.\n"
+                },
+                "startAfters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of action names that must complete before this action can be executed.\n"
+                },
+                "target": {
+                    "$ref": "#/types/aws:fis/ExperimentTemplateActionTarget:ExperimentTemplateActionTarget",
+                    "description": "Action's target, if applicable. See below.\n"
+                }
             },
-            "description": "Parameter(s) for the action, if applicable. See below.\n"
-        },
-        "startAfters": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of action names that must complete before this action can be executed.\n"
-        },
-        "target": {
-            "$ref": "#/types/aws:fis/ExperimentTemplateActionTarget:ExperimentTemplateActionTarget",
-            "description": "Action's target, if applicable. See below.\n"
+            "type": "object",
+            "required": [
+                "actionId",
+                "name"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "actionId",
-        "name"
-    ]
-}

@@ -22,7 +22,7 @@ func WritePackageSpec(path string, pkg *schema.PackageSpec) error {
 	pkgCopy.Resources = nil
 
 	writer := NewWriter(path, "json", "    ")
-	if err := writer.WriteData("core", pkgCopy); err != nil {
+	if err := writer.WriteData("core", pkgCopy, ""); err != nil {
 		return err
 	}
 
@@ -34,7 +34,7 @@ func WritePackageSpec(path string, pkg *schema.PackageSpec) error {
 		}
 		typeTokens[token] = path
 	}
-	if err := writer.WriteData("types", typeTokens); err != nil {
+	if err := writer.WriteData("types", typeTokens, ""); err != nil {
 		return err
 	}
 
@@ -46,7 +46,7 @@ func WritePackageSpec(path string, pkg *schema.PackageSpec) error {
 		}
 		resourceTokens[token] = path
 	}
-	if err := writer.WriteData("resources", resourceTokens); err != nil {
+	if err := writer.WriteData("resources", resourceTokens, ""); err != nil {
 		return err
 	}
 
@@ -58,7 +58,7 @@ func WritePackageSpec(path string, pkg *schema.PackageSpec) error {
 		}
 		functionTokens[token] = path
 	}
-	if err := writer.WriteData("functions", functionTokens); err != nil {
+	if err := writer.WriteData("functions", functionTokens, ""); err != nil {
 		return err
 	}
 
@@ -114,20 +114,20 @@ func (w *writer) WriteSpec(token string, kind string, data any, markdown string)
 		}
 	}
 
-	if err := w.WriteData(path, data); err != nil {
+	if err := w.WriteData(path, data, "        "); err != nil {
 		return "", err
 	}
 	return path, nil
 }
 
-func (w *writer) WriteData(pathExExt string, data any) error {
+func (w *writer) WriteData(pathExExt string, data any, prefix string) error {
 	var bytes []byte
 	var err error
 	var path string
 	if w.format == "json" {
 		path = pathExExt + ".json"
 		if w.indent != "" {
-			bytes, err = json.MarshalIndent(data, "", w.indent)
+			bytes, err = json.MarshalIndent(data, prefix, w.indent)
 		} else {
 			bytes, err = json.Marshal(data)
 		}

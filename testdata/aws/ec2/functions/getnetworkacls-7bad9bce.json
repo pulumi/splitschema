@@ -1,63 +1,63 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getNetworkAcls.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getNetworkAclsFilter:getNetworkAclsFilter"
-                },
-                "description": "Custom filter block as described below.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags, each pair of which must exactly match\na pair on the desired network ACLs.\n"
-            },
-            "vpcId": {
-                "type": "string",
-                "description": "VPC ID that you want to filter from.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getNetworkAcls.\n",
-        "properties": {
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getNetworkAclsFilter:getNetworkAclsFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "ids": {
-                "description": "List of all the network ACL ids found.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getNetworkAcls.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getNetworkAclsFilter:getNetworkAclsFilter"
+                        },
+                        "description": "Custom filter block as described below.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags, each pair of which must exactly match\na pair on the desired network ACLs.\n"
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "VPC ID that you want to filter from.\n"
+                    }
                 },
                 "type": "object"
             },
-            "vpcId": {
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getNetworkAcls.\n",
+                "properties": {
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getNetworkAclsFilter:getNetworkAclsFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "List of all the network ACL ids found.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "vpcId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ids",
+                    "tags",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "ids",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

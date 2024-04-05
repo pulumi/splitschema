@@ -1,19 +1,19 @@
 {
-    "properties": {
-        "stickiness": {
-            "$ref": "#/types/aws:alb/ListenerRuleActionForwardStickiness:ListenerRuleActionForwardStickiness",
-            "description": "The target group stickiness for the rule.\n"
-        },
-        "targetGroups": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:alb/ListenerRuleActionForwardTargetGroup:ListenerRuleActionForwardTargetGroup"
+            "properties": {
+                "stickiness": {
+                    "$ref": "#/types/aws:alb/ListenerRuleActionForwardStickiness:ListenerRuleActionForwardStickiness",
+                    "description": "The target group stickiness for the rule.\n"
+                },
+                "targetGroups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:alb/ListenerRuleActionForwardTargetGroup:ListenerRuleActionForwardTargetGroup"
+                    },
+                    "description": "One or more target groups block.\n"
+                }
             },
-            "description": "One or more target groups block.\n"
+            "type": "object",
+            "required": [
+                "targetGroups"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "targetGroups"
-    ]
-}

@@ -1,80 +1,80 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getServerCertificate.\n",
-        "properties": {
-            "latest": {
-                "type": "boolean",
-                "description": "sort results by expiration date. returns the certificate with expiration date in furthest in the future.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getServerCertificate.\n",
+                "properties": {
+                    "latest": {
+                        "type": "boolean",
+                        "description": "sort results by expiration date. returns the certificate with expiration date in furthest in the future.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "exact name of the cert to lookup\n"
+                    },
+                    "namePrefix": {
+                        "type": "string",
+                        "description": "prefix of cert to filter by\n"
+                    },
+                    "pathPrefix": {
+                        "type": "string",
+                        "description": "prefix of path to filter by\n"
+                    }
+                },
+                "type": "object"
             },
-            "name": {
-                "type": "string",
-                "description": "exact name of the cert to lookup\n"
-            },
-            "namePrefix": {
-                "type": "string",
-                "description": "prefix of cert to filter by\n"
-            },
-            "pathPrefix": {
-                "type": "string",
-                "description": "prefix of path to filter by\n"
+            "outputs": {
+                "description": "A collection of values returned by getServerCertificate.\n",
+                "properties": {
+                    "arn": {
+                        "description": "is set to the ARN of the IAM Server Certificate\n",
+                        "type": "string"
+                    },
+                    "certificateBody": {
+                        "description": "is the public key certificate (PEM-encoded). This is useful when [configuring back-end instance authentication](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html) policy for load balancer\n",
+                        "type": "string"
+                    },
+                    "certificateChain": {
+                        "description": "is the public key certificate chain (PEM-encoded) if exists, empty otherwise\n",
+                        "type": "string"
+                    },
+                    "expirationDate": {
+                        "description": "is set to the expiration date of the IAM Server Certificate\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "latest": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "namePrefix": {
+                        "type": "string"
+                    },
+                    "path": {
+                        "description": "is set to the path of the IAM Server Certificate\n",
+                        "type": "string"
+                    },
+                    "pathPrefix": {
+                        "type": "string"
+                    },
+                    "uploadDate": {
+                        "description": "is the date when the server certificate was uploaded\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "certificateBody",
+                    "certificateChain",
+                    "expirationDate",
+                    "name",
+                    "path",
+                    "uploadDate",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getServerCertificate.\n",
-        "properties": {
-            "arn": {
-                "description": "is set to the ARN of the IAM Server Certificate\n",
-                "type": "string"
-            },
-            "certificateBody": {
-                "description": "is the public key certificate (PEM-encoded). This is useful when [configuring back-end instance authentication](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html) policy for load balancer\n",
-                "type": "string"
-            },
-            "certificateChain": {
-                "description": "is the public key certificate chain (PEM-encoded) if exists, empty otherwise\n",
-                "type": "string"
-            },
-            "expirationDate": {
-                "description": "is set to the expiration date of the IAM Server Certificate\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "latest": {
-                "type": "boolean"
-            },
-            "name": {
-                "type": "string"
-            },
-            "namePrefix": {
-                "type": "string"
-            },
-            "path": {
-                "description": "is set to the path of the IAM Server Certificate\n",
-                "type": "string"
-            },
-            "pathPrefix": {
-                "type": "string"
-            },
-            "uploadDate": {
-                "description": "is the date when the server certificate was uploaded\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "arn",
-            "certificateBody",
-            "certificateChain",
-            "expirationDate",
-            "name",
-            "path",
-            "uploadDate",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

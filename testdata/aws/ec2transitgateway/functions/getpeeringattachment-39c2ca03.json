@@ -1,71 +1,71 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getPeeringAttachment.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getPeeringAttachmentFilter:getPeeringAttachmentFilter"
-                },
-                "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
-            },
-            "id": {
-                "type": "string",
-                "description": "Identifier of the EC2 Transit Gateway Peering Attachment.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Mapping of tags, each pair of which must exactly match\na pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getPeeringAttachment.\n",
-        "properties": {
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getPeeringAttachmentFilter:getPeeringAttachmentFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "type": "string"
-            },
-            "peerAccountId": {
-                "description": "Identifier of the peer AWS account\n",
-                "type": "string"
-            },
-            "peerRegion": {
-                "description": "Identifier of the peer AWS region\n",
-                "type": "string"
-            },
-            "peerTransitGatewayId": {
-                "description": "Identifier of the peer EC2 Transit Gateway\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getPeeringAttachment.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getPeeringAttachmentFilter:getPeeringAttachmentFilter"
+                        },
+                        "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Identifier of the EC2 Transit Gateway Peering Attachment.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Mapping of tags, each pair of which must exactly match\na pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
+                    }
                 },
                 "type": "object"
             },
-            "transitGatewayId": {
-                "description": "Identifier of the local EC2 Transit Gateway\n",
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getPeeringAttachment.\n",
+                "properties": {
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getPeeringAttachmentFilter:getPeeringAttachmentFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "peerAccountId": {
+                        "description": "Identifier of the peer AWS account\n",
+                        "type": "string"
+                    },
+                    "peerRegion": {
+                        "description": "Identifier of the peer AWS region\n",
+                        "type": "string"
+                    },
+                    "peerTransitGatewayId": {
+                        "description": "Identifier of the peer EC2 Transit Gateway\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "transitGatewayId": {
+                        "description": "Identifier of the local EC2 Transit Gateway\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "peerAccountId",
+                    "peerRegion",
+                    "peerTransitGatewayId",
+                    "tags",
+                    "transitGatewayId"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "id",
-            "peerAccountId",
-            "peerRegion",
-            "peerTransitGatewayId",
-            "tags",
-            "transitGatewayId"
-        ],
-        "type": "object"
-    }
-}
+        }

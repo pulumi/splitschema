@@ -1,27 +1,27 @@
 {
-    "properties": {
-        "comparisonOperator": {
-            "type": "string",
-            "description": "The type of comparison you want to perform.\ne.g., `EQ`, `NE`, `LT`, `GT`.\nSee [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.\n"
-        },
-        "fieldToMatch": {
-            "$ref": "#/types/aws:wafregional/SizeConstraintSetSizeConstraintFieldToMatch:SizeConstraintSetSizeConstraintFieldToMatch",
-            "description": "Specifies where in a web request to look for the size constraint.\n"
-        },
-        "size": {
-            "type": "integer",
-            "description": "The size in bytes that you want to compare against the size of the specified `field_to_match`.\nValid values are between 0 - 21474836480 bytes (0 - 20 GB).\n"
-        },
-        "textTransformation": {
-            "type": "string",
-            "description": "Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.\nIf you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.\ne.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.\nSee [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)\nfor all supported values.\n**Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.\n"
+            "properties": {
+                "comparisonOperator": {
+                    "type": "string",
+                    "description": "The type of comparison you want to perform.\ne.g., `EQ`, `NE`, `LT`, `GT`.\nSee [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.\n"
+                },
+                "fieldToMatch": {
+                    "$ref": "#/types/aws:wafregional/SizeConstraintSetSizeConstraintFieldToMatch:SizeConstraintSetSizeConstraintFieldToMatch",
+                    "description": "Specifies where in a web request to look for the size constraint.\n"
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "The size in bytes that you want to compare against the size of the specified `field_to_match`.\nValid values are between 0 - 21474836480 bytes (0 - 20 GB).\n"
+                },
+                "textTransformation": {
+                    "type": "string",
+                    "description": "Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.\nIf you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.\ne.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.\nSee [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)\nfor all supported values.\n**Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "comparisonOperator",
+                "fieldToMatch",
+                "size",
+                "textTransformation"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "comparisonOperator",
-        "fieldToMatch",
-        "size",
-        "textTransformation"
-    ]
-}

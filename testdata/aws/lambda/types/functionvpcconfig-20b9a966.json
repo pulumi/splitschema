@@ -1,39 +1,39 @@
 {
-    "properties": {
-        "ipv6AllowedForDualStack": {
-            "type": "boolean",
-            "description": "Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.\n"
-        },
-        "securityGroupIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "ipv6AllowedForDualStack": {
+                    "type": "boolean",
+                    "description": "Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.\n"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of security group IDs associated with the Lambda function.\n"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of subnet IDs associated with the Lambda function.\n"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
             },
-            "description": "List of security group IDs associated with the Lambda function.\n"
-        },
-        "subnetIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of subnet IDs associated with the Lambda function.\n"
-        },
-        "vpcId": {
-            "type": "string"
-        }
-    },
-    "type": "object",
-    "required": [
-        "securityGroupIds",
-        "subnetIds"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
+            "type": "object",
+            "required": [
                 "securityGroupIds",
-                "subnetIds",
-                "vpcId"
-            ]
+                "subnetIds"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "securityGroupIds",
+                        "subnetIds",
+                        "vpcId"
+                    ]
+                }
+            }
         }
-    }
-}

@@ -1,41 +1,41 @@
 {
-    "properties": {
-        "events": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.\n"
+                },
+                "filterPrefix": {
+                    "type": "string",
+                    "description": "Object key name prefix.\n"
+                },
+                "filterSuffix": {
+                    "type": "string",
+                    "description": "Object key name suffix.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for each of the notification configurations.\n"
+                },
+                "queueArn": {
+                    "type": "string",
+                    "description": "SQS queue ARN.\n"
+                }
             },
-            "description": "Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.\n"
-        },
-        "filterPrefix": {
-            "type": "string",
-            "description": "Object key name prefix.\n"
-        },
-        "filterSuffix": {
-            "type": "string",
-            "description": "Object key name suffix.\n"
-        },
-        "id": {
-            "type": "string",
-            "description": "Unique identifier for each of the notification configurations.\n"
-        },
-        "queueArn": {
-            "type": "string",
-            "description": "SQS queue ARN.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "events",
-        "queueArn"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
+            "type": "object",
+            "required": [
                 "events",
-                "id",
                 "queueArn"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "events",
+                        "id",
+                        "queueArn"
+                    ]
+                }
+            }
         }
-    }
-}

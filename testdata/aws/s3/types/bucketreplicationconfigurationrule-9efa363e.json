@@ -1,41 +1,41 @@
 {
-    "properties": {
-        "deleteMarkerReplicationStatus": {
-            "type": "string",
-            "description": "Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).\n"
-        },
-        "destination": {
-            "$ref": "#/types/aws:s3/BucketReplicationConfigurationRuleDestination:BucketReplicationConfigurationRuleDestination",
-            "description": "Specifies the destination for the rule (documented below).\n"
-        },
-        "filter": {
-            "$ref": "#/types/aws:s3/BucketReplicationConfigurationRuleFilter:BucketReplicationConfigurationRuleFilter",
-            "description": "Filter that identifies subset of objects to which the replication rule applies (documented below).\n"
-        },
-        "id": {
-            "type": "string",
-            "description": "Unique identifier for the rule. Must be less than or equal to 255 characters in length.\n"
-        },
-        "prefix": {
-            "type": "string",
-            "description": "Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.\n"
-        },
-        "priority": {
-            "type": "integer",
-            "description": "The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.\n"
-        },
-        "sourceSelectionCriteria": {
-            "$ref": "#/types/aws:s3/BucketReplicationConfigurationRuleSourceSelectionCriteria:BucketReplicationConfigurationRuleSourceSelectionCriteria",
-            "description": "Specifies special object selection criteria (documented below).\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.\n\n\u003e **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.\n"
+            "properties": {
+                "deleteMarkerReplicationStatus": {
+                    "type": "string",
+                    "description": "Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).\n"
+                },
+                "destination": {
+                    "$ref": "#/types/aws:s3/BucketReplicationConfigurationRuleDestination:BucketReplicationConfigurationRuleDestination",
+                    "description": "Specifies the destination for the rule (documented below).\n"
+                },
+                "filter": {
+                    "$ref": "#/types/aws:s3/BucketReplicationConfigurationRuleFilter:BucketReplicationConfigurationRuleFilter",
+                    "description": "Filter that identifies subset of objects to which the replication rule applies (documented below).\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for the rule. Must be less than or equal to 255 characters in length.\n"
+                },
+                "prefix": {
+                    "type": "string",
+                    "description": "Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.\n"
+                },
+                "sourceSelectionCriteria": {
+                    "$ref": "#/types/aws:s3/BucketReplicationConfigurationRuleSourceSelectionCriteria:BucketReplicationConfigurationRuleSourceSelectionCriteria",
+                    "description": "Specifies special object selection criteria (documented below).\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.\n\n\u003e **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "destination",
+                "status"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "destination",
-        "status"
-    ]
-}

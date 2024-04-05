@@ -1,46 +1,46 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getTemplates.\n",
-        "properties": {
-            "region": {
-                "type": "string",
-                "description": "AWS Region to which the quota increases apply.\n"
-            },
-            "templates": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:servicequotas/getTemplatesTemplate:getTemplatesTemplate"
+            "inputs": {
+                "description": "A collection of arguments for invoking getTemplates.\n",
+                "properties": {
+                    "region": {
+                        "type": "string",
+                        "description": "AWS Region to which the quota increases apply.\n"
+                    },
+                    "templates": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:servicequotas/getTemplatesTemplate:getTemplatesTemplate"
+                        },
+                        "description": "A list of quota increase templates for specified region. See `templates`.\n"
+                    }
                 },
-                "description": "A list of quota increase templates for specified region. See `templates`.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "region"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getTemplates.\n",
-        "properties": {
-            "id": {
-                "type": "string"
+                "type": "object",
+                "required": [
+                    "region"
+                ]
             },
-            "region": {
-                "description": "AWS Region to which the template applies.\n",
-                "type": "string"
-            },
-            "templates": {
-                "description": "A list of quota increase templates for specified region. See `templates`.\n",
-                "items": {
-                    "$ref": "#/types/aws:servicequotas/getTemplatesTemplate:getTemplatesTemplate"
+            "outputs": {
+                "description": "A collection of values returned by getTemplates.\n",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "description": "AWS Region to which the template applies.\n",
+                        "type": "string"
+                    },
+                    "templates": {
+                        "description": "A list of quota increase templates for specified region. See `templates`.\n",
+                        "items": {
+                            "$ref": "#/types/aws:servicequotas/getTemplatesTemplate:getTemplatesTemplate"
+                        },
+                        "type": "array"
+                    }
                 },
-                "type": "array"
+                "required": [
+                    "id",
+                    "region"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "id",
-            "region"
-        ],
-        "type": "object"
-    }
-}
+        }

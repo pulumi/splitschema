@@ -1,178 +1,178 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getTaskExecution.\n",
-        "properties": {
-            "capacityProviderStrategies": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ecs/getTaskExecutionCapacityProviderStrategy:getTaskExecutionCapacityProviderStrategy"
+            "inputs": {
+                "description": "A collection of arguments for invoking getTaskExecution.\n",
+                "properties": {
+                    "capacityProviderStrategies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ecs/getTaskExecutionCapacityProviderStrategy:getTaskExecutionCapacityProviderStrategy"
+                        },
+                        "description": "Set of capacity provider strategies to use for the cluster. See below.\n"
+                    },
+                    "cluster": {
+                        "type": "string",
+                        "description": "Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.\n"
+                    },
+                    "desiredCount": {
+                        "type": "integer",
+                        "description": "Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.\n"
+                    },
+                    "enableEcsManagedTags": {
+                        "type": "boolean",
+                        "description": "Specifies whether to enable Amazon ECS managed tags for the tasks within the service.\n"
+                    },
+                    "enableExecuteCommand": {
+                        "type": "boolean",
+                        "description": "Specifies whether to enable Amazon ECS Exec for the tasks within the service.\n"
+                    },
+                    "group": {
+                        "type": "string",
+                        "description": "Name of the task group to associate with the task. The default value is the family name of the task definition.\n"
+                    },
+                    "launchType": {
+                        "type": "string",
+                        "description": "Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`.\n"
+                    },
+                    "networkConfiguration": {
+                        "$ref": "#/types/aws:ecs/getTaskExecutionNetworkConfiguration:getTaskExecutionNetworkConfiguration",
+                        "description": "Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.\n"
+                    },
+                    "overrides": {
+                        "$ref": "#/types/aws:ecs/getTaskExecutionOverrides:getTaskExecutionOverrides",
+                        "description": "A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.\n"
+                    },
+                    "placementConstraints": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ecs/getTaskExecutionPlacementConstraint:getTaskExecutionPlacementConstraint"
+                        },
+                        "description": "An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.\n"
+                    },
+                    "placementStrategies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ecs/getTaskExecutionPlacementStrategy:getTaskExecutionPlacementStrategy"
+                        },
+                        "description": "The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.\n"
+                    },
+                    "platformVersion": {
+                        "type": "string",
+                        "description": "The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.\n"
+                    },
+                    "propagateTags": {
+                        "type": "string",
+                        "description": "Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.\n"
+                    },
+                    "referenceId": {
+                        "type": "string",
+                        "description": "The reference ID to use for the task.\n"
+                    },
+                    "startedBy": {
+                        "type": "string",
+                        "description": "An optional tag specified when a task is started.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "taskDefinition": {
+                        "type": "string",
+                        "description": "The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.\n\nThe following arguments are optional:\n"
+                    }
                 },
-                "description": "Set of capacity provider strategies to use for the cluster. See below.\n"
-            },
-            "cluster": {
-                "type": "string",
-                "description": "Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.\n"
-            },
-            "desiredCount": {
-                "type": "integer",
-                "description": "Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.\n"
-            },
-            "enableEcsManagedTags": {
-                "type": "boolean",
-                "description": "Specifies whether to enable Amazon ECS managed tags for the tasks within the service.\n"
-            },
-            "enableExecuteCommand": {
-                "type": "boolean",
-                "description": "Specifies whether to enable Amazon ECS Exec for the tasks within the service.\n"
-            },
-            "group": {
-                "type": "string",
-                "description": "Name of the task group to associate with the task. The default value is the family name of the task definition.\n"
-            },
-            "launchType": {
-                "type": "string",
-                "description": "Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`.\n"
-            },
-            "networkConfiguration": {
-                "$ref": "#/types/aws:ecs/getTaskExecutionNetworkConfiguration:getTaskExecutionNetworkConfiguration",
-                "description": "Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.\n"
-            },
-            "overrides": {
-                "$ref": "#/types/aws:ecs/getTaskExecutionOverrides:getTaskExecutionOverrides",
-                "description": "A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.\n"
-            },
-            "placementConstraints": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ecs/getTaskExecutionPlacementConstraint:getTaskExecutionPlacementConstraint"
-                },
-                "description": "An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.\n"
-            },
-            "placementStrategies": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ecs/getTaskExecutionPlacementStrategy:getTaskExecutionPlacementStrategy"
-                },
-                "description": "The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.\n"
-            },
-            "platformVersion": {
-                "type": "string",
-                "description": "The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.\n"
-            },
-            "propagateTags": {
-                "type": "string",
-                "description": "Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.\n"
-            },
-            "referenceId": {
-                "type": "string",
-                "description": "The reference ID to use for the task.\n"
-            },
-            "startedBy": {
-                "type": "string",
-                "description": "An optional tag specified when a task is started.\n"
-            },
-            "tags": {
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "cluster",
+                    "taskDefinition"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTaskExecution.\n",
+                "properties": {
+                    "capacityProviderStrategies": {
+                        "items": {
+                            "$ref": "#/types/aws:ecs/getTaskExecutionCapacityProviderStrategy:getTaskExecutionCapacityProviderStrategy"
+                        },
+                        "type": "array"
+                    },
+                    "cluster": {
+                        "type": "string"
+                    },
+                    "desiredCount": {
+                        "type": "integer"
+                    },
+                    "enableEcsManagedTags": {
+                        "type": "boolean"
+                    },
+                    "enableExecuteCommand": {
+                        "type": "boolean"
+                    },
+                    "group": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "launchType": {
+                        "type": "string"
+                    },
+                    "networkConfiguration": {
+                        "$ref": "#/types/aws:ecs/getTaskExecutionNetworkConfiguration:getTaskExecutionNetworkConfiguration"
+                    },
+                    "overrides": {
+                        "$ref": "#/types/aws:ecs/getTaskExecutionOverrides:getTaskExecutionOverrides"
+                    },
+                    "placementConstraints": {
+                        "items": {
+                            "$ref": "#/types/aws:ecs/getTaskExecutionPlacementConstraint:getTaskExecutionPlacementConstraint"
+                        },
+                        "type": "array"
+                    },
+                    "placementStrategies": {
+                        "items": {
+                            "$ref": "#/types/aws:ecs/getTaskExecutionPlacementStrategy:getTaskExecutionPlacementStrategy"
+                        },
+                        "type": "array"
+                    },
+                    "platformVersion": {
+                        "type": "string"
+                    },
+                    "propagateTags": {
+                        "type": "string"
+                    },
+                    "referenceId": {
+                        "type": "string"
+                    },
+                    "startedBy": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "taskArns": {
+                        "description": "A list of the provisioned task ARNs.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "taskDefinition": {
+                        "type": "string"
+                    }
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "taskDefinition": {
-                "type": "string",
-                "description": "The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.\n\nThe following arguments are optional:\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "cluster",
-            "taskDefinition"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getTaskExecution.\n",
-        "properties": {
-            "capacityProviderStrategies": {
-                "items": {
-                    "$ref": "#/types/aws:ecs/getTaskExecutionCapacityProviderStrategy:getTaskExecutionCapacityProviderStrategy"
-                },
-                "type": "array"
-            },
-            "cluster": {
-                "type": "string"
-            },
-            "desiredCount": {
-                "type": "integer"
-            },
-            "enableEcsManagedTags": {
-                "type": "boolean"
-            },
-            "enableExecuteCommand": {
-                "type": "boolean"
-            },
-            "group": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "launchType": {
-                "type": "string"
-            },
-            "networkConfiguration": {
-                "$ref": "#/types/aws:ecs/getTaskExecutionNetworkConfiguration:getTaskExecutionNetworkConfiguration"
-            },
-            "overrides": {
-                "$ref": "#/types/aws:ecs/getTaskExecutionOverrides:getTaskExecutionOverrides"
-            },
-            "placementConstraints": {
-                "items": {
-                    "$ref": "#/types/aws:ecs/getTaskExecutionPlacementConstraint:getTaskExecutionPlacementConstraint"
-                },
-                "type": "array"
-            },
-            "placementStrategies": {
-                "items": {
-                    "$ref": "#/types/aws:ecs/getTaskExecutionPlacementStrategy:getTaskExecutionPlacementStrategy"
-                },
-                "type": "array"
-            },
-            "platformVersion": {
-                "type": "string"
-            },
-            "propagateTags": {
-                "type": "string"
-            },
-            "referenceId": {
-                "type": "string"
-            },
-            "startedBy": {
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
+                "required": [
+                    "cluster",
+                    "taskArns",
+                    "taskDefinition",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "taskArns": {
-                "description": "A list of the provisioned task ARNs.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "taskDefinition": {
-                "type": "string"
             }
-        },
-        "required": [
-            "cluster",
-            "taskArns",
-            "taskDefinition",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

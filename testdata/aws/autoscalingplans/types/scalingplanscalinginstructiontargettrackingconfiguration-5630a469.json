@@ -1,36 +1,36 @@
 {
-    "properties": {
-        "customizedScalingMetricSpecification": {
-            "$ref": "#/types/aws:autoscalingplans/ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification:ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification",
-            "description": "Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.\nMore details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).\n"
-        },
-        "disableScaleIn": {
-            "type": "boolean",
-            "description": "Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.\n"
-        },
-        "estimatedInstanceWarmup": {
-            "type": "integer",
-            "description": "Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.\nThis value is used only if the resource is an Auto Scaling group.\n"
-        },
-        "predefinedScalingMetricSpecification": {
-            "$ref": "#/types/aws:autoscalingplans/ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification:ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification",
-            "description": "Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.\nMore details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).\n"
-        },
-        "scaleInCooldown": {
-            "type": "integer",
-            "description": "Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.\nThis value is not used if the scalable resource is an Auto Scaling group.\n"
-        },
-        "scaleOutCooldown": {
-            "type": "integer",
-            "description": "Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.\nThis value is not used if the scalable resource is an Auto Scaling group.\n"
-        },
-        "targetValue": {
-            "type": "number",
-            "description": "Target value for the metric.\n"
+            "properties": {
+                "customizedScalingMetricSpecification": {
+                    "$ref": "#/types/aws:autoscalingplans/ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification:ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification",
+                    "description": "Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.\nMore details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).\n"
+                },
+                "disableScaleIn": {
+                    "type": "boolean",
+                    "description": "Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.\n"
+                },
+                "estimatedInstanceWarmup": {
+                    "type": "integer",
+                    "description": "Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.\nThis value is used only if the resource is an Auto Scaling group.\n"
+                },
+                "predefinedScalingMetricSpecification": {
+                    "$ref": "#/types/aws:autoscalingplans/ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification:ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification",
+                    "description": "Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.\nMore details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).\n"
+                },
+                "scaleInCooldown": {
+                    "type": "integer",
+                    "description": "Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.\nThis value is not used if the scalable resource is an Auto Scaling group.\n"
+                },
+                "scaleOutCooldown": {
+                    "type": "integer",
+                    "description": "Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.\nThis value is not used if the scalable resource is an Auto Scaling group.\n"
+                },
+                "targetValue": {
+                    "type": "number",
+                    "description": "Target value for the metric.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "targetValue"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "targetValue"
-    ]
-}

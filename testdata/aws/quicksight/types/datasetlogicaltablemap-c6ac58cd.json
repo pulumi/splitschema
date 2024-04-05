@@ -1,39 +1,39 @@
 {
-    "properties": {
-        "alias": {
-            "type": "string",
-            "description": "A display name for the logical table.\n"
-        },
-        "dataTransforms": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetLogicalTableMapDataTransform:DataSetLogicalTableMapDataTransform"
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "description": "A display name for the logical table.\n"
+                },
+                "dataTransforms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetLogicalTableMapDataTransform:DataSetLogicalTableMapDataTransform"
+                    },
+                    "description": "Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.\n"
+                },
+                "logicalTableMapId": {
+                    "type": "string",
+                    "description": "Key of the logical table map.\n"
+                },
+                "source": {
+                    "$ref": "#/types/aws:quicksight/DataSetLogicalTableMapSource:DataSetLogicalTableMapSource",
+                    "description": "Source of this logical table. See source.\n"
+                }
             },
-            "description": "Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.\n"
-        },
-        "logicalTableMapId": {
-            "type": "string",
-            "description": "Key of the logical table map.\n"
-        },
-        "source": {
-            "$ref": "#/types/aws:quicksight/DataSetLogicalTableMapSource:DataSetLogicalTableMapSource",
-            "description": "Source of this logical table. See source.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "alias",
-        "logicalTableMapId",
-        "source"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
+            "type": "object",
+            "required": [
                 "alias",
-                "dataTransforms",
                 "logicalTableMapId",
                 "source"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "alias",
+                        "dataTransforms",
+                        "logicalTableMapId",
+                        "source"
+                    ]
+                }
+            }
         }
-    }
-}

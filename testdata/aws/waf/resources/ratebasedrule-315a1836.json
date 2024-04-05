@@ -1,145 +1,145 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN)\n"
-        },
-        "metricName": {
-            "type": "string",
-            "description": "The name or description for the Amazon CloudWatch metric of this rule.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name or description of the rule.\n"
-        },
-        "predicates": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:waf/RateBasedRulePredicate:RateBasedRulePredicate"
-            },
-            "description": "The objects to include in a rule (documented below).\n"
-        },
-        "rateKey": {
-            "type": "string",
-            "description": "Valid value is IP.\n"
-        },
-        "rateLimit": {
-            "type": "integer",
-            "description": "The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "metricName",
-        "name",
-        "rateKey",
-        "rateLimit",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "metricName": {
-            "type": "string",
-            "description": "The name or description for the Amazon CloudWatch metric of this rule.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "The name or description of the rule.\n",
-            "willReplaceOnChanges": true
-        },
-        "predicates": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:waf/RateBasedRulePredicate:RateBasedRulePredicate"
-            },
-            "description": "The objects to include in a rule (documented below).\n"
-        },
-        "rateKey": {
-            "type": "string",
-            "description": "Valid value is IP.\n"
-        },
-        "rateLimit": {
-            "type": "integer",
-            "description": "The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "metricName",
-        "rateKey",
-        "rateLimit"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering RateBasedRule resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN)\n"
-            },
-            "metricName": {
-                "type": "string",
-                "description": "The name or description for the Amazon CloudWatch metric of this rule.\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "The name or description of the rule.\n",
-                "willReplaceOnChanges": true
-            },
-            "predicates": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:waf/RateBasedRulePredicate:RateBasedRulePredicate"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN)\n"
                 },
-                "description": "The objects to include in a rule (documented below).\n"
-            },
-            "rateKey": {
-                "type": "string",
-                "description": "Valid value is IP.\n"
-            },
-            "rateLimit": {
-                "type": "integer",
-                "description": "The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "metricName": {
+                    "type": "string",
+                    "description": "The name or description for the Amazon CloudWatch metric of this rule.\n"
                 },
-                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "name": {
+                    "type": "string",
+                    "description": "The name or description of the rule.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "predicates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:waf/RateBasedRulePredicate:RateBasedRulePredicate"
+                    },
+                    "description": "The objects to include in a rule (documented below).\n"
+                },
+                "rateKey": {
+                    "type": "string",
+                    "description": "Valid value is IP.\n"
+                },
+                "rateLimit": {
+                    "type": "integer",
+                    "description": "The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "metricName",
+                "name",
+                "rateKey",
+                "rateLimit",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "metricName": {
+                    "type": "string",
+                    "description": "The name or description for the Amazon CloudWatch metric of this rule.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name or description of the rule.\n",
+                    "willReplaceOnChanges": true
+                },
+                "predicates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:waf/RateBasedRulePredicate:RateBasedRulePredicate"
+                    },
+                    "description": "The objects to include in a rule (documented below).\n"
+                },
+                "rateKey": {
+                    "type": "string",
+                    "description": "Valid value is IP.\n"
+                },
+                "rateLimit": {
+                    "type": "integer",
+                    "description": "The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "metricName",
+                "rateKey",
+                "rateLimit"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RateBasedRule resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN)\n"
+                    },
+                    "metricName": {
+                        "type": "string",
+                        "description": "The name or description for the Amazon CloudWatch metric of this rule.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name or description of the rule.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "predicates": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:waf/RateBasedRulePredicate:RateBasedRulePredicate"
+                        },
+                        "description": "The objects to include in a rule (documented below).\n"
+                    },
+                    "rateKey": {
+                        "type": "string",
+                        "description": "Valid value is IP.\n"
+                    },
+                    "rateLimit": {
+                        "type": "integer",
+                        "description": "The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

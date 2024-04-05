@@ -1,424 +1,424 @@
 {
-    "properties": {
-        "actionsEnabled": {
-            "type": "boolean",
-            "description": "Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.\n"
-        },
-        "alarmActions": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
-        },
-        "alarmDescription": {
-            "type": "string",
-            "description": "The description for the alarm.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the CloudWatch Metric Alarm.\n"
-        },
-        "comparisonOperator": {
-            "type": "string",
-            "description": "The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.\n"
-        },
-        "datapointsToAlarm": {
-            "type": "integer",
-            "description": "The number of datapoints that must be breaching to trigger the alarm.\n"
-        },
-        "dimensions": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
-        },
-        "evaluateLowSampleCountPercentiles": {
-            "type": "string",
-            "description": "Used only for alarms based on percentiles.\nIf you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.\nIf you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.\nThe following values are supported: `ignore`, and `evaluate`.\n"
-        },
-        "evaluationPeriods": {
-            "type": "integer",
-            "description": "The number of periods over which data is compared to the specified threshold.\n"
-        },
-        "extendedStatistic": {
-            "type": "string",
-            "description": "The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.\n"
-        },
-        "insufficientDataActions": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
-        },
-        "metricName": {
-            "type": "string",
-            "description": "The name for the alarm's associated metric.\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
-        },
-        "metricQueries": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:cloudwatch/MetricAlarmMetricQuery:MetricAlarmMetricQuery"
-            },
-            "description": "Enables you to create an alarm based on a metric math expression. You may specify at most 20.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The descriptive name for the alarm. This name must be unique within the user's AWS account\n"
-        },
-        "namespace": {
-            "type": "string",
-            "description": "The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
-        },
-        "okActions": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
-        },
-        "period": {
-            "type": "integer",
-            "description": "The period in seconds over which the specified `statistic` is applied.\nValid values are `10`, `30`, or any multiple of `60`.\n"
-        },
-        "statistic": {
-            "type": "string",
-            "description": "The statistic to apply to the alarm's associated metric.\nEither of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "threshold": {
-            "type": "number",
-            "description": "The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.\n"
-        },
-        "thresholdMetricId": {
-            "type": "string",
-            "description": "If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.\n"
-        },
-        "treatMissingData": {
-            "type": "string",
-            "description": "Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.\n"
-        },
-        "unit": {
-            "type": "string",
-            "description": "The unit for the alarm's associated metric.\n"
-        }
-    },
-    "required": [
-        "name",
-        "arn",
-        "comparisonOperator",
-        "evaluateLowSampleCountPercentiles",
-        "evaluationPeriods",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "actionsEnabled": {
-            "type": "boolean",
-            "description": "Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.\n"
-        },
-        "alarmActions": {
-            "type": "array",
-            "items": {
-                "type": "string",
-                "oneOf": [
-                    {
+            "properties": {
+                "actionsEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.\n"
+                },
+                "alarmActions": {
+                    "type": "array",
+                    "items": {
                         "type": "string"
                     },
-                    {
-                        "type": "string",
-                        "$ref": "#/types/aws:sns/topic:Topic"
-                    }
-                ]
-            },
-            "description": "The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
-        },
-        "alarmDescription": {
-            "type": "string",
-            "description": "The description for the alarm.\n"
-        },
-        "comparisonOperator": {
-            "type": "string",
-            "description": "The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.\n"
-        },
-        "datapointsToAlarm": {
-            "type": "integer",
-            "description": "The number of datapoints that must be breaching to trigger the alarm.\n"
-        },
-        "dimensions": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
-        },
-        "evaluateLowSampleCountPercentiles": {
-            "type": "string",
-            "description": "Used only for alarms based on percentiles.\nIf you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.\nIf you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.\nThe following values are supported: `ignore`, and `evaluate`.\n"
-        },
-        "evaluationPeriods": {
-            "type": "integer",
-            "description": "The number of periods over which data is compared to the specified threshold.\n"
-        },
-        "extendedStatistic": {
-            "type": "string",
-            "description": "The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.\n"
-        },
-        "insufficientDataActions": {
-            "type": "array",
-            "items": {
-                "type": "string",
-                "oneOf": [
-                    {
+                    "description": "The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
+                },
+                "alarmDescription": {
+                    "type": "string",
+                    "description": "The description for the alarm.\n"
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the CloudWatch Metric Alarm.\n"
+                },
+                "comparisonOperator": {
+                    "type": "string",
+                    "description": "The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.\n"
+                },
+                "datapointsToAlarm": {
+                    "type": "integer",
+                    "description": "The number of datapoints that must be breaching to trigger the alarm.\n"
+                },
+                "dimensions": {
+                    "type": "object",
+                    "additionalProperties": {
                         "type": "string"
                     },
-                    {
-                        "type": "string",
-                        "$ref": "#/types/aws:sns/topic:Topic"
-                    }
-                ]
-            },
-            "description": "The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
-        },
-        "metricName": {
-            "type": "string",
-            "description": "The name for the alarm's associated metric.\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
-        },
-        "metricQueries": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:cloudwatch/MetricAlarmMetricQuery:MetricAlarmMetricQuery"
-            },
-            "description": "Enables you to create an alarm based on a metric math expression. You may specify at most 20.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The descriptive name for the alarm. This name must be unique within the user's AWS account\n",
-            "willReplaceOnChanges": true
-        },
-        "namespace": {
-            "type": "string",
-            "description": "The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
-        },
-        "okActions": {
-            "type": "array",
-            "items": {
-                "type": "string",
-                "oneOf": [
-                    {
+                    "description": "The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
+                },
+                "evaluateLowSampleCountPercentiles": {
+                    "type": "string",
+                    "description": "Used only for alarms based on percentiles.\nIf you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.\nIf you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.\nThe following values are supported: `ignore`, and `evaluate`.\n"
+                },
+                "evaluationPeriods": {
+                    "type": "integer",
+                    "description": "The number of periods over which data is compared to the specified threshold.\n"
+                },
+                "extendedStatistic": {
+                    "type": "string",
+                    "description": "The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.\n"
+                },
+                "insufficientDataActions": {
+                    "type": "array",
+                    "items": {
                         "type": "string"
                     },
-                    {
+                    "description": "The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
+                },
+                "metricName": {
+                    "type": "string",
+                    "description": "The name for the alarm's associated metric.\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
+                },
+                "metricQueries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:cloudwatch/MetricAlarmMetricQuery:MetricAlarmMetricQuery"
+                    },
+                    "description": "Enables you to create an alarm based on a metric math expression. You may specify at most 20.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The descriptive name for the alarm. This name must be unique within the user's AWS account\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
+                },
+                "okActions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "The period in seconds over which the specified `statistic` is applied.\nValid values are `10`, `30`, or any multiple of `60`.\n"
+                },
+                "statistic": {
+                    "type": "string",
+                    "description": "The statistic to apply to the alarm's associated metric.\nEither of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "threshold": {
+                    "type": "number",
+                    "description": "The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.\n"
+                },
+                "thresholdMetricId": {
+                    "type": "string",
+                    "description": "If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.\n"
+                },
+                "treatMissingData": {
+                    "type": "string",
+                    "description": "Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.\n"
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "The unit for the alarm's associated metric.\n"
+                }
+            },
+            "required": [
+                "name",
+                "arn",
+                "comparisonOperator",
+                "evaluateLowSampleCountPercentiles",
+                "evaluationPeriods",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "actionsEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.\n"
+                },
+                "alarmActions": {
+                    "type": "array",
+                    "items": {
                         "type": "string",
-                        "$ref": "#/types/aws:sns/topic:Topic"
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string",
+                                "$ref": "#/types/aws:sns/topic:Topic"
+                            }
+                        ]
+                    },
+                    "description": "The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
+                },
+                "alarmDescription": {
+                    "type": "string",
+                    "description": "The description for the alarm.\n"
+                },
+                "comparisonOperator": {
+                    "type": "string",
+                    "description": "The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.\n"
+                },
+                "datapointsToAlarm": {
+                    "type": "integer",
+                    "description": "The number of datapoints that must be breaching to trigger the alarm.\n"
+                },
+                "dimensions": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
+                },
+                "evaluateLowSampleCountPercentiles": {
+                    "type": "string",
+                    "description": "Used only for alarms based on percentiles.\nIf you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.\nIf you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.\nThe following values are supported: `ignore`, and `evaluate`.\n"
+                },
+                "evaluationPeriods": {
+                    "type": "integer",
+                    "description": "The number of periods over which data is compared to the specified threshold.\n"
+                },
+                "extendedStatistic": {
+                    "type": "string",
+                    "description": "The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.\n"
+                },
+                "insufficientDataActions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string",
+                                "$ref": "#/types/aws:sns/topic:Topic"
+                            }
+                        ]
+                    },
+                    "description": "The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
+                },
+                "metricName": {
+                    "type": "string",
+                    "description": "The name for the alarm's associated metric.\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
+                },
+                "metricQueries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:cloudwatch/MetricAlarmMetricQuery:MetricAlarmMetricQuery"
+                    },
+                    "description": "Enables you to create an alarm based on a metric math expression. You may specify at most 20.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The descriptive name for the alarm. This name must be unique within the user's AWS account\n",
+                    "willReplaceOnChanges": true
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
+                },
+                "okActions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string",
+                                "$ref": "#/types/aws:sns/topic:Topic"
+                            }
+                        ]
+                    },
+                    "description": "The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "The period in seconds over which the specified `statistic` is applied.\nValid values are `10`, `30`, or any multiple of `60`.\n"
+                },
+                "statistic": {
+                    "type": "string",
+                    "description": "The statistic to apply to the alarm's associated metric.\nEither of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).\n"
+                },
+                "threshold": {
+                    "type": "number",
+                    "description": "The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.\n"
+                },
+                "thresholdMetricId": {
+                    "type": "string",
+                    "description": "If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.\n"
+                },
+                "treatMissingData": {
+                    "type": "string",
+                    "description": "Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.\n"
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "The unit for the alarm's associated metric.\n"
+                }
+            },
+            "requiredInputs": [
+                "comparisonOperator",
+                "evaluationPeriods"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MetricAlarm resources.\n",
+                "properties": {
+                    "actionsEnabled": {
+                        "type": "boolean",
+                        "description": "Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.\n"
+                    },
+                    "alarmActions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "string",
+                                    "$ref": "#/types/aws:sns/topic:Topic"
+                                }
+                            ]
+                        },
+                        "description": "The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
+                    },
+                    "alarmDescription": {
+                        "type": "string",
+                        "description": "The description for the alarm.\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the CloudWatch Metric Alarm.\n"
+                    },
+                    "comparisonOperator": {
+                        "type": "string",
+                        "description": "The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.\n"
+                    },
+                    "datapointsToAlarm": {
+                        "type": "integer",
+                        "description": "The number of datapoints that must be breaching to trigger the alarm.\n"
+                    },
+                    "dimensions": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
+                    },
+                    "evaluateLowSampleCountPercentiles": {
+                        "type": "string",
+                        "description": "Used only for alarms based on percentiles.\nIf you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.\nIf you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.\nThe following values are supported: `ignore`, and `evaluate`.\n"
+                    },
+                    "evaluationPeriods": {
+                        "type": "integer",
+                        "description": "The number of periods over which data is compared to the specified threshold.\n"
+                    },
+                    "extendedStatistic": {
+                        "type": "string",
+                        "description": "The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.\n"
+                    },
+                    "insufficientDataActions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "string",
+                                    "$ref": "#/types/aws:sns/topic:Topic"
+                                }
+                            ]
+                        },
+                        "description": "The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
+                    },
+                    "metricName": {
+                        "type": "string",
+                        "description": "The name for the alarm's associated metric.\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
+                    },
+                    "metricQueries": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:cloudwatch/MetricAlarmMetricQuery:MetricAlarmMetricQuery"
+                        },
+                        "description": "Enables you to create an alarm based on a metric math expression. You may specify at most 20.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The descriptive name for the alarm. This name must be unique within the user's AWS account\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "namespace": {
+                        "type": "string",
+                        "description": "The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
+                    },
+                    "okActions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "string",
+                                    "$ref": "#/types/aws:sns/topic:Topic"
+                                }
+                            ]
+                        },
+                        "description": "The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
+                    },
+                    "period": {
+                        "type": "integer",
+                        "description": "The period in seconds over which the specified `statistic` is applied.\nValid values are `10`, `30`, or any multiple of `60`.\n"
+                    },
+                    "statistic": {
+                        "type": "string",
+                        "description": "The statistic to apply to the alarm's associated metric.\nEither of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "threshold": {
+                        "type": "number",
+                        "description": "The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.\n"
+                    },
+                    "thresholdMetricId": {
+                        "type": "string",
+                        "description": "If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.\n"
+                    },
+                    "treatMissingData": {
+                        "type": "string",
+                        "description": "Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.\n"
+                    },
+                    "unit": {
+                        "type": "string",
+                        "description": "The unit for the alarm's associated metric.\n"
                     }
-                ]
-            },
-            "description": "The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
-        },
-        "period": {
-            "type": "integer",
-            "description": "The period in seconds over which the specified `statistic` is applied.\nValid values are `10`, `30`, or any multiple of `60`.\n"
-        },
-        "statistic": {
-            "type": "string",
-            "description": "The statistic to apply to the alarm's associated metric.\nEither of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).\n"
-        },
-        "threshold": {
-            "type": "number",
-            "description": "The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.\n"
-        },
-        "thresholdMetricId": {
-            "type": "string",
-            "description": "If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.\n"
-        },
-        "treatMissingData": {
-            "type": "string",
-            "description": "Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.\n"
-        },
-        "unit": {
-            "type": "string",
-            "description": "The unit for the alarm's associated metric.\n"
-        }
-    },
-    "requiredInputs": [
-        "comparisonOperator",
-        "evaluationPeriods"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering MetricAlarm resources.\n",
-        "properties": {
-            "actionsEnabled": {
-                "type": "boolean",
-                "description": "Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.\n"
-            },
-            "alarmActions": {
-                "type": "array",
-                "items": {
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "string",
-                            "$ref": "#/types/aws:sns/topic:Topic"
-                        }
-                    ]
                 },
-                "description": "The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
-            },
-            "alarmDescription": {
-                "type": "string",
-                "description": "The description for the alarm.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the CloudWatch Metric Alarm.\n"
-            },
-            "comparisonOperator": {
-                "type": "string",
-                "description": "The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.\n"
-            },
-            "datapointsToAlarm": {
-                "type": "integer",
-                "description": "The number of datapoints that must be breaching to trigger the alarm.\n"
-            },
-            "dimensions": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
-            },
-            "evaluateLowSampleCountPercentiles": {
-                "type": "string",
-                "description": "Used only for alarms based on percentiles.\nIf you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.\nIf you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.\nThe following values are supported: `ignore`, and `evaluate`.\n"
-            },
-            "evaluationPeriods": {
-                "type": "integer",
-                "description": "The number of periods over which data is compared to the specified threshold.\n"
-            },
-            "extendedStatistic": {
-                "type": "string",
-                "description": "The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.\n"
-            },
-            "insufficientDataActions": {
-                "type": "array",
-                "items": {
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "string",
-                            "$ref": "#/types/aws:sns/topic:Topic"
-                        }
-                    ]
-                },
-                "description": "The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
-            },
-            "metricName": {
-                "type": "string",
-                "description": "The name for the alarm's associated metric.\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
-            },
-            "metricQueries": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:cloudwatch/MetricAlarmMetricQuery:MetricAlarmMetricQuery"
-                },
-                "description": "Enables you to create an alarm based on a metric math expression. You may specify at most 20.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The descriptive name for the alarm. This name must be unique within the user's AWS account\n",
-                "willReplaceOnChanges": true
-            },
-            "namespace": {
-                "type": "string",
-                "description": "The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
-            },
-            "okActions": {
-                "type": "array",
-                "items": {
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "string",
-                            "$ref": "#/types/aws:sns/topic:Topic"
-                        }
-                    ]
-                },
-                "description": "The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).\n"
-            },
-            "period": {
-                "type": "integer",
-                "description": "The period in seconds over which the specified `statistic` is applied.\nValid values are `10`, `30`, or any multiple of `60`.\n"
-            },
-            "statistic": {
-                "type": "string",
-                "description": "The statistic to apply to the alarm's associated metric.\nEither of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
-            },
-            "threshold": {
-                "type": "number",
-                "description": "The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.\n"
-            },
-            "thresholdMetricId": {
-                "type": "string",
-                "description": "If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.\n"
-            },
-            "treatMissingData": {
-                "type": "string",
-                "description": "Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.\n"
-            },
-            "unit": {
-                "type": "string",
-                "description": "The unit for the alarm's associated metric.\n"
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

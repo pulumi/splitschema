@@ -1,212 +1,212 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getGroup.\n",
-        "properties": {
-            "name": {
-                "type": "string",
-                "description": "Specify the exact name of the desired autoscaling group.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getGroup.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Specify the exact name of the desired autoscaling group.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getGroup.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the Auto Scaling group.\n",
+                        "type": "string"
+                    },
+                    "availabilityZones": {
+                        "description": "One or more Availability Zones for the group.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "defaultCooldown": {
+                        "type": "integer"
+                    },
+                    "desiredCapacity": {
+                        "description": "Desired size of the group.\n",
+                        "type": "integer"
+                    },
+                    "desiredCapacityType": {
+                        "description": "The unit of measurement for the value returned for `desired_capacity`.\n",
+                        "type": "string"
+                    },
+                    "enabledMetrics": {
+                        "description": "List of metrics enabled for collection.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "healthCheckGracePeriod": {
+                        "description": "The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.\n",
+                        "type": "integer"
+                    },
+                    "healthCheckType": {
+                        "description": "Service to use for the health checks. The valid values are EC2 and ELB.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "instanceMaintenancePolicies": {
+                        "description": "Instance maintenance policy for the group.\n",
+                        "items": {
+                            "$ref": "#/types/aws:autoscaling/getGroupInstanceMaintenancePolicy:getGroupInstanceMaintenancePolicy"
+                        },
+                        "type": "array"
+                    },
+                    "launchConfiguration": {
+                        "description": "The name of the associated launch configuration.\n",
+                        "type": "string"
+                    },
+                    "launchTemplates": {
+                        "description": "List of launch templates along with the overrides.\n",
+                        "items": {
+                            "$ref": "#/types/aws:autoscaling/getGroupLaunchTemplate:getGroupLaunchTemplate"
+                        },
+                        "type": "array"
+                    },
+                    "loadBalancers": {
+                        "description": "One or more load balancers associated with the group.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "maxInstanceLifetime": {
+                        "description": "Maximum amount of time, in seconds, that an instance can be in service.\n",
+                        "type": "integer"
+                    },
+                    "maxSize": {
+                        "description": "Maximum size of the group.\n",
+                        "type": "integer"
+                    },
+                    "minSize": {
+                        "description": "Minimum number of instances to maintain in the warm pool.\n",
+                        "type": "integer"
+                    },
+                    "mixedInstancesPolicies": {
+                        "description": "List of mixed instances policy objects for the group.\n",
+                        "items": {
+                            "$ref": "#/types/aws:autoscaling/getGroupMixedInstancesPolicy:getGroupMixedInstancesPolicy"
+                        },
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "Name of the Auto Scaling Group.\n",
+                        "type": "string"
+                    },
+                    "newInstancesProtectedFromScaleIn": {
+                        "type": "boolean"
+                    },
+                    "placementGroup": {
+                        "description": "Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.\n",
+                        "type": "string"
+                    },
+                    "predictedCapacity": {
+                        "description": "Predicted capacity of the group.\n",
+                        "type": "integer"
+                    },
+                    "serviceLinkedRoleArn": {
+                        "description": "ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Current state of the group when DeleteAutoScalingGroup is in progress.\n",
+                        "type": "string"
+                    },
+                    "suspendedProcesses": {
+                        "description": "List of processes suspended processes for the Auto Scaling Group.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "description": "List of tags for the group.\n",
+                        "items": {
+                            "$ref": "#/types/aws:autoscaling/getGroupTag:getGroupTag"
+                        },
+                        "type": "array"
+                    },
+                    "targetGroupArns": {
+                        "description": "ARNs of the target groups for your load balancer.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "terminationPolicies": {
+                        "description": "The termination policies for the group.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "trafficSources": {
+                        "description": "Traffic sources.\n",
+                        "items": {
+                            "$ref": "#/types/aws:autoscaling/getGroupTrafficSource:getGroupTrafficSource"
+                        },
+                        "type": "array"
+                    },
+                    "vpcZoneIdentifier": {
+                        "description": "VPC ID for the group.\n",
+                        "type": "string"
+                    },
+                    "warmPoolSize": {
+                        "description": "Current size of the warm pool.\n",
+                        "type": "integer"
+                    },
+                    "warmPools": {
+                        "description": "List of warm pool configuration objects.\n",
+                        "items": {
+                            "$ref": "#/types/aws:autoscaling/getGroupWarmPool:getGroupWarmPool"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "availabilityZones",
+                    "defaultCooldown",
+                    "desiredCapacity",
+                    "desiredCapacityType",
+                    "enabledMetrics",
+                    "healthCheckGracePeriod",
+                    "healthCheckType",
+                    "instanceMaintenancePolicies",
+                    "launchConfiguration",
+                    "launchTemplates",
+                    "loadBalancers",
+                    "maxInstanceLifetime",
+                    "maxSize",
+                    "minSize",
+                    "mixedInstancesPolicies",
+                    "name",
+                    "newInstancesProtectedFromScaleIn",
+                    "placementGroup",
+                    "predictedCapacity",
+                    "serviceLinkedRoleArn",
+                    "status",
+                    "suspendedProcesses",
+                    "tags",
+                    "targetGroupArns",
+                    "terminationPolicies",
+                    "trafficSources",
+                    "vpcZoneIdentifier",
+                    "warmPools",
+                    "warmPoolSize",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "name"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getGroup.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the Auto Scaling group.\n",
-                "type": "string"
-            },
-            "availabilityZones": {
-                "description": "One or more Availability Zones for the group.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "defaultCooldown": {
-                "type": "integer"
-            },
-            "desiredCapacity": {
-                "description": "Desired size of the group.\n",
-                "type": "integer"
-            },
-            "desiredCapacityType": {
-                "description": "The unit of measurement for the value returned for `desired_capacity`.\n",
-                "type": "string"
-            },
-            "enabledMetrics": {
-                "description": "List of metrics enabled for collection.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "healthCheckGracePeriod": {
-                "description": "The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.\n",
-                "type": "integer"
-            },
-            "healthCheckType": {
-                "description": "Service to use for the health checks. The valid values are EC2 and ELB.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "instanceMaintenancePolicies": {
-                "description": "Instance maintenance policy for the group.\n",
-                "items": {
-                    "$ref": "#/types/aws:autoscaling/getGroupInstanceMaintenancePolicy:getGroupInstanceMaintenancePolicy"
-                },
-                "type": "array"
-            },
-            "launchConfiguration": {
-                "description": "The name of the associated launch configuration.\n",
-                "type": "string"
-            },
-            "launchTemplates": {
-                "description": "List of launch templates along with the overrides.\n",
-                "items": {
-                    "$ref": "#/types/aws:autoscaling/getGroupLaunchTemplate:getGroupLaunchTemplate"
-                },
-                "type": "array"
-            },
-            "loadBalancers": {
-                "description": "One or more load balancers associated with the group.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "maxInstanceLifetime": {
-                "description": "Maximum amount of time, in seconds, that an instance can be in service.\n",
-                "type": "integer"
-            },
-            "maxSize": {
-                "description": "Maximum size of the group.\n",
-                "type": "integer"
-            },
-            "minSize": {
-                "description": "Minimum number of instances to maintain in the warm pool.\n",
-                "type": "integer"
-            },
-            "mixedInstancesPolicies": {
-                "description": "List of mixed instances policy objects for the group.\n",
-                "items": {
-                    "$ref": "#/types/aws:autoscaling/getGroupMixedInstancesPolicy:getGroupMixedInstancesPolicy"
-                },
-                "type": "array"
-            },
-            "name": {
-                "description": "Name of the Auto Scaling Group.\n",
-                "type": "string"
-            },
-            "newInstancesProtectedFromScaleIn": {
-                "type": "boolean"
-            },
-            "placementGroup": {
-                "description": "Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.\n",
-                "type": "string"
-            },
-            "predictedCapacity": {
-                "description": "Predicted capacity of the group.\n",
-                "type": "integer"
-            },
-            "serviceLinkedRoleArn": {
-                "description": "ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.\n",
-                "type": "string"
-            },
-            "status": {
-                "description": "Current state of the group when DeleteAutoScalingGroup is in progress.\n",
-                "type": "string"
-            },
-            "suspendedProcesses": {
-                "description": "List of processes suspended processes for the Auto Scaling Group.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "description": "List of tags for the group.\n",
-                "items": {
-                    "$ref": "#/types/aws:autoscaling/getGroupTag:getGroupTag"
-                },
-                "type": "array"
-            },
-            "targetGroupArns": {
-                "description": "ARNs of the target groups for your load balancer.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "terminationPolicies": {
-                "description": "The termination policies for the group.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "trafficSources": {
-                "description": "Traffic sources.\n",
-                "items": {
-                    "$ref": "#/types/aws:autoscaling/getGroupTrafficSource:getGroupTrafficSource"
-                },
-                "type": "array"
-            },
-            "vpcZoneIdentifier": {
-                "description": "VPC ID for the group.\n",
-                "type": "string"
-            },
-            "warmPoolSize": {
-                "description": "Current size of the warm pool.\n",
-                "type": "integer"
-            },
-            "warmPools": {
-                "description": "List of warm pool configuration objects.\n",
-                "items": {
-                    "$ref": "#/types/aws:autoscaling/getGroupWarmPool:getGroupWarmPool"
-                },
-                "type": "array"
-            }
-        },
-        "required": [
-            "arn",
-            "availabilityZones",
-            "defaultCooldown",
-            "desiredCapacity",
-            "desiredCapacityType",
-            "enabledMetrics",
-            "healthCheckGracePeriod",
-            "healthCheckType",
-            "instanceMaintenancePolicies",
-            "launchConfiguration",
-            "launchTemplates",
-            "loadBalancers",
-            "maxInstanceLifetime",
-            "maxSize",
-            "minSize",
-            "mixedInstancesPolicies",
-            "name",
-            "newInstancesProtectedFromScaleIn",
-            "placementGroup",
-            "predictedCapacity",
-            "serviceLinkedRoleArn",
-            "status",
-            "suspendedProcesses",
-            "tags",
-            "targetGroupArns",
-            "terminationPolicies",
-            "trafficSources",
-            "vpcZoneIdentifier",
-            "warmPools",
-            "warmPoolSize",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

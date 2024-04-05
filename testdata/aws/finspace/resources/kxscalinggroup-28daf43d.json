@@ -1,179 +1,179 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) identifier of the KX Scaling Group.\n"
-        },
-        "availabilityZoneId": {
-            "type": "string",
-            "description": "The availability zone identifiers for the requested regions.\n"
-        },
-        "clusters": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The list of Managed kdb clusters that are currently active in the given scaling group.\n"
-        },
-        "createdTimestamp": {
-            "type": "string",
-            "description": "The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.\n"
-        },
-        "environmentId": {
-            "type": "string",
-            "description": "A unique identifier for the kdb environment, where you want to create the scaling group.\n"
-        },
-        "hostType": {
-            "type": "string",
-            "description": "The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.\n\nThe following arguments are optional:\n"
-        },
-        "lastModifiedTimestamp": {
-            "type": "string",
-            "description": "Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Unique name for the scaling group that you want to create.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "The status of scaling group.\n"
-        },
-        "statusReason": {
-            "type": "string",
-            "description": "The error message when a failed state occurs.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "availabilityZoneId",
-        "clusters",
-        "createdTimestamp",
-        "environmentId",
-        "hostType",
-        "lastModifiedTimestamp",
-        "name",
-        "status",
-        "statusReason",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "availabilityZoneId": {
-            "type": "string",
-            "description": "The availability zone identifiers for the requested regions.\n",
-            "willReplaceOnChanges": true
-        },
-        "environmentId": {
-            "type": "string",
-            "description": "A unique identifier for the kdb environment, where you want to create the scaling group.\n",
-            "willReplaceOnChanges": true
-        },
-        "hostType": {
-            "type": "string",
-            "description": "The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Unique name for the scaling group that you want to create.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.\n"
-        }
-    },
-    "requiredInputs": [
-        "availabilityZoneId",
-        "environmentId",
-        "hostType"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering KxScalingGroup resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) identifier of the KX Scaling Group.\n"
-            },
-            "availabilityZoneId": {
-                "type": "string",
-                "description": "The availability zone identifiers for the requested regions.\n",
-                "willReplaceOnChanges": true
-            },
-            "clusters": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) identifier of the KX Scaling Group.\n"
                 },
-                "description": "The list of Managed kdb clusters that are currently active in the given scaling group.\n"
-            },
-            "createdTimestamp": {
-                "type": "string",
-                "description": "The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.\n"
-            },
-            "environmentId": {
-                "type": "string",
-                "description": "A unique identifier for the kdb environment, where you want to create the scaling group.\n",
-                "willReplaceOnChanges": true
-            },
-            "hostType": {
-                "type": "string",
-                "description": "The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "lastModifiedTimestamp": {
-                "type": "string",
-                "description": "Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Unique name for the scaling group that you want to create.\n",
-                "willReplaceOnChanges": true
-            },
-            "status": {
-                "type": "string",
-                "description": "The status of scaling group.\n"
-            },
-            "statusReason": {
-                "type": "string",
-                "description": "The error message when a failed state occurs.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "availabilityZoneId": {
+                    "type": "string",
+                    "description": "The availability zone identifiers for the requested regions.\n"
                 },
-                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "clusters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of Managed kdb clusters that are currently active in the given scaling group.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "createdTimestamp": {
+                    "type": "string",
+                    "description": "The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.\n"
+                },
+                "environmentId": {
+                    "type": "string",
+                    "description": "A unique identifier for the kdb environment, where you want to create the scaling group.\n"
+                },
+                "hostType": {
+                    "type": "string",
+                    "description": "The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.\n\nThe following arguments are optional:\n"
+                },
+                "lastModifiedTimestamp": {
+                    "type": "string",
+                    "description": "Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Unique name for the scaling group that you want to create.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of scaling group.\n"
+                },
+                "statusReason": {
+                    "type": "string",
+                    "description": "The error message when a failed state occurs.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "availabilityZoneId",
+                "clusters",
+                "createdTimestamp",
+                "environmentId",
+                "hostType",
+                "lastModifiedTimestamp",
+                "name",
+                "status",
+                "statusReason",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "availabilityZoneId": {
+                    "type": "string",
+                    "description": "The availability zone identifiers for the requested regions.\n",
+                    "willReplaceOnChanges": true
+                },
+                "environmentId": {
+                    "type": "string",
+                    "description": "A unique identifier for the kdb environment, where you want to create the scaling group.\n",
+                    "willReplaceOnChanges": true
+                },
+                "hostType": {
+                    "type": "string",
+                    "description": "The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Unique name for the scaling group that you want to create.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.\n"
+                }
+            },
+            "requiredInputs": [
+                "availabilityZoneId",
+                "environmentId",
+                "hostType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering KxScalingGroup resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) identifier of the KX Scaling Group.\n"
+                    },
+                    "availabilityZoneId": {
+                        "type": "string",
+                        "description": "The availability zone identifiers for the requested regions.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "clusters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The list of Managed kdb clusters that are currently active in the given scaling group.\n"
+                    },
+                    "createdTimestamp": {
+                        "type": "string",
+                        "description": "The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.\n"
+                    },
+                    "environmentId": {
+                        "type": "string",
+                        "description": "A unique identifier for the kdb environment, where you want to create the scaling group.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "hostType": {
+                        "type": "string",
+                        "description": "The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "lastModifiedTimestamp": {
+                        "type": "string",
+                        "description": "Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Unique name for the scaling group that you want to create.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The status of scaling group.\n"
+                    },
+                    "statusReason": {
+                        "type": "string",
+                        "description": "The error message when a failed state occurs.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,237 +1,237 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) identifier of the KX volume.\n"
-        },
-        "attachedClusters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:finspace/KxVolumeAttachedCluster:KxVolumeAttachedCluster"
-            }
-        },
-        "availabilityZones": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The identifier of the AWS Availability Zone IDs.\n\nThe following arguments are optional:\n"
-        },
-        "azMode": {
-            "type": "string",
-            "description": "The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.\n"
-        },
-        "createdTimestamp": {
-            "type": "string",
-            "description": "The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the volume.\n"
-        },
-        "environmentId": {
-            "type": "string",
-            "description": "A unique identifier for the kdb environment, whose clusters can attach to the volume.\n"
-        },
-        "lastModifiedTimestamp": {
-            "type": "string",
-            "description": "Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Unique name for the volumr that you want to create.\n"
-        },
-        "nas1Configurations": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:finspace/KxVolumeNas1Configuration:KxVolumeNas1Configuration"
-            },
-            "description": "Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "The status of volume creation.\n"
-        },
-        "statusReason": {
-            "type": "string",
-            "description": "The error message when a failed state occurs.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A list of key-value pairs to label the volume. You can add up to 50 tags to a volume\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "type": {
-            "type": "string",
-            "description": "The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "attachedClusters",
-        "availabilityZones",
-        "azMode",
-        "createdTimestamp",
-        "environmentId",
-        "lastModifiedTimestamp",
-        "name",
-        "status",
-        "statusReason",
-        "tagsAll",
-        "type"
-    ],
-    "inputProperties": {
-        "availabilityZones": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The identifier of the AWS Availability Zone IDs.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "azMode": {
-            "type": "string",
-            "description": "The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.\n",
-            "willReplaceOnChanges": true
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the volume.\n",
-            "willReplaceOnChanges": true
-        },
-        "environmentId": {
-            "type": "string",
-            "description": "A unique identifier for the kdb environment, whose clusters can attach to the volume.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Unique name for the volumr that you want to create.\n",
-            "willReplaceOnChanges": true
-        },
-        "nas1Configurations": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:finspace/KxVolumeNas1Configuration:KxVolumeNas1Configuration"
-            },
-            "description": "Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A list of key-value pairs to label the volume. You can add up to 50 tags to a volume\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "availabilityZones",
-        "azMode",
-        "environmentId",
-        "type"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering KxVolume resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) identifier of the KX volume.\n"
-            },
-            "attachedClusters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:finspace/KxVolumeAttachedCluster:KxVolumeAttachedCluster"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) identifier of the KX volume.\n"
+                },
+                "attachedClusters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:finspace/KxVolumeAttachedCluster:KxVolumeAttachedCluster"
+                    }
+                },
+                "availabilityZones": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The identifier of the AWS Availability Zone IDs.\n\nThe following arguments are optional:\n"
+                },
+                "azMode": {
+                    "type": "string",
+                    "description": "The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.\n"
+                },
+                "createdTimestamp": {
+                    "type": "string",
+                    "description": "The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the volume.\n"
+                },
+                "environmentId": {
+                    "type": "string",
+                    "description": "A unique identifier for the kdb environment, whose clusters can attach to the volume.\n"
+                },
+                "lastModifiedTimestamp": {
+                    "type": "string",
+                    "description": "Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Unique name for the volumr that you want to create.\n"
+                },
+                "nas1Configurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:finspace/KxVolumeNas1Configuration:KxVolumeNas1Configuration"
+                    },
+                    "description": "Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of volume creation.\n"
+                },
+                "statusReason": {
+                    "type": "string",
+                    "description": "The error message when a failed state occurs.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A list of key-value pairs to label the volume. You can add up to 50 tags to a volume\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.\n"
                 }
             },
-            "availabilityZones": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "required": [
+                "arn",
+                "attachedClusters",
+                "availabilityZones",
+                "azMode",
+                "createdTimestamp",
+                "environmentId",
+                "lastModifiedTimestamp",
+                "name",
+                "status",
+                "statusReason",
+                "tagsAll",
+                "type"
+            ],
+            "inputProperties": {
+                "availabilityZones": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The identifier of the AWS Availability Zone IDs.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
                 },
-                "description": "The identifier of the AWS Availability Zone IDs.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "azMode": {
-                "type": "string",
-                "description": "The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.\n",
-                "willReplaceOnChanges": true
-            },
-            "createdTimestamp": {
-                "type": "string",
-                "description": "The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "Description of the volume.\n",
-                "willReplaceOnChanges": true
-            },
-            "environmentId": {
-                "type": "string",
-                "description": "A unique identifier for the kdb environment, whose clusters can attach to the volume.\n",
-                "willReplaceOnChanges": true
-            },
-            "lastModifiedTimestamp": {
-                "type": "string",
-                "description": "Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Unique name for the volumr that you want to create.\n",
-                "willReplaceOnChanges": true
-            },
-            "nas1Configurations": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:finspace/KxVolumeNas1Configuration:KxVolumeNas1Configuration"
+                "azMode": {
+                    "type": "string",
+                    "description": "The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.\n",
+                    "willReplaceOnChanges": true
                 },
-                "description": "Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.\n",
-                "willReplaceOnChanges": true
-            },
-            "status": {
-                "type": "string",
-                "description": "The status of volume creation.\n"
-            },
-            "statusReason": {
-                "type": "string",
-                "description": "The error message when a failed state occurs.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "description": {
+                    "type": "string",
+                    "description": "Description of the volume.\n",
+                    "willReplaceOnChanges": true
                 },
-                "description": "A list of key-value pairs to label the volume. You can add up to 50 tags to a volume\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "environmentId": {
+                    "type": "string",
+                    "description": "A unique identifier for the kdb environment, whose clusters can attach to the volume.\n",
+                    "willReplaceOnChanges": true
                 },
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "name": {
+                    "type": "string",
+                    "description": "Unique name for the volumr that you want to create.\n",
+                    "willReplaceOnChanges": true
+                },
+                "nas1Configurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:finspace/KxVolumeNas1Configuration:KxVolumeNas1Configuration"
+                    },
+                    "description": "Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A list of key-value pairs to label the volume. You can add up to 50 tags to a volume\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "type": {
-                "type": "string",
-                "description": "The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "availabilityZones",
+                "azMode",
+                "environmentId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering KxVolume resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) identifier of the KX volume.\n"
+                    },
+                    "attachedClusters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:finspace/KxVolumeAttachedCluster:KxVolumeAttachedCluster"
+                        }
+                    },
+                    "availabilityZones": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The identifier of the AWS Availability Zone IDs.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "azMode": {
+                        "type": "string",
+                        "description": "The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "createdTimestamp": {
+                        "type": "string",
+                        "description": "The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the volume.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "environmentId": {
+                        "type": "string",
+                        "description": "A unique identifier for the kdb environment, whose clusters can attach to the volume.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "lastModifiedTimestamp": {
+                        "type": "string",
+                        "description": "Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Unique name for the volumr that you want to create.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "nas1Configurations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:finspace/KxVolumeNas1Configuration:KxVolumeNas1Configuration"
+                        },
+                        "description": "Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The status of volume creation.\n"
+                    },
+                    "statusReason": {
+                        "type": "string",
+                        "description": "The error message when a failed state occurs.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A list of key-value pairs to label the volume. You can add up to 50 tags to a volume\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

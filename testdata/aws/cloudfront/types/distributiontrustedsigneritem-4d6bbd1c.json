@@ -1,24 +1,24 @@
 {
-    "properties": {
-        "awsAccountNumber": {
-            "type": "string",
-            "description": "AWS account ID or `self`\n"
-        },
-        "keyPairIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "awsAccountNumber": {
+                    "type": "string",
+                    "description": "AWS account ID or `self`\n"
+                },
+                "keyPairIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of active CloudFront key pairs associated with the signer account\n"
+                }
             },
-            "description": "Set of active CloudFront key pairs associated with the signer account\n"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "awsAccountNumber",
+                        "keyPairIds"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "awsAccountNumber",
-                "keyPairIds"
-            ]
-        }
-    }
-}

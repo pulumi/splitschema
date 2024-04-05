@@ -1,138 +1,138 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the Recording Configuration.\n"
-        },
-        "destinationConfiguration": {
-            "$ref": "#/types/aws:ivs/RecordingConfigurationDestinationConfiguration:RecordingConfigurationDestinationConfiguration",
-            "description": "Object containing destination configuration for where recorded video will be stored.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Recording Configuration name.\n"
-        },
-        "recordingReconnectWindowSeconds": {
-            "type": "integer",
-            "description": "If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.\n"
-        },
-        "state": {
-            "type": "string",
-            "description": "The current state of the Recording Configuration.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "thumbnailConfiguration": {
-            "$ref": "#/types/aws:ivs/RecordingConfigurationThumbnailConfiguration:RecordingConfigurationThumbnailConfiguration",
-            "description": "Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "destinationConfiguration",
-        "name",
-        "recordingReconnectWindowSeconds",
-        "state",
-        "tagsAll",
-        "thumbnailConfiguration"
-    ],
-    "inputProperties": {
-        "destinationConfiguration": {
-            "$ref": "#/types/aws:ivs/RecordingConfigurationDestinationConfiguration:RecordingConfigurationDestinationConfiguration",
-            "description": "Object containing destination configuration for where recorded video will be stored.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Recording Configuration name.\n",
-            "willReplaceOnChanges": true
-        },
-        "recordingReconnectWindowSeconds": {
-            "type": "integer",
-            "description": "If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n",
-            "willReplaceOnChanges": true
-        },
-        "thumbnailConfiguration": {
-            "$ref": "#/types/aws:ivs/RecordingConfigurationThumbnailConfiguration:RecordingConfigurationThumbnailConfiguration",
-            "description": "Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "destinationConfiguration"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering RecordingConfiguration resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the Recording Configuration.\n"
-            },
-            "destinationConfiguration": {
-                "$ref": "#/types/aws:ivs/RecordingConfigurationDestinationConfiguration:RecordingConfigurationDestinationConfiguration",
-                "description": "Object containing destination configuration for where recorded video will be stored.\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "Recording Configuration name.\n",
-                "willReplaceOnChanges": true
-            },
-            "recordingReconnectWindowSeconds": {
-                "type": "integer",
-                "description": "If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.\n",
-                "willReplaceOnChanges": true
-            },
-            "state": {
-                "type": "string",
-                "description": "The current state of the Recording Configuration.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the Recording Configuration.\n"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n",
-                "willReplaceOnChanges": true
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "destinationConfiguration": {
+                    "$ref": "#/types/aws:ivs/RecordingConfigurationDestinationConfiguration:RecordingConfigurationDestinationConfiguration",
+                    "description": "Object containing destination configuration for where recorded video will be stored.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true,
-                "willReplaceOnChanges": true
+                "name": {
+                    "type": "string",
+                    "description": "Recording Configuration name.\n"
+                },
+                "recordingReconnectWindowSeconds": {
+                    "type": "integer",
+                    "description": "If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.\n"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "The current state of the Recording Configuration.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "thumbnailConfiguration": {
+                    "$ref": "#/types/aws:ivs/RecordingConfigurationThumbnailConfiguration:RecordingConfigurationThumbnailConfiguration",
+                    "description": "Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.\n"
+                }
             },
-            "thumbnailConfiguration": {
-                "$ref": "#/types/aws:ivs/RecordingConfigurationThumbnailConfiguration:RecordingConfigurationThumbnailConfiguration",
-                "description": "Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "destinationConfiguration",
+                "name",
+                "recordingReconnectWindowSeconds",
+                "state",
+                "tagsAll",
+                "thumbnailConfiguration"
+            ],
+            "inputProperties": {
+                "destinationConfiguration": {
+                    "$ref": "#/types/aws:ivs/RecordingConfigurationDestinationConfiguration:RecordingConfigurationDestinationConfiguration",
+                    "description": "Object containing destination configuration for where recorded video will be stored.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Recording Configuration name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "recordingReconnectWindowSeconds": {
+                    "type": "integer",
+                    "description": "If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n",
+                    "willReplaceOnChanges": true
+                },
+                "thumbnailConfiguration": {
+                    "$ref": "#/types/aws:ivs/RecordingConfigurationThumbnailConfiguration:RecordingConfigurationThumbnailConfiguration",
+                    "description": "Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "destinationConfiguration"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RecordingConfiguration resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the Recording Configuration.\n"
+                    },
+                    "destinationConfiguration": {
+                        "$ref": "#/types/aws:ivs/RecordingConfigurationDestinationConfiguration:RecordingConfigurationDestinationConfiguration",
+                        "description": "Object containing destination configuration for where recorded video will be stored.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Recording Configuration name.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "recordingReconnectWindowSeconds": {
+                        "type": "integer",
+                        "description": "If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "The current state of the Recording Configuration.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "thumbnailConfiguration": {
+                        "$ref": "#/types/aws:ivs/RecordingConfigurationThumbnailConfiguration:RecordingConfigurationThumbnailConfiguration",
+                        "description": "Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

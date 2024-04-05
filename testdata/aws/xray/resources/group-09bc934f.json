@@ -1,108 +1,108 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the Group.\n"
-        },
-        "filterExpression": {
-            "type": "string",
-            "description": "The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).\n"
-        },
-        "groupName": {
-            "type": "string",
-            "description": "The name of the group.\n"
-        },
-        "insightsConfiguration": {
-            "$ref": "#/types/aws:xray/GroupInsightsConfiguration:GroupInsightsConfiguration",
-            "description": "Configuration options for enabling insights.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "filterExpression",
-        "groupName",
-        "insightsConfiguration",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "filterExpression": {
-            "type": "string",
-            "description": "The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).\n"
-        },
-        "groupName": {
-            "type": "string",
-            "description": "The name of the group.\n",
-            "willReplaceOnChanges": true
-        },
-        "insightsConfiguration": {
-            "$ref": "#/types/aws:xray/GroupInsightsConfiguration:GroupInsightsConfiguration",
-            "description": "Configuration options for enabling insights.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
-        }
-    },
-    "requiredInputs": [
-        "filterExpression",
-        "groupName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Group resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the Group.\n"
-            },
-            "filterExpression": {
-                "type": "string",
-                "description": "The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).\n"
-            },
-            "groupName": {
-                "type": "string",
-                "description": "The name of the group.\n",
-                "willReplaceOnChanges": true
-            },
-            "insightsConfiguration": {
-                "$ref": "#/types/aws:xray/GroupInsightsConfiguration:GroupInsightsConfiguration",
-                "description": "Configuration options for enabling insights.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the Group.\n"
                 },
-                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "filterExpression": {
+                    "type": "string",
+                    "description": "The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "groupName": {
+                    "type": "string",
+                    "description": "The name of the group.\n"
+                },
+                "insightsConfiguration": {
+                    "$ref": "#/types/aws:xray/GroupInsightsConfiguration:GroupInsightsConfiguration",
+                    "description": "Configuration options for enabling insights.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "filterExpression",
+                "groupName",
+                "insightsConfiguration",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "filterExpression": {
+                    "type": "string",
+                    "description": "The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).\n"
+                },
+                "groupName": {
+                    "type": "string",
+                    "description": "The name of the group.\n",
+                    "willReplaceOnChanges": true
+                },
+                "insightsConfiguration": {
+                    "$ref": "#/types/aws:xray/GroupInsightsConfiguration:GroupInsightsConfiguration",
+                    "description": "Configuration options for enabling insights.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+                }
+            },
+            "requiredInputs": [
+                "filterExpression",
+                "groupName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Group resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the Group.\n"
+                    },
+                    "filterExpression": {
+                        "type": "string",
+                        "description": "The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).\n"
+                    },
+                    "groupName": {
+                        "type": "string",
+                        "description": "The name of the group.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "insightsConfiguration": {
+                        "$ref": "#/types/aws:xray/GroupInsightsConfiguration:GroupInsightsConfiguration",
+                        "description": "Configuration options for enabling insights.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

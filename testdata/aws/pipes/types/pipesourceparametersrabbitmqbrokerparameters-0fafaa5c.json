@@ -1,41 +1,41 @@
 {
-    "properties": {
-        "batchSize": {
-            "type": "integer",
-            "description": "The maximum number of records to include in each batch. Maximum value of 10000.\n"
-        },
-        "credentials": {
-            "$ref": "#/types/aws:pipes/PipeSourceParametersRabbitmqBrokerParametersCredentials:PipeSourceParametersRabbitmqBrokerParametersCredentials",
-            "description": "The credentials needed to access the resource. Detailed below.\n"
-        },
-        "maximumBatchingWindowInSeconds": {
-            "type": "integer",
-            "description": "The maximum length of a time to wait for events. Maximum value of 300.\n"
-        },
-        "queueName": {
-            "type": "string",
-            "description": "The name of the destination queue to consume. Maximum length of 1000.\n",
-            "willReplaceOnChanges": true
-        },
-        "virtualHost": {
-            "type": "string",
-            "description": "The name of the virtual host associated with the source broker. Maximum length of 200.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "type": "object",
-    "required": [
-        "credentials",
-        "queueName"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "batchSize",
+            "properties": {
+                "batchSize": {
+                    "type": "integer",
+                    "description": "The maximum number of records to include in each batch. Maximum value of 10000.\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/aws:pipes/PipeSourceParametersRabbitmqBrokerParametersCredentials:PipeSourceParametersRabbitmqBrokerParametersCredentials",
+                    "description": "The credentials needed to access the resource. Detailed below.\n"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer",
+                    "description": "The maximum length of a time to wait for events. Maximum value of 300.\n"
+                },
+                "queueName": {
+                    "type": "string",
+                    "description": "The name of the destination queue to consume. Maximum length of 1000.\n",
+                    "willReplaceOnChanges": true
+                },
+                "virtualHost": {
+                    "type": "string",
+                    "description": "The name of the virtual host associated with the source broker. Maximum length of 200.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
                 "credentials",
-                "maximumBatchingWindowInSeconds",
                 "queueName"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "batchSize",
+                        "credentials",
+                        "maximumBatchingWindowInSeconds",
+                        "queueName"
+                    ]
+                }
+            }
         }
-    }
-}

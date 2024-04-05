@@ -1,121 +1,121 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN assigned by AWS for this user.\n"
-        },
-        "forceDestroy": {
-            "type": "boolean",
-            "description": "When destroying this user, destroy even if it\nhas non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`\na user with non-provider-managed access keys and login profile will fail to be destroyed.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both \"TESTUSER\" and \"testuser\".\n"
-        },
-        "path": {
-            "type": "string",
-            "description": "Path in which to create the user.\n"
-        },
-        "permissionsBoundary": {
-            "type": "string",
-            "description": "The ARN of the policy that is used to set the permissions boundary for the user.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "uniqueId": {
-            "type": "string",
-            "description": "The [unique ID][1] assigned by AWS.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "name",
-        "tagsAll",
-        "uniqueId"
-    ],
-    "inputProperties": {
-        "forceDestroy": {
-            "type": "boolean",
-            "description": "When destroying this user, destroy even if it\nhas non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`\na user with non-provider-managed access keys and login profile will fail to be destroyed.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both \"TESTUSER\" and \"testuser\".\n"
-        },
-        "path": {
-            "type": "string",
-            "description": "Path in which to create the user.\n"
-        },
-        "permissionsBoundary": {
-            "type": "string",
-            "description": "The ARN of the policy that is used to set the permissions boundary for the user.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering User resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN assigned by AWS for this user.\n"
-            },
-            "forceDestroy": {
-                "type": "boolean",
-                "description": "When destroying this user, destroy even if it\nhas non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`\na user with non-provider-managed access keys and login profile will fail to be destroyed.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both \"TESTUSER\" and \"testuser\".\n"
-            },
-            "path": {
-                "type": "string",
-                "description": "Path in which to create the user.\n"
-            },
-            "permissionsBoundary": {
-                "type": "string",
-                "description": "The ARN of the policy that is used to set the permissions boundary for the user.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN assigned by AWS for this user.\n"
                 },
-                "description": "Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "forceDestroy": {
+                    "type": "boolean",
+                    "description": "When destroying this user, destroy even if it\nhas non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`\na user with non-provider-managed access keys and login profile will fail to be destroyed.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "name": {
+                    "type": "string",
+                    "description": "The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both \"TESTUSER\" and \"testuser\".\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path in which to create the user.\n"
+                },
+                "permissionsBoundary": {
+                    "type": "string",
+                    "description": "The ARN of the policy that is used to set the permissions boundary for the user.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "description": "The [unique ID][1] assigned by AWS.\n"
+                }
             },
-            "uniqueId": {
-                "type": "string",
-                "description": "The [unique ID][1] assigned by AWS.\n"
+            "required": [
+                "arn",
+                "name",
+                "tagsAll",
+                "uniqueId"
+            ],
+            "inputProperties": {
+                "forceDestroy": {
+                    "type": "boolean",
+                    "description": "When destroying this user, destroy even if it\nhas non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`\na user with non-provider-managed access keys and login profile will fail to be destroyed.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both \"TESTUSER\" and \"testuser\".\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path in which to create the user.\n"
+                },
+                "permissionsBoundary": {
+                    "type": "string",
+                    "description": "The ARN of the policy that is used to set the permissions boundary for the user.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering User resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN assigned by AWS for this user.\n"
+                    },
+                    "forceDestroy": {
+                        "type": "boolean",
+                        "description": "When destroying this user, destroy even if it\nhas non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`\na user with non-provider-managed access keys and login profile will fail to be destroyed.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both \"TESTUSER\" and \"testuser\".\n"
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "Path in which to create the user.\n"
+                    },
+                    "permissionsBoundary": {
+                        "type": "string",
+                        "description": "The ARN of the policy that is used to set the permissions boundary for the user.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "uniqueId": {
+                        "type": "string",
+                        "description": "The [unique ID][1] assigned by AWS.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,148 +1,148 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getWorkspace.\n",
-        "properties": {
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getWorkspace.\n",
+                "properties": {
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Tags assigned to the resource\n"
+                    },
+                    "workspaceId": {
+                        "type": "string",
+                        "description": "Grafana workspace ID.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "workspaceId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getWorkspace.\n",
+                "properties": {
+                    "accountAccessType": {
+                        "description": "(Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.\n",
+                        "type": "string"
+                    },
+                    "arn": {
+                        "description": "ARN of the Grafana workspace.\n",
+                        "type": "string"
+                    },
+                    "authenticationProviders": {
+                        "description": "(Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "createdDate": {
+                        "description": "Creation date of the Grafana workspace.\n",
+                        "type": "string"
+                    },
+                    "dataSources": {
+                        "description": "Data sources for the workspace.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "description": {
+                        "description": "Workspace description.\n",
+                        "type": "string"
+                    },
+                    "endpoint": {
+                        "description": "Endpoint of the Grafana workspace.\n",
+                        "type": "string"
+                    },
+                    "grafanaVersion": {
+                        "description": "Version of Grafana running on the workspace.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "lastUpdatedDate": {
+                        "description": "Last updated date of the Grafana workspace.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Grafana workspace name.\n",
+                        "type": "string"
+                    },
+                    "notificationDestinations": {
+                        "description": "The notification destinations.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "organizationRoleName": {
+                        "description": "The role name that the workspace uses to access resources through Amazon Organizations.\n",
+                        "type": "string"
+                    },
+                    "organizationalUnits": {
+                        "description": "The Amazon Organizations organizational units that the workspace is authorized to use data sources from.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "permissionType": {
+                        "description": "Permission type of the workspace.\n",
+                        "type": "string"
+                    },
+                    "roleArn": {
+                        "description": "IAM role ARN that the workspace assumes.\n",
+                        "type": "string"
+                    },
+                    "samlConfigurationStatus": {
+                        "type": "string"
+                    },
+                    "stackSetName": {
+                        "description": "AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Status of the Grafana workspace.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Tags assigned to the resource\n",
+                        "type": "object"
+                    },
+                    "workspaceId": {
+                        "type": "string"
+                    }
                 },
-                "description": "Tags assigned to the resource\n"
-            },
-            "workspaceId": {
-                "type": "string",
-                "description": "Grafana workspace ID.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "workspaceId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getWorkspace.\n",
-        "properties": {
-            "accountAccessType": {
-                "description": "(Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.\n",
-                "type": "string"
-            },
-            "arn": {
-                "description": "ARN of the Grafana workspace.\n",
-                "type": "string"
-            },
-            "authenticationProviders": {
-                "description": "(Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "createdDate": {
-                "description": "Creation date of the Grafana workspace.\n",
-                "type": "string"
-            },
-            "dataSources": {
-                "description": "Data sources for the workspace.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "description": {
-                "description": "Workspace description.\n",
-                "type": "string"
-            },
-            "endpoint": {
-                "description": "Endpoint of the Grafana workspace.\n",
-                "type": "string"
-            },
-            "grafanaVersion": {
-                "description": "Version of Grafana running on the workspace.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "lastUpdatedDate": {
-                "description": "Last updated date of the Grafana workspace.\n",
-                "type": "string"
-            },
-            "name": {
-                "description": "Grafana workspace name.\n",
-                "type": "string"
-            },
-            "notificationDestinations": {
-                "description": "The notification destinations.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "organizationRoleName": {
-                "description": "The role name that the workspace uses to access resources through Amazon Organizations.\n",
-                "type": "string"
-            },
-            "organizationalUnits": {
-                "description": "The Amazon Organizations organizational units that the workspace is authorized to use data sources from.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "permissionType": {
-                "description": "Permission type of the workspace.\n",
-                "type": "string"
-            },
-            "roleArn": {
-                "description": "IAM role ARN that the workspace assumes.\n",
-                "type": "string"
-            },
-            "samlConfigurationStatus": {
-                "type": "string"
-            },
-            "stackSetName": {
-                "description": "AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.\n",
-                "type": "string"
-            },
-            "status": {
-                "description": "Status of the Grafana workspace.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Tags assigned to the resource\n",
+                "required": [
+                    "accountAccessType",
+                    "arn",
+                    "authenticationProviders",
+                    "createdDate",
+                    "dataSources",
+                    "description",
+                    "endpoint",
+                    "grafanaVersion",
+                    "lastUpdatedDate",
+                    "name",
+                    "notificationDestinations",
+                    "organizationRoleName",
+                    "organizationalUnits",
+                    "permissionType",
+                    "roleArn",
+                    "samlConfigurationStatus",
+                    "stackSetName",
+                    "status",
+                    "tags",
+                    "workspaceId",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "workspaceId": {
-                "type": "string"
             }
-        },
-        "required": [
-            "accountAccessType",
-            "arn",
-            "authenticationProviders",
-            "createdDate",
-            "dataSources",
-            "description",
-            "endpoint",
-            "grafanaVersion",
-            "lastUpdatedDate",
-            "name",
-            "notificationDestinations",
-            "organizationRoleName",
-            "organizationalUnits",
-            "permissionType",
-            "roleArn",
-            "samlConfigurationStatus",
-            "stackSetName",
-            "status",
-            "tags",
-            "workspaceId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,46 +1,46 @@
 {
-    "properties": {
-        "cookiesConfigs": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:cloudfront/getCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig:getCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig"
+            "properties": {
+                "cookiesConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:cloudfront/getCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig:getCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig"
+                    },
+                    "description": "Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.\n"
+                },
+                "enableAcceptEncodingBrotli": {
+                    "type": "boolean",
+                    "description": "A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.\n"
+                },
+                "enableAcceptEncodingGzip": {
+                    "type": "boolean",
+                    "description": "A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.\n"
+                },
+                "headersConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:cloudfront/getCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig:getCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig"
+                    },
+                    "description": "Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.\n"
+                },
+                "queryStringsConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:cloudfront/getCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig:getCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig"
+                    },
+                    "description": "Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.\n"
+                }
             },
-            "description": "Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.\n"
-        },
-        "enableAcceptEncodingBrotli": {
-            "type": "boolean",
-            "description": "A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.\n"
-        },
-        "enableAcceptEncodingGzip": {
-            "type": "boolean",
-            "description": "A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.\n"
-        },
-        "headersConfigs": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:cloudfront/getCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig:getCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig"
-            },
-            "description": "Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.\n"
-        },
-        "queryStringsConfigs": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:cloudfront/getCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig:getCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig"
-            },
-            "description": "Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.\n"
+            "type": "object",
+            "required": [
+                "cookiesConfigs",
+                "enableAcceptEncodingBrotli",
+                "enableAcceptEncodingGzip",
+                "headersConfigs",
+                "queryStringsConfigs"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "cookiesConfigs",
-        "enableAcceptEncodingBrotli",
-        "enableAcceptEncodingGzip",
-        "headersConfigs",
-        "queryStringsConfigs"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

@@ -1,68 +1,68 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getReplicationSet.\n",
-        "properties": {
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getReplicationSet.\n",
+                "properties": {
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "All tags applied to the replication set.\n"
+                    }
                 },
-                "description": "All tags applied to the replication set.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getReplicationSet.\n",
-        "properties": {
-            "arn": {
-                "description": "The Amazon Resouce Name (ARN) of the replication set.\n",
-                "type": "string"
+                "type": "object"
             },
-            "createdBy": {
-                "description": "The ARN of the user who created the replication set.\n",
-                "type": "string"
-            },
-            "deletionProtected": {
-                "description": "If `true`, the last remaining Region in a replication set can’t be deleted.\n",
-                "type": "boolean"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "lastModifiedBy": {
-                "description": "The ARN of the user who last modified the replication set.\n",
-                "type": "string"
-            },
-            "regions": {
-                "items": {
-                    "$ref": "#/types/aws:ssmincidents/getReplicationSetRegion:getReplicationSetRegion"
+            "outputs": {
+                "description": "A collection of values returned by getReplicationSet.\n",
+                "properties": {
+                    "arn": {
+                        "description": "The Amazon Resouce Name (ARN) of the replication set.\n",
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "description": "The ARN of the user who created the replication set.\n",
+                        "type": "string"
+                    },
+                    "deletionProtected": {
+                        "description": "If `true`, the last remaining Region in a replication set can’t be deleted.\n",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "lastModifiedBy": {
+                        "description": "The ARN of the user who last modified the replication set.\n",
+                        "type": "string"
+                    },
+                    "regions": {
+                        "items": {
+                            "$ref": "#/types/aws:ssmincidents/getReplicationSetRegion:getReplicationSetRegion"
+                        },
+                        "type": "array"
+                    },
+                    "status": {
+                        "description": "The current status of the Region.\n* Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "All tags applied to the replication set.\n",
+                        "type": "object"
+                    }
                 },
-                "type": "array"
-            },
-            "status": {
-                "description": "The current status of the Region.\n* Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "All tags applied to the replication set.\n",
+                "required": [
+                    "arn",
+                    "createdBy",
+                    "deletionProtected",
+                    "lastModifiedBy",
+                    "regions",
+                    "status",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "createdBy",
-            "deletionProtected",
-            "lastModifiedBy",
-            "regions",
-            "status",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,25 +1,25 @@
 {
-    "properties": {
-        "behavior": {
-            "type": "string",
-            "description": "Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.\n"
-        },
-        "conditions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:wafv2/WebAclLoggingConfigurationLoggingFilterFilterCondition:WebAclLoggingConfigurationLoggingFilterFilterCondition"
+            "properties": {
+                "behavior": {
+                    "type": "string",
+                    "description": "Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.\n"
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:wafv2/WebAclLoggingConfigurationLoggingFilterFilterCondition:WebAclLoggingConfigurationLoggingFilterFilterCondition"
+                    },
+                    "description": "Match condition(s) for the filter. See Condition below for more details.\n"
+                },
+                "requirement": {
+                    "type": "string",
+                    "description": "Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.\n"
+                }
             },
-            "description": "Match condition(s) for the filter. See Condition below for more details.\n"
-        },
-        "requirement": {
-            "type": "string",
-            "description": "Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.\n"
+            "type": "object",
+            "required": [
+                "behavior",
+                "conditions",
+                "requirement"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "behavior",
-        "conditions",
-        "requirement"
-    ]
-}

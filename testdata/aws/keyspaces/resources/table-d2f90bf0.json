@@ -1,201 +1,201 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the table.\n"
-        },
-        "capacitySpecification": {
-            "$ref": "#/types/aws:keyspaces/TableCapacitySpecification:TableCapacitySpecification",
-            "description": "Specifies the read/write throughput capacity mode for the table.\n"
-        },
-        "clientSideTimestamps": {
-            "$ref": "#/types/aws:keyspaces/TableClientSideTimestamps:TableClientSideTimestamps",
-            "description": "Enables client-side timestamps for the table. By default, the setting is disabled.\n"
-        },
-        "comment": {
-            "$ref": "#/types/aws:keyspaces/TableComment:TableComment",
-            "description": "A description of the table.\n"
-        },
-        "defaultTimeToLive": {
-            "type": "integer",
-            "description": "The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).\n"
-        },
-        "encryptionSpecification": {
-            "$ref": "#/types/aws:keyspaces/TableEncryptionSpecification:TableEncryptionSpecification",
-            "description": "Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).\n"
-        },
-        "keyspaceName": {
-            "type": "string",
-            "description": "The name of the keyspace that the table is going to be created in.\n"
-        },
-        "pointInTimeRecovery": {
-            "$ref": "#/types/aws:keyspaces/TablePointInTimeRecovery:TablePointInTimeRecovery",
-            "description": "Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).\n"
-        },
-        "schemaDefinition": {
-            "$ref": "#/types/aws:keyspaces/TableSchemaDefinition:TableSchemaDefinition",
-            "description": "Describes the schema of the table.\n"
-        },
-        "tableName": {
-            "type": "string",
-            "description": "The name of the table.\n\nThe following arguments are optional:\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "ttl": {
-            "$ref": "#/types/aws:keyspaces/TableTtl:TableTtl",
-            "description": "Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).\n"
-        }
-    },
-    "required": [
-        "arn",
-        "capacitySpecification",
-        "comment",
-        "encryptionSpecification",
-        "keyspaceName",
-        "pointInTimeRecovery",
-        "schemaDefinition",
-        "tableName",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "capacitySpecification": {
-            "$ref": "#/types/aws:keyspaces/TableCapacitySpecification:TableCapacitySpecification",
-            "description": "Specifies the read/write throughput capacity mode for the table.\n"
-        },
-        "clientSideTimestamps": {
-            "$ref": "#/types/aws:keyspaces/TableClientSideTimestamps:TableClientSideTimestamps",
-            "description": "Enables client-side timestamps for the table. By default, the setting is disabled.\n"
-        },
-        "comment": {
-            "$ref": "#/types/aws:keyspaces/TableComment:TableComment",
-            "description": "A description of the table.\n",
-            "willReplaceOnChanges": true
-        },
-        "defaultTimeToLive": {
-            "type": "integer",
-            "description": "The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).\n"
-        },
-        "encryptionSpecification": {
-            "$ref": "#/types/aws:keyspaces/TableEncryptionSpecification:TableEncryptionSpecification",
-            "description": "Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).\n"
-        },
-        "keyspaceName": {
-            "type": "string",
-            "description": "The name of the keyspace that the table is going to be created in.\n",
-            "willReplaceOnChanges": true
-        },
-        "pointInTimeRecovery": {
-            "$ref": "#/types/aws:keyspaces/TablePointInTimeRecovery:TablePointInTimeRecovery",
-            "description": "Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).\n"
-        },
-        "schemaDefinition": {
-            "$ref": "#/types/aws:keyspaces/TableSchemaDefinition:TableSchemaDefinition",
-            "description": "Describes the schema of the table.\n"
-        },
-        "tableName": {
-            "type": "string",
-            "description": "The name of the table.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "ttl": {
-            "$ref": "#/types/aws:keyspaces/TableTtl:TableTtl",
-            "description": "Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).\n"
-        }
-    },
-    "requiredInputs": [
-        "keyspaceName",
-        "schemaDefinition",
-        "tableName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Table resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the table.\n"
-            },
-            "capacitySpecification": {
-                "$ref": "#/types/aws:keyspaces/TableCapacitySpecification:TableCapacitySpecification",
-                "description": "Specifies the read/write throughput capacity mode for the table.\n"
-            },
-            "clientSideTimestamps": {
-                "$ref": "#/types/aws:keyspaces/TableClientSideTimestamps:TableClientSideTimestamps",
-                "description": "Enables client-side timestamps for the table. By default, the setting is disabled.\n"
-            },
-            "comment": {
-                "$ref": "#/types/aws:keyspaces/TableComment:TableComment",
-                "description": "A description of the table.\n",
-                "willReplaceOnChanges": true
-            },
-            "defaultTimeToLive": {
-                "type": "integer",
-                "description": "The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).\n"
-            },
-            "encryptionSpecification": {
-                "$ref": "#/types/aws:keyspaces/TableEncryptionSpecification:TableEncryptionSpecification",
-                "description": "Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).\n"
-            },
-            "keyspaceName": {
-                "type": "string",
-                "description": "The name of the keyspace that the table is going to be created in.\n",
-                "willReplaceOnChanges": true
-            },
-            "pointInTimeRecovery": {
-                "$ref": "#/types/aws:keyspaces/TablePointInTimeRecovery:TablePointInTimeRecovery",
-                "description": "Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).\n"
-            },
-            "schemaDefinition": {
-                "$ref": "#/types/aws:keyspaces/TableSchemaDefinition:TableSchemaDefinition",
-                "description": "Describes the schema of the table.\n"
-            },
-            "tableName": {
-                "type": "string",
-                "description": "The name of the table.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the table.\n"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "capacitySpecification": {
+                    "$ref": "#/types/aws:keyspaces/TableCapacitySpecification:TableCapacitySpecification",
+                    "description": "Specifies the read/write throughput capacity mode for the table.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "clientSideTimestamps": {
+                    "$ref": "#/types/aws:keyspaces/TableClientSideTimestamps:TableClientSideTimestamps",
+                    "description": "Enables client-side timestamps for the table. By default, the setting is disabled.\n"
+                },
+                "comment": {
+                    "$ref": "#/types/aws:keyspaces/TableComment:TableComment",
+                    "description": "A description of the table.\n"
+                },
+                "defaultTimeToLive": {
+                    "type": "integer",
+                    "description": "The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).\n"
+                },
+                "encryptionSpecification": {
+                    "$ref": "#/types/aws:keyspaces/TableEncryptionSpecification:TableEncryptionSpecification",
+                    "description": "Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).\n"
+                },
+                "keyspaceName": {
+                    "type": "string",
+                    "description": "The name of the keyspace that the table is going to be created in.\n"
+                },
+                "pointInTimeRecovery": {
+                    "$ref": "#/types/aws:keyspaces/TablePointInTimeRecovery:TablePointInTimeRecovery",
+                    "description": "Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).\n"
+                },
+                "schemaDefinition": {
+                    "$ref": "#/types/aws:keyspaces/TableSchemaDefinition:TableSchemaDefinition",
+                    "description": "Describes the schema of the table.\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "The name of the table.\n\nThe following arguments are optional:\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "ttl": {
+                    "$ref": "#/types/aws:keyspaces/TableTtl:TableTtl",
+                    "description": "Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).\n"
+                }
             },
-            "ttl": {
-                "$ref": "#/types/aws:keyspaces/TableTtl:TableTtl",
-                "description": "Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).\n"
+            "required": [
+                "arn",
+                "capacitySpecification",
+                "comment",
+                "encryptionSpecification",
+                "keyspaceName",
+                "pointInTimeRecovery",
+                "schemaDefinition",
+                "tableName",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "capacitySpecification": {
+                    "$ref": "#/types/aws:keyspaces/TableCapacitySpecification:TableCapacitySpecification",
+                    "description": "Specifies the read/write throughput capacity mode for the table.\n"
+                },
+                "clientSideTimestamps": {
+                    "$ref": "#/types/aws:keyspaces/TableClientSideTimestamps:TableClientSideTimestamps",
+                    "description": "Enables client-side timestamps for the table. By default, the setting is disabled.\n"
+                },
+                "comment": {
+                    "$ref": "#/types/aws:keyspaces/TableComment:TableComment",
+                    "description": "A description of the table.\n",
+                    "willReplaceOnChanges": true
+                },
+                "defaultTimeToLive": {
+                    "type": "integer",
+                    "description": "The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).\n"
+                },
+                "encryptionSpecification": {
+                    "$ref": "#/types/aws:keyspaces/TableEncryptionSpecification:TableEncryptionSpecification",
+                    "description": "Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).\n"
+                },
+                "keyspaceName": {
+                    "type": "string",
+                    "description": "The name of the keyspace that the table is going to be created in.\n",
+                    "willReplaceOnChanges": true
+                },
+                "pointInTimeRecovery": {
+                    "$ref": "#/types/aws:keyspaces/TablePointInTimeRecovery:TablePointInTimeRecovery",
+                    "description": "Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).\n"
+                },
+                "schemaDefinition": {
+                    "$ref": "#/types/aws:keyspaces/TableSchemaDefinition:TableSchemaDefinition",
+                    "description": "Describes the schema of the table.\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "The name of the table.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "ttl": {
+                    "$ref": "#/types/aws:keyspaces/TableTtl:TableTtl",
+                    "description": "Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).\n"
+                }
+            },
+            "requiredInputs": [
+                "keyspaceName",
+                "schemaDefinition",
+                "tableName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Table resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the table.\n"
+                    },
+                    "capacitySpecification": {
+                        "$ref": "#/types/aws:keyspaces/TableCapacitySpecification:TableCapacitySpecification",
+                        "description": "Specifies the read/write throughput capacity mode for the table.\n"
+                    },
+                    "clientSideTimestamps": {
+                        "$ref": "#/types/aws:keyspaces/TableClientSideTimestamps:TableClientSideTimestamps",
+                        "description": "Enables client-side timestamps for the table. By default, the setting is disabled.\n"
+                    },
+                    "comment": {
+                        "$ref": "#/types/aws:keyspaces/TableComment:TableComment",
+                        "description": "A description of the table.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "defaultTimeToLive": {
+                        "type": "integer",
+                        "description": "The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).\n"
+                    },
+                    "encryptionSpecification": {
+                        "$ref": "#/types/aws:keyspaces/TableEncryptionSpecification:TableEncryptionSpecification",
+                        "description": "Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).\n"
+                    },
+                    "keyspaceName": {
+                        "type": "string",
+                        "description": "The name of the keyspace that the table is going to be created in.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "pointInTimeRecovery": {
+                        "$ref": "#/types/aws:keyspaces/TablePointInTimeRecovery:TablePointInTimeRecovery",
+                        "description": "Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).\n"
+                    },
+                    "schemaDefinition": {
+                        "$ref": "#/types/aws:keyspaces/TableSchemaDefinition:TableSchemaDefinition",
+                        "description": "Describes the schema of the table.\n"
+                    },
+                    "tableName": {
+                        "type": "string",
+                        "description": "The name of the table.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "ttl": {
+                        "$ref": "#/types/aws:keyspaces/TableTtl:TableTtl",
+                        "description": "Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

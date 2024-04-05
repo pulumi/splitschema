@@ -1,38 +1,38 @@
 {
-    "properties": {
-        "cidr": {
-            "type": "string"
-        },
-        "egress": {
-            "type": "boolean"
-        },
-        "portRanges": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ec2/NetworkInsightsAnalysisForwardPathComponentAclRulePortRange:NetworkInsightsAnalysisForwardPathComponentAclRulePortRange"
+            "properties": {
+                "cidr": {
+                    "type": "string"
+                },
+                "egress": {
+                    "type": "boolean"
+                },
+                "portRanges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ec2/NetworkInsightsAnalysisForwardPathComponentAclRulePortRange:NetworkInsightsAnalysisForwardPathComponentAclRulePortRange"
+                    }
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "ruleAction": {
+                    "type": "string"
+                },
+                "ruleNumber": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "cidr",
+                        "egress",
+                        "portRanges",
+                        "protocol",
+                        "ruleAction",
+                        "ruleNumber"
+                    ]
+                }
             }
-        },
-        "protocol": {
-            "type": "string"
-        },
-        "ruleAction": {
-            "type": "string"
-        },
-        "ruleNumber": {
-            "type": "integer"
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "cidr",
-                "egress",
-                "portRanges",
-                "protocol",
-                "ruleAction",
-                "ruleNumber"
-            ]
-        }
-    }
-}

@@ -1,204 +1,204 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getFunction.\n",
-        "properties": {
-            "functionName": {
-                "type": "string",
-                "description": "Name of the lambda function.\n"
-            },
-            "qualifier": {
-                "type": "string",
-                "description": "Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getFunction.\n",
+                "properties": {
+                    "functionName": {
+                        "type": "string",
+                        "description": "Name of the lambda function.\n"
+                    },
+                    "qualifier": {
+                        "type": "string",
+                        "description": "Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                }
-            }
-        },
-        "type": "object",
-        "required": [
-            "functionName"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getFunction.\n",
-        "properties": {
-            "architectures": {
-                "description": "Instruction set architecture for the Lambda function.\n",
-                "items": {
-                    "type": "string"
+                "required": [
+                    "functionName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFunction.\n",
+                "properties": {
+                    "architectures": {
+                        "description": "Instruction set architecture for the Lambda function.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "arn": {
+                        "description": "Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.\n",
+                        "type": "string"
+                    },
+                    "codeSigningConfigArn": {
+                        "description": "ARN for a Code Signing Configuration.\n",
+                        "type": "string"
+                    },
+                    "deadLetterConfig": {
+                        "$ref": "#/types/aws:lambda/getFunctionDeadLetterConfig:getFunctionDeadLetterConfig",
+                        "description": "Configure the function's *dead letter queue*.\n"
+                    },
+                    "description": {
+                        "description": "Description of what your Lambda Function does.\n",
+                        "type": "string"
+                    },
+                    "environment": {
+                        "$ref": "#/types/aws:lambda/getFunctionEnvironment:getFunctionEnvironment",
+                        "description": "Lambda environment's configuration settings.\n"
+                    },
+                    "ephemeralStorages": {
+                        "description": "Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.\n",
+                        "items": {
+                            "$ref": "#/types/aws:lambda/getFunctionEphemeralStorage:getFunctionEphemeralStorage"
+                        },
+                        "type": "array"
+                    },
+                    "fileSystemConfigs": {
+                        "description": "Connection settings for an Amazon EFS file system.\n",
+                        "items": {
+                            "$ref": "#/types/aws:lambda/getFunctionFileSystemConfig:getFunctionFileSystemConfig"
+                        },
+                        "type": "array"
+                    },
+                    "functionName": {
+                        "type": "string"
+                    },
+                    "handler": {
+                        "description": "Function entrypoint in your code.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "imageUri": {
+                        "description": "URI of the container image.\n",
+                        "type": "string"
+                    },
+                    "invokeArn": {
+                        "description": "ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.\n",
+                        "type": "string"
+                    },
+                    "kmsKeyArn": {
+                        "description": "ARN for the KMS encryption key.\n",
+                        "type": "string"
+                    },
+                    "lastModified": {
+                        "description": "Date this resource was last modified.\n",
+                        "type": "string"
+                    },
+                    "layers": {
+                        "description": "List of Lambda Layer ARNs attached to your Lambda Function.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "memorySize": {
+                        "description": "Amount of memory in MB your Lambda Function can use at runtime.\n",
+                        "type": "integer"
+                    },
+                    "qualifiedArn": {
+                        "description": "Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.\n",
+                        "type": "string"
+                    },
+                    "qualifiedInvokeArn": {
+                        "description": "Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invoke_arn`.\n",
+                        "type": "string"
+                    },
+                    "qualifier": {
+                        "type": "string"
+                    },
+                    "reservedConcurrentExecutions": {
+                        "description": "The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.\n",
+                        "type": "integer"
+                    },
+                    "role": {
+                        "description": "IAM role attached to the Lambda Function.\n",
+                        "type": "string"
+                    },
+                    "runtime": {
+                        "description": "Runtime environment for the Lambda function.\n",
+                        "type": "string"
+                    },
+                    "signingJobArn": {
+                        "description": "ARN of a signing job.\n",
+                        "type": "string"
+                    },
+                    "signingProfileVersionArn": {
+                        "description": "The ARN for a signing profile version.\n",
+                        "type": "string"
+                    },
+                    "sourceCodeHash": {
+                        "description": "Base64-encoded representation of raw SHA-256 sum of the zip file.\n",
+                        "type": "string"
+                    },
+                    "sourceCodeSize": {
+                        "description": "Size in bytes of the function .zip file.\n",
+                        "type": "integer"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "timeout": {
+                        "description": "Function execution time at which Lambda should terminate the function.\n",
+                        "type": "integer"
+                    },
+                    "tracingConfig": {
+                        "$ref": "#/types/aws:lambda/getFunctionTracingConfig:getFunctionTracingConfig",
+                        "description": "Tracing settings of the function.\n"
+                    },
+                    "version": {
+                        "description": "The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.\n",
+                        "type": "string"
+                    },
+                    "vpcConfig": {
+                        "$ref": "#/types/aws:lambda/getFunctionVpcConfig:getFunctionVpcConfig",
+                        "description": "VPC configuration associated with your Lambda function.\n"
+                    }
                 },
-                "type": "array"
-            },
-            "arn": {
-                "description": "Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.\n",
-                "type": "string"
-            },
-            "codeSigningConfigArn": {
-                "description": "ARN for a Code Signing Configuration.\n",
-                "type": "string"
-            },
-            "deadLetterConfig": {
-                "$ref": "#/types/aws:lambda/getFunctionDeadLetterConfig:getFunctionDeadLetterConfig",
-                "description": "Configure the function's *dead letter queue*.\n"
-            },
-            "description": {
-                "description": "Description of what your Lambda Function does.\n",
-                "type": "string"
-            },
-            "environment": {
-                "$ref": "#/types/aws:lambda/getFunctionEnvironment:getFunctionEnvironment",
-                "description": "Lambda environment's configuration settings.\n"
-            },
-            "ephemeralStorages": {
-                "description": "Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.\n",
-                "items": {
-                    "$ref": "#/types/aws:lambda/getFunctionEphemeralStorage:getFunctionEphemeralStorage"
-                },
-                "type": "array"
-            },
-            "fileSystemConfigs": {
-                "description": "Connection settings for an Amazon EFS file system.\n",
-                "items": {
-                    "$ref": "#/types/aws:lambda/getFunctionFileSystemConfig:getFunctionFileSystemConfig"
-                },
-                "type": "array"
-            },
-            "functionName": {
-                "type": "string"
-            },
-            "handler": {
-                "description": "Function entrypoint in your code.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "imageUri": {
-                "description": "URI of the container image.\n",
-                "type": "string"
-            },
-            "invokeArn": {
-                "description": "ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.\n",
-                "type": "string"
-            },
-            "kmsKeyArn": {
-                "description": "ARN for the KMS encryption key.\n",
-                "type": "string"
-            },
-            "lastModified": {
-                "description": "Date this resource was last modified.\n",
-                "type": "string"
-            },
-            "layers": {
-                "description": "List of Lambda Layer ARNs attached to your Lambda Function.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "memorySize": {
-                "description": "Amount of memory in MB your Lambda Function can use at runtime.\n",
-                "type": "integer"
-            },
-            "qualifiedArn": {
-                "description": "Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.\n",
-                "type": "string"
-            },
-            "qualifiedInvokeArn": {
-                "description": "Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invoke_arn`.\n",
-                "type": "string"
-            },
-            "qualifier": {
-                "type": "string"
-            },
-            "reservedConcurrentExecutions": {
-                "description": "The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.\n",
-                "type": "integer"
-            },
-            "role": {
-                "description": "IAM role attached to the Lambda Function.\n",
-                "type": "string"
-            },
-            "runtime": {
-                "description": "Runtime environment for the Lambda function.\n",
-                "type": "string"
-            },
-            "signingJobArn": {
-                "description": "ARN of a signing job.\n",
-                "type": "string"
-            },
-            "signingProfileVersionArn": {
-                "description": "The ARN for a signing profile version.\n",
-                "type": "string"
-            },
-            "sourceCodeHash": {
-                "description": "Base64-encoded representation of raw SHA-256 sum of the zip file.\n",
-                "type": "string"
-            },
-            "sourceCodeSize": {
-                "description": "Size in bytes of the function .zip file.\n",
-                "type": "integer"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
+                "required": [
+                    "architectures",
+                    "arn",
+                    "codeSigningConfigArn",
+                    "deadLetterConfig",
+                    "description",
+                    "environment",
+                    "ephemeralStorages",
+                    "fileSystemConfigs",
+                    "functionName",
+                    "handler",
+                    "imageUri",
+                    "invokeArn",
+                    "kmsKeyArn",
+                    "lastModified",
+                    "layers",
+                    "memorySize",
+                    "qualifiedArn",
+                    "qualifiedInvokeArn",
+                    "reservedConcurrentExecutions",
+                    "role",
+                    "runtime",
+                    "signingJobArn",
+                    "signingProfileVersionArn",
+                    "sourceCodeHash",
+                    "sourceCodeSize",
+                    "tags",
+                    "timeout",
+                    "tracingConfig",
+                    "version",
+                    "vpcConfig",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "timeout": {
-                "description": "Function execution time at which Lambda should terminate the function.\n",
-                "type": "integer"
-            },
-            "tracingConfig": {
-                "$ref": "#/types/aws:lambda/getFunctionTracingConfig:getFunctionTracingConfig",
-                "description": "Tracing settings of the function.\n"
-            },
-            "version": {
-                "description": "The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.\n",
-                "type": "string"
-            },
-            "vpcConfig": {
-                "$ref": "#/types/aws:lambda/getFunctionVpcConfig:getFunctionVpcConfig",
-                "description": "VPC configuration associated with your Lambda function.\n"
             }
-        },
-        "required": [
-            "architectures",
-            "arn",
-            "codeSigningConfigArn",
-            "deadLetterConfig",
-            "description",
-            "environment",
-            "ephemeralStorages",
-            "fileSystemConfigs",
-            "functionName",
-            "handler",
-            "imageUri",
-            "invokeArn",
-            "kmsKeyArn",
-            "lastModified",
-            "layers",
-            "memorySize",
-            "qualifiedArn",
-            "qualifiedInvokeArn",
-            "reservedConcurrentExecutions",
-            "role",
-            "runtime",
-            "signingJobArn",
-            "signingProfileVersionArn",
-            "sourceCodeHash",
-            "sourceCodeSize",
-            "tags",
-            "timeout",
-            "tracingConfig",
-            "version",
-            "vpcConfig",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

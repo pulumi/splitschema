@@ -1,28 +1,28 @@
 {
-    "properties": {
-        "failureValues": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "failureValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Values in the response header with the specified name that indicate a failed login attempt.\n"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "The identifier for the value to match against in the JSON.\n"
+                },
+                "successValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Values in the response header with the specified name that indicate a successful login attempt.\n"
+                }
             },
-            "description": "Values in the response header with the specified name that indicate a failed login attempt.\n"
-        },
-        "identifier": {
-            "type": "string",
-            "description": "The identifier for the value to match against in the JSON.\n"
-        },
-        "successValues": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Values in the response header with the specified name that indicate a successful login attempt.\n"
+            "type": "object",
+            "required": [
+                "failureValues",
+                "identifier",
+                "successValues"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "failureValues",
-        "identifier",
-        "successValues"
-    ]
-}

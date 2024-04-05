@@ -1,166 +1,166 @@
 {
-    "properties": {
-        "accountId": {
-            "type": "string",
-            "description": "Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.\n"
-        },
-        "callAs": {
-            "type": "string",
-            "description": "Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.\n"
-        },
-        "deploymentTargets": {
-            "$ref": "#/types/aws:cloudformation/StackSetInstanceDeploymentTargets:StackSetInstanceDeploymentTargets",
-            "description": "The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.\n"
-        },
-        "operationPreferences": {
-            "$ref": "#/types/aws:cloudformation/StackSetInstanceOperationPreferences:StackSetInstanceOperationPreferences",
-            "description": "Preferences for how AWS CloudFormation performs a stack set operation.\n"
-        },
-        "organizationalUnitId": {
-            "type": "string",
-            "description": "Organizational unit ID in which the stack is deployed.\n"
-        },
-        "parameterOverrides": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of input parameters to override from the StackSet for this Instance.\n"
-        },
-        "region": {
-            "type": "string",
-            "description": "Target AWS Region to create a Stack based on the StackSet. Defaults to current region.\n"
-        },
-        "retainStack": {
-            "type": "boolean",
-            "description": "During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.\n"
-        },
-        "stackId": {
-            "type": "string",
-            "description": "Stack identifier.\n"
-        },
-        "stackInstanceSummaries": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:cloudformation/StackSetInstanceStackInstanceSummary:StackSetInstanceStackInstanceSummary"
-            },
-            "description": "List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.\n"
-        },
-        "stackSetName": {
-            "type": "string",
-            "description": "Name of the StackSet.\n"
-        }
-    },
-    "required": [
-        "accountId",
-        "organizationalUnitId",
-        "region",
-        "stackId",
-        "stackInstanceSummaries",
-        "stackSetName"
-    ],
-    "inputProperties": {
-        "accountId": {
-            "type": "string",
-            "description": "Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.\n",
-            "willReplaceOnChanges": true
-        },
-        "callAs": {
-            "type": "string",
-            "description": "Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.\n"
-        },
-        "deploymentTargets": {
-            "$ref": "#/types/aws:cloudformation/StackSetInstanceDeploymentTargets:StackSetInstanceDeploymentTargets",
-            "description": "The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.\n",
-            "willReplaceOnChanges": true
-        },
-        "operationPreferences": {
-            "$ref": "#/types/aws:cloudformation/StackSetInstanceOperationPreferences:StackSetInstanceOperationPreferences",
-            "description": "Preferences for how AWS CloudFormation performs a stack set operation.\n"
-        },
-        "parameterOverrides": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of input parameters to override from the StackSet for this Instance.\n"
-        },
-        "region": {
-            "type": "string",
-            "description": "Target AWS Region to create a Stack based on the StackSet. Defaults to current region.\n",
-            "willReplaceOnChanges": true
-        },
-        "retainStack": {
-            "type": "boolean",
-            "description": "During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.\n"
-        },
-        "stackSetName": {
-            "type": "string",
-            "description": "Name of the StackSet.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "stackSetName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering StackSetInstance resources.\n",
-        "properties": {
-            "accountId": {
-                "type": "string",
-                "description": "Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.\n",
-                "willReplaceOnChanges": true
-            },
-            "callAs": {
-                "type": "string",
-                "description": "Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.\n"
-            },
-            "deploymentTargets": {
-                "$ref": "#/types/aws:cloudformation/StackSetInstanceDeploymentTargets:StackSetInstanceDeploymentTargets",
-                "description": "The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.\n",
-                "willReplaceOnChanges": true
-            },
-            "operationPreferences": {
-                "$ref": "#/types/aws:cloudformation/StackSetInstanceOperationPreferences:StackSetInstanceOperationPreferences",
-                "description": "Preferences for how AWS CloudFormation performs a stack set operation.\n"
-            },
-            "organizationalUnitId": {
-                "type": "string",
-                "description": "Organizational unit ID in which the stack is deployed.\n"
-            },
-            "parameterOverrides": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.\n"
                 },
-                "description": "Key-value map of input parameters to override from the StackSet for this Instance.\n"
-            },
-            "region": {
-                "type": "string",
-                "description": "Target AWS Region to create a Stack based on the StackSet. Defaults to current region.\n",
-                "willReplaceOnChanges": true
-            },
-            "retainStack": {
-                "type": "boolean",
-                "description": "During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.\n"
-            },
-            "stackId": {
-                "type": "string",
-                "description": "Stack identifier.\n"
-            },
-            "stackInstanceSummaries": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:cloudformation/StackSetInstanceStackInstanceSummary:StackSetInstanceStackInstanceSummary"
+                "callAs": {
+                    "type": "string",
+                    "description": "Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.\n"
                 },
-                "description": "List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.\n"
+                "deploymentTargets": {
+                    "$ref": "#/types/aws:cloudformation/StackSetInstanceDeploymentTargets:StackSetInstanceDeploymentTargets",
+                    "description": "The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.\n"
+                },
+                "operationPreferences": {
+                    "$ref": "#/types/aws:cloudformation/StackSetInstanceOperationPreferences:StackSetInstanceOperationPreferences",
+                    "description": "Preferences for how AWS CloudFormation performs a stack set operation.\n"
+                },
+                "organizationalUnitId": {
+                    "type": "string",
+                    "description": "Organizational unit ID in which the stack is deployed.\n"
+                },
+                "parameterOverrides": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of input parameters to override from the StackSet for this Instance.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "Target AWS Region to create a Stack based on the StackSet. Defaults to current region.\n"
+                },
+                "retainStack": {
+                    "type": "boolean",
+                    "description": "During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.\n"
+                },
+                "stackId": {
+                    "type": "string",
+                    "description": "Stack identifier.\n"
+                },
+                "stackInstanceSummaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:cloudformation/StackSetInstanceStackInstanceSummary:StackSetInstanceStackInstanceSummary"
+                    },
+                    "description": "List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.\n"
+                },
+                "stackSetName": {
+                    "type": "string",
+                    "description": "Name of the StackSet.\n"
+                }
             },
-            "stackSetName": {
-                "type": "string",
-                "description": "Name of the StackSet.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "accountId",
+                "organizationalUnitId",
+                "region",
+                "stackId",
+                "stackInstanceSummaries",
+                "stackSetName"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.\n",
+                    "willReplaceOnChanges": true
+                },
+                "callAs": {
+                    "type": "string",
+                    "description": "Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.\n"
+                },
+                "deploymentTargets": {
+                    "$ref": "#/types/aws:cloudformation/StackSetInstanceDeploymentTargets:StackSetInstanceDeploymentTargets",
+                    "description": "The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "operationPreferences": {
+                    "$ref": "#/types/aws:cloudformation/StackSetInstanceOperationPreferences:StackSetInstanceOperationPreferences",
+                    "description": "Preferences for how AWS CloudFormation performs a stack set operation.\n"
+                },
+                "parameterOverrides": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of input parameters to override from the StackSet for this Instance.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "Target AWS Region to create a Stack based on the StackSet. Defaults to current region.\n",
+                    "willReplaceOnChanges": true
+                },
+                "retainStack": {
+                    "type": "boolean",
+                    "description": "During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.\n"
+                },
+                "stackSetName": {
+                    "type": "string",
+                    "description": "Name of the StackSet.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "stackSetName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering StackSetInstance resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "callAs": {
+                        "type": "string",
+                        "description": "Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.\n"
+                    },
+                    "deploymentTargets": {
+                        "$ref": "#/types/aws:cloudformation/StackSetInstanceDeploymentTargets:StackSetInstanceDeploymentTargets",
+                        "description": "The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "operationPreferences": {
+                        "$ref": "#/types/aws:cloudformation/StackSetInstanceOperationPreferences:StackSetInstanceOperationPreferences",
+                        "description": "Preferences for how AWS CloudFormation performs a stack set operation.\n"
+                    },
+                    "organizationalUnitId": {
+                        "type": "string",
+                        "description": "Organizational unit ID in which the stack is deployed.\n"
+                    },
+                    "parameterOverrides": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of input parameters to override from the StackSet for this Instance.\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Target AWS Region to create a Stack based on the StackSet. Defaults to current region.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "retainStack": {
+                        "type": "boolean",
+                        "description": "During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.\n"
+                    },
+                    "stackId": {
+                        "type": "string",
+                        "description": "Stack identifier.\n"
+                    },
+                    "stackInstanceSummaries": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:cloudformation/StackSetInstanceStackInstanceSummary:StackSetInstanceStackInstanceSummary"
+                        },
+                        "description": "List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.\n"
+                    },
+                    "stackSetName": {
+                        "type": "string",
+                        "description": "Name of the StackSet.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

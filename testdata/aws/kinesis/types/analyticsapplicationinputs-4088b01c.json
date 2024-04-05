@@ -1,62 +1,62 @@
 {
-    "properties": {
-        "id": {
-            "type": "string",
-            "description": "The ARN of the Kinesis Analytics Application.\n"
-        },
-        "kinesisFirehose": {
-            "$ref": "#/types/aws:kinesis/AnalyticsApplicationInputsKinesisFirehose:AnalyticsApplicationInputsKinesisFirehose",
-            "description": "The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.\nSee Kinesis Firehose below for more details.\n"
-        },
-        "kinesisStream": {
-            "$ref": "#/types/aws:kinesis/AnalyticsApplicationInputsKinesisStream:AnalyticsApplicationInputsKinesisStream",
-            "description": "The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.\nSee Kinesis Stream below for more details.\n"
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "The Name Prefix to use when creating an in-application stream.\n"
-        },
-        "parallelism": {
-            "$ref": "#/types/aws:kinesis/AnalyticsApplicationInputsParallelism:AnalyticsApplicationInputsParallelism",
-            "description": "The number of Parallel in-application streams to create.\nSee Parallelism below for more details.\n"
-        },
-        "processingConfiguration": {
-            "$ref": "#/types/aws:kinesis/AnalyticsApplicationInputsProcessingConfiguration:AnalyticsApplicationInputsProcessingConfiguration",
-            "description": "The Processing Configuration to transform records as they are received from the stream.\nSee Processing Configuration below for more details.\n"
-        },
-        "schema": {
-            "$ref": "#/types/aws:kinesis/AnalyticsApplicationInputsSchema:AnalyticsApplicationInputsSchema",
-            "description": "The Schema format of the data in the streaming source. See Source Schema below for more details.\n"
-        },
-        "startingPositionConfigurations": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:kinesis/AnalyticsApplicationInputsStartingPositionConfiguration:AnalyticsApplicationInputsStartingPositionConfiguration"
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ARN of the Kinesis Analytics Application.\n"
+                },
+                "kinesisFirehose": {
+                    "$ref": "#/types/aws:kinesis/AnalyticsApplicationInputsKinesisFirehose:AnalyticsApplicationInputsKinesisFirehose",
+                    "description": "The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.\nSee Kinesis Firehose below for more details.\n"
+                },
+                "kinesisStream": {
+                    "$ref": "#/types/aws:kinesis/AnalyticsApplicationInputsKinesisStream:AnalyticsApplicationInputsKinesisStream",
+                    "description": "The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.\nSee Kinesis Stream below for more details.\n"
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "The Name Prefix to use when creating an in-application stream.\n"
+                },
+                "parallelism": {
+                    "$ref": "#/types/aws:kinesis/AnalyticsApplicationInputsParallelism:AnalyticsApplicationInputsParallelism",
+                    "description": "The number of Parallel in-application streams to create.\nSee Parallelism below for more details.\n"
+                },
+                "processingConfiguration": {
+                    "$ref": "#/types/aws:kinesis/AnalyticsApplicationInputsProcessingConfiguration:AnalyticsApplicationInputsProcessingConfiguration",
+                    "description": "The Processing Configuration to transform records as they are received from the stream.\nSee Processing Configuration below for more details.\n"
+                },
+                "schema": {
+                    "$ref": "#/types/aws:kinesis/AnalyticsApplicationInputsSchema:AnalyticsApplicationInputsSchema",
+                    "description": "The Schema format of the data in the streaming source. See Source Schema below for more details.\n"
+                },
+                "startingPositionConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:kinesis/AnalyticsApplicationInputsStartingPositionConfiguration:AnalyticsApplicationInputsStartingPositionConfiguration"
+                    },
+                    "description": "The point at which the application starts processing records from the streaming source.\nSee Starting Position Configuration below for more details.\n"
+                },
+                "streamNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
             },
-            "description": "The point at which the application starts processing records from the streaming source.\nSee Starting Position Configuration below for more details.\n"
-        },
-        "streamNames": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "type": "object",
+            "required": [
+                "namePrefix",
+                "schema"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "namePrefix",
+                        "parallelism",
+                        "schema",
+                        "startingPositionConfigurations",
+                        "streamNames"
+                    ]
+                }
             }
         }
-    },
-    "type": "object",
-    "required": [
-        "namePrefix",
-        "schema"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "id",
-                "namePrefix",
-                "parallelism",
-                "schema",
-                "startingPositionConfigurations",
-                "streamNames"
-            ]
-        }
-    }
-}

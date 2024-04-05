@@ -1,25 +1,25 @@
 {
-    "properties": {
-        "egressConfiguration": {
-            "$ref": "#/types/aws:apprunner/ServiceNetworkConfigurationEgressConfiguration:ServiceNetworkConfigurationEgressConfiguration",
-            "description": "Network configuration settings for outbound message traffic. See Egress Configuration below for more details.\n"
-        },
-        "ingressConfiguration": {
-            "$ref": "#/types/aws:apprunner/ServiceNetworkConfigurationIngressConfiguration:ServiceNetworkConfigurationIngressConfiguration",
-            "description": "Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.\n"
-        },
-        "ipAddressType": {
-            "type": "string",
-            "description": "App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.\n"
+            "properties": {
+                "egressConfiguration": {
+                    "$ref": "#/types/aws:apprunner/ServiceNetworkConfigurationEgressConfiguration:ServiceNetworkConfigurationEgressConfiguration",
+                    "description": "Network configuration settings for outbound message traffic. See Egress Configuration below for more details.\n"
+                },
+                "ingressConfiguration": {
+                    "$ref": "#/types/aws:apprunner/ServiceNetworkConfigurationIngressConfiguration:ServiceNetworkConfigurationIngressConfiguration",
+                    "description": "Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.\n"
+                },
+                "ipAddressType": {
+                    "type": "string",
+                    "description": "App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "egressConfiguration",
+                        "ingressConfiguration"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "egressConfiguration",
-                "ingressConfiguration"
-            ]
-        }
-    }
-}

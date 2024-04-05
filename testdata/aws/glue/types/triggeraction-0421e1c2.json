@@ -1,32 +1,32 @@
 {
-    "properties": {
-        "arguments": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
+            "properties": {
+                "arguments": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.\n"
+                },
+                "crawlerName": {
+                    "type": "string",
+                    "description": "The name of the crawler to be executed. Conflicts with `job_name`.\n"
+                },
+                "jobName": {
+                    "type": "string",
+                    "description": "The name of a job to be executed. Conflicts with `crawler_name`.\n"
+                },
+                "notificationProperty": {
+                    "$ref": "#/types/aws:glue/TriggerActionNotificationProperty:TriggerActionNotificationProperty",
+                    "description": "Specifies configuration properties of a job run notification. See Notification Property details below.\n"
+                },
+                "securityConfiguration": {
+                    "type": "string",
+                    "description": "The name of the Security Configuration structure to be used with this action.\n"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "The job run timeout in minutes. It overrides the timeout value of the job.\n"
+                }
             },
-            "description": "Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.\n"
-        },
-        "crawlerName": {
-            "type": "string",
-            "description": "The name of the crawler to be executed. Conflicts with `job_name`.\n"
-        },
-        "jobName": {
-            "type": "string",
-            "description": "The name of a job to be executed. Conflicts with `crawler_name`.\n"
-        },
-        "notificationProperty": {
-            "$ref": "#/types/aws:glue/TriggerActionNotificationProperty:TriggerActionNotificationProperty",
-            "description": "Specifies configuration properties of a job run notification. See Notification Property details below.\n"
-        },
-        "securityConfiguration": {
-            "type": "string",
-            "description": "The name of the Security Configuration structure to be used with this action.\n"
-        },
-        "timeout": {
-            "type": "integer",
-            "description": "The job run timeout in minutes. It overrides the timeout value of the job.\n"
+            "type": "object"
         }
-    },
-    "type": "object"
-}

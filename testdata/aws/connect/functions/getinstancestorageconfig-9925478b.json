@@ -1,58 +1,58 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getInstanceStorageConfig.\n",
-        "properties": {
-            "associationId": {
-                "type": "string",
-                "description": "The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.\n"
-            },
-            "instanceId": {
-                "type": "string",
-                "description": "Reference to the hosting Amazon Connect Instance\n"
-            },
-            "resourceType": {
-                "type": "string",
-                "description": "A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "associationId",
-            "instanceId",
-            "resourceType"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getInstanceStorageConfig.\n",
-        "properties": {
-            "associationId": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "instanceId": {
-                "type": "string"
-            },
-            "resourceType": {
-                "type": "string"
-            },
-            "storageConfigs": {
-                "description": "Specifies the storage configuration options for the Connect Instance. Documented below.\n",
-                "items": {
-                    "$ref": "#/types/aws:connect/getInstanceStorageConfigStorageConfig:getInstanceStorageConfigStorageConfig"
+            "inputs": {
+                "description": "A collection of arguments for invoking getInstanceStorageConfig.\n",
+                "properties": {
+                    "associationId": {
+                        "type": "string",
+                        "description": "The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.\n"
+                    },
+                    "instanceId": {
+                        "type": "string",
+                        "description": "Reference to the hosting Amazon Connect Instance\n"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object",
+                "required": [
+                    "associationId",
+                    "instanceId",
+                    "resourceType"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getInstanceStorageConfig.\n",
+                "properties": {
+                    "associationId": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "type": "string"
+                    },
+                    "resourceType": {
+                        "type": "string"
+                    },
+                    "storageConfigs": {
+                        "description": "Specifies the storage configuration options for the Connect Instance. Documented below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:connect/getInstanceStorageConfigStorageConfig:getInstanceStorageConfigStorageConfig"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "associationId",
+                    "instanceId",
+                    "resourceType",
+                    "storageConfigs",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "associationId",
-            "instanceId",
-            "resourceType",
-            "storageConfigs",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

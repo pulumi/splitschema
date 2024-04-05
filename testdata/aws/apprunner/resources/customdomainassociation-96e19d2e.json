@@ -1,95 +1,95 @@
 {
-    "properties": {
-        "certificateValidationRecords": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:apprunner/CustomDomainAssociationCertificateValidationRecord:CustomDomainAssociationCertificateValidationRecord"
-            },
-            "description": "A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.\n"
-        },
-        "dnsTarget": {
-            "type": "string",
-            "description": "App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.\n"
-        },
-        "domainName": {
-            "type": "string",
-            "description": "Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.\n"
-        },
-        "enableWwwSubdomain": {
-            "type": "boolean",
-            "description": "Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.\n"
-        },
-        "serviceArn": {
-            "type": "string",
-            "description": "ARN of the App Runner service.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.\n"
-        }
-    },
-    "required": [
-        "certificateValidationRecords",
-        "dnsTarget",
-        "domainName",
-        "serviceArn",
-        "status"
-    ],
-    "inputProperties": {
-        "domainName": {
-            "type": "string",
-            "description": "Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.\n",
-            "willReplaceOnChanges": true
-        },
-        "enableWwwSubdomain": {
-            "type": "boolean",
-            "description": "Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.\n",
-            "willReplaceOnChanges": true
-        },
-        "serviceArn": {
-            "type": "string",
-            "description": "ARN of the App Runner service.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "domainName",
-        "serviceArn"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering CustomDomainAssociation resources.\n",
-        "properties": {
-            "certificateValidationRecords": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:apprunner/CustomDomainAssociationCertificateValidationRecord:CustomDomainAssociationCertificateValidationRecord"
+            "properties": {
+                "certificateValidationRecords": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:apprunner/CustomDomainAssociationCertificateValidationRecord:CustomDomainAssociationCertificateValidationRecord"
+                    },
+                    "description": "A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.\n"
                 },
-                "description": "A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.\n"
+                "dnsTarget": {
+                    "type": "string",
+                    "description": "App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.\n"
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.\n"
+                },
+                "enableWwwSubdomain": {
+                    "type": "boolean",
+                    "description": "Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.\n"
+                },
+                "serviceArn": {
+                    "type": "string",
+                    "description": "ARN of the App Runner service.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.\n"
+                }
             },
-            "dnsTarget": {
-                "type": "string",
-                "description": "App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.\n"
+            "required": [
+                "certificateValidationRecords",
+                "dnsTarget",
+                "domainName",
+                "serviceArn",
+                "status"
+            ],
+            "inputProperties": {
+                "domainName": {
+                    "type": "string",
+                    "description": "Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "enableWwwSubdomain": {
+                    "type": "boolean",
+                    "description": "Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "serviceArn": {
+                    "type": "string",
+                    "description": "ARN of the App Runner service.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "domainName": {
-                "type": "string",
-                "description": "Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.\n",
-                "willReplaceOnChanges": true
-            },
-            "enableWwwSubdomain": {
-                "type": "boolean",
-                "description": "Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.\n",
-                "willReplaceOnChanges": true
-            },
-            "serviceArn": {
-                "type": "string",
-                "description": "ARN of the App Runner service.\n",
-                "willReplaceOnChanges": true
-            },
-            "status": {
-                "type": "string",
-                "description": "Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.\n"
+            "requiredInputs": [
+                "domainName",
+                "serviceArn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CustomDomainAssociation resources.\n",
+                "properties": {
+                    "certificateValidationRecords": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:apprunner/CustomDomainAssociationCertificateValidationRecord:CustomDomainAssociationCertificateValidationRecord"
+                        },
+                        "description": "A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.\n"
+                    },
+                    "dnsTarget": {
+                        "type": "string",
+                        "description": "App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.\n"
+                    },
+                    "domainName": {
+                        "type": "string",
+                        "description": "Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "enableWwwSubdomain": {
+                        "type": "boolean",
+                        "description": "Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "serviceArn": {
+                        "type": "string",
+                        "description": "ARN of the App Runner service.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

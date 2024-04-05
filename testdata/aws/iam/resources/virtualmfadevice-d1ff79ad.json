@@ -1,131 +1,131 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) specifying the virtual mfa device.\n"
-        },
-        "base32StringSeed": {
-            "type": "string",
-            "description": "The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.\n"
-        },
-        "enableDate": {
-            "type": "string",
-            "description": "The date and time when the virtual MFA device was enabled.\n"
-        },
-        "path": {
-            "type": "string",
-            "description": "The path for the virtual MFA device.\n"
-        },
-        "qrCodePng": {
-            "type": "string",
-            "description": "A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "userName": {
-            "type": "string",
-            "description": "The associated IAM User name if the virtual MFA device is enabled.\n"
-        },
-        "virtualMfaDeviceName": {
-            "type": "string",
-            "description": "The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "base32StringSeed",
-        "enableDate",
-        "qrCodePng",
-        "tagsAll",
-        "userName",
-        "virtualMfaDeviceName"
-    ],
-    "inputProperties": {
-        "path": {
-            "type": "string",
-            "description": "The path for the virtual MFA device.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "virtualMfaDeviceName": {
-            "type": "string",
-            "description": "The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "virtualMfaDeviceName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering VirtualMfaDevice resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) specifying the virtual mfa device.\n"
-            },
-            "base32StringSeed": {
-                "type": "string",
-                "description": "The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.\n"
-            },
-            "enableDate": {
-                "type": "string",
-                "description": "The date and time when the virtual MFA device was enabled.\n"
-            },
-            "path": {
-                "type": "string",
-                "description": "The path for the virtual MFA device.\n",
-                "willReplaceOnChanges": true
-            },
-            "qrCodePng": {
-                "type": "string",
-                "description": "A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) specifying the virtual mfa device.\n"
                 },
-                "description": "Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "base32StringSeed": {
+                    "type": "string",
+                    "description": "The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "enableDate": {
+                    "type": "string",
+                    "description": "The date and time when the virtual MFA device was enabled.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The path for the virtual MFA device.\n"
+                },
+                "qrCodePng": {
+                    "type": "string",
+                    "description": "A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "The associated IAM User name if the virtual MFA device is enabled.\n"
+                },
+                "virtualMfaDeviceName": {
+                    "type": "string",
+                    "description": "The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.\n"
+                }
             },
-            "userName": {
-                "type": "string",
-                "description": "The associated IAM User name if the virtual MFA device is enabled.\n"
+            "required": [
+                "arn",
+                "base32StringSeed",
+                "enableDate",
+                "qrCodePng",
+                "tagsAll",
+                "userName",
+                "virtualMfaDeviceName"
+            ],
+            "inputProperties": {
+                "path": {
+                    "type": "string",
+                    "description": "The path for the virtual MFA device.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "virtualMfaDeviceName": {
+                    "type": "string",
+                    "description": "The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "virtualMfaDeviceName": {
-                "type": "string",
-                "description": "The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "virtualMfaDeviceName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering VirtualMfaDevice resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) specifying the virtual mfa device.\n"
+                    },
+                    "base32StringSeed": {
+                        "type": "string",
+                        "description": "The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.\n"
+                    },
+                    "enableDate": {
+                        "type": "string",
+                        "description": "The date and time when the virtual MFA device was enabled.\n"
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "The path for the virtual MFA device.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "qrCodePng": {
+                        "type": "string",
+                        "description": "A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "userName": {
+                        "type": "string",
+                        "description": "The associated IAM User name if the virtual MFA device is enabled.\n"
+                    },
+                    "virtualMfaDeviceName": {
+                        "type": "string",
+                        "description": "The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

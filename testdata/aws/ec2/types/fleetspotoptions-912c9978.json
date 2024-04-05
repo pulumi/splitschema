@@ -1,24 +1,24 @@
 {
-    "properties": {
-        "allocationStrategy": {
-            "type": "string",
-            "description": "How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.\n",
-            "willReplaceOnChanges": true
-        },
-        "instanceInterruptionBehavior": {
-            "type": "string",
-            "description": "Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.\n",
-            "willReplaceOnChanges": true
-        },
-        "instancePoolsToUseCount": {
-            "type": "integer",
-            "description": "Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.\n",
-            "willReplaceOnChanges": true
-        },
-        "maintenanceStrategies": {
-            "$ref": "#/types/aws:ec2/FleetSpotOptionsMaintenanceStrategies:FleetSpotOptionsMaintenanceStrategies",
-            "description": "Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.\n"
+            "properties": {
+                "allocationStrategy": {
+                    "type": "string",
+                    "description": "How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "instanceInterruptionBehavior": {
+                    "type": "string",
+                    "description": "Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "instancePoolsToUseCount": {
+                    "type": "integer",
+                    "description": "Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "maintenanceStrategies": {
+                    "$ref": "#/types/aws:ec2/FleetSpotOptionsMaintenanceStrategies:FleetSpotOptionsMaintenanceStrategies",
+                    "description": "Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.\n"
+                }
+            },
+            "type": "object"
         }
-    },
-    "type": "object"
-}

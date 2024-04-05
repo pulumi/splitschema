@@ -1,378 +1,378 @@
 {
-    "properties": {
-        "amiType": {
-            "type": "string",
-            "description": "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the EKS Node Group.\n"
-        },
-        "capacityType": {
-            "type": "string",
-            "description": "Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.\n"
-        },
-        "clusterName": {
-            "type": "string",
-            "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n"
-        },
-        "diskSize": {
-            "type": "integer",
-            "description": "Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.\n"
-        },
-        "forceUpdateVersion": {
-            "type": "boolean",
-            "description": "Force version update if existing pods are unable to be drained due to a pod disruption budget issue.\n"
-        },
-        "instanceTypes": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of instance types associated with the EKS Node Group. Defaults to `[\"t3.medium\"]`. The provider will only perform drift detection if a configuration value is provided.\n"
-        },
-        "labels": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.\n"
-        },
-        "launchTemplate": {
-            "$ref": "#/types/aws:eks/NodeGroupLaunchTemplate:NodeGroupLaunchTemplate",
-            "description": "Configuration block with Launch Template settings. See `launch_template` below for details.\n"
-        },
-        "nodeGroupName": {
-            "type": "string",
-            "description": "Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.\n"
-        },
-        "nodeGroupNamePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.\n"
-        },
-        "nodeRoleArn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.\n"
-        },
-        "releaseVersion": {
-            "type": "string",
-            "description": "AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.\n"
-        },
-        "remoteAccess": {
-            "$ref": "#/types/aws:eks/NodeGroupRemoteAccess:NodeGroupRemoteAccess",
-            "description": "Configuration block with remote access settings. See `remote_access` below for details.\n"
-        },
-        "resources": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:eks/NodeGroupResource:NodeGroupResource"
-            },
-            "description": "List of objects containing information about underlying resources.\n"
-        },
-        "scalingConfig": {
-            "$ref": "#/types/aws:eks/NodeGroupScalingConfig:NodeGroupScalingConfig",
-            "description": "Configuration block with scaling settings. See `scaling_config` below for details.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "Status of the EKS Node Group.\n"
-        },
-        "subnetIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Identifiers of EC2 Subnets to associate with the EKS Node Group.\n\nThe following arguments are optional:\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "taints": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:eks/NodeGroupTaint:NodeGroupTaint"
-            },
-            "description": "The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.\n"
-        },
-        "updateConfig": {
-            "$ref": "#/types/aws:eks/NodeGroupUpdateConfig:NodeGroupUpdateConfig",
-            "description": "Configuration block with update settings. See `update_config` below for details.\n"
-        },
-        "version": {
-            "type": "string",
-            "description": "Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.\n"
-        }
-    },
-    "required": [
-        "amiType",
-        "arn",
-        "capacityType",
-        "clusterName",
-        "diskSize",
-        "instanceTypes",
-        "nodeGroupName",
-        "nodeGroupNamePrefix",
-        "nodeRoleArn",
-        "releaseVersion",
-        "resources",
-        "scalingConfig",
-        "status",
-        "subnetIds",
-        "tagsAll",
-        "updateConfig",
-        "version"
-    ],
-    "inputProperties": {
-        "amiType": {
-            "type": "string",
-            "description": "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.\n",
-            "willReplaceOnChanges": true
-        },
-        "capacityType": {
-            "type": "string",
-            "description": "Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.\n",
-            "willReplaceOnChanges": true
-        },
-        "clusterName": {
-            "type": "string",
-            "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n",
-            "willReplaceOnChanges": true
-        },
-        "diskSize": {
-            "type": "integer",
-            "description": "Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.\n",
-            "willReplaceOnChanges": true
-        },
-        "forceUpdateVersion": {
-            "type": "boolean",
-            "description": "Force version update if existing pods are unable to be drained due to a pod disruption budget issue.\n"
-        },
-        "instanceTypes": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of instance types associated with the EKS Node Group. Defaults to `[\"t3.medium\"]`. The provider will only perform drift detection if a configuration value is provided.\n",
-            "willReplaceOnChanges": true
-        },
-        "labels": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.\n"
-        },
-        "launchTemplate": {
-            "$ref": "#/types/aws:eks/NodeGroupLaunchTemplate:NodeGroupLaunchTemplate",
-            "description": "Configuration block with Launch Template settings. See `launch_template` below for details.\n"
-        },
-        "nodeGroupName": {
-            "type": "string",
-            "description": "Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.\n",
-            "willReplaceOnChanges": true
-        },
-        "nodeGroupNamePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.\n",
-            "willReplaceOnChanges": true
-        },
-        "nodeRoleArn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.\n",
-            "willReplaceOnChanges": true
-        },
-        "releaseVersion": {
-            "type": "string",
-            "description": "AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.\n"
-        },
-        "remoteAccess": {
-            "$ref": "#/types/aws:eks/NodeGroupRemoteAccess:NodeGroupRemoteAccess",
-            "description": "Configuration block with remote access settings. See `remote_access` below for details.\n",
-            "willReplaceOnChanges": true
-        },
-        "scalingConfig": {
-            "$ref": "#/types/aws:eks/NodeGroupScalingConfig:NodeGroupScalingConfig",
-            "description": "Configuration block with scaling settings. See `scaling_config` below for details.\n"
-        },
-        "subnetIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Identifiers of EC2 Subnets to associate with the EKS Node Group.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "taints": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:eks/NodeGroupTaint:NodeGroupTaint"
-            },
-            "description": "The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.\n"
-        },
-        "updateConfig": {
-            "$ref": "#/types/aws:eks/NodeGroupUpdateConfig:NodeGroupUpdateConfig",
-            "description": "Configuration block with update settings. See `update_config` below for details.\n"
-        },
-        "version": {
-            "type": "string",
-            "description": "Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.\n"
-        }
-    },
-    "requiredInputs": [
-        "clusterName",
-        "nodeRoleArn",
-        "scalingConfig",
-        "subnetIds"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering NodeGroup resources.\n",
-        "properties": {
-            "amiType": {
-                "type": "string",
-                "description": "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.\n",
-                "willReplaceOnChanges": true
-            },
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the EKS Node Group.\n"
-            },
-            "capacityType": {
-                "type": "string",
-                "description": "Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.\n",
-                "willReplaceOnChanges": true
-            },
-            "clusterName": {
-                "type": "string",
-                "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n",
-                "willReplaceOnChanges": true
-            },
-            "diskSize": {
-                "type": "integer",
-                "description": "Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.\n",
-                "willReplaceOnChanges": true
-            },
-            "forceUpdateVersion": {
-                "type": "boolean",
-                "description": "Force version update if existing pods are unable to be drained due to a pod disruption budget issue.\n"
-            },
-            "instanceTypes": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "amiType": {
+                    "type": "string",
+                    "description": "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.\n"
                 },
-                "description": "List of instance types associated with the EKS Node Group. Defaults to `[\"t3.medium\"]`. The provider will only perform drift detection if a configuration value is provided.\n",
-                "willReplaceOnChanges": true
-            },
-            "labels": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the EKS Node Group.\n"
                 },
-                "description": "Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.\n"
-            },
-            "launchTemplate": {
-                "$ref": "#/types/aws:eks/NodeGroupLaunchTemplate:NodeGroupLaunchTemplate",
-                "description": "Configuration block with Launch Template settings. See `launch_template` below for details.\n"
-            },
-            "nodeGroupName": {
-                "type": "string",
-                "description": "Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.\n",
-                "willReplaceOnChanges": true
-            },
-            "nodeGroupNamePrefix": {
-                "type": "string",
-                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.\n",
-                "willReplaceOnChanges": true
-            },
-            "nodeRoleArn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.\n",
-                "willReplaceOnChanges": true
-            },
-            "releaseVersion": {
-                "type": "string",
-                "description": "AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.\n"
-            },
-            "remoteAccess": {
-                "$ref": "#/types/aws:eks/NodeGroupRemoteAccess:NodeGroupRemoteAccess",
-                "description": "Configuration block with remote access settings. See `remote_access` below for details.\n",
-                "willReplaceOnChanges": true
-            },
-            "resources": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:eks/NodeGroupResource:NodeGroupResource"
+                "capacityType": {
+                    "type": "string",
+                    "description": "Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.\n"
                 },
-                "description": "List of objects containing information about underlying resources.\n"
-            },
-            "scalingConfig": {
-                "$ref": "#/types/aws:eks/NodeGroupScalingConfig:NodeGroupScalingConfig",
-                "description": "Configuration block with scaling settings. See `scaling_config` below for details.\n"
-            },
-            "status": {
-                "type": "string",
-                "description": "Status of the EKS Node Group.\n"
-            },
-            "subnetIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "clusterName": {
+                    "type": "string",
+                    "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n"
                 },
-                "description": "Identifiers of EC2 Subnets to associate with the EKS Node Group.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "diskSize": {
+                    "type": "integer",
+                    "description": "Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.\n"
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "forceUpdateVersion": {
+                    "type": "boolean",
+                    "description": "Force version update if existing pods are unable to be drained due to a pod disruption budget issue.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
-            },
-            "taints": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:eks/NodeGroupTaint:NodeGroupTaint"
+                "instanceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of instance types associated with the EKS Node Group. Defaults to `[\"t3.medium\"]`. The provider will only perform drift detection if a configuration value is provided.\n"
                 },
-                "description": "The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.\n"
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.\n"
+                },
+                "launchTemplate": {
+                    "$ref": "#/types/aws:eks/NodeGroupLaunchTemplate:NodeGroupLaunchTemplate",
+                    "description": "Configuration block with Launch Template settings. See `launch_template` below for details.\n"
+                },
+                "nodeGroupName": {
+                    "type": "string",
+                    "description": "Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.\n"
+                },
+                "nodeGroupNamePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.\n"
+                },
+                "nodeRoleArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.\n"
+                },
+                "releaseVersion": {
+                    "type": "string",
+                    "description": "AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.\n"
+                },
+                "remoteAccess": {
+                    "$ref": "#/types/aws:eks/NodeGroupRemoteAccess:NodeGroupRemoteAccess",
+                    "description": "Configuration block with remote access settings. See `remote_access` below for details.\n"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:eks/NodeGroupResource:NodeGroupResource"
+                    },
+                    "description": "List of objects containing information about underlying resources.\n"
+                },
+                "scalingConfig": {
+                    "$ref": "#/types/aws:eks/NodeGroupScalingConfig:NodeGroupScalingConfig",
+                    "description": "Configuration block with scaling settings. See `scaling_config` below for details.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the EKS Node Group.\n"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Identifiers of EC2 Subnets to associate with the EKS Node Group.\n\nThe following arguments are optional:\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "taints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:eks/NodeGroupTaint:NodeGroupTaint"
+                    },
+                    "description": "The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.\n"
+                },
+                "updateConfig": {
+                    "$ref": "#/types/aws:eks/NodeGroupUpdateConfig:NodeGroupUpdateConfig",
+                    "description": "Configuration block with update settings. See `update_config` below for details.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.\n"
+                }
             },
-            "updateConfig": {
-                "$ref": "#/types/aws:eks/NodeGroupUpdateConfig:NodeGroupUpdateConfig",
-                "description": "Configuration block with update settings. See `update_config` below for details.\n"
+            "required": [
+                "amiType",
+                "arn",
+                "capacityType",
+                "clusterName",
+                "diskSize",
+                "instanceTypes",
+                "nodeGroupName",
+                "nodeGroupNamePrefix",
+                "nodeRoleArn",
+                "releaseVersion",
+                "resources",
+                "scalingConfig",
+                "status",
+                "subnetIds",
+                "tagsAll",
+                "updateConfig",
+                "version"
+            ],
+            "inputProperties": {
+                "amiType": {
+                    "type": "string",
+                    "description": "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.\n",
+                    "willReplaceOnChanges": true
+                },
+                "capacityType": {
+                    "type": "string",
+                    "description": "Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.\n",
+                    "willReplaceOnChanges": true
+                },
+                "clusterName": {
+                    "type": "string",
+                    "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "diskSize": {
+                    "type": "integer",
+                    "description": "Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.\n",
+                    "willReplaceOnChanges": true
+                },
+                "forceUpdateVersion": {
+                    "type": "boolean",
+                    "description": "Force version update if existing pods are unable to be drained due to a pod disruption budget issue.\n"
+                },
+                "instanceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of instance types associated with the EKS Node Group. Defaults to `[\"t3.medium\"]`. The provider will only perform drift detection if a configuration value is provided.\n",
+                    "willReplaceOnChanges": true
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.\n"
+                },
+                "launchTemplate": {
+                    "$ref": "#/types/aws:eks/NodeGroupLaunchTemplate:NodeGroupLaunchTemplate",
+                    "description": "Configuration block with Launch Template settings. See `launch_template` below for details.\n"
+                },
+                "nodeGroupName": {
+                    "type": "string",
+                    "description": "Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.\n",
+                    "willReplaceOnChanges": true
+                },
+                "nodeGroupNamePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "nodeRoleArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.\n",
+                    "willReplaceOnChanges": true
+                },
+                "releaseVersion": {
+                    "type": "string",
+                    "description": "AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.\n"
+                },
+                "remoteAccess": {
+                    "$ref": "#/types/aws:eks/NodeGroupRemoteAccess:NodeGroupRemoteAccess",
+                    "description": "Configuration block with remote access settings. See `remote_access` below for details.\n",
+                    "willReplaceOnChanges": true
+                },
+                "scalingConfig": {
+                    "$ref": "#/types/aws:eks/NodeGroupScalingConfig:NodeGroupScalingConfig",
+                    "description": "Configuration block with scaling settings. See `scaling_config` below for details.\n"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Identifiers of EC2 Subnets to associate with the EKS Node Group.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "taints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:eks/NodeGroupTaint:NodeGroupTaint"
+                    },
+                    "description": "The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.\n"
+                },
+                "updateConfig": {
+                    "$ref": "#/types/aws:eks/NodeGroupUpdateConfig:NodeGroupUpdateConfig",
+                    "description": "Configuration block with update settings. See `update_config` below for details.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.\n"
+                }
             },
-            "version": {
-                "type": "string",
-                "description": "Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.\n"
+            "requiredInputs": [
+                "clusterName",
+                "nodeRoleArn",
+                "scalingConfig",
+                "subnetIds"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NodeGroup resources.\n",
+                "properties": {
+                    "amiType": {
+                        "type": "string",
+                        "description": "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the EKS Node Group.\n"
+                    },
+                    "capacityType": {
+                        "type": "string",
+                        "description": "Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "clusterName": {
+                        "type": "string",
+                        "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "diskSize": {
+                        "type": "integer",
+                        "description": "Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "forceUpdateVersion": {
+                        "type": "boolean",
+                        "description": "Force version update if existing pods are unable to be drained due to a pod disruption budget issue.\n"
+                    },
+                    "instanceTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of instance types associated with the EKS Node Group. Defaults to `[\"t3.medium\"]`. The provider will only perform drift detection if a configuration value is provided.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.\n"
+                    },
+                    "launchTemplate": {
+                        "$ref": "#/types/aws:eks/NodeGroupLaunchTemplate:NodeGroupLaunchTemplate",
+                        "description": "Configuration block with Launch Template settings. See `launch_template` below for details.\n"
+                    },
+                    "nodeGroupName": {
+                        "type": "string",
+                        "description": "Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "nodeGroupNamePrefix": {
+                        "type": "string",
+                        "description": "Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "nodeRoleArn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "releaseVersion": {
+                        "type": "string",
+                        "description": "AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.\n"
+                    },
+                    "remoteAccess": {
+                        "$ref": "#/types/aws:eks/NodeGroupRemoteAccess:NodeGroupRemoteAccess",
+                        "description": "Configuration block with remote access settings. See `remote_access` below for details.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "resources": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:eks/NodeGroupResource:NodeGroupResource"
+                        },
+                        "description": "List of objects containing information about underlying resources.\n"
+                    },
+                    "scalingConfig": {
+                        "$ref": "#/types/aws:eks/NodeGroupScalingConfig:NodeGroupScalingConfig",
+                        "description": "Configuration block with scaling settings. See `scaling_config` below for details.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the EKS Node Group.\n"
+                    },
+                    "subnetIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Identifiers of EC2 Subnets to associate with the EKS Node Group.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "taints": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:eks/NodeGroupTaint:NodeGroupTaint"
+                        },
+                        "description": "The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.\n"
+                    },
+                    "updateConfig": {
+                        "$ref": "#/types/aws:eks/NodeGroupUpdateConfig:NodeGroupUpdateConfig",
+                        "description": "Configuration block with update settings. See `update_config` below for details.\n"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

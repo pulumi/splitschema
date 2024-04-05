@@ -1,605 +1,605 @@
 {
-    "properties": {
-        "agentVersion": {
-            "type": "string",
-            "description": "OpsWorks agent to install. Default is `INHERIT`.\n"
-        },
-        "amiId": {
-            "type": "string",
-            "description": "AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.\n"
-        },
-        "architecture": {
-            "type": "string",
-            "description": "Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.\n"
-        },
-        "autoScalingType": {
-            "type": "string",
-            "description": "Creates load-based or time-based instances.  Valid values are `load`, `timer`.\n"
-        },
-        "availabilityZone": {
-            "type": "string",
-            "description": "Name of the availability zone where instances will be created by default.\n"
-        },
-        "createdAt": {
-            "type": "string",
-            "description": "Time that the instance was created.\n"
-        },
-        "deleteEbs": {
-            "type": "boolean",
-            "description": "Whether to delete EBS volume on deletion. Default is `true`.\n"
-        },
-        "deleteEip": {
-            "type": "boolean",
-            "description": "Whether to delete the Elastic IP on deletion.\n"
-        },
-        "ebsBlockDevices": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:opsworks/InstanceEbsBlockDevice:InstanceEbsBlockDevice"
-            },
-            "description": "Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.\n"
-        },
-        "ebsOptimized": {
-            "type": "boolean",
-            "description": "Whether the launched EC2 instance will be EBS-optimized.\n"
-        },
-        "ec2InstanceId": {
-            "type": "string",
-            "description": "EC2 instance ID.\n"
-        },
-        "ecsClusterArn": {
-            "type": "string",
-            "description": "ECS cluster's ARN for container instances.\n"
-        },
-        "elasticIp": {
-            "type": "string",
-            "description": "Instance Elastic IP address.\n"
-        },
-        "ephemeralBlockDevices": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:opsworks/InstanceEphemeralBlockDevice:InstanceEphemeralBlockDevice"
-            },
-            "description": "Configuration block for ephemeral (also known as \"Instance Store\") volumes on the instance. See Block Devices below.\n"
-        },
-        "hostname": {
-            "type": "string",
-            "description": "Instance's host name.\n"
-        },
-        "infrastructureClass": {
-            "type": "string",
-            "description": "For registered instances, infrastructure class: ec2 or on-premises.\n"
-        },
-        "installUpdatesOnBoot": {
-            "type": "boolean",
-            "description": "Controls where to install OS and package updates when the instance boots.  Default is `true`.\n"
-        },
-        "instanceProfileArn": {
-            "type": "string",
-            "description": "ARN of the instance's IAM profile.\n"
-        },
-        "instanceType": {
-            "type": "string",
-            "description": "Type of instance to start.\n"
-        },
-        "lastServiceErrorId": {
-            "type": "string",
-            "description": "ID of the last service error.\n"
-        },
-        "layerIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of the layers the instance will belong to.\n"
-        },
-        "os": {
-            "type": "string",
-            "description": "Name of operating system that will be installed.\n"
-        },
-        "platform": {
-            "type": "string",
-            "description": "Instance's platform.\n"
-        },
-        "privateDns": {
-            "type": "string",
-            "description": "Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.\n"
-        },
-        "privateIp": {
-            "type": "string",
-            "description": "Private IP address assigned to the instance.\n"
-        },
-        "publicDns": {
-            "type": "string",
-            "description": "Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.\n"
-        },
-        "publicIp": {
-            "type": "string",
-            "description": "Public IP address assigned to the instance, if applicable.\n"
-        },
-        "registeredBy": {
-            "type": "string",
-            "description": "For registered instances, who performed the registration.\n"
-        },
-        "reportedAgentVersion": {
-            "type": "string",
-            "description": "Instance's reported AWS OpsWorks Stacks agent version.\n"
-        },
-        "reportedOsFamily": {
-            "type": "string",
-            "description": "For registered instances, the reported operating system family.\n"
-        },
-        "reportedOsName": {
-            "type": "string",
-            "description": "For registered instances, the reported operating system name.\n"
-        },
-        "reportedOsVersion": {
-            "type": "string",
-            "description": "For registered instances, the reported operating system version.\n"
-        },
-        "rootBlockDevices": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:opsworks/InstanceRootBlockDevice:InstanceRootBlockDevice"
-            },
-            "description": "Configuration block for the root block device of the instance. See Block Devices below.\n"
-        },
-        "rootDeviceType": {
-            "type": "string",
-            "description": "Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.\n"
-        },
-        "rootDeviceVolumeId": {
-            "type": "string",
-            "description": "Root device volume ID.\n"
-        },
-        "securityGroupIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Associated security groups.\n"
-        },
-        "sshHostDsaKeyFingerprint": {
-            "type": "string",
-            "description": "SSH key's Deep Security Agent (DSA) fingerprint.\n"
-        },
-        "sshHostRsaKeyFingerprint": {
-            "type": "string",
-            "description": "SSH key's RSA fingerprint.\n"
-        },
-        "sshKeyName": {
-            "type": "string",
-            "description": "Name of the SSH keypair that instances will have by default.\n"
-        },
-        "stackId": {
-            "type": "string",
-            "description": "Identifier of the stack the instance will belong to.\n\nThe following arguments are optional:\n"
-        },
-        "state": {
-            "type": "string",
-            "description": "Desired state of the instance. Valid values are `running` or `stopped`.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.\n"
-        },
-        "subnetId": {
-            "type": "string",
-            "description": "Subnet ID to attach to.\n"
-        },
-        "tenancy": {
-            "type": "string",
-            "description": "Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.\n"
-        },
-        "virtualizationType": {
-            "type": "string",
-            "description": "Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.\n"
-        }
-    },
-    "required": [
-        "amiId",
-        "availabilityZone",
-        "createdAt",
-        "ebsBlockDevices",
-        "ec2InstanceId",
-        "ecsClusterArn",
-        "elasticIp",
-        "ephemeralBlockDevices",
-        "hostname",
-        "infrastructureClass",
-        "instanceProfileArn",
-        "lastServiceErrorId",
-        "layerIds",
-        "os",
-        "platform",
-        "privateDns",
-        "privateIp",
-        "publicDns",
-        "publicIp",
-        "registeredBy",
-        "reportedAgentVersion",
-        "reportedOsFamily",
-        "reportedOsName",
-        "reportedOsVersion",
-        "rootBlockDevices",
-        "rootDeviceType",
-        "rootDeviceVolumeId",
-        "securityGroupIds",
-        "sshHostDsaKeyFingerprint",
-        "sshHostRsaKeyFingerprint",
-        "sshKeyName",
-        "stackId",
-        "status",
-        "subnetId",
-        "tenancy",
-        "virtualizationType"
-    ],
-    "inputProperties": {
-        "agentVersion": {
-            "type": "string",
-            "description": "OpsWorks agent to install. Default is `INHERIT`.\n"
-        },
-        "amiId": {
-            "type": "string",
-            "description": "AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.\n",
-            "willReplaceOnChanges": true
-        },
-        "architecture": {
-            "type": "string",
-            "description": "Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.\n"
-        },
-        "autoScalingType": {
-            "type": "string",
-            "description": "Creates load-based or time-based instances.  Valid values are `load`, `timer`.\n"
-        },
-        "availabilityZone": {
-            "type": "string",
-            "description": "Name of the availability zone where instances will be created by default.\n",
-            "willReplaceOnChanges": true
-        },
-        "createdAt": {
-            "type": "string",
-            "description": "Time that the instance was created.\n"
-        },
-        "deleteEbs": {
-            "type": "boolean",
-            "description": "Whether to delete EBS volume on deletion. Default is `true`.\n"
-        },
-        "deleteEip": {
-            "type": "boolean",
-            "description": "Whether to delete the Elastic IP on deletion.\n"
-        },
-        "ebsBlockDevices": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:opsworks/InstanceEbsBlockDevice:InstanceEbsBlockDevice"
-            },
-            "description": "Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.\n",
-            "willReplaceOnChanges": true
-        },
-        "ebsOptimized": {
-            "type": "boolean",
-            "description": "Whether the launched EC2 instance will be EBS-optimized.\n",
-            "willReplaceOnChanges": true
-        },
-        "ecsClusterArn": {
-            "type": "string",
-            "description": "ECS cluster's ARN for container instances.\n"
-        },
-        "elasticIp": {
-            "type": "string",
-            "description": "Instance Elastic IP address.\n"
-        },
-        "ephemeralBlockDevices": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:opsworks/InstanceEphemeralBlockDevice:InstanceEphemeralBlockDevice"
-            },
-            "description": "Configuration block for ephemeral (also known as \"Instance Store\") volumes on the instance. See Block Devices below.\n",
-            "willReplaceOnChanges": true
-        },
-        "hostname": {
-            "type": "string",
-            "description": "Instance's host name.\n",
-            "willReplaceOnChanges": true
-        },
-        "infrastructureClass": {
-            "type": "string",
-            "description": "For registered instances, infrastructure class: ec2 or on-premises.\n"
-        },
-        "installUpdatesOnBoot": {
-            "type": "boolean",
-            "description": "Controls where to install OS and package updates when the instance boots.  Default is `true`.\n"
-        },
-        "instanceProfileArn": {
-            "type": "string",
-            "description": "ARN of the instance's IAM profile.\n"
-        },
-        "instanceType": {
-            "type": "string",
-            "description": "Type of instance to start.\n"
-        },
-        "layerIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of the layers the instance will belong to.\n"
-        },
-        "os": {
-            "type": "string",
-            "description": "Name of operating system that will be installed.\n",
-            "willReplaceOnChanges": true
-        },
-        "rootBlockDevices": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:opsworks/InstanceRootBlockDevice:InstanceRootBlockDevice"
-            },
-            "description": "Configuration block for the root block device of the instance. See Block Devices below.\n",
-            "willReplaceOnChanges": true
-        },
-        "rootDeviceType": {
-            "type": "string",
-            "description": "Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.\n",
-            "willReplaceOnChanges": true
-        },
-        "securityGroupIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Associated security groups.\n"
-        },
-        "sshKeyName": {
-            "type": "string",
-            "description": "Name of the SSH keypair that instances will have by default.\n"
-        },
-        "stackId": {
-            "type": "string",
-            "description": "Identifier of the stack the instance will belong to.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "state": {
-            "type": "string",
-            "description": "Desired state of the instance. Valid values are `running` or `stopped`.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.\n"
-        },
-        "subnetId": {
-            "type": "string",
-            "description": "Subnet ID to attach to.\n",
-            "willReplaceOnChanges": true
-        },
-        "tenancy": {
-            "type": "string",
-            "description": "Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.\n",
-            "willReplaceOnChanges": true
-        },
-        "virtualizationType": {
-            "type": "string",
-            "description": "Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "layerIds",
-        "stackId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Instance resources.\n",
-        "properties": {
-            "agentVersion": {
-                "type": "string",
-                "description": "OpsWorks agent to install. Default is `INHERIT`.\n"
-            },
-            "amiId": {
-                "type": "string",
-                "description": "AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.\n",
-                "willReplaceOnChanges": true
-            },
-            "architecture": {
-                "type": "string",
-                "description": "Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.\n"
-            },
-            "autoScalingType": {
-                "type": "string",
-                "description": "Creates load-based or time-based instances.  Valid values are `load`, `timer`.\n"
-            },
-            "availabilityZone": {
-                "type": "string",
-                "description": "Name of the availability zone where instances will be created by default.\n",
-                "willReplaceOnChanges": true
-            },
-            "createdAt": {
-                "type": "string",
-                "description": "Time that the instance was created.\n"
-            },
-            "deleteEbs": {
-                "type": "boolean",
-                "description": "Whether to delete EBS volume on deletion. Default is `true`.\n"
-            },
-            "deleteEip": {
-                "type": "boolean",
-                "description": "Whether to delete the Elastic IP on deletion.\n"
-            },
-            "ebsBlockDevices": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:opsworks/InstanceEbsBlockDevice:InstanceEbsBlockDevice"
+            "properties": {
+                "agentVersion": {
+                    "type": "string",
+                    "description": "OpsWorks agent to install. Default is `INHERIT`.\n"
                 },
-                "description": "Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.\n",
-                "willReplaceOnChanges": true
-            },
-            "ebsOptimized": {
-                "type": "boolean",
-                "description": "Whether the launched EC2 instance will be EBS-optimized.\n",
-                "willReplaceOnChanges": true
-            },
-            "ec2InstanceId": {
-                "type": "string",
-                "description": "EC2 instance ID.\n"
-            },
-            "ecsClusterArn": {
-                "type": "string",
-                "description": "ECS cluster's ARN for container instances.\n"
-            },
-            "elasticIp": {
-                "type": "string",
-                "description": "Instance Elastic IP address.\n"
-            },
-            "ephemeralBlockDevices": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:opsworks/InstanceEphemeralBlockDevice:InstanceEphemeralBlockDevice"
+                "amiId": {
+                    "type": "string",
+                    "description": "AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.\n"
                 },
-                "description": "Configuration block for ephemeral (also known as \"Instance Store\") volumes on the instance. See Block Devices below.\n",
-                "willReplaceOnChanges": true
-            },
-            "hostname": {
-                "type": "string",
-                "description": "Instance's host name.\n",
-                "willReplaceOnChanges": true
-            },
-            "infrastructureClass": {
-                "type": "string",
-                "description": "For registered instances, infrastructure class: ec2 or on-premises.\n"
-            },
-            "installUpdatesOnBoot": {
-                "type": "boolean",
-                "description": "Controls where to install OS and package updates when the instance boots.  Default is `true`.\n"
-            },
-            "instanceProfileArn": {
-                "type": "string",
-                "description": "ARN of the instance's IAM profile.\n"
-            },
-            "instanceType": {
-                "type": "string",
-                "description": "Type of instance to start.\n"
-            },
-            "lastServiceErrorId": {
-                "type": "string",
-                "description": "ID of the last service error.\n"
-            },
-            "layerIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "architecture": {
+                    "type": "string",
+                    "description": "Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.\n"
                 },
-                "description": "List of the layers the instance will belong to.\n"
-            },
-            "os": {
-                "type": "string",
-                "description": "Name of operating system that will be installed.\n",
-                "willReplaceOnChanges": true
-            },
-            "platform": {
-                "type": "string",
-                "description": "Instance's platform.\n"
-            },
-            "privateDns": {
-                "type": "string",
-                "description": "Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.\n"
-            },
-            "privateIp": {
-                "type": "string",
-                "description": "Private IP address assigned to the instance.\n"
-            },
-            "publicDns": {
-                "type": "string",
-                "description": "Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.\n"
-            },
-            "publicIp": {
-                "type": "string",
-                "description": "Public IP address assigned to the instance, if applicable.\n"
-            },
-            "registeredBy": {
-                "type": "string",
-                "description": "For registered instances, who performed the registration.\n"
-            },
-            "reportedAgentVersion": {
-                "type": "string",
-                "description": "Instance's reported AWS OpsWorks Stacks agent version.\n"
-            },
-            "reportedOsFamily": {
-                "type": "string",
-                "description": "For registered instances, the reported operating system family.\n"
-            },
-            "reportedOsName": {
-                "type": "string",
-                "description": "For registered instances, the reported operating system name.\n"
-            },
-            "reportedOsVersion": {
-                "type": "string",
-                "description": "For registered instances, the reported operating system version.\n"
-            },
-            "rootBlockDevices": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:opsworks/InstanceRootBlockDevice:InstanceRootBlockDevice"
+                "autoScalingType": {
+                    "type": "string",
+                    "description": "Creates load-based or time-based instances.  Valid values are `load`, `timer`.\n"
                 },
-                "description": "Configuration block for the root block device of the instance. See Block Devices below.\n",
-                "willReplaceOnChanges": true
-            },
-            "rootDeviceType": {
-                "type": "string",
-                "description": "Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.\n",
-                "willReplaceOnChanges": true
-            },
-            "rootDeviceVolumeId": {
-                "type": "string",
-                "description": "Root device volume ID.\n"
-            },
-            "securityGroupIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "Name of the availability zone where instances will be created by default.\n"
                 },
-                "description": "Associated security groups.\n"
+                "createdAt": {
+                    "type": "string",
+                    "description": "Time that the instance was created.\n"
+                },
+                "deleteEbs": {
+                    "type": "boolean",
+                    "description": "Whether to delete EBS volume on deletion. Default is `true`.\n"
+                },
+                "deleteEip": {
+                    "type": "boolean",
+                    "description": "Whether to delete the Elastic IP on deletion.\n"
+                },
+                "ebsBlockDevices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:opsworks/InstanceEbsBlockDevice:InstanceEbsBlockDevice"
+                    },
+                    "description": "Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.\n"
+                },
+                "ebsOptimized": {
+                    "type": "boolean",
+                    "description": "Whether the launched EC2 instance will be EBS-optimized.\n"
+                },
+                "ec2InstanceId": {
+                    "type": "string",
+                    "description": "EC2 instance ID.\n"
+                },
+                "ecsClusterArn": {
+                    "type": "string",
+                    "description": "ECS cluster's ARN for container instances.\n"
+                },
+                "elasticIp": {
+                    "type": "string",
+                    "description": "Instance Elastic IP address.\n"
+                },
+                "ephemeralBlockDevices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:opsworks/InstanceEphemeralBlockDevice:InstanceEphemeralBlockDevice"
+                    },
+                    "description": "Configuration block for ephemeral (also known as \"Instance Store\") volumes on the instance. See Block Devices below.\n"
+                },
+                "hostname": {
+                    "type": "string",
+                    "description": "Instance's host name.\n"
+                },
+                "infrastructureClass": {
+                    "type": "string",
+                    "description": "For registered instances, infrastructure class: ec2 or on-premises.\n"
+                },
+                "installUpdatesOnBoot": {
+                    "type": "boolean",
+                    "description": "Controls where to install OS and package updates when the instance boots.  Default is `true`.\n"
+                },
+                "instanceProfileArn": {
+                    "type": "string",
+                    "description": "ARN of the instance's IAM profile.\n"
+                },
+                "instanceType": {
+                    "type": "string",
+                    "description": "Type of instance to start.\n"
+                },
+                "lastServiceErrorId": {
+                    "type": "string",
+                    "description": "ID of the last service error.\n"
+                },
+                "layerIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of the layers the instance will belong to.\n"
+                },
+                "os": {
+                    "type": "string",
+                    "description": "Name of operating system that will be installed.\n"
+                },
+                "platform": {
+                    "type": "string",
+                    "description": "Instance's platform.\n"
+                },
+                "privateDns": {
+                    "type": "string",
+                    "description": "Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.\n"
+                },
+                "privateIp": {
+                    "type": "string",
+                    "description": "Private IP address assigned to the instance.\n"
+                },
+                "publicDns": {
+                    "type": "string",
+                    "description": "Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.\n"
+                },
+                "publicIp": {
+                    "type": "string",
+                    "description": "Public IP address assigned to the instance, if applicable.\n"
+                },
+                "registeredBy": {
+                    "type": "string",
+                    "description": "For registered instances, who performed the registration.\n"
+                },
+                "reportedAgentVersion": {
+                    "type": "string",
+                    "description": "Instance's reported AWS OpsWorks Stacks agent version.\n"
+                },
+                "reportedOsFamily": {
+                    "type": "string",
+                    "description": "For registered instances, the reported operating system family.\n"
+                },
+                "reportedOsName": {
+                    "type": "string",
+                    "description": "For registered instances, the reported operating system name.\n"
+                },
+                "reportedOsVersion": {
+                    "type": "string",
+                    "description": "For registered instances, the reported operating system version.\n"
+                },
+                "rootBlockDevices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:opsworks/InstanceRootBlockDevice:InstanceRootBlockDevice"
+                    },
+                    "description": "Configuration block for the root block device of the instance. See Block Devices below.\n"
+                },
+                "rootDeviceType": {
+                    "type": "string",
+                    "description": "Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.\n"
+                },
+                "rootDeviceVolumeId": {
+                    "type": "string",
+                    "description": "Root device volume ID.\n"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Associated security groups.\n"
+                },
+                "sshHostDsaKeyFingerprint": {
+                    "type": "string",
+                    "description": "SSH key's Deep Security Agent (DSA) fingerprint.\n"
+                },
+                "sshHostRsaKeyFingerprint": {
+                    "type": "string",
+                    "description": "SSH key's RSA fingerprint.\n"
+                },
+                "sshKeyName": {
+                    "type": "string",
+                    "description": "Name of the SSH keypair that instances will have by default.\n"
+                },
+                "stackId": {
+                    "type": "string",
+                    "description": "Identifier of the stack the instance will belong to.\n\nThe following arguments are optional:\n"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "Desired state of the instance. Valid values are `running` or `stopped`.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "Subnet ID to attach to.\n"
+                },
+                "tenancy": {
+                    "type": "string",
+                    "description": "Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.\n"
+                },
+                "virtualizationType": {
+                    "type": "string",
+                    "description": "Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.\n"
+                }
             },
-            "sshHostDsaKeyFingerprint": {
-                "type": "string",
-                "description": "SSH key's Deep Security Agent (DSA) fingerprint.\n"
+            "required": [
+                "amiId",
+                "availabilityZone",
+                "createdAt",
+                "ebsBlockDevices",
+                "ec2InstanceId",
+                "ecsClusterArn",
+                "elasticIp",
+                "ephemeralBlockDevices",
+                "hostname",
+                "infrastructureClass",
+                "instanceProfileArn",
+                "lastServiceErrorId",
+                "layerIds",
+                "os",
+                "platform",
+                "privateDns",
+                "privateIp",
+                "publicDns",
+                "publicIp",
+                "registeredBy",
+                "reportedAgentVersion",
+                "reportedOsFamily",
+                "reportedOsName",
+                "reportedOsVersion",
+                "rootBlockDevices",
+                "rootDeviceType",
+                "rootDeviceVolumeId",
+                "securityGroupIds",
+                "sshHostDsaKeyFingerprint",
+                "sshHostRsaKeyFingerprint",
+                "sshKeyName",
+                "stackId",
+                "status",
+                "subnetId",
+                "tenancy",
+                "virtualizationType"
+            ],
+            "inputProperties": {
+                "agentVersion": {
+                    "type": "string",
+                    "description": "OpsWorks agent to install. Default is `INHERIT`.\n"
+                },
+                "amiId": {
+                    "type": "string",
+                    "description": "AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "architecture": {
+                    "type": "string",
+                    "description": "Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.\n"
+                },
+                "autoScalingType": {
+                    "type": "string",
+                    "description": "Creates load-based or time-based instances.  Valid values are `load`, `timer`.\n"
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "Name of the availability zone where instances will be created by default.\n",
+                    "willReplaceOnChanges": true
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "Time that the instance was created.\n"
+                },
+                "deleteEbs": {
+                    "type": "boolean",
+                    "description": "Whether to delete EBS volume on deletion. Default is `true`.\n"
+                },
+                "deleteEip": {
+                    "type": "boolean",
+                    "description": "Whether to delete the Elastic IP on deletion.\n"
+                },
+                "ebsBlockDevices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:opsworks/InstanceEbsBlockDevice:InstanceEbsBlockDevice"
+                    },
+                    "description": "Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "ebsOptimized": {
+                    "type": "boolean",
+                    "description": "Whether the launched EC2 instance will be EBS-optimized.\n",
+                    "willReplaceOnChanges": true
+                },
+                "ecsClusterArn": {
+                    "type": "string",
+                    "description": "ECS cluster's ARN for container instances.\n"
+                },
+                "elasticIp": {
+                    "type": "string",
+                    "description": "Instance Elastic IP address.\n"
+                },
+                "ephemeralBlockDevices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:opsworks/InstanceEphemeralBlockDevice:InstanceEphemeralBlockDevice"
+                    },
+                    "description": "Configuration block for ephemeral (also known as \"Instance Store\") volumes on the instance. See Block Devices below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "hostname": {
+                    "type": "string",
+                    "description": "Instance's host name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "infrastructureClass": {
+                    "type": "string",
+                    "description": "For registered instances, infrastructure class: ec2 or on-premises.\n"
+                },
+                "installUpdatesOnBoot": {
+                    "type": "boolean",
+                    "description": "Controls where to install OS and package updates when the instance boots.  Default is `true`.\n"
+                },
+                "instanceProfileArn": {
+                    "type": "string",
+                    "description": "ARN of the instance's IAM profile.\n"
+                },
+                "instanceType": {
+                    "type": "string",
+                    "description": "Type of instance to start.\n"
+                },
+                "layerIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of the layers the instance will belong to.\n"
+                },
+                "os": {
+                    "type": "string",
+                    "description": "Name of operating system that will be installed.\n",
+                    "willReplaceOnChanges": true
+                },
+                "rootBlockDevices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:opsworks/InstanceRootBlockDevice:InstanceRootBlockDevice"
+                    },
+                    "description": "Configuration block for the root block device of the instance. See Block Devices below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "rootDeviceType": {
+                    "type": "string",
+                    "description": "Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Associated security groups.\n"
+                },
+                "sshKeyName": {
+                    "type": "string",
+                    "description": "Name of the SSH keypair that instances will have by default.\n"
+                },
+                "stackId": {
+                    "type": "string",
+                    "description": "Identifier of the stack the instance will belong to.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "state": {
+                    "type": "string",
+                    "description": "Desired state of the instance. Valid values are `running` or `stopped`.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "Subnet ID to attach to.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tenancy": {
+                    "type": "string",
+                    "description": "Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "virtualizationType": {
+                    "type": "string",
+                    "description": "Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "sshHostRsaKeyFingerprint": {
-                "type": "string",
-                "description": "SSH key's RSA fingerprint.\n"
-            },
-            "sshKeyName": {
-                "type": "string",
-                "description": "Name of the SSH keypair that instances will have by default.\n"
-            },
-            "stackId": {
-                "type": "string",
-                "description": "Identifier of the stack the instance will belong to.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "state": {
-                "type": "string",
-                "description": "Desired state of the instance. Valid values are `running` or `stopped`.\n"
-            },
-            "status": {
-                "type": "string",
-                "description": "Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.\n"
-            },
-            "subnetId": {
-                "type": "string",
-                "description": "Subnet ID to attach to.\n",
-                "willReplaceOnChanges": true
-            },
-            "tenancy": {
-                "type": "string",
-                "description": "Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.\n",
-                "willReplaceOnChanges": true
-            },
-            "virtualizationType": {
-                "type": "string",
-                "description": "Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "layerIds",
+                "stackId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Instance resources.\n",
+                "properties": {
+                    "agentVersion": {
+                        "type": "string",
+                        "description": "OpsWorks agent to install. Default is `INHERIT`.\n"
+                    },
+                    "amiId": {
+                        "type": "string",
+                        "description": "AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "architecture": {
+                        "type": "string",
+                        "description": "Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.\n"
+                    },
+                    "autoScalingType": {
+                        "type": "string",
+                        "description": "Creates load-based or time-based instances.  Valid values are `load`, `timer`.\n"
+                    },
+                    "availabilityZone": {
+                        "type": "string",
+                        "description": "Name of the availability zone where instances will be created by default.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Time that the instance was created.\n"
+                    },
+                    "deleteEbs": {
+                        "type": "boolean",
+                        "description": "Whether to delete EBS volume on deletion. Default is `true`.\n"
+                    },
+                    "deleteEip": {
+                        "type": "boolean",
+                        "description": "Whether to delete the Elastic IP on deletion.\n"
+                    },
+                    "ebsBlockDevices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:opsworks/InstanceEbsBlockDevice:InstanceEbsBlockDevice"
+                        },
+                        "description": "Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ebsOptimized": {
+                        "type": "boolean",
+                        "description": "Whether the launched EC2 instance will be EBS-optimized.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ec2InstanceId": {
+                        "type": "string",
+                        "description": "EC2 instance ID.\n"
+                    },
+                    "ecsClusterArn": {
+                        "type": "string",
+                        "description": "ECS cluster's ARN for container instances.\n"
+                    },
+                    "elasticIp": {
+                        "type": "string",
+                        "description": "Instance Elastic IP address.\n"
+                    },
+                    "ephemeralBlockDevices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:opsworks/InstanceEphemeralBlockDevice:InstanceEphemeralBlockDevice"
+                        },
+                        "description": "Configuration block for ephemeral (also known as \"Instance Store\") volumes on the instance. See Block Devices below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "hostname": {
+                        "type": "string",
+                        "description": "Instance's host name.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "infrastructureClass": {
+                        "type": "string",
+                        "description": "For registered instances, infrastructure class: ec2 or on-premises.\n"
+                    },
+                    "installUpdatesOnBoot": {
+                        "type": "boolean",
+                        "description": "Controls where to install OS and package updates when the instance boots.  Default is `true`.\n"
+                    },
+                    "instanceProfileArn": {
+                        "type": "string",
+                        "description": "ARN of the instance's IAM profile.\n"
+                    },
+                    "instanceType": {
+                        "type": "string",
+                        "description": "Type of instance to start.\n"
+                    },
+                    "lastServiceErrorId": {
+                        "type": "string",
+                        "description": "ID of the last service error.\n"
+                    },
+                    "layerIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of the layers the instance will belong to.\n"
+                    },
+                    "os": {
+                        "type": "string",
+                        "description": "Name of operating system that will be installed.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "platform": {
+                        "type": "string",
+                        "description": "Instance's platform.\n"
+                    },
+                    "privateDns": {
+                        "type": "string",
+                        "description": "Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.\n"
+                    },
+                    "privateIp": {
+                        "type": "string",
+                        "description": "Private IP address assigned to the instance.\n"
+                    },
+                    "publicDns": {
+                        "type": "string",
+                        "description": "Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.\n"
+                    },
+                    "publicIp": {
+                        "type": "string",
+                        "description": "Public IP address assigned to the instance, if applicable.\n"
+                    },
+                    "registeredBy": {
+                        "type": "string",
+                        "description": "For registered instances, who performed the registration.\n"
+                    },
+                    "reportedAgentVersion": {
+                        "type": "string",
+                        "description": "Instance's reported AWS OpsWorks Stacks agent version.\n"
+                    },
+                    "reportedOsFamily": {
+                        "type": "string",
+                        "description": "For registered instances, the reported operating system family.\n"
+                    },
+                    "reportedOsName": {
+                        "type": "string",
+                        "description": "For registered instances, the reported operating system name.\n"
+                    },
+                    "reportedOsVersion": {
+                        "type": "string",
+                        "description": "For registered instances, the reported operating system version.\n"
+                    },
+                    "rootBlockDevices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:opsworks/InstanceRootBlockDevice:InstanceRootBlockDevice"
+                        },
+                        "description": "Configuration block for the root block device of the instance. See Block Devices below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "rootDeviceType": {
+                        "type": "string",
+                        "description": "Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "rootDeviceVolumeId": {
+                        "type": "string",
+                        "description": "Root device volume ID.\n"
+                    },
+                    "securityGroupIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Associated security groups.\n"
+                    },
+                    "sshHostDsaKeyFingerprint": {
+                        "type": "string",
+                        "description": "SSH key's Deep Security Agent (DSA) fingerprint.\n"
+                    },
+                    "sshHostRsaKeyFingerprint": {
+                        "type": "string",
+                        "description": "SSH key's RSA fingerprint.\n"
+                    },
+                    "sshKeyName": {
+                        "type": "string",
+                        "description": "Name of the SSH keypair that instances will have by default.\n"
+                    },
+                    "stackId": {
+                        "type": "string",
+                        "description": "Identifier of the stack the instance will belong to.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "Desired state of the instance. Valid values are `running` or `stopped`.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.\n"
+                    },
+                    "subnetId": {
+                        "type": "string",
+                        "description": "Subnet ID to attach to.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tenancy": {
+                        "type": "string",
+                        "description": "Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "virtualizationType": {
+                        "type": "string",
+                        "description": "Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

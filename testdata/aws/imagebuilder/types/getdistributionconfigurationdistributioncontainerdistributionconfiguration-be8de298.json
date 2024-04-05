@@ -1,33 +1,33 @@
 {
-    "properties": {
-        "containerTags": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "containerTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of tags that are attached to the container distribution configuration.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the container distribution configuration.\n"
+                },
+                "targetRepositories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:imagebuilder/getDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository:getDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository"
+                    },
+                    "description": "Set of destination repositories for the container distribution configuration.\n"
+                }
             },
-            "description": "Set of tags that are attached to the container distribution configuration.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the container distribution configuration.\n"
-        },
-        "targetRepositories": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:imagebuilder/getDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository:getDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository"
-            },
-            "description": "Set of destination repositories for the container distribution configuration.\n"
+            "type": "object",
+            "required": [
+                "containerTags",
+                "description",
+                "targetRepositories"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "containerTags",
-        "description",
-        "targetRepositories"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

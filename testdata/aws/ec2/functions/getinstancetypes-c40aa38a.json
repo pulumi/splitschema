@@ -1,42 +1,42 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getInstanceTypes.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getInstanceTypesFilter:getInstanceTypesFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getInstanceTypes.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getInstanceTypesFilter:getInstanceTypesFilter"
+                        },
+                        "description": "One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.\n"
+                    }
                 },
-                "description": "One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getInstanceTypes.\n",
-        "properties": {
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getInstanceTypesFilter:getInstanceTypesFilter"
-                },
-                "type": "array"
+                "type": "object"
             },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "instanceTypes": {
-                "description": "List of EC2 Instance Types.\n",
-                "items": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getInstanceTypes.\n",
+                "properties": {
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getInstanceTypesFilter:getInstanceTypesFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "instanceTypes": {
+                        "description": "List of EC2 Instance Types.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
                 },
-                "type": "array"
+                "required": [
+                    "instanceTypes",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "instanceTypes",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

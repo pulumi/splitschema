@@ -1,149 +1,149 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of VPC connector.\n"
-        },
-        "securityGroups": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.\n"
-        },
-        "subnets": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "vpcConnectorName": {
-            "type": "string",
-            "description": "Name for the VPC connector.\n"
-        },
-        "vpcConnectorRevision": {
-            "type": "integer",
-            "description": "The revision of VPC connector. It's unique among all the active connectors (\"Status\": \"ACTIVE\") that share the same Name.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "securityGroups",
-        "status",
-        "subnets",
-        "tagsAll",
-        "vpcConnectorName",
-        "vpcConnectorRevision"
-    ],
-    "inputProperties": {
-        "securityGroups": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.\n",
-            "willReplaceOnChanges": true
-        },
-        "subnets": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "vpcConnectorName": {
-            "type": "string",
-            "description": "Name for the VPC connector.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "securityGroups",
-        "subnets",
-        "vpcConnectorName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering VpcConnector resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of VPC connector.\n"
-            },
-            "securityGroups": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of VPC connector.\n"
                 },
-                "description": "List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.\n",
-                "willReplaceOnChanges": true
-            },
-            "status": {
-                "type": "string",
-                "description": "Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.\n"
-            },
-            "subnets": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.\n"
                 },
-                "description": "List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "status": {
+                    "type": "string",
+                    "description": "Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.\n"
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "vpcConnectorName": {
+                    "type": "string",
+                    "description": "Name for the VPC connector.\n"
+                },
+                "vpcConnectorRevision": {
+                    "type": "integer",
+                    "description": "The revision of VPC connector. It's unique among all the active connectors (\"Status\": \"ACTIVE\") that share the same Name.\n"
+                }
             },
-            "vpcConnectorName": {
-                "type": "string",
-                "description": "Name for the VPC connector.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "securityGroups",
+                "status",
+                "subnets",
+                "tagsAll",
+                "vpcConnectorName",
+                "vpcConnectorRevision"
+            ],
+            "inputProperties": {
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.\n",
+                    "willReplaceOnChanges": true
+                },
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "vpcConnectorName": {
+                    "type": "string",
+                    "description": "Name for the VPC connector.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "vpcConnectorRevision": {
-                "type": "integer",
-                "description": "The revision of VPC connector. It's unique among all the active connectors (\"Status\": \"ACTIVE\") that share the same Name.\n"
+            "requiredInputs": [
+                "securityGroups",
+                "subnets",
+                "vpcConnectorName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering VpcConnector resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of VPC connector.\n"
+                    },
+                    "securityGroups": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.\n"
+                    },
+                    "subnets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "vpcConnectorName": {
+                        "type": "string",
+                        "description": "Name for the VPC connector.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "vpcConnectorRevision": {
+                        "type": "integer",
+                        "description": "The revision of VPC connector. It's unique among all the active connectors (\"Status\": \"ACTIVE\") that share the same Name.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

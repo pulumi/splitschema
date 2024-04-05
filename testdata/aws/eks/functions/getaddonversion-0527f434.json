@@ -1,53 +1,53 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getAddonVersion.\n",
-        "properties": {
-            "addonName": {
-                "type": "string",
-                "description": "Name of the EKS add-on. The name must match one of\nthe names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getAddonVersion.\n",
+                "properties": {
+                    "addonName": {
+                        "type": "string",
+                        "description": "Name of the EKS add-on. The name must match one of\nthe names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).\n"
+                    },
+                    "kubernetesVersion": {
+                        "type": "string",
+                        "description": "Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n"
+                    },
+                    "mostRecent": {
+                        "type": "boolean",
+                        "description": "Determines if the most recent or default version of the addon should be returned.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "addonName",
+                    "kubernetesVersion"
+                ]
             },
-            "kubernetesVersion": {
-                "type": "string",
-                "description": "Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n"
-            },
-            "mostRecent": {
-                "type": "boolean",
-                "description": "Determines if the most recent or default version of the addon should be returned.\n"
+            "outputs": {
+                "description": "A collection of values returned by getAddonVersion.\n",
+                "properties": {
+                    "addonName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "kubernetesVersion": {
+                        "type": "string"
+                    },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
+                    "version": {
+                        "description": "Version of the EKS add-on.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "addonName",
+                    "kubernetesVersion",
+                    "version",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "addonName",
-            "kubernetesVersion"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getAddonVersion.\n",
-        "properties": {
-            "addonName": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "kubernetesVersion": {
-                "type": "string"
-            },
-            "mostRecent": {
-                "type": "boolean"
-            },
-            "version": {
-                "description": "Version of the EKS add-on.\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "addonName",
-            "kubernetesVersion",
-            "version",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

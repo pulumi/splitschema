@@ -1,80 +1,80 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getOrderableDbInstance.\n",
-        "properties": {
-            "engine": {
-                "type": "string",
-                "description": "DB engine. Default: `docdb`\n"
-            },
-            "engineVersion": {
-                "type": "string",
-                "description": "Version of the DB engine.\n"
-            },
-            "instanceClass": {
-                "type": "string",
-                "description": "DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)\n"
-            },
-            "licenseModel": {
-                "type": "string",
-                "description": "License model. Default: `na`\n"
-            },
-            "preferredInstanceClasses": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getOrderableDbInstance.\n",
+                "properties": {
+                    "engine": {
+                        "type": "string",
+                        "description": "DB engine. Default: `docdb`\n"
+                    },
+                    "engineVersion": {
+                        "type": "string",
+                        "description": "Version of the DB engine.\n"
+                    },
+                    "instanceClass": {
+                        "type": "string",
+                        "description": "DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)\n"
+                    },
+                    "licenseModel": {
+                        "type": "string",
+                        "description": "License model. Default: `na`\n"
+                    },
+                    "preferredInstanceClasses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)\n"
+                    },
+                    "vpc": {
+                        "type": "boolean",
+                        "description": "Enable to show only VPC.\n"
+                    }
                 },
-                "description": "Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)\n"
+                "type": "object"
             },
-            "vpc": {
-                "type": "boolean",
-                "description": "Enable to show only VPC.\n"
+            "outputs": {
+                "description": "A collection of values returned by getOrderableDbInstance.\n",
+                "properties": {
+                    "availabilityZones": {
+                        "description": "Availability zones where the instance is available.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "engine": {
+                        "type": "string"
+                    },
+                    "engineVersion": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "instanceClass": {
+                        "type": "string"
+                    },
+                    "licenseModel": {
+                        "type": "string"
+                    },
+                    "preferredInstanceClasses": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "vpc": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "availabilityZones",
+                    "engineVersion",
+                    "instanceClass",
+                    "vpc",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getOrderableDbInstance.\n",
-        "properties": {
-            "availabilityZones": {
-                "description": "Availability zones where the instance is available.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "engine": {
-                "type": "string"
-            },
-            "engineVersion": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "instanceClass": {
-                "type": "string"
-            },
-            "licenseModel": {
-                "type": "string"
-            },
-            "preferredInstanceClasses": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "vpc": {
-                "type": "boolean"
-            }
-        },
-        "required": [
-            "availabilityZones",
-            "engineVersion",
-            "instanceClass",
-            "vpc",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

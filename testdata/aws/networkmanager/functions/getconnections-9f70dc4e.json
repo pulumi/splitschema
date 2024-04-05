@@ -1,60 +1,60 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getConnections.\n",
-        "properties": {
-            "deviceId": {
-                "type": "string",
-                "description": "ID of the device of the connections to retrieve.\n"
-            },
-            "globalNetworkId": {
-                "type": "string",
-                "description": "ID of the Global Network of the connections to retrieve.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getConnections.\n",
+                "properties": {
+                    "deviceId": {
+                        "type": "string",
+                        "description": "ID of the device of the connections to retrieve.\n"
+                    },
+                    "globalNetworkId": {
+                        "type": "string",
+                        "description": "ID of the Global Network of the connections to retrieve.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Restricts the list to the connections with these tags.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "globalNetworkId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getConnections.\n",
+                "properties": {
+                    "deviceId": {
+                        "type": "string"
+                    },
+                    "globalNetworkId": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "IDs of the connections.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    }
                 },
-                "description": "Restricts the list to the connections with these tags.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "globalNetworkId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getConnections.\n",
-        "properties": {
-            "deviceId": {
-                "type": "string"
-            },
-            "globalNetworkId": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "ids": {
-                "description": "IDs of the connections.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
+                "required": [
+                    "globalNetworkId",
+                    "ids",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "globalNetworkId",
-            "ids",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,24 +1,24 @@
 {
-    "properties": {
-        "name": {
-            "type": "string",
-            "willReplaceOnChanges": true
-        },
-        "publicAccessBlock": {
-            "$ref": "#/types/aws:s3control/MultiRegionAccessPointDetailsPublicAccessBlock:MultiRegionAccessPointDetailsPublicAccessBlock",
-            "willReplaceOnChanges": true
-        },
-        "regions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:s3control/MultiRegionAccessPointDetailsRegion:MultiRegionAccessPointDetailsRegion"
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "publicAccessBlock": {
+                    "$ref": "#/types/aws:s3control/MultiRegionAccessPointDetailsPublicAccessBlock:MultiRegionAccessPointDetailsPublicAccessBlock",
+                    "willReplaceOnChanges": true
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:s3control/MultiRegionAccessPointDetailsRegion:MultiRegionAccessPointDetailsRegion"
+                    },
+                    "willReplaceOnChanges": true
+                }
             },
-            "willReplaceOnChanges": true
+            "type": "object",
+            "required": [
+                "name",
+                "regions"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "name",
-        "regions"
-    ]
-}

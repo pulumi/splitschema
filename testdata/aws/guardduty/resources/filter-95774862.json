@@ -1,150 +1,150 @@
 {
-    "properties": {
-        "action": {
-            "type": "string",
-            "description": "Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the GuardDuty filter.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the filter.\n"
-        },
-        "detectorId": {
-            "type": "string",
-            "description": "ID of a GuardDuty detector, attached to your account.\n"
-        },
-        "findingCriteria": {
-            "$ref": "#/types/aws:guardduty/FilterFindingCriteria:FilterFindingCriteria",
-            "description": "Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of your filter.\n"
-        },
-        "rank": {
-            "type": "integer",
-            "description": "Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "action",
-        "arn",
-        "detectorId",
-        "findingCriteria",
-        "name",
-        "rank",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "action": {
-            "type": "string",
-            "description": "Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the filter.\n"
-        },
-        "detectorId": {
-            "type": "string",
-            "description": "ID of a GuardDuty detector, attached to your account.\n",
-            "willReplaceOnChanges": true
-        },
-        "findingCriteria": {
-            "$ref": "#/types/aws:guardduty/FilterFindingCriteria:FilterFindingCriteria",
-            "description": "Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of your filter.\n",
-            "willReplaceOnChanges": true
-        },
-        "rank": {
-            "type": "integer",
-            "description": "Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "action",
-        "detectorId",
-        "findingCriteria",
-        "rank"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Filter resources.\n",
-        "properties": {
-            "action": {
-                "type": "string",
-                "description": "Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the GuardDuty filter.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "Description of the filter.\n"
-            },
-            "detectorId": {
-                "type": "string",
-                "description": "ID of a GuardDuty detector, attached to your account.\n",
-                "willReplaceOnChanges": true
-            },
-            "findingCriteria": {
-                "$ref": "#/types/aws:guardduty/FilterFindingCriteria:FilterFindingCriteria",
-                "description": "Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of your filter.\n",
-                "willReplaceOnChanges": true
-            },
-            "rank": {
-                "type": "integer",
-                "description": "Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "description": "Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.\n"
                 },
-                "description": "The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the GuardDuty filter.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "description": {
+                    "type": "string",
+                    "description": "Description of the filter.\n"
+                },
+                "detectorId": {
+                    "type": "string",
+                    "description": "ID of a GuardDuty detector, attached to your account.\n"
+                },
+                "findingCriteria": {
+                    "$ref": "#/types/aws:guardduty/FilterFindingCriteria:FilterFindingCriteria",
+                    "description": "Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of your filter.\n"
+                },
+                "rank": {
+                    "type": "integer",
+                    "description": "Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "action",
+                "arn",
+                "detectorId",
+                "findingCriteria",
+                "name",
+                "rank",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "action": {
+                    "type": "string",
+                    "description": "Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the filter.\n"
+                },
+                "detectorId": {
+                    "type": "string",
+                    "description": "ID of a GuardDuty detector, attached to your account.\n",
+                    "willReplaceOnChanges": true
+                },
+                "findingCriteria": {
+                    "$ref": "#/types/aws:guardduty/FilterFindingCriteria:FilterFindingCriteria",
+                    "description": "Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of your filter.\n",
+                    "willReplaceOnChanges": true
+                },
+                "rank": {
+                    "type": "integer",
+                    "description": "Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "action",
+                "detectorId",
+                "findingCriteria",
+                "rank"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Filter resources.\n",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "description": "Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the GuardDuty filter.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the filter.\n"
+                    },
+                    "detectorId": {
+                        "type": "string",
+                        "description": "ID of a GuardDuty detector, attached to your account.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "findingCriteria": {
+                        "$ref": "#/types/aws:guardduty/FilterFindingCriteria:FilterFindingCriteria",
+                        "description": "Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of your filter.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "rank": {
+                        "type": "integer",
+                        "description": "Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

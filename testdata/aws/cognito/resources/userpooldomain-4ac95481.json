@@ -1,114 +1,114 @@
 {
-    "properties": {
-        "awsAccountId": {
-            "type": "string",
-            "description": "The AWS account ID for the user pool owner.\n"
-        },
-        "certificateArn": {
-            "type": "string",
-            "description": "The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.\n"
-        },
-        "cloudfrontDistribution": {
-            "type": "string",
-            "description": "The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.\n"
-        },
-        "cloudfrontDistributionArn": {
-            "type": "string",
-            "description": "The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`\n"
-        },
-        "cloudfrontDistributionZoneId": {
-            "type": "string",
-            "description": "The Route 53 hosted zone ID of the CloudFront distribution.\n"
-        },
-        "domain": {
-            "type": "string",
-            "description": "For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.\n"
-        },
-        "s3Bucket": {
-            "type": "string",
-            "description": "The S3 bucket where the static files for this domain are stored.\n"
-        },
-        "userPoolId": {
-            "type": "string",
-            "description": "The user pool ID.\n"
-        },
-        "version": {
-            "type": "string",
-            "description": "The app version.\n"
-        }
-    },
-    "required": [
-        "awsAccountId",
-        "cloudfrontDistribution",
-        "cloudfrontDistributionArn",
-        "cloudfrontDistributionZoneId",
-        "domain",
-        "s3Bucket",
-        "userPoolId",
-        "version"
-    ],
-    "inputProperties": {
-        "certificateArn": {
-            "type": "string",
-            "description": "The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.\n"
-        },
-        "domain": {
-            "type": "string",
-            "description": "For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.\n",
-            "willReplaceOnChanges": true
-        },
-        "userPoolId": {
-            "type": "string",
-            "description": "The user pool ID.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "domain",
-        "userPoolId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering UserPoolDomain resources.\n",
-        "properties": {
-            "awsAccountId": {
-                "type": "string",
-                "description": "The AWS account ID for the user pool owner.\n"
+            "properties": {
+                "awsAccountId": {
+                    "type": "string",
+                    "description": "The AWS account ID for the user pool owner.\n"
+                },
+                "certificateArn": {
+                    "type": "string",
+                    "description": "The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.\n"
+                },
+                "cloudfrontDistribution": {
+                    "type": "string",
+                    "description": "The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.\n"
+                },
+                "cloudfrontDistributionArn": {
+                    "type": "string",
+                    "description": "The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`\n"
+                },
+                "cloudfrontDistributionZoneId": {
+                    "type": "string",
+                    "description": "The Route 53 hosted zone ID of the CloudFront distribution.\n"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.\n"
+                },
+                "s3Bucket": {
+                    "type": "string",
+                    "description": "The S3 bucket where the static files for this domain are stored.\n"
+                },
+                "userPoolId": {
+                    "type": "string",
+                    "description": "The user pool ID.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The app version.\n"
+                }
             },
-            "certificateArn": {
-                "type": "string",
-                "description": "The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.\n"
+            "required": [
+                "awsAccountId",
+                "cloudfrontDistribution",
+                "cloudfrontDistributionArn",
+                "cloudfrontDistributionZoneId",
+                "domain",
+                "s3Bucket",
+                "userPoolId",
+                "version"
+            ],
+            "inputProperties": {
+                "certificateArn": {
+                    "type": "string",
+                    "description": "The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.\n"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.\n",
+                    "willReplaceOnChanges": true
+                },
+                "userPoolId": {
+                    "type": "string",
+                    "description": "The user pool ID.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "cloudfrontDistribution": {
-                "type": "string",
-                "description": "The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.\n"
-            },
-            "cloudfrontDistributionArn": {
-                "type": "string",
-                "description": "The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`\n"
-            },
-            "cloudfrontDistributionZoneId": {
-                "type": "string",
-                "description": "The Route 53 hosted zone ID of the CloudFront distribution.\n"
-            },
-            "domain": {
-                "type": "string",
-                "description": "For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.\n",
-                "willReplaceOnChanges": true
-            },
-            "s3Bucket": {
-                "type": "string",
-                "description": "The S3 bucket where the static files for this domain are stored.\n"
-            },
-            "userPoolId": {
-                "type": "string",
-                "description": "The user pool ID.\n",
-                "willReplaceOnChanges": true
-            },
-            "version": {
-                "type": "string",
-                "description": "The app version.\n"
+            "requiredInputs": [
+                "domain",
+                "userPoolId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UserPoolDomain resources.\n",
+                "properties": {
+                    "awsAccountId": {
+                        "type": "string",
+                        "description": "The AWS account ID for the user pool owner.\n"
+                    },
+                    "certificateArn": {
+                        "type": "string",
+                        "description": "The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.\n"
+                    },
+                    "cloudfrontDistribution": {
+                        "type": "string",
+                        "description": "The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.\n"
+                    },
+                    "cloudfrontDistributionArn": {
+                        "type": "string",
+                        "description": "The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`\n"
+                    },
+                    "cloudfrontDistributionZoneId": {
+                        "type": "string",
+                        "description": "The Route 53 hosted zone ID of the CloudFront distribution.\n"
+                    },
+                    "domain": {
+                        "type": "string",
+                        "description": "For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "s3Bucket": {
+                        "type": "string",
+                        "description": "The S3 bucket where the static files for this domain are stored.\n"
+                    },
+                    "userPoolId": {
+                        "type": "string",
+                        "description": "The user pool ID.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The app version.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

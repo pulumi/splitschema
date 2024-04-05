@@ -1,39 +1,39 @@
 {
-    "properties": {
-        "duration": {
-            "type": "string",
-            "description": "Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).\n"
-        },
-        "freshness": {
-            "type": "boolean",
-            "description": "Indicates that this field determines how \"fresh\" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).\n"
-        },
-        "importance": {
-            "type": "integer",
-            "description": "The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.\n"
-        },
-        "rankOrder": {
-            "type": "string",
-            "description": "Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).\n"
-        },
-        "valuesImportanceMap": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "integer"
+            "properties": {
+                "duration": {
+                    "type": "string",
+                    "description": "Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).\n"
+                },
+                "freshness": {
+                    "type": "boolean",
+                    "description": "Indicates that this field determines how \"fresh\" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).\n"
+                },
+                "importance": {
+                    "type": "integer",
+                    "description": "The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.\n"
+                },
+                "rankOrder": {
+                    "type": "string",
+                    "description": "Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).\n"
+                },
+                "valuesImportanceMap": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "integer"
+                    },
+                    "description": "A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).\n"
+                }
             },
-            "description": "A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).\n"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "duration",
+                        "freshness",
+                        "importance",
+                        "rankOrder",
+                        "valuesImportanceMap"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "duration",
-                "freshness",
-                "importance",
-                "rankOrder",
-                "valuesImportanceMap"
-            ]
-        }
-    }
-}

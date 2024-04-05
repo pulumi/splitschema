@@ -1,174 +1,174 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the listener.\n"
-        },
-        "createdAt": {
-            "type": "string",
-            "description": "Date and time that the listener was created, specified in ISO-8601 format.\n"
-        },
-        "defaultAction": {
-            "$ref": "#/types/aws:vpclattice/ListenerDefaultAction:ListenerDefaultAction",
-            "description": "Default action block for the default listener rule. Default action blocks are defined below.\n"
-        },
-        "lastUpdatedAt": {
-            "type": "string"
-        },
-        "listenerId": {
-            "type": "string",
-            "description": "Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.\n"
-        },
-        "port": {
-            "type": "integer",
-            "description": "Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.\n"
-        },
-        "protocol": {
-            "type": "string",
-            "description": "Protocol for the listener. Supported values are `HTTP` or `HTTPS`\n"
-        },
-        "serviceArn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.\n"
-        },
-        "serviceIdentifier": {
-            "type": "string",
-            "description": "ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.\n\u003e **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "createdAt",
-        "defaultAction",
-        "lastUpdatedAt",
-        "listenerId",
-        "name",
-        "port",
-        "protocol",
-        "serviceArn",
-        "serviceIdentifier",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "defaultAction": {
-            "$ref": "#/types/aws:vpclattice/ListenerDefaultAction:ListenerDefaultAction",
-            "description": "Default action block for the default listener rule. Default action blocks are defined below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.\n",
-            "willReplaceOnChanges": true
-        },
-        "port": {
-            "type": "integer",
-            "description": "Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.\n",
-            "willReplaceOnChanges": true
-        },
-        "protocol": {
-            "type": "string",
-            "description": "Protocol for the listener. Supported values are `HTTP` or `HTTPS`\n",
-            "willReplaceOnChanges": true
-        },
-        "serviceArn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.\n"
-        },
-        "serviceIdentifier": {
-            "type": "string",
-            "description": "ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.\n\u003e **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "defaultAction",
-        "protocol"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Listener resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the listener.\n"
-            },
-            "createdAt": {
-                "type": "string",
-                "description": "Date and time that the listener was created, specified in ISO-8601 format.\n"
-            },
-            "defaultAction": {
-                "$ref": "#/types/aws:vpclattice/ListenerDefaultAction:ListenerDefaultAction",
-                "description": "Default action block for the default listener rule. Default action blocks are defined below.\n"
-            },
-            "lastUpdatedAt": {
-                "type": "string"
-            },
-            "listenerId": {
-                "type": "string",
-                "description": "Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.\n",
-                "willReplaceOnChanges": true
-            },
-            "port": {
-                "type": "integer",
-                "description": "Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.\n",
-                "willReplaceOnChanges": true
-            },
-            "protocol": {
-                "type": "string",
-                "description": "Protocol for the listener. Supported values are `HTTP` or `HTTPS`\n",
-                "willReplaceOnChanges": true
-            },
-            "serviceArn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.\n"
-            },
-            "serviceIdentifier": {
-                "type": "string",
-                "description": "ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.\n\u003e **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the listener.\n"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "Date and time that the listener was created, specified in ISO-8601 format.\n"
+                },
+                "defaultAction": {
+                    "$ref": "#/types/aws:vpclattice/ListenerDefaultAction:ListenerDefaultAction",
+                    "description": "Default action block for the default listener rule. Default action blocks are defined below.\n"
+                },
+                "lastUpdatedAt": {
                     "type": "string"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "listenerId": {
+                    "type": "string",
+                    "description": "Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.\n"
                 },
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "name": {
+                    "type": "string",
+                    "description": "Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.\n"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "Protocol for the listener. Supported values are `HTTP` or `HTTPS`\n"
+                },
+                "serviceArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.\n"
+                },
+                "serviceIdentifier": {
+                    "type": "string",
+                    "description": "ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.\n\u003e **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "createdAt",
+                "defaultAction",
+                "lastUpdatedAt",
+                "listenerId",
+                "name",
+                "port",
+                "protocol",
+                "serviceArn",
+                "serviceIdentifier",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "defaultAction": {
+                    "$ref": "#/types/aws:vpclattice/ListenerDefaultAction:ListenerDefaultAction",
+                    "description": "Default action block for the default listener rule. Default action blocks are defined below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.\n",
+                    "willReplaceOnChanges": true
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.\n",
+                    "willReplaceOnChanges": true
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "Protocol for the listener. Supported values are `HTTP` or `HTTPS`\n",
+                    "willReplaceOnChanges": true
+                },
+                "serviceArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.\n"
+                },
+                "serviceIdentifier": {
+                    "type": "string",
+                    "description": "ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.\n\u003e **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "defaultAction",
+                "protocol"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Listener resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the listener.\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Date and time that the listener was created, specified in ISO-8601 format.\n"
+                    },
+                    "defaultAction": {
+                        "$ref": "#/types/aws:vpclattice/ListenerDefaultAction:ListenerDefaultAction",
+                        "description": "Default action block for the default listener rule. Default action blocks are defined below.\n"
+                    },
+                    "lastUpdatedAt": {
+                        "type": "string"
+                    },
+                    "listenerId": {
+                        "type": "string",
+                        "description": "Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "port": {
+                        "type": "integer",
+                        "description": "Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "protocol": {
+                        "type": "string",
+                        "description": "Protocol for the listener. Supported values are `HTTP` or `HTTPS`\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "serviceArn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.\n"
+                    },
+                    "serviceIdentifier": {
+                        "type": "string",
+                        "description": "ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.\n\u003e **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

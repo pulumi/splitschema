@@ -1,121 +1,121 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the replication set.\n"
-        },
-        "createdBy": {
-            "type": "string",
-            "description": "The ARN of the user who created the replication set.\n"
-        },
-        "deletionProtected": {
-            "type": "boolean",
-            "description": "If `true`, the last region in a replication set cannot be deleted.\n"
-        },
-        "lastModifiedBy": {
-            "type": "string",
-            "description": "A timestamp showing when the replication set was last modified.\n"
-        },
-        "regions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ssmincidents/ReplicationSetRegion:ReplicationSetRegion"
-            }
-        },
-        "status": {
-            "type": "string",
-            "description": "The current status of the Region.\n* Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Tags applied to the replication set.\n\nFor information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "createdBy",
-        "deletionProtected",
-        "lastModifiedBy",
-        "regions",
-        "status",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "regions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ssmincidents/ReplicationSetRegion:ReplicationSetRegion"
-            }
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Tags applied to the replication set.\n\nFor information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).\n"
-        }
-    },
-    "requiredInputs": [
-        "regions"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ReplicationSet resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the replication set.\n"
-            },
-            "createdBy": {
-                "type": "string",
-                "description": "The ARN of the user who created the replication set.\n"
-            },
-            "deletionProtected": {
-                "type": "boolean",
-                "description": "If `true`, the last region in a replication set cannot be deleted.\n"
-            },
-            "lastModifiedBy": {
-                "type": "string",
-                "description": "A timestamp showing when the replication set was last modified.\n"
-            },
-            "regions": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ssmincidents/ReplicationSetRegion:ReplicationSetRegion"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the replication set.\n"
+                },
+                "createdBy": {
+                    "type": "string",
+                    "description": "The ARN of the user who created the replication set.\n"
+                },
+                "deletionProtected": {
+                    "type": "boolean",
+                    "description": "If `true`, the last region in a replication set cannot be deleted.\n"
+                },
+                "lastModifiedBy": {
+                    "type": "string",
+                    "description": "A timestamp showing when the replication set was last modified.\n"
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ssmincidents/ReplicationSetRegion:ReplicationSetRegion"
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The current status of the Region.\n* Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Tags applied to the replication set.\n\nFor information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
                 }
             },
-            "status": {
-                "type": "string",
-                "description": "The current status of the Region.\n* Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "required": [
+                "arn",
+                "createdBy",
+                "deletionProtected",
+                "lastModifiedBy",
+                "regions",
+                "status",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ssmincidents/ReplicationSetRegion:ReplicationSetRegion"
+                    }
                 },
-                "description": "Tags applied to the replication set.\n\nFor information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).\n"
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Tags applied to the replication set.\n\nFor information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).\n"
+                }
             },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "requiredInputs": [
+                "regions"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ReplicationSet resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the replication set.\n"
+                    },
+                    "createdBy": {
+                        "type": "string",
+                        "description": "The ARN of the user who created the replication set.\n"
+                    },
+                    "deletionProtected": {
+                        "type": "boolean",
+                        "description": "If `true`, the last region in a replication set cannot be deleted.\n"
+                    },
+                    "lastModifiedBy": {
+                        "type": "string",
+                        "description": "A timestamp showing when the replication set was last modified.\n"
+                    },
+                    "regions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ssmincidents/ReplicationSetRegion:ReplicationSetRegion"
+                        }
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The current status of the Region.\n* Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Tags applied to the replication set.\n\nFor information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,123 +1,123 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the ACL.\n"
-        },
-        "minimumEngineVersion": {
-            "type": "string",
-            "description": "The minimum engine version supported by the ACL.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "userNames": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of MemoryDB user names to be included in this ACL.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "minimumEngineVersion",
-        "name",
-        "namePrefix",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "name": {
-            "type": "string",
-            "description": "Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
-            "willReplaceOnChanges": true
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "userNames": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of MemoryDB user names to be included in this ACL.\n"
-        }
-    },
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Acl resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the ACL.\n"
-            },
-            "minimumEngineVersion": {
-                "type": "string",
-                "description": "The minimum engine version supported by the ACL.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
-                "willReplaceOnChanges": true
-            },
-            "namePrefix": {
-                "type": "string",
-                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the ACL.\n"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "minimumEngineVersion": {
+                    "type": "string",
+                    "description": "The minimum engine version supported by the ACL.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
-            },
-            "userNames": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "name": {
+                    "type": "string",
+                    "description": "Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
                 },
-                "description": "Set of MemoryDB user names to be included in this ACL.\n"
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "userNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of MemoryDB user names to be included in this ACL.\n"
+                }
+            },
+            "required": [
+                "arn",
+                "minimumEngineVersion",
+                "name",
+                "namePrefix",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "userNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of MemoryDB user names to be included in this ACL.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Acl resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the ACL.\n"
+                    },
+                    "minimumEngineVersion": {
+                        "type": "string",
+                        "description": "The minimum engine version supported by the ACL.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "namePrefix": {
+                        "type": "string",
+                        "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "userNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of MemoryDB user names to be included in this ACL.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

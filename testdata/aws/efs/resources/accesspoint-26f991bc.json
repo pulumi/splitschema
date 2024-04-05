@@ -1,126 +1,126 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the access point.\n"
-        },
-        "fileSystemArn": {
-            "type": "string",
-            "description": "ARN of the file system.\n"
-        },
-        "fileSystemId": {
-            "type": "string",
-            "description": "ID of the file system for which the access point is intended.\n"
-        },
-        "ownerId": {
-            "type": "string"
-        },
-        "posixUser": {
-            "$ref": "#/types/aws:efs/AccessPointPosixUser:AccessPointPosixUser",
-            "description": "Operating system user and group applied to all file system requests made using the access point. Detailed below.\n"
-        },
-        "rootDirectory": {
-            "$ref": "#/types/aws:efs/AccessPointRootDirectory:AccessPointRootDirectory",
-            "description": "Directory on the Amazon EFS file system that the access point provides access to. Detailed below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "fileSystemArn",
-        "fileSystemId",
-        "ownerId",
-        "rootDirectory",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "fileSystemId": {
-            "type": "string",
-            "description": "ID of the file system for which the access point is intended.\n",
-            "willReplaceOnChanges": true
-        },
-        "posixUser": {
-            "$ref": "#/types/aws:efs/AccessPointPosixUser:AccessPointPosixUser",
-            "description": "Operating system user and group applied to all file system requests made using the access point. Detailed below.\n",
-            "willReplaceOnChanges": true
-        },
-        "rootDirectory": {
-            "$ref": "#/types/aws:efs/AccessPointRootDirectory:AccessPointRootDirectory",
-            "description": "Directory on the Amazon EFS file system that the access point provides access to. Detailed below.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
-        }
-    },
-    "requiredInputs": [
-        "fileSystemId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering AccessPoint resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the access point.\n"
-            },
-            "fileSystemArn": {
-                "type": "string",
-                "description": "ARN of the file system.\n"
-            },
-            "fileSystemId": {
-                "type": "string",
-                "description": "ID of the file system for which the access point is intended.\n",
-                "willReplaceOnChanges": true
-            },
-            "ownerId": {
-                "type": "string"
-            },
-            "posixUser": {
-                "$ref": "#/types/aws:efs/AccessPointPosixUser:AccessPointPosixUser",
-                "description": "Operating system user and group applied to all file system requests made using the access point. Detailed below.\n",
-                "willReplaceOnChanges": true
-            },
-            "rootDirectory": {
-                "$ref": "#/types/aws:efs/AccessPointRootDirectory:AccessPointRootDirectory",
-                "description": "Directory on the Amazon EFS file system that the access point provides access to. Detailed below.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the access point.\n"
+                },
+                "fileSystemArn": {
+                    "type": "string",
+                    "description": "ARN of the file system.\n"
+                },
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "ID of the file system for which the access point is intended.\n"
+                },
+                "ownerId": {
                     "type": "string"
                 },
-                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "posixUser": {
+                    "$ref": "#/types/aws:efs/AccessPointPosixUser:AccessPointPosixUser",
+                    "description": "Operating system user and group applied to all file system requests made using the access point. Detailed below.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "rootDirectory": {
+                    "$ref": "#/types/aws:efs/AccessPointRootDirectory:AccessPointRootDirectory",
+                    "description": "Directory on the Amazon EFS file system that the access point provides access to. Detailed below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "fileSystemArn",
+                "fileSystemId",
+                "ownerId",
+                "rootDirectory",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "ID of the file system for which the access point is intended.\n",
+                    "willReplaceOnChanges": true
+                },
+                "posixUser": {
+                    "$ref": "#/types/aws:efs/AccessPointPosixUser:AccessPointPosixUser",
+                    "description": "Operating system user and group applied to all file system requests made using the access point. Detailed below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "rootDirectory": {
+                    "$ref": "#/types/aws:efs/AccessPointRootDirectory:AccessPointRootDirectory",
+                    "description": "Directory on the Amazon EFS file system that the access point provides access to. Detailed below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+                }
+            },
+            "requiredInputs": [
+                "fileSystemId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AccessPoint resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the access point.\n"
+                    },
+                    "fileSystemArn": {
+                        "type": "string",
+                        "description": "ARN of the file system.\n"
+                    },
+                    "fileSystemId": {
+                        "type": "string",
+                        "description": "ID of the file system for which the access point is intended.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ownerId": {
+                        "type": "string"
+                    },
+                    "posixUser": {
+                        "$ref": "#/types/aws:efs/AccessPointPosixUser:AccessPointPosixUser",
+                        "description": "Operating system user and group applied to all file system requests made using the access point. Detailed below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "rootDirectory": {
+                        "$ref": "#/types/aws:efs/AccessPointRootDirectory:AccessPointRootDirectory",
+                        "description": "Directory on the Amazon EFS file system that the access point provides access to. Detailed below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

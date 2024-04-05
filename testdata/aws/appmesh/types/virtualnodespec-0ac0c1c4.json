@@ -1,31 +1,31 @@
 {
-    "properties": {
-        "backendDefaults": {
-            "$ref": "#/types/aws:appmesh/VirtualNodeSpecBackendDefaults:VirtualNodeSpecBackendDefaults",
-            "description": "Defaults for backends.\n"
-        },
-        "backends": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:appmesh/VirtualNodeSpecBackend:VirtualNodeSpecBackend"
+            "properties": {
+                "backendDefaults": {
+                    "$ref": "#/types/aws:appmesh/VirtualNodeSpecBackendDefaults:VirtualNodeSpecBackendDefaults",
+                    "description": "Defaults for backends.\n"
+                },
+                "backends": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:appmesh/VirtualNodeSpecBackend:VirtualNodeSpecBackend"
+                    },
+                    "description": "Backends to which the virtual node is expected to send outbound traffic.\n"
+                },
+                "listeners": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:appmesh/VirtualNodeSpecListener:VirtualNodeSpecListener"
+                    },
+                    "description": "Listeners from which the virtual node is expected to receive inbound traffic.\n"
+                },
+                "logging": {
+                    "$ref": "#/types/aws:appmesh/VirtualNodeSpecLogging:VirtualNodeSpecLogging",
+                    "description": "Inbound and outbound access logging information for the virtual node.\n"
+                },
+                "serviceDiscovery": {
+                    "$ref": "#/types/aws:appmesh/VirtualNodeSpecServiceDiscovery:VirtualNodeSpecServiceDiscovery",
+                    "description": "Service discovery information for the virtual node.\n"
+                }
             },
-            "description": "Backends to which the virtual node is expected to send outbound traffic.\n"
-        },
-        "listeners": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:appmesh/VirtualNodeSpecListener:VirtualNodeSpecListener"
-            },
-            "description": "Listeners from which the virtual node is expected to receive inbound traffic.\n"
-        },
-        "logging": {
-            "$ref": "#/types/aws:appmesh/VirtualNodeSpecLogging:VirtualNodeSpecLogging",
-            "description": "Inbound and outbound access logging information for the virtual node.\n"
-        },
-        "serviceDiscovery": {
-            "$ref": "#/types/aws:appmesh/VirtualNodeSpecServiceDiscovery:VirtualNodeSpecServiceDiscovery",
-            "description": "Service discovery information for the virtual node.\n"
+            "type": "object"
         }
-    },
-    "type": "object"
-}

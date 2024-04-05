@@ -1,168 +1,168 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "RDS Global Cluster Amazon Resource Name (ARN)\n"
-        },
-        "databaseName": {
-            "type": "string",
-            "description": "Name for an automatically created database on cluster creation.\n"
-        },
-        "deletionProtection": {
-            "type": "boolean",
-            "description": "If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.\n"
-        },
-        "engine": {
-            "type": "string",
-            "description": "Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.\n"
-        },
-        "engineVersion": {
-            "type": "string",
-            "description": "Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.\n"
-        },
-        "engineVersionActual": {
-            "type": "string"
-        },
-        "forceDestroy": {
-            "type": "boolean",
-            "description": "Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.\n"
-        },
-        "globalClusterIdentifier": {
-            "type": "string",
-            "description": "Global cluster identifier.\n"
-        },
-        "globalClusterMembers": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:rds/GlobalClusterGlobalClusterMember:GlobalClusterGlobalClusterMember"
-            },
-            "description": "Set of objects containing Global Cluster members.\n"
-        },
-        "globalClusterResourceId": {
-            "type": "string",
-            "description": "AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed\n"
-        },
-        "sourceDbClusterIdentifier": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.\n"
-        },
-        "storageEncrypted": {
-            "type": "boolean",
-            "description": "Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "engine",
-        "engineVersion",
-        "engineVersionActual",
-        "globalClusterIdentifier",
-        "globalClusterMembers",
-        "globalClusterResourceId",
-        "sourceDbClusterIdentifier",
-        "storageEncrypted"
-    ],
-    "inputProperties": {
-        "databaseName": {
-            "type": "string",
-            "description": "Name for an automatically created database on cluster creation.\n",
-            "willReplaceOnChanges": true
-        },
-        "deletionProtection": {
-            "type": "boolean",
-            "description": "If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.\n"
-        },
-        "engine": {
-            "type": "string",
-            "description": "Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.\n",
-            "willReplaceOnChanges": true
-        },
-        "engineVersion": {
-            "type": "string",
-            "description": "Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.\n"
-        },
-        "forceDestroy": {
-            "type": "boolean",
-            "description": "Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.\n"
-        },
-        "globalClusterIdentifier": {
-            "type": "string",
-            "description": "Global cluster identifier.\n",
-            "willReplaceOnChanges": true
-        },
-        "sourceDbClusterIdentifier": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.\n",
-            "willReplaceOnChanges": true
-        },
-        "storageEncrypted": {
-            "type": "boolean",
-            "description": "Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "globalClusterIdentifier"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering GlobalCluster resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "RDS Global Cluster Amazon Resource Name (ARN)\n"
-            },
-            "databaseName": {
-                "type": "string",
-                "description": "Name for an automatically created database on cluster creation.\n",
-                "willReplaceOnChanges": true
-            },
-            "deletionProtection": {
-                "type": "boolean",
-                "description": "If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.\n"
-            },
-            "engine": {
-                "type": "string",
-                "description": "Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.\n",
-                "willReplaceOnChanges": true
-            },
-            "engineVersion": {
-                "type": "string",
-                "description": "Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.\n"
-            },
-            "engineVersionActual": {
-                "type": "string"
-            },
-            "forceDestroy": {
-                "type": "boolean",
-                "description": "Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.\n"
-            },
-            "globalClusterIdentifier": {
-                "type": "string",
-                "description": "Global cluster identifier.\n",
-                "willReplaceOnChanges": true
-            },
-            "globalClusterMembers": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:rds/GlobalClusterGlobalClusterMember:GlobalClusterGlobalClusterMember"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "RDS Global Cluster Amazon Resource Name (ARN)\n"
                 },
-                "description": "Set of objects containing Global Cluster members.\n"
+                "databaseName": {
+                    "type": "string",
+                    "description": "Name for an automatically created database on cluster creation.\n"
+                },
+                "deletionProtection": {
+                    "type": "boolean",
+                    "description": "If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.\n"
+                },
+                "engine": {
+                    "type": "string",
+                    "description": "Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.\n"
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.\n"
+                },
+                "engineVersionActual": {
+                    "type": "string"
+                },
+                "forceDestroy": {
+                    "type": "boolean",
+                    "description": "Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.\n"
+                },
+                "globalClusterIdentifier": {
+                    "type": "string",
+                    "description": "Global cluster identifier.\n"
+                },
+                "globalClusterMembers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:rds/GlobalClusterGlobalClusterMember:GlobalClusterGlobalClusterMember"
+                    },
+                    "description": "Set of objects containing Global Cluster members.\n"
+                },
+                "globalClusterResourceId": {
+                    "type": "string",
+                    "description": "AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed\n"
+                },
+                "sourceDbClusterIdentifier": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.\n"
+                },
+                "storageEncrypted": {
+                    "type": "boolean",
+                    "description": "Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.\n"
+                }
             },
-            "globalClusterResourceId": {
-                "type": "string",
-                "description": "AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed\n"
+            "required": [
+                "arn",
+                "engine",
+                "engineVersion",
+                "engineVersionActual",
+                "globalClusterIdentifier",
+                "globalClusterMembers",
+                "globalClusterResourceId",
+                "sourceDbClusterIdentifier",
+                "storageEncrypted"
+            ],
+            "inputProperties": {
+                "databaseName": {
+                    "type": "string",
+                    "description": "Name for an automatically created database on cluster creation.\n",
+                    "willReplaceOnChanges": true
+                },
+                "deletionProtection": {
+                    "type": "boolean",
+                    "description": "If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.\n"
+                },
+                "engine": {
+                    "type": "string",
+                    "description": "Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.\n"
+                },
+                "forceDestroy": {
+                    "type": "boolean",
+                    "description": "Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.\n"
+                },
+                "globalClusterIdentifier": {
+                    "type": "string",
+                    "description": "Global cluster identifier.\n",
+                    "willReplaceOnChanges": true
+                },
+                "sourceDbClusterIdentifier": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.\n",
+                    "willReplaceOnChanges": true
+                },
+                "storageEncrypted": {
+                    "type": "boolean",
+                    "description": "Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "sourceDbClusterIdentifier": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.\n",
-                "willReplaceOnChanges": true
-            },
-            "storageEncrypted": {
-                "type": "boolean",
-                "description": "Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "globalClusterIdentifier"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GlobalCluster resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "RDS Global Cluster Amazon Resource Name (ARN)\n"
+                    },
+                    "databaseName": {
+                        "type": "string",
+                        "description": "Name for an automatically created database on cluster creation.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "deletionProtection": {
+                        "type": "boolean",
+                        "description": "If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.\n"
+                    },
+                    "engine": {
+                        "type": "string",
+                        "description": "Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "engineVersion": {
+                        "type": "string",
+                        "description": "Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.\n"
+                    },
+                    "engineVersionActual": {
+                        "type": "string"
+                    },
+                    "forceDestroy": {
+                        "type": "boolean",
+                        "description": "Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.\n"
+                    },
+                    "globalClusterIdentifier": {
+                        "type": "string",
+                        "description": "Global cluster identifier.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "globalClusterMembers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:rds/GlobalClusterGlobalClusterMember:GlobalClusterGlobalClusterMember"
+                        },
+                        "description": "Set of objects containing Global Cluster members.\n"
+                    },
+                    "globalClusterResourceId": {
+                        "type": "string",
+                        "description": "AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed\n"
+                    },
+                    "sourceDbClusterIdentifier": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "storageEncrypted": {
+                        "type": "boolean",
+                        "description": "Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

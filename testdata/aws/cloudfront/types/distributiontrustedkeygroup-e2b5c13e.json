@@ -1,24 +1,24 @@
 {
-    "properties": {
-        "enabled": {
-            "type": "boolean",
-            "description": "Whether Origin Shield is enabled.\n"
-        },
-        "items": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:cloudfront/DistributionTrustedKeyGroupItem:DistributionTrustedKeyGroupItem"
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Origin Shield is enabled.\n"
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:cloudfront/DistributionTrustedKeyGroupItem:DistributionTrustedKeyGroupItem"
+                    },
+                    "description": "List of nested attributes for each trusted signer\n"
+                }
             },
-            "description": "List of nested attributes for each trusted signer\n"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "items"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "enabled",
-                "items"
-            ]
-        }
-    }
-}

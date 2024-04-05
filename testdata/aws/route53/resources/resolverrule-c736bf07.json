@@ -1,161 +1,161 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN (Amazon Resource Name) for the resolver rule.\n"
-        },
-        "domainName": {
-            "type": "string",
-            "description": "DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.\n"
-        },
-        "ownerId": {
-            "type": "string",
-            "description": "When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.\n"
-        },
-        "resolverEndpointId": {
-            "type": "string",
-            "description": "The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.\nThis argument should only be specified for `FORWARD` type rules.\n"
-        },
-        "ruleType": {
-            "type": "string",
-            "description": "The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.\n"
-        },
-        "shareStatus": {
-            "type": "string",
-            "description": "Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.\nValues are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "targetIps": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:route53/ResolverRuleTargetIp:ResolverRuleTargetIp"
-            },
-            "description": "Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).\nThis argument should only be specified for `FORWARD` type rules.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "domainName",
-        "name",
-        "ownerId",
-        "ruleType",
-        "shareStatus",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "domainName": {
-            "type": "string",
-            "description": "DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.\n"
-        },
-        "resolverEndpointId": {
-            "type": "string",
-            "description": "The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.\nThis argument should only be specified for `FORWARD` type rules.\n"
-        },
-        "ruleType": {
-            "type": "string",
-            "description": "The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "targetIps": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:route53/ResolverRuleTargetIp:ResolverRuleTargetIp"
-            },
-            "description": "Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).\nThis argument should only be specified for `FORWARD` type rules.\n"
-        }
-    },
-    "requiredInputs": [
-        "domainName",
-        "ruleType"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ResolverRule resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN (Amazon Resource Name) for the resolver rule.\n"
-            },
-            "domainName": {
-                "type": "string",
-                "description": "DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.\n"
-            },
-            "ownerId": {
-                "type": "string",
-                "description": "When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.\n"
-            },
-            "resolverEndpointId": {
-                "type": "string",
-                "description": "The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.\nThis argument should only be specified for `FORWARD` type rules.\n"
-            },
-            "ruleType": {
-                "type": "string",
-                "description": "The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.\n",
-                "willReplaceOnChanges": true
-            },
-            "shareStatus": {
-                "type": "string",
-                "description": "Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.\nValues are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN (Amazon Resource Name) for the resolver rule.\n"
                 },
-                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "domainName": {
+                    "type": "string",
+                    "description": "DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
-            },
-            "targetIps": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:route53/ResolverRuleTargetIp:ResolverRuleTargetIp"
+                "name": {
+                    "type": "string",
+                    "description": "A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.\n"
                 },
-                "description": "Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).\nThis argument should only be specified for `FORWARD` type rules.\n"
+                "ownerId": {
+                    "type": "string",
+                    "description": "When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.\n"
+                },
+                "resolverEndpointId": {
+                    "type": "string",
+                    "description": "The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.\nThis argument should only be specified for `FORWARD` type rules.\n"
+                },
+                "ruleType": {
+                    "type": "string",
+                    "description": "The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.\n"
+                },
+                "shareStatus": {
+                    "type": "string",
+                    "description": "Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.\nValues are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "targetIps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:route53/ResolverRuleTargetIp:ResolverRuleTargetIp"
+                    },
+                    "description": "Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).\nThis argument should only be specified for `FORWARD` type rules.\n"
+                }
+            },
+            "required": [
+                "arn",
+                "domainName",
+                "name",
+                "ownerId",
+                "ruleType",
+                "shareStatus",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "domainName": {
+                    "type": "string",
+                    "description": "DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.\n"
+                },
+                "resolverEndpointId": {
+                    "type": "string",
+                    "description": "The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.\nThis argument should only be specified for `FORWARD` type rules.\n"
+                },
+                "ruleType": {
+                    "type": "string",
+                    "description": "The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "targetIps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:route53/ResolverRuleTargetIp:ResolverRuleTargetIp"
+                    },
+                    "description": "Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).\nThis argument should only be specified for `FORWARD` type rules.\n"
+                }
+            },
+            "requiredInputs": [
+                "domainName",
+                "ruleType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ResolverRule resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN (Amazon Resource Name) for the resolver rule.\n"
+                    },
+                    "domainName": {
+                        "type": "string",
+                        "description": "DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.\n"
+                    },
+                    "ownerId": {
+                        "type": "string",
+                        "description": "When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.\n"
+                    },
+                    "resolverEndpointId": {
+                        "type": "string",
+                        "description": "The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.\nThis argument should only be specified for `FORWARD` type rules.\n"
+                    },
+                    "ruleType": {
+                        "type": "string",
+                        "description": "The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "shareStatus": {
+                        "type": "string",
+                        "description": "Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.\nValues are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "targetIps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:route53/ResolverRuleTargetIp:ResolverRuleTargetIp"
+                        },
+                        "description": "Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).\nThis argument should only be specified for `FORWARD` type rules.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

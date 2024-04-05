@@ -1,92 +1,92 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getAmiIds.\n",
-        "properties": {
-            "executableUsers": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getAmiIds.\n",
+                "properties": {
+                    "executableUsers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Limit search to users with *explicit* launch\npermission on  the image. Valid items are the numeric account ID or `self`.\n"
+                    },
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getAmiIdsFilter:getAmiIdsFilter"
+                        },
+                        "description": "One or more name/value pairs to filter off of. There\nare several valid keys, for a full reference, check out\n[describe-images in the AWS CLI reference][1].\n"
+                    },
+                    "includeDeprecated": {
+                        "type": "boolean",
+                        "description": "If true, all deprecated AMIs are included in the response.\nIf false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.\n"
+                    },
+                    "nameRegex": {
+                        "type": "string",
+                        "description": "Regex string to apply to the AMI list returned\nby AWS. This allows more advanced filtering not supported from the AWS API.\nThis filtering is done locally on what AWS returns, and could have a performance\nimpact if the result is large. Combine this with other\noptions to narrow down the list AWS returns.\n"
+                    },
+                    "owners": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).\n"
+                    },
+                    "sortAscending": {
+                        "type": "boolean",
+                        "description": "Used to sort AMIs by creation time.\nIf no value is specified, the default value is `false`.\n"
+                    }
                 },
-                "description": "Limit search to users with *explicit* launch\npermission on  the image. Valid items are the numeric account ID or `self`.\n"
+                "type": "object",
+                "required": [
+                    "owners"
+                ]
             },
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getAmiIdsFilter:getAmiIdsFilter"
+            "outputs": {
+                "description": "A collection of values returned by getAmiIds.\n",
+                "properties": {
+                    "executableUsers": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getAmiIdsFilter:getAmiIdsFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "includeDeprecated": {
+                        "type": "boolean"
+                    },
+                    "nameRegex": {
+                        "type": "string"
+                    },
+                    "owners": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "sortAscending": {
+                        "type": "boolean"
+                    }
                 },
-                "description": "One or more name/value pairs to filter off of. There\nare several valid keys, for a full reference, check out\n[describe-images in the AWS CLI reference][1].\n"
-            },
-            "includeDeprecated": {
-                "type": "boolean",
-                "description": "If true, all deprecated AMIs are included in the response.\nIf false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.\n"
-            },
-            "nameRegex": {
-                "type": "string",
-                "description": "Regex string to apply to the AMI list returned\nby AWS. This allows more advanced filtering not supported from the AWS API.\nThis filtering is done locally on what AWS returns, and could have a performance\nimpact if the result is large. Combine this with other\noptions to narrow down the list AWS returns.\n"
-            },
-            "owners": {
-                "type": "array",
-                "items": {
-                    "type": "string"
-                },
-                "description": "List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).\n"
-            },
-            "sortAscending": {
-                "type": "boolean",
-                "description": "Used to sort AMIs by creation time.\nIf no value is specified, the default value is `false`.\n"
+                "required": [
+                    "ids",
+                    "owners",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "owners"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getAmiIds.\n",
-        "properties": {
-            "executableUsers": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getAmiIdsFilter:getAmiIdsFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "ids": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "includeDeprecated": {
-                "type": "boolean"
-            },
-            "nameRegex": {
-                "type": "string"
-            },
-            "owners": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "sortAscending": {
-                "type": "boolean"
-            }
-        },
-        "required": [
-            "ids",
-            "owners",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,20 +1,20 @@
 {
-    "properties": {
-        "role": {
-            "type": "string",
-            "description": "ARN of the IAM role for Amazon S3 to assume when replicating the objects.\n"
-        },
-        "rules": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:s3/BucketV2ReplicationConfigurationRule:BucketV2ReplicationConfigurationRule"
+            "properties": {
+                "role": {
+                    "type": "string",
+                    "description": "ARN of the IAM role for Amazon S3 to assume when replicating the objects.\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:s3/BucketV2ReplicationConfigurationRule:BucketV2ReplicationConfigurationRule"
+                    },
+                    "description": "Specifies the rules managing the replication (documented below).\n"
+                }
             },
-            "description": "Specifies the rules managing the replication (documented below).\n"
+            "type": "object",
+            "required": [
+                "role",
+                "rules"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "role",
-        "rules"
-    ]
-}

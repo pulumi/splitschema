@@ -1,30 +1,30 @@
 {
-    "properties": {
-        "bucketName": {
-            "type": "string",
-            "description": "The S3 bucket name.\n"
-        },
-        "bucketPrefix": {
-            "type": "string",
-            "description": "The S3 bucket prefix.\n"
-        },
-        "encryptionConfigs": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:connect/getInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig:getInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig"
+            "properties": {
+                "bucketName": {
+                    "type": "string",
+                    "description": "The S3 bucket name.\n"
+                },
+                "bucketPrefix": {
+                    "type": "string",
+                    "description": "The S3 bucket prefix.\n"
+                },
+                "encryptionConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:connect/getInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig:getInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig"
+                    },
+                    "description": "The encryption configuration. Documented below.\n"
+                }
             },
-            "description": "The encryption configuration. Documented below.\n"
+            "type": "object",
+            "required": [
+                "bucketName",
+                "bucketPrefix",
+                "encryptionConfigs"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "bucketName",
-        "bucketPrefix",
-        "encryptionConfigs"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

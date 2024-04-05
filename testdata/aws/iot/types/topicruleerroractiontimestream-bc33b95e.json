@@ -1,34 +1,34 @@
 {
-    "properties": {
-        "databaseName": {
-            "type": "string",
-            "description": "The name of an Amazon Timestream database.\n"
-        },
-        "dimensions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:iot/TopicRuleErrorActionTimestreamDimension:TopicRuleErrorActionTimestreamDimension"
+            "properties": {
+                "databaseName": {
+                    "type": "string",
+                    "description": "The name of an Amazon Timestream database.\n"
+                },
+                "dimensions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:iot/TopicRuleErrorActionTimestreamDimension:TopicRuleErrorActionTimestreamDimension"
+                    },
+                    "description": "Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The ARN of the role that grants permission to write to the Amazon Timestream database table.\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "The name of the database table into which to write the measure records.\n"
+                },
+                "timestamp": {
+                    "$ref": "#/types/aws:iot/TopicRuleErrorActionTimestreamTimestamp:TopicRuleErrorActionTimestreamTimestamp",
+                    "description": "Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.\n"
+                }
             },
-            "description": "Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The ARN of the role that grants permission to write to the Amazon Timestream database table.\n"
-        },
-        "tableName": {
-            "type": "string",
-            "description": "The name of the database table into which to write the measure records.\n"
-        },
-        "timestamp": {
-            "$ref": "#/types/aws:iot/TopicRuleErrorActionTimestreamTimestamp:TopicRuleErrorActionTimestreamTimestamp",
-            "description": "Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.\n"
+            "type": "object",
+            "required": [
+                "databaseName",
+                "dimensions",
+                "roleArn",
+                "tableName"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "databaseName",
-        "dimensions",
-        "roleArn",
-        "tableName"
-    ]
-}

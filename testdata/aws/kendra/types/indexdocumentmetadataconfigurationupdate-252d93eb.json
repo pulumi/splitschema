@@ -1,35 +1,35 @@
 {
-    "properties": {
-        "name": {
-            "type": "string",
-            "description": "The name of the index field. Minimum length of 1. Maximum length of 30.\n"
-        },
-        "relevance": {
-            "$ref": "#/types/aws:kendra/IndexDocumentMetadataConfigurationUpdateRelevance:IndexDocumentMetadataConfigurationUpdateRelevance",
-            "description": "A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below\n"
-        },
-        "search": {
-            "$ref": "#/types/aws:kendra/IndexDocumentMetadataConfigurationUpdateSearch:IndexDocumentMetadataConfigurationUpdateSearch",
-            "description": "A block that provides information about how the field is used during a search. Documented below. Detailed below\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "name",
-        "type"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the index field. Minimum length of 1. Maximum length of 30.\n"
+                },
+                "relevance": {
+                    "$ref": "#/types/aws:kendra/IndexDocumentMetadataConfigurationUpdateRelevance:IndexDocumentMetadataConfigurationUpdateRelevance",
+                    "description": "A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below\n"
+                },
+                "search": {
+                    "$ref": "#/types/aws:kendra/IndexDocumentMetadataConfigurationUpdateSearch:IndexDocumentMetadataConfigurationUpdateSearch",
+                    "description": "A block that provides information about how the field is used during a search. Documented below. Detailed below\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
                 "name",
-                "relevance",
-                "search",
                 "type"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "name",
+                        "relevance",
+                        "search",
+                        "type"
+                    ]
+                }
+            }
         }
-    }
-}

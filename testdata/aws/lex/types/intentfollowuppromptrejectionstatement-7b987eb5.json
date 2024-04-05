@@ -1,19 +1,19 @@
 {
-    "properties": {
-        "messages": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:lex/IntentFollowUpPromptRejectionStatementMessage:IntentFollowUpPromptRejectionStatementMessage"
+            "properties": {
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:lex/IntentFollowUpPromptRejectionStatementMessage:IntentFollowUpPromptRejectionStatementMessage"
+                    },
+                    "description": "A set of messages, each of which provides a message string and its type.\nYou can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).\nAttributes are documented under message. Must contain between 1 and 15 messages.\n"
+                },
+                "responseCard": {
+                    "type": "string",
+                    "description": "The response card. Amazon Lex will substitute session attributes and\nslot values into the response card. For more information, see\n[Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.\n"
+                }
             },
-            "description": "A set of messages, each of which provides a message string and its type.\nYou can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).\nAttributes are documented under message. Must contain between 1 and 15 messages.\n"
-        },
-        "responseCard": {
-            "type": "string",
-            "description": "The response card. Amazon Lex will substitute session attributes and\nslot values into the response card. For more information, see\n[Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.\n"
+            "type": "object",
+            "required": [
+                "messages"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "messages"
-    ]
-}

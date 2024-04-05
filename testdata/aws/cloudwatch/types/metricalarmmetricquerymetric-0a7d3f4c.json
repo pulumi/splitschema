@@ -1,37 +1,37 @@
 {
-    "properties": {
-        "dimensions": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
+            "properties": {
+                "dimensions": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
+                },
+                "metricName": {
+                    "type": "string",
+                    "description": "The name for this metric.\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "Granularity in seconds of returned data points.\nFor metrics with regular resolution, valid values are any multiple of `60`.\nFor high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.\n"
+                },
+                "stat": {
+                    "type": "string",
+                    "description": "The statistic to apply to this metric.\nSee docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).\n"
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "The unit for this metric.\n"
+                }
             },
-            "description": "The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
-        },
-        "metricName": {
-            "type": "string",
-            "description": "The name for this metric.\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
-        },
-        "namespace": {
-            "type": "string",
-            "description": "The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).\nSee docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).\n"
-        },
-        "period": {
-            "type": "integer",
-            "description": "Granularity in seconds of returned data points.\nFor metrics with regular resolution, valid values are any multiple of `60`.\nFor high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.\n"
-        },
-        "stat": {
-            "type": "string",
-            "description": "The statistic to apply to this metric.\nSee docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).\n"
-        },
-        "unit": {
-            "type": "string",
-            "description": "The unit for this metric.\n"
+            "type": "object",
+            "required": [
+                "metricName",
+                "period",
+                "stat"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "metricName",
-        "period",
-        "stat"
-    ]
-}

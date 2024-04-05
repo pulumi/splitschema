@@ -1,40 +1,40 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getPartition.\n",
-        "properties": {
-            "id": {
-                "type": "string",
-                "description": "Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getPartition.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPartition.\n",
+                "properties": {
+                    "dnsSuffix": {
+                        "description": "Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).\n",
+                        "type": "string"
+                    },
+                    "partition": {
+                        "description": "Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).\n",
+                        "type": "string"
+                    },
+                    "reverseDnsPrefix": {
+                        "description": "Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dnsSuffix",
+                    "id",
+                    "partition",
+                    "reverseDnsPrefix"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getPartition.\n",
-        "properties": {
-            "dnsSuffix": {
-                "description": "Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).\n",
-                "type": "string"
-            },
-            "partition": {
-                "description": "Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).\n",
-                "type": "string"
-            },
-            "reverseDnsPrefix": {
-                "description": "Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "dnsSuffix",
-            "id",
-            "partition",
-            "reverseDnsPrefix"
-        ],
-        "type": "object"
-    }
-}
+        }

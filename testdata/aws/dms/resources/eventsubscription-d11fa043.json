@@ -1,170 +1,170 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the DMS Event Subscription.\n"
-        },
-        "enabled": {
-            "type": "boolean",
-            "description": "Whether the event subscription should be enabled.\n"
-        },
-        "eventCategories": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of event categories to listen for, see `DescribeEventCategories` for a canonical list.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of event subscription.\n"
-        },
-        "snsTopicArn": {
-            "type": "string",
-            "description": "SNS topic arn to send events on.\n"
-        },
-        "sourceIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Ids of sources to listen to.\n"
-        },
-        "sourceType": {
-            "type": "string",
-            "description": "Type of source for events. Valid values: `replication-instance` or `replication-task`\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "eventCategories",
-        "name",
-        "snsTopicArn",
-        "sourceIds",
-        "sourceType",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "enabled": {
-            "type": "boolean",
-            "description": "Whether the event subscription should be enabled.\n"
-        },
-        "eventCategories": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of event categories to listen for, see `DescribeEventCategories` for a canonical list.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of event subscription.\n",
-            "willReplaceOnChanges": true
-        },
-        "snsTopicArn": {
-            "type": "string",
-            "description": "SNS topic arn to send events on.\n"
-        },
-        "sourceIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Ids of sources to listen to.\n",
-            "willReplaceOnChanges": true
-        },
-        "sourceType": {
-            "type": "string",
-            "description": "Type of source for events. Valid values: `replication-instance` or `replication-task`\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "eventCategories",
-        "snsTopicArn",
-        "sourceIds",
-        "sourceType"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering EventSubscription resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the DMS Event Subscription.\n"
-            },
-            "enabled": {
-                "type": "boolean",
-                "description": "Whether the event subscription should be enabled.\n"
-            },
-            "eventCategories": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the DMS Event Subscription.\n"
                 },
-                "description": "List of event categories to listen for, see `DescribeEventCategories` for a canonical list.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name of event subscription.\n",
-                "willReplaceOnChanges": true
-            },
-            "snsTopicArn": {
-                "type": "string",
-                "description": "SNS topic arn to send events on.\n"
-            },
-            "sourceIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the event subscription should be enabled.\n"
                 },
-                "description": "Ids of sources to listen to.\n",
-                "willReplaceOnChanges": true
-            },
-            "sourceType": {
-                "type": "string",
-                "description": "Type of source for events. Valid values: `replication-instance` or `replication-task`\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "eventCategories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of event categories to listen for, see `DescribeEventCategories` for a canonical list.\n"
                 },
-                "description": "Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "name": {
+                    "type": "string",
+                    "description": "Name of event subscription.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "snsTopicArn": {
+                    "type": "string",
+                    "description": "SNS topic arn to send events on.\n"
+                },
+                "sourceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of sources to listen to.\n"
+                },
+                "sourceType": {
+                    "type": "string",
+                    "description": "Type of source for events. Valid values: `replication-instance` or `replication-task`\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "eventCategories",
+                "name",
+                "snsTopicArn",
+                "sourceIds",
+                "sourceType",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the event subscription should be enabled.\n"
+                },
+                "eventCategories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of event categories to listen for, see `DescribeEventCategories` for a canonical list.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of event subscription.\n",
+                    "willReplaceOnChanges": true
+                },
+                "snsTopicArn": {
+                    "type": "string",
+                    "description": "SNS topic arn to send events on.\n"
+                },
+                "sourceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Ids of sources to listen to.\n",
+                    "willReplaceOnChanges": true
+                },
+                "sourceType": {
+                    "type": "string",
+                    "description": "Type of source for events. Valid values: `replication-instance` or `replication-task`\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "eventCategories",
+                "snsTopicArn",
+                "sourceIds",
+                "sourceType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EventSubscription resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the DMS Event Subscription.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the event subscription should be enabled.\n"
+                    },
+                    "eventCategories": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of event categories to listen for, see `DescribeEventCategories` for a canonical list.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of event subscription.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "snsTopicArn": {
+                        "type": "string",
+                        "description": "SNS topic arn to send events on.\n"
+                    },
+                    "sourceIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Ids of sources to listen to.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "sourceType": {
+                        "type": "string",
+                        "description": "Type of source for events. Valid values: `replication-instance` or `replication-task`\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

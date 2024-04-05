@@ -1,103 +1,103 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getConnectPeer.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getConnectPeerFilter:getConnectPeerFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getConnectPeer.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getConnectPeerFilter:getConnectPeerFilter"
+                        },
+                        "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the EC2 Transit Gateway Connect Peer\n"
+                    },
+                    "transitGatewayConnectPeerId": {
+                        "type": "string",
+                        "description": "Identifier of the EC2 Transit Gateway Connect Peer.\n"
+                    }
                 },
-                "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value tags for the EC2 Transit Gateway Connect Peer\n"
-            },
-            "transitGatewayConnectPeerId": {
-                "type": "string",
-                "description": "Identifier of the EC2 Transit Gateway Connect Peer.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getConnectPeer.\n",
-        "properties": {
-            "arn": {
-                "description": "EC2 Transit Gateway Connect Peer ARN\n",
-                "type": "string"
-            },
-            "bgpAsn": {
-                "description": "BGP ASN number assigned customer device\n",
-                "type": "string"
-            },
-            "bgpPeerAddress": {
-                "description": "The IP address assigned to customer device, which is used as BGP IP address.\n",
-                "type": "string"
-            },
-            "bgpTransitGatewayAddresses": {
-                "description": "The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getConnectPeerFilter:getConnectPeerFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "insideCidrBlocks": {
-                "description": "CIDR blocks that will be used for addressing within the tunnel.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "peerAddress": {
-                "description": "IP addressed assigned to customer device, which is used as tunnel endpoint\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value tags for the EC2 Transit Gateway Connect Peer\n",
                 "type": "object"
             },
-            "transitGatewayAddress": {
-                "description": "The IP address assigned to Transit Gateway, which is used as tunnel endpoint.\n",
-                "type": "string"
-            },
-            "transitGatewayAttachmentId": {
-                "description": "The Transit Gateway Connect\n",
-                "type": "string"
-            },
-            "transitGatewayConnectPeerId": {
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getConnectPeer.\n",
+                "properties": {
+                    "arn": {
+                        "description": "EC2 Transit Gateway Connect Peer ARN\n",
+                        "type": "string"
+                    },
+                    "bgpAsn": {
+                        "description": "BGP ASN number assigned customer device\n",
+                        "type": "string"
+                    },
+                    "bgpPeerAddress": {
+                        "description": "The IP address assigned to customer device, which is used as BGP IP address.\n",
+                        "type": "string"
+                    },
+                    "bgpTransitGatewayAddresses": {
+                        "description": "The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getConnectPeerFilter:getConnectPeerFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "insideCidrBlocks": {
+                        "description": "CIDR blocks that will be used for addressing within the tunnel.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "peerAddress": {
+                        "description": "IP addressed assigned to customer device, which is used as tunnel endpoint\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the EC2 Transit Gateway Connect Peer\n",
+                        "type": "object"
+                    },
+                    "transitGatewayAddress": {
+                        "description": "The IP address assigned to Transit Gateway, which is used as tunnel endpoint.\n",
+                        "type": "string"
+                    },
+                    "transitGatewayAttachmentId": {
+                        "description": "The Transit Gateway Connect\n",
+                        "type": "string"
+                    },
+                    "transitGatewayConnectPeerId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "bgpAsn",
+                    "bgpPeerAddress",
+                    "bgpTransitGatewayAddresses",
+                    "insideCidrBlocks",
+                    "peerAddress",
+                    "tags",
+                    "transitGatewayAddress",
+                    "transitGatewayAttachmentId",
+                    "transitGatewayConnectPeerId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "bgpAsn",
-            "bgpPeerAddress",
-            "bgpTransitGatewayAddresses",
-            "insideCidrBlocks",
-            "peerAddress",
-            "tags",
-            "transitGatewayAddress",
-            "transitGatewayAttachmentId",
-            "transitGatewayConnectPeerId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

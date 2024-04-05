@@ -1,259 +1,259 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the configuration.\n"
-        },
-        "dateCreated": {
-            "type": "string",
-            "description": "Date when the configuration was created.\n"
-        },
-        "dateUpdated": {
-            "type": "string",
-            "description": "Date when the configuration was updated.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description for the configuration.\n"
-        },
-        "instanceMetadataOptions": {
-            "$ref": "#/types/aws:imagebuilder/InfrastructureConfigurationInstanceMetadataOptions:InfrastructureConfigurationInstanceMetadataOptions",
-            "description": "Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.\n"
-        },
-        "instanceProfileName": {
-            "type": "string",
-            "description": "Name of IAM Instance Profile.\n"
-        },
-        "instanceTypes": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of EC2 Instance Types.\n"
-        },
-        "keyPair": {
-            "type": "string",
-            "description": "Name of EC2 Key Pair.\n"
-        },
-        "logging": {
-            "$ref": "#/types/aws:imagebuilder/InfrastructureConfigurationLogging:InfrastructureConfigurationLogging",
-            "description": "Configuration block with logging settings. Detailed below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name for the configuration.\n\nThe following arguments are optional:\n"
-        },
-        "resourceTags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags to assign to infrastructure created by the configuration.\n"
-        },
-        "securityGroupIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of EC2 Security Group identifiers.\n"
-        },
-        "snsTopicArn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of SNS Topic.\n"
-        },
-        "subnetId": {
-            "type": "string",
-            "description": "EC2 Subnet identifier. Also requires `security_group_ids` argument.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "terminateInstanceOnFailure": {
-            "type": "boolean",
-            "description": "Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "dateCreated",
-        "dateUpdated",
-        "instanceProfileName",
-        "name",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "description": {
-            "type": "string",
-            "description": "Description for the configuration.\n"
-        },
-        "instanceMetadataOptions": {
-            "$ref": "#/types/aws:imagebuilder/InfrastructureConfigurationInstanceMetadataOptions:InfrastructureConfigurationInstanceMetadataOptions",
-            "description": "Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.\n"
-        },
-        "instanceProfileName": {
-            "type": "string",
-            "description": "Name of IAM Instance Profile.\n"
-        },
-        "instanceTypes": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of EC2 Instance Types.\n"
-        },
-        "keyPair": {
-            "type": "string",
-            "description": "Name of EC2 Key Pair.\n"
-        },
-        "logging": {
-            "$ref": "#/types/aws:imagebuilder/InfrastructureConfigurationLogging:InfrastructureConfigurationLogging",
-            "description": "Configuration block with logging settings. Detailed below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name for the configuration.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "resourceTags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags to assign to infrastructure created by the configuration.\n"
-        },
-        "securityGroupIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of EC2 Security Group identifiers.\n"
-        },
-        "snsTopicArn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of SNS Topic.\n"
-        },
-        "subnetId": {
-            "type": "string",
-            "description": "EC2 Subnet identifier. Also requires `security_group_ids` argument.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "terminateInstanceOnFailure": {
-            "type": "boolean",
-            "description": "Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.\n"
-        }
-    },
-    "requiredInputs": [
-        "instanceProfileName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering InfrastructureConfiguration resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the configuration.\n"
-            },
-            "dateCreated": {
-                "type": "string",
-                "description": "Date when the configuration was created.\n"
-            },
-            "dateUpdated": {
-                "type": "string",
-                "description": "Date when the configuration was updated.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "Description for the configuration.\n"
-            },
-            "instanceMetadataOptions": {
-                "$ref": "#/types/aws:imagebuilder/InfrastructureConfigurationInstanceMetadataOptions:InfrastructureConfigurationInstanceMetadataOptions",
-                "description": "Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.\n"
-            },
-            "instanceProfileName": {
-                "type": "string",
-                "description": "Name of IAM Instance Profile.\n"
-            },
-            "instanceTypes": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the configuration.\n"
                 },
-                "description": "Set of EC2 Instance Types.\n"
-            },
-            "keyPair": {
-                "type": "string",
-                "description": "Name of EC2 Key Pair.\n"
-            },
-            "logging": {
-                "$ref": "#/types/aws:imagebuilder/InfrastructureConfigurationLogging:InfrastructureConfigurationLogging",
-                "description": "Configuration block with logging settings. Detailed below.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name for the configuration.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "resourceTags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "dateCreated": {
+                    "type": "string",
+                    "description": "Date when the configuration was created.\n"
                 },
-                "description": "Key-value map of resource tags to assign to infrastructure created by the configuration.\n"
-            },
-            "securityGroupIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "dateUpdated": {
+                    "type": "string",
+                    "description": "Date when the configuration was updated.\n"
                 },
-                "description": "Set of EC2 Security Group identifiers.\n"
-            },
-            "snsTopicArn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of SNS Topic.\n"
-            },
-            "subnetId": {
-                "type": "string",
-                "description": "EC2 Subnet identifier. Also requires `security_group_ids` argument.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "description": {
+                    "type": "string",
+                    "description": "Description for the configuration.\n"
                 },
-                "description": "Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "instanceMetadataOptions": {
+                    "$ref": "#/types/aws:imagebuilder/InfrastructureConfigurationInstanceMetadataOptions:InfrastructureConfigurationInstanceMetadataOptions",
+                    "description": "Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "instanceProfileName": {
+                    "type": "string",
+                    "description": "Name of IAM Instance Profile.\n"
+                },
+                "instanceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of EC2 Instance Types.\n"
+                },
+                "keyPair": {
+                    "type": "string",
+                    "description": "Name of EC2 Key Pair.\n"
+                },
+                "logging": {
+                    "$ref": "#/types/aws:imagebuilder/InfrastructureConfigurationLogging:InfrastructureConfigurationLogging",
+                    "description": "Configuration block with logging settings. Detailed below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name for the configuration.\n\nThe following arguments are optional:\n"
+                },
+                "resourceTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags to assign to infrastructure created by the configuration.\n"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of EC2 Security Group identifiers.\n"
+                },
+                "snsTopicArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of SNS Topic.\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "EC2 Subnet identifier. Also requires `security_group_ids` argument.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "terminateInstanceOnFailure": {
+                    "type": "boolean",
+                    "description": "Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.\n"
+                }
             },
-            "terminateInstanceOnFailure": {
-                "type": "boolean",
-                "description": "Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.\n"
+            "required": [
+                "arn",
+                "dateCreated",
+                "dateUpdated",
+                "instanceProfileName",
+                "name",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description for the configuration.\n"
+                },
+                "instanceMetadataOptions": {
+                    "$ref": "#/types/aws:imagebuilder/InfrastructureConfigurationInstanceMetadataOptions:InfrastructureConfigurationInstanceMetadataOptions",
+                    "description": "Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.\n"
+                },
+                "instanceProfileName": {
+                    "type": "string",
+                    "description": "Name of IAM Instance Profile.\n"
+                },
+                "instanceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of EC2 Instance Types.\n"
+                },
+                "keyPair": {
+                    "type": "string",
+                    "description": "Name of EC2 Key Pair.\n"
+                },
+                "logging": {
+                    "$ref": "#/types/aws:imagebuilder/InfrastructureConfigurationLogging:InfrastructureConfigurationLogging",
+                    "description": "Configuration block with logging settings. Detailed below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name for the configuration.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "resourceTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags to assign to infrastructure created by the configuration.\n"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of EC2 Security Group identifiers.\n"
+                },
+                "snsTopicArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of SNS Topic.\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "EC2 Subnet identifier. Also requires `security_group_ids` argument.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "terminateInstanceOnFailure": {
+                    "type": "boolean",
+                    "description": "Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.\n"
+                }
+            },
+            "requiredInputs": [
+                "instanceProfileName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering InfrastructureConfiguration resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the configuration.\n"
+                    },
+                    "dateCreated": {
+                        "type": "string",
+                        "description": "Date when the configuration was created.\n"
+                    },
+                    "dateUpdated": {
+                        "type": "string",
+                        "description": "Date when the configuration was updated.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description for the configuration.\n"
+                    },
+                    "instanceMetadataOptions": {
+                        "$ref": "#/types/aws:imagebuilder/InfrastructureConfigurationInstanceMetadataOptions:InfrastructureConfigurationInstanceMetadataOptions",
+                        "description": "Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.\n"
+                    },
+                    "instanceProfileName": {
+                        "type": "string",
+                        "description": "Name of IAM Instance Profile.\n"
+                    },
+                    "instanceTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of EC2 Instance Types.\n"
+                    },
+                    "keyPair": {
+                        "type": "string",
+                        "description": "Name of EC2 Key Pair.\n"
+                    },
+                    "logging": {
+                        "$ref": "#/types/aws:imagebuilder/InfrastructureConfigurationLogging:InfrastructureConfigurationLogging",
+                        "description": "Configuration block with logging settings. Detailed below.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name for the configuration.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "resourceTags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags to assign to infrastructure created by the configuration.\n"
+                    },
+                    "securityGroupIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of EC2 Security Group identifiers.\n"
+                    },
+                    "snsTopicArn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of SNS Topic.\n"
+                    },
+                    "subnetId": {
+                        "type": "string",
+                        "description": "EC2 Subnet identifier. Also requires `security_group_ids` argument.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "terminateInstanceOnFailure": {
+                        "type": "boolean",
+                        "description": "Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

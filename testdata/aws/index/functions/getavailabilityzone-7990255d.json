@@ -1,105 +1,105 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getAvailabilityZone.\n",
-        "properties": {
-            "allAvailabilityZones": {
-                "type": "boolean",
-                "description": "Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.\n"
-            },
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:index/getAvailabilityZoneFilter:getAvailabilityZoneFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getAvailabilityZone.\n",
+                "properties": {
+                    "allAvailabilityZones": {
+                        "type": "boolean",
+                        "description": "Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.\n"
+                    },
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:index/getAvailabilityZoneFilter:getAvailabilityZoneFilter"
+                        },
+                        "description": "Configuration block(s) for filtering. Detailed below.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Full name of the availability zone to select.\n"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "Specific availability zone state to require. May be any of `\"available\"`, `\"information\"` or `\"impaired\"`.\n"
+                    },
+                    "zoneId": {
+                        "type": "string",
+                        "description": "Zone ID of the availability zone to select.\n"
+                    }
                 },
-                "description": "Configuration block(s) for filtering. Detailed below.\n"
+                "type": "object"
             },
-            "name": {
-                "type": "string",
-                "description": "Full name of the availability zone to select.\n"
-            },
-            "state": {
-                "type": "string",
-                "description": "Specific availability zone state to require. May be any of `\"available\"`, `\"information\"` or `\"impaired\"`.\n"
-            },
-            "zoneId": {
-                "type": "string",
-                "description": "Zone ID of the availability zone to select.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getAvailabilityZone.\n",
-        "properties": {
-            "allAvailabilityZones": {
-                "type": "boolean"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:index/getAvailabilityZoneFilter:getAvailabilityZoneFilter"
+            "outputs": {
+                "description": "A collection of values returned by getAvailabilityZone.\n",
+                "properties": {
+                    "allAvailabilityZones": {
+                        "type": "boolean"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:index/getAvailabilityZoneFilter:getAvailabilityZoneFilter"
+                        },
+                        "type": "array"
+                    },
+                    "groupName": {
+                        "description": "For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "nameSuffix": {
+                        "description": "Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.\nFor Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.\nFor Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.\n",
+                        "type": "string"
+                    },
+                    "networkBorderGroup": {
+                        "description": "The name of the location from which the address is advertised.\n",
+                        "type": "string"
+                    },
+                    "optInStatus": {
+                        "description": "For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.\n",
+                        "type": "string"
+                    },
+                    "parentZoneId": {
+                        "description": "ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.\n",
+                        "type": "string"
+                    },
+                    "parentZoneName": {
+                        "description": "Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.\n",
+                        "type": "string"
+                    },
+                    "region": {
+                        "description": "Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.\n",
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "zoneId": {
+                        "type": "string"
+                    },
+                    "zoneType": {
+                        "description": "Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.\n",
+                        "type": "string"
+                    }
                 },
-                "type": "array"
-            },
-            "groupName": {
-                "description": "For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "nameSuffix": {
-                "description": "Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.\nFor Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.\nFor Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.\n",
-                "type": "string"
-            },
-            "networkBorderGroup": {
-                "description": "The name of the location from which the address is advertised.\n",
-                "type": "string"
-            },
-            "optInStatus": {
-                "description": "For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.\n",
-                "type": "string"
-            },
-            "parentZoneId": {
-                "description": "ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.\n",
-                "type": "string"
-            },
-            "parentZoneName": {
-                "description": "Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.\n",
-                "type": "string"
-            },
-            "region": {
-                "description": "Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.\n",
-                "type": "string"
-            },
-            "state": {
-                "type": "string"
-            },
-            "zoneId": {
-                "type": "string"
-            },
-            "zoneType": {
-                "description": "Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.\n",
-                "type": "string"
+                "required": [
+                    "groupName",
+                    "name",
+                    "nameSuffix",
+                    "networkBorderGroup",
+                    "optInStatus",
+                    "parentZoneId",
+                    "parentZoneName",
+                    "region",
+                    "state",
+                    "zoneId",
+                    "zoneType",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "groupName",
-            "name",
-            "nameSuffix",
-            "networkBorderGroup",
-            "optInStatus",
-            "parentZoneId",
-            "parentZoneName",
-            "region",
-            "state",
-            "zoneId",
-            "zoneType",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,41 +1,41 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getLambdaFunctionAssociation.\n",
-        "properties": {
-            "functionArn": {
-                "type": "string",
-                "description": "ARN of the Lambda Function, omitting any version or alias qualifier.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getLambdaFunctionAssociation.\n",
+                "properties": {
+                    "functionArn": {
+                        "type": "string",
+                        "description": "ARN of the Lambda Function, omitting any version or alias qualifier.\n"
+                    },
+                    "instanceId": {
+                        "type": "string",
+                        "description": "Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "functionArn",
+                    "instanceId"
+                ]
             },
-            "instanceId": {
-                "type": "string",
-                "description": "Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.\n"
+            "outputs": {
+                "description": "A collection of values returned by getLambdaFunctionAssociation.\n",
+                "properties": {
+                    "functionArn": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "functionArn",
+                    "instanceId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "functionArn",
-            "instanceId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getLambdaFunctionAssociation.\n",
-        "properties": {
-            "functionArn": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "instanceId": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "functionArn",
-            "instanceId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

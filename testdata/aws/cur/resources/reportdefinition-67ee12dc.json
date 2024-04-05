@@ -1,197 +1,197 @@
 {
-    "properties": {
-        "additionalArtifacts": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.\n"
-        },
-        "additionalSchemaElements": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) specifying the cur report.\n"
-        },
-        "compression": {
-            "type": "string",
-            "description": "Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.\n"
-        },
-        "format": {
-            "type": "string",
-            "description": "Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.\n"
-        },
-        "refreshClosedReports": {
-            "type": "boolean",
-            "description": "Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.\n"
-        },
-        "reportName": {
-            "type": "string",
-            "description": "Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.\n"
-        },
-        "reportVersioning": {
-            "type": "string",
-            "description": "Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.\n"
-        },
-        "s3Bucket": {
-            "type": "string",
-            "description": "Name of the existing S3 bucket to hold generated reports.\n"
-        },
-        "s3Prefix": {
-            "type": "string",
-            "description": "Report path prefix. Limited to 256 characters.\n"
-        },
-        "s3Region": {
-            "type": "string",
-            "description": "Region of the existing S3 bucket to hold generated reports.\n"
-        },
-        "timeUnit": {
-            "type": "string",
-            "description": "The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.\n"
-        }
-    },
-    "required": [
-        "additionalSchemaElements",
-        "arn",
-        "compression",
-        "format",
-        "reportName",
-        "s3Bucket",
-        "s3Region",
-        "timeUnit"
-    ],
-    "inputProperties": {
-        "additionalArtifacts": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.\n"
-        },
-        "additionalSchemaElements": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.\n",
-            "willReplaceOnChanges": true
-        },
-        "compression": {
-            "type": "string",
-            "description": "Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.\n"
-        },
-        "format": {
-            "type": "string",
-            "description": "Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.\n"
-        },
-        "refreshClosedReports": {
-            "type": "boolean",
-            "description": "Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.\n"
-        },
-        "reportName": {
-            "type": "string",
-            "description": "Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.\n",
-            "willReplaceOnChanges": true
-        },
-        "reportVersioning": {
-            "type": "string",
-            "description": "Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.\n",
-            "willReplaceOnChanges": true
-        },
-        "s3Bucket": {
-            "type": "string",
-            "description": "Name of the existing S3 bucket to hold generated reports.\n"
-        },
-        "s3Prefix": {
-            "type": "string",
-            "description": "Report path prefix. Limited to 256 characters.\n"
-        },
-        "s3Region": {
-            "type": "string",
-            "description": "Region of the existing S3 bucket to hold generated reports.\n"
-        },
-        "timeUnit": {
-            "type": "string",
-            "description": "The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "additionalSchemaElements",
-        "compression",
-        "format",
-        "reportName",
-        "s3Bucket",
-        "s3Region",
-        "timeUnit"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ReportDefinition resources.\n",
-        "properties": {
-            "additionalArtifacts": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "additionalArtifacts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.\n"
                 },
-                "description": "A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.\n"
-            },
-            "additionalSchemaElements": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "additionalSchemaElements": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.\n"
                 },
-                "description": "A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.\n",
-                "willReplaceOnChanges": true
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) specifying the cur report.\n"
+                },
+                "compression": {
+                    "type": "string",
+                    "description": "Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.\n"
+                },
+                "format": {
+                    "type": "string",
+                    "description": "Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.\n"
+                },
+                "refreshClosedReports": {
+                    "type": "boolean",
+                    "description": "Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.\n"
+                },
+                "reportName": {
+                    "type": "string",
+                    "description": "Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.\n"
+                },
+                "reportVersioning": {
+                    "type": "string",
+                    "description": "Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.\n"
+                },
+                "s3Bucket": {
+                    "type": "string",
+                    "description": "Name of the existing S3 bucket to hold generated reports.\n"
+                },
+                "s3Prefix": {
+                    "type": "string",
+                    "description": "Report path prefix. Limited to 256 characters.\n"
+                },
+                "s3Region": {
+                    "type": "string",
+                    "description": "Region of the existing S3 bucket to hold generated reports.\n"
+                },
+                "timeUnit": {
+                    "type": "string",
+                    "description": "The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.\n"
+                }
             },
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) specifying the cur report.\n"
+            "required": [
+                "additionalSchemaElements",
+                "arn",
+                "compression",
+                "format",
+                "reportName",
+                "s3Bucket",
+                "s3Region",
+                "timeUnit"
+            ],
+            "inputProperties": {
+                "additionalArtifacts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.\n"
+                },
+                "additionalSchemaElements": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "compression": {
+                    "type": "string",
+                    "description": "Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.\n"
+                },
+                "format": {
+                    "type": "string",
+                    "description": "Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.\n"
+                },
+                "refreshClosedReports": {
+                    "type": "boolean",
+                    "description": "Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.\n"
+                },
+                "reportName": {
+                    "type": "string",
+                    "description": "Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.\n",
+                    "willReplaceOnChanges": true
+                },
+                "reportVersioning": {
+                    "type": "string",
+                    "description": "Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "s3Bucket": {
+                    "type": "string",
+                    "description": "Name of the existing S3 bucket to hold generated reports.\n"
+                },
+                "s3Prefix": {
+                    "type": "string",
+                    "description": "Report path prefix. Limited to 256 characters.\n"
+                },
+                "s3Region": {
+                    "type": "string",
+                    "description": "Region of the existing S3 bucket to hold generated reports.\n"
+                },
+                "timeUnit": {
+                    "type": "string",
+                    "description": "The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "compression": {
-                "type": "string",
-                "description": "Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.\n"
-            },
-            "format": {
-                "type": "string",
-                "description": "Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.\n"
-            },
-            "refreshClosedReports": {
-                "type": "boolean",
-                "description": "Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.\n"
-            },
-            "reportName": {
-                "type": "string",
-                "description": "Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.\n",
-                "willReplaceOnChanges": true
-            },
-            "reportVersioning": {
-                "type": "string",
-                "description": "Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.\n",
-                "willReplaceOnChanges": true
-            },
-            "s3Bucket": {
-                "type": "string",
-                "description": "Name of the existing S3 bucket to hold generated reports.\n"
-            },
-            "s3Prefix": {
-                "type": "string",
-                "description": "Report path prefix. Limited to 256 characters.\n"
-            },
-            "s3Region": {
-                "type": "string",
-                "description": "Region of the existing S3 bucket to hold generated reports.\n"
-            },
-            "timeUnit": {
-                "type": "string",
-                "description": "The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "additionalSchemaElements",
+                "compression",
+                "format",
+                "reportName",
+                "s3Bucket",
+                "s3Region",
+                "timeUnit"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ReportDefinition resources.\n",
+                "properties": {
+                    "additionalArtifacts": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.\n"
+                    },
+                    "additionalSchemaElements": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) specifying the cur report.\n"
+                    },
+                    "compression": {
+                        "type": "string",
+                        "description": "Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.\n"
+                    },
+                    "format": {
+                        "type": "string",
+                        "description": "Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.\n"
+                    },
+                    "refreshClosedReports": {
+                        "type": "boolean",
+                        "description": "Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.\n"
+                    },
+                    "reportName": {
+                        "type": "string",
+                        "description": "Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "reportVersioning": {
+                        "type": "string",
+                        "description": "Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "s3Bucket": {
+                        "type": "string",
+                        "description": "Name of the existing S3 bucket to hold generated reports.\n"
+                    },
+                    "s3Prefix": {
+                        "type": "string",
+                        "description": "Report path prefix. Limited to 256 characters.\n"
+                    },
+                    "s3Region": {
+                        "type": "string",
+                        "description": "Region of the existing S3 bucket to hold generated reports.\n"
+                    },
+                    "timeUnit": {
+                        "type": "string",
+                        "description": "The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

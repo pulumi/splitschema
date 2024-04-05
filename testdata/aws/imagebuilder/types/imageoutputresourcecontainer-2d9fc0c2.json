@@ -1,24 +1,24 @@
 {
-    "properties": {
-        "imageUris": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "imageUris": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of URIs for created containers.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "Region of the container image.\n"
+                }
             },
-            "description": "Set of URIs for created containers.\n"
-        },
-        "region": {
-            "type": "string",
-            "description": "Region of the container image.\n"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "imageUris",
+                        "region"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "imageUris",
-                "region"
-            ]
-        }
-    }
-}

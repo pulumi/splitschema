@@ -1,24 +1,24 @@
 {
-    "properties": {
-        "base": {
-            "type": "integer",
-            "description": "The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.\n",
-            "willReplaceOnChanges": true
-        },
-        "capacityProvider": {
-            "type": "string",
-            "description": "The short name or full Amazon Resource Name (ARN) of the capacity provider.\n",
-            "willReplaceOnChanges": true
-        },
-        "weight": {
-            "type": "integer",
-            "description": "The relative percentage of the total number of launched tasks that should use the specified capacity provider.\n",
-            "willReplaceOnChanges": true
+            "properties": {
+                "base": {
+                    "type": "integer",
+                    "description": "The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.\n",
+                    "willReplaceOnChanges": true
+                },
+                "capacityProvider": {
+                    "type": "string",
+                    "description": "The short name or full Amazon Resource Name (ARN) of the capacity provider.\n",
+                    "willReplaceOnChanges": true
+                },
+                "weight": {
+                    "type": "integer",
+                    "description": "The relative percentage of the total number of launched tasks that should use the specified capacity provider.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "capacityProvider",
+                "weight"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "capacityProvider",
-        "weight"
-    ]
-}

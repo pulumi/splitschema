@@ -1,90 +1,90 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getCoreNetworkPolicyDocument.\n",
-        "properties": {
-            "attachmentPolicies": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentAttachmentPolicy:getCoreNetworkPolicyDocumentAttachmentPolicy"
+            "inputs": {
+                "description": "A collection of arguments for invoking getCoreNetworkPolicyDocument.\n",
+                "properties": {
+                    "attachmentPolicies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentAttachmentPolicy:getCoreNetworkPolicyDocumentAttachmentPolicy"
+                        },
+                        "description": "In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.\n"
+                    },
+                    "coreNetworkConfigurations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentCoreNetworkConfiguration:getCoreNetworkPolicyDocumentCoreNetworkConfiguration"
+                        },
+                        "description": "The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.\n"
+                    },
+                    "segmentActions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentSegmentAction:getCoreNetworkPolicyDocumentSegmentAction"
+                        },
+                        "description": "A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.\n"
+                    },
+                    "segments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentSegment:getCoreNetworkPolicyDocumentSegment"
+                        },
+                        "description": "Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.\n"
+                    },
+                    "version": {
+                        "type": "string"
+                    }
                 },
-                "description": "In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.\n"
+                "type": "object",
+                "required": [
+                    "coreNetworkConfigurations",
+                    "segments"
+                ]
             },
-            "coreNetworkConfigurations": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentCoreNetworkConfiguration:getCoreNetworkPolicyDocumentCoreNetworkConfiguration"
+            "outputs": {
+                "description": "A collection of values returned by getCoreNetworkPolicyDocument.\n",
+                "properties": {
+                    "attachmentPolicies": {
+                        "items": {
+                            "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentAttachmentPolicy:getCoreNetworkPolicyDocumentAttachmentPolicy"
+                        },
+                        "type": "array"
+                    },
+                    "coreNetworkConfigurations": {
+                        "items": {
+                            "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentCoreNetworkConfiguration:getCoreNetworkPolicyDocumentCoreNetworkConfiguration"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "json": {
+                        "description": "Standard JSON policy document rendered based on the arguments above.\n",
+                        "type": "string"
+                    },
+                    "segmentActions": {
+                        "items": {
+                            "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentSegmentAction:getCoreNetworkPolicyDocumentSegmentAction"
+                        },
+                        "type": "array"
+                    },
+                    "segments": {
+                        "items": {
+                            "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentSegment:getCoreNetworkPolicyDocumentSegment"
+                        },
+                        "type": "array"
+                    },
+                    "version": {
+                        "type": "string"
+                    }
                 },
-                "description": "The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.\n"
-            },
-            "segmentActions": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentSegmentAction:getCoreNetworkPolicyDocumentSegmentAction"
-                },
-                "description": "A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.\n"
-            },
-            "segments": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentSegment:getCoreNetworkPolicyDocumentSegment"
-                },
-                "description": "Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.\n"
-            },
-            "version": {
-                "type": "string"
+                "required": [
+                    "coreNetworkConfigurations",
+                    "json",
+                    "segments",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "coreNetworkConfigurations",
-            "segments"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getCoreNetworkPolicyDocument.\n",
-        "properties": {
-            "attachmentPolicies": {
-                "items": {
-                    "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentAttachmentPolicy:getCoreNetworkPolicyDocumentAttachmentPolicy"
-                },
-                "type": "array"
-            },
-            "coreNetworkConfigurations": {
-                "items": {
-                    "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentCoreNetworkConfiguration:getCoreNetworkPolicyDocumentCoreNetworkConfiguration"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "json": {
-                "description": "Standard JSON policy document rendered based on the arguments above.\n",
-                "type": "string"
-            },
-            "segmentActions": {
-                "items": {
-                    "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentSegmentAction:getCoreNetworkPolicyDocumentSegmentAction"
-                },
-                "type": "array"
-            },
-            "segments": {
-                "items": {
-                    "$ref": "#/types/aws:networkmanager/getCoreNetworkPolicyDocumentSegment:getCoreNetworkPolicyDocumentSegment"
-                },
-                "type": "array"
-            },
-            "version": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "coreNetworkConfigurations",
-            "json",
-            "segments",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

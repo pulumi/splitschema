@@ -1,27 +1,27 @@
 {
-    "properties": {
-        "clientAlias": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ecs/ServiceServiceConnectConfigurationServiceClientAlias:ServiceServiceConnectConfigurationServiceClientAlias"
+            "properties": {
+                "clientAlias": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ecs/ServiceServiceConnectConfigurationServiceClientAlias:ServiceServiceConnectConfigurationServiceClientAlias"
+                    },
+                    "description": "The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.\n"
+                },
+                "discoveryName": {
+                    "type": "string",
+                    "description": "The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.\n"
+                },
+                "ingressPortOverride": {
+                    "type": "integer",
+                    "description": "The port number for the Service Connect proxy to listen on.\n"
+                },
+                "portName": {
+                    "type": "string",
+                    "description": "The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.\n"
+                }
             },
-            "description": "The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.\n"
-        },
-        "discoveryName": {
-            "type": "string",
-            "description": "The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.\n"
-        },
-        "ingressPortOverride": {
-            "type": "integer",
-            "description": "The port number for the Service Connect proxy to listen on.\n"
-        },
-        "portName": {
-            "type": "string",
-            "description": "The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.\n"
+            "type": "object",
+            "required": [
+                "portName"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "portName"
-    ]
-}

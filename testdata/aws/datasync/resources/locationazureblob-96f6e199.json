@@ -1,174 +1,174 @@
 {
-    "properties": {
-        "accessTier": {
-            "type": "string",
-            "description": "The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.\n"
-        },
-        "agentArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of DataSync Agent ARNs with which this location will be associated.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
-        },
-        "authenticationType": {
-            "type": "string",
-            "description": "The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.\n"
-        },
-        "blobType": {
-            "type": "string",
-            "description": "The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.\n"
-        },
-        "containerUrl": {
-            "type": "string",
-            "description": "The URL of the Azure Blob Storage container involved in your transfer.\n"
-        },
-        "sasConfiguration": {
-            "$ref": "#/types/aws:datasync/LocationAzureBlobSasConfiguration:LocationAzureBlobSasConfiguration",
-            "description": "The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.\n"
-        },
-        "subdirectory": {
-            "type": "string",
-            "description": "Path segments if you want to limit your transfer to a virtual directory in the container.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "uri": {
-            "type": "string"
-        }
-    },
-    "required": [
-        "agentArns",
-        "arn",
-        "authenticationType",
-        "containerUrl",
-        "subdirectory",
-        "tagsAll",
-        "uri"
-    ],
-    "inputProperties": {
-        "accessTier": {
-            "type": "string",
-            "description": "The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.\n"
-        },
-        "agentArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of DataSync Agent ARNs with which this location will be associated.\n"
-        },
-        "authenticationType": {
-            "type": "string",
-            "description": "The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.\n"
-        },
-        "blobType": {
-            "type": "string",
-            "description": "The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.\n"
-        },
-        "containerUrl": {
-            "type": "string",
-            "description": "The URL of the Azure Blob Storage container involved in your transfer.\n",
-            "willReplaceOnChanges": true
-        },
-        "sasConfiguration": {
-            "$ref": "#/types/aws:datasync/LocationAzureBlobSasConfiguration:LocationAzureBlobSasConfiguration",
-            "description": "The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.\n"
-        },
-        "subdirectory": {
-            "type": "string",
-            "description": "Path segments if you want to limit your transfer to a virtual directory in the container.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "agentArns",
-        "authenticationType",
-        "containerUrl"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering LocationAzureBlob resources.\n",
-        "properties": {
-            "accessTier": {
-                "type": "string",
-                "description": "The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.\n"
-            },
-            "agentArns": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "accessTier": {
+                    "type": "string",
+                    "description": "The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.\n"
                 },
-                "description": "A list of DataSync Agent ARNs with which this location will be associated.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
-            },
-            "authenticationType": {
-                "type": "string",
-                "description": "The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.\n"
-            },
-            "blobType": {
-                "type": "string",
-                "description": "The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.\n"
-            },
-            "containerUrl": {
-                "type": "string",
-                "description": "The URL of the Azure Blob Storage container involved in your transfer.\n",
-                "willReplaceOnChanges": true
-            },
-            "sasConfiguration": {
-                "$ref": "#/types/aws:datasync/LocationAzureBlobSasConfiguration:LocationAzureBlobSasConfiguration",
-                "description": "The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.\n"
-            },
-            "subdirectory": {
-                "type": "string",
-                "description": "Path segments if you want to limit your transfer to a virtual directory in the container.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "agentArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of DataSync Agent ARNs with which this location will be associated.\n"
                 },
-                "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "authenticationType": {
+                    "type": "string",
+                    "description": "The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.\n"
+                },
+                "blobType": {
+                    "type": "string",
+                    "description": "The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.\n"
+                },
+                "containerUrl": {
+                    "type": "string",
+                    "description": "The URL of the Azure Blob Storage container involved in your transfer.\n"
+                },
+                "sasConfiguration": {
+                    "$ref": "#/types/aws:datasync/LocationAzureBlobSasConfiguration:LocationAzureBlobSasConfiguration",
+                    "description": "The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.\n"
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "Path segments if you want to limit your transfer to a virtual directory in the container.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "uri": {
+                    "type": "string"
+                }
             },
-            "uri": {
-                "type": "string"
+            "required": [
+                "agentArns",
+                "arn",
+                "authenticationType",
+                "containerUrl",
+                "subdirectory",
+                "tagsAll",
+                "uri"
+            ],
+            "inputProperties": {
+                "accessTier": {
+                    "type": "string",
+                    "description": "The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.\n"
+                },
+                "agentArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of DataSync Agent ARNs with which this location will be associated.\n"
+                },
+                "authenticationType": {
+                    "type": "string",
+                    "description": "The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.\n"
+                },
+                "blobType": {
+                    "type": "string",
+                    "description": "The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.\n"
+                },
+                "containerUrl": {
+                    "type": "string",
+                    "description": "The URL of the Azure Blob Storage container involved in your transfer.\n",
+                    "willReplaceOnChanges": true
+                },
+                "sasConfiguration": {
+                    "$ref": "#/types/aws:datasync/LocationAzureBlobSasConfiguration:LocationAzureBlobSasConfiguration",
+                    "description": "The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.\n"
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "Path segments if you want to limit your transfer to a virtual directory in the container.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "agentArns",
+                "authenticationType",
+                "containerUrl"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering LocationAzureBlob resources.\n",
+                "properties": {
+                    "accessTier": {
+                        "type": "string",
+                        "description": "The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.\n"
+                    },
+                    "agentArns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of DataSync Agent ARNs with which this location will be associated.\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
+                    },
+                    "authenticationType": {
+                        "type": "string",
+                        "description": "The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.\n"
+                    },
+                    "blobType": {
+                        "type": "string",
+                        "description": "The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.\n"
+                    },
+                    "containerUrl": {
+                        "type": "string",
+                        "description": "The URL of the Azure Blob Storage container involved in your transfer.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "sasConfiguration": {
+                        "$ref": "#/types/aws:datasync/LocationAzureBlobSasConfiguration:LocationAzureBlobSasConfiguration",
+                        "description": "The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.\n"
+                    },
+                    "subdirectory": {
+                        "type": "string",
+                        "description": "Path segments if you want to limit your transfer to a virtual directory in the container.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "uri": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

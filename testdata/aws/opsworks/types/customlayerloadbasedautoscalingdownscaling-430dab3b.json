@@ -1,36 +1,36 @@
 {
-    "properties": {
-        "alarms": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "alarms": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.\n"
+                },
+                "cpuThreshold": {
+                    "type": "number",
+                    "description": "The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.\n"
+                },
+                "ignoreMetricsTime": {
+                    "type": "integer",
+                    "description": "The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.\n"
+                },
+                "instanceCount": {
+                    "type": "integer",
+                    "description": "The number of instances to add or remove when the load exceeds a threshold.\n"
+                },
+                "loadThreshold": {
+                    "type": "number",
+                    "description": "The load threshold. A value of -1 disables the threshold.\n"
+                },
+                "memoryThreshold": {
+                    "type": "number",
+                    "description": "The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.\n"
+                },
+                "thresholdsWaitTime": {
+                    "type": "integer",
+                    "description": "The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.\n"
+                }
             },
-            "description": "Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.\n"
-        },
-        "cpuThreshold": {
-            "type": "number",
-            "description": "The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.\n"
-        },
-        "ignoreMetricsTime": {
-            "type": "integer",
-            "description": "The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.\n"
-        },
-        "instanceCount": {
-            "type": "integer",
-            "description": "The number of instances to add or remove when the load exceeds a threshold.\n"
-        },
-        "loadThreshold": {
-            "type": "number",
-            "description": "The load threshold. A value of -1 disables the threshold.\n"
-        },
-        "memoryThreshold": {
-            "type": "number",
-            "description": "The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.\n"
-        },
-        "thresholdsWaitTime": {
-            "type": "integer",
-            "description": "The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.\n"
+            "type": "object"
         }
-    },
-    "type": "object"
-}

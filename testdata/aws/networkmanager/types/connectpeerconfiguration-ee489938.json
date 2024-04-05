@@ -1,40 +1,40 @@
 {
-    "properties": {
-        "bgpConfigurations": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:networkmanager/ConnectPeerConfigurationBgpConfiguration:ConnectPeerConfigurationBgpConfiguration"
-            }
-        },
-        "coreNetworkAddress": {
-            "type": "string",
-            "description": "A Connect peer core network address.\n"
-        },
-        "insideCidrBlocks": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "bgpConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:networkmanager/ConnectPeerConfigurationBgpConfiguration:ConnectPeerConfigurationBgpConfiguration"
+                    }
+                },
+                "coreNetworkAddress": {
+                    "type": "string",
+                    "description": "A Connect peer core network address.\n"
+                },
+                "insideCidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.\n"
+                },
+                "peerAddress": {
+                    "type": "string",
+                    "description": "The Connect peer address.\n\nThe following arguments are optional:\n"
+                },
+                "protocol": {
+                    "type": "string"
+                }
             },
-            "description": "The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.\n"
-        },
-        "peerAddress": {
-            "type": "string",
-            "description": "The Connect peer address.\n\nThe following arguments are optional:\n"
-        },
-        "protocol": {
-            "type": "string"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "bgpConfigurations",
+                        "coreNetworkAddress",
+                        "insideCidrBlocks",
+                        "peerAddress",
+                        "protocol"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "bgpConfigurations",
-                "coreNetworkAddress",
-                "insideCidrBlocks",
-                "peerAddress",
-                "protocol"
-            ]
-        }
-    }
-}

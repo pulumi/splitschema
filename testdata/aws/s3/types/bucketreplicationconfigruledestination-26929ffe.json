@@ -1,36 +1,36 @@
 {
-    "properties": {
-        "accessControlTranslation": {
-            "$ref": "#/types/aws:s3/BucketReplicationConfigRuleDestinationAccessControlTranslation:BucketReplicationConfigRuleDestinationAccessControlTranslation",
-            "description": "Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.\n"
-        },
-        "account": {
-            "type": "string",
-            "description": "Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.\n"
-        },
-        "bucket": {
-            "type": "string",
-            "description": "ARN of the bucket where you want Amazon S3 to store the results.\n"
-        },
-        "encryptionConfiguration": {
-            "$ref": "#/types/aws:s3/BucketReplicationConfigRuleDestinationEncryptionConfiguration:BucketReplicationConfigRuleDestinationEncryptionConfiguration",
-            "description": "Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.\n"
-        },
-        "metrics": {
-            "$ref": "#/types/aws:s3/BucketReplicationConfigRuleDestinationMetrics:BucketReplicationConfigRuleDestinationMetrics",
-            "description": "Configuration block that specifies replication metrics-related settings enabling replication metrics and events. See below.\n"
-        },
-        "replicationTime": {
-            "$ref": "#/types/aws:s3/BucketReplicationConfigRuleDestinationReplicationTime:BucketReplicationConfigRuleDestinationReplicationTime",
-            "description": "Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.\n"
-        },
-        "storageClass": {
-            "type": "string",
-            "description": "The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.\n"
+            "properties": {
+                "accessControlTranslation": {
+                    "$ref": "#/types/aws:s3/BucketReplicationConfigRuleDestinationAccessControlTranslation:BucketReplicationConfigRuleDestinationAccessControlTranslation",
+                    "description": "Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.\n"
+                },
+                "account": {
+                    "type": "string",
+                    "description": "Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.\n"
+                },
+                "bucket": {
+                    "type": "string",
+                    "description": "ARN of the bucket where you want Amazon S3 to store the results.\n"
+                },
+                "encryptionConfiguration": {
+                    "$ref": "#/types/aws:s3/BucketReplicationConfigRuleDestinationEncryptionConfiguration:BucketReplicationConfigRuleDestinationEncryptionConfiguration",
+                    "description": "Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.\n"
+                },
+                "metrics": {
+                    "$ref": "#/types/aws:s3/BucketReplicationConfigRuleDestinationMetrics:BucketReplicationConfigRuleDestinationMetrics",
+                    "description": "Configuration block that specifies replication metrics-related settings enabling replication metrics and events. See below.\n"
+                },
+                "replicationTime": {
+                    "$ref": "#/types/aws:s3/BucketReplicationConfigRuleDestinationReplicationTime:BucketReplicationConfigRuleDestinationReplicationTime",
+                    "description": "Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.\n"
+                },
+                "storageClass": {
+                    "type": "string",
+                    "description": "The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "bucket"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "bucket"
-    ]
-}

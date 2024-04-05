@@ -1,159 +1,159 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the traffic mirror filter rule.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the traffic mirror filter rule.\n"
-        },
-        "destinationCidrBlock": {
-            "type": "string",
-            "description": "Destination CIDR block to assign to the Traffic Mirror rule.\n"
-        },
-        "destinationPortRange": {
-            "$ref": "#/types/aws:ec2/TrafficMirrorFilterRuleDestinationPortRange:TrafficMirrorFilterRuleDestinationPortRange",
-            "description": "Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below\n"
-        },
-        "protocol": {
-            "type": "integer",
-            "description": "Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.\n"
-        },
-        "ruleAction": {
-            "type": "string",
-            "description": "Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`\n"
-        },
-        "ruleNumber": {
-            "type": "integer",
-            "description": "Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.\n"
-        },
-        "sourceCidrBlock": {
-            "type": "string",
-            "description": "Source CIDR block to assign to the Traffic Mirror rule.\n"
-        },
-        "sourcePortRange": {
-            "$ref": "#/types/aws:ec2/TrafficMirrorFilterRuleSourcePortRange:TrafficMirrorFilterRuleSourcePortRange",
-            "description": "Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below\n"
-        },
-        "trafficDirection": {
-            "type": "string",
-            "description": "Direction of traffic to be captured. Valid values are `ingress` and `egress`\n\nTraffic mirror port range support following attributes:\n"
-        },
-        "trafficMirrorFilterId": {
-            "type": "string",
-            "description": "ID of the traffic mirror filter to which this rule should be added\n"
-        }
-    },
-    "required": [
-        "arn",
-        "destinationCidrBlock",
-        "ruleAction",
-        "ruleNumber",
-        "sourceCidrBlock",
-        "trafficDirection",
-        "trafficMirrorFilterId"
-    ],
-    "inputProperties": {
-        "description": {
-            "type": "string",
-            "description": "Description of the traffic mirror filter rule.\n"
-        },
-        "destinationCidrBlock": {
-            "type": "string",
-            "description": "Destination CIDR block to assign to the Traffic Mirror rule.\n"
-        },
-        "destinationPortRange": {
-            "$ref": "#/types/aws:ec2/TrafficMirrorFilterRuleDestinationPortRange:TrafficMirrorFilterRuleDestinationPortRange",
-            "description": "Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below\n"
-        },
-        "protocol": {
-            "type": "integer",
-            "description": "Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.\n"
-        },
-        "ruleAction": {
-            "type": "string",
-            "description": "Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`\n"
-        },
-        "ruleNumber": {
-            "type": "integer",
-            "description": "Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.\n"
-        },
-        "sourceCidrBlock": {
-            "type": "string",
-            "description": "Source CIDR block to assign to the Traffic Mirror rule.\n"
-        },
-        "sourcePortRange": {
-            "$ref": "#/types/aws:ec2/TrafficMirrorFilterRuleSourcePortRange:TrafficMirrorFilterRuleSourcePortRange",
-            "description": "Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below\n"
-        },
-        "trafficDirection": {
-            "type": "string",
-            "description": "Direction of traffic to be captured. Valid values are `ingress` and `egress`\n\nTraffic mirror port range support following attributes:\n"
-        },
-        "trafficMirrorFilterId": {
-            "type": "string",
-            "description": "ID of the traffic mirror filter to which this rule should be added\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "destinationCidrBlock",
-        "ruleAction",
-        "ruleNumber",
-        "sourceCidrBlock",
-        "trafficDirection",
-        "trafficMirrorFilterId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering TrafficMirrorFilterRule resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the traffic mirror filter rule.\n"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the traffic mirror filter rule.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the traffic mirror filter rule.\n"
+                },
+                "destinationCidrBlock": {
+                    "type": "string",
+                    "description": "Destination CIDR block to assign to the Traffic Mirror rule.\n"
+                },
+                "destinationPortRange": {
+                    "$ref": "#/types/aws:ec2/TrafficMirrorFilterRuleDestinationPortRange:TrafficMirrorFilterRuleDestinationPortRange",
+                    "description": "Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below\n"
+                },
+                "protocol": {
+                    "type": "integer",
+                    "description": "Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.\n"
+                },
+                "ruleAction": {
+                    "type": "string",
+                    "description": "Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`\n"
+                },
+                "ruleNumber": {
+                    "type": "integer",
+                    "description": "Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.\n"
+                },
+                "sourceCidrBlock": {
+                    "type": "string",
+                    "description": "Source CIDR block to assign to the Traffic Mirror rule.\n"
+                },
+                "sourcePortRange": {
+                    "$ref": "#/types/aws:ec2/TrafficMirrorFilterRuleSourcePortRange:TrafficMirrorFilterRuleSourcePortRange",
+                    "description": "Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below\n"
+                },
+                "trafficDirection": {
+                    "type": "string",
+                    "description": "Direction of traffic to be captured. Valid values are `ingress` and `egress`\n\nTraffic mirror port range support following attributes:\n"
+                },
+                "trafficMirrorFilterId": {
+                    "type": "string",
+                    "description": "ID of the traffic mirror filter to which this rule should be added\n"
+                }
             },
-            "description": {
-                "type": "string",
-                "description": "Description of the traffic mirror filter rule.\n"
+            "required": [
+                "arn",
+                "destinationCidrBlock",
+                "ruleAction",
+                "ruleNumber",
+                "sourceCidrBlock",
+                "trafficDirection",
+                "trafficMirrorFilterId"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the traffic mirror filter rule.\n"
+                },
+                "destinationCidrBlock": {
+                    "type": "string",
+                    "description": "Destination CIDR block to assign to the Traffic Mirror rule.\n"
+                },
+                "destinationPortRange": {
+                    "$ref": "#/types/aws:ec2/TrafficMirrorFilterRuleDestinationPortRange:TrafficMirrorFilterRuleDestinationPortRange",
+                    "description": "Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below\n"
+                },
+                "protocol": {
+                    "type": "integer",
+                    "description": "Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.\n"
+                },
+                "ruleAction": {
+                    "type": "string",
+                    "description": "Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`\n"
+                },
+                "ruleNumber": {
+                    "type": "integer",
+                    "description": "Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.\n"
+                },
+                "sourceCidrBlock": {
+                    "type": "string",
+                    "description": "Source CIDR block to assign to the Traffic Mirror rule.\n"
+                },
+                "sourcePortRange": {
+                    "$ref": "#/types/aws:ec2/TrafficMirrorFilterRuleSourcePortRange:TrafficMirrorFilterRuleSourcePortRange",
+                    "description": "Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below\n"
+                },
+                "trafficDirection": {
+                    "type": "string",
+                    "description": "Direction of traffic to be captured. Valid values are `ingress` and `egress`\n\nTraffic mirror port range support following attributes:\n"
+                },
+                "trafficMirrorFilterId": {
+                    "type": "string",
+                    "description": "ID of the traffic mirror filter to which this rule should be added\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "destinationCidrBlock": {
-                "type": "string",
-                "description": "Destination CIDR block to assign to the Traffic Mirror rule.\n"
-            },
-            "destinationPortRange": {
-                "$ref": "#/types/aws:ec2/TrafficMirrorFilterRuleDestinationPortRange:TrafficMirrorFilterRuleDestinationPortRange",
-                "description": "Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below\n"
-            },
-            "protocol": {
-                "type": "integer",
-                "description": "Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.\n"
-            },
-            "ruleAction": {
-                "type": "string",
-                "description": "Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`\n"
-            },
-            "ruleNumber": {
-                "type": "integer",
-                "description": "Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.\n"
-            },
-            "sourceCidrBlock": {
-                "type": "string",
-                "description": "Source CIDR block to assign to the Traffic Mirror rule.\n"
-            },
-            "sourcePortRange": {
-                "$ref": "#/types/aws:ec2/TrafficMirrorFilterRuleSourcePortRange:TrafficMirrorFilterRuleSourcePortRange",
-                "description": "Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below\n"
-            },
-            "trafficDirection": {
-                "type": "string",
-                "description": "Direction of traffic to be captured. Valid values are `ingress` and `egress`\n\nTraffic mirror port range support following attributes:\n"
-            },
-            "trafficMirrorFilterId": {
-                "type": "string",
-                "description": "ID of the traffic mirror filter to which this rule should be added\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "destinationCidrBlock",
+                "ruleAction",
+                "ruleNumber",
+                "sourceCidrBlock",
+                "trafficDirection",
+                "trafficMirrorFilterId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TrafficMirrorFilterRule resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the traffic mirror filter rule.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the traffic mirror filter rule.\n"
+                    },
+                    "destinationCidrBlock": {
+                        "type": "string",
+                        "description": "Destination CIDR block to assign to the Traffic Mirror rule.\n"
+                    },
+                    "destinationPortRange": {
+                        "$ref": "#/types/aws:ec2/TrafficMirrorFilterRuleDestinationPortRange:TrafficMirrorFilterRuleDestinationPortRange",
+                        "description": "Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below\n"
+                    },
+                    "protocol": {
+                        "type": "integer",
+                        "description": "Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.\n"
+                    },
+                    "ruleAction": {
+                        "type": "string",
+                        "description": "Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`\n"
+                    },
+                    "ruleNumber": {
+                        "type": "integer",
+                        "description": "Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.\n"
+                    },
+                    "sourceCidrBlock": {
+                        "type": "string",
+                        "description": "Source CIDR block to assign to the Traffic Mirror rule.\n"
+                    },
+                    "sourcePortRange": {
+                        "$ref": "#/types/aws:ec2/TrafficMirrorFilterRuleSourcePortRange:TrafficMirrorFilterRuleSourcePortRange",
+                        "description": "Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below\n"
+                    },
+                    "trafficDirection": {
+                        "type": "string",
+                        "description": "Direction of traffic to be captured. Valid values are `ingress` and `egress`\n\nTraffic mirror port range support following attributes:\n"
+                    },
+                    "trafficMirrorFilterId": {
+                        "type": "string",
+                        "description": "ID of the traffic mirror filter to which this rule should be added\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

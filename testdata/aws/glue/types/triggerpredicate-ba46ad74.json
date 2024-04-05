@@ -1,19 +1,19 @@
 {
-    "properties": {
-        "conditions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/TriggerPredicateCondition:TriggerPredicateCondition"
+            "properties": {
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/TriggerPredicateCondition:TriggerPredicateCondition"
+                    },
+                    "description": "A list of the conditions that determine when the trigger will fire. See Conditions.\n"
+                },
+                "logical": {
+                    "type": "string",
+                    "description": "How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.\n"
+                }
             },
-            "description": "A list of the conditions that determine when the trigger will fire. See Conditions.\n"
-        },
-        "logical": {
-            "type": "string",
-            "description": "How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.\n"
+            "type": "object",
+            "required": [
+                "conditions"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "conditions"
-    ]
-}

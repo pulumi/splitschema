@@ -1,20 +1,20 @@
 {
-    "properties": {
-        "effectiveEngineVersion": {
-            "type": "string",
-            "description": "The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.\n"
-        },
-        "selectedEngineVersion": {
-            "type": "string",
-            "description": "Requested engine version. Defaults to `AUTO`.\n"
+            "properties": {
+                "effectiveEngineVersion": {
+                    "type": "string",
+                    "description": "The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.\n"
+                },
+                "selectedEngineVersion": {
+                    "type": "string",
+                    "description": "Requested engine version. Defaults to `AUTO`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "effectiveEngineVersion"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "effectiveEngineVersion"
-            ]
-        }
-    }
-}

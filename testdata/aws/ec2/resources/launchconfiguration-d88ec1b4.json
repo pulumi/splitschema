@@ -1,329 +1,329 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name of the launch configuration.\n"
-        },
-        "associatePublicIpAddress": {
-            "type": "boolean",
-            "description": "Associate a public ip address with an instance in a VPC.\n"
-        },
-        "ebsBlockDevices": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ec2/LaunchConfigurationEbsBlockDevice:LaunchConfigurationEbsBlockDevice"
-            },
-            "description": "Additional EBS block devices to attach to the instance. See Block Devices below for details.\n"
-        },
-        "ebsOptimized": {
-            "type": "boolean",
-            "description": "If true, the launched EC2 instance will be EBS-optimized.\n"
-        },
-        "enableMonitoring": {
-            "type": "boolean",
-            "description": "Enables/disables detailed monitoring. This is enabled by default.\n"
-        },
-        "ephemeralBlockDevices": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ec2/LaunchConfigurationEphemeralBlockDevice:LaunchConfigurationEphemeralBlockDevice"
-            },
-            "description": "Customize Ephemeral (also known as \"Instance Store\") volumes on the instance. See Block Devices below for details.\n"
-        },
-        "iamInstanceProfile": {
-            "type": "string",
-            "description": "The name attribute of the IAM instance profile to associate with launched instances.\n"
-        },
-        "imageId": {
-            "type": "string",
-            "description": "The EC2 image ID to launch.\n"
-        },
-        "instanceType": {
-            "type": "string",
-            "description": "The size of instance to launch.\n\nThe following arguments are optional:\n"
-        },
-        "keyName": {
-            "type": "string",
-            "description": "The key name that should be used for the instance.\n"
-        },
-        "metadataOptions": {
-            "$ref": "#/types/aws:ec2/LaunchConfigurationMetadataOptions:LaunchConfigurationMetadataOptions",
-            "description": "The metadata options for the instance.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.\n"
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
-        },
-        "placementTenancy": {
-            "type": "string",
-            "description": "The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.\n"
-        },
-        "rootBlockDevice": {
-            "$ref": "#/types/aws:ec2/LaunchConfigurationRootBlockDevice:LaunchConfigurationRootBlockDevice",
-            "description": "Customize details about the root block device of the instance. See Block Devices below for details.\n"
-        },
-        "securityGroups": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of associated security group IDS.\n"
-        },
-        "spotPrice": {
-            "type": "string",
-            "description": "The maximum price to use for reserving spot instances.\n"
-        },
-        "userData": {
-            "type": "string",
-            "description": "The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.\n"
-        },
-        "userDataBase64": {
-            "type": "string",
-            "description": "Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "ebsBlockDevices",
-        "ebsOptimized",
-        "imageId",
-        "instanceType",
-        "keyName",
-        "metadataOptions",
-        "name",
-        "namePrefix",
-        "rootBlockDevice"
-    ],
-    "inputProperties": {
-        "associatePublicIpAddress": {
-            "type": "boolean",
-            "description": "Associate a public ip address with an instance in a VPC.\n",
-            "willReplaceOnChanges": true
-        },
-        "ebsBlockDevices": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ec2/LaunchConfigurationEbsBlockDevice:LaunchConfigurationEbsBlockDevice"
-            },
-            "description": "Additional EBS block devices to attach to the instance. See Block Devices below for details.\n"
-        },
-        "ebsOptimized": {
-            "type": "boolean",
-            "description": "If true, the launched EC2 instance will be EBS-optimized.\n",
-            "willReplaceOnChanges": true
-        },
-        "enableMonitoring": {
-            "type": "boolean",
-            "description": "Enables/disables detailed monitoring. This is enabled by default.\n",
-            "willReplaceOnChanges": true
-        },
-        "ephemeralBlockDevices": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ec2/LaunchConfigurationEphemeralBlockDevice:LaunchConfigurationEphemeralBlockDevice"
-            },
-            "description": "Customize Ephemeral (also known as \"Instance Store\") volumes on the instance. See Block Devices below for details.\n",
-            "willReplaceOnChanges": true
-        },
-        "iamInstanceProfile": {
-            "type": "string",
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
+            "properties": {
+                "arn": {
                     "type": "string",
-                    "$ref": "#/types/aws:iam/instanceProfile:InstanceProfile"
-                }
-            ],
-            "description": "The name attribute of the IAM instance profile to associate with launched instances.\n",
-            "willReplaceOnChanges": true
-        },
-        "imageId": {
-            "type": "string",
-            "description": "The EC2 image ID to launch.\n",
-            "willReplaceOnChanges": true
-        },
-        "instanceType": {
-            "type": "string",
-            "description": "The size of instance to launch.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "keyName": {
-            "type": "string",
-            "description": "The key name that should be used for the instance.\n",
-            "willReplaceOnChanges": true
-        },
-        "metadataOptions": {
-            "$ref": "#/types/aws:ec2/LaunchConfigurationMetadataOptions:LaunchConfigurationMetadataOptions",
-            "description": "The metadata options for the instance.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.\n",
-            "willReplaceOnChanges": true
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
-            "willReplaceOnChanges": true
-        },
-        "placementTenancy": {
-            "type": "string",
-            "description": "The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.\n",
-            "willReplaceOnChanges": true
-        },
-        "rootBlockDevice": {
-            "$ref": "#/types/aws:ec2/LaunchConfigurationRootBlockDevice:LaunchConfigurationRootBlockDevice",
-            "description": "Customize details about the root block device of the instance. See Block Devices below for details.\n"
-        },
-        "securityGroups": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of associated security group IDS.\n",
-            "willReplaceOnChanges": true
-        },
-        "spotPrice": {
-            "type": "string",
-            "description": "The maximum price to use for reserving spot instances.\n",
-            "willReplaceOnChanges": true
-        },
-        "userData": {
-            "type": "string",
-            "description": "The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.\n",
-            "willReplaceOnChanges": true
-        },
-        "userDataBase64": {
-            "type": "string",
-            "description": "Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "imageId",
-        "instanceType"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering LaunchConfiguration resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name of the launch configuration.\n"
-            },
-            "associatePublicIpAddress": {
-                "type": "boolean",
-                "description": "Associate a public ip address with an instance in a VPC.\n",
-                "willReplaceOnChanges": true
-            },
-            "ebsBlockDevices": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/LaunchConfigurationEbsBlockDevice:LaunchConfigurationEbsBlockDevice"
+                    "description": "The Amazon Resource Name of the launch configuration.\n"
                 },
-                "description": "Additional EBS block devices to attach to the instance. See Block Devices below for details.\n"
-            },
-            "ebsOptimized": {
-                "type": "boolean",
-                "description": "If true, the launched EC2 instance will be EBS-optimized.\n",
-                "willReplaceOnChanges": true
-            },
-            "enableMonitoring": {
-                "type": "boolean",
-                "description": "Enables/disables detailed monitoring. This is enabled by default.\n",
-                "willReplaceOnChanges": true
-            },
-            "ephemeralBlockDevices": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/LaunchConfigurationEphemeralBlockDevice:LaunchConfigurationEphemeralBlockDevice"
+                "associatePublicIpAddress": {
+                    "type": "boolean",
+                    "description": "Associate a public ip address with an instance in a VPC.\n"
                 },
-                "description": "Customize Ephemeral (also known as \"Instance Store\") volumes on the instance. See Block Devices below for details.\n",
-                "willReplaceOnChanges": true
-            },
-            "iamInstanceProfile": {
-                "type": "string",
-                "oneOf": [
-                    {
+                "ebsBlockDevices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ec2/LaunchConfigurationEbsBlockDevice:LaunchConfigurationEbsBlockDevice"
+                    },
+                    "description": "Additional EBS block devices to attach to the instance. See Block Devices below for details.\n"
+                },
+                "ebsOptimized": {
+                    "type": "boolean",
+                    "description": "If true, the launched EC2 instance will be EBS-optimized.\n"
+                },
+                "enableMonitoring": {
+                    "type": "boolean",
+                    "description": "Enables/disables detailed monitoring. This is enabled by default.\n"
+                },
+                "ephemeralBlockDevices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ec2/LaunchConfigurationEphemeralBlockDevice:LaunchConfigurationEphemeralBlockDevice"
+                    },
+                    "description": "Customize Ephemeral (also known as \"Instance Store\") volumes on the instance. See Block Devices below for details.\n"
+                },
+                "iamInstanceProfile": {
+                    "type": "string",
+                    "description": "The name attribute of the IAM instance profile to associate with launched instances.\n"
+                },
+                "imageId": {
+                    "type": "string",
+                    "description": "The EC2 image ID to launch.\n"
+                },
+                "instanceType": {
+                    "type": "string",
+                    "description": "The size of instance to launch.\n\nThe following arguments are optional:\n"
+                },
+                "keyName": {
+                    "type": "string",
+                    "description": "The key name that should be used for the instance.\n"
+                },
+                "metadataOptions": {
+                    "$ref": "#/types/aws:ec2/LaunchConfigurationMetadataOptions:LaunchConfigurationMetadataOptions",
+                    "description": "The metadata options for the instance.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.\n"
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+                },
+                "placementTenancy": {
+                    "type": "string",
+                    "description": "The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.\n"
+                },
+                "rootBlockDevice": {
+                    "$ref": "#/types/aws:ec2/LaunchConfigurationRootBlockDevice:LaunchConfigurationRootBlockDevice",
+                    "description": "Customize details about the root block device of the instance. See Block Devices below for details.\n"
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
                         "type": "string"
                     },
-                    {
-                        "type": "string",
-                        "$ref": "#/types/aws:iam/instanceProfile:InstanceProfile"
-                    }
-                ],
-                "description": "The name attribute of the IAM instance profile to associate with launched instances.\n",
-                "willReplaceOnChanges": true
-            },
-            "imageId": {
-                "type": "string",
-                "description": "The EC2 image ID to launch.\n",
-                "willReplaceOnChanges": true
-            },
-            "instanceType": {
-                "type": "string",
-                "description": "The size of instance to launch.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "keyName": {
-                "type": "string",
-                "description": "The key name that should be used for the instance.\n",
-                "willReplaceOnChanges": true
-            },
-            "metadataOptions": {
-                "$ref": "#/types/aws:ec2/LaunchConfigurationMetadataOptions:LaunchConfigurationMetadataOptions",
-                "description": "The metadata options for the instance.\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.\n",
-                "willReplaceOnChanges": true
-            },
-            "namePrefix": {
-                "type": "string",
-                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
-                "willReplaceOnChanges": true
-            },
-            "placementTenancy": {
-                "type": "string",
-                "description": "The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.\n",
-                "willReplaceOnChanges": true
-            },
-            "rootBlockDevice": {
-                "$ref": "#/types/aws:ec2/LaunchConfigurationRootBlockDevice:LaunchConfigurationRootBlockDevice",
-                "description": "Customize details about the root block device of the instance. See Block Devices below for details.\n"
-            },
-            "securityGroups": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                    "description": "A list of associated security group IDS.\n"
                 },
-                "description": "A list of associated security group IDS.\n",
-                "willReplaceOnChanges": true
+                "spotPrice": {
+                    "type": "string",
+                    "description": "The maximum price to use for reserving spot instances.\n"
+                },
+                "userData": {
+                    "type": "string",
+                    "description": "The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.\n"
+                },
+                "userDataBase64": {
+                    "type": "string",
+                    "description": "Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.\n"
+                }
             },
-            "spotPrice": {
-                "type": "string",
-                "description": "The maximum price to use for reserving spot instances.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "ebsBlockDevices",
+                "ebsOptimized",
+                "imageId",
+                "instanceType",
+                "keyName",
+                "metadataOptions",
+                "name",
+                "namePrefix",
+                "rootBlockDevice"
+            ],
+            "inputProperties": {
+                "associatePublicIpAddress": {
+                    "type": "boolean",
+                    "description": "Associate a public ip address with an instance in a VPC.\n",
+                    "willReplaceOnChanges": true
+                },
+                "ebsBlockDevices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ec2/LaunchConfigurationEbsBlockDevice:LaunchConfigurationEbsBlockDevice"
+                    },
+                    "description": "Additional EBS block devices to attach to the instance. See Block Devices below for details.\n"
+                },
+                "ebsOptimized": {
+                    "type": "boolean",
+                    "description": "If true, the launched EC2 instance will be EBS-optimized.\n",
+                    "willReplaceOnChanges": true
+                },
+                "enableMonitoring": {
+                    "type": "boolean",
+                    "description": "Enables/disables detailed monitoring. This is enabled by default.\n",
+                    "willReplaceOnChanges": true
+                },
+                "ephemeralBlockDevices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ec2/LaunchConfigurationEphemeralBlockDevice:LaunchConfigurationEphemeralBlockDevice"
+                    },
+                    "description": "Customize Ephemeral (also known as \"Instance Store\") volumes on the instance. See Block Devices below for details.\n",
+                    "willReplaceOnChanges": true
+                },
+                "iamInstanceProfile": {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string",
+                            "$ref": "#/types/aws:iam/instanceProfile:InstanceProfile"
+                        }
+                    ],
+                    "description": "The name attribute of the IAM instance profile to associate with launched instances.\n",
+                    "willReplaceOnChanges": true
+                },
+                "imageId": {
+                    "type": "string",
+                    "description": "The EC2 image ID to launch.\n",
+                    "willReplaceOnChanges": true
+                },
+                "instanceType": {
+                    "type": "string",
+                    "description": "The size of instance to launch.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "keyName": {
+                    "type": "string",
+                    "description": "The key name that should be used for the instance.\n",
+                    "willReplaceOnChanges": true
+                },
+                "metadataOptions": {
+                    "$ref": "#/types/aws:ec2/LaunchConfigurationMetadataOptions:LaunchConfigurationMetadataOptions",
+                    "description": "The metadata options for the instance.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "placementTenancy": {
+                    "type": "string",
+                    "description": "The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.\n",
+                    "willReplaceOnChanges": true
+                },
+                "rootBlockDevice": {
+                    "$ref": "#/types/aws:ec2/LaunchConfigurationRootBlockDevice:LaunchConfigurationRootBlockDevice",
+                    "description": "Customize details about the root block device of the instance. See Block Devices below for details.\n"
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of associated security group IDS.\n",
+                    "willReplaceOnChanges": true
+                },
+                "spotPrice": {
+                    "type": "string",
+                    "description": "The maximum price to use for reserving spot instances.\n",
+                    "willReplaceOnChanges": true
+                },
+                "userData": {
+                    "type": "string",
+                    "description": "The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.\n",
+                    "willReplaceOnChanges": true
+                },
+                "userDataBase64": {
+                    "type": "string",
+                    "description": "Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "userData": {
-                "type": "string",
-                "description": "The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.\n",
-                "willReplaceOnChanges": true
-            },
-            "userDataBase64": {
-                "type": "string",
-                "description": "Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "imageId",
+                "instanceType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering LaunchConfiguration resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name of the launch configuration.\n"
+                    },
+                    "associatePublicIpAddress": {
+                        "type": "boolean",
+                        "description": "Associate a public ip address with an instance in a VPC.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ebsBlockDevices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/LaunchConfigurationEbsBlockDevice:LaunchConfigurationEbsBlockDevice"
+                        },
+                        "description": "Additional EBS block devices to attach to the instance. See Block Devices below for details.\n"
+                    },
+                    "ebsOptimized": {
+                        "type": "boolean",
+                        "description": "If true, the launched EC2 instance will be EBS-optimized.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "enableMonitoring": {
+                        "type": "boolean",
+                        "description": "Enables/disables detailed monitoring. This is enabled by default.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ephemeralBlockDevices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/LaunchConfigurationEphemeralBlockDevice:LaunchConfigurationEphemeralBlockDevice"
+                        },
+                        "description": "Customize Ephemeral (also known as \"Instance Store\") volumes on the instance. See Block Devices below for details.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "iamInstanceProfile": {
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string",
+                                "$ref": "#/types/aws:iam/instanceProfile:InstanceProfile"
+                            }
+                        ],
+                        "description": "The name attribute of the IAM instance profile to associate with launched instances.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "imageId": {
+                        "type": "string",
+                        "description": "The EC2 image ID to launch.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "instanceType": {
+                        "type": "string",
+                        "description": "The size of instance to launch.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "keyName": {
+                        "type": "string",
+                        "description": "The key name that should be used for the instance.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "metadataOptions": {
+                        "$ref": "#/types/aws:ec2/LaunchConfigurationMetadataOptions:LaunchConfigurationMetadataOptions",
+                        "description": "The metadata options for the instance.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "namePrefix": {
+                        "type": "string",
+                        "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "placementTenancy": {
+                        "type": "string",
+                        "description": "The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "rootBlockDevice": {
+                        "$ref": "#/types/aws:ec2/LaunchConfigurationRootBlockDevice:LaunchConfigurationRootBlockDevice",
+                        "description": "Customize details about the root block device of the instance. See Block Devices below for details.\n"
+                    },
+                    "securityGroups": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of associated security group IDS.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "spotPrice": {
+                        "type": "string",
+                        "description": "The maximum price to use for reserving spot instances.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "userData": {
+                        "type": "string",
+                        "description": "The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "userDataBase64": {
+                        "type": "string",
+                        "description": "Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

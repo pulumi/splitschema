@@ -1,46 +1,46 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getRegion.\n",
-        "properties": {
-            "endpoint": {
-                "type": "string",
-                "description": "EC2 endpoint of the region to select.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getRegion.\n",
+                "properties": {
+                    "endpoint": {
+                        "type": "string",
+                        "description": "EC2 endpoint of the region to select.\n"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Full name of the region to select.\n"
+                    }
+                },
+                "type": "object"
             },
-            "id": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string",
-                "description": "Full name of the region to select.\n"
+            "outputs": {
+                "description": "A collection of values returned by getRegion.\n",
+                "properties": {
+                    "description": {
+                        "description": "Region's description in this format: \"Location (Region name)\".\n",
+                        "type": "string"
+                    },
+                    "endpoint": {
+                        "description": "EC2 endpoint for the selected region.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the selected region.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description",
+                    "endpoint",
+                    "id",
+                    "name"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getRegion.\n",
-        "properties": {
-            "description": {
-                "description": "Region's description in this format: \"Location (Region name)\".\n",
-                "type": "string"
-            },
-            "endpoint": {
-                "description": "EC2 endpoint for the selected region.\n",
-                "type": "string"
-            },
-            "id": {
-                "type": "string"
-            },
-            "name": {
-                "description": "Name of the selected region.\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "description",
-            "endpoint",
-            "id",
-            "name"
-        ],
-        "type": "object"
-    }
-}
+        }

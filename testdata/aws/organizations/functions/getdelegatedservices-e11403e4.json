@@ -1,40 +1,40 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getDelegatedServices.\n",
-        "properties": {
-            "accountId": {
-                "type": "string",
-                "description": "Account ID number of a delegated administrator account in the organization.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "accountId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getDelegatedServices.\n",
-        "properties": {
-            "accountId": {
-                "type": "string"
-            },
-            "delegatedServices": {
-                "description": "Services for which the account is a delegated administrator, which have the following attributes:\n",
-                "items": {
-                    "$ref": "#/types/aws:organizations/getDelegatedServicesDelegatedService:getDelegatedServicesDelegatedService"
+            "inputs": {
+                "description": "A collection of arguments for invoking getDelegatedServices.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "Account ID number of a delegated administrator account in the organization.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object",
+                "required": [
+                    "accountId"
+                ]
             },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getDelegatedServices.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
+                    "delegatedServices": {
+                        "description": "Services for which the account is a delegated administrator, which have the following attributes:\n",
+                        "items": {
+                            "$ref": "#/types/aws:organizations/getDelegatedServicesDelegatedService:getDelegatedServicesDelegatedService"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "accountId",
+                    "delegatedServices",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "accountId",
-            "delegatedServices",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

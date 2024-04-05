@@ -1,469 +1,469 @@
 {
-    "properties": {
-        "applyImmediately": {
-            "type": "boolean",
-            "description": "Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of cluster instance\n"
-        },
-        "autoMinorVersionUpgrade": {
-            "type": "boolean",
-            "description": "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.\n"
-        },
-        "availabilityZone": {
-            "type": "string",
-            "description": "EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.\n"
-        },
-        "caCertIdentifier": {
-            "type": "string",
-            "description": "Identifier of the CA certificate for the DB instance.\n"
-        },
-        "clusterIdentifier": {
-            "type": "string",
-            "description": "Identifier of the `aws.rds.Cluster` in which to launch this instance.\n"
-        },
-        "copyTagsToSnapshot": {
-            "type": "boolean",
-            "description": "Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.\n"
-        },
-        "customIamInstanceProfile": {
-            "type": "string",
-            "description": "Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.\n"
-        },
-        "dbParameterGroupName": {
-            "type": "string",
-            "description": "Name of the DB parameter group to associate with this instance.\n"
-        },
-        "dbSubnetGroupName": {
-            "type": "string",
-            "description": "DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.\n"
-        },
-        "dbiResourceId": {
-            "type": "string",
-            "description": "Region-unique, immutable identifier for the DB instance.\n"
-        },
-        "endpoint": {
-            "type": "string",
-            "description": "DNS address for this instance. May not be writable\n"
-        },
-        "engine": {
-            "type": "string",
-            "$ref": "#/types/aws:rds/engineType:EngineType",
-            "description": "Name of the database engine to be used for the RDS cluster instance.\nValid Values: `aurora-mysql`, `aurora-postgresql`.\n"
-        },
-        "engineVersion": {
-            "type": "string",
-            "description": "Database engine version.\n"
-        },
-        "engineVersionActual": {
-            "type": "string",
-            "description": "Database engine version\n"
-        },
-        "identifier": {
-            "type": "string",
-            "description": "Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.\n"
-        },
-        "identifierPrefix": {
-            "type": "string",
-            "description": "Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.\n"
-        },
-        "instanceClass": {
-            "type": "string",
-            "description": "Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "ARN for the KMS encryption key if one is set to the cluster.\n"
-        },
-        "monitoringInterval": {
-            "type": "integer",
-            "description": "Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.\n"
-        },
-        "monitoringRoleArn": {
-            "type": "string",
-            "description": "ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.\n"
-        },
-        "networkType": {
-            "type": "string",
-            "description": "Network type of the DB instance.\n"
-        },
-        "performanceInsightsEnabled": {
-            "type": "boolean",
-            "description": "Specifies whether Performance Insights is enabled or not.\n"
-        },
-        "performanceInsightsKmsKeyId": {
-            "type": "string",
-            "description": "ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.\n"
-        },
-        "performanceInsightsRetentionPeriod": {
-            "type": "integer",
-            "description": "Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.\n"
-        },
-        "port": {
-            "type": "integer",
-            "description": "Database port\n"
-        },
-        "preferredBackupWindow": {
-            "type": "string",
-            "description": "Daily time range during which automated backups are created if automated backups are enabled. Eg: \"04:00-09:00\". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.\n"
-        },
-        "preferredMaintenanceWindow": {
-            "type": "string",
-            "description": "Window to perform maintenance in. Syntax: \"ddd:hh24:mi-ddd:hh24:mi\". Eg: \"Mon:00:00-Mon:03:00\".\n"
-        },
-        "promotionTier": {
-            "type": "integer",
-            "description": "Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.\n"
-        },
-        "publiclyAccessible": {
-            "type": "boolean",
-            "description": "Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.\n"
-        },
-        "storageEncrypted": {
-            "type": "boolean",
-            "description": "Specifies whether the DB cluster is encrypted.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "writer": {
-            "type": "boolean",
-            "description": "Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.\n"
-        }
-    },
-    "required": [
-        "applyImmediately",
-        "arn",
-        "availabilityZone",
-        "caCertIdentifier",
-        "clusterIdentifier",
-        "dbParameterGroupName",
-        "dbSubnetGroupName",
-        "dbiResourceId",
-        "endpoint",
-        "engine",
-        "engineVersion",
-        "engineVersionActual",
-        "identifier",
-        "identifierPrefix",
-        "instanceClass",
-        "kmsKeyId",
-        "monitoringRoleArn",
-        "networkType",
-        "performanceInsightsEnabled",
-        "performanceInsightsKmsKeyId",
-        "performanceInsightsRetentionPeriod",
-        "port",
-        "preferredBackupWindow",
-        "preferredMaintenanceWindow",
-        "publiclyAccessible",
-        "storageEncrypted",
-        "tagsAll",
-        "writer"
-    ],
-    "inputProperties": {
-        "applyImmediately": {
-            "type": "boolean",
-            "description": "Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.\n"
-        },
-        "autoMinorVersionUpgrade": {
-            "type": "boolean",
-            "description": "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.\n"
-        },
-        "availabilityZone": {
-            "type": "string",
-            "description": "EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.\n",
-            "willReplaceOnChanges": true
-        },
-        "caCertIdentifier": {
-            "type": "string",
-            "description": "Identifier of the CA certificate for the DB instance.\n"
-        },
-        "clusterIdentifier": {
-            "type": "string",
-            "description": "Identifier of the `aws.rds.Cluster` in which to launch this instance.\n",
-            "willReplaceOnChanges": true
-        },
-        "copyTagsToSnapshot": {
-            "type": "boolean",
-            "description": "Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.\n"
-        },
-        "customIamInstanceProfile": {
-            "type": "string",
-            "description": "Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.\n",
-            "willReplaceOnChanges": true
-        },
-        "dbParameterGroupName": {
-            "type": "string",
-            "description": "Name of the DB parameter group to associate with this instance.\n"
-        },
-        "dbSubnetGroupName": {
-            "type": "string",
-            "description": "DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.\n",
-            "willReplaceOnChanges": true
-        },
-        "engine": {
-            "type": "string",
-            "$ref": "#/types/aws:rds/engineType:EngineType",
-            "description": "Name of the database engine to be used for the RDS cluster instance.\nValid Values: `aurora-mysql`, `aurora-postgresql`.\n",
-            "willReplaceOnChanges": true
-        },
-        "engineVersion": {
-            "type": "string",
-            "description": "Database engine version.\n"
-        },
-        "identifier": {
-            "type": "string",
-            "description": "Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.\n",
-            "willReplaceOnChanges": true
-        },
-        "identifierPrefix": {
-            "type": "string",
-            "description": "Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.\n",
-            "willReplaceOnChanges": true
-        },
-        "instanceClass": {
-            "type": "string",
-            "oneOf": [
-                {
-                    "type": "string"
+            "properties": {
+                "applyImmediately": {
+                    "type": "boolean",
+                    "description": "Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.\n"
                 },
-                {
+                "arn": {
                     "type": "string",
-                    "$ref": "#/types/aws:rds/InstanceType:InstanceType"
-                }
-            ],
-            "description": "Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.\n"
-        },
-        "monitoringInterval": {
-            "type": "integer",
-            "description": "Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.\n"
-        },
-        "monitoringRoleArn": {
-            "type": "string",
-            "description": "ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.\n"
-        },
-        "performanceInsightsEnabled": {
-            "type": "boolean",
-            "description": "Specifies whether Performance Insights is enabled or not.\n"
-        },
-        "performanceInsightsKmsKeyId": {
-            "type": "string",
-            "description": "ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.\n"
-        },
-        "performanceInsightsRetentionPeriod": {
-            "type": "integer",
-            "description": "Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.\n"
-        },
-        "preferredBackupWindow": {
-            "type": "string",
-            "description": "Daily time range during which automated backups are created if automated backups are enabled. Eg: \"04:00-09:00\". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.\n"
-        },
-        "preferredMaintenanceWindow": {
-            "type": "string",
-            "description": "Window to perform maintenance in. Syntax: \"ddd:hh24:mi-ddd:hh24:mi\". Eg: \"Mon:00:00-Mon:03:00\".\n"
-        },
-        "promotionTier": {
-            "type": "integer",
-            "description": "Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.\n"
-        },
-        "publiclyAccessible": {
-            "type": "boolean",
-            "description": "Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "clusterIdentifier",
-        "engine",
-        "instanceClass"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ClusterInstance resources.\n",
-        "properties": {
-            "applyImmediately": {
-                "type": "boolean",
-                "description": "Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of cluster instance\n"
-            },
-            "autoMinorVersionUpgrade": {
-                "type": "boolean",
-                "description": "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.\n"
-            },
-            "availabilityZone": {
-                "type": "string",
-                "description": "EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.\n",
-                "willReplaceOnChanges": true
-            },
-            "caCertIdentifier": {
-                "type": "string",
-                "description": "Identifier of the CA certificate for the DB instance.\n"
-            },
-            "clusterIdentifier": {
-                "type": "string",
-                "description": "Identifier of the `aws.rds.Cluster` in which to launch this instance.\n",
-                "willReplaceOnChanges": true
-            },
-            "copyTagsToSnapshot": {
-                "type": "boolean",
-                "description": "Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.\n"
-            },
-            "customIamInstanceProfile": {
-                "type": "string",
-                "description": "Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.\n",
-                "willReplaceOnChanges": true
-            },
-            "dbParameterGroupName": {
-                "type": "string",
-                "description": "Name of the DB parameter group to associate with this instance.\n"
-            },
-            "dbSubnetGroupName": {
-                "type": "string",
-                "description": "DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.\n",
-                "willReplaceOnChanges": true
-            },
-            "dbiResourceId": {
-                "type": "string",
-                "description": "Region-unique, immutable identifier for the DB instance.\n"
-            },
-            "endpoint": {
-                "type": "string",
-                "description": "DNS address for this instance. May not be writable\n"
-            },
-            "engine": {
-                "type": "string",
-                "$ref": "#/types/aws:rds/engineType:EngineType",
-                "description": "Name of the database engine to be used for the RDS cluster instance.\nValid Values: `aurora-mysql`, `aurora-postgresql`.\n",
-                "willReplaceOnChanges": true
-            },
-            "engineVersion": {
-                "type": "string",
-                "description": "Database engine version.\n"
-            },
-            "engineVersionActual": {
-                "type": "string",
-                "description": "Database engine version\n"
-            },
-            "identifier": {
-                "type": "string",
-                "description": "Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.\n",
-                "willReplaceOnChanges": true
-            },
-            "identifierPrefix": {
-                "type": "string",
-                "description": "Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.\n",
-                "willReplaceOnChanges": true
-            },
-            "instanceClass": {
-                "type": "string",
-                "oneOf": [
-                    {
+                    "description": "Amazon Resource Name (ARN) of cluster instance\n"
+                },
+                "autoMinorVersionUpgrade": {
+                    "type": "boolean",
+                    "description": "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.\n"
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.\n"
+                },
+                "caCertIdentifier": {
+                    "type": "string",
+                    "description": "Identifier of the CA certificate for the DB instance.\n"
+                },
+                "clusterIdentifier": {
+                    "type": "string",
+                    "description": "Identifier of the `aws.rds.Cluster` in which to launch this instance.\n"
+                },
+                "copyTagsToSnapshot": {
+                    "type": "boolean",
+                    "description": "Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.\n"
+                },
+                "customIamInstanceProfile": {
+                    "type": "string",
+                    "description": "Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.\n"
+                },
+                "dbParameterGroupName": {
+                    "type": "string",
+                    "description": "Name of the DB parameter group to associate with this instance.\n"
+                },
+                "dbSubnetGroupName": {
+                    "type": "string",
+                    "description": "DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.\n"
+                },
+                "dbiResourceId": {
+                    "type": "string",
+                    "description": "Region-unique, immutable identifier for the DB instance.\n"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "DNS address for this instance. May not be writable\n"
+                },
+                "engine": {
+                    "type": "string",
+                    "$ref": "#/types/aws:rds/engineType:EngineType",
+                    "description": "Name of the database engine to be used for the RDS cluster instance.\nValid Values: `aurora-mysql`, `aurora-postgresql`.\n"
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "Database engine version.\n"
+                },
+                "engineVersionActual": {
+                    "type": "string",
+                    "description": "Database engine version\n"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.\n"
+                },
+                "identifierPrefix": {
+                    "type": "string",
+                    "description": "Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.\n"
+                },
+                "instanceClass": {
+                    "type": "string",
+                    "description": "Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "ARN for the KMS encryption key if one is set to the cluster.\n"
+                },
+                "monitoringInterval": {
+                    "type": "integer",
+                    "description": "Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.\n"
+                },
+                "monitoringRoleArn": {
+                    "type": "string",
+                    "description": "ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.\n"
+                },
+                "networkType": {
+                    "type": "string",
+                    "description": "Network type of the DB instance.\n"
+                },
+                "performanceInsightsEnabled": {
+                    "type": "boolean",
+                    "description": "Specifies whether Performance Insights is enabled or not.\n"
+                },
+                "performanceInsightsKmsKeyId": {
+                    "type": "string",
+                    "description": "ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.\n"
+                },
+                "performanceInsightsRetentionPeriod": {
+                    "type": "integer",
+                    "description": "Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Database port\n"
+                },
+                "preferredBackupWindow": {
+                    "type": "string",
+                    "description": "Daily time range during which automated backups are created if automated backups are enabled. Eg: \"04:00-09:00\". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.\n"
+                },
+                "preferredMaintenanceWindow": {
+                    "type": "string",
+                    "description": "Window to perform maintenance in. Syntax: \"ddd:hh24:mi-ddd:hh24:mi\". Eg: \"Mon:00:00-Mon:03:00\".\n"
+                },
+                "promotionTier": {
+                    "type": "integer",
+                    "description": "Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.\n"
+                },
+                "publiclyAccessible": {
+                    "type": "boolean",
+                    "description": "Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.\n"
+                },
+                "storageEncrypted": {
+                    "type": "boolean",
+                    "description": "Specifies whether the DB cluster is encrypted.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
                         "type": "string"
                     },
-                    {
+                    "description": "Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "writer": {
+                    "type": "boolean",
+                    "description": "Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.\n"
+                }
+            },
+            "required": [
+                "applyImmediately",
+                "arn",
+                "availabilityZone",
+                "caCertIdentifier",
+                "clusterIdentifier",
+                "dbParameterGroupName",
+                "dbSubnetGroupName",
+                "dbiResourceId",
+                "endpoint",
+                "engine",
+                "engineVersion",
+                "engineVersionActual",
+                "identifier",
+                "identifierPrefix",
+                "instanceClass",
+                "kmsKeyId",
+                "monitoringRoleArn",
+                "networkType",
+                "performanceInsightsEnabled",
+                "performanceInsightsKmsKeyId",
+                "performanceInsightsRetentionPeriod",
+                "port",
+                "preferredBackupWindow",
+                "preferredMaintenanceWindow",
+                "publiclyAccessible",
+                "storageEncrypted",
+                "tagsAll",
+                "writer"
+            ],
+            "inputProperties": {
+                "applyImmediately": {
+                    "type": "boolean",
+                    "description": "Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.\n"
+                },
+                "autoMinorVersionUpgrade": {
+                    "type": "boolean",
+                    "description": "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.\n"
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.\n",
+                    "willReplaceOnChanges": true
+                },
+                "caCertIdentifier": {
+                    "type": "string",
+                    "description": "Identifier of the CA certificate for the DB instance.\n"
+                },
+                "clusterIdentifier": {
+                    "type": "string",
+                    "description": "Identifier of the `aws.rds.Cluster` in which to launch this instance.\n",
+                    "willReplaceOnChanges": true
+                },
+                "copyTagsToSnapshot": {
+                    "type": "boolean",
+                    "description": "Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.\n"
+                },
+                "customIamInstanceProfile": {
+                    "type": "string",
+                    "description": "Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.\n",
+                    "willReplaceOnChanges": true
+                },
+                "dbParameterGroupName": {
+                    "type": "string",
+                    "description": "Name of the DB parameter group to associate with this instance.\n"
+                },
+                "dbSubnetGroupName": {
+                    "type": "string",
+                    "description": "DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "engine": {
+                    "type": "string",
+                    "$ref": "#/types/aws:rds/engineType:EngineType",
+                    "description": "Name of the database engine to be used for the RDS cluster instance.\nValid Values: `aurora-mysql`, `aurora-postgresql`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "Database engine version.\n"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.\n",
+                    "willReplaceOnChanges": true
+                },
+                "identifierPrefix": {
+                    "type": "string",
+                    "description": "Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "instanceClass": {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string",
+                            "$ref": "#/types/aws:rds/InstanceType:InstanceType"
+                        }
+                    ],
+                    "description": "Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.\n"
+                },
+                "monitoringInterval": {
+                    "type": "integer",
+                    "description": "Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.\n"
+                },
+                "monitoringRoleArn": {
+                    "type": "string",
+                    "description": "ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.\n"
+                },
+                "performanceInsightsEnabled": {
+                    "type": "boolean",
+                    "description": "Specifies whether Performance Insights is enabled or not.\n"
+                },
+                "performanceInsightsKmsKeyId": {
+                    "type": "string",
+                    "description": "ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.\n"
+                },
+                "performanceInsightsRetentionPeriod": {
+                    "type": "integer",
+                    "description": "Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.\n"
+                },
+                "preferredBackupWindow": {
+                    "type": "string",
+                    "description": "Daily time range during which automated backups are created if automated backups are enabled. Eg: \"04:00-09:00\". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.\n"
+                },
+                "preferredMaintenanceWindow": {
+                    "type": "string",
+                    "description": "Window to perform maintenance in. Syntax: \"ddd:hh24:mi-ddd:hh24:mi\". Eg: \"Mon:00:00-Mon:03:00\".\n"
+                },
+                "promotionTier": {
+                    "type": "integer",
+                    "description": "Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.\n"
+                },
+                "publiclyAccessible": {
+                    "type": "boolean",
+                    "description": "Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "clusterIdentifier",
+                "engine",
+                "instanceClass"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ClusterInstance resources.\n",
+                "properties": {
+                    "applyImmediately": {
+                        "type": "boolean",
+                        "description": "Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.\n"
+                    },
+                    "arn": {
                         "type": "string",
-                        "$ref": "#/types/aws:rds/InstanceType:InstanceType"
+                        "description": "Amazon Resource Name (ARN) of cluster instance\n"
+                    },
+                    "autoMinorVersionUpgrade": {
+                        "type": "boolean",
+                        "description": "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.\n"
+                    },
+                    "availabilityZone": {
+                        "type": "string",
+                        "description": "EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "caCertIdentifier": {
+                        "type": "string",
+                        "description": "Identifier of the CA certificate for the DB instance.\n"
+                    },
+                    "clusterIdentifier": {
+                        "type": "string",
+                        "description": "Identifier of the `aws.rds.Cluster` in which to launch this instance.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "copyTagsToSnapshot": {
+                        "type": "boolean",
+                        "description": "Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.\n"
+                    },
+                    "customIamInstanceProfile": {
+                        "type": "string",
+                        "description": "Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "dbParameterGroupName": {
+                        "type": "string",
+                        "description": "Name of the DB parameter group to associate with this instance.\n"
+                    },
+                    "dbSubnetGroupName": {
+                        "type": "string",
+                        "description": "DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "dbiResourceId": {
+                        "type": "string",
+                        "description": "Region-unique, immutable identifier for the DB instance.\n"
+                    },
+                    "endpoint": {
+                        "type": "string",
+                        "description": "DNS address for this instance. May not be writable\n"
+                    },
+                    "engine": {
+                        "type": "string",
+                        "$ref": "#/types/aws:rds/engineType:EngineType",
+                        "description": "Name of the database engine to be used for the RDS cluster instance.\nValid Values: `aurora-mysql`, `aurora-postgresql`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "engineVersion": {
+                        "type": "string",
+                        "description": "Database engine version.\n"
+                    },
+                    "engineVersionActual": {
+                        "type": "string",
+                        "description": "Database engine version\n"
+                    },
+                    "identifier": {
+                        "type": "string",
+                        "description": "Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "identifierPrefix": {
+                        "type": "string",
+                        "description": "Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "instanceClass": {
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string",
+                                "$ref": "#/types/aws:rds/InstanceType:InstanceType"
+                            }
+                        ],
+                        "description": "Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.\n"
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "description": "ARN for the KMS encryption key if one is set to the cluster.\n"
+                    },
+                    "monitoringInterval": {
+                        "type": "integer",
+                        "description": "Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.\n"
+                    },
+                    "monitoringRoleArn": {
+                        "type": "string",
+                        "description": "ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.\n"
+                    },
+                    "networkType": {
+                        "type": "string",
+                        "description": "Network type of the DB instance.\n"
+                    },
+                    "performanceInsightsEnabled": {
+                        "type": "boolean",
+                        "description": "Specifies whether Performance Insights is enabled or not.\n"
+                    },
+                    "performanceInsightsKmsKeyId": {
+                        "type": "string",
+                        "description": "ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.\n"
+                    },
+                    "performanceInsightsRetentionPeriod": {
+                        "type": "integer",
+                        "description": "Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.\n"
+                    },
+                    "port": {
+                        "type": "integer",
+                        "description": "Database port\n"
+                    },
+                    "preferredBackupWindow": {
+                        "type": "string",
+                        "description": "Daily time range during which automated backups are created if automated backups are enabled. Eg: \"04:00-09:00\". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.\n"
+                    },
+                    "preferredMaintenanceWindow": {
+                        "type": "string",
+                        "description": "Window to perform maintenance in. Syntax: \"ddd:hh24:mi-ddd:hh24:mi\". Eg: \"Mon:00:00-Mon:03:00\".\n"
+                    },
+                    "promotionTier": {
+                        "type": "integer",
+                        "description": "Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.\n"
+                    },
+                    "publiclyAccessible": {
+                        "type": "boolean",
+                        "description": "Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.\n"
+                    },
+                    "storageEncrypted": {
+                        "type": "boolean",
+                        "description": "Specifies whether the DB cluster is encrypted.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "writer": {
+                        "type": "boolean",
+                        "description": "Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.\n"
                     }
-                ],
-                "description": "Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.\n"
-            },
-            "kmsKeyId": {
-                "type": "string",
-                "description": "ARN for the KMS encryption key if one is set to the cluster.\n"
-            },
-            "monitoringInterval": {
-                "type": "integer",
-                "description": "Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.\n"
-            },
-            "monitoringRoleArn": {
-                "type": "string",
-                "description": "ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.\n"
-            },
-            "networkType": {
-                "type": "string",
-                "description": "Network type of the DB instance.\n"
-            },
-            "performanceInsightsEnabled": {
-                "type": "boolean",
-                "description": "Specifies whether Performance Insights is enabled or not.\n"
-            },
-            "performanceInsightsKmsKeyId": {
-                "type": "string",
-                "description": "ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.\n"
-            },
-            "performanceInsightsRetentionPeriod": {
-                "type": "integer",
-                "description": "Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.\n"
-            },
-            "port": {
-                "type": "integer",
-                "description": "Database port\n"
-            },
-            "preferredBackupWindow": {
-                "type": "string",
-                "description": "Daily time range during which automated backups are created if automated backups are enabled. Eg: \"04:00-09:00\". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.\n"
-            },
-            "preferredMaintenanceWindow": {
-                "type": "string",
-                "description": "Window to perform maintenance in. Syntax: \"ddd:hh24:mi-ddd:hh24:mi\". Eg: \"Mon:00:00-Mon:03:00\".\n"
-            },
-            "promotionTier": {
-                "type": "integer",
-                "description": "Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.\n"
-            },
-            "publiclyAccessible": {
-                "type": "boolean",
-                "description": "Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.\n"
-            },
-            "storageEncrypted": {
-                "type": "boolean",
-                "description": "Specifies whether the DB cluster is encrypted.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
                 },
-                "description": "Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
-            },
-            "writer": {
-                "type": "boolean",
-                "description": "Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.\n"
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,45 +1,45 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getSupportedInstanceTypes.\n",
-        "properties": {
-            "releaseLabel": {
-                "type": "string",
-                "description": "Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).\n"
-            },
-            "supportedInstanceTypes": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:emr/getSupportedInstanceTypesSupportedInstanceType:getSupportedInstanceTypesSupportedInstanceType"
+            "inputs": {
+                "description": "A collection of arguments for invoking getSupportedInstanceTypes.\n",
+                "properties": {
+                    "releaseLabel": {
+                        "type": "string",
+                        "description": "Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).\n"
+                    },
+                    "supportedInstanceTypes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:emr/getSupportedInstanceTypesSupportedInstanceType:getSupportedInstanceTypesSupportedInstanceType"
+                        },
+                        "description": "List of supported instance types. See `supported_instance_types` below.\n"
+                    }
                 },
-                "description": "List of supported instance types. See `supported_instance_types` below.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "releaseLabel"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getSupportedInstanceTypes.\n",
-        "properties": {
-            "id": {
-                "type": "string"
+                "type": "object",
+                "required": [
+                    "releaseLabel"
+                ]
             },
-            "releaseLabel": {
-                "type": "string"
-            },
-            "supportedInstanceTypes": {
-                "description": "List of supported instance types. See `supported_instance_types` below.\n",
-                "items": {
-                    "$ref": "#/types/aws:emr/getSupportedInstanceTypesSupportedInstanceType:getSupportedInstanceTypesSupportedInstanceType"
+            "outputs": {
+                "description": "A collection of values returned by getSupportedInstanceTypes.\n",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "releaseLabel": {
+                        "type": "string"
+                    },
+                    "supportedInstanceTypes": {
+                        "description": "List of supported instance types. See `supported_instance_types` below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:emr/getSupportedInstanceTypesSupportedInstanceType:getSupportedInstanceTypesSupportedInstanceType"
+                        },
+                        "type": "array"
+                    }
                 },
-                "type": "array"
+                "required": [
+                    "id",
+                    "releaseLabel"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "id",
-            "releaseLabel"
-        ],
-        "type": "object"
-    }
-}
+        }

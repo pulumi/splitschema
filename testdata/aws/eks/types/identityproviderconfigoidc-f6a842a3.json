@@ -1,53 +1,53 @@
 {
-    "properties": {
-        "clientId": {
-            "type": "string",
-            "description": "Client ID for the OpenID Connect identity provider.\n",
-            "willReplaceOnChanges": true
-        },
-        "groupsClaim": {
-            "type": "string",
-            "description": "The JWT claim that the provider will use to return groups.\n",
-            "willReplaceOnChanges": true
-        },
-        "groupsPrefix": {
-            "type": "string",
-            "description": "A prefix that is prepended to group claims e.g., `oidc:`.\n",
-            "willReplaceOnChanges": true
-        },
-        "identityProviderConfigName": {
-            "type": "string",
-            "description": "The name of the identity provider config.\n",
-            "willReplaceOnChanges": true
-        },
-        "issuerUrl": {
-            "type": "string",
-            "description": "Issuer URL for the OpenID Connect identity provider.\n",
-            "willReplaceOnChanges": true
-        },
-        "requiredClaims": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "Client ID for the OpenID Connect identity provider.\n",
+                    "willReplaceOnChanges": true
+                },
+                "groupsClaim": {
+                    "type": "string",
+                    "description": "The JWT claim that the provider will use to return groups.\n",
+                    "willReplaceOnChanges": true
+                },
+                "groupsPrefix": {
+                    "type": "string",
+                    "description": "A prefix that is prepended to group claims e.g., `oidc:`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "identityProviderConfigName": {
+                    "type": "string",
+                    "description": "The name of the identity provider config.\n",
+                    "willReplaceOnChanges": true
+                },
+                "issuerUrl": {
+                    "type": "string",
+                    "description": "Issuer URL for the OpenID Connect identity provider.\n",
+                    "willReplaceOnChanges": true
+                },
+                "requiredClaims": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The key value pairs that describe required claims in the identity token.\n",
+                    "willReplaceOnChanges": true
+                },
+                "usernameClaim": {
+                    "type": "string",
+                    "description": "The JWT claim that the provider will use as the username.\n",
+                    "willReplaceOnChanges": true
+                },
+                "usernamePrefix": {
+                    "type": "string",
+                    "description": "A prefix that is prepended to username claims.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "description": "The key value pairs that describe required claims in the identity token.\n",
-            "willReplaceOnChanges": true
-        },
-        "usernameClaim": {
-            "type": "string",
-            "description": "The JWT claim that the provider will use as the username.\n",
-            "willReplaceOnChanges": true
-        },
-        "usernamePrefix": {
-            "type": "string",
-            "description": "A prefix that is prepended to username claims.\n",
-            "willReplaceOnChanges": true
+            "type": "object",
+            "required": [
+                "clientId",
+                "identityProviderConfigName",
+                "issuerUrl"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "clientId",
-        "identityProviderConfigName",
-        "issuerUrl"
-    ]
-}

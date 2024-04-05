@@ -1,29 +1,29 @@
 {
-    "properties": {
-        "deleteOnTermination": {
-            "type": "boolean",
-            "description": "Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.\n",
-            "willReplaceOnChanges": true
-        },
-        "deviceIndex": {
-            "type": "integer",
-            "description": "Integer index of the network interface attachment. Limited by instance type.\n",
-            "willReplaceOnChanges": true
-        },
-        "networkCardIndex": {
-            "type": "integer",
-            "description": "Integer index of the network card. Limited by instance type. The default index is `0`.\n",
-            "willReplaceOnChanges": true
-        },
-        "networkInterfaceId": {
-            "type": "string",
-            "description": "ID of the network interface to attach.\n",
-            "willReplaceOnChanges": true
+            "properties": {
+                "deleteOnTermination": {
+                    "type": "boolean",
+                    "description": "Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.\n",
+                    "willReplaceOnChanges": true
+                },
+                "deviceIndex": {
+                    "type": "integer",
+                    "description": "Integer index of the network interface attachment. Limited by instance type.\n",
+                    "willReplaceOnChanges": true
+                },
+                "networkCardIndex": {
+                    "type": "integer",
+                    "description": "Integer index of the network card. Limited by instance type. The default index is `0`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "networkInterfaceId": {
+                    "type": "string",
+                    "description": "ID of the network interface to attach.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "deviceIndex",
+                "networkInterfaceId"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "deviceIndex",
-        "networkInterfaceId"
-    ]
-}

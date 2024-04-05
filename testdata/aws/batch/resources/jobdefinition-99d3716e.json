@@ -1,221 +1,221 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name of the job definition.\n"
-        },
-        "containerProperties": {
-            "type": "string",
-            "description": "A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)\nprovided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Specifies the name of the job definition.\n"
-        },
-        "nodeProperties": {
-            "type": "string",
-            "description": "A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)\nprovided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.\n"
-        },
-        "parameters": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Specifies the parameter substitution placeholders to set in the job definition.\n"
-        },
-        "platformCapabilities": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.\n"
-        },
-        "propagateTags": {
-            "type": "boolean",
-            "description": "Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.\n"
-        },
-        "retryStrategy": {
-            "$ref": "#/types/aws:batch/JobDefinitionRetryStrategy:JobDefinitionRetryStrategy",
-            "description": "Specifies the retry strategy to use for failed jobs that are submitted with this job definition.\nMaximum number of `retry_strategy` is `1`.  Defined below.\n"
-        },
-        "revision": {
-            "type": "integer",
-            "description": "The revision of the job definition.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "timeout": {
-            "$ref": "#/types/aws:batch/JobDefinitionTimeout:JobDefinitionTimeout",
-            "description": "Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "The type of job definition. Must be `container` or `multinode`.\n\nThe following arguments are optional:\n"
-        }
-    },
-    "required": [
-        "arn",
-        "name",
-        "revision",
-        "tagsAll",
-        "type"
-    ],
-    "inputProperties": {
-        "containerProperties": {
-            "type": "string",
-            "description": "A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)\nprovided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Specifies the name of the job definition.\n",
-            "willReplaceOnChanges": true
-        },
-        "nodeProperties": {
-            "type": "string",
-            "description": "A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)\nprovided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.\n",
-            "willReplaceOnChanges": true
-        },
-        "parameters": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Specifies the parameter substitution placeholders to set in the job definition.\n",
-            "willReplaceOnChanges": true
-        },
-        "platformCapabilities": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.\n",
-            "willReplaceOnChanges": true
-        },
-        "propagateTags": {
-            "type": "boolean",
-            "description": "Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.\n",
-            "willReplaceOnChanges": true
-        },
-        "retryStrategy": {
-            "$ref": "#/types/aws:batch/JobDefinitionRetryStrategy:JobDefinitionRetryStrategy",
-            "description": "Specifies the retry strategy to use for failed jobs that are submitted with this job definition.\nMaximum number of `retry_strategy` is `1`.  Defined below.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "timeout": {
-            "$ref": "#/types/aws:batch/JobDefinitionTimeout:JobDefinitionTimeout",
-            "description": "Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.\n",
-            "willReplaceOnChanges": true
-        },
-        "type": {
-            "type": "string",
-            "description": "The type of job definition. Must be `container` or `multinode`.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "type"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering JobDefinition resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name of the job definition.\n"
-            },
-            "containerProperties": {
-                "type": "string",
-                "description": "A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)\nprovided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "Specifies the name of the job definition.\n",
-                "willReplaceOnChanges": true
-            },
-            "nodeProperties": {
-                "type": "string",
-                "description": "A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)\nprovided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.\n",
-                "willReplaceOnChanges": true
-            },
-            "parameters": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name of the job definition.\n"
                 },
-                "description": "Specifies the parameter substitution placeholders to set in the job definition.\n",
-                "willReplaceOnChanges": true
-            },
-            "platformCapabilities": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "containerProperties": {
+                    "type": "string",
+                    "description": "A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)\nprovided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.\n"
                 },
-                "description": "The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.\n",
-                "willReplaceOnChanges": true
-            },
-            "propagateTags": {
-                "type": "boolean",
-                "description": "Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.\n",
-                "willReplaceOnChanges": true
-            },
-            "retryStrategy": {
-                "$ref": "#/types/aws:batch/JobDefinitionRetryStrategy:JobDefinitionRetryStrategy",
-                "description": "Specifies the retry strategy to use for failed jobs that are submitted with this job definition.\nMaximum number of `retry_strategy` is `1`.  Defined below.\n",
-                "willReplaceOnChanges": true
-            },
-            "revision": {
-                "type": "integer",
-                "description": "The revision of the job definition.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the name of the job definition.\n"
                 },
-                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "nodeProperties": {
+                    "type": "string",
+                    "description": "A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)\nprovided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "parameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the parameter substitution placeholders to set in the job definition.\n"
+                },
+                "platformCapabilities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.\n"
+                },
+                "propagateTags": {
+                    "type": "boolean",
+                    "description": "Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.\n"
+                },
+                "retryStrategy": {
+                    "$ref": "#/types/aws:batch/JobDefinitionRetryStrategy:JobDefinitionRetryStrategy",
+                    "description": "Specifies the retry strategy to use for failed jobs that are submitted with this job definition.\nMaximum number of `retry_strategy` is `1`.  Defined below.\n"
+                },
+                "revision": {
+                    "type": "integer",
+                    "description": "The revision of the job definition.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "timeout": {
+                    "$ref": "#/types/aws:batch/JobDefinitionTimeout:JobDefinitionTimeout",
+                    "description": "Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of job definition. Must be `container` or `multinode`.\n\nThe following arguments are optional:\n"
+                }
             },
-            "timeout": {
-                "$ref": "#/types/aws:batch/JobDefinitionTimeout:JobDefinitionTimeout",
-                "description": "Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "name",
+                "revision",
+                "tagsAll",
+                "type"
+            ],
+            "inputProperties": {
+                "containerProperties": {
+                    "type": "string",
+                    "description": "A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)\nprovided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the name of the job definition.\n",
+                    "willReplaceOnChanges": true
+                },
+                "nodeProperties": {
+                    "type": "string",
+                    "description": "A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)\nprovided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "parameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the parameter substitution placeholders to set in the job definition.\n",
+                    "willReplaceOnChanges": true
+                },
+                "platformCapabilities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "propagateTags": {
+                    "type": "boolean",
+                    "description": "Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "retryStrategy": {
+                    "$ref": "#/types/aws:batch/JobDefinitionRetryStrategy:JobDefinitionRetryStrategy",
+                    "description": "Specifies the retry strategy to use for failed jobs that are submitted with this job definition.\nMaximum number of `retry_strategy` is `1`.  Defined below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "timeout": {
+                    "$ref": "#/types/aws:batch/JobDefinitionTimeout:JobDefinitionTimeout",
+                    "description": "Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of job definition. Must be `container` or `multinode`.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "type": {
-                "type": "string",
-                "description": "The type of job definition. Must be `container` or `multinode`.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering JobDefinition resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name of the job definition.\n"
+                    },
+                    "containerProperties": {
+                        "type": "string",
+                        "description": "A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)\nprovided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the name of the job definition.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "nodeProperties": {
+                        "type": "string",
+                        "description": "A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)\nprovided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "parameters": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the parameter substitution placeholders to set in the job definition.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "platformCapabilities": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "propagateTags": {
+                        "type": "boolean",
+                        "description": "Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "retryStrategy": {
+                        "$ref": "#/types/aws:batch/JobDefinitionRetryStrategy:JobDefinitionRetryStrategy",
+                        "description": "Specifies the retry strategy to use for failed jobs that are submitted with this job definition.\nMaximum number of `retry_strategy` is `1`.  Defined below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "revision": {
+                        "type": "integer",
+                        "description": "The revision of the job definition.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "timeout": {
+                        "$ref": "#/types/aws:batch/JobDefinitionTimeout:JobDefinitionTimeout",
+                        "description": "Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of job definition. Must be `container` or `multinode`.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

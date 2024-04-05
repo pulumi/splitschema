@@ -1,35 +1,35 @@
 {
-    "properties": {
-        "connectionName": {
-            "type": "string",
-            "description": "The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.\n"
-        },
-        "dlqEventQueueArn": {
-            "type": "string",
-            "description": "A valid Amazon SQS ARN.\n\n\u003e **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.\n\n\u003e **Note:** `configuration` for catalog target crawlers will have `{ ... \"Grouping\": { \"TableGroupingPolicy\": \"CombineCompatibleSchemas\"} }` by default.\n"
-        },
-        "eventQueueArn": {
-            "type": "string",
-            "description": "A valid Amazon SQS ARN.\n"
-        },
-        "exclusions": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "connectionName": {
+                    "type": "string",
+                    "description": "The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.\n"
+                },
+                "dlqEventQueueArn": {
+                    "type": "string",
+                    "description": "A valid Amazon SQS ARN.\n\n\u003e **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.\n\n\u003e **Note:** `configuration` for catalog target crawlers will have `{ ... \"Grouping\": { \"TableGroupingPolicy\": \"CombineCompatibleSchemas\"} }` by default.\n"
+                },
+                "eventQueueArn": {
+                    "type": "string",
+                    "description": "A valid Amazon SQS ARN.\n"
+                },
+                "exclusions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of glob patterns used to exclude from the crawl.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The name of the DynamoDB table to crawl.\n"
+                },
+                "sampleSize": {
+                    "type": "integer",
+                    "description": "Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.\n"
+                }
             },
-            "description": "A list of glob patterns used to exclude from the crawl.\n"
-        },
-        "path": {
-            "type": "string",
-            "description": "The name of the DynamoDB table to crawl.\n"
-        },
-        "sampleSize": {
-            "type": "integer",
-            "description": "Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.\n"
+            "type": "object",
+            "required": [
+                "path"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "path"
-    ]
-}

@@ -1,84 +1,84 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getAddon.\n",
-        "properties": {
-            "addonName": {
-                "type": "string",
-                "description": "Name of the EKS add-on. The name must match one of\nthe names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).\n"
-            },
-            "clusterName": {
-                "type": "string",
-                "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                }
-            }
-        },
-        "type": "object",
-        "required": [
-            "addonName",
-            "clusterName"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getAddon.\n",
-        "properties": {
-            "addonName": {
-                "type": "string"
-            },
-            "addonVersion": {
-                "description": "Version of EKS add-on.\n",
-                "type": "string"
-            },
-            "arn": {
-                "description": "ARN of the EKS add-on.\n",
-                "type": "string"
-            },
-            "clusterName": {
-                "type": "string"
-            },
-            "configurationValues": {
-                "description": "Configuration values for the addon with a single JSON string.\n",
-                "type": "string"
-            },
-            "createdAt": {
-                "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "modifiedAt": {
-                "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.\n",
-                "type": "string"
-            },
-            "serviceAccountRoleArn": {
-                "description": "ARN of IAM role used for EKS add-on. If value is empty -\nthen add-on uses the IAM role assigned to the EKS Cluster node.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getAddon.\n",
+                "properties": {
+                    "addonName": {
+                        "type": "string",
+                        "description": "Name of the EKS add-on. The name must match one of\nthe names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).\n"
+                    },
+                    "clusterName": {
+                        "type": "string",
+                        "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    }
                 },
+                "type": "object",
+                "required": [
+                    "addonName",
+                    "clusterName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAddon.\n",
+                "properties": {
+                    "addonName": {
+                        "type": "string"
+                    },
+                    "addonVersion": {
+                        "description": "Version of EKS add-on.\n",
+                        "type": "string"
+                    },
+                    "arn": {
+                        "description": "ARN of the EKS add-on.\n",
+                        "type": "string"
+                    },
+                    "clusterName": {
+                        "type": "string"
+                    },
+                    "configurationValues": {
+                        "description": "Configuration values for the addon with a single JSON string.\n",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "modifiedAt": {
+                        "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.\n",
+                        "type": "string"
+                    },
+                    "serviceAccountRoleArn": {
+                        "description": "ARN of IAM role used for EKS add-on. If value is empty -\nthen add-on uses the IAM role assigned to the EKS Cluster node.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "addonName",
+                    "addonVersion",
+                    "arn",
+                    "clusterName",
+                    "configurationValues",
+                    "createdAt",
+                    "modifiedAt",
+                    "serviceAccountRoleArn",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "addonName",
-            "addonVersion",
-            "arn",
-            "clusterName",
-            "configurationValues",
-            "createdAt",
-            "modifiedAt",
-            "serviceAccountRoleArn",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,92 +1,92 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getVirtualService.\n",
-        "properties": {
-            "meshName": {
-                "type": "string",
-                "description": "Name of the service mesh in which the virtual service exists.\n"
-            },
-            "meshOwner": {
-                "type": "string",
-                "description": "AWS account ID of the service mesh's owner.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name of the virtual service.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getVirtualService.\n",
+                "properties": {
+                    "meshName": {
+                        "type": "string",
+                        "description": "Name of the service mesh in which the virtual service exists.\n"
+                    },
+                    "meshOwner": {
+                        "type": "string",
+                        "description": "AWS account ID of the service mesh's owner.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the virtual service.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "meshName",
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getVirtualService.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the virtual service.\n",
+                        "type": "string"
+                    },
+                    "createdDate": {
+                        "description": "Creation date of the virtual service.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "lastUpdatedDate": {
+                        "description": "Last update date of the virtual service.\n",
+                        "type": "string"
+                    },
+                    "meshName": {
+                        "type": "string"
+                    },
+                    "meshOwner": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "resourceOwner": {
+                        "description": "Resource owner's AWS account ID.\n",
+                        "type": "string"
+                    },
+                    "specs": {
+                        "description": "Virtual service specification. See the `aws.appmesh.VirtualService` resource for details.\n",
+                        "items": {
+                            "$ref": "#/types/aws:appmesh/getVirtualServiceSpec:getVirtualServiceSpec"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags.\n",
+                        "type": "object"
+                    }
                 },
-                "description": "Map of tags.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "meshName",
-            "name"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getVirtualService.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the virtual service.\n",
-                "type": "string"
-            },
-            "createdDate": {
-                "description": "Creation date of the virtual service.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "lastUpdatedDate": {
-                "description": "Last update date of the virtual service.\n",
-                "type": "string"
-            },
-            "meshName": {
-                "type": "string"
-            },
-            "meshOwner": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "resourceOwner": {
-                "description": "Resource owner's AWS account ID.\n",
-                "type": "string"
-            },
-            "specs": {
-                "description": "Virtual service specification. See the `aws.appmesh.VirtualService` resource for details.\n",
-                "items": {
-                    "$ref": "#/types/aws:appmesh/getVirtualServiceSpec:getVirtualServiceSpec"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags.\n",
+                "required": [
+                    "arn",
+                    "createdDate",
+                    "lastUpdatedDate",
+                    "meshName",
+                    "meshOwner",
+                    "name",
+                    "resourceOwner",
+                    "specs",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "createdDate",
-            "lastUpdatedDate",
-            "meshName",
-            "meshOwner",
-            "name",
-            "resourceOwner",
-            "specs",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

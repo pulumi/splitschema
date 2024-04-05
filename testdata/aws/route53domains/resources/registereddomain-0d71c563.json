@@ -1,287 +1,287 @@
 {
-    "properties": {
-        "abuseContactEmail": {
-            "type": "string",
-            "description": "Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.\n"
-        },
-        "abuseContactPhone": {
-            "type": "string",
-            "description": "Phone number for reporting abuse.\n"
-        },
-        "adminContact": {
-            "$ref": "#/types/aws:route53domains/RegisteredDomainAdminContact:RegisteredDomainAdminContact",
-            "description": "Details about the domain administrative contact.\n"
-        },
-        "adminPrivacy": {
-            "type": "boolean",
-            "description": "Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.\n"
-        },
-        "autoRenew": {
-            "type": "boolean",
-            "description": "Whether the domain registration is set to renew automatically. Default: `true`.\n"
-        },
-        "creationDate": {
-            "type": "string",
-            "description": "The date when the domain was created as found in the response to a WHOIS query.\n"
-        },
-        "domainName": {
-            "type": "string",
-            "description": "The name of the registered domain.\n"
-        },
-        "expirationDate": {
-            "type": "string",
-            "description": "The date when the registration for the domain is set to expire.\n"
-        },
-        "nameServers": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:route53domains/RegisteredDomainNameServer:RegisteredDomainNameServer"
-            },
-            "description": "The list of nameservers for the domain.\n"
-        },
-        "registrantContact": {
-            "$ref": "#/types/aws:route53domains/RegisteredDomainRegistrantContact:RegisteredDomainRegistrantContact",
-            "description": "Details about the domain registrant.\n"
-        },
-        "registrantPrivacy": {
-            "type": "boolean",
-            "description": "Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.\n"
-        },
-        "registrarName": {
-            "type": "string",
-            "description": "Name of the registrar of the domain as identified in the registry.\n"
-        },
-        "registrarUrl": {
-            "type": "string",
-            "description": "Web address of the registrar.\n"
-        },
-        "reseller": {
-            "type": "string",
-            "description": "Reseller of the domain.\n"
-        },
-        "statusLists": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "techContact": {
-            "$ref": "#/types/aws:route53domains/RegisteredDomainTechContact:RegisteredDomainTechContact",
-            "description": "Details about the domain technical contact.\n"
-        },
-        "techPrivacy": {
-            "type": "boolean",
-            "description": "Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.\n"
-        },
-        "transferLock": {
-            "type": "boolean",
-            "description": "Whether the domain is locked for transfer. Default: `true`.\n"
-        },
-        "updatedDate": {
-            "type": "string",
-            "description": "The last updated date of the domain as found in the response to a WHOIS query.\n"
-        },
-        "whoisServer": {
-            "type": "string",
-            "description": "The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.\n"
-        }
-    },
-    "required": [
-        "abuseContactEmail",
-        "abuseContactPhone",
-        "adminContact",
-        "creationDate",
-        "domainName",
-        "expirationDate",
-        "nameServers",
-        "registrantContact",
-        "registrarName",
-        "registrarUrl",
-        "reseller",
-        "statusLists",
-        "tagsAll",
-        "techContact",
-        "updatedDate",
-        "whoisServer"
-    ],
-    "inputProperties": {
-        "adminContact": {
-            "$ref": "#/types/aws:route53domains/RegisteredDomainAdminContact:RegisteredDomainAdminContact",
-            "description": "Details about the domain administrative contact.\n"
-        },
-        "adminPrivacy": {
-            "type": "boolean",
-            "description": "Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.\n"
-        },
-        "autoRenew": {
-            "type": "boolean",
-            "description": "Whether the domain registration is set to renew automatically. Default: `true`.\n"
-        },
-        "domainName": {
-            "type": "string",
-            "description": "The name of the registered domain.\n"
-        },
-        "nameServers": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:route53domains/RegisteredDomainNameServer:RegisteredDomainNameServer"
-            },
-            "description": "The list of nameservers for the domain.\n"
-        },
-        "registrantContact": {
-            "$ref": "#/types/aws:route53domains/RegisteredDomainRegistrantContact:RegisteredDomainRegistrantContact",
-            "description": "Details about the domain registrant.\n"
-        },
-        "registrantPrivacy": {
-            "type": "boolean",
-            "description": "Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "techContact": {
-            "$ref": "#/types/aws:route53domains/RegisteredDomainTechContact:RegisteredDomainTechContact",
-            "description": "Details about the domain technical contact.\n"
-        },
-        "techPrivacy": {
-            "type": "boolean",
-            "description": "Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.\n"
-        },
-        "transferLock": {
-            "type": "boolean",
-            "description": "Whether the domain is locked for transfer. Default: `true`.\n"
-        }
-    },
-    "requiredInputs": [
-        "domainName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering RegisteredDomain resources.\n",
-        "properties": {
-            "abuseContactEmail": {
-                "type": "string",
-                "description": "Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.\n"
-            },
-            "abuseContactPhone": {
-                "type": "string",
-                "description": "Phone number for reporting abuse.\n"
-            },
-            "adminContact": {
-                "$ref": "#/types/aws:route53domains/RegisteredDomainAdminContact:RegisteredDomainAdminContact",
-                "description": "Details about the domain administrative contact.\n"
-            },
-            "adminPrivacy": {
-                "type": "boolean",
-                "description": "Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.\n"
-            },
-            "autoRenew": {
-                "type": "boolean",
-                "description": "Whether the domain registration is set to renew automatically. Default: `true`.\n"
-            },
-            "creationDate": {
-                "type": "string",
-                "description": "The date when the domain was created as found in the response to a WHOIS query.\n"
-            },
-            "domainName": {
-                "type": "string",
-                "description": "The name of the registered domain.\n"
-            },
-            "expirationDate": {
-                "type": "string",
-                "description": "The date when the registration for the domain is set to expire.\n"
-            },
-            "nameServers": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:route53domains/RegisteredDomainNameServer:RegisteredDomainNameServer"
+            "properties": {
+                "abuseContactEmail": {
+                    "type": "string",
+                    "description": "Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.\n"
                 },
-                "description": "The list of nameservers for the domain.\n"
-            },
-            "registrantContact": {
-                "$ref": "#/types/aws:route53domains/RegisteredDomainRegistrantContact:RegisteredDomainRegistrantContact",
-                "description": "Details about the domain registrant.\n"
-            },
-            "registrantPrivacy": {
-                "type": "boolean",
-                "description": "Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.\n"
-            },
-            "registrarName": {
-                "type": "string",
-                "description": "Name of the registrar of the domain as identified in the registry.\n"
-            },
-            "registrarUrl": {
-                "type": "string",
-                "description": "Web address of the registrar.\n"
-            },
-            "reseller": {
-                "type": "string",
-                "description": "Reseller of the domain.\n"
-            },
-            "statusLists": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "abuseContactPhone": {
+                    "type": "string",
+                    "description": "Phone number for reporting abuse.\n"
                 },
-                "description": "List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "adminContact": {
+                    "$ref": "#/types/aws:route53domains/RegisteredDomainAdminContact:RegisteredDomainAdminContact",
+                    "description": "Details about the domain administrative contact.\n"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "adminPrivacy": {
+                    "type": "boolean",
+                    "description": "Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "autoRenew": {
+                    "type": "boolean",
+                    "description": "Whether the domain registration is set to renew automatically. Default: `true`.\n"
+                },
+                "creationDate": {
+                    "type": "string",
+                    "description": "The date when the domain was created as found in the response to a WHOIS query.\n"
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "The name of the registered domain.\n"
+                },
+                "expirationDate": {
+                    "type": "string",
+                    "description": "The date when the registration for the domain is set to expire.\n"
+                },
+                "nameServers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:route53domains/RegisteredDomainNameServer:RegisteredDomainNameServer"
+                    },
+                    "description": "The list of nameservers for the domain.\n"
+                },
+                "registrantContact": {
+                    "$ref": "#/types/aws:route53domains/RegisteredDomainRegistrantContact:RegisteredDomainRegistrantContact",
+                    "description": "Details about the domain registrant.\n"
+                },
+                "registrantPrivacy": {
+                    "type": "boolean",
+                    "description": "Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.\n"
+                },
+                "registrarName": {
+                    "type": "string",
+                    "description": "Name of the registrar of the domain as identified in the registry.\n"
+                },
+                "registrarUrl": {
+                    "type": "string",
+                    "description": "Web address of the registrar.\n"
+                },
+                "reseller": {
+                    "type": "string",
+                    "description": "Reseller of the domain.\n"
+                },
+                "statusLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "techContact": {
+                    "$ref": "#/types/aws:route53domains/RegisteredDomainTechContact:RegisteredDomainTechContact",
+                    "description": "Details about the domain technical contact.\n"
+                },
+                "techPrivacy": {
+                    "type": "boolean",
+                    "description": "Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.\n"
+                },
+                "transferLock": {
+                    "type": "boolean",
+                    "description": "Whether the domain is locked for transfer. Default: `true`.\n"
+                },
+                "updatedDate": {
+                    "type": "string",
+                    "description": "The last updated date of the domain as found in the response to a WHOIS query.\n"
+                },
+                "whoisServer": {
+                    "type": "string",
+                    "description": "The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.\n"
+                }
             },
-            "techContact": {
-                "$ref": "#/types/aws:route53domains/RegisteredDomainTechContact:RegisteredDomainTechContact",
-                "description": "Details about the domain technical contact.\n"
+            "required": [
+                "abuseContactEmail",
+                "abuseContactPhone",
+                "adminContact",
+                "creationDate",
+                "domainName",
+                "expirationDate",
+                "nameServers",
+                "registrantContact",
+                "registrarName",
+                "registrarUrl",
+                "reseller",
+                "statusLists",
+                "tagsAll",
+                "techContact",
+                "updatedDate",
+                "whoisServer"
+            ],
+            "inputProperties": {
+                "adminContact": {
+                    "$ref": "#/types/aws:route53domains/RegisteredDomainAdminContact:RegisteredDomainAdminContact",
+                    "description": "Details about the domain administrative contact.\n"
+                },
+                "adminPrivacy": {
+                    "type": "boolean",
+                    "description": "Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.\n"
+                },
+                "autoRenew": {
+                    "type": "boolean",
+                    "description": "Whether the domain registration is set to renew automatically. Default: `true`.\n"
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "The name of the registered domain.\n"
+                },
+                "nameServers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:route53domains/RegisteredDomainNameServer:RegisteredDomainNameServer"
+                    },
+                    "description": "The list of nameservers for the domain.\n"
+                },
+                "registrantContact": {
+                    "$ref": "#/types/aws:route53domains/RegisteredDomainRegistrantContact:RegisteredDomainRegistrantContact",
+                    "description": "Details about the domain registrant.\n"
+                },
+                "registrantPrivacy": {
+                    "type": "boolean",
+                    "description": "Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "techContact": {
+                    "$ref": "#/types/aws:route53domains/RegisteredDomainTechContact:RegisteredDomainTechContact",
+                    "description": "Details about the domain technical contact.\n"
+                },
+                "techPrivacy": {
+                    "type": "boolean",
+                    "description": "Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.\n"
+                },
+                "transferLock": {
+                    "type": "boolean",
+                    "description": "Whether the domain is locked for transfer. Default: `true`.\n"
+                }
             },
-            "techPrivacy": {
-                "type": "boolean",
-                "description": "Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.\n"
-            },
-            "transferLock": {
-                "type": "boolean",
-                "description": "Whether the domain is locked for transfer. Default: `true`.\n"
-            },
-            "updatedDate": {
-                "type": "string",
-                "description": "The last updated date of the domain as found in the response to a WHOIS query.\n"
-            },
-            "whoisServer": {
-                "type": "string",
-                "description": "The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.\n"
+            "requiredInputs": [
+                "domainName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RegisteredDomain resources.\n",
+                "properties": {
+                    "abuseContactEmail": {
+                        "type": "string",
+                        "description": "Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.\n"
+                    },
+                    "abuseContactPhone": {
+                        "type": "string",
+                        "description": "Phone number for reporting abuse.\n"
+                    },
+                    "adminContact": {
+                        "$ref": "#/types/aws:route53domains/RegisteredDomainAdminContact:RegisteredDomainAdminContact",
+                        "description": "Details about the domain administrative contact.\n"
+                    },
+                    "adminPrivacy": {
+                        "type": "boolean",
+                        "description": "Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.\n"
+                    },
+                    "autoRenew": {
+                        "type": "boolean",
+                        "description": "Whether the domain registration is set to renew automatically. Default: `true`.\n"
+                    },
+                    "creationDate": {
+                        "type": "string",
+                        "description": "The date when the domain was created as found in the response to a WHOIS query.\n"
+                    },
+                    "domainName": {
+                        "type": "string",
+                        "description": "The name of the registered domain.\n"
+                    },
+                    "expirationDate": {
+                        "type": "string",
+                        "description": "The date when the registration for the domain is set to expire.\n"
+                    },
+                    "nameServers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:route53domains/RegisteredDomainNameServer:RegisteredDomainNameServer"
+                        },
+                        "description": "The list of nameservers for the domain.\n"
+                    },
+                    "registrantContact": {
+                        "$ref": "#/types/aws:route53domains/RegisteredDomainRegistrantContact:RegisteredDomainRegistrantContact",
+                        "description": "Details about the domain registrant.\n"
+                    },
+                    "registrantPrivacy": {
+                        "type": "boolean",
+                        "description": "Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.\n"
+                    },
+                    "registrarName": {
+                        "type": "string",
+                        "description": "Name of the registrar of the domain as identified in the registry.\n"
+                    },
+                    "registrarUrl": {
+                        "type": "string",
+                        "description": "Web address of the registrar.\n"
+                    },
+                    "reseller": {
+                        "type": "string",
+                        "description": "Reseller of the domain.\n"
+                    },
+                    "statusLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "techContact": {
+                        "$ref": "#/types/aws:route53domains/RegisteredDomainTechContact:RegisteredDomainTechContact",
+                        "description": "Details about the domain technical contact.\n"
+                    },
+                    "techPrivacy": {
+                        "type": "boolean",
+                        "description": "Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.\n"
+                    },
+                    "transferLock": {
+                        "type": "boolean",
+                        "description": "Whether the domain is locked for transfer. Default: `true`.\n"
+                    },
+                    "updatedDate": {
+                        "type": "string",
+                        "description": "The last updated date of the domain as found in the response to a WHOIS query.\n"
+                    },
+                    "whoisServer": {
+                        "type": "string",
+                        "description": "The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

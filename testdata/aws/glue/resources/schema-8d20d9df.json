@@ -1,184 +1,184 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the schema.\n"
-        },
-        "compatibility": {
-            "type": "string",
-            "description": "The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.\n"
-        },
-        "dataFormat": {
-            "type": "string",
-            "description": "The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A description of the schema.\n"
-        },
-        "latestSchemaVersion": {
-            "type": "integer",
-            "description": "The latest version of the schema associated with the returned schema definition.\n"
-        },
-        "nextSchemaVersion": {
-            "type": "integer",
-            "description": "The next version of the schema associated with the returned schema definition.\n"
-        },
-        "registryArn": {
-            "type": "string",
-            "description": "The ARN of the Glue Registry to create the schema in.\n"
-        },
-        "registryName": {
-            "type": "string",
-            "description": "The name of the Glue Registry.\n"
-        },
-        "schemaCheckpoint": {
-            "type": "integer",
-            "description": "The version number of the checkpoint (the last time the compatibility mode was changed).\n"
-        },
-        "schemaDefinition": {
-            "type": "string",
-            "description": "The schema definition using the `data_format` setting for `schema_name`.\n"
-        },
-        "schemaName": {
-            "type": "string",
-            "description": "The Name of the schema.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "compatibility",
-        "dataFormat",
-        "latestSchemaVersion",
-        "nextSchemaVersion",
-        "registryArn",
-        "registryName",
-        "schemaCheckpoint",
-        "schemaDefinition",
-        "schemaName",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "compatibility": {
-            "type": "string",
-            "description": "The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.\n"
-        },
-        "dataFormat": {
-            "type": "string",
-            "description": "The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A description of the schema.\n"
-        },
-        "registryArn": {
-            "type": "string",
-            "description": "The ARN of the Glue Registry to create the schema in.\n"
-        },
-        "schemaDefinition": {
-            "type": "string",
-            "description": "The schema definition using the `data_format` setting for `schema_name`.\n"
-        },
-        "schemaName": {
-            "type": "string",
-            "description": "The Name of the schema.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "compatibility",
-        "dataFormat",
-        "schemaDefinition",
-        "schemaName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Schema resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the schema.\n"
-            },
-            "compatibility": {
-                "type": "string",
-                "description": "The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.\n"
-            },
-            "dataFormat": {
-                "type": "string",
-                "description": "The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "A description of the schema.\n"
-            },
-            "latestSchemaVersion": {
-                "type": "integer",
-                "description": "The latest version of the schema associated with the returned schema definition.\n"
-            },
-            "nextSchemaVersion": {
-                "type": "integer",
-                "description": "The next version of the schema associated with the returned schema definition.\n"
-            },
-            "registryArn": {
-                "type": "string",
-                "description": "The ARN of the Glue Registry to create the schema in.\n"
-            },
-            "registryName": {
-                "type": "string",
-                "description": "The name of the Glue Registry.\n"
-            },
-            "schemaCheckpoint": {
-                "type": "integer",
-                "description": "The version number of the checkpoint (the last time the compatibility mode was changed).\n"
-            },
-            "schemaDefinition": {
-                "type": "string",
-                "description": "The schema definition using the `data_format` setting for `schema_name`.\n"
-            },
-            "schemaName": {
-                "type": "string",
-                "description": "The Name of the schema.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the schema.\n"
                 },
-                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "compatibility": {
+                    "type": "string",
+                    "description": "The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "dataFormat": {
+                    "type": "string",
+                    "description": "The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the schema.\n"
+                },
+                "latestSchemaVersion": {
+                    "type": "integer",
+                    "description": "The latest version of the schema associated with the returned schema definition.\n"
+                },
+                "nextSchemaVersion": {
+                    "type": "integer",
+                    "description": "The next version of the schema associated with the returned schema definition.\n"
+                },
+                "registryArn": {
+                    "type": "string",
+                    "description": "The ARN of the Glue Registry to create the schema in.\n"
+                },
+                "registryName": {
+                    "type": "string",
+                    "description": "The name of the Glue Registry.\n"
+                },
+                "schemaCheckpoint": {
+                    "type": "integer",
+                    "description": "The version number of the checkpoint (the last time the compatibility mode was changed).\n"
+                },
+                "schemaDefinition": {
+                    "type": "string",
+                    "description": "The schema definition using the `data_format` setting for `schema_name`.\n"
+                },
+                "schemaName": {
+                    "type": "string",
+                    "description": "The Name of the schema.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "compatibility",
+                "dataFormat",
+                "latestSchemaVersion",
+                "nextSchemaVersion",
+                "registryArn",
+                "registryName",
+                "schemaCheckpoint",
+                "schemaDefinition",
+                "schemaName",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "compatibility": {
+                    "type": "string",
+                    "description": "The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.\n"
+                },
+                "dataFormat": {
+                    "type": "string",
+                    "description": "The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the schema.\n"
+                },
+                "registryArn": {
+                    "type": "string",
+                    "description": "The ARN of the Glue Registry to create the schema in.\n"
+                },
+                "schemaDefinition": {
+                    "type": "string",
+                    "description": "The schema definition using the `data_format` setting for `schema_name`.\n"
+                },
+                "schemaName": {
+                    "type": "string",
+                    "description": "The Name of the schema.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "compatibility",
+                "dataFormat",
+                "schemaDefinition",
+                "schemaName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Schema resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the schema.\n"
+                    },
+                    "compatibility": {
+                        "type": "string",
+                        "description": "The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.\n"
+                    },
+                    "dataFormat": {
+                        "type": "string",
+                        "description": "The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the schema.\n"
+                    },
+                    "latestSchemaVersion": {
+                        "type": "integer",
+                        "description": "The latest version of the schema associated with the returned schema definition.\n"
+                    },
+                    "nextSchemaVersion": {
+                        "type": "integer",
+                        "description": "The next version of the schema associated with the returned schema definition.\n"
+                    },
+                    "registryArn": {
+                        "type": "string",
+                        "description": "The ARN of the Glue Registry to create the schema in.\n"
+                    },
+                    "registryName": {
+                        "type": "string",
+                        "description": "The name of the Glue Registry.\n"
+                    },
+                    "schemaCheckpoint": {
+                        "type": "integer",
+                        "description": "The version number of the checkpoint (the last time the compatibility mode was changed).\n"
+                    },
+                    "schemaDefinition": {
+                        "type": "string",
+                        "description": "The schema definition using the `data_format` setting for `schema_name`.\n"
+                    },
+                    "schemaName": {
+                        "type": "string",
+                        "description": "The Name of the schema.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

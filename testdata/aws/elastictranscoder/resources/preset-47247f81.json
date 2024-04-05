@@ -1,183 +1,183 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the Elastic Transcoder Preset.\n"
-        },
-        "audio": {
-            "$ref": "#/types/aws:elastictranscoder/PresetAudio:PresetAudio",
-            "description": "Audio parameters object (documented below).\n"
-        },
-        "audioCodecOptions": {
-            "$ref": "#/types/aws:elastictranscoder/PresetAudioCodecOptions:PresetAudioCodecOptions",
-            "description": "Codec options for the audio parameters (documented below)\n"
-        },
-        "container": {
-            "type": "string",
-            "description": "The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A description of the preset (maximum 255 characters)\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the preset. (maximum 40 characters)\n"
-        },
-        "thumbnails": {
-            "$ref": "#/types/aws:elastictranscoder/PresetThumbnails:PresetThumbnails",
-            "description": "Thumbnail parameters object (documented below)\n"
-        },
-        "type": {
-            "type": "string"
-        },
-        "video": {
-            "$ref": "#/types/aws:elastictranscoder/PresetVideo:PresetVideo",
-            "description": "Video parameters object (documented below)\n"
-        },
-        "videoCodecOptions": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Codec options for the video parameters\n"
-        },
-        "videoWatermarks": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:elastictranscoder/PresetVideoWatermark:PresetVideoWatermark"
-            },
-            "description": "Watermark parameters for the video parameters (documented below)\n"
-        }
-    },
-    "required": [
-        "arn",
-        "audioCodecOptions",
-        "container",
-        "name",
-        "type"
-    ],
-    "inputProperties": {
-        "audio": {
-            "$ref": "#/types/aws:elastictranscoder/PresetAudio:PresetAudio",
-            "description": "Audio parameters object (documented below).\n",
-            "willReplaceOnChanges": true
-        },
-        "audioCodecOptions": {
-            "$ref": "#/types/aws:elastictranscoder/PresetAudioCodecOptions:PresetAudioCodecOptions",
-            "description": "Codec options for the audio parameters (documented below)\n",
-            "willReplaceOnChanges": true
-        },
-        "container": {
-            "type": "string",
-            "description": "The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.\n",
-            "willReplaceOnChanges": true
-        },
-        "description": {
-            "type": "string",
-            "description": "A description of the preset (maximum 255 characters)\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the preset. (maximum 40 characters)\n",
-            "willReplaceOnChanges": true
-        },
-        "thumbnails": {
-            "$ref": "#/types/aws:elastictranscoder/PresetThumbnails:PresetThumbnails",
-            "description": "Thumbnail parameters object (documented below)\n",
-            "willReplaceOnChanges": true
-        },
-        "type": {
-            "type": "string"
-        },
-        "video": {
-            "$ref": "#/types/aws:elastictranscoder/PresetVideo:PresetVideo",
-            "description": "Video parameters object (documented below)\n",
-            "willReplaceOnChanges": true
-        },
-        "videoCodecOptions": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Codec options for the video parameters\n",
-            "willReplaceOnChanges": true
-        },
-        "videoWatermarks": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:elastictranscoder/PresetVideoWatermark:PresetVideoWatermark"
-            },
-            "description": "Watermark parameters for the video parameters (documented below)\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "container"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Preset resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the Elastic Transcoder Preset.\n"
-            },
-            "audio": {
-                "$ref": "#/types/aws:elastictranscoder/PresetAudio:PresetAudio",
-                "description": "Audio parameters object (documented below).\n",
-                "willReplaceOnChanges": true
-            },
-            "audioCodecOptions": {
-                "$ref": "#/types/aws:elastictranscoder/PresetAudioCodecOptions:PresetAudioCodecOptions",
-                "description": "Codec options for the audio parameters (documented below)\n",
-                "willReplaceOnChanges": true
-            },
-            "container": {
-                "type": "string",
-                "description": "The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.\n",
-                "willReplaceOnChanges": true
-            },
-            "description": {
-                "type": "string",
-                "description": "A description of the preset (maximum 255 characters)\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the preset. (maximum 40 characters)\n",
-                "willReplaceOnChanges": true
-            },
-            "thumbnails": {
-                "$ref": "#/types/aws:elastictranscoder/PresetThumbnails:PresetThumbnails",
-                "description": "Thumbnail parameters object (documented below)\n",
-                "willReplaceOnChanges": true
-            },
-            "type": {
-                "type": "string"
-            },
-            "video": {
-                "$ref": "#/types/aws:elastictranscoder/PresetVideo:PresetVideo",
-                "description": "Video parameters object (documented below)\n",
-                "willReplaceOnChanges": true
-            },
-            "videoCodecOptions": {
-                "type": "object",
-                "additionalProperties": {
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the Elastic Transcoder Preset.\n"
+                },
+                "audio": {
+                    "$ref": "#/types/aws:elastictranscoder/PresetAudio:PresetAudio",
+                    "description": "Audio parameters object (documented below).\n"
+                },
+                "audioCodecOptions": {
+                    "$ref": "#/types/aws:elastictranscoder/PresetAudioCodecOptions:PresetAudioCodecOptions",
+                    "description": "Codec options for the audio parameters (documented below)\n"
+                },
+                "container": {
+                    "type": "string",
+                    "description": "The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the preset (maximum 255 characters)\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the preset. (maximum 40 characters)\n"
+                },
+                "thumbnails": {
+                    "$ref": "#/types/aws:elastictranscoder/PresetThumbnails:PresetThumbnails",
+                    "description": "Thumbnail parameters object (documented below)\n"
+                },
+                "type": {
                     "type": "string"
                 },
-                "description": "Codec options for the video parameters\n",
-                "willReplaceOnChanges": true
-            },
-            "videoWatermarks": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:elastictranscoder/PresetVideoWatermark:PresetVideoWatermark"
+                "video": {
+                    "$ref": "#/types/aws:elastictranscoder/PresetVideo:PresetVideo",
+                    "description": "Video parameters object (documented below)\n"
                 },
-                "description": "Watermark parameters for the video parameters (documented below)\n",
-                "willReplaceOnChanges": true
+                "videoCodecOptions": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Codec options for the video parameters\n"
+                },
+                "videoWatermarks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:elastictranscoder/PresetVideoWatermark:PresetVideoWatermark"
+                    },
+                    "description": "Watermark parameters for the video parameters (documented below)\n"
+                }
+            },
+            "required": [
+                "arn",
+                "audioCodecOptions",
+                "container",
+                "name",
+                "type"
+            ],
+            "inputProperties": {
+                "audio": {
+                    "$ref": "#/types/aws:elastictranscoder/PresetAudio:PresetAudio",
+                    "description": "Audio parameters object (documented below).\n",
+                    "willReplaceOnChanges": true
+                },
+                "audioCodecOptions": {
+                    "$ref": "#/types/aws:elastictranscoder/PresetAudioCodecOptions:PresetAudioCodecOptions",
+                    "description": "Codec options for the audio parameters (documented below)\n",
+                    "willReplaceOnChanges": true
+                },
+                "container": {
+                    "type": "string",
+                    "description": "The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the preset (maximum 255 characters)\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the preset. (maximum 40 characters)\n",
+                    "willReplaceOnChanges": true
+                },
+                "thumbnails": {
+                    "$ref": "#/types/aws:elastictranscoder/PresetThumbnails:PresetThumbnails",
+                    "description": "Thumbnail parameters object (documented below)\n",
+                    "willReplaceOnChanges": true
+                },
+                "type": {
+                    "type": "string"
+                },
+                "video": {
+                    "$ref": "#/types/aws:elastictranscoder/PresetVideo:PresetVideo",
+                    "description": "Video parameters object (documented below)\n",
+                    "willReplaceOnChanges": true
+                },
+                "videoCodecOptions": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Codec options for the video parameters\n",
+                    "willReplaceOnChanges": true
+                },
+                "videoWatermarks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:elastictranscoder/PresetVideoWatermark:PresetVideoWatermark"
+                    },
+                    "description": "Watermark parameters for the video parameters (documented below)\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "container"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Preset resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the Elastic Transcoder Preset.\n"
+                    },
+                    "audio": {
+                        "$ref": "#/types/aws:elastictranscoder/PresetAudio:PresetAudio",
+                        "description": "Audio parameters object (documented below).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "audioCodecOptions": {
+                        "$ref": "#/types/aws:elastictranscoder/PresetAudioCodecOptions:PresetAudioCodecOptions",
+                        "description": "Codec options for the audio parameters (documented below)\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "container": {
+                        "type": "string",
+                        "description": "The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the preset (maximum 255 characters)\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the preset. (maximum 40 characters)\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "thumbnails": {
+                        "$ref": "#/types/aws:elastictranscoder/PresetThumbnails:PresetThumbnails",
+                        "description": "Thumbnail parameters object (documented below)\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "video": {
+                        "$ref": "#/types/aws:elastictranscoder/PresetVideo:PresetVideo",
+                        "description": "Video parameters object (documented below)\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "videoCodecOptions": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Codec options for the video parameters\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "videoWatermarks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:elastictranscoder/PresetVideoWatermark:PresetVideoWatermark"
+                        },
+                        "description": "Watermark parameters for the video parameters (documented below)\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

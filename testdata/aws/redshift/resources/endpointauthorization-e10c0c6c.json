@@ -1,117 +1,117 @@
 {
-    "properties": {
-        "account": {
-            "type": "string",
-            "description": "The Amazon Web Services account ID to grant access to.\n"
-        },
-        "allowedAllVpcs": {
-            "type": "boolean",
-            "description": "Indicates whether all VPCs in the grantee account are allowed access to the cluster.\n"
-        },
-        "clusterIdentifier": {
-            "type": "string",
-            "description": "The cluster identifier of the cluster to grant access to.\n"
-        },
-        "endpointCount": {
-            "type": "integer",
-            "description": "The number of Redshift-managed VPC endpoints created for the authorization.\n"
-        },
-        "forceDelete": {
-            "type": "boolean",
-            "description": "Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.\n"
-        },
-        "grantee": {
-            "type": "string",
-            "description": "The Amazon Web Services account ID of the grantee of the cluster.\n"
-        },
-        "grantor": {
-            "type": "string",
-            "description": "The Amazon Web Services account ID of the cluster owner.\n"
-        },
-        "vpcIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.\n"
-        }
-    },
-    "required": [
-        "account",
-        "allowedAllVpcs",
-        "clusterIdentifier",
-        "endpointCount",
-        "grantee",
-        "grantor"
-    ],
-    "inputProperties": {
-        "account": {
-            "type": "string",
-            "description": "The Amazon Web Services account ID to grant access to.\n",
-            "willReplaceOnChanges": true
-        },
-        "clusterIdentifier": {
-            "type": "string",
-            "description": "The cluster identifier of the cluster to grant access to.\n",
-            "willReplaceOnChanges": true
-        },
-        "forceDelete": {
-            "type": "boolean",
-            "description": "Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.\n"
-        },
-        "vpcIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.\n"
-        }
-    },
-    "requiredInputs": [
-        "account",
-        "clusterIdentifier"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering EndpointAuthorization resources.\n",
-        "properties": {
-            "account": {
-                "type": "string",
-                "description": "The Amazon Web Services account ID to grant access to.\n",
-                "willReplaceOnChanges": true
-            },
-            "allowedAllVpcs": {
-                "type": "boolean",
-                "description": "Indicates whether all VPCs in the grantee account are allowed access to the cluster.\n"
-            },
-            "clusterIdentifier": {
-                "type": "string",
-                "description": "The cluster identifier of the cluster to grant access to.\n",
-                "willReplaceOnChanges": true
-            },
-            "endpointCount": {
-                "type": "integer",
-                "description": "The number of Redshift-managed VPC endpoints created for the authorization.\n"
-            },
-            "forceDelete": {
-                "type": "boolean",
-                "description": "Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.\n"
-            },
-            "grantee": {
-                "type": "string",
-                "description": "The Amazon Web Services account ID of the grantee of the cluster.\n"
-            },
-            "grantor": {
-                "type": "string",
-                "description": "The Amazon Web Services account ID of the cluster owner.\n"
-            },
-            "vpcIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "account": {
+                    "type": "string",
+                    "description": "The Amazon Web Services account ID to grant access to.\n"
                 },
-                "description": "The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.\n"
+                "allowedAllVpcs": {
+                    "type": "boolean",
+                    "description": "Indicates whether all VPCs in the grantee account are allowed access to the cluster.\n"
+                },
+                "clusterIdentifier": {
+                    "type": "string",
+                    "description": "The cluster identifier of the cluster to grant access to.\n"
+                },
+                "endpointCount": {
+                    "type": "integer",
+                    "description": "The number of Redshift-managed VPC endpoints created for the authorization.\n"
+                },
+                "forceDelete": {
+                    "type": "boolean",
+                    "description": "Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.\n"
+                },
+                "grantee": {
+                    "type": "string",
+                    "description": "The Amazon Web Services account ID of the grantee of the cluster.\n"
+                },
+                "grantor": {
+                    "type": "string",
+                    "description": "The Amazon Web Services account ID of the cluster owner.\n"
+                },
+                "vpcIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.\n"
+                }
+            },
+            "required": [
+                "account",
+                "allowedAllVpcs",
+                "clusterIdentifier",
+                "endpointCount",
+                "grantee",
+                "grantor"
+            ],
+            "inputProperties": {
+                "account": {
+                    "type": "string",
+                    "description": "The Amazon Web Services account ID to grant access to.\n",
+                    "willReplaceOnChanges": true
+                },
+                "clusterIdentifier": {
+                    "type": "string",
+                    "description": "The cluster identifier of the cluster to grant access to.\n",
+                    "willReplaceOnChanges": true
+                },
+                "forceDelete": {
+                    "type": "boolean",
+                    "description": "Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.\n"
+                },
+                "vpcIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.\n"
+                }
+            },
+            "requiredInputs": [
+                "account",
+                "clusterIdentifier"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EndpointAuthorization resources.\n",
+                "properties": {
+                    "account": {
+                        "type": "string",
+                        "description": "The Amazon Web Services account ID to grant access to.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "allowedAllVpcs": {
+                        "type": "boolean",
+                        "description": "Indicates whether all VPCs in the grantee account are allowed access to the cluster.\n"
+                    },
+                    "clusterIdentifier": {
+                        "type": "string",
+                        "description": "The cluster identifier of the cluster to grant access to.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "endpointCount": {
+                        "type": "integer",
+                        "description": "The number of Redshift-managed VPC endpoints created for the authorization.\n"
+                    },
+                    "forceDelete": {
+                        "type": "boolean",
+                        "description": "Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.\n"
+                    },
+                    "grantee": {
+                        "type": "string",
+                        "description": "The Amazon Web Services account ID of the grantee of the cluster.\n"
+                    },
+                    "grantor": {
+                        "type": "string",
+                        "description": "The Amazon Web Services account ID of the cluster owner.\n"
+                    },
+                    "vpcIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

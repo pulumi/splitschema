@@ -1,418 +1,418 @@
 {
-    "properties": {
-        "accessBasedEnumeration": {
-            "type": "boolean",
-            "description": "The files and folders on this share will only be visible to users with read access. Default value is `false`.\n"
-        },
-        "adminUserLists": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the SMB File Share.\n"
-        },
-        "auditDestinationArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.\n"
-        },
-        "authentication": {
-            "type": "string",
-            "description": "The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.\n"
-        },
-        "bucketRegion": {
-            "type": "string",
-            "description": "The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.\n"
-        },
-        "cacheAttributes": {
-            "$ref": "#/types/aws:storagegateway/SmbFileShareCacheAttributes:SmbFileShareCacheAttributes",
-            "description": "Refresh cache information. see Cache Attributes for more details.\n"
-        },
-        "caseSensitivity": {
-            "type": "string",
-            "description": "The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.\n"
-        },
-        "defaultStorageClass": {
-            "type": "string",
-            "description": "The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.\n"
-        },
-        "fileShareName": {
-            "type": "string",
-            "description": "The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.\n"
-        },
-        "fileshareId": {
-            "type": "string",
-            "description": "ID of the SMB File Share.\n"
-        },
-        "gatewayArn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the file gateway.\n"
-        },
-        "guessMimeTypeEnabled": {
-            "type": "boolean",
-            "description": "Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.\n"
-        },
-        "invalidUserLists": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.\n"
-        },
-        "kmsEncrypted": {
-            "type": "boolean",
-            "description": "Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.\n"
-        },
-        "kmsKeyArn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.\n"
-        },
-        "locationArn": {
-            "type": "string",
-            "description": "The ARN of the backed storage used for storing file data.\n"
-        },
-        "notificationPolicy": {
-            "type": "string",
-            "description": "The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.\n"
-        },
-        "objectAcl": {
-            "type": "string",
-            "description": "Access Control List permission for S3 objects. Defaults to `private`.\n"
-        },
-        "oplocksEnabled": {
-            "type": "boolean",
-            "description": "Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.\n"
-        },
-        "path": {
-            "type": "string",
-            "description": "File share path used by the NFS client to identify the mount point.\n"
-        },
-        "readOnly": {
-            "type": "boolean",
-            "description": "Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.\n"
-        },
-        "requesterPays": {
-            "type": "boolean",
-            "description": "Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.\n"
-        },
-        "smbAclEnabled": {
-            "type": "boolean",
-            "description": "Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "validUserLists": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.\n"
-        },
-        "vpcEndpointDnsName": {
-            "type": "string",
-            "description": "The DNS name of the VPC endpoint for S3 private link.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "fileShareName",
-        "fileshareId",
-        "gatewayArn",
-        "locationArn",
-        "oplocksEnabled",
-        "path",
-        "roleArn",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "accessBasedEnumeration": {
-            "type": "boolean",
-            "description": "The files and folders on this share will only be visible to users with read access. Default value is `false`.\n"
-        },
-        "adminUserLists": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.\n"
-        },
-        "auditDestinationArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.\n"
-        },
-        "authentication": {
-            "type": "string",
-            "description": "The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.\n",
-            "willReplaceOnChanges": true
-        },
-        "bucketRegion": {
-            "type": "string",
-            "description": "The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.\n",
-            "willReplaceOnChanges": true
-        },
-        "cacheAttributes": {
-            "$ref": "#/types/aws:storagegateway/SmbFileShareCacheAttributes:SmbFileShareCacheAttributes",
-            "description": "Refresh cache information. see Cache Attributes for more details.\n"
-        },
-        "caseSensitivity": {
-            "type": "string",
-            "description": "The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.\n"
-        },
-        "defaultStorageClass": {
-            "type": "string",
-            "description": "The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.\n"
-        },
-        "fileShareName": {
-            "type": "string",
-            "description": "The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.\n"
-        },
-        "gatewayArn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the file gateway.\n",
-            "willReplaceOnChanges": true
-        },
-        "guessMimeTypeEnabled": {
-            "type": "boolean",
-            "description": "Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.\n"
-        },
-        "invalidUserLists": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.\n"
-        },
-        "kmsEncrypted": {
-            "type": "boolean",
-            "description": "Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.\n"
-        },
-        "kmsKeyArn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.\n"
-        },
-        "locationArn": {
-            "type": "string",
-            "description": "The ARN of the backed storage used for storing file data.\n",
-            "willReplaceOnChanges": true
-        },
-        "notificationPolicy": {
-            "type": "string",
-            "description": "The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.\n"
-        },
-        "objectAcl": {
-            "type": "string",
-            "description": "Access Control List permission for S3 objects. Defaults to `private`.\n"
-        },
-        "oplocksEnabled": {
-            "type": "boolean",
-            "description": "Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.\n"
-        },
-        "readOnly": {
-            "type": "boolean",
-            "description": "Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.\n"
-        },
-        "requesterPays": {
-            "type": "boolean",
-            "description": "Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.\n",
-            "willReplaceOnChanges": true
-        },
-        "smbAclEnabled": {
-            "type": "boolean",
-            "description": "Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "validUserLists": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.\n"
-        },
-        "vpcEndpointDnsName": {
-            "type": "string",
-            "description": "The DNS name of the VPC endpoint for S3 private link.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "gatewayArn",
-        "locationArn",
-        "roleArn"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering SmbFileShare resources.\n",
-        "properties": {
-            "accessBasedEnumeration": {
-                "type": "boolean",
-                "description": "The files and folders on this share will only be visible to users with read access. Default value is `false`.\n"
-            },
-            "adminUserLists": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "accessBasedEnumeration": {
+                    "type": "boolean",
+                    "description": "The files and folders on this share will only be visible to users with read access. Default value is `false`.\n"
                 },
-                "description": "A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the SMB File Share.\n"
-            },
-            "auditDestinationArn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.\n"
-            },
-            "authentication": {
-                "type": "string",
-                "description": "The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.\n",
-                "willReplaceOnChanges": true
-            },
-            "bucketRegion": {
-                "type": "string",
-                "description": "The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.\n",
-                "willReplaceOnChanges": true
-            },
-            "cacheAttributes": {
-                "$ref": "#/types/aws:storagegateway/SmbFileShareCacheAttributes:SmbFileShareCacheAttributes",
-                "description": "Refresh cache information. see Cache Attributes for more details.\n"
-            },
-            "caseSensitivity": {
-                "type": "string",
-                "description": "The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.\n"
-            },
-            "defaultStorageClass": {
-                "type": "string",
-                "description": "The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.\n"
-            },
-            "fileShareName": {
-                "type": "string",
-                "description": "The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.\n"
-            },
-            "fileshareId": {
-                "type": "string",
-                "description": "ID of the SMB File Share.\n"
-            },
-            "gatewayArn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the file gateway.\n",
-                "willReplaceOnChanges": true
-            },
-            "guessMimeTypeEnabled": {
-                "type": "boolean",
-                "description": "Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.\n"
-            },
-            "invalidUserLists": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "adminUserLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.\n"
                 },
-                "description": "A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.\n"
-            },
-            "kmsEncrypted": {
-                "type": "boolean",
-                "description": "Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.\n"
-            },
-            "kmsKeyArn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.\n"
-            },
-            "locationArn": {
-                "type": "string",
-                "description": "The ARN of the backed storage used for storing file data.\n",
-                "willReplaceOnChanges": true
-            },
-            "notificationPolicy": {
-                "type": "string",
-                "description": "The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.\n"
-            },
-            "objectAcl": {
-                "type": "string",
-                "description": "Access Control List permission for S3 objects. Defaults to `private`.\n"
-            },
-            "oplocksEnabled": {
-                "type": "boolean",
-                "description": "Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.\n"
-            },
-            "path": {
-                "type": "string",
-                "description": "File share path used by the NFS client to identify the mount point.\n"
-            },
-            "readOnly": {
-                "type": "boolean",
-                "description": "Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.\n"
-            },
-            "requesterPays": {
-                "type": "boolean",
-                "description": "Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.\n"
-            },
-            "roleArn": {
-                "type": "string",
-                "description": "The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.\n",
-                "willReplaceOnChanges": true
-            },
-            "smbAclEnabled": {
-                "type": "boolean",
-                "description": "Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the SMB File Share.\n"
                 },
-                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "auditDestinationArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
-            },
-            "validUserLists": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "authentication": {
+                    "type": "string",
+                    "description": "The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.\n"
                 },
-                "description": "A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.\n"
+                "bucketRegion": {
+                    "type": "string",
+                    "description": "The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.\n"
+                },
+                "cacheAttributes": {
+                    "$ref": "#/types/aws:storagegateway/SmbFileShareCacheAttributes:SmbFileShareCacheAttributes",
+                    "description": "Refresh cache information. see Cache Attributes for more details.\n"
+                },
+                "caseSensitivity": {
+                    "type": "string",
+                    "description": "The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.\n"
+                },
+                "defaultStorageClass": {
+                    "type": "string",
+                    "description": "The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.\n"
+                },
+                "fileShareName": {
+                    "type": "string",
+                    "description": "The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.\n"
+                },
+                "fileshareId": {
+                    "type": "string",
+                    "description": "ID of the SMB File Share.\n"
+                },
+                "gatewayArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the file gateway.\n"
+                },
+                "guessMimeTypeEnabled": {
+                    "type": "boolean",
+                    "description": "Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.\n"
+                },
+                "invalidUserLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.\n"
+                },
+                "kmsEncrypted": {
+                    "type": "boolean",
+                    "description": "Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.\n"
+                },
+                "kmsKeyArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.\n"
+                },
+                "locationArn": {
+                    "type": "string",
+                    "description": "The ARN of the backed storage used for storing file data.\n"
+                },
+                "notificationPolicy": {
+                    "type": "string",
+                    "description": "The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.\n"
+                },
+                "objectAcl": {
+                    "type": "string",
+                    "description": "Access Control List permission for S3 objects. Defaults to `private`.\n"
+                },
+                "oplocksEnabled": {
+                    "type": "boolean",
+                    "description": "Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "File share path used by the NFS client to identify the mount point.\n"
+                },
+                "readOnly": {
+                    "type": "boolean",
+                    "description": "Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.\n"
+                },
+                "requesterPays": {
+                    "type": "boolean",
+                    "description": "Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.\n"
+                },
+                "smbAclEnabled": {
+                    "type": "boolean",
+                    "description": "Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "validUserLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.\n"
+                },
+                "vpcEndpointDnsName": {
+                    "type": "string",
+                    "description": "The DNS name of the VPC endpoint for S3 private link.\n"
+                }
             },
-            "vpcEndpointDnsName": {
-                "type": "string",
-                "description": "The DNS name of the VPC endpoint for S3 private link.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "fileShareName",
+                "fileshareId",
+                "gatewayArn",
+                "locationArn",
+                "oplocksEnabled",
+                "path",
+                "roleArn",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "accessBasedEnumeration": {
+                    "type": "boolean",
+                    "description": "The files and folders on this share will only be visible to users with read access. Default value is `false`.\n"
+                },
+                "adminUserLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.\n"
+                },
+                "auditDestinationArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.\n"
+                },
+                "authentication": {
+                    "type": "string",
+                    "description": "The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "bucketRegion": {
+                    "type": "string",
+                    "description": "The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "cacheAttributes": {
+                    "$ref": "#/types/aws:storagegateway/SmbFileShareCacheAttributes:SmbFileShareCacheAttributes",
+                    "description": "Refresh cache information. see Cache Attributes for more details.\n"
+                },
+                "caseSensitivity": {
+                    "type": "string",
+                    "description": "The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.\n"
+                },
+                "defaultStorageClass": {
+                    "type": "string",
+                    "description": "The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.\n"
+                },
+                "fileShareName": {
+                    "type": "string",
+                    "description": "The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.\n"
+                },
+                "gatewayArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the file gateway.\n",
+                    "willReplaceOnChanges": true
+                },
+                "guessMimeTypeEnabled": {
+                    "type": "boolean",
+                    "description": "Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.\n"
+                },
+                "invalidUserLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.\n"
+                },
+                "kmsEncrypted": {
+                    "type": "boolean",
+                    "description": "Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.\n"
+                },
+                "kmsKeyArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.\n"
+                },
+                "locationArn": {
+                    "type": "string",
+                    "description": "The ARN of the backed storage used for storing file data.\n",
+                    "willReplaceOnChanges": true
+                },
+                "notificationPolicy": {
+                    "type": "string",
+                    "description": "The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.\n"
+                },
+                "objectAcl": {
+                    "type": "string",
+                    "description": "Access Control List permission for S3 objects. Defaults to `private`.\n"
+                },
+                "oplocksEnabled": {
+                    "type": "boolean",
+                    "description": "Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.\n"
+                },
+                "readOnly": {
+                    "type": "boolean",
+                    "description": "Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.\n"
+                },
+                "requesterPays": {
+                    "type": "boolean",
+                    "description": "Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.\n",
+                    "willReplaceOnChanges": true
+                },
+                "smbAclEnabled": {
+                    "type": "boolean",
+                    "description": "Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "validUserLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.\n"
+                },
+                "vpcEndpointDnsName": {
+                    "type": "string",
+                    "description": "The DNS name of the VPC endpoint for S3 private link.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "gatewayArn",
+                "locationArn",
+                "roleArn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SmbFileShare resources.\n",
+                "properties": {
+                    "accessBasedEnumeration": {
+                        "type": "boolean",
+                        "description": "The files and folders on this share will only be visible to users with read access. Default value is `false`.\n"
+                    },
+                    "adminUserLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the SMB File Share.\n"
+                    },
+                    "auditDestinationArn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.\n"
+                    },
+                    "authentication": {
+                        "type": "string",
+                        "description": "The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "bucketRegion": {
+                        "type": "string",
+                        "description": "The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "cacheAttributes": {
+                        "$ref": "#/types/aws:storagegateway/SmbFileShareCacheAttributes:SmbFileShareCacheAttributes",
+                        "description": "Refresh cache information. see Cache Attributes for more details.\n"
+                    },
+                    "caseSensitivity": {
+                        "type": "string",
+                        "description": "The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.\n"
+                    },
+                    "defaultStorageClass": {
+                        "type": "string",
+                        "description": "The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.\n"
+                    },
+                    "fileShareName": {
+                        "type": "string",
+                        "description": "The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.\n"
+                    },
+                    "fileshareId": {
+                        "type": "string",
+                        "description": "ID of the SMB File Share.\n"
+                    },
+                    "gatewayArn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the file gateway.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "guessMimeTypeEnabled": {
+                        "type": "boolean",
+                        "description": "Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.\n"
+                    },
+                    "invalidUserLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.\n"
+                    },
+                    "kmsEncrypted": {
+                        "type": "boolean",
+                        "description": "Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.\n"
+                    },
+                    "kmsKeyArn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.\n"
+                    },
+                    "locationArn": {
+                        "type": "string",
+                        "description": "The ARN of the backed storage used for storing file data.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "notificationPolicy": {
+                        "type": "string",
+                        "description": "The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.\n"
+                    },
+                    "objectAcl": {
+                        "type": "string",
+                        "description": "Access Control List permission for S3 objects. Defaults to `private`.\n"
+                    },
+                    "oplocksEnabled": {
+                        "type": "boolean",
+                        "description": "Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.\n"
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "File share path used by the NFS client to identify the mount point.\n"
+                    },
+                    "readOnly": {
+                        "type": "boolean",
+                        "description": "Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.\n"
+                    },
+                    "requesterPays": {
+                        "type": "boolean",
+                        "description": "Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.\n"
+                    },
+                    "roleArn": {
+                        "type": "string",
+                        "description": "The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "smbAclEnabled": {
+                        "type": "boolean",
+                        "description": "Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "validUserLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.\n"
+                    },
+                    "vpcEndpointDnsName": {
+                        "type": "string",
+                        "description": "The DNS name of the VPC endpoint for S3 private link.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

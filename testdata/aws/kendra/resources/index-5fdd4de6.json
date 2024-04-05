@@ -1,254 +1,254 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the Index.\n"
-        },
-        "capacityUnits": {
-            "$ref": "#/types/aws:kendra/IndexCapacityUnits:IndexCapacityUnits",
-            "description": "A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.\n"
-        },
-        "createdAt": {
-            "type": "string",
-            "description": "The Unix datetime that the index was created.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "The description of the Index.\n"
-        },
-        "documentMetadataConfigurationUpdates": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:kendra/IndexDocumentMetadataConfigurationUpdate:IndexDocumentMetadataConfigurationUpdate"
-            },
-            "description": "One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.\n"
-        },
-        "edition": {
-            "type": "string",
-            "description": "The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`\n"
-        },
-        "errorMessage": {
-            "type": "string",
-            "description": "When the Status field value is `FAILED`, this contains a message that explains why.\n"
-        },
-        "indexStatistics": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:kendra/IndexIndexStatistic:IndexIndexStatistic"
-            },
-            "description": "A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Specifies the name of the Index.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.\n"
-        },
-        "serverSideEncryptionConfiguration": {
-            "$ref": "#/types/aws:kendra/IndexServerSideEncryptionConfiguration:IndexServerSideEncryptionConfiguration",
-            "description": "A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Tags to apply to the Index. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "updatedAt": {
-            "type": "string",
-            "description": "The Unix datetime that the index was last updated.\n"
-        },
-        "userContextPolicy": {
-            "type": "string",
-            "description": "The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.\n"
-        },
-        "userGroupResolutionConfiguration": {
-            "$ref": "#/types/aws:kendra/IndexUserGroupResolutionConfiguration:IndexUserGroupResolutionConfiguration",
-            "description": "A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.\n"
-        },
-        "userTokenConfigurations": {
-            "$ref": "#/types/aws:kendra/IndexUserTokenConfigurations:IndexUserTokenConfigurations",
-            "description": "A block that specifies the user token configuration. Detailed below.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "capacityUnits",
-        "createdAt",
-        "documentMetadataConfigurationUpdates",
-        "errorMessage",
-        "indexStatistics",
-        "name",
-        "roleArn",
-        "status",
-        "tagsAll",
-        "updatedAt"
-    ],
-    "inputProperties": {
-        "capacityUnits": {
-            "$ref": "#/types/aws:kendra/IndexCapacityUnits:IndexCapacityUnits",
-            "description": "A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "The description of the Index.\n"
-        },
-        "documentMetadataConfigurationUpdates": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:kendra/IndexDocumentMetadataConfigurationUpdate:IndexDocumentMetadataConfigurationUpdate"
-            },
-            "description": "One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.\n"
-        },
-        "edition": {
-            "type": "string",
-            "description": "The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Specifies the name of the Index.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.\n"
-        },
-        "serverSideEncryptionConfiguration": {
-            "$ref": "#/types/aws:kendra/IndexServerSideEncryptionConfiguration:IndexServerSideEncryptionConfiguration",
-            "description": "A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Tags to apply to the Index. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "userContextPolicy": {
-            "type": "string",
-            "description": "The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.\n"
-        },
-        "userGroupResolutionConfiguration": {
-            "$ref": "#/types/aws:kendra/IndexUserGroupResolutionConfiguration:IndexUserGroupResolutionConfiguration",
-            "description": "A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.\n"
-        },
-        "userTokenConfigurations": {
-            "$ref": "#/types/aws:kendra/IndexUserTokenConfigurations:IndexUserTokenConfigurations",
-            "description": "A block that specifies the user token configuration. Detailed below.\n"
-        }
-    },
-    "requiredInputs": [
-        "roleArn"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Index resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the Index.\n"
-            },
-            "capacityUnits": {
-                "$ref": "#/types/aws:kendra/IndexCapacityUnits:IndexCapacityUnits",
-                "description": "A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.\n"
-            },
-            "createdAt": {
-                "type": "string",
-                "description": "The Unix datetime that the index was created.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "The description of the Index.\n"
-            },
-            "documentMetadataConfigurationUpdates": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:kendra/IndexDocumentMetadataConfigurationUpdate:IndexDocumentMetadataConfigurationUpdate"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Index.\n"
                 },
-                "description": "One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.\n"
-            },
-            "edition": {
-                "type": "string",
-                "description": "The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`\n",
-                "willReplaceOnChanges": true
-            },
-            "errorMessage": {
-                "type": "string",
-                "description": "When the Status field value is `FAILED`, this contains a message that explains why.\n"
-            },
-            "indexStatistics": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:kendra/IndexIndexStatistic:IndexIndexStatistic"
+                "capacityUnits": {
+                    "$ref": "#/types/aws:kendra/IndexCapacityUnits:IndexCapacityUnits",
+                    "description": "A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.\n"
                 },
-                "description": "A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Specifies the name of the Index.\n"
-            },
-            "roleArn": {
-                "type": "string",
-                "description": "An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.\n"
-            },
-            "serverSideEncryptionConfiguration": {
-                "$ref": "#/types/aws:kendra/IndexServerSideEncryptionConfiguration:IndexServerSideEncryptionConfiguration",
-                "description": "A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.\n",
-                "willReplaceOnChanges": true
-            },
-            "status": {
-                "type": "string",
-                "description": "The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "createdAt": {
+                    "type": "string",
+                    "description": "The Unix datetime that the index was created.\n"
                 },
-                "description": "Tags to apply to the Index. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Index.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "documentMetadataConfigurationUpdates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:kendra/IndexDocumentMetadataConfigurationUpdate:IndexDocumentMetadataConfigurationUpdate"
+                    },
+                    "description": "One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.\n"
+                },
+                "edition": {
+                    "type": "string",
+                    "description": "The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`\n"
+                },
+                "errorMessage": {
+                    "type": "string",
+                    "description": "When the Status field value is `FAILED`, this contains a message that explains why.\n"
+                },
+                "indexStatistics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:kendra/IndexIndexStatistic:IndexIndexStatistic"
+                    },
+                    "description": "A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the name of the Index.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.\n"
+                },
+                "serverSideEncryptionConfiguration": {
+                    "$ref": "#/types/aws:kendra/IndexServerSideEncryptionConfiguration:IndexServerSideEncryptionConfiguration",
+                    "description": "A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Tags to apply to the Index. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "The Unix datetime that the index was last updated.\n"
+                },
+                "userContextPolicy": {
+                    "type": "string",
+                    "description": "The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.\n"
+                },
+                "userGroupResolutionConfiguration": {
+                    "$ref": "#/types/aws:kendra/IndexUserGroupResolutionConfiguration:IndexUserGroupResolutionConfiguration",
+                    "description": "A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.\n"
+                },
+                "userTokenConfigurations": {
+                    "$ref": "#/types/aws:kendra/IndexUserTokenConfigurations:IndexUserTokenConfigurations",
+                    "description": "A block that specifies the user token configuration. Detailed below.\n"
+                }
             },
-            "updatedAt": {
-                "type": "string",
-                "description": "The Unix datetime that the index was last updated.\n"
+            "required": [
+                "arn",
+                "capacityUnits",
+                "createdAt",
+                "documentMetadataConfigurationUpdates",
+                "errorMessage",
+                "indexStatistics",
+                "name",
+                "roleArn",
+                "status",
+                "tagsAll",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "capacityUnits": {
+                    "$ref": "#/types/aws:kendra/IndexCapacityUnits:IndexCapacityUnits",
+                    "description": "A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Index.\n"
+                },
+                "documentMetadataConfigurationUpdates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:kendra/IndexDocumentMetadataConfigurationUpdate:IndexDocumentMetadataConfigurationUpdate"
+                    },
+                    "description": "One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.\n"
+                },
+                "edition": {
+                    "type": "string",
+                    "description": "The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the name of the Index.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.\n"
+                },
+                "serverSideEncryptionConfiguration": {
+                    "$ref": "#/types/aws:kendra/IndexServerSideEncryptionConfiguration:IndexServerSideEncryptionConfiguration",
+                    "description": "A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Tags to apply to the Index. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "userContextPolicy": {
+                    "type": "string",
+                    "description": "The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.\n"
+                },
+                "userGroupResolutionConfiguration": {
+                    "$ref": "#/types/aws:kendra/IndexUserGroupResolutionConfiguration:IndexUserGroupResolutionConfiguration",
+                    "description": "A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.\n"
+                },
+                "userTokenConfigurations": {
+                    "$ref": "#/types/aws:kendra/IndexUserTokenConfigurations:IndexUserTokenConfigurations",
+                    "description": "A block that specifies the user token configuration. Detailed below.\n"
+                }
             },
-            "userContextPolicy": {
-                "type": "string",
-                "description": "The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.\n"
-            },
-            "userGroupResolutionConfiguration": {
-                "$ref": "#/types/aws:kendra/IndexUserGroupResolutionConfiguration:IndexUserGroupResolutionConfiguration",
-                "description": "A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.\n"
-            },
-            "userTokenConfigurations": {
-                "$ref": "#/types/aws:kendra/IndexUserTokenConfigurations:IndexUserTokenConfigurations",
-                "description": "A block that specifies the user token configuration. Detailed below.\n"
+            "requiredInputs": [
+                "roleArn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Index resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the Index.\n"
+                    },
+                    "capacityUnits": {
+                        "$ref": "#/types/aws:kendra/IndexCapacityUnits:IndexCapacityUnits",
+                        "description": "A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The Unix datetime that the index was created.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the Index.\n"
+                    },
+                    "documentMetadataConfigurationUpdates": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:kendra/IndexDocumentMetadataConfigurationUpdate:IndexDocumentMetadataConfigurationUpdate"
+                        },
+                        "description": "One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.\n"
+                    },
+                    "edition": {
+                        "type": "string",
+                        "description": "The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "errorMessage": {
+                        "type": "string",
+                        "description": "When the Status field value is `FAILED`, this contains a message that explains why.\n"
+                    },
+                    "indexStatistics": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:kendra/IndexIndexStatistic:IndexIndexStatistic"
+                        },
+                        "description": "A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the name of the Index.\n"
+                    },
+                    "roleArn": {
+                        "type": "string",
+                        "description": "An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.\n"
+                    },
+                    "serverSideEncryptionConfiguration": {
+                        "$ref": "#/types/aws:kendra/IndexServerSideEncryptionConfiguration:IndexServerSideEncryptionConfiguration",
+                        "description": "A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Tags to apply to the Index. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "The Unix datetime that the index was last updated.\n"
+                    },
+                    "userContextPolicy": {
+                        "type": "string",
+                        "description": "The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.\n"
+                    },
+                    "userGroupResolutionConfiguration": {
+                        "$ref": "#/types/aws:kendra/IndexUserGroupResolutionConfiguration:IndexUserGroupResolutionConfiguration",
+                        "description": "A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.\n"
+                    },
+                    "userTokenConfigurations": {
+                        "$ref": "#/types/aws:kendra/IndexUserTokenConfigurations:IndexUserTokenConfigurations",
+                        "description": "A block that specifies the user token configuration. Detailed below.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

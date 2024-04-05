@@ -1,218 +1,218 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).\n"
-        },
-        "availabilityZone": {
-            "type": "string",
-            "description": "The AZ where the EBS volume will exist.\n"
-        },
-        "encrypted": {
-            "type": "boolean",
-            "description": "If true, the disk will be encrypted.\n"
-        },
-        "finalSnapshot": {
-            "type": "boolean",
-            "description": "If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false\n"
-        },
-        "iops": {
-            "type": "integer",
-            "description": "The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.\n"
-        },
-        "multiAttachEnabled": {
-            "type": "boolean",
-            "description": "Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.\n"
-        },
-        "outpostArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the Outpost.\n"
-        },
-        "size": {
-            "type": "integer",
-            "description": "The size of the drive in GiBs.\n"
-        },
-        "snapshotId": {
-            "type": "string",
-            "description": "A snapshot to base the EBS volume off of.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "throughput": {
-            "type": "integer",
-            "description": "The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.\n\n\u003e **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).\n"
-        }
-    },
-    "required": [
-        "arn",
-        "availabilityZone",
-        "encrypted",
-        "iops",
-        "kmsKeyId",
-        "size",
-        "snapshotId",
-        "tagsAll",
-        "throughput",
-        "type"
-    ],
-    "inputProperties": {
-        "availabilityZone": {
-            "type": "string",
-            "description": "The AZ where the EBS volume will exist.\n",
-            "willReplaceOnChanges": true
-        },
-        "encrypted": {
-            "type": "boolean",
-            "description": "If true, the disk will be encrypted.\n",
-            "willReplaceOnChanges": true
-        },
-        "finalSnapshot": {
-            "type": "boolean",
-            "description": "If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false\n"
-        },
-        "iops": {
-            "type": "integer",
-            "description": "The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.\n",
-            "willReplaceOnChanges": true
-        },
-        "multiAttachEnabled": {
-            "type": "boolean",
-            "description": "Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.\n",
-            "willReplaceOnChanges": true
-        },
-        "outpostArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the Outpost.\n",
-            "willReplaceOnChanges": true
-        },
-        "size": {
-            "type": "integer",
-            "description": "The size of the drive in GiBs.\n"
-        },
-        "snapshotId": {
-            "type": "string",
-            "description": "A snapshot to base the EBS volume off of.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "throughput": {
-            "type": "integer",
-            "description": "The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.\n\n\u003e **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).\n"
-        }
-    },
-    "requiredInputs": [
-        "availabilityZone"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Volume resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).\n"
-            },
-            "availabilityZone": {
-                "type": "string",
-                "description": "The AZ where the EBS volume will exist.\n",
-                "willReplaceOnChanges": true
-            },
-            "encrypted": {
-                "type": "boolean",
-                "description": "If true, the disk will be encrypted.\n",
-                "willReplaceOnChanges": true
-            },
-            "finalSnapshot": {
-                "type": "boolean",
-                "description": "If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false\n"
-            },
-            "iops": {
-                "type": "integer",
-                "description": "The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.\n"
-            },
-            "kmsKeyId": {
-                "type": "string",
-                "description": "The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.\n",
-                "willReplaceOnChanges": true
-            },
-            "multiAttachEnabled": {
-                "type": "boolean",
-                "description": "Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.\n",
-                "willReplaceOnChanges": true
-            },
-            "outpostArn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the Outpost.\n",
-                "willReplaceOnChanges": true
-            },
-            "size": {
-                "type": "integer",
-                "description": "The size of the drive in GiBs.\n"
-            },
-            "snapshotId": {
-                "type": "string",
-                "description": "A snapshot to base the EBS volume off of.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).\n"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The AZ where the EBS volume will exist.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "encrypted": {
+                    "type": "boolean",
+                    "description": "If true, the disk will be encrypted.\n"
+                },
+                "finalSnapshot": {
+                    "type": "boolean",
+                    "description": "If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false\n"
+                },
+                "iops": {
+                    "type": "integer",
+                    "description": "The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.\n"
+                },
+                "multiAttachEnabled": {
+                    "type": "boolean",
+                    "description": "Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.\n"
+                },
+                "outpostArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Outpost.\n"
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "The size of the drive in GiBs.\n"
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "A snapshot to base the EBS volume off of.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "throughput": {
+                    "type": "integer",
+                    "description": "The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.\n\n\u003e **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).\n"
+                }
             },
-            "throughput": {
-                "type": "integer",
-                "description": "The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.\n\n\u003e **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.\n"
+            "required": [
+                "arn",
+                "availabilityZone",
+                "encrypted",
+                "iops",
+                "kmsKeyId",
+                "size",
+                "snapshotId",
+                "tagsAll",
+                "throughput",
+                "type"
+            ],
+            "inputProperties": {
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The AZ where the EBS volume will exist.\n",
+                    "willReplaceOnChanges": true
+                },
+                "encrypted": {
+                    "type": "boolean",
+                    "description": "If true, the disk will be encrypted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "finalSnapshot": {
+                    "type": "boolean",
+                    "description": "If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false\n"
+                },
+                "iops": {
+                    "type": "integer",
+                    "description": "The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "multiAttachEnabled": {
+                    "type": "boolean",
+                    "description": "Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "outpostArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Outpost.\n",
+                    "willReplaceOnChanges": true
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "The size of the drive in GiBs.\n"
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "A snapshot to base the EBS volume off of.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "throughput": {
+                    "type": "integer",
+                    "description": "The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.\n\n\u003e **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).\n"
+                }
             },
-            "type": {
-                "type": "string",
-                "description": "The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).\n"
+            "requiredInputs": [
+                "availabilityZone"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Volume resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).\n"
+                    },
+                    "availabilityZone": {
+                        "type": "string",
+                        "description": "The AZ where the EBS volume will exist.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "encrypted": {
+                        "type": "boolean",
+                        "description": "If true, the disk will be encrypted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "finalSnapshot": {
+                        "type": "boolean",
+                        "description": "If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false\n"
+                    },
+                    "iops": {
+                        "type": "integer",
+                        "description": "The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.\n"
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "description": "The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "multiAttachEnabled": {
+                        "type": "boolean",
+                        "description": "Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "outpostArn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the Outpost.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "size": {
+                        "type": "integer",
+                        "description": "The size of the drive in GiBs.\n"
+                    },
+                    "snapshotId": {
+                        "type": "string",
+                        "description": "A snapshot to base the EBS volume off of.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "throughput": {
+                        "type": "integer",
+                        "description": "The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.\n\n\u003e **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

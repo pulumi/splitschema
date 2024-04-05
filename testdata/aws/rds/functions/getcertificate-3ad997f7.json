@@ -1,66 +1,66 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getCertificate.\n",
-        "properties": {
-            "id": {
-                "type": "string",
-                "description": "Certificate identifier. For example, `rds-ca-2019`.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getCertificate.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Certificate identifier. For example, `rds-ca-2019`.\n"
+                    },
+                    "latestValidTill": {
+                        "type": "boolean",
+                        "description": "When enabled, returns the certificate with the latest `ValidTill`.\n"
+                    }
+                },
+                "type": "object"
             },
-            "latestValidTill": {
-                "type": "boolean",
-                "description": "When enabled, returns the certificate with the latest `ValidTill`.\n"
+            "outputs": {
+                "description": "A collection of values returned by getCertificate.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the certificate.\n",
+                        "type": "string"
+                    },
+                    "certificateType": {
+                        "description": "Type of certificate. For example, `CA`.\n",
+                        "type": "string"
+                    },
+                    "customerOverride": {
+                        "description": "Boolean whether there is an override for the default certificate identifier.\n",
+                        "type": "boolean"
+                    },
+                    "customerOverrideValidTill": {
+                        "description": "If there is an override for the default certificate identifier, when the override expires.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "latestValidTill": {
+                        "type": "boolean"
+                    },
+                    "thumbprint": {
+                        "description": "Thumbprint of the certificate.\n",
+                        "type": "string"
+                    },
+                    "validFrom": {
+                        "description": "[RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.\n",
+                        "type": "string"
+                    },
+                    "validTill": {
+                        "description": "[RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "certificateType",
+                    "customerOverride",
+                    "customerOverrideValidTill",
+                    "id",
+                    "thumbprint",
+                    "validFrom",
+                    "validTill"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getCertificate.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the certificate.\n",
-                "type": "string"
-            },
-            "certificateType": {
-                "description": "Type of certificate. For example, `CA`.\n",
-                "type": "string"
-            },
-            "customerOverride": {
-                "description": "Boolean whether there is an override for the default certificate identifier.\n",
-                "type": "boolean"
-            },
-            "customerOverrideValidTill": {
-                "description": "If there is an override for the default certificate identifier, when the override expires.\n",
-                "type": "string"
-            },
-            "id": {
-                "type": "string"
-            },
-            "latestValidTill": {
-                "type": "boolean"
-            },
-            "thumbprint": {
-                "description": "Thumbprint of the certificate.\n",
-                "type": "string"
-            },
-            "validFrom": {
-                "description": "[RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.\n",
-                "type": "string"
-            },
-            "validTill": {
-                "description": "[RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "arn",
-            "certificateType",
-            "customerOverride",
-            "customerOverrideValidTill",
-            "id",
-            "thumbprint",
-            "validFrom",
-            "validTill"
-        ],
-        "type": "object"
-    }
-}
+        }

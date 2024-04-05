@@ -1,122 +1,122 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "GameLift Build ARN.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the build\n"
-        },
-        "operatingSystem": {
-            "type": "string",
-            "description": "Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.\n"
-        },
-        "storageLocation": {
-            "$ref": "#/types/aws:gamelift/BuildStorageLocation:BuildStorageLocation",
-            "description": "Information indicating where your game build files are stored. See below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "version": {
-            "type": "string",
-            "description": "Version that is associated with this build.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "name",
-        "operatingSystem",
-        "storageLocation",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "name": {
-            "type": "string",
-            "description": "Name of the build\n"
-        },
-        "operatingSystem": {
-            "type": "string",
-            "description": "Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.\n",
-            "willReplaceOnChanges": true
-        },
-        "storageLocation": {
-            "$ref": "#/types/aws:gamelift/BuildStorageLocation:BuildStorageLocation",
-            "description": "Information indicating where your game build files are stored. See below.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "version": {
-            "type": "string",
-            "description": "Version that is associated with this build.\n"
-        }
-    },
-    "requiredInputs": [
-        "operatingSystem",
-        "storageLocation"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Build resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "GameLift Build ARN.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name of the build\n"
-            },
-            "operatingSystem": {
-                "type": "string",
-                "description": "Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.\n",
-                "willReplaceOnChanges": true
-            },
-            "storageLocation": {
-                "$ref": "#/types/aws:gamelift/BuildStorageLocation:BuildStorageLocation",
-                "description": "Information indicating where your game build files are stored. See below.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "GameLift Build ARN.\n"
                 },
-                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "name": {
+                    "type": "string",
+                    "description": "Name of the build\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "operatingSystem": {
+                    "type": "string",
+                    "description": "Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.\n"
+                },
+                "storageLocation": {
+                    "$ref": "#/types/aws:gamelift/BuildStorageLocation:BuildStorageLocation",
+                    "description": "Information indicating where your game build files are stored. See below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Version that is associated with this build.\n"
+                }
             },
-            "version": {
-                "type": "string",
-                "description": "Version that is associated with this build.\n"
+            "required": [
+                "arn",
+                "name",
+                "operatingSystem",
+                "storageLocation",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the build\n"
+                },
+                "operatingSystem": {
+                    "type": "string",
+                    "description": "Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "storageLocation": {
+                    "$ref": "#/types/aws:gamelift/BuildStorageLocation:BuildStorageLocation",
+                    "description": "Information indicating where your game build files are stored. See below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Version that is associated with this build.\n"
+                }
+            },
+            "requiredInputs": [
+                "operatingSystem",
+                "storageLocation"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Build resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "GameLift Build ARN.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the build\n"
+                    },
+                    "operatingSystem": {
+                        "type": "string",
+                        "description": "Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "storageLocation": {
+                        "$ref": "#/types/aws:gamelift/BuildStorageLocation:BuildStorageLocation",
+                        "description": "Information indicating where your game build files are stored. See below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "Version that is associated with this build.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

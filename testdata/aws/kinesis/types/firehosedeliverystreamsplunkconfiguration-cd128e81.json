@@ -1,56 +1,56 @@
 {
-    "properties": {
-        "cloudwatchLoggingOptions": {
-            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions:FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions",
-            "description": "The CloudWatch Logging Options for the delivery stream. More details are given below.\n"
-        },
-        "hecAcknowledgmentTimeout": {
-            "type": "integer",
-            "description": "The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.\n"
-        },
-        "hecEndpoint": {
-            "type": "string",
-            "description": "The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.\n"
-        },
-        "hecEndpointType": {
-            "type": "string",
-            "description": "The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.\n"
-        },
-        "hecToken": {
-            "type": "string",
-            "description": "The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.\n"
-        },
-        "processingConfiguration": {
-            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration:FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration",
-            "description": "The data processing configuration.  More details are given below.\n"
-        },
-        "retryDuration": {
-            "type": "integer",
-            "description": "After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.\n"
-        },
-        "s3BackupMode": {
-            "type": "string",
-            "description": "Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.\n"
-        },
-        "s3Configuration": {
-            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamSplunkConfigurationS3Configuration:FirehoseDeliveryStreamSplunkConfigurationS3Configuration",
-            "description": "The S3 Configuration. See s3_configuration for more details.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "hecEndpoint",
-        "hecToken",
-        "s3Configuration"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "cloudwatchLoggingOptions",
+            "properties": {
+                "cloudwatchLoggingOptions": {
+                    "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions:FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions",
+                    "description": "The CloudWatch Logging Options for the delivery stream. More details are given below.\n"
+                },
+                "hecAcknowledgmentTimeout": {
+                    "type": "integer",
+                    "description": "The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.\n"
+                },
+                "hecEndpoint": {
+                    "type": "string",
+                    "description": "The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.\n"
+                },
+                "hecEndpointType": {
+                    "type": "string",
+                    "description": "The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.\n"
+                },
+                "hecToken": {
+                    "type": "string",
+                    "description": "The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.\n"
+                },
+                "processingConfiguration": {
+                    "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration:FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration",
+                    "description": "The data processing configuration.  More details are given below.\n"
+                },
+                "retryDuration": {
+                    "type": "integer",
+                    "description": "After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.\n"
+                },
+                "s3BackupMode": {
+                    "type": "string",
+                    "description": "Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.\n"
+                },
+                "s3Configuration": {
+                    "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamSplunkConfigurationS3Configuration:FirehoseDeliveryStreamSplunkConfigurationS3Configuration",
+                    "description": "The S3 Configuration. See s3_configuration for more details.\n"
+                }
+            },
+            "type": "object",
+            "required": [
                 "hecEndpoint",
                 "hecToken",
                 "s3Configuration"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "cloudwatchLoggingOptions",
+                        "hecEndpoint",
+                        "hecToken",
+                        "s3Configuration"
+                    ]
+                }
+            }
         }
-    }
-}

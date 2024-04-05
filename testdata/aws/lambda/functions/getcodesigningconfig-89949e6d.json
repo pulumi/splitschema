@@ -1,63 +1,63 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getCodeSigningConfig.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the code signing configuration.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "arn"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getCodeSigningConfig.\n",
-        "properties": {
-            "allowedPublishers": {
-                "description": "List of allowed publishers as signing profiles for this code signing configuration.\n",
-                "items": {
-                    "$ref": "#/types/aws:lambda/getCodeSigningConfigAllowedPublisher:getCodeSigningConfigAllowedPublisher"
+            "inputs": {
+                "description": "A collection of arguments for invoking getCodeSigningConfig.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the code signing configuration.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object",
+                "required": [
+                    "arn"
+                ]
             },
-            "arn": {
-                "type": "string"
-            },
-            "configId": {
-                "description": "Unique identifier for the code signing configuration.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Code signing configuration description.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "lastModified": {
-                "description": "Date and time that the code signing configuration was last modified.\n",
-                "type": "string"
-            },
-            "policies": {
-                "description": "List of code signing policies that control the validation failure action for signature mismatch or expiry.\n",
-                "items": {
-                    "$ref": "#/types/aws:lambda/getCodeSigningConfigPolicy:getCodeSigningConfigPolicy"
+            "outputs": {
+                "description": "A collection of values returned by getCodeSigningConfig.\n",
+                "properties": {
+                    "allowedPublishers": {
+                        "description": "List of allowed publishers as signing profiles for this code signing configuration.\n",
+                        "items": {
+                            "$ref": "#/types/aws:lambda/getCodeSigningConfigAllowedPublisher:getCodeSigningConfigAllowedPublisher"
+                        },
+                        "type": "array"
+                    },
+                    "arn": {
+                        "type": "string"
+                    },
+                    "configId": {
+                        "description": "Unique identifier for the code signing configuration.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Code signing configuration description.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "lastModified": {
+                        "description": "Date and time that the code signing configuration was last modified.\n",
+                        "type": "string"
+                    },
+                    "policies": {
+                        "description": "List of code signing policies that control the validation failure action for signature mismatch or expiry.\n",
+                        "items": {
+                            "$ref": "#/types/aws:lambda/getCodeSigningConfigPolicy:getCodeSigningConfigPolicy"
+                        },
+                        "type": "array"
+                    }
                 },
-                "type": "array"
+                "required": [
+                    "allowedPublishers",
+                    "arn",
+                    "configId",
+                    "description",
+                    "lastModified",
+                    "policies",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "allowedPublishers",
-            "arn",
-            "configId",
-            "description",
-            "lastModified",
-            "policies",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

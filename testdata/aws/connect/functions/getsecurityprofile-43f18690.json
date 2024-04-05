@@ -1,86 +1,86 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getSecurityProfile.\n",
-        "properties": {
-            "instanceId": {
-                "type": "string",
-                "description": "Reference to the hosting Amazon Connect Instance\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Returns information on a specific Security Profile by name\n"
-            },
-            "securityProfileId": {
-                "type": "string",
-                "description": "Returns information on a specific Security Profile by Security Profile id\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getSecurityProfile.\n",
+                "properties": {
+                    "instanceId": {
+                        "type": "string",
+                        "description": "Reference to the hosting Amazon Connect Instance\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Returns information on a specific Security Profile by name\n"
+                    },
+                    "securityProfileId": {
+                        "type": "string",
+                        "description": "Returns information on a specific Security Profile by Security Profile id\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the Security Profile.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "instanceId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSecurityProfile.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the Security Profile.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the Security Profile.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "organizationResourceId": {
+                        "description": "The organization resource identifier for the security profile.\n",
+                        "type": "string"
+                    },
+                    "permissions": {
+                        "description": "List of permissions assigned to the security profile.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "securityProfileId": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the Security Profile.\n",
+                        "type": "object"
+                    }
                 },
-                "description": "Map of tags to assign to the Security Profile.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "instanceId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getSecurityProfile.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the Security Profile.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Description of the Security Profile.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "instanceId": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "organizationResourceId": {
-                "description": "The organization resource identifier for the security profile.\n",
-                "type": "string"
-            },
-            "permissions": {
-                "description": "List of permissions assigned to the security profile.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "securityProfileId": {
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags to assign to the Security Profile.\n",
+                "required": [
+                    "arn",
+                    "description",
+                    "instanceId",
+                    "name",
+                    "organizationResourceId",
+                    "permissions",
+                    "securityProfileId",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "description",
-            "instanceId",
-            "name",
-            "organizationResourceId",
-            "permissions",
-            "securityProfileId",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

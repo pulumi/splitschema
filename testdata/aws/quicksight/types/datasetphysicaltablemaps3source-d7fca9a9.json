@@ -1,25 +1,25 @@
 {
-    "properties": {
-        "dataSourceArn": {
-            "type": "string",
-            "description": "ARN of the data source.\n"
-        },
-        "inputColumns": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMapS3SourceInputColumn:DataSetPhysicalTableMapS3SourceInputColumn"
+            "properties": {
+                "dataSourceArn": {
+                    "type": "string",
+                    "description": "ARN of the data source.\n"
+                },
+                "inputColumns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMapS3SourceInputColumn:DataSetPhysicalTableMapS3SourceInputColumn"
+                    },
+                    "description": "Column schema of the table. See input_columns.\n"
+                },
+                "uploadSettings": {
+                    "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMapS3SourceUploadSettings:DataSetPhysicalTableMapS3SourceUploadSettings",
+                    "description": "Information about the format for the S3 source file or files. See upload_settings.\n"
+                }
             },
-            "description": "Column schema of the table. See input_columns.\n"
-        },
-        "uploadSettings": {
-            "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMapS3SourceUploadSettings:DataSetPhysicalTableMapS3SourceUploadSettings",
-            "description": "Information about the format for the S3 source file or files. See upload_settings.\n"
+            "type": "object",
+            "required": [
+                "dataSourceArn",
+                "inputColumns",
+                "uploadSettings"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "dataSourceArn",
-        "inputColumns",
-        "uploadSettings"
-    ]
-}

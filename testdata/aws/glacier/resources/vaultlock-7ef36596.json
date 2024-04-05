@@ -1,76 +1,76 @@
 {
-    "properties": {
-        "completeLock": {
-            "type": "boolean",
-            "description": "Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.\n"
-        },
-        "ignoreDeletionError": {
-            "type": "boolean",
-            "description": "Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.\n"
-        },
-        "policy": {
-            "type": "string",
-            "description": "JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.\n"
-        },
-        "vaultName": {
-            "type": "string",
-            "description": "The name of the Glacier Vault.\n"
-        }
-    },
-    "required": [
-        "completeLock",
-        "policy",
-        "vaultName"
-    ],
-    "inputProperties": {
-        "completeLock": {
-            "type": "boolean",
-            "description": "Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.\n",
-            "willReplaceOnChanges": true
-        },
-        "ignoreDeletionError": {
-            "type": "boolean",
-            "description": "Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.\n"
-        },
-        "policy": {
-            "type": "string",
-            "description": "JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.\n",
-            "willReplaceOnChanges": true
-        },
-        "vaultName": {
-            "type": "string",
-            "description": "The name of the Glacier Vault.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "completeLock",
-        "policy",
-        "vaultName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering VaultLock resources.\n",
-        "properties": {
-            "completeLock": {
-                "type": "boolean",
-                "description": "Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.\n",
-                "willReplaceOnChanges": true
+            "properties": {
+                "completeLock": {
+                    "type": "boolean",
+                    "description": "Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.\n"
+                },
+                "ignoreDeletionError": {
+                    "type": "boolean",
+                    "description": "Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.\n"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.\n"
+                },
+                "vaultName": {
+                    "type": "string",
+                    "description": "The name of the Glacier Vault.\n"
+                }
             },
-            "ignoreDeletionError": {
-                "type": "boolean",
-                "description": "Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.\n"
+            "required": [
+                "completeLock",
+                "policy",
+                "vaultName"
+            ],
+            "inputProperties": {
+                "completeLock": {
+                    "type": "boolean",
+                    "description": "Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.\n",
+                    "willReplaceOnChanges": true
+                },
+                "ignoreDeletionError": {
+                    "type": "boolean",
+                    "description": "Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.\n"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.\n",
+                    "willReplaceOnChanges": true
+                },
+                "vaultName": {
+                    "type": "string",
+                    "description": "The name of the Glacier Vault.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "policy": {
-                "type": "string",
-                "description": "JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.\n",
-                "willReplaceOnChanges": true
-            },
-            "vaultName": {
-                "type": "string",
-                "description": "The name of the Glacier Vault.\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "completeLock",
+                "policy",
+                "vaultName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering VaultLock resources.\n",
+                "properties": {
+                    "completeLock": {
+                        "type": "boolean",
+                        "description": "Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ignoreDeletionError": {
+                        "type": "boolean",
+                        "description": "Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.\n"
+                    },
+                    "policy": {
+                        "type": "string",
+                        "description": "JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "vaultName": {
+                        "type": "string",
+                        "description": "The name of the Glacier Vault.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,101 +1,101 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getEngineVersion.\n",
-        "properties": {
-            "engine": {
-                "type": "string",
-                "description": "DB engine. (Default: `neptune`)\n"
-            },
-            "parameterGroupFamily": {
-                "type": "string",
-                "description": "Name of a specific DB parameter group family. An example parameter group family is `neptune1`.\n"
-            },
-            "preferredVersions": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getEngineVersion.\n",
+                "properties": {
+                    "engine": {
+                        "type": "string",
+                        "description": "DB engine. (Default: `neptune`)\n"
+                    },
+                    "parameterGroupFamily": {
+                        "type": "string",
+                        "description": "Name of a specific DB parameter group family. An example parameter group family is `neptune1`.\n"
+                    },
+                    "preferredVersions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.\n"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.\n"
+                    }
                 },
-                "description": "Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.\n"
+                "type": "object"
             },
-            "version": {
-                "type": "string",
-                "description": "Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.\n"
+            "outputs": {
+                "description": "A collection of values returned by getEngineVersion.\n",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    },
+                    "engineDescription": {
+                        "description": "Description of the database engine.\n",
+                        "type": "string"
+                    },
+                    "exportableLogTypes": {
+                        "description": "Set of log types that the database engine has available for export to CloudWatch Logs.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "parameterGroupFamily": {
+                        "type": "string"
+                    },
+                    "preferredVersions": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "supportedTimezones": {
+                        "description": "Set of the time zones supported by this engine.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "supportsLogExportsToCloudwatch": {
+                        "description": "Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.\n",
+                        "type": "boolean"
+                    },
+                    "supportsReadReplica": {
+                        "description": "Indicates whether the database engine version supports read replicas.\n",
+                        "type": "boolean"
+                    },
+                    "validUpgradeTargets": {
+                        "description": "Set of engine versions that this database engine version can be upgraded to.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "versionDescription": {
+                        "description": "Description of the database engine version.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engineDescription",
+                    "exportableLogTypes",
+                    "parameterGroupFamily",
+                    "supportedTimezones",
+                    "supportsLogExportsToCloudwatch",
+                    "supportsReadReplica",
+                    "validUpgradeTargets",
+                    "version",
+                    "versionDescription",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getEngineVersion.\n",
-        "properties": {
-            "engine": {
-                "type": "string"
-            },
-            "engineDescription": {
-                "description": "Description of the database engine.\n",
-                "type": "string"
-            },
-            "exportableLogTypes": {
-                "description": "Set of log types that the database engine has available for export to CloudWatch Logs.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "parameterGroupFamily": {
-                "type": "string"
-            },
-            "preferredVersions": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "supportedTimezones": {
-                "description": "Set of the time zones supported by this engine.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "supportsLogExportsToCloudwatch": {
-                "description": "Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.\n",
-                "type": "boolean"
-            },
-            "supportsReadReplica": {
-                "description": "Indicates whether the database engine version supports read replicas.\n",
-                "type": "boolean"
-            },
-            "validUpgradeTargets": {
-                "description": "Set of engine versions that this database engine version can be upgraded to.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "version": {
-                "type": "string"
-            },
-            "versionDescription": {
-                "description": "Description of the database engine version.\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "engineDescription",
-            "exportableLogTypes",
-            "parameterGroupFamily",
-            "supportedTimezones",
-            "supportsLogExportsToCloudwatch",
-            "supportsReadReplica",
-            "validUpgradeTargets",
-            "version",
-            "versionDescription",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

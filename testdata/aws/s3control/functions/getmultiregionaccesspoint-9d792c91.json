@@ -1,81 +1,81 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getMultiRegionAccessPoint.\n",
-        "properties": {
-            "accountId": {
-                "type": "string",
-                "description": "The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the Multi-Region Access Point.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "name"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getMultiRegionAccessPoint.\n",
-        "properties": {
-            "accountId": {
-                "type": "string"
-            },
-            "alias": {
-                "description": "The alias for the Multi-Region Access Point.\n",
-                "type": "string"
-            },
-            "arn": {
-                "description": "Amazon Resource Name (ARN) of the Multi-Region Access Point.\n",
-                "type": "string"
-            },
-            "createdAt": {
-                "description": "Timestamp when the resource has been created.\n",
-                "type": "string"
-            },
-            "domainName": {
-                "description": "The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "publicAccessBlocks": {
-                "description": "Public Access Block of the Multi-Region Access Point. Detailed below.\n",
-                "items": {
-                    "$ref": "#/types/aws:s3control/getMultiRegionAccessPointPublicAccessBlock:getMultiRegionAccessPointPublicAccessBlock"
+            "inputs": {
+                "description": "A collection of arguments for invoking getMultiRegionAccessPoint.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Multi-Region Access Point.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object",
+                "required": [
+                    "name"
+                ]
             },
-            "regions": {
-                "description": "A collection of the regions and buckets associated with the Multi-Region Access Point.\n",
-                "items": {
-                    "$ref": "#/types/aws:s3control/getMultiRegionAccessPointRegion:getMultiRegionAccessPointRegion"
+            "outputs": {
+                "description": "A collection of values returned by getMultiRegionAccessPoint.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
+                    "alias": {
+                        "description": "The alias for the Multi-Region Access Point.\n",
+                        "type": "string"
+                    },
+                    "arn": {
+                        "description": "Amazon Resource Name (ARN) of the Multi-Region Access Point.\n",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "description": "Timestamp when the resource has been created.\n",
+                        "type": "string"
+                    },
+                    "domainName": {
+                        "description": "The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "publicAccessBlocks": {
+                        "description": "Public Access Block of the Multi-Region Access Point. Detailed below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:s3control/getMultiRegionAccessPointPublicAccessBlock:getMultiRegionAccessPointPublicAccessBlock"
+                        },
+                        "type": "array"
+                    },
+                    "regions": {
+                        "description": "A collection of the regions and buckets associated with the Multi-Region Access Point.\n",
+                        "items": {
+                            "$ref": "#/types/aws:s3control/getMultiRegionAccessPointRegion:getMultiRegionAccessPointRegion"
+                        },
+                        "type": "array"
+                    },
+                    "status": {
+                        "description": "The current status of the Multi-Region Access Point.\n",
+                        "type": "string"
+                    }
                 },
-                "type": "array"
-            },
-            "status": {
-                "description": "The current status of the Multi-Region Access Point.\n",
-                "type": "string"
+                "required": [
+                    "accountId",
+                    "alias",
+                    "arn",
+                    "createdAt",
+                    "domainName",
+                    "name",
+                    "publicAccessBlocks",
+                    "regions",
+                    "status",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "accountId",
-            "alias",
-            "arn",
-            "createdAt",
-            "domainName",
-            "name",
-            "publicAccessBlocks",
-            "regions",
-            "status",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

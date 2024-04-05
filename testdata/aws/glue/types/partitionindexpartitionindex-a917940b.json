@@ -1,28 +1,28 @@
 {
-    "properties": {
-        "indexName": {
-            "type": "string",
-            "description": "Name of the partition index.\n",
-            "willReplaceOnChanges": true
-        },
-        "indexStatus": {
-            "type": "string"
-        },
-        "keys": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "indexName": {
+                    "type": "string",
+                    "description": "Name of the partition index.\n",
+                    "willReplaceOnChanges": true
+                },
+                "indexStatus": {
+                    "type": "string"
+                },
+                "keys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Keys for the partition index.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "description": "Keys for the partition index.\n",
-            "willReplaceOnChanges": true
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "indexStatus"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "indexStatus"
-            ]
-        }
-    }
-}

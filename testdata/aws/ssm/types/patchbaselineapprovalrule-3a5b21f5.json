@@ -1,31 +1,31 @@
 {
-    "properties": {
-        "approveAfterDays": {
-            "type": "integer",
-            "description": "The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.\nValid Range: 0 to 100.\nConflicts with `approve_until_date`.\n"
-        },
-        "approveUntilDate": {
-            "type": "string",
-            "description": "The cutoff date for auto approval of released patches.\nAny patches released on or before this date are installed automatically.\nDate is formatted as `YYYY-MM-DD`.\nConflicts with `approve_after_days`\n"
-        },
-        "complianceLevel": {
-            "type": "string",
-            "description": "The compliance level for patches approved by this rule.\nValid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`.\nThe default value is `UNSPECIFIED`.\n"
-        },
-        "enableNonSecurity": {
-            "type": "boolean",
-            "description": "Boolean enabling the application of non-security updates.\nThe default value is `false`.\nValid for Linux instances only.\n"
-        },
-        "patchFilters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ssm/PatchBaselineApprovalRulePatchFilter:PatchBaselineApprovalRulePatchFilter"
+            "properties": {
+                "approveAfterDays": {
+                    "type": "integer",
+                    "description": "The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.\nValid Range: 0 to 100.\nConflicts with `approve_until_date`.\n"
+                },
+                "approveUntilDate": {
+                    "type": "string",
+                    "description": "The cutoff date for auto approval of released patches.\nAny patches released on or before this date are installed automatically.\nDate is formatted as `YYYY-MM-DD`.\nConflicts with `approve_after_days`\n"
+                },
+                "complianceLevel": {
+                    "type": "string",
+                    "description": "The compliance level for patches approved by this rule.\nValid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`.\nThe default value is `UNSPECIFIED`.\n"
+                },
+                "enableNonSecurity": {
+                    "type": "boolean",
+                    "description": "Boolean enabling the application of non-security updates.\nThe default value is `false`.\nValid for Linux instances only.\n"
+                },
+                "patchFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ssm/PatchBaselineApprovalRulePatchFilter:PatchBaselineApprovalRulePatchFilter"
+                    },
+                    "description": "The patch filter group that defines the criteria for the rule.\nUp to 5 patch filters can be specified per approval rule using Key/Value pairs.\nValid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).\nValid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.\n"
+                }
             },
-            "description": "The patch filter group that defines the criteria for the rule.\nUp to 5 patch filters can be specified per approval rule using Key/Value pairs.\nValid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).\nValid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.\n"
+            "type": "object",
+            "required": [
+                "patchFilters"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "patchFilters"
-    ]
-}

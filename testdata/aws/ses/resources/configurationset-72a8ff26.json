@@ -1,100 +1,100 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "SES configuration set ARN.\n"
-        },
-        "deliveryOptions": {
-            "$ref": "#/types/aws:ses/ConfigurationSetDeliveryOptions:ConfigurationSetDeliveryOptions",
-            "description": "Whether messages that use the configuration set are required to use TLS. See below.\n"
-        },
-        "lastFreshStart": {
-            "type": "string",
-            "description": "Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the configuration set.\n\nThe following argument is optional:\n"
-        },
-        "reputationMetricsEnabled": {
-            "type": "boolean",
-            "description": "Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.\n"
-        },
-        "sendingEnabled": {
-            "type": "boolean",
-            "description": "Whether email sending is enabled or disabled for the configuration set. The default value is `true`.\n"
-        },
-        "trackingOptions": {
-            "$ref": "#/types/aws:ses/ConfigurationSetTrackingOptions:ConfigurationSetTrackingOptions",
-            "description": "Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.\n"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "SES configuration set ARN.\n"
+                },
+                "deliveryOptions": {
+                    "$ref": "#/types/aws:ses/ConfigurationSetDeliveryOptions:ConfigurationSetDeliveryOptions",
+                    "description": "Whether messages that use the configuration set are required to use TLS. See below.\n"
+                },
+                "lastFreshStart": {
+                    "type": "string",
+                    "description": "Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the configuration set.\n\nThe following argument is optional:\n"
+                },
+                "reputationMetricsEnabled": {
+                    "type": "boolean",
+                    "description": "Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.\n"
+                },
+                "sendingEnabled": {
+                    "type": "boolean",
+                    "description": "Whether email sending is enabled or disabled for the configuration set. The default value is `true`.\n"
+                },
+                "trackingOptions": {
+                    "$ref": "#/types/aws:ses/ConfigurationSetTrackingOptions:ConfigurationSetTrackingOptions",
+                    "description": "Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.\n"
+                }
+            },
+            "required": [
+                "arn",
+                "lastFreshStart",
+                "name"
+            ],
+            "inputProperties": {
+                "deliveryOptions": {
+                    "$ref": "#/types/aws:ses/ConfigurationSetDeliveryOptions:ConfigurationSetDeliveryOptions",
+                    "description": "Whether messages that use the configuration set are required to use TLS. See below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the configuration set.\n\nThe following argument is optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "reputationMetricsEnabled": {
+                    "type": "boolean",
+                    "description": "Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.\n"
+                },
+                "sendingEnabled": {
+                    "type": "boolean",
+                    "description": "Whether email sending is enabled or disabled for the configuration set. The default value is `true`.\n"
+                },
+                "trackingOptions": {
+                    "$ref": "#/types/aws:ses/ConfigurationSetTrackingOptions:ConfigurationSetTrackingOptions",
+                    "description": "Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ConfigurationSet resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "SES configuration set ARN.\n"
+                    },
+                    "deliveryOptions": {
+                        "$ref": "#/types/aws:ses/ConfigurationSetDeliveryOptions:ConfigurationSetDeliveryOptions",
+                        "description": "Whether messages that use the configuration set are required to use TLS. See below.\n"
+                    },
+                    "lastFreshStart": {
+                        "type": "string",
+                        "description": "Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the configuration set.\n\nThe following argument is optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "reputationMetricsEnabled": {
+                        "type": "boolean",
+                        "description": "Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.\n"
+                    },
+                    "sendingEnabled": {
+                        "type": "boolean",
+                        "description": "Whether email sending is enabled or disabled for the configuration set. The default value is `true`.\n"
+                    },
+                    "trackingOptions": {
+                        "$ref": "#/types/aws:ses/ConfigurationSetTrackingOptions:ConfigurationSetTrackingOptions",
+                        "description": "Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "aliases": [
+                {
+                    "type": "aws:ses/confgurationSet:ConfgurationSet"
+                }
+            ]
         }
-    },
-    "required": [
-        "arn",
-        "lastFreshStart",
-        "name"
-    ],
-    "inputProperties": {
-        "deliveryOptions": {
-            "$ref": "#/types/aws:ses/ConfigurationSetDeliveryOptions:ConfigurationSetDeliveryOptions",
-            "description": "Whether messages that use the configuration set are required to use TLS. See below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the configuration set.\n\nThe following argument is optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "reputationMetricsEnabled": {
-            "type": "boolean",
-            "description": "Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.\n"
-        },
-        "sendingEnabled": {
-            "type": "boolean",
-            "description": "Whether email sending is enabled or disabled for the configuration set. The default value is `true`.\n"
-        },
-        "trackingOptions": {
-            "$ref": "#/types/aws:ses/ConfigurationSetTrackingOptions:ConfigurationSetTrackingOptions",
-            "description": "Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.\n"
-        }
-    },
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ConfigurationSet resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "SES configuration set ARN.\n"
-            },
-            "deliveryOptions": {
-                "$ref": "#/types/aws:ses/ConfigurationSetDeliveryOptions:ConfigurationSetDeliveryOptions",
-                "description": "Whether messages that use the configuration set are required to use TLS. See below.\n"
-            },
-            "lastFreshStart": {
-                "type": "string",
-                "description": "Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name of the configuration set.\n\nThe following argument is optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "reputationMetricsEnabled": {
-                "type": "boolean",
-                "description": "Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.\n"
-            },
-            "sendingEnabled": {
-                "type": "boolean",
-                "description": "Whether email sending is enabled or disabled for the configuration set. The default value is `true`.\n"
-            },
-            "trackingOptions": {
-                "$ref": "#/types/aws:ses/ConfigurationSetTrackingOptions:ConfigurationSetTrackingOptions",
-                "description": "Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.\n"
-            }
-        },
-        "type": "object"
-    },
-    "aliases": [
-        {
-            "type": "aws:ses/confgurationSet:ConfgurationSet"
-        }
-    ]
-}

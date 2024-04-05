@@ -1,77 +1,77 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getQuicksightUser.\n",
-        "properties": {
-            "awsAccountId": {
-                "type": "string",
-                "description": "AWS account ID.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getQuicksightUser.\n",
+                "properties": {
+                    "awsAccountId": {
+                        "type": "string",
+                        "description": "AWS account ID.\n"
+                    },
+                    "namespace": {
+                        "type": "string",
+                        "description": "QuickSight namespace. Defaults to `default`.\n"
+                    },
+                    "userName": {
+                        "type": "string",
+                        "description": "The name of the user that you want to match.\n\nThe following arguments are optional:\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "userName"
+                ]
             },
-            "namespace": {
-                "type": "string",
-                "description": "QuickSight namespace. Defaults to `default`.\n"
-            },
-            "userName": {
-                "type": "string",
-                "description": "The name of the user that you want to match.\n\nThe following arguments are optional:\n"
+            "outputs": {
+                "description": "A collection of values returned by getQuicksightUser.\n",
+                "properties": {
+                    "active": {
+                        "description": "The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.\n",
+                        "type": "boolean"
+                    },
+                    "arn": {
+                        "description": "The Amazon Resource Name (ARN) for the user.\n",
+                        "type": "string"
+                    },
+                    "awsAccountId": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "The user's email address.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "identityType": {
+                        "description": "The type of identity authentication used by the user.\n",
+                        "type": "string"
+                    },
+                    "namespace": {
+                        "type": "string"
+                    },
+                    "principalId": {
+                        "description": "The principal ID of the user.\n",
+                        "type": "string"
+                    },
+                    "userName": {
+                        "type": "string"
+                    },
+                    "userRole": {
+                        "description": "The Amazon QuickSight role for the user. The user role can be one of the following:.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "active",
+                    "arn",
+                    "awsAccountId",
+                    "email",
+                    "identityType",
+                    "principalId",
+                    "userName",
+                    "userRole",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "userName"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getQuicksightUser.\n",
-        "properties": {
-            "active": {
-                "description": "The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.\n",
-                "type": "boolean"
-            },
-            "arn": {
-                "description": "The Amazon Resource Name (ARN) for the user.\n",
-                "type": "string"
-            },
-            "awsAccountId": {
-                "type": "string"
-            },
-            "email": {
-                "description": "The user's email address.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "identityType": {
-                "description": "The type of identity authentication used by the user.\n",
-                "type": "string"
-            },
-            "namespace": {
-                "type": "string"
-            },
-            "principalId": {
-                "description": "The principal ID of the user.\n",
-                "type": "string"
-            },
-            "userName": {
-                "type": "string"
-            },
-            "userRole": {
-                "description": "The Amazon QuickSight role for the user. The user role can be one of the following:.\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "active",
-            "arn",
-            "awsAccountId",
-            "email",
-            "identityType",
-            "principalId",
-            "userName",
-            "userRole",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

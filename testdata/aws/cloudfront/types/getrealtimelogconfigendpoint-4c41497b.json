@@ -1,25 +1,25 @@
 {
-    "properties": {
-        "kinesisStreamConfigs": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:cloudfront/getRealtimeLogConfigEndpointKinesisStreamConfig:getRealtimeLogConfigEndpointKinesisStreamConfig"
+            "properties": {
+                "kinesisStreamConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:cloudfront/getRealtimeLogConfigEndpointKinesisStreamConfig:getRealtimeLogConfigEndpointKinesisStreamConfig"
+                    },
+                    "description": "(Required) Amazon Kinesis data stream configuration.\n"
+                },
+                "streamType": {
+                    "type": "string",
+                    "description": "(Required) Type of data stream where real-time log data is sent. The only valid value is `Kinesis`.\n"
+                }
             },
-            "description": "(Required) Amazon Kinesis data stream configuration.\n"
-        },
-        "streamType": {
-            "type": "string",
-            "description": "(Required) Type of data stream where real-time log data is sent. The only valid value is `Kinesis`.\n"
+            "type": "object",
+            "required": [
+                "kinesisStreamConfigs",
+                "streamType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "kinesisStreamConfigs",
-        "streamType"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

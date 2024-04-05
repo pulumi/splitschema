@@ -1,32 +1,32 @@
 {
-    "properties": {
-        "desiredState": {
-            "type": "string",
-            "description": "The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.\n"
-        },
-        "maintenanceSchedules": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:elasticsearch/DomainAutoTuneOptionsMaintenanceSchedule:DomainAutoTuneOptionsMaintenanceSchedule"
+            "properties": {
+                "desiredState": {
+                    "type": "string",
+                    "description": "The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.\n"
+                },
+                "maintenanceSchedules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:elasticsearch/DomainAutoTuneOptionsMaintenanceSchedule:DomainAutoTuneOptionsMaintenanceSchedule"
+                    },
+                    "description": "Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.\n"
+                },
+                "rollbackOnDisable": {
+                    "type": "string",
+                    "description": "Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.\n"
+                }
             },
-            "description": "Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.\n"
-        },
-        "rollbackOnDisable": {
-            "type": "string",
-            "description": "Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.\n"
+            "type": "object",
+            "required": [
+                "desiredState"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "desiredState",
+                        "maintenanceSchedules",
+                        "rollbackOnDisable"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "desiredState"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "desiredState",
-                "maintenanceSchedules",
-                "rollbackOnDisable"
-            ]
-        }
-    }
-}

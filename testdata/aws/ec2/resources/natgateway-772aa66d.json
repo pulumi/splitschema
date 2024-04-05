@@ -1,200 +1,200 @@
 {
-    "properties": {
-        "allocationId": {
-            "type": "string",
-            "description": "The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.\n"
-        },
-        "associationId": {
-            "type": "string",
-            "description": "The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.\n"
-        },
-        "connectivityType": {
-            "type": "string",
-            "description": "Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.\n"
-        },
-        "networkInterfaceId": {
-            "type": "string",
-            "description": "The ID of the network interface associated with the NAT Gateway.\n"
-        },
-        "privateIp": {
-            "type": "string",
-            "description": "The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.\n"
-        },
-        "publicIp": {
-            "type": "string",
-            "description": "The Elastic IP address associated with the NAT Gateway.\n"
-        },
-        "secondaryAllocationIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of secondary allocation EIP IDs for this NAT Gateway.\n"
-        },
-        "secondaryPrivateIpAddressCount": {
-            "type": "integer",
-            "description": "[Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.\n"
-        },
-        "secondaryPrivateIpAddresses": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of secondary private IPv4 addresses to assign to the NAT Gateway.\n"
-        },
-        "subnetId": {
-            "type": "string",
-            "description": "The Subnet ID of the subnet in which to place the NAT Gateway.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "associationId",
-        "networkInterfaceId",
-        "privateIp",
-        "publicIp",
-        "secondaryPrivateIpAddressCount",
-        "secondaryPrivateIpAddresses",
-        "subnetId",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "allocationId": {
-            "type": "string",
-            "description": "The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.\n",
-            "willReplaceOnChanges": true
-        },
-        "connectivityType": {
-            "type": "string",
-            "description": "Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.\n",
-            "willReplaceOnChanges": true
-        },
-        "privateIp": {
-            "type": "string",
-            "description": "The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.\n",
-            "willReplaceOnChanges": true
-        },
-        "secondaryAllocationIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of secondary allocation EIP IDs for this NAT Gateway.\n"
-        },
-        "secondaryPrivateIpAddressCount": {
-            "type": "integer",
-            "description": "[Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.\n",
-            "willReplaceOnChanges": true
-        },
-        "secondaryPrivateIpAddresses": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of secondary private IPv4 addresses to assign to the NAT Gateway.\n"
-        },
-        "subnetId": {
-            "type": "string",
-            "description": "The Subnet ID of the subnet in which to place the NAT Gateway.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "subnetId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering NatGateway resources.\n",
-        "properties": {
-            "allocationId": {
-                "type": "string",
-                "description": "The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.\n",
-                "willReplaceOnChanges": true
-            },
-            "associationId": {
-                "type": "string",
-                "description": "The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.\n"
-            },
-            "connectivityType": {
-                "type": "string",
-                "description": "Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.\n",
-                "willReplaceOnChanges": true
-            },
-            "networkInterfaceId": {
-                "type": "string",
-                "description": "The ID of the network interface associated with the NAT Gateway.\n"
-            },
-            "privateIp": {
-                "type": "string",
-                "description": "The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.\n",
-                "willReplaceOnChanges": true
-            },
-            "publicIp": {
-                "type": "string",
-                "description": "The Elastic IP address associated with the NAT Gateway.\n"
-            },
-            "secondaryAllocationIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "allocationId": {
+                    "type": "string",
+                    "description": "The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.\n"
                 },
-                "description": "A list of secondary allocation EIP IDs for this NAT Gateway.\n"
-            },
-            "secondaryPrivateIpAddressCount": {
-                "type": "integer",
-                "description": "[Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.\n",
-                "willReplaceOnChanges": true
-            },
-            "secondaryPrivateIpAddresses": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "associationId": {
+                    "type": "string",
+                    "description": "The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.\n"
                 },
-                "description": "A list of secondary private IPv4 addresses to assign to the NAT Gateway.\n"
-            },
-            "subnetId": {
-                "type": "string",
-                "description": "The Subnet ID of the subnet in which to place the NAT Gateway.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "connectivityType": {
+                    "type": "string",
+                    "description": "Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.\n"
                 },
-                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "networkInterfaceId": {
+                    "type": "string",
+                    "description": "The ID of the network interface associated with the NAT Gateway.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "privateIp": {
+                    "type": "string",
+                    "description": "The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.\n"
+                },
+                "publicIp": {
+                    "type": "string",
+                    "description": "The Elastic IP address associated with the NAT Gateway.\n"
+                },
+                "secondaryAllocationIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of secondary allocation EIP IDs for this NAT Gateway.\n"
+                },
+                "secondaryPrivateIpAddressCount": {
+                    "type": "integer",
+                    "description": "[Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.\n"
+                },
+                "secondaryPrivateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of secondary private IPv4 addresses to assign to the NAT Gateway.\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "The Subnet ID of the subnet in which to place the NAT Gateway.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "associationId",
+                "networkInterfaceId",
+                "privateIp",
+                "publicIp",
+                "secondaryPrivateIpAddressCount",
+                "secondaryPrivateIpAddresses",
+                "subnetId",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "allocationId": {
+                    "type": "string",
+                    "description": "The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "connectivityType": {
+                    "type": "string",
+                    "description": "Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "privateIp": {
+                    "type": "string",
+                    "description": "The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.\n",
+                    "willReplaceOnChanges": true
+                },
+                "secondaryAllocationIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of secondary allocation EIP IDs for this NAT Gateway.\n"
+                },
+                "secondaryPrivateIpAddressCount": {
+                    "type": "integer",
+                    "description": "[Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.\n",
+                    "willReplaceOnChanges": true
+                },
+                "secondaryPrivateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of secondary private IPv4 addresses to assign to the NAT Gateway.\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "The Subnet ID of the subnet in which to place the NAT Gateway.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "subnetId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NatGateway resources.\n",
+                "properties": {
+                    "allocationId": {
+                        "type": "string",
+                        "description": "The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "associationId": {
+                        "type": "string",
+                        "description": "The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.\n"
+                    },
+                    "connectivityType": {
+                        "type": "string",
+                        "description": "Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "networkInterfaceId": {
+                        "type": "string",
+                        "description": "The ID of the network interface associated with the NAT Gateway.\n"
+                    },
+                    "privateIp": {
+                        "type": "string",
+                        "description": "The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "publicIp": {
+                        "type": "string",
+                        "description": "The Elastic IP address associated with the NAT Gateway.\n"
+                    },
+                    "secondaryAllocationIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of secondary allocation EIP IDs for this NAT Gateway.\n"
+                    },
+                    "secondaryPrivateIpAddressCount": {
+                        "type": "integer",
+                        "description": "[Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "secondaryPrivateIpAddresses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of secondary private IPv4 addresses to assign to the NAT Gateway.\n"
+                    },
+                    "subnetId": {
+                        "type": "string",
+                        "description": "The Subnet ID of the subnet in which to place the NAT Gateway.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

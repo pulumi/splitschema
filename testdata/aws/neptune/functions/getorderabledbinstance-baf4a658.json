@@ -1,150 +1,150 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getOrderableDbInstance.\n",
-        "properties": {
-            "engine": {
-                "type": "string",
-                "description": "DB engine. (Default: `neptune`)\n"
-            },
-            "engineVersion": {
-                "type": "string",
-                "description": "Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.\n"
-            },
-            "instanceClass": {
-                "type": "string",
-                "description": "DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.\n"
-            },
-            "licenseModel": {
-                "type": "string",
-                "description": "License model. (Default: `amazon-license`)\n"
-            },
-            "preferredInstanceClasses": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getOrderableDbInstance.\n",
+                "properties": {
+                    "engine": {
+                        "type": "string",
+                        "description": "DB engine. (Default: `neptune`)\n"
+                    },
+                    "engineVersion": {
+                        "type": "string",
+                        "description": "Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.\n"
+                    },
+                    "instanceClass": {
+                        "type": "string",
+                        "description": "DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.\n"
+                    },
+                    "licenseModel": {
+                        "type": "string",
+                        "description": "License model. (Default: `amazon-license`)\n"
+                    },
+                    "preferredInstanceClasses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.\n"
+                    },
+                    "vpc": {
+                        "type": "boolean",
+                        "description": "Enable to show only VPC offerings.\n"
+                    }
                 },
-                "description": "Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.\n"
+                "type": "object"
             },
-            "vpc": {
-                "type": "boolean",
-                "description": "Enable to show only VPC offerings.\n"
+            "outputs": {
+                "description": "A collection of values returned by getOrderableDbInstance.\n",
+                "properties": {
+                    "availabilityZones": {
+                        "description": "Availability zones where the instance is available.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "engine": {
+                        "type": "string"
+                    },
+                    "engineVersion": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "instanceClass": {
+                        "type": "string"
+                    },
+                    "licenseModel": {
+                        "type": "string"
+                    },
+                    "maxIopsPerDbInstance": {
+                        "description": "Maximum total provisioned IOPS for a DB instance.\n",
+                        "type": "integer"
+                    },
+                    "maxIopsPerGib": {
+                        "description": "Maximum provisioned IOPS per GiB for a DB instance.\n",
+                        "type": "number"
+                    },
+                    "maxStorageSize": {
+                        "description": "Maximum storage size for a DB instance.\n",
+                        "type": "integer"
+                    },
+                    "minIopsPerDbInstance": {
+                        "description": "Minimum total provisioned IOPS for a DB instance.\n",
+                        "type": "integer"
+                    },
+                    "minIopsPerGib": {
+                        "description": "Minimum provisioned IOPS per GiB for a DB instance.\n",
+                        "type": "number"
+                    },
+                    "minStorageSize": {
+                        "description": "Minimum storage size for a DB instance.\n",
+                        "type": "integer"
+                    },
+                    "multiAzCapable": {
+                        "description": "Whether a DB instance is Multi-AZ capable.\n",
+                        "type": "boolean"
+                    },
+                    "preferredInstanceClasses": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "readReplicaCapable": {
+                        "description": "Whether a DB instance can have a read replica.\n",
+                        "type": "boolean"
+                    },
+                    "storageType": {
+                        "description": "Storage type for a DB instance.\n",
+                        "type": "string"
+                    },
+                    "supportsEnhancedMonitoring": {
+                        "description": "Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.\n",
+                        "type": "boolean"
+                    },
+                    "supportsIamDatabaseAuthentication": {
+                        "description": "Whether a DB instance supports IAM database authentication.\n",
+                        "type": "boolean"
+                    },
+                    "supportsIops": {
+                        "description": "Whether a DB instance supports provisioned IOPS.\n",
+                        "type": "boolean"
+                    },
+                    "supportsPerformanceInsights": {
+                        "description": "Whether a DB instance supports Performance Insights.\n",
+                        "type": "boolean"
+                    },
+                    "supportsStorageEncryption": {
+                        "description": "Whether a DB instance supports encrypted storage.\n",
+                        "type": "boolean"
+                    },
+                    "vpc": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "availabilityZones",
+                    "engineVersion",
+                    "instanceClass",
+                    "maxIopsPerDbInstance",
+                    "maxIopsPerGib",
+                    "maxStorageSize",
+                    "minIopsPerDbInstance",
+                    "minIopsPerGib",
+                    "minStorageSize",
+                    "multiAzCapable",
+                    "readReplicaCapable",
+                    "storageType",
+                    "supportsEnhancedMonitoring",
+                    "supportsIamDatabaseAuthentication",
+                    "supportsIops",
+                    "supportsPerformanceInsights",
+                    "supportsStorageEncryption",
+                    "vpc",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getOrderableDbInstance.\n",
-        "properties": {
-            "availabilityZones": {
-                "description": "Availability zones where the instance is available.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "engine": {
-                "type": "string"
-            },
-            "engineVersion": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "instanceClass": {
-                "type": "string"
-            },
-            "licenseModel": {
-                "type": "string"
-            },
-            "maxIopsPerDbInstance": {
-                "description": "Maximum total provisioned IOPS for a DB instance.\n",
-                "type": "integer"
-            },
-            "maxIopsPerGib": {
-                "description": "Maximum provisioned IOPS per GiB for a DB instance.\n",
-                "type": "number"
-            },
-            "maxStorageSize": {
-                "description": "Maximum storage size for a DB instance.\n",
-                "type": "integer"
-            },
-            "minIopsPerDbInstance": {
-                "description": "Minimum total provisioned IOPS for a DB instance.\n",
-                "type": "integer"
-            },
-            "minIopsPerGib": {
-                "description": "Minimum provisioned IOPS per GiB for a DB instance.\n",
-                "type": "number"
-            },
-            "minStorageSize": {
-                "description": "Minimum storage size for a DB instance.\n",
-                "type": "integer"
-            },
-            "multiAzCapable": {
-                "description": "Whether a DB instance is Multi-AZ capable.\n",
-                "type": "boolean"
-            },
-            "preferredInstanceClasses": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "readReplicaCapable": {
-                "description": "Whether a DB instance can have a read replica.\n",
-                "type": "boolean"
-            },
-            "storageType": {
-                "description": "Storage type for a DB instance.\n",
-                "type": "string"
-            },
-            "supportsEnhancedMonitoring": {
-                "description": "Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.\n",
-                "type": "boolean"
-            },
-            "supportsIamDatabaseAuthentication": {
-                "description": "Whether a DB instance supports IAM database authentication.\n",
-                "type": "boolean"
-            },
-            "supportsIops": {
-                "description": "Whether a DB instance supports provisioned IOPS.\n",
-                "type": "boolean"
-            },
-            "supportsPerformanceInsights": {
-                "description": "Whether a DB instance supports Performance Insights.\n",
-                "type": "boolean"
-            },
-            "supportsStorageEncryption": {
-                "description": "Whether a DB instance supports encrypted storage.\n",
-                "type": "boolean"
-            },
-            "vpc": {
-                "type": "boolean"
-            }
-        },
-        "required": [
-            "availabilityZones",
-            "engineVersion",
-            "instanceClass",
-            "maxIopsPerDbInstance",
-            "maxIopsPerGib",
-            "maxStorageSize",
-            "minIopsPerDbInstance",
-            "minIopsPerGib",
-            "minStorageSize",
-            "multiAzCapable",
-            "readReplicaCapable",
-            "storageType",
-            "supportsEnhancedMonitoring",
-            "supportsIamDatabaseAuthentication",
-            "supportsIops",
-            "supportsPerformanceInsights",
-            "supportsStorageEncryption",
-            "vpc",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

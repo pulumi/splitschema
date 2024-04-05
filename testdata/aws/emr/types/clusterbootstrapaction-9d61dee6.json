@@ -1,25 +1,25 @@
 {
-    "properties": {
-        "args": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "args": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of command line arguments to pass to the bootstrap action script.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the bootstrap action.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.\n"
+                }
             },
-            "description": "List of command line arguments to pass to the bootstrap action script.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the bootstrap action.\n"
-        },
-        "path": {
-            "type": "string",
-            "description": "Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.\n"
+            "type": "object",
+            "required": [
+                "name",
+                "path"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "name",
-        "path"
-    ]
-}

@@ -1,161 +1,161 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getSnapshot.\n",
-        "properties": {
-            "dbInstanceIdentifier": {
-                "type": "string",
-                "description": "Returns the list of snapshots created by the specific db_instance\n"
-            },
-            "dbSnapshotIdentifier": {
-                "type": "string",
-                "description": "Returns information on a specific snapshot_id.\n"
-            },
-            "includePublic": {
-                "type": "boolean",
-                "description": "Set this value to true to include manual DB snapshots that are public and can be\ncopied or restored by any AWS account, otherwise set this value to false. The default is `false`.\n"
-            },
-            "includeShared": {
-                "type": "boolean",
-                "description": "Set this value to true to include shared manual DB snapshots from other\nAWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.\nThe default is `false`.\n"
-            },
-            "mostRecent": {
-                "type": "boolean",
-                "description": "If more than one result is returned, use the most\nrecent Snapshot.\n"
-            },
-            "snapshotType": {
-                "type": "string",
-                "description": "Type of snapshots to be returned. If you don't specify a SnapshotType\nvalue, then both automated and manual snapshots are returned. Shared and public DB snapshots are not\nincluded in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Mapping of tags, each pair of which must exactly match\na pair on the desired DB snapshot.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getSnapshot.\n",
-        "properties": {
-            "allocatedStorage": {
-                "description": "Allocated storage size in gigabytes (GB).\n",
-                "type": "integer"
-            },
-            "availabilityZone": {
-                "description": "Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.\n",
-                "type": "string"
-            },
-            "dbInstanceIdentifier": {
-                "type": "string"
-            },
-            "dbSnapshotArn": {
-                "description": "ARN for the DB snapshot.\n",
-                "type": "string"
-            },
-            "dbSnapshotIdentifier": {
-                "type": "string"
-            },
-            "encrypted": {
-                "description": "Whether the DB snapshot is encrypted.\n",
-                "type": "boolean"
-            },
-            "engine": {
-                "description": "Name of the database engine.\n",
-                "type": "string"
-            },
-            "engineVersion": {
-                "description": "Version of the database engine.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "includePublic": {
-                "type": "boolean"
-            },
-            "includeShared": {
-                "type": "boolean"
-            },
-            "iops": {
-                "description": "Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.\n",
-                "type": "integer"
-            },
-            "kmsKeyId": {
-                "description": "ARN for the KMS encryption key.\n",
-                "type": "string"
-            },
-            "licenseModel": {
-                "description": "License model information for the restored DB instance.\n",
-                "type": "string"
-            },
-            "mostRecent": {
-                "type": "boolean"
-            },
-            "optionGroupName": {
-                "description": "Provides the option group name for the DB snapshot.\n",
-                "type": "string"
-            },
-            "port": {
-                "type": "integer"
-            },
-            "snapshotCreateTime": {
-                "description": "Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).\n",
-                "type": "string"
-            },
-            "snapshotType": {
-                "type": "string"
-            },
-            "sourceDbSnapshotIdentifier": {
-                "description": "DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.\n",
-                "type": "string"
-            },
-            "sourceRegion": {
-                "description": "Region that the DB snapshot was created in or copied from.\n",
-                "type": "string"
-            },
-            "status": {
-                "description": "Status of this DB snapshot.\n",
-                "type": "string"
-            },
-            "storageType": {
-                "description": "Storage type associated with DB snapshot.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getSnapshot.\n",
+                "properties": {
+                    "dbInstanceIdentifier": {
+                        "type": "string",
+                        "description": "Returns the list of snapshots created by the specific db_instance\n"
+                    },
+                    "dbSnapshotIdentifier": {
+                        "type": "string",
+                        "description": "Returns information on a specific snapshot_id.\n"
+                    },
+                    "includePublic": {
+                        "type": "boolean",
+                        "description": "Set this value to true to include manual DB snapshots that are public and can be\ncopied or restored by any AWS account, otherwise set this value to false. The default is `false`.\n"
+                    },
+                    "includeShared": {
+                        "type": "boolean",
+                        "description": "Set this value to true to include shared manual DB snapshots from other\nAWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.\nThe default is `false`.\n"
+                    },
+                    "mostRecent": {
+                        "type": "boolean",
+                        "description": "If more than one result is returned, use the most\nrecent Snapshot.\n"
+                    },
+                    "snapshotType": {
+                        "type": "string",
+                        "description": "Type of snapshots to be returned. If you don't specify a SnapshotType\nvalue, then both automated and manual snapshots are returned. Shared and public DB snapshots are not\nincluded in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Mapping of tags, each pair of which must exactly match\na pair on the desired DB snapshot.\n"
+                    }
                 },
                 "type": "object"
             },
-            "vpcId": {
-                "description": "ID of the VPC associated with the DB snapshot.\n",
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getSnapshot.\n",
+                "properties": {
+                    "allocatedStorage": {
+                        "description": "Allocated storage size in gigabytes (GB).\n",
+                        "type": "integer"
+                    },
+                    "availabilityZone": {
+                        "description": "Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.\n",
+                        "type": "string"
+                    },
+                    "dbInstanceIdentifier": {
+                        "type": "string"
+                    },
+                    "dbSnapshotArn": {
+                        "description": "ARN for the DB snapshot.\n",
+                        "type": "string"
+                    },
+                    "dbSnapshotIdentifier": {
+                        "type": "string"
+                    },
+                    "encrypted": {
+                        "description": "Whether the DB snapshot is encrypted.\n",
+                        "type": "boolean"
+                    },
+                    "engine": {
+                        "description": "Name of the database engine.\n",
+                        "type": "string"
+                    },
+                    "engineVersion": {
+                        "description": "Version of the database engine.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "includePublic": {
+                        "type": "boolean"
+                    },
+                    "includeShared": {
+                        "type": "boolean"
+                    },
+                    "iops": {
+                        "description": "Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.\n",
+                        "type": "integer"
+                    },
+                    "kmsKeyId": {
+                        "description": "ARN for the KMS encryption key.\n",
+                        "type": "string"
+                    },
+                    "licenseModel": {
+                        "description": "License model information for the restored DB instance.\n",
+                        "type": "string"
+                    },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
+                    "optionGroupName": {
+                        "description": "Provides the option group name for the DB snapshot.\n",
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "integer"
+                    },
+                    "snapshotCreateTime": {
+                        "description": "Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).\n",
+                        "type": "string"
+                    },
+                    "snapshotType": {
+                        "type": "string"
+                    },
+                    "sourceDbSnapshotIdentifier": {
+                        "description": "DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.\n",
+                        "type": "string"
+                    },
+                    "sourceRegion": {
+                        "description": "Region that the DB snapshot was created in or copied from.\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Status of this DB snapshot.\n",
+                        "type": "string"
+                    },
+                    "storageType": {
+                        "description": "Storage type associated with DB snapshot.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "vpcId": {
+                        "description": "ID of the VPC associated with the DB snapshot.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "allocatedStorage",
+                    "availabilityZone",
+                    "dbSnapshotArn",
+                    "encrypted",
+                    "engine",
+                    "engineVersion",
+                    "iops",
+                    "kmsKeyId",
+                    "licenseModel",
+                    "optionGroupName",
+                    "port",
+                    "snapshotCreateTime",
+                    "sourceDbSnapshotIdentifier",
+                    "sourceRegion",
+                    "status",
+                    "storageType",
+                    "tags",
+                    "vpcId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "allocatedStorage",
-            "availabilityZone",
-            "dbSnapshotArn",
-            "encrypted",
-            "engine",
-            "engineVersion",
-            "iops",
-            "kmsKeyId",
-            "licenseModel",
-            "optionGroupName",
-            "port",
-            "snapshotCreateTime",
-            "sourceDbSnapshotIdentifier",
-            "sourceRegion",
-            "status",
-            "storageType",
-            "tags",
-            "vpcId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

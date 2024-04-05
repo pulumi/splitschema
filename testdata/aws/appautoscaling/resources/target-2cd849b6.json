@@ -1,154 +1,154 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the scalable target.\n"
-        },
-        "maxCapacity": {
-            "type": "integer",
-            "description": "Max capacity of the scalable target.\n"
-        },
-        "minCapacity": {
-            "type": "integer",
-            "description": "Min capacity of the scalable target.\n"
-        },
-        "resourceId": {
-            "type": "string",
-            "description": "Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.\n"
-        },
-        "scalableDimension": {
-            "type": "string",
-            "description": "Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n"
-        },
-        "serviceNamespace": {
-            "type": "string",
-            "description": "AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "maxCapacity",
-        "minCapacity",
-        "resourceId",
-        "roleArn",
-        "scalableDimension",
-        "serviceNamespace",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "maxCapacity": {
-            "type": "integer",
-            "description": "Max capacity of the scalable target.\n"
-        },
-        "minCapacity": {
-            "type": "integer",
-            "description": "Min capacity of the scalable target.\n"
-        },
-        "resourceId": {
-            "type": "string",
-            "description": "Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n",
-            "willReplaceOnChanges": true
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.\n"
-        },
-        "scalableDimension": {
-            "type": "string",
-            "description": "Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n",
-            "willReplaceOnChanges": true
-        },
-        "serviceNamespace": {
-            "type": "string",
-            "description": "AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "maxCapacity",
-        "minCapacity",
-        "resourceId",
-        "scalableDimension",
-        "serviceNamespace"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Target resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the scalable target.\n"
-            },
-            "maxCapacity": {
-                "type": "integer",
-                "description": "Max capacity of the scalable target.\n"
-            },
-            "minCapacity": {
-                "type": "integer",
-                "description": "Min capacity of the scalable target.\n"
-            },
-            "resourceId": {
-                "type": "string",
-                "description": "Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n",
-                "willReplaceOnChanges": true
-            },
-            "roleArn": {
-                "type": "string",
-                "description": "ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.\n"
-            },
-            "scalableDimension": {
-                "type": "string",
-                "description": "Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n",
-                "willReplaceOnChanges": true
-            },
-            "serviceNamespace": {
-                "type": "string",
-                "description": "AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the scalable target.\n"
                 },
-                "description": "Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "maxCapacity": {
+                    "type": "integer",
+                    "description": "Max capacity of the scalable target.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "minCapacity": {
+                    "type": "integer",
+                    "description": "Min capacity of the scalable target.\n"
+                },
+                "resourceId": {
+                    "type": "string",
+                    "description": "Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.\n"
+                },
+                "scalableDimension": {
+                    "type": "string",
+                    "description": "Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n"
+                },
+                "serviceNamespace": {
+                    "type": "string",
+                    "description": "AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "maxCapacity",
+                "minCapacity",
+                "resourceId",
+                "roleArn",
+                "scalableDimension",
+                "serviceNamespace",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "maxCapacity": {
+                    "type": "integer",
+                    "description": "Max capacity of the scalable target.\n"
+                },
+                "minCapacity": {
+                    "type": "integer",
+                    "description": "Min capacity of the scalable target.\n"
+                },
+                "resourceId": {
+                    "type": "string",
+                    "description": "Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n",
+                    "willReplaceOnChanges": true
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.\n"
+                },
+                "scalableDimension": {
+                    "type": "string",
+                    "description": "Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n",
+                    "willReplaceOnChanges": true
+                },
+                "serviceNamespace": {
+                    "type": "string",
+                    "description": "AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "maxCapacity",
+                "minCapacity",
+                "resourceId",
+                "scalableDimension",
+                "serviceNamespace"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Target resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the scalable target.\n"
+                    },
+                    "maxCapacity": {
+                        "type": "integer",
+                        "description": "Max capacity of the scalable target.\n"
+                    },
+                    "minCapacity": {
+                        "type": "integer",
+                        "description": "Min capacity of the scalable target.\n"
+                    },
+                    "resourceId": {
+                        "type": "string",
+                        "description": "Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "roleArn": {
+                        "type": "string",
+                        "description": "ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.\n"
+                    },
+                    "scalableDimension": {
+                        "type": "string",
+                        "description": "Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "serviceNamespace": {
+                        "type": "string",
+                        "description": "AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,127 +1,127 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Workflow ARN.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A textual description for the workflow.\n"
-        },
-        "onExceptionSteps": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:transfer/WorkflowOnExceptionStep:WorkflowOnExceptionStep"
-            },
-            "description": "Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.\n"
-        },
-        "steps": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:transfer/WorkflowStep:WorkflowStep"
-            },
-            "description": "Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "steps",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "description": {
-            "type": "string",
-            "description": "A textual description for the workflow.\n",
-            "willReplaceOnChanges": true
-        },
-        "onExceptionSteps": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:transfer/WorkflowOnExceptionStep:WorkflowOnExceptionStep"
-            },
-            "description": "Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.\n",
-            "willReplaceOnChanges": true
-        },
-        "steps": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:transfer/WorkflowStep:WorkflowStep"
-            },
-            "description": "Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "steps"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Workflow resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Workflow ARN.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "A textual description for the workflow.\n",
-                "willReplaceOnChanges": true
-            },
-            "onExceptionSteps": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:transfer/WorkflowOnExceptionStep:WorkflowOnExceptionStep"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Workflow ARN.\n"
                 },
-                "description": "Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.\n",
-                "willReplaceOnChanges": true
-            },
-            "steps": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:transfer/WorkflowStep:WorkflowStep"
+                "description": {
+                    "type": "string",
+                    "description": "A textual description for the workflow.\n"
                 },
-                "description": "Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "onExceptionSteps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:transfer/WorkflowOnExceptionStep:WorkflowOnExceptionStep"
+                    },
+                    "description": "Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.\n"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "steps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:transfer/WorkflowStep:WorkflowStep"
+                    },
+                    "description": "Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "steps",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A textual description for the workflow.\n",
+                    "willReplaceOnChanges": true
+                },
+                "onExceptionSteps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:transfer/WorkflowOnExceptionStep:WorkflowOnExceptionStep"
+                    },
+                    "description": "Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "steps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:transfer/WorkflowStep:WorkflowStep"
+                    },
+                    "description": "Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "steps"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Workflow resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Workflow ARN.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A textual description for the workflow.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "onExceptionSteps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:transfer/WorkflowOnExceptionStep:WorkflowOnExceptionStep"
+                        },
+                        "description": "Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "steps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:transfer/WorkflowStep:WorkflowStep"
+                        },
+                        "description": "Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,52 +1,52 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getWorkspaces.\n",
-        "properties": {
-            "aliasPrefix": {
-                "type": "string",
-                "description": "Limits results to workspaces with aliases that begin with this value.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getWorkspaces.\n",
+                "properties": {
+                    "aliasPrefix": {
+                        "type": "string",
+                        "description": "Limits results to workspaces with aliases that begin with this value.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getWorkspaces.\n",
+                "properties": {
+                    "aliasPrefix": {
+                        "type": "string"
+                    },
+                    "aliases": {
+                        "description": "List of aliases of the matched Prometheus workspaces.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "arns": {
+                        "description": "List of ARNs of the matched Prometheus workspaces.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "workspaceIds": {
+                        "description": "List of workspace IDs of the matched Prometheus workspaces.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "aliases",
+                    "arns",
+                    "workspaceIds",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getWorkspaces.\n",
-        "properties": {
-            "aliasPrefix": {
-                "type": "string"
-            },
-            "aliases": {
-                "description": "List of aliases of the matched Prometheus workspaces.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "arns": {
-                "description": "List of ARNs of the matched Prometheus workspaces.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "workspaceIds": {
-                "description": "List of workspace IDs of the matched Prometheus workspaces.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            }
-        },
-        "required": [
-            "aliases",
-            "arns",
-            "workspaceIds",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

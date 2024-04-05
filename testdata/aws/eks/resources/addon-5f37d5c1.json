@@ -1,204 +1,204 @@
 {
-    "properties": {
-        "addonName": {
-            "type": "string",
-            "description": "Name of the EKS add-on. The name must match one of\nthe names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).\n"
-        },
-        "addonVersion": {
-            "type": "string",
-            "description": "The version of the EKS add-on. The version must\nmatch one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the EKS add-on.\n"
-        },
-        "clusterName": {
-            "type": "string",
-            "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n\nThe following arguments are optional:\n"
-        },
-        "configurationValues": {
-            "type": "string",
-            "description": "custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).\n"
-        },
-        "createdAt": {
-            "type": "string",
-            "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.\n"
-        },
-        "modifiedAt": {
-            "type": "string",
-            "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.\n"
-        },
-        "preserve": {
-            "type": "boolean",
-            "description": "Indicates if you want to preserve the created resources when deleting the EKS add-on.\n"
-        },
-        "resolveConflicts": {
-            "type": "string",
-            "description": "Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.\n",
-            "deprecationMessage": "The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead"
-        },
-        "resolveConflictsOnCreate": {
-            "type": "string",
-            "description": "How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.\n"
-        },
-        "resolveConflictsOnUpdate": {
-            "type": "string",
-            "description": "How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.\n"
-        },
-        "serviceAccountRoleArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of an\nexisting IAM role to bind to the add-on's service account. The role must be\nassigned the IAM permissions required by the add-on. If you don't specify\nan existing IAM role, then the add-on uses the permissions assigned to the node\nIAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)\nin the Amazon EKS User Guide.\n\n\u003e **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)\nprovider created for your cluster. For more information, [see Enabling IAM roles\nfor service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)\nin the Amazon EKS User Guide.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "(Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "addonName",
-        "addonVersion",
-        "arn",
-        "clusterName",
-        "configurationValues",
-        "createdAt",
-        "modifiedAt",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "addonName": {
-            "type": "string",
-            "description": "Name of the EKS add-on. The name must match one of\nthe names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).\n",
-            "willReplaceOnChanges": true
-        },
-        "addonVersion": {
-            "type": "string",
-            "description": "The version of the EKS add-on. The version must\nmatch one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).\n"
-        },
-        "clusterName": {
-            "type": "string",
-            "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "configurationValues": {
-            "type": "string",
-            "description": "custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).\n"
-        },
-        "preserve": {
-            "type": "boolean",
-            "description": "Indicates if you want to preserve the created resources when deleting the EKS add-on.\n"
-        },
-        "resolveConflicts": {
-            "type": "string",
-            "description": "Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.\n",
-            "deprecationMessage": "The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead"
-        },
-        "resolveConflictsOnCreate": {
-            "type": "string",
-            "description": "How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.\n"
-        },
-        "resolveConflictsOnUpdate": {
-            "type": "string",
-            "description": "How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.\n"
-        },
-        "serviceAccountRoleArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of an\nexisting IAM role to bind to the add-on's service account. The role must be\nassigned the IAM permissions required by the add-on. If you don't specify\nan existing IAM role, then the add-on uses the permissions assigned to the node\nIAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)\nin the Amazon EKS User Guide.\n\n\u003e **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)\nprovider created for your cluster. For more information, [see Enabling IAM roles\nfor service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)\nin the Amazon EKS User Guide.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "addonName",
-        "clusterName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Addon resources.\n",
-        "properties": {
-            "addonName": {
-                "type": "string",
-                "description": "Name of the EKS add-on. The name must match one of\nthe names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).\n",
-                "willReplaceOnChanges": true
-            },
-            "addonVersion": {
-                "type": "string",
-                "description": "The version of the EKS add-on. The version must\nmatch one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the EKS add-on.\n"
-            },
-            "clusterName": {
-                "type": "string",
-                "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "configurationValues": {
-                "type": "string",
-                "description": "custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).\n"
-            },
-            "createdAt": {
-                "type": "string",
-                "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.\n"
-            },
-            "modifiedAt": {
-                "type": "string",
-                "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.\n"
-            },
-            "preserve": {
-                "type": "boolean",
-                "description": "Indicates if you want to preserve the created resources when deleting the EKS add-on.\n"
-            },
-            "resolveConflicts": {
-                "type": "string",
-                "description": "Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.\n",
-                "deprecationMessage": "The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead"
-            },
-            "resolveConflictsOnCreate": {
-                "type": "string",
-                "description": "How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.\n"
-            },
-            "resolveConflictsOnUpdate": {
-                "type": "string",
-                "description": "How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.\n"
-            },
-            "serviceAccountRoleArn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of an\nexisting IAM role to bind to the add-on's service account. The role must be\nassigned the IAM permissions required by the add-on. If you don't specify\nan existing IAM role, then the add-on uses the permissions assigned to the node\nIAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)\nin the Amazon EKS User Guide.\n\n\u003e **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)\nprovider created for your cluster. For more information, [see Enabling IAM roles\nfor service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)\nin the Amazon EKS User Guide.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "addonName": {
+                    "type": "string",
+                    "description": "Name of the EKS add-on. The name must match one of\nthe names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).\n"
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "addonVersion": {
+                    "type": "string",
+                    "description": "The version of the EKS add-on. The version must\nmatch one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).\n"
                 },
-                "description": "(Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the EKS add-on.\n"
+                },
+                "clusterName": {
+                    "type": "string",
+                    "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n\nThe following arguments are optional:\n"
+                },
+                "configurationValues": {
+                    "type": "string",
+                    "description": "custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).\n"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.\n"
+                },
+                "modifiedAt": {
+                    "type": "string",
+                    "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.\n"
+                },
+                "preserve": {
+                    "type": "boolean",
+                    "description": "Indicates if you want to preserve the created resources when deleting the EKS add-on.\n"
+                },
+                "resolveConflicts": {
+                    "type": "string",
+                    "description": "Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.\n",
+                    "deprecationMessage": "The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead"
+                },
+                "resolveConflictsOnCreate": {
+                    "type": "string",
+                    "description": "How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.\n"
+                },
+                "resolveConflictsOnUpdate": {
+                    "type": "string",
+                    "description": "How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.\n"
+                },
+                "serviceAccountRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an\nexisting IAM role to bind to the add-on's service account. The role must be\nassigned the IAM permissions required by the add-on. If you don't specify\nan existing IAM role, then the add-on uses the permissions assigned to the node\nIAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)\nin the Amazon EKS User Guide.\n\n\u003e **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)\nprovider created for your cluster. For more information, [see Enabling IAM roles\nfor service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)\nin the Amazon EKS User Guide.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "(Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "addonName",
+                "addonVersion",
+                "arn",
+                "clusterName",
+                "configurationValues",
+                "createdAt",
+                "modifiedAt",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "addonName": {
+                    "type": "string",
+                    "description": "Name of the EKS add-on. The name must match one of\nthe names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).\n",
+                    "willReplaceOnChanges": true
+                },
+                "addonVersion": {
+                    "type": "string",
+                    "description": "The version of the EKS add-on. The version must\nmatch one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).\n"
+                },
+                "clusterName": {
+                    "type": "string",
+                    "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "configurationValues": {
+                    "type": "string",
+                    "description": "custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).\n"
+                },
+                "preserve": {
+                    "type": "boolean",
+                    "description": "Indicates if you want to preserve the created resources when deleting the EKS add-on.\n"
+                },
+                "resolveConflicts": {
+                    "type": "string",
+                    "description": "Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.\n",
+                    "deprecationMessage": "The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead"
+                },
+                "resolveConflictsOnCreate": {
+                    "type": "string",
+                    "description": "How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.\n"
+                },
+                "resolveConflictsOnUpdate": {
+                    "type": "string",
+                    "description": "How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.\n"
+                },
+                "serviceAccountRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an\nexisting IAM role to bind to the add-on's service account. The role must be\nassigned the IAM permissions required by the add-on. If you don't specify\nan existing IAM role, then the add-on uses the permissions assigned to the node\nIAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)\nin the Amazon EKS User Guide.\n\n\u003e **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)\nprovider created for your cluster. For more information, [see Enabling IAM roles\nfor service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)\nin the Amazon EKS User Guide.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "addonName",
+                "clusterName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Addon resources.\n",
+                "properties": {
+                    "addonName": {
+                        "type": "string",
+                        "description": "Name of the EKS add-on. The name must match one of\nthe names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "addonVersion": {
+                        "type": "string",
+                        "description": "The version of the EKS add-on. The version must\nmatch one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the EKS add-on.\n"
+                    },
+                    "clusterName": {
+                        "type": "string",
+                        "description": "Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "configurationValues": {
+                        "type": "string",
+                        "description": "custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.\n"
+                    },
+                    "modifiedAt": {
+                        "type": "string",
+                        "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.\n"
+                    },
+                    "preserve": {
+                        "type": "boolean",
+                        "description": "Indicates if you want to preserve the created resources when deleting the EKS add-on.\n"
+                    },
+                    "resolveConflicts": {
+                        "type": "string",
+                        "description": "Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.\n",
+                        "deprecationMessage": "The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead"
+                    },
+                    "resolveConflictsOnCreate": {
+                        "type": "string",
+                        "description": "How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.\n"
+                    },
+                    "resolveConflictsOnUpdate": {
+                        "type": "string",
+                        "description": "How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.\n"
+                    },
+                    "serviceAccountRoleArn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of an\nexisting IAM role to bind to the add-on's service account. The role must be\nassigned the IAM permissions required by the add-on. If you don't specify\nan existing IAM role, then the add-on uses the permissions assigned to the node\nIAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)\nin the Amazon EKS User Guide.\n\n\u003e **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)\nprovider created for your cluster. For more information, [see Enabling IAM roles\nfor service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)\nin the Amazon EKS User Guide.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "(Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

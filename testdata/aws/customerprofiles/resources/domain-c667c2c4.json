@@ -1,143 +1,143 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the Customer Profiles Domain.\n"
-        },
-        "deadLetterQueueUrl": {
-            "type": "string",
-            "description": "The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.\n"
-        },
-        "defaultEncryptionKey": {
-            "type": "string",
-            "description": "The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.\n"
-        },
-        "defaultExpirationDays": {
-            "type": "integer",
-            "description": "The default number of days until the data within the domain expires.\n\nThe following arguments are optional:\n"
-        },
-        "domainName": {
-            "type": "string",
-            "description": "The name for your Customer Profile domain. It must be unique for your AWS account.\n"
-        },
-        "matching": {
-            "$ref": "#/types/aws:customerprofiles/DomainMatching:DomainMatching",
-            "description": "A block that specifies the process of matching duplicate profiles. Documented below.\n"
-        },
-        "ruleBasedMatching": {
-            "$ref": "#/types/aws:customerprofiles/DomainRuleBasedMatching:DomainRuleBasedMatching",
-            "description": "A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "defaultExpirationDays",
-        "domainName",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "deadLetterQueueUrl": {
-            "type": "string",
-            "description": "The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.\n"
-        },
-        "defaultEncryptionKey": {
-            "type": "string",
-            "description": "The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.\n"
-        },
-        "defaultExpirationDays": {
-            "type": "integer",
-            "description": "The default number of days until the data within the domain expires.\n\nThe following arguments are optional:\n"
-        },
-        "domainName": {
-            "type": "string",
-            "description": "The name for your Customer Profile domain. It must be unique for your AWS account.\n",
-            "willReplaceOnChanges": true
-        },
-        "matching": {
-            "$ref": "#/types/aws:customerprofiles/DomainMatching:DomainMatching",
-            "description": "A block that specifies the process of matching duplicate profiles. Documented below.\n"
-        },
-        "ruleBasedMatching": {
-            "$ref": "#/types/aws:customerprofiles/DomainRuleBasedMatching:DomainRuleBasedMatching",
-            "description": "A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "defaultExpirationDays",
-        "domainName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Domain resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the Customer Profiles Domain.\n"
-            },
-            "deadLetterQueueUrl": {
-                "type": "string",
-                "description": "The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.\n"
-            },
-            "defaultEncryptionKey": {
-                "type": "string",
-                "description": "The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.\n"
-            },
-            "defaultExpirationDays": {
-                "type": "integer",
-                "description": "The default number of days until the data within the domain expires.\n\nThe following arguments are optional:\n"
-            },
-            "domainName": {
-                "type": "string",
-                "description": "The name for your Customer Profile domain. It must be unique for your AWS account.\n",
-                "willReplaceOnChanges": true
-            },
-            "matching": {
-                "$ref": "#/types/aws:customerprofiles/DomainMatching:DomainMatching",
-                "description": "A block that specifies the process of matching duplicate profiles. Documented below.\n"
-            },
-            "ruleBasedMatching": {
-                "$ref": "#/types/aws:customerprofiles/DomainRuleBasedMatching:DomainRuleBasedMatching",
-                "description": "A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Customer Profiles Domain.\n"
                 },
-                "description": "Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "deadLetterQueueUrl": {
+                    "type": "string",
+                    "description": "The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "defaultEncryptionKey": {
+                    "type": "string",
+                    "description": "The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.\n"
+                },
+                "defaultExpirationDays": {
+                    "type": "integer",
+                    "description": "The default number of days until the data within the domain expires.\n\nThe following arguments are optional:\n"
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "The name for your Customer Profile domain. It must be unique for your AWS account.\n"
+                },
+                "matching": {
+                    "$ref": "#/types/aws:customerprofiles/DomainMatching:DomainMatching",
+                    "description": "A block that specifies the process of matching duplicate profiles. Documented below.\n"
+                },
+                "ruleBasedMatching": {
+                    "$ref": "#/types/aws:customerprofiles/DomainRuleBasedMatching:DomainRuleBasedMatching",
+                    "description": "A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "defaultExpirationDays",
+                "domainName",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "deadLetterQueueUrl": {
+                    "type": "string",
+                    "description": "The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.\n"
+                },
+                "defaultEncryptionKey": {
+                    "type": "string",
+                    "description": "The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.\n"
+                },
+                "defaultExpirationDays": {
+                    "type": "integer",
+                    "description": "The default number of days until the data within the domain expires.\n\nThe following arguments are optional:\n"
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "The name for your Customer Profile domain. It must be unique for your AWS account.\n",
+                    "willReplaceOnChanges": true
+                },
+                "matching": {
+                    "$ref": "#/types/aws:customerprofiles/DomainMatching:DomainMatching",
+                    "description": "A block that specifies the process of matching duplicate profiles. Documented below.\n"
+                },
+                "ruleBasedMatching": {
+                    "$ref": "#/types/aws:customerprofiles/DomainRuleBasedMatching:DomainRuleBasedMatching",
+                    "description": "A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "defaultExpirationDays",
+                "domainName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Domain resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the Customer Profiles Domain.\n"
+                    },
+                    "deadLetterQueueUrl": {
+                        "type": "string",
+                        "description": "The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.\n"
+                    },
+                    "defaultEncryptionKey": {
+                        "type": "string",
+                        "description": "The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.\n"
+                    },
+                    "defaultExpirationDays": {
+                        "type": "integer",
+                        "description": "The default number of days until the data within the domain expires.\n\nThe following arguments are optional:\n"
+                    },
+                    "domainName": {
+                        "type": "string",
+                        "description": "The name for your Customer Profile domain. It must be unique for your AWS account.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "matching": {
+                        "$ref": "#/types/aws:customerprofiles/DomainMatching:DomainMatching",
+                        "description": "A block that specifies the process of matching duplicate profiles. Documented below.\n"
+                    },
+                    "ruleBasedMatching": {
+                        "$ref": "#/types/aws:customerprofiles/DomainRuleBasedMatching:DomainRuleBasedMatching",
+                        "description": "A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

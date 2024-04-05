@@ -1,326 +1,326 @@
 {
-    "properties": {
-        "appId": {
-            "type": "string",
-            "description": "Unique ID for an Amplify app.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "ARN for the branch.\n"
-        },
-        "associatedResources": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of custom resources that are linked to this branch.\n"
-        },
-        "backendEnvironmentArn": {
-            "type": "string",
-            "description": "ARN for a backend environment that is part of an Amplify app.\n"
-        },
-        "basicAuthCredentials": {
-            "type": "string",
-            "description": "Basic authorization credentials for the branch.\n",
-            "secret": true
-        },
-        "branchName": {
-            "type": "string",
-            "description": "Name for the branch.\n"
-        },
-        "customDomains": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Custom domains for the branch.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description for the branch.\n"
-        },
-        "destinationBranch": {
-            "type": "string",
-            "description": "Destination branch if the branch is a pull request branch.\n"
-        },
-        "displayName": {
-            "type": "string",
-            "description": "Display name for a branch. This is used as the default domain prefix.\n"
-        },
-        "enableAutoBuild": {
-            "type": "boolean",
-            "description": "Enables auto building for the branch.\n"
-        },
-        "enableBasicAuth": {
-            "type": "boolean",
-            "description": "Enables basic authorization for the branch.\n"
-        },
-        "enableNotification": {
-            "type": "boolean",
-            "description": "Enables notifications for the branch.\n"
-        },
-        "enablePerformanceMode": {
-            "type": "boolean",
-            "description": "Enables performance mode for the branch.\n"
-        },
-        "enablePullRequestPreview": {
-            "type": "boolean",
-            "description": "Enables pull request previews for this branch.\n"
-        },
-        "environmentVariables": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Environment variables for the branch.\n"
-        },
-        "framework": {
-            "type": "string",
-            "description": "Framework for the branch.\n"
-        },
-        "pullRequestEnvironmentName": {
-            "type": "string",
-            "description": "Amplify environment name for the pull request.\n"
-        },
-        "sourceBranch": {
-            "type": "string",
-            "description": "Source branch if the branch is a pull request branch.\n"
-        },
-        "stage": {
-            "type": "string",
-            "description": "Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "ttl": {
-            "type": "string",
-            "description": "Content Time To Live (TTL) for the website in seconds.\n"
-        }
-    },
-    "required": [
-        "appId",
-        "arn",
-        "associatedResources",
-        "branchName",
-        "customDomains",
-        "destinationBranch",
-        "displayName",
-        "sourceBranch",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "appId": {
-            "type": "string",
-            "description": "Unique ID for an Amplify app.\n",
-            "willReplaceOnChanges": true
-        },
-        "backendEnvironmentArn": {
-            "type": "string",
-            "description": "ARN for a backend environment that is part of an Amplify app.\n"
-        },
-        "basicAuthCredentials": {
-            "type": "string",
-            "description": "Basic authorization credentials for the branch.\n",
-            "secret": true
-        },
-        "branchName": {
-            "type": "string",
-            "description": "Name for the branch.\n",
-            "willReplaceOnChanges": true
-        },
-        "description": {
-            "type": "string",
-            "description": "Description for the branch.\n"
-        },
-        "displayName": {
-            "type": "string",
-            "description": "Display name for a branch. This is used as the default domain prefix.\n"
-        },
-        "enableAutoBuild": {
-            "type": "boolean",
-            "description": "Enables auto building for the branch.\n"
-        },
-        "enableBasicAuth": {
-            "type": "boolean",
-            "description": "Enables basic authorization for the branch.\n"
-        },
-        "enableNotification": {
-            "type": "boolean",
-            "description": "Enables notifications for the branch.\n"
-        },
-        "enablePerformanceMode": {
-            "type": "boolean",
-            "description": "Enables performance mode for the branch.\n"
-        },
-        "enablePullRequestPreview": {
-            "type": "boolean",
-            "description": "Enables pull request previews for this branch.\n"
-        },
-        "environmentVariables": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Environment variables for the branch.\n"
-        },
-        "framework": {
-            "type": "string",
-            "description": "Framework for the branch.\n"
-        },
-        "pullRequestEnvironmentName": {
-            "type": "string",
-            "description": "Amplify environment name for the pull request.\n"
-        },
-        "stage": {
-            "type": "string",
-            "description": "Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "ttl": {
-            "type": "string",
-            "description": "Content Time To Live (TTL) for the website in seconds.\n"
-        }
-    },
-    "requiredInputs": [
-        "appId",
-        "branchName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Branch resources.\n",
-        "properties": {
-            "appId": {
-                "type": "string",
-                "description": "Unique ID for an Amplify app.\n",
-                "willReplaceOnChanges": true
-            },
-            "arn": {
-                "type": "string",
-                "description": "ARN for the branch.\n"
-            },
-            "associatedResources": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "appId": {
+                    "type": "string",
+                    "description": "Unique ID for an Amplify app.\n"
                 },
-                "description": "A list of custom resources that are linked to this branch.\n"
-            },
-            "backendEnvironmentArn": {
-                "type": "string",
-                "description": "ARN for a backend environment that is part of an Amplify app.\n"
-            },
-            "basicAuthCredentials": {
-                "type": "string",
-                "description": "Basic authorization credentials for the branch.\n",
-                "secret": true
-            },
-            "branchName": {
-                "type": "string",
-                "description": "Name for the branch.\n",
-                "willReplaceOnChanges": true
-            },
-            "customDomains": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "ARN for the branch.\n"
                 },
-                "description": "Custom domains for the branch.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "Description for the branch.\n"
-            },
-            "destinationBranch": {
-                "type": "string",
-                "description": "Destination branch if the branch is a pull request branch.\n"
-            },
-            "displayName": {
-                "type": "string",
-                "description": "Display name for a branch. This is used as the default domain prefix.\n"
-            },
-            "enableAutoBuild": {
-                "type": "boolean",
-                "description": "Enables auto building for the branch.\n"
-            },
-            "enableBasicAuth": {
-                "type": "boolean",
-                "description": "Enables basic authorization for the branch.\n"
-            },
-            "enableNotification": {
-                "type": "boolean",
-                "description": "Enables notifications for the branch.\n"
-            },
-            "enablePerformanceMode": {
-                "type": "boolean",
-                "description": "Enables performance mode for the branch.\n"
-            },
-            "enablePullRequestPreview": {
-                "type": "boolean",
-                "description": "Enables pull request previews for this branch.\n"
-            },
-            "environmentVariables": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "associatedResources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of custom resources that are linked to this branch.\n"
                 },
-                "description": "Environment variables for the branch.\n"
-            },
-            "framework": {
-                "type": "string",
-                "description": "Framework for the branch.\n"
-            },
-            "pullRequestEnvironmentName": {
-                "type": "string",
-                "description": "Amplify environment name for the pull request.\n"
-            },
-            "sourceBranch": {
-                "type": "string",
-                "description": "Source branch if the branch is a pull request branch.\n"
-            },
-            "stage": {
-                "type": "string",
-                "description": "Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "backendEnvironmentArn": {
+                    "type": "string",
+                    "description": "ARN for a backend environment that is part of an Amplify app.\n"
                 },
-                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "basicAuthCredentials": {
+                    "type": "string",
+                    "description": "Basic authorization credentials for the branch.\n",
+                    "secret": true
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "branchName": {
+                    "type": "string",
+                    "description": "Name for the branch.\n"
+                },
+                "customDomains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Custom domains for the branch.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description for the branch.\n"
+                },
+                "destinationBranch": {
+                    "type": "string",
+                    "description": "Destination branch if the branch is a pull request branch.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name for a branch. This is used as the default domain prefix.\n"
+                },
+                "enableAutoBuild": {
+                    "type": "boolean",
+                    "description": "Enables auto building for the branch.\n"
+                },
+                "enableBasicAuth": {
+                    "type": "boolean",
+                    "description": "Enables basic authorization for the branch.\n"
+                },
+                "enableNotification": {
+                    "type": "boolean",
+                    "description": "Enables notifications for the branch.\n"
+                },
+                "enablePerformanceMode": {
+                    "type": "boolean",
+                    "description": "Enables performance mode for the branch.\n"
+                },
+                "enablePullRequestPreview": {
+                    "type": "boolean",
+                    "description": "Enables pull request previews for this branch.\n"
+                },
+                "environmentVariables": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Environment variables for the branch.\n"
+                },
+                "framework": {
+                    "type": "string",
+                    "description": "Framework for the branch.\n"
+                },
+                "pullRequestEnvironmentName": {
+                    "type": "string",
+                    "description": "Amplify environment name for the pull request.\n"
+                },
+                "sourceBranch": {
+                    "type": "string",
+                    "description": "Source branch if the branch is a pull request branch.\n"
+                },
+                "stage": {
+                    "type": "string",
+                    "description": "Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "ttl": {
+                    "type": "string",
+                    "description": "Content Time To Live (TTL) for the website in seconds.\n"
+                }
             },
-            "ttl": {
-                "type": "string",
-                "description": "Content Time To Live (TTL) for the website in seconds.\n"
+            "required": [
+                "appId",
+                "arn",
+                "associatedResources",
+                "branchName",
+                "customDomains",
+                "destinationBranch",
+                "displayName",
+                "sourceBranch",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "appId": {
+                    "type": "string",
+                    "description": "Unique ID for an Amplify app.\n",
+                    "willReplaceOnChanges": true
+                },
+                "backendEnvironmentArn": {
+                    "type": "string",
+                    "description": "ARN for a backend environment that is part of an Amplify app.\n"
+                },
+                "basicAuthCredentials": {
+                    "type": "string",
+                    "description": "Basic authorization credentials for the branch.\n",
+                    "secret": true
+                },
+                "branchName": {
+                    "type": "string",
+                    "description": "Name for the branch.\n",
+                    "willReplaceOnChanges": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description for the branch.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name for a branch. This is used as the default domain prefix.\n"
+                },
+                "enableAutoBuild": {
+                    "type": "boolean",
+                    "description": "Enables auto building for the branch.\n"
+                },
+                "enableBasicAuth": {
+                    "type": "boolean",
+                    "description": "Enables basic authorization for the branch.\n"
+                },
+                "enableNotification": {
+                    "type": "boolean",
+                    "description": "Enables notifications for the branch.\n"
+                },
+                "enablePerformanceMode": {
+                    "type": "boolean",
+                    "description": "Enables performance mode for the branch.\n"
+                },
+                "enablePullRequestPreview": {
+                    "type": "boolean",
+                    "description": "Enables pull request previews for this branch.\n"
+                },
+                "environmentVariables": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Environment variables for the branch.\n"
+                },
+                "framework": {
+                    "type": "string",
+                    "description": "Framework for the branch.\n"
+                },
+                "pullRequestEnvironmentName": {
+                    "type": "string",
+                    "description": "Amplify environment name for the pull request.\n"
+                },
+                "stage": {
+                    "type": "string",
+                    "description": "Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "ttl": {
+                    "type": "string",
+                    "description": "Content Time To Live (TTL) for the website in seconds.\n"
+                }
+            },
+            "requiredInputs": [
+                "appId",
+                "branchName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Branch resources.\n",
+                "properties": {
+                    "appId": {
+                        "type": "string",
+                        "description": "Unique ID for an Amplify app.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN for the branch.\n"
+                    },
+                    "associatedResources": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of custom resources that are linked to this branch.\n"
+                    },
+                    "backendEnvironmentArn": {
+                        "type": "string",
+                        "description": "ARN for a backend environment that is part of an Amplify app.\n"
+                    },
+                    "basicAuthCredentials": {
+                        "type": "string",
+                        "description": "Basic authorization credentials for the branch.\n",
+                        "secret": true
+                    },
+                    "branchName": {
+                        "type": "string",
+                        "description": "Name for the branch.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "customDomains": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Custom domains for the branch.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description for the branch.\n"
+                    },
+                    "destinationBranch": {
+                        "type": "string",
+                        "description": "Destination branch if the branch is a pull request branch.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "Display name for a branch. This is used as the default domain prefix.\n"
+                    },
+                    "enableAutoBuild": {
+                        "type": "boolean",
+                        "description": "Enables auto building for the branch.\n"
+                    },
+                    "enableBasicAuth": {
+                        "type": "boolean",
+                        "description": "Enables basic authorization for the branch.\n"
+                    },
+                    "enableNotification": {
+                        "type": "boolean",
+                        "description": "Enables notifications for the branch.\n"
+                    },
+                    "enablePerformanceMode": {
+                        "type": "boolean",
+                        "description": "Enables performance mode for the branch.\n"
+                    },
+                    "enablePullRequestPreview": {
+                        "type": "boolean",
+                        "description": "Enables pull request previews for this branch.\n"
+                    },
+                    "environmentVariables": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Environment variables for the branch.\n"
+                    },
+                    "framework": {
+                        "type": "string",
+                        "description": "Framework for the branch.\n"
+                    },
+                    "pullRequestEnvironmentName": {
+                        "type": "string",
+                        "description": "Amplify environment name for the pull request.\n"
+                    },
+                    "sourceBranch": {
+                        "type": "string",
+                        "description": "Source branch if the branch is a pull request branch.\n"
+                    },
+                    "stage": {
+                        "type": "string",
+                        "description": "Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "ttl": {
+                        "type": "string",
+                        "description": "Content Time To Live (TTL) for the website in seconds.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

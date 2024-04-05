@@ -1,84 +1,84 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getEnvironment.\n",
-        "properties": {
-            "applicationId": {
-                "type": "string",
-                "description": "ID of the AppConfig Application to which this Environment belongs.\n"
-            },
-            "environmentId": {
-                "type": "string",
-                "description": "ID of the AppConfig Environment.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getEnvironment.\n",
+                "properties": {
+                    "applicationId": {
+                        "type": "string",
+                        "description": "ID of the AppConfig Application to which this Environment belongs.\n"
+                    },
+                    "environmentId": {
+                        "type": "string",
+                        "description": "ID of the AppConfig Environment.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags for the resource.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "applicationId",
+                    "environmentId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getEnvironment.\n",
+                "properties": {
+                    "applicationId": {
+                        "type": "string"
+                    },
+                    "arn": {
+                        "description": "ARN of the environment.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Name of the environment.\n",
+                        "type": "string"
+                    },
+                    "environmentId": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "monitors": {
+                        "description": "Set of Amazon CloudWatch alarms to monitor during the deployment process.\n",
+                        "items": {
+                            "$ref": "#/types/aws:appconfig/getEnvironmentMonitor:getEnvironmentMonitor"
+                        },
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "Name of the environment.\n",
+                        "type": "string"
+                    },
+                    "state": {
+                        "description": "State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`\nor `ROLLED_BACK`.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags for the resource.\n",
+                        "type": "object"
+                    }
                 },
-                "description": "Map of tags for the resource.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "applicationId",
-            "environmentId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getEnvironment.\n",
-        "properties": {
-            "applicationId": {
-                "type": "string"
-            },
-            "arn": {
-                "description": "ARN of the environment.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Name of the environment.\n",
-                "type": "string"
-            },
-            "environmentId": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "monitors": {
-                "description": "Set of Amazon CloudWatch alarms to monitor during the deployment process.\n",
-                "items": {
-                    "$ref": "#/types/aws:appconfig/getEnvironmentMonitor:getEnvironmentMonitor"
-                },
-                "type": "array"
-            },
-            "name": {
-                "description": "Name of the environment.\n",
-                "type": "string"
-            },
-            "state": {
-                "description": "State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`\nor `ROLLED_BACK`.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags for the resource.\n",
+                "required": [
+                    "applicationId",
+                    "arn",
+                    "description",
+                    "environmentId",
+                    "monitors",
+                    "name",
+                    "state",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "applicationId",
-            "arn",
-            "description",
-            "environmentId",
-            "monitors",
-            "name",
-            "state",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

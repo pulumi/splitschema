@@ -1,173 +1,173 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the Elastictranscoder pipeline.\n"
-        },
-        "awsKmsKeyArn": {
-            "type": "string",
-            "description": "The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.\n"
-        },
-        "contentConfig": {
-            "$ref": "#/types/aws:elastictranscoder/PipelineContentConfig:PipelineContentConfig",
-            "description": "The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)\n"
-        },
-        "contentConfigPermissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:elastictranscoder/PipelineContentConfigPermission:PipelineContentConfigPermission"
-            },
-            "description": "The permissions for the `content_config` object. (documented below)\n"
-        },
-        "inputBucket": {
-            "type": "string",
-            "description": "The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the pipeline. Maximum 40 characters\n"
-        },
-        "notifications": {
-            "$ref": "#/types/aws:elastictranscoder/PipelineNotifications:PipelineNotifications",
-            "description": "The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)\n"
-        },
-        "outputBucket": {
-            "type": "string",
-            "description": "The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.\n"
-        },
-        "role": {
-            "type": "string",
-            "description": "The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.\n"
-        },
-        "thumbnailConfig": {
-            "$ref": "#/types/aws:elastictranscoder/PipelineThumbnailConfig:PipelineThumbnailConfig",
-            "description": "The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)\n"
-        },
-        "thumbnailConfigPermissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:elastictranscoder/PipelineThumbnailConfigPermission:PipelineThumbnailConfigPermission"
-            },
-            "description": "The permissions for the `thumbnail_config` object. (documented below)\n\nThe `content_config` object specifies information about the Amazon S3 bucket in\nwhich you want Elastic Transcoder to save transcoded files and playlists: which\nbucket to use, and the storage class that you want to assign to the files. If\nyou specify values for `content_config`, you must also specify values for\n`thumbnail_config`. If you specify values for `content_config` and\n`thumbnail_config`, omit the `output_bucket` object.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "contentConfig",
-        "inputBucket",
-        "name",
-        "outputBucket",
-        "role",
-        "thumbnailConfig"
-    ],
-    "inputProperties": {
-        "awsKmsKeyArn": {
-            "type": "string",
-            "description": "The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.\n"
-        },
-        "contentConfig": {
-            "$ref": "#/types/aws:elastictranscoder/PipelineContentConfig:PipelineContentConfig",
-            "description": "The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)\n"
-        },
-        "contentConfigPermissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:elastictranscoder/PipelineContentConfigPermission:PipelineContentConfigPermission"
-            },
-            "description": "The permissions for the `content_config` object. (documented below)\n"
-        },
-        "inputBucket": {
-            "type": "string",
-            "description": "The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the pipeline. Maximum 40 characters\n",
-            "willReplaceOnChanges": true
-        },
-        "notifications": {
-            "$ref": "#/types/aws:elastictranscoder/PipelineNotifications:PipelineNotifications",
-            "description": "The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)\n"
-        },
-        "outputBucket": {
-            "type": "string",
-            "description": "The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.\n"
-        },
-        "role": {
-            "type": "string",
-            "description": "The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.\n"
-        },
-        "thumbnailConfig": {
-            "$ref": "#/types/aws:elastictranscoder/PipelineThumbnailConfig:PipelineThumbnailConfig",
-            "description": "The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)\n"
-        },
-        "thumbnailConfigPermissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:elastictranscoder/PipelineThumbnailConfigPermission:PipelineThumbnailConfigPermission"
-            },
-            "description": "The permissions for the `thumbnail_config` object. (documented below)\n\nThe `content_config` object specifies information about the Amazon S3 bucket in\nwhich you want Elastic Transcoder to save transcoded files and playlists: which\nbucket to use, and the storage class that you want to assign to the files. If\nyou specify values for `content_config`, you must also specify values for\n`thumbnail_config`. If you specify values for `content_config` and\n`thumbnail_config`, omit the `output_bucket` object.\n"
-        }
-    },
-    "requiredInputs": [
-        "inputBucket",
-        "role"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Pipeline resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the Elastictranscoder pipeline.\n"
-            },
-            "awsKmsKeyArn": {
-                "type": "string",
-                "description": "The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.\n"
-            },
-            "contentConfig": {
-                "$ref": "#/types/aws:elastictranscoder/PipelineContentConfig:PipelineContentConfig",
-                "description": "The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)\n"
-            },
-            "contentConfigPermissions": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:elastictranscoder/PipelineContentConfigPermission:PipelineContentConfigPermission"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the Elastictranscoder pipeline.\n"
                 },
-                "description": "The permissions for the `content_config` object. (documented below)\n"
-            },
-            "inputBucket": {
-                "type": "string",
-                "description": "The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the pipeline. Maximum 40 characters\n",
-                "willReplaceOnChanges": true
-            },
-            "notifications": {
-                "$ref": "#/types/aws:elastictranscoder/PipelineNotifications:PipelineNotifications",
-                "description": "The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)\n"
-            },
-            "outputBucket": {
-                "type": "string",
-                "description": "The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.\n"
-            },
-            "role": {
-                "type": "string",
-                "description": "The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.\n"
-            },
-            "thumbnailConfig": {
-                "$ref": "#/types/aws:elastictranscoder/PipelineThumbnailConfig:PipelineThumbnailConfig",
-                "description": "The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)\n"
-            },
-            "thumbnailConfigPermissions": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:elastictranscoder/PipelineThumbnailConfigPermission:PipelineThumbnailConfigPermission"
+                "awsKmsKeyArn": {
+                    "type": "string",
+                    "description": "The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.\n"
                 },
-                "description": "The permissions for the `thumbnail_config` object. (documented below)\n\nThe `content_config` object specifies information about the Amazon S3 bucket in\nwhich you want Elastic Transcoder to save transcoded files and playlists: which\nbucket to use, and the storage class that you want to assign to the files. If\nyou specify values for `content_config`, you must also specify values for\n`thumbnail_config`. If you specify values for `content_config` and\n`thumbnail_config`, omit the `output_bucket` object.\n"
+                "contentConfig": {
+                    "$ref": "#/types/aws:elastictranscoder/PipelineContentConfig:PipelineContentConfig",
+                    "description": "The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)\n"
+                },
+                "contentConfigPermissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:elastictranscoder/PipelineContentConfigPermission:PipelineContentConfigPermission"
+                    },
+                    "description": "The permissions for the `content_config` object. (documented below)\n"
+                },
+                "inputBucket": {
+                    "type": "string",
+                    "description": "The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the pipeline. Maximum 40 characters\n"
+                },
+                "notifications": {
+                    "$ref": "#/types/aws:elastictranscoder/PipelineNotifications:PipelineNotifications",
+                    "description": "The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)\n"
+                },
+                "outputBucket": {
+                    "type": "string",
+                    "description": "The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.\n"
+                },
+                "thumbnailConfig": {
+                    "$ref": "#/types/aws:elastictranscoder/PipelineThumbnailConfig:PipelineThumbnailConfig",
+                    "description": "The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)\n"
+                },
+                "thumbnailConfigPermissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:elastictranscoder/PipelineThumbnailConfigPermission:PipelineThumbnailConfigPermission"
+                    },
+                    "description": "The permissions for the `thumbnail_config` object. (documented below)\n\nThe `content_config` object specifies information about the Amazon S3 bucket in\nwhich you want Elastic Transcoder to save transcoded files and playlists: which\nbucket to use, and the storage class that you want to assign to the files. If\nyou specify values for `content_config`, you must also specify values for\n`thumbnail_config`. If you specify values for `content_config` and\n`thumbnail_config`, omit the `output_bucket` object.\n"
+                }
+            },
+            "required": [
+                "arn",
+                "contentConfig",
+                "inputBucket",
+                "name",
+                "outputBucket",
+                "role",
+                "thumbnailConfig"
+            ],
+            "inputProperties": {
+                "awsKmsKeyArn": {
+                    "type": "string",
+                    "description": "The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.\n"
+                },
+                "contentConfig": {
+                    "$ref": "#/types/aws:elastictranscoder/PipelineContentConfig:PipelineContentConfig",
+                    "description": "The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)\n"
+                },
+                "contentConfigPermissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:elastictranscoder/PipelineContentConfigPermission:PipelineContentConfigPermission"
+                    },
+                    "description": "The permissions for the `content_config` object. (documented below)\n"
+                },
+                "inputBucket": {
+                    "type": "string",
+                    "description": "The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the pipeline. Maximum 40 characters\n",
+                    "willReplaceOnChanges": true
+                },
+                "notifications": {
+                    "$ref": "#/types/aws:elastictranscoder/PipelineNotifications:PipelineNotifications",
+                    "description": "The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)\n"
+                },
+                "outputBucket": {
+                    "type": "string",
+                    "description": "The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.\n"
+                },
+                "thumbnailConfig": {
+                    "$ref": "#/types/aws:elastictranscoder/PipelineThumbnailConfig:PipelineThumbnailConfig",
+                    "description": "The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)\n"
+                },
+                "thumbnailConfigPermissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:elastictranscoder/PipelineThumbnailConfigPermission:PipelineThumbnailConfigPermission"
+                    },
+                    "description": "The permissions for the `thumbnail_config` object. (documented below)\n\nThe `content_config` object specifies information about the Amazon S3 bucket in\nwhich you want Elastic Transcoder to save transcoded files and playlists: which\nbucket to use, and the storage class that you want to assign to the files. If\nyou specify values for `content_config`, you must also specify values for\n`thumbnail_config`. If you specify values for `content_config` and\n`thumbnail_config`, omit the `output_bucket` object.\n"
+                }
+            },
+            "requiredInputs": [
+                "inputBucket",
+                "role"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Pipeline resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the Elastictranscoder pipeline.\n"
+                    },
+                    "awsKmsKeyArn": {
+                        "type": "string",
+                        "description": "The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.\n"
+                    },
+                    "contentConfig": {
+                        "$ref": "#/types/aws:elastictranscoder/PipelineContentConfig:PipelineContentConfig",
+                        "description": "The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)\n"
+                    },
+                    "contentConfigPermissions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:elastictranscoder/PipelineContentConfigPermission:PipelineContentConfigPermission"
+                        },
+                        "description": "The permissions for the `content_config` object. (documented below)\n"
+                    },
+                    "inputBucket": {
+                        "type": "string",
+                        "description": "The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the pipeline. Maximum 40 characters\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "notifications": {
+                        "$ref": "#/types/aws:elastictranscoder/PipelineNotifications:PipelineNotifications",
+                        "description": "The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)\n"
+                    },
+                    "outputBucket": {
+                        "type": "string",
+                        "description": "The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.\n"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.\n"
+                    },
+                    "thumbnailConfig": {
+                        "$ref": "#/types/aws:elastictranscoder/PipelineThumbnailConfig:PipelineThumbnailConfig",
+                        "description": "The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)\n"
+                    },
+                    "thumbnailConfigPermissions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:elastictranscoder/PipelineThumbnailConfigPermission:PipelineThumbnailConfigPermission"
+                        },
+                        "description": "The permissions for the `thumbnail_config` object. (documented below)\n\nThe `content_config` object specifies information about the Amazon S3 bucket in\nwhich you want Elastic Transcoder to save transcoded files and playlists: which\nbucket to use, and the storage class that you want to assign to the files. If\nyou specify values for `content_config`, you must also specify values for\n`thumbnail_config`. If you specify values for `content_config` and\n`thumbnail_config`, omit the `output_bucket` object.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

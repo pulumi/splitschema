@@ -1,37 +1,37 @@
 {
-    "properties": {
-        "grpcRoutes": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:appmesh/getGatewayRouteSpecGrpcRoute:getGatewayRouteSpecGrpcRoute"
+            "properties": {
+                "grpcRoutes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:appmesh/getGatewayRouteSpecGrpcRoute:getGatewayRouteSpecGrpcRoute"
+                    }
+                },
+                "http2Routes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:appmesh/getGatewayRouteSpecHttp2Route:getGatewayRouteSpecHttp2Route"
+                    }
+                },
+                "httpRoutes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:appmesh/getGatewayRouteSpecHttpRoute:getGatewayRouteSpecHttpRoute"
+                    }
+                },
+                "priority": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "grpcRoutes",
+                "http2Routes",
+                "httpRoutes",
+                "priority"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
             }
-        },
-        "http2Routes": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:appmesh/getGatewayRouteSpecHttp2Route:getGatewayRouteSpecHttp2Route"
-            }
-        },
-        "httpRoutes": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:appmesh/getGatewayRouteSpecHttpRoute:getGatewayRouteSpecHttpRoute"
-            }
-        },
-        "priority": {
-            "type": "integer"
         }
-    },
-    "type": "object",
-    "required": [
-        "grpcRoutes",
-        "http2Routes",
-        "httpRoutes",
-        "priority"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

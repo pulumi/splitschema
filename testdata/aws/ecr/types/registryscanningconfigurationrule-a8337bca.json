@@ -1,20 +1,20 @@
 {
-    "properties": {
-        "repositoryFilters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ecr/RegistryScanningConfigurationRuleRepositoryFilter:RegistryScanningConfigurationRuleRepositoryFilter"
+            "properties": {
+                "repositoryFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ecr/RegistryScanningConfigurationRuleRepositoryFilter:RegistryScanningConfigurationRuleRepositoryFilter"
+                    },
+                    "description": "One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).\n"
+                },
+                "scanFrequency": {
+                    "type": "string",
+                    "description": "The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.\n"
+                }
             },
-            "description": "One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).\n"
-        },
-        "scanFrequency": {
-            "type": "string",
-            "description": "The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.\n"
+            "type": "object",
+            "required": [
+                "repositoryFilters",
+                "scanFrequency"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "repositoryFilters",
-        "scanFrequency"
-    ]
-}

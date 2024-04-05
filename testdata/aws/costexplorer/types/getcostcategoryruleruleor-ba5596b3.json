@@ -1,36 +1,36 @@
 {
-    "properties": {
-        "costCategories": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:costexplorer/getCostCategoryRuleRuleOrCostCategory:getCostCategoryRuleRuleOrCostCategory"
+            "properties": {
+                "costCategories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:costexplorer/getCostCategoryRuleRuleOrCostCategory:getCostCategoryRuleRuleOrCostCategory"
+                    },
+                    "description": "Configuration block for the filter that's based on `CostCategory` values. See below.\n"
+                },
+                "dimensions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:costexplorer/getCostCategoryRuleRuleOrDimension:getCostCategoryRuleRuleOrDimension"
+                    },
+                    "description": "Configuration block for the specific `Dimension` to use for `Expression`. See below.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:costexplorer/getCostCategoryRuleRuleOrTag:getCostCategoryRuleRuleOrTag"
+                    },
+                    "description": "Configuration block for the specific `Tag` to use for `Expression`. See below.\n"
+                }
             },
-            "description": "Configuration block for the filter that's based on `CostCategory` values. See below.\n"
-        },
-        "dimensions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:costexplorer/getCostCategoryRuleRuleOrDimension:getCostCategoryRuleRuleOrDimension"
-            },
-            "description": "Configuration block for the specific `Dimension` to use for `Expression`. See below.\n"
-        },
-        "tags": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:costexplorer/getCostCategoryRuleRuleOrTag:getCostCategoryRuleRuleOrTag"
-            },
-            "description": "Configuration block for the specific `Tag` to use for `Expression`. See below.\n"
+            "type": "object",
+            "required": [
+                "costCategories",
+                "dimensions",
+                "tags"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "costCategories",
-        "dimensions",
-        "tags"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

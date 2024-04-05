@@ -1,155 +1,155 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
-        },
-        "creationTime": {
-            "type": "string",
-            "description": "The time that the FSx for openzfs location was created.\n"
-        },
-        "fsxFilesystemArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.\n"
-        },
-        "protocol": {
-            "$ref": "#/types/aws:datasync/FsxOpenZfsFileSystemProtocol:FsxOpenZfsFileSystemProtocol",
-            "description": "The type of protocol that DataSync uses to access your file system. See below.\n"
-        },
-        "securityGroupArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.\n"
-        },
-        "subdirectory": {
-            "type": "string",
-            "description": "Subdirectory to perform actions as source or destination. Must start with `/fsx`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "uri": {
-            "type": "string",
-            "description": "The URL of the FSx for openzfs location that was described.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "creationTime",
-        "fsxFilesystemArn",
-        "protocol",
-        "securityGroupArns",
-        "subdirectory",
-        "tagsAll",
-        "uri"
-    ],
-    "inputProperties": {
-        "fsxFilesystemArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.\n",
-            "willReplaceOnChanges": true
-        },
-        "protocol": {
-            "$ref": "#/types/aws:datasync/FsxOpenZfsFileSystemProtocol:FsxOpenZfsFileSystemProtocol",
-            "description": "The type of protocol that DataSync uses to access your file system. See below.\n",
-            "willReplaceOnChanges": true
-        },
-        "securityGroupArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.\n",
-            "willReplaceOnChanges": true
-        },
-        "subdirectory": {
-            "type": "string",
-            "description": "Subdirectory to perform actions as source or destination. Must start with `/fsx`.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "fsxFilesystemArn",
-        "protocol",
-        "securityGroupArns"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering FsxOpenZfsFileSystem resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
-            },
-            "creationTime": {
-                "type": "string",
-                "description": "The time that the FSx for openzfs location was created.\n"
-            },
-            "fsxFilesystemArn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.\n",
-                "willReplaceOnChanges": true
-            },
-            "protocol": {
-                "$ref": "#/types/aws:datasync/FsxOpenZfsFileSystemProtocol:FsxOpenZfsFileSystemProtocol",
-                "description": "The type of protocol that DataSync uses to access your file system. See below.\n",
-                "willReplaceOnChanges": true
-            },
-            "securityGroupArns": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
                 },
-                "description": "The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.\n",
-                "willReplaceOnChanges": true
-            },
-            "subdirectory": {
-                "type": "string",
-                "description": "Subdirectory to perform actions as source or destination. Must start with `/fsx`.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "creationTime": {
+                    "type": "string",
+                    "description": "The time that the FSx for openzfs location was created.\n"
                 },
-                "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "fsxFilesystemArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "protocol": {
+                    "$ref": "#/types/aws:datasync/FsxOpenZfsFileSystemProtocol:FsxOpenZfsFileSystemProtocol",
+                    "description": "The type of protocol that DataSync uses to access your file system. See below.\n"
+                },
+                "securityGroupArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.\n"
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "Subdirectory to perform actions as source or destination. Must start with `/fsx`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "uri": {
+                    "type": "string",
+                    "description": "The URL of the FSx for openzfs location that was described.\n"
+                }
             },
-            "uri": {
-                "type": "string",
-                "description": "The URL of the FSx for openzfs location that was described.\n"
+            "required": [
+                "arn",
+                "creationTime",
+                "fsxFilesystemArn",
+                "protocol",
+                "securityGroupArns",
+                "subdirectory",
+                "tagsAll",
+                "uri"
+            ],
+            "inputProperties": {
+                "fsxFilesystemArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.\n",
+                    "willReplaceOnChanges": true
+                },
+                "protocol": {
+                    "$ref": "#/types/aws:datasync/FsxOpenZfsFileSystemProtocol:FsxOpenZfsFileSystemProtocol",
+                    "description": "The type of protocol that DataSync uses to access your file system. See below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "securityGroupArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.\n",
+                    "willReplaceOnChanges": true
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "Subdirectory to perform actions as source or destination. Must start with `/fsx`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "fsxFilesystemArn",
+                "protocol",
+                "securityGroupArns"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FsxOpenZfsFileSystem resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
+                    },
+                    "creationTime": {
+                        "type": "string",
+                        "description": "The time that the FSx for openzfs location was created.\n"
+                    },
+                    "fsxFilesystemArn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "protocol": {
+                        "$ref": "#/types/aws:datasync/FsxOpenZfsFileSystemProtocol:FsxOpenZfsFileSystemProtocol",
+                        "description": "The type of protocol that DataSync uses to access your file system. See below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "securityGroupArns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "subdirectory": {
+                        "type": "string",
+                        "description": "Subdirectory to perform actions as source or destination. Must start with `/fsx`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "uri": {
+                        "type": "string",
+                        "description": "The URL of the FSx for openzfs location that was described.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

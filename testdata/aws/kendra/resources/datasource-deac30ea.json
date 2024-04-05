@@ -1,228 +1,228 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the Data Source.\n"
-        },
-        "configuration": {
-            "$ref": "#/types/aws:kendra/DataSourceConfiguration:DataSourceConfiguration",
-            "description": "A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.\n"
-        },
-        "createdAt": {
-            "type": "string",
-            "description": "The Unix timestamp of when the Data Source was created.\n"
-        },
-        "customDocumentEnrichmentConfiguration": {
-            "$ref": "#/types/aws:kendra/DataSourceCustomDocumentEnrichmentConfiguration:DataSourceCustomDocumentEnrichmentConfiguration",
-            "description": "A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.\n"
-        },
-        "dataSourceId": {
-            "type": "string",
-            "description": "The unique identifiers of the Data Source.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A description for the Data Source connector.\n"
-        },
-        "errorMessage": {
-            "type": "string",
-            "description": "When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.\n"
-        },
-        "indexId": {
-            "type": "string",
-            "description": "The identifier of the index for your Amazon Kendra data source.\n"
-        },
-        "languageCode": {
-            "type": "string",
-            "description": "The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "A name for your data source connector.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.\n"
-        },
-        "schedule": {
-            "type": "string",
-            "description": "Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "type": {
-            "type": "string",
-            "description": "The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).\n\nThe following arguments are optional:\n"
-        },
-        "updatedAt": {
-            "type": "string",
-            "description": "The Unix timestamp of when the Data Source was last updated.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "createdAt",
-        "dataSourceId",
-        "errorMessage",
-        "indexId",
-        "languageCode",
-        "name",
-        "status",
-        "tagsAll",
-        "type",
-        "updatedAt"
-    ],
-    "inputProperties": {
-        "configuration": {
-            "$ref": "#/types/aws:kendra/DataSourceConfiguration:DataSourceConfiguration",
-            "description": "A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.\n"
-        },
-        "customDocumentEnrichmentConfiguration": {
-            "$ref": "#/types/aws:kendra/DataSourceCustomDocumentEnrichmentConfiguration:DataSourceCustomDocumentEnrichmentConfiguration",
-            "description": "A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A description for the Data Source connector.\n"
-        },
-        "indexId": {
-            "type": "string",
-            "description": "The identifier of the index for your Amazon Kendra data source.\n",
-            "willReplaceOnChanges": true
-        },
-        "languageCode": {
-            "type": "string",
-            "description": "The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "A name for your data source connector.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.\n"
-        },
-        "schedule": {
-            "type": "string",
-            "description": "Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "indexId",
-        "type"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering DataSource resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the Data Source.\n"
-            },
-            "configuration": {
-                "$ref": "#/types/aws:kendra/DataSourceConfiguration:DataSourceConfiguration",
-                "description": "A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.\n"
-            },
-            "createdAt": {
-                "type": "string",
-                "description": "The Unix timestamp of when the Data Source was created.\n"
-            },
-            "customDocumentEnrichmentConfiguration": {
-                "$ref": "#/types/aws:kendra/DataSourceCustomDocumentEnrichmentConfiguration:DataSourceCustomDocumentEnrichmentConfiguration",
-                "description": "A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.\n"
-            },
-            "dataSourceId": {
-                "type": "string",
-                "description": "The unique identifiers of the Data Source.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "A description for the Data Source connector.\n"
-            },
-            "errorMessage": {
-                "type": "string",
-                "description": "When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.\n"
-            },
-            "indexId": {
-                "type": "string",
-                "description": "The identifier of the index for your Amazon Kendra data source.\n",
-                "willReplaceOnChanges": true
-            },
-            "languageCode": {
-                "type": "string",
-                "description": "The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "A name for your data source connector.\n"
-            },
-            "roleArn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.\n"
-            },
-            "schedule": {
-                "type": "string",
-                "description": "Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.\n"
-            },
-            "status": {
-                "type": "string",
-                "description": "The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the Data Source.\n"
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "configuration": {
+                    "$ref": "#/types/aws:kendra/DataSourceConfiguration:DataSourceConfiguration",
+                    "description": "A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "createdAt": {
+                    "type": "string",
+                    "description": "The Unix timestamp of when the Data Source was created.\n"
+                },
+                "customDocumentEnrichmentConfiguration": {
+                    "$ref": "#/types/aws:kendra/DataSourceCustomDocumentEnrichmentConfiguration:DataSourceCustomDocumentEnrichmentConfiguration",
+                    "description": "A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.\n"
+                },
+                "dataSourceId": {
+                    "type": "string",
+                    "description": "The unique identifiers of the Data Source.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description for the Data Source connector.\n"
+                },
+                "errorMessage": {
+                    "type": "string",
+                    "description": "When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.\n"
+                },
+                "indexId": {
+                    "type": "string",
+                    "description": "The identifier of the index for your Amazon Kendra data source.\n"
+                },
+                "languageCode": {
+                    "type": "string",
+                    "description": "The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A name for your data source connector.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.\n"
+                },
+                "schedule": {
+                    "type": "string",
+                    "description": "Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).\n\nThe following arguments are optional:\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "The Unix timestamp of when the Data Source was last updated.\n"
+                }
             },
-            "type": {
-                "type": "string",
-                "description": "The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "createdAt",
+                "dataSourceId",
+                "errorMessage",
+                "indexId",
+                "languageCode",
+                "name",
+                "status",
+                "tagsAll",
+                "type",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "configuration": {
+                    "$ref": "#/types/aws:kendra/DataSourceConfiguration:DataSourceConfiguration",
+                    "description": "A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.\n"
+                },
+                "customDocumentEnrichmentConfiguration": {
+                    "$ref": "#/types/aws:kendra/DataSourceCustomDocumentEnrichmentConfiguration:DataSourceCustomDocumentEnrichmentConfiguration",
+                    "description": "A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description for the Data Source connector.\n"
+                },
+                "indexId": {
+                    "type": "string",
+                    "description": "The identifier of the index for your Amazon Kendra data source.\n",
+                    "willReplaceOnChanges": true
+                },
+                "languageCode": {
+                    "type": "string",
+                    "description": "The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A name for your data source connector.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.\n"
+                },
+                "schedule": {
+                    "type": "string",
+                    "description": "Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "updatedAt": {
-                "type": "string",
-                "description": "The Unix timestamp of when the Data Source was last updated.\n"
+            "requiredInputs": [
+                "indexId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DataSource resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the Data Source.\n"
+                    },
+                    "configuration": {
+                        "$ref": "#/types/aws:kendra/DataSourceConfiguration:DataSourceConfiguration",
+                        "description": "A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The Unix timestamp of when the Data Source was created.\n"
+                    },
+                    "customDocumentEnrichmentConfiguration": {
+                        "$ref": "#/types/aws:kendra/DataSourceCustomDocumentEnrichmentConfiguration:DataSourceCustomDocumentEnrichmentConfiguration",
+                        "description": "A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.\n"
+                    },
+                    "dataSourceId": {
+                        "type": "string",
+                        "description": "The unique identifiers of the Data Source.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description for the Data Source connector.\n"
+                    },
+                    "errorMessage": {
+                        "type": "string",
+                        "description": "When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.\n"
+                    },
+                    "indexId": {
+                        "type": "string",
+                        "description": "The identifier of the index for your Amazon Kendra data source.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "languageCode": {
+                        "type": "string",
+                        "description": "The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "A name for your data source connector.\n"
+                    },
+                    "roleArn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.\n"
+                    },
+                    "schedule": {
+                        "type": "string",
+                        "description": "Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "The Unix timestamp of when the Data Source was last updated.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

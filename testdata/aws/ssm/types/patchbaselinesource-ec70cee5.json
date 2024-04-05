@@ -1,25 +1,25 @@
 {
-    "properties": {
-        "configuration": {
-            "type": "string",
-            "description": "The value of the yum repo configuration.\nFor information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name specified to identify the patch source.\n"
-        },
-        "products": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "configuration": {
+                    "type": "string",
+                    "description": "The value of the yum repo configuration.\nFor information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name specified to identify the patch source.\n"
+                },
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The specific operating system versions a patch repository applies to, such as `\"Ubuntu16.04\"`, `\"AmazonLinux2016.09\"`, `\"RedhatEnterpriseLinux7.2\"` or `\"Suse12.7\"`.\nFor lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).\n"
+                }
             },
-            "description": "The specific operating system versions a patch repository applies to, such as `\"Ubuntu16.04\"`, `\"AmazonLinux2016.09\"`, `\"RedhatEnterpriseLinux7.2\"` or `\"Suse12.7\"`.\nFor lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).\n"
+            "type": "object",
+            "required": [
+                "configuration",
+                "name",
+                "products"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "configuration",
-        "name",
-        "products"
-    ]
-}

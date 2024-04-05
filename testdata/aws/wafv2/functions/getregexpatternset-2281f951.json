@@ -1,59 +1,59 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getRegexPatternSet.\n",
-        "properties": {
-            "name": {
-                "type": "string",
-                "description": "Name of the WAFv2 Regex Pattern Set.\n"
-            },
-            "scope": {
-                "type": "string",
-                "description": "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "name",
-            "scope"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getRegexPatternSet.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the entity.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Description of the set that helps with identification.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "regularExpressions": {
-                "description": "One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.\n",
-                "items": {
-                    "$ref": "#/types/aws:wafv2/getRegexPatternSetRegularExpression:getRegexPatternSetRegularExpression"
+            "inputs": {
+                "description": "A collection of arguments for invoking getRegexPatternSet.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the WAFv2 Regex Pattern Set.\n"
+                    },
+                    "scope": {
+                        "type": "string",
+                        "description": "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object",
+                "required": [
+                    "name",
+                    "scope"
+                ]
             },
-            "scope": {
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getRegexPatternSet.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the entity.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the set that helps with identification.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "regularExpressions": {
+                        "description": "One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.\n",
+                        "items": {
+                            "$ref": "#/types/aws:wafv2/getRegexPatternSetRegularExpression:getRegexPatternSetRegularExpression"
+                        },
+                        "type": "array"
+                    },
+                    "scope": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "description",
+                    "name",
+                    "regularExpressions",
+                    "scope",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "description",
-            "name",
-            "regularExpressions",
-            "scope",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,146 +1,146 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The SES event destination ARN.\n"
-        },
-        "cloudwatchDestinations": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ses/EventDestinationCloudwatchDestination:EventDestinationCloudwatchDestination"
-            },
-            "description": "CloudWatch destination for the events\n"
-        },
-        "configurationSetName": {
-            "type": "string",
-            "description": "The name of the configuration set\n"
-        },
-        "enabled": {
-            "type": "boolean",
-            "description": "If true, the event destination will be enabled\n"
-        },
-        "kinesisDestination": {
-            "$ref": "#/types/aws:ses/EventDestinationKinesisDestination:EventDestinationKinesisDestination",
-            "description": "Send the events to a kinesis firehose destination\n"
-        },
-        "matchingTypes": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of matching types. May be any of `\"send\"`, `\"reject\"`, `\"bounce\"`, `\"complaint\"`, `\"delivery\"`, `\"open\"`, `\"click\"`, or `\"renderingFailure\"`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the event destination\n"
-        },
-        "snsDestination": {
-            "$ref": "#/types/aws:ses/EventDestinationSnsDestination:EventDestinationSnsDestination",
-            "description": "Send the events to an SNS Topic destination\n\n\u003e **NOTE:** You can specify `\"cloudwatch_destination\"` or `\"kinesis_destination\"` but not both\n"
-        }
-    },
-    "required": [
-        "arn",
-        "configurationSetName",
-        "matchingTypes",
-        "name"
-    ],
-    "inputProperties": {
-        "cloudwatchDestinations": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ses/EventDestinationCloudwatchDestination:EventDestinationCloudwatchDestination"
-            },
-            "description": "CloudWatch destination for the events\n",
-            "willReplaceOnChanges": true
-        },
-        "configurationSetName": {
-            "type": "string",
-            "description": "The name of the configuration set\n",
-            "willReplaceOnChanges": true
-        },
-        "enabled": {
-            "type": "boolean",
-            "description": "If true, the event destination will be enabled\n",
-            "willReplaceOnChanges": true
-        },
-        "kinesisDestination": {
-            "$ref": "#/types/aws:ses/EventDestinationKinesisDestination:EventDestinationKinesisDestination",
-            "description": "Send the events to a kinesis firehose destination\n",
-            "willReplaceOnChanges": true
-        },
-        "matchingTypes": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of matching types. May be any of `\"send\"`, `\"reject\"`, `\"bounce\"`, `\"complaint\"`, `\"delivery\"`, `\"open\"`, `\"click\"`, or `\"renderingFailure\"`.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the event destination\n",
-            "willReplaceOnChanges": true
-        },
-        "snsDestination": {
-            "$ref": "#/types/aws:ses/EventDestinationSnsDestination:EventDestinationSnsDestination",
-            "description": "Send the events to an SNS Topic destination\n\n\u003e **NOTE:** You can specify `\"cloudwatch_destination\"` or `\"kinesis_destination\"` but not both\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "configurationSetName",
-        "matchingTypes"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering EventDestination resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The SES event destination ARN.\n"
-            },
-            "cloudwatchDestinations": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ses/EventDestinationCloudwatchDestination:EventDestinationCloudwatchDestination"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The SES event destination ARN.\n"
                 },
-                "description": "CloudWatch destination for the events\n",
-                "willReplaceOnChanges": true
-            },
-            "configurationSetName": {
-                "type": "string",
-                "description": "The name of the configuration set\n",
-                "willReplaceOnChanges": true
-            },
-            "enabled": {
-                "type": "boolean",
-                "description": "If true, the event destination will be enabled\n",
-                "willReplaceOnChanges": true
-            },
-            "kinesisDestination": {
-                "$ref": "#/types/aws:ses/EventDestinationKinesisDestination:EventDestinationKinesisDestination",
-                "description": "Send the events to a kinesis firehose destination\n",
-                "willReplaceOnChanges": true
-            },
-            "matchingTypes": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "cloudwatchDestinations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ses/EventDestinationCloudwatchDestination:EventDestinationCloudwatchDestination"
+                    },
+                    "description": "CloudWatch destination for the events\n"
                 },
-                "description": "A list of matching types. May be any of `\"send\"`, `\"reject\"`, `\"bounce\"`, `\"complaint\"`, `\"delivery\"`, `\"open\"`, `\"click\"`, or `\"renderingFailure\"`.\n",
-                "willReplaceOnChanges": true
+                "configurationSetName": {
+                    "type": "string",
+                    "description": "The name of the configuration set\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "If true, the event destination will be enabled\n"
+                },
+                "kinesisDestination": {
+                    "$ref": "#/types/aws:ses/EventDestinationKinesisDestination:EventDestinationKinesisDestination",
+                    "description": "Send the events to a kinesis firehose destination\n"
+                },
+                "matchingTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of matching types. May be any of `\"send\"`, `\"reject\"`, `\"bounce\"`, `\"complaint\"`, `\"delivery\"`, `\"open\"`, `\"click\"`, or `\"renderingFailure\"`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the event destination\n"
+                },
+                "snsDestination": {
+                    "$ref": "#/types/aws:ses/EventDestinationSnsDestination:EventDestinationSnsDestination",
+                    "description": "Send the events to an SNS Topic destination\n\n\u003e **NOTE:** You can specify `\"cloudwatch_destination\"` or `\"kinesis_destination\"` but not both\n"
+                }
             },
-            "name": {
-                "type": "string",
-                "description": "The name of the event destination\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "configurationSetName",
+                "matchingTypes",
+                "name"
+            ],
+            "inputProperties": {
+                "cloudwatchDestinations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ses/EventDestinationCloudwatchDestination:EventDestinationCloudwatchDestination"
+                    },
+                    "description": "CloudWatch destination for the events\n",
+                    "willReplaceOnChanges": true
+                },
+                "configurationSetName": {
+                    "type": "string",
+                    "description": "The name of the configuration set\n",
+                    "willReplaceOnChanges": true
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "If true, the event destination will be enabled\n",
+                    "willReplaceOnChanges": true
+                },
+                "kinesisDestination": {
+                    "$ref": "#/types/aws:ses/EventDestinationKinesisDestination:EventDestinationKinesisDestination",
+                    "description": "Send the events to a kinesis firehose destination\n",
+                    "willReplaceOnChanges": true
+                },
+                "matchingTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of matching types. May be any of `\"send\"`, `\"reject\"`, `\"bounce\"`, `\"complaint\"`, `\"delivery\"`, `\"open\"`, `\"click\"`, or `\"renderingFailure\"`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the event destination\n",
+                    "willReplaceOnChanges": true
+                },
+                "snsDestination": {
+                    "$ref": "#/types/aws:ses/EventDestinationSnsDestination:EventDestinationSnsDestination",
+                    "description": "Send the events to an SNS Topic destination\n\n\u003e **NOTE:** You can specify `\"cloudwatch_destination\"` or `\"kinesis_destination\"` but not both\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "snsDestination": {
-                "$ref": "#/types/aws:ses/EventDestinationSnsDestination:EventDestinationSnsDestination",
-                "description": "Send the events to an SNS Topic destination\n\n\u003e **NOTE:** You can specify `\"cloudwatch_destination\"` or `\"kinesis_destination\"` but not both\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "configurationSetName",
+                "matchingTypes"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EventDestination resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The SES event destination ARN.\n"
+                    },
+                    "cloudwatchDestinations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ses/EventDestinationCloudwatchDestination:EventDestinationCloudwatchDestination"
+                        },
+                        "description": "CloudWatch destination for the events\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "configurationSetName": {
+                        "type": "string",
+                        "description": "The name of the configuration set\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "If true, the event destination will be enabled\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kinesisDestination": {
+                        "$ref": "#/types/aws:ses/EventDestinationKinesisDestination:EventDestinationKinesisDestination",
+                        "description": "Send the events to a kinesis firehose destination\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "matchingTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of matching types. May be any of `\"send\"`, `\"reject\"`, `\"bounce\"`, `\"complaint\"`, `\"delivery\"`, `\"open\"`, `\"click\"`, or `\"renderingFailure\"`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the event destination\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "snsDestination": {
+                        "$ref": "#/types/aws:ses/EventDestinationSnsDestination:EventDestinationSnsDestination",
+                        "description": "Send the events to an SNS Topic destination\n\n\u003e **NOTE:** You can specify `\"cloudwatch_destination\"` or `\"kinesis_destination\"` but not both\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

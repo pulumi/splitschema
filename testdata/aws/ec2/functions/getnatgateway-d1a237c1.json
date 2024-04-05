@@ -1,126 +1,126 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getNatGateway.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getNatGatewayFilter:getNatGatewayFilter"
-                },
-                "description": "Custom filter block as described below.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
-            },
-            "id": {
-                "type": "string",
-                "description": "ID of the specific NAT Gateway to retrieve.\n"
-            },
-            "state": {
-                "type": "string",
-                "description": "State of the NAT Gateway (pending | failed | available | deleting | deleted ).\n"
-            },
-            "subnetId": {
-                "type": "string",
-                "description": "ID of subnet that the NAT Gateway resides in.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags, each pair of which must exactly match\na pair on the desired NAT Gateway.\n"
-            },
-            "vpcId": {
-                "type": "string",
-                "description": "ID of the VPC that the NAT Gateway resides in.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getNatGateway.\n",
-        "properties": {
-            "allocationId": {
-                "description": "ID of the EIP allocated to the selected NAT Gateway.\n",
-                "type": "string"
-            },
-            "associationId": {
-                "description": "The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.\n",
-                "type": "string"
-            },
-            "connectivityType": {
-                "description": "Connectivity type of the NAT Gateway.\n",
-                "type": "string"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getNatGatewayFilter:getNatGatewayFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "type": "string"
-            },
-            "networkInterfaceId": {
-                "description": "The ID of the ENI allocated to the selected NAT Gateway.\n",
-                "type": "string"
-            },
-            "privateIp": {
-                "description": "Private IP address of the selected NAT Gateway.\n",
-                "type": "string"
-            },
-            "publicIp": {
-                "description": "Public IP (EIP) address of the selected NAT Gateway.\n",
-                "type": "string"
-            },
-            "secondaryAllocationIds": {
-                "description": "Secondary allocation EIP IDs for the selected NAT Gateway.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "secondaryPrivateIpAddressCount": {
-                "description": "The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.\n",
-                "type": "integer"
-            },
-            "secondaryPrivateIpAddresses": {
-                "description": "Secondary private IPv4 addresses assigned to the selected NAT Gateway.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "state": {
-                "type": "string"
-            },
-            "subnetId": {
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getNatGateway.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getNatGatewayFilter:getNatGatewayFilter"
+                        },
+                        "description": "Custom filter block as described below.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "ID of the specific NAT Gateway to retrieve.\n"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "State of the NAT Gateway (pending | failed | available | deleting | deleted ).\n"
+                    },
+                    "subnetId": {
+                        "type": "string",
+                        "description": "ID of subnet that the NAT Gateway resides in.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags, each pair of which must exactly match\na pair on the desired NAT Gateway.\n"
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "ID of the VPC that the NAT Gateway resides in.\n"
+                    }
                 },
                 "type": "object"
             },
-            "vpcId": {
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getNatGateway.\n",
+                "properties": {
+                    "allocationId": {
+                        "description": "ID of the EIP allocated to the selected NAT Gateway.\n",
+                        "type": "string"
+                    },
+                    "associationId": {
+                        "description": "The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.\n",
+                        "type": "string"
+                    },
+                    "connectivityType": {
+                        "description": "Connectivity type of the NAT Gateway.\n",
+                        "type": "string"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getNatGatewayFilter:getNatGatewayFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "networkInterfaceId": {
+                        "description": "The ID of the ENI allocated to the selected NAT Gateway.\n",
+                        "type": "string"
+                    },
+                    "privateIp": {
+                        "description": "Private IP address of the selected NAT Gateway.\n",
+                        "type": "string"
+                    },
+                    "publicIp": {
+                        "description": "Public IP (EIP) address of the selected NAT Gateway.\n",
+                        "type": "string"
+                    },
+                    "secondaryAllocationIds": {
+                        "description": "Secondary allocation EIP IDs for the selected NAT Gateway.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "secondaryPrivateIpAddressCount": {
+                        "description": "The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.\n",
+                        "type": "integer"
+                    },
+                    "secondaryPrivateIpAddresses": {
+                        "description": "Secondary private IPv4 addresses assigned to the selected NAT Gateway.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "subnetId": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "vpcId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "allocationId",
+                    "associationId",
+                    "connectivityType",
+                    "id",
+                    "networkInterfaceId",
+                    "privateIp",
+                    "publicIp",
+                    "secondaryAllocationIds",
+                    "secondaryPrivateIpAddressCount",
+                    "secondaryPrivateIpAddresses",
+                    "state",
+                    "subnetId",
+                    "tags",
+                    "vpcId"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "allocationId",
-            "associationId",
-            "connectivityType",
-            "id",
-            "networkInterfaceId",
-            "privateIp",
-            "publicIp",
-            "secondaryAllocationIds",
-            "secondaryPrivateIpAddressCount",
-            "secondaryPrivateIpAddresses",
-            "state",
-            "subnetId",
-            "tags",
-            "vpcId"
-        ],
-        "type": "object"
-    }
-}
+        }

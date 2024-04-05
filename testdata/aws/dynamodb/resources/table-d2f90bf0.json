@@ -1,390 +1,390 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the table\n"
-        },
-        "attributes": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:dynamodb/TableAttribute:TableAttribute"
-            },
-            "description": "Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.\n"
-        },
-        "billingMode": {
-            "type": "string",
-            "description": "Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.\n"
-        },
-        "deletionProtectionEnabled": {
-            "type": "boolean",
-            "description": "Enables deletion protection for table. Defaults to `false`.\n"
-        },
-        "globalSecondaryIndexes": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:dynamodb/TableGlobalSecondaryIndex:TableGlobalSecondaryIndex"
-            },
-            "description": "Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.\n"
-        },
-        "hashKey": {
-            "type": "string",
-            "description": "Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.\n"
-        },
-        "importTable": {
-            "$ref": "#/types/aws:dynamodb/TableImportTable:TableImportTable",
-            "description": "Import Amazon S3 data into a new table. See below.\n"
-        },
-        "localSecondaryIndexes": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:dynamodb/TableLocalSecondaryIndex:TableLocalSecondaryIndex"
-            },
-            "description": "Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Unique within a region name of the table.\n\nOptional arguments:\n"
-        },
-        "pointInTimeRecovery": {
-            "$ref": "#/types/aws:dynamodb/TablePointInTimeRecovery:TablePointInTimeRecovery",
-            "description": "Enable point-in-time recovery options. See below.\n"
-        },
-        "rangeKey": {
-            "type": "string",
-            "description": "Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.\n"
-        },
-        "readCapacity": {
-            "type": "integer",
-            "description": "Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.\n"
-        },
-        "replicas": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:dynamodb/TableReplica:TableReplica"
-            },
-            "description": "Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.\n"
-        },
-        "restoreDateTime": {
-            "type": "string",
-            "description": "Time of the point-in-time recovery point to restore.\n"
-        },
-        "restoreSourceName": {
-            "type": "string",
-            "description": "Name of the table to restore. Must match the name of an existing table.\n"
-        },
-        "restoreToLatestTime": {
-            "type": "boolean",
-            "description": "If set, restores table to the most recent point-in-time recovery point.\n"
-        },
-        "serverSideEncryption": {
-            "$ref": "#/types/aws:dynamodb/TableServerSideEncryption:TableServerSideEncryption",
-            "description": "Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.\n"
-        },
-        "streamArn": {
-            "type": "string",
-            "description": "ARN of the Table Stream. Only available when `stream_enabled = true`\n"
-        },
-        "streamEnabled": {
-            "type": "boolean",
-            "description": "Whether Streams are enabled.\n"
-        },
-        "streamLabel": {
-            "type": "string",
-            "description": "Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.\n"
-        },
-        "streamViewType": {
-            "type": "string",
-            "description": "When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.\n"
-        },
-        "tableClass": {
-            "type": "string",
-            "description": "Storage class of the table.\nValid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.\nDefault value is `STANDARD`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "ttl": {
-            "$ref": "#/types/aws:dynamodb/TableTtl:TableTtl",
-            "description": "Configuration block for TTL. See below.\n"
-        },
-        "writeCapacity": {
-            "type": "integer",
-            "description": "Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "attributes",
-        "hashKey",
-        "name",
-        "pointInTimeRecovery",
-        "readCapacity",
-        "serverSideEncryption",
-        "streamArn",
-        "streamLabel",
-        "streamViewType",
-        "tagsAll",
-        "ttl",
-        "writeCapacity"
-    ],
-    "inputProperties": {
-        "attributes": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:dynamodb/TableAttribute:TableAttribute"
-            },
-            "description": "Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.\n"
-        },
-        "billingMode": {
-            "type": "string",
-            "description": "Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.\n"
-        },
-        "deletionProtectionEnabled": {
-            "type": "boolean",
-            "description": "Enables deletion protection for table. Defaults to `false`.\n"
-        },
-        "globalSecondaryIndexes": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:dynamodb/TableGlobalSecondaryIndex:TableGlobalSecondaryIndex"
-            },
-            "description": "Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.\n"
-        },
-        "hashKey": {
-            "type": "string",
-            "description": "Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.\n",
-            "willReplaceOnChanges": true
-        },
-        "importTable": {
-            "$ref": "#/types/aws:dynamodb/TableImportTable:TableImportTable",
-            "description": "Import Amazon S3 data into a new table. See below.\n"
-        },
-        "localSecondaryIndexes": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:dynamodb/TableLocalSecondaryIndex:TableLocalSecondaryIndex"
-            },
-            "description": "Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Unique within a region name of the table.\n\nOptional arguments:\n",
-            "willReplaceOnChanges": true
-        },
-        "pointInTimeRecovery": {
-            "$ref": "#/types/aws:dynamodb/TablePointInTimeRecovery:TablePointInTimeRecovery",
-            "description": "Enable point-in-time recovery options. See below.\n"
-        },
-        "rangeKey": {
-            "type": "string",
-            "description": "Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.\n",
-            "willReplaceOnChanges": true
-        },
-        "readCapacity": {
-            "type": "integer",
-            "description": "Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.\n"
-        },
-        "replicas": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:dynamodb/TableReplica:TableReplica"
-            },
-            "description": "Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.\n"
-        },
-        "restoreDateTime": {
-            "type": "string",
-            "description": "Time of the point-in-time recovery point to restore.\n",
-            "willReplaceOnChanges": true
-        },
-        "restoreSourceName": {
-            "type": "string",
-            "description": "Name of the table to restore. Must match the name of an existing table.\n"
-        },
-        "restoreToLatestTime": {
-            "type": "boolean",
-            "description": "If set, restores table to the most recent point-in-time recovery point.\n",
-            "willReplaceOnChanges": true
-        },
-        "serverSideEncryption": {
-            "$ref": "#/types/aws:dynamodb/TableServerSideEncryption:TableServerSideEncryption",
-            "description": "Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.\n"
-        },
-        "streamEnabled": {
-            "type": "boolean",
-            "description": "Whether Streams are enabled.\n"
-        },
-        "streamViewType": {
-            "type": "string",
-            "description": "When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.\n"
-        },
-        "tableClass": {
-            "type": "string",
-            "description": "Storage class of the table.\nValid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.\nDefault value is `STANDARD`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "ttl": {
-            "$ref": "#/types/aws:dynamodb/TableTtl:TableTtl",
-            "description": "Configuration block for TTL. See below.\n"
-        },
-        "writeCapacity": {
-            "type": "integer",
-            "description": "Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.\n"
-        }
-    },
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Table resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the table\n"
-            },
-            "attributes": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:dynamodb/TableAttribute:TableAttribute"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the table\n"
                 },
-                "description": "Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.\n"
-            },
-            "billingMode": {
-                "type": "string",
-                "description": "Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.\n"
-            },
-            "deletionProtectionEnabled": {
-                "type": "boolean",
-                "description": "Enables deletion protection for table. Defaults to `false`.\n"
-            },
-            "globalSecondaryIndexes": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:dynamodb/TableGlobalSecondaryIndex:TableGlobalSecondaryIndex"
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:dynamodb/TableAttribute:TableAttribute"
+                    },
+                    "description": "Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.\n"
                 },
-                "description": "Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.\n"
-            },
-            "hashKey": {
-                "type": "string",
-                "description": "Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.\n",
-                "willReplaceOnChanges": true
-            },
-            "importTable": {
-                "$ref": "#/types/aws:dynamodb/TableImportTable:TableImportTable",
-                "description": "Import Amazon S3 data into a new table. See below.\n"
-            },
-            "localSecondaryIndexes": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:dynamodb/TableLocalSecondaryIndex:TableLocalSecondaryIndex"
+                "billingMode": {
+                    "type": "string",
+                    "description": "Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.\n"
                 },
-                "description": "Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "Unique within a region name of the table.\n\nOptional arguments:\n",
-                "willReplaceOnChanges": true
-            },
-            "pointInTimeRecovery": {
-                "$ref": "#/types/aws:dynamodb/TablePointInTimeRecovery:TablePointInTimeRecovery",
-                "description": "Enable point-in-time recovery options. See below.\n"
-            },
-            "rangeKey": {
-                "type": "string",
-                "description": "Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.\n",
-                "willReplaceOnChanges": true
-            },
-            "readCapacity": {
-                "type": "integer",
-                "description": "Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.\n"
-            },
-            "replicas": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:dynamodb/TableReplica:TableReplica"
+                "deletionProtectionEnabled": {
+                    "type": "boolean",
+                    "description": "Enables deletion protection for table. Defaults to `false`.\n"
                 },
-                "description": "Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.\n"
-            },
-            "restoreDateTime": {
-                "type": "string",
-                "description": "Time of the point-in-time recovery point to restore.\n",
-                "willReplaceOnChanges": true
-            },
-            "restoreSourceName": {
-                "type": "string",
-                "description": "Name of the table to restore. Must match the name of an existing table.\n"
-            },
-            "restoreToLatestTime": {
-                "type": "boolean",
-                "description": "If set, restores table to the most recent point-in-time recovery point.\n",
-                "willReplaceOnChanges": true
-            },
-            "serverSideEncryption": {
-                "$ref": "#/types/aws:dynamodb/TableServerSideEncryption:TableServerSideEncryption",
-                "description": "Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.\n"
-            },
-            "streamArn": {
-                "type": "string",
-                "description": "ARN of the Table Stream. Only available when `stream_enabled = true`\n"
-            },
-            "streamEnabled": {
-                "type": "boolean",
-                "description": "Whether Streams are enabled.\n"
-            },
-            "streamLabel": {
-                "type": "string",
-                "description": "Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.\n"
-            },
-            "streamViewType": {
-                "type": "string",
-                "description": "When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.\n"
-            },
-            "tableClass": {
-                "type": "string",
-                "description": "Storage class of the table.\nValid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.\nDefault value is `STANDARD`.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "globalSecondaryIndexes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:dynamodb/TableGlobalSecondaryIndex:TableGlobalSecondaryIndex"
+                    },
+                    "description": "Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.\n"
                 },
-                "description": "A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "hashKey": {
+                    "type": "string",
+                    "description": "Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "importTable": {
+                    "$ref": "#/types/aws:dynamodb/TableImportTable:TableImportTable",
+                    "description": "Import Amazon S3 data into a new table. See below.\n"
+                },
+                "localSecondaryIndexes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:dynamodb/TableLocalSecondaryIndex:TableLocalSecondaryIndex"
+                    },
+                    "description": "Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Unique within a region name of the table.\n\nOptional arguments:\n"
+                },
+                "pointInTimeRecovery": {
+                    "$ref": "#/types/aws:dynamodb/TablePointInTimeRecovery:TablePointInTimeRecovery",
+                    "description": "Enable point-in-time recovery options. See below.\n"
+                },
+                "rangeKey": {
+                    "type": "string",
+                    "description": "Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.\n"
+                },
+                "readCapacity": {
+                    "type": "integer",
+                    "description": "Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.\n"
+                },
+                "replicas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:dynamodb/TableReplica:TableReplica"
+                    },
+                    "description": "Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.\n"
+                },
+                "restoreDateTime": {
+                    "type": "string",
+                    "description": "Time of the point-in-time recovery point to restore.\n"
+                },
+                "restoreSourceName": {
+                    "type": "string",
+                    "description": "Name of the table to restore. Must match the name of an existing table.\n"
+                },
+                "restoreToLatestTime": {
+                    "type": "boolean",
+                    "description": "If set, restores table to the most recent point-in-time recovery point.\n"
+                },
+                "serverSideEncryption": {
+                    "$ref": "#/types/aws:dynamodb/TableServerSideEncryption:TableServerSideEncryption",
+                    "description": "Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.\n"
+                },
+                "streamArn": {
+                    "type": "string",
+                    "description": "ARN of the Table Stream. Only available when `stream_enabled = true`\n"
+                },
+                "streamEnabled": {
+                    "type": "boolean",
+                    "description": "Whether Streams are enabled.\n"
+                },
+                "streamLabel": {
+                    "type": "string",
+                    "description": "Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.\n"
+                },
+                "streamViewType": {
+                    "type": "string",
+                    "description": "When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.\n"
+                },
+                "tableClass": {
+                    "type": "string",
+                    "description": "Storage class of the table.\nValid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.\nDefault value is `STANDARD`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "ttl": {
+                    "$ref": "#/types/aws:dynamodb/TableTtl:TableTtl",
+                    "description": "Configuration block for TTL. See below.\n"
+                },
+                "writeCapacity": {
+                    "type": "integer",
+                    "description": "Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.\n"
+                }
             },
-            "ttl": {
-                "$ref": "#/types/aws:dynamodb/TableTtl:TableTtl",
-                "description": "Configuration block for TTL. See below.\n"
+            "required": [
+                "arn",
+                "attributes",
+                "hashKey",
+                "name",
+                "pointInTimeRecovery",
+                "readCapacity",
+                "serverSideEncryption",
+                "streamArn",
+                "streamLabel",
+                "streamViewType",
+                "tagsAll",
+                "ttl",
+                "writeCapacity"
+            ],
+            "inputProperties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:dynamodb/TableAttribute:TableAttribute"
+                    },
+                    "description": "Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.\n"
+                },
+                "billingMode": {
+                    "type": "string",
+                    "description": "Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.\n"
+                },
+                "deletionProtectionEnabled": {
+                    "type": "boolean",
+                    "description": "Enables deletion protection for table. Defaults to `false`.\n"
+                },
+                "globalSecondaryIndexes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:dynamodb/TableGlobalSecondaryIndex:TableGlobalSecondaryIndex"
+                    },
+                    "description": "Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.\n"
+                },
+                "hashKey": {
+                    "type": "string",
+                    "description": "Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "importTable": {
+                    "$ref": "#/types/aws:dynamodb/TableImportTable:TableImportTable",
+                    "description": "Import Amazon S3 data into a new table. See below.\n"
+                },
+                "localSecondaryIndexes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:dynamodb/TableLocalSecondaryIndex:TableLocalSecondaryIndex"
+                    },
+                    "description": "Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Unique within a region name of the table.\n\nOptional arguments:\n",
+                    "willReplaceOnChanges": true
+                },
+                "pointInTimeRecovery": {
+                    "$ref": "#/types/aws:dynamodb/TablePointInTimeRecovery:TablePointInTimeRecovery",
+                    "description": "Enable point-in-time recovery options. See below.\n"
+                },
+                "rangeKey": {
+                    "type": "string",
+                    "description": "Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "readCapacity": {
+                    "type": "integer",
+                    "description": "Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.\n"
+                },
+                "replicas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:dynamodb/TableReplica:TableReplica"
+                    },
+                    "description": "Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.\n"
+                },
+                "restoreDateTime": {
+                    "type": "string",
+                    "description": "Time of the point-in-time recovery point to restore.\n",
+                    "willReplaceOnChanges": true
+                },
+                "restoreSourceName": {
+                    "type": "string",
+                    "description": "Name of the table to restore. Must match the name of an existing table.\n"
+                },
+                "restoreToLatestTime": {
+                    "type": "boolean",
+                    "description": "If set, restores table to the most recent point-in-time recovery point.\n",
+                    "willReplaceOnChanges": true
+                },
+                "serverSideEncryption": {
+                    "$ref": "#/types/aws:dynamodb/TableServerSideEncryption:TableServerSideEncryption",
+                    "description": "Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.\n"
+                },
+                "streamEnabled": {
+                    "type": "boolean",
+                    "description": "Whether Streams are enabled.\n"
+                },
+                "streamViewType": {
+                    "type": "string",
+                    "description": "When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.\n"
+                },
+                "tableClass": {
+                    "type": "string",
+                    "description": "Storage class of the table.\nValid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.\nDefault value is `STANDARD`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "ttl": {
+                    "$ref": "#/types/aws:dynamodb/TableTtl:TableTtl",
+                    "description": "Configuration block for TTL. See below.\n"
+                },
+                "writeCapacity": {
+                    "type": "integer",
+                    "description": "Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.\n"
+                }
             },
-            "writeCapacity": {
-                "type": "integer",
-                "description": "Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.\n"
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Table resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the table\n"
+                    },
+                    "attributes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:dynamodb/TableAttribute:TableAttribute"
+                        },
+                        "description": "Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.\n"
+                    },
+                    "billingMode": {
+                        "type": "string",
+                        "description": "Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.\n"
+                    },
+                    "deletionProtectionEnabled": {
+                        "type": "boolean",
+                        "description": "Enables deletion protection for table. Defaults to `false`.\n"
+                    },
+                    "globalSecondaryIndexes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:dynamodb/TableGlobalSecondaryIndex:TableGlobalSecondaryIndex"
+                        },
+                        "description": "Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.\n"
+                    },
+                    "hashKey": {
+                        "type": "string",
+                        "description": "Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "importTable": {
+                        "$ref": "#/types/aws:dynamodb/TableImportTable:TableImportTable",
+                        "description": "Import Amazon S3 data into a new table. See below.\n"
+                    },
+                    "localSecondaryIndexes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:dynamodb/TableLocalSecondaryIndex:TableLocalSecondaryIndex"
+                        },
+                        "description": "Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Unique within a region name of the table.\n\nOptional arguments:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "pointInTimeRecovery": {
+                        "$ref": "#/types/aws:dynamodb/TablePointInTimeRecovery:TablePointInTimeRecovery",
+                        "description": "Enable point-in-time recovery options. See below.\n"
+                    },
+                    "rangeKey": {
+                        "type": "string",
+                        "description": "Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "readCapacity": {
+                        "type": "integer",
+                        "description": "Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.\n"
+                    },
+                    "replicas": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:dynamodb/TableReplica:TableReplica"
+                        },
+                        "description": "Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.\n"
+                    },
+                    "restoreDateTime": {
+                        "type": "string",
+                        "description": "Time of the point-in-time recovery point to restore.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "restoreSourceName": {
+                        "type": "string",
+                        "description": "Name of the table to restore. Must match the name of an existing table.\n"
+                    },
+                    "restoreToLatestTime": {
+                        "type": "boolean",
+                        "description": "If set, restores table to the most recent point-in-time recovery point.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "serverSideEncryption": {
+                        "$ref": "#/types/aws:dynamodb/TableServerSideEncryption:TableServerSideEncryption",
+                        "description": "Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.\n"
+                    },
+                    "streamArn": {
+                        "type": "string",
+                        "description": "ARN of the Table Stream. Only available when `stream_enabled = true`\n"
+                    },
+                    "streamEnabled": {
+                        "type": "boolean",
+                        "description": "Whether Streams are enabled.\n"
+                    },
+                    "streamLabel": {
+                        "type": "string",
+                        "description": "Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.\n"
+                    },
+                    "streamViewType": {
+                        "type": "string",
+                        "description": "When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.\n"
+                    },
+                    "tableClass": {
+                        "type": "string",
+                        "description": "Storage class of the table.\nValid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.\nDefault value is `STANDARD`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "ttl": {
+                        "$ref": "#/types/aws:dynamodb/TableTtl:TableTtl",
+                        "description": "Configuration block for TTL. See below.\n"
+                    },
+                    "writeCapacity": {
+                        "type": "integer",
+                        "description": "Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,75 +1,75 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getMap.\n",
-        "properties": {
-            "mapName": {
-                "type": "string",
-                "description": "Name of the map resource.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getMap.\n",
+                "properties": {
+                    "mapName": {
+                        "type": "string",
+                        "description": "Name of the map resource.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the map.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "mapName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getMap.\n",
+                "properties": {
+                    "configurations": {
+                        "description": "List of configurations that specify the map tile style selected from a partner data provider.\n",
+                        "items": {
+                            "$ref": "#/types/aws:location/getMapConfiguration:getMapConfiguration"
+                        },
+                        "type": "array"
+                    },
+                    "createTime": {
+                        "description": "Timestamp for when the map resource was created in ISO 8601 format.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Optional description for the map resource.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "mapArn": {
+                        "description": "ARN for the map resource.\n",
+                        "type": "string"
+                    },
+                    "mapName": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the map.\n",
+                        "type": "object"
+                    },
+                    "updateTime": {
+                        "description": "Timestamp for when the map resource was last updated in ISO 8601 format.\n",
+                        "type": "string"
+                    }
                 },
-                "description": "Key-value map of resource tags for the map.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "mapName"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getMap.\n",
-        "properties": {
-            "configurations": {
-                "description": "List of configurations that specify the map tile style selected from a partner data provider.\n",
-                "items": {
-                    "$ref": "#/types/aws:location/getMapConfiguration:getMapConfiguration"
-                },
-                "type": "array"
-            },
-            "createTime": {
-                "description": "Timestamp for when the map resource was created in ISO 8601 format.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Optional description for the map resource.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "mapArn": {
-                "description": "ARN for the map resource.\n",
-                "type": "string"
-            },
-            "mapName": {
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value map of resource tags for the map.\n",
+                "required": [
+                    "configurations",
+                    "createTime",
+                    "description",
+                    "mapArn",
+                    "mapName",
+                    "tags",
+                    "updateTime",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "updateTime": {
-                "description": "Timestamp for when the map resource was last updated in ISO 8601 format.\n",
-                "type": "string"
             }
-        },
-        "required": [
-            "configurations",
-            "createTime",
-            "description",
-            "mapArn",
-            "mapName",
-            "tags",
-            "updateTime",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

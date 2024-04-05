@@ -1,21 +1,21 @@
 {
-    "properties": {
-        "labels": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
+            "properties": {
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of Kubernetes labels for selection.\n",
+                    "willReplaceOnChanges": true
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "Kubernetes namespace for selection.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "description": "Key-value map of Kubernetes labels for selection.\n",
-            "willReplaceOnChanges": true
-        },
-        "namespace": {
-            "type": "string",
-            "description": "Kubernetes namespace for selection.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
+            "type": "object",
+            "required": [
+                "namespace"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "namespace"
-    ]
-}

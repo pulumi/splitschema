@@ -1,66 +1,66 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getCluster.\n",
-        "properties": {
-            "clusterId": {
-                "type": "string",
-                "description": "ID of Cloud HSM v2 cluster.\n"
-            },
-            "clusterState": {
-                "type": "string",
-                "description": "State of the cluster to be found.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "clusterId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getCluster.\n",
-        "properties": {
-            "clusterCertificates": {
-                "description": "The list of cluster certificates.\n* `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.\n* `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state.\n* `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.\n* `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.\n* `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.\nThe number of available cluster certificates may vary depending on state of the cluster.\n",
-                "items": {
-                    "$ref": "#/types/aws:cloudhsmv2/getClusterClusterCertificate:getClusterClusterCertificate"
+            "inputs": {
+                "description": "A collection of arguments for invoking getCluster.\n",
+                "properties": {
+                    "clusterId": {
+                        "type": "string",
+                        "description": "ID of Cloud HSM v2 cluster.\n"
+                    },
+                    "clusterState": {
+                        "type": "string",
+                        "description": "State of the cluster to be found.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object",
+                "required": [
+                    "clusterId"
+                ]
             },
-            "clusterId": {
-                "type": "string"
-            },
-            "clusterState": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "securityGroupId": {
-                "description": "ID of the security group associated with the CloudHSM cluster.\n",
-                "type": "string"
-            },
-            "subnetIds": {
-                "description": "IDs of subnets in which cluster operates.\n",
-                "items": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getCluster.\n",
+                "properties": {
+                    "clusterCertificates": {
+                        "description": "The list of cluster certificates.\n* `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.\n* `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state.\n* `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.\n* `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.\n* `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.\nThe number of available cluster certificates may vary depending on state of the cluster.\n",
+                        "items": {
+                            "$ref": "#/types/aws:cloudhsmv2/getClusterClusterCertificate:getClusterClusterCertificate"
+                        },
+                        "type": "array"
+                    },
+                    "clusterId": {
+                        "type": "string"
+                    },
+                    "clusterState": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "securityGroupId": {
+                        "description": "ID of the security group associated with the CloudHSM cluster.\n",
+                        "type": "string"
+                    },
+                    "subnetIds": {
+                        "description": "IDs of subnets in which cluster operates.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "vpcId": {
+                        "description": "ID of the VPC that the CloudHSM cluster resides in.\n",
+                        "type": "string"
+                    }
                 },
-                "type": "array"
-            },
-            "vpcId": {
-                "description": "ID of the VPC that the CloudHSM cluster resides in.\n",
-                "type": "string"
+                "required": [
+                    "clusterCertificates",
+                    "clusterId",
+                    "clusterState",
+                    "securityGroupId",
+                    "subnetIds",
+                    "vpcId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "clusterCertificates",
-            "clusterId",
-            "clusterState",
-            "securityGroupId",
-            "subnetIds",
-            "vpcId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

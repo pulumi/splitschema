@@ -1,407 +1,407 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the crawler\n"
-        },
-        "catalogTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerCatalogTarget:CrawlerCatalogTarget"
-            },
-            "description": "List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.\n"
-        },
-        "classifiers": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.\n"
-        },
-        "configuration": {
-            "type": "string",
-            "description": "JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).\n"
-        },
-        "databaseName": {
-            "type": "string",
-            "description": "Glue database where results are written.\n"
-        },
-        "deltaTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerDeltaTarget:CrawlerDeltaTarget"
-            },
-            "description": "List of nested Delta Lake target arguments. See Delta Target below.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the crawler.\n"
-        },
-        "dynamodbTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerDynamodbTarget:CrawlerDynamodbTarget"
-            },
-            "description": "List of nested DynamoDB target arguments. See Dynamodb Target below.\n"
-        },
-        "hudiTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerHudiTarget:CrawlerHudiTarget"
-            },
-            "description": "List of nested Hudi target arguments. See Iceberg Target below.\n"
-        },
-        "icebergTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerIcebergTarget:CrawlerIcebergTarget"
-            },
-            "description": "List of nested Iceberg target arguments. See Iceberg Target below.\n"
-        },
-        "jdbcTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerJdbcTarget:CrawlerJdbcTarget"
-            },
-            "description": "List of nested JDBC target arguments. See JDBC Target below.\n"
-        },
-        "lakeFormationConfiguration": {
-            "$ref": "#/types/aws:glue/CrawlerLakeFormationConfiguration:CrawlerLakeFormationConfiguration",
-            "description": "Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.\n"
-        },
-        "lineageConfiguration": {
-            "$ref": "#/types/aws:glue/CrawlerLineageConfiguration:CrawlerLineageConfiguration",
-            "description": "Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.\n"
-        },
-        "mongodbTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerMongodbTarget:CrawlerMongodbTarget"
-            },
-            "description": "List of nested MongoDB target arguments. See MongoDB Target below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the crawler.\n"
-        },
-        "recrawlPolicy": {
-            "$ref": "#/types/aws:glue/CrawlerRecrawlPolicy:CrawlerRecrawlPolicy",
-            "description": "A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.\n"
-        },
-        "role": {
-            "type": "string",
-            "description": "The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.\n"
-        },
-        "s3Targets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerS3Target:CrawlerS3Target"
-            },
-            "description": "List of nested Amazon S3 target arguments. See S3 Target below.\n"
-        },
-        "schedule": {
-            "type": "string",
-            "description": "A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.\n"
-        },
-        "schemaChangePolicy": {
-            "$ref": "#/types/aws:glue/CrawlerSchemaChangePolicy:CrawlerSchemaChangePolicy",
-            "description": "Policy for the crawler's update and deletion behavior. See Schema Change Policy below.\n"
-        },
-        "securityConfiguration": {
-            "type": "string",
-            "description": "The name of Security Configuration to be used by the crawler\n"
-        },
-        "tablePrefix": {
-            "type": "string",
-            "description": "The table prefix used for catalog tables that are created.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "databaseName",
-        "name",
-        "role",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "catalogTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerCatalogTarget:CrawlerCatalogTarget"
-            },
-            "description": "List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.\n"
-        },
-        "classifiers": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.\n"
-        },
-        "configuration": {
-            "type": "string",
-            "description": "JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).\n"
-        },
-        "databaseName": {
-            "type": "string",
-            "description": "Glue database where results are written.\n",
-            "willReplaceOnChanges": true
-        },
-        "deltaTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerDeltaTarget:CrawlerDeltaTarget"
-            },
-            "description": "List of nested Delta Lake target arguments. See Delta Target below.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the crawler.\n"
-        },
-        "dynamodbTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerDynamodbTarget:CrawlerDynamodbTarget"
-            },
-            "description": "List of nested DynamoDB target arguments. See Dynamodb Target below.\n"
-        },
-        "hudiTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerHudiTarget:CrawlerHudiTarget"
-            },
-            "description": "List of nested Hudi target arguments. See Iceberg Target below.\n"
-        },
-        "icebergTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerIcebergTarget:CrawlerIcebergTarget"
-            },
-            "description": "List of nested Iceberg target arguments. See Iceberg Target below.\n"
-        },
-        "jdbcTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerJdbcTarget:CrawlerJdbcTarget"
-            },
-            "description": "List of nested JDBC target arguments. See JDBC Target below.\n"
-        },
-        "lakeFormationConfiguration": {
-            "$ref": "#/types/aws:glue/CrawlerLakeFormationConfiguration:CrawlerLakeFormationConfiguration",
-            "description": "Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.\n"
-        },
-        "lineageConfiguration": {
-            "$ref": "#/types/aws:glue/CrawlerLineageConfiguration:CrawlerLineageConfiguration",
-            "description": "Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.\n"
-        },
-        "mongodbTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerMongodbTarget:CrawlerMongodbTarget"
-            },
-            "description": "List of nested MongoDB target arguments. See MongoDB Target below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the crawler.\n",
-            "willReplaceOnChanges": true
-        },
-        "recrawlPolicy": {
-            "$ref": "#/types/aws:glue/CrawlerRecrawlPolicy:CrawlerRecrawlPolicy",
-            "description": "A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.\n"
-        },
-        "role": {
-            "type": "string",
-            "description": "The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.\n"
-        },
-        "s3Targets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:glue/CrawlerS3Target:CrawlerS3Target"
-            },
-            "description": "List of nested Amazon S3 target arguments. See S3 Target below.\n"
-        },
-        "schedule": {
-            "type": "string",
-            "description": "A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.\n"
-        },
-        "schemaChangePolicy": {
-            "$ref": "#/types/aws:glue/CrawlerSchemaChangePolicy:CrawlerSchemaChangePolicy",
-            "description": "Policy for the crawler's update and deletion behavior. See Schema Change Policy below.\n"
-        },
-        "securityConfiguration": {
-            "type": "string",
-            "description": "The name of Security Configuration to be used by the crawler\n"
-        },
-        "tablePrefix": {
-            "type": "string",
-            "description": "The table prefix used for catalog tables that are created.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "databaseName",
-        "role"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Crawler resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the crawler\n"
-            },
-            "catalogTargets": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:glue/CrawlerCatalogTarget:CrawlerCatalogTarget"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the crawler\n"
                 },
-                "description": "List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.\n"
-            },
-            "classifiers": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "catalogTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerCatalogTarget:CrawlerCatalogTarget"
+                    },
+                    "description": "List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.\n"
                 },
-                "description": "List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.\n"
-            },
-            "configuration": {
-                "type": "string",
-                "description": "JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).\n"
-            },
-            "databaseName": {
-                "type": "string",
-                "description": "Glue database where results are written.\n",
-                "willReplaceOnChanges": true
-            },
-            "deltaTargets": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:glue/CrawlerDeltaTarget:CrawlerDeltaTarget"
+                "classifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.\n"
                 },
-                "description": "List of nested Delta Lake target arguments. See Delta Target below.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "Description of the crawler.\n"
-            },
-            "dynamodbTargets": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:glue/CrawlerDynamodbTarget:CrawlerDynamodbTarget"
+                "configuration": {
+                    "type": "string",
+                    "description": "JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).\n"
                 },
-                "description": "List of nested DynamoDB target arguments. See Dynamodb Target below.\n"
-            },
-            "hudiTargets": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:glue/CrawlerHudiTarget:CrawlerHudiTarget"
+                "databaseName": {
+                    "type": "string",
+                    "description": "Glue database where results are written.\n"
                 },
-                "description": "List of nested Hudi target arguments. See Iceberg Target below.\n"
-            },
-            "icebergTargets": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:glue/CrawlerIcebergTarget:CrawlerIcebergTarget"
+                "deltaTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerDeltaTarget:CrawlerDeltaTarget"
+                    },
+                    "description": "List of nested Delta Lake target arguments. See Delta Target below.\n"
                 },
-                "description": "List of nested Iceberg target arguments. See Iceberg Target below.\n"
-            },
-            "jdbcTargets": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:glue/CrawlerJdbcTarget:CrawlerJdbcTarget"
+                "description": {
+                    "type": "string",
+                    "description": "Description of the crawler.\n"
                 },
-                "description": "List of nested JDBC target arguments. See JDBC Target below.\n"
-            },
-            "lakeFormationConfiguration": {
-                "$ref": "#/types/aws:glue/CrawlerLakeFormationConfiguration:CrawlerLakeFormationConfiguration",
-                "description": "Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.\n"
-            },
-            "lineageConfiguration": {
-                "$ref": "#/types/aws:glue/CrawlerLineageConfiguration:CrawlerLineageConfiguration",
-                "description": "Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.\n"
-            },
-            "mongodbTargets": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:glue/CrawlerMongodbTarget:CrawlerMongodbTarget"
+                "dynamodbTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerDynamodbTarget:CrawlerDynamodbTarget"
+                    },
+                    "description": "List of nested DynamoDB target arguments. See Dynamodb Target below.\n"
                 },
-                "description": "List of nested MongoDB target arguments. See MongoDB Target below.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name of the crawler.\n",
-                "willReplaceOnChanges": true
-            },
-            "recrawlPolicy": {
-                "$ref": "#/types/aws:glue/CrawlerRecrawlPolicy:CrawlerRecrawlPolicy",
-                "description": "A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.\n"
-            },
-            "role": {
-                "type": "string",
-                "description": "The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.\n"
-            },
-            "s3Targets": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:glue/CrawlerS3Target:CrawlerS3Target"
+                "hudiTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerHudiTarget:CrawlerHudiTarget"
+                    },
+                    "description": "List of nested Hudi target arguments. See Iceberg Target below.\n"
                 },
-                "description": "List of nested Amazon S3 target arguments. See S3 Target below.\n"
-            },
-            "schedule": {
-                "type": "string",
-                "description": "A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.\n"
-            },
-            "schemaChangePolicy": {
-                "$ref": "#/types/aws:glue/CrawlerSchemaChangePolicy:CrawlerSchemaChangePolicy",
-                "description": "Policy for the crawler's update and deletion behavior. See Schema Change Policy below.\n"
-            },
-            "securityConfiguration": {
-                "type": "string",
-                "description": "The name of Security Configuration to be used by the crawler\n"
-            },
-            "tablePrefix": {
-                "type": "string",
-                "description": "The table prefix used for catalog tables that are created.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "icebergTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerIcebergTarget:CrawlerIcebergTarget"
+                    },
+                    "description": "List of nested Iceberg target arguments. See Iceberg Target below.\n"
                 },
-                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "jdbcTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerJdbcTarget:CrawlerJdbcTarget"
+                    },
+                    "description": "List of nested JDBC target arguments. See JDBC Target below.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "lakeFormationConfiguration": {
+                    "$ref": "#/types/aws:glue/CrawlerLakeFormationConfiguration:CrawlerLakeFormationConfiguration",
+                    "description": "Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.\n"
+                },
+                "lineageConfiguration": {
+                    "$ref": "#/types/aws:glue/CrawlerLineageConfiguration:CrawlerLineageConfiguration",
+                    "description": "Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.\n"
+                },
+                "mongodbTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerMongodbTarget:CrawlerMongodbTarget"
+                    },
+                    "description": "List of nested MongoDB target arguments. See MongoDB Target below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the crawler.\n"
+                },
+                "recrawlPolicy": {
+                    "$ref": "#/types/aws:glue/CrawlerRecrawlPolicy:CrawlerRecrawlPolicy",
+                    "description": "A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.\n"
+                },
+                "s3Targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerS3Target:CrawlerS3Target"
+                    },
+                    "description": "List of nested Amazon S3 target arguments. See S3 Target below.\n"
+                },
+                "schedule": {
+                    "type": "string",
+                    "description": "A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.\n"
+                },
+                "schemaChangePolicy": {
+                    "$ref": "#/types/aws:glue/CrawlerSchemaChangePolicy:CrawlerSchemaChangePolicy",
+                    "description": "Policy for the crawler's update and deletion behavior. See Schema Change Policy below.\n"
+                },
+                "securityConfiguration": {
+                    "type": "string",
+                    "description": "The name of Security Configuration to be used by the crawler\n"
+                },
+                "tablePrefix": {
+                    "type": "string",
+                    "description": "The table prefix used for catalog tables that are created.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "databaseName",
+                "name",
+                "role",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "catalogTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerCatalogTarget:CrawlerCatalogTarget"
+                    },
+                    "description": "List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.\n"
+                },
+                "classifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.\n"
+                },
+                "configuration": {
+                    "type": "string",
+                    "description": "JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).\n"
+                },
+                "databaseName": {
+                    "type": "string",
+                    "description": "Glue database where results are written.\n",
+                    "willReplaceOnChanges": true
+                },
+                "deltaTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerDeltaTarget:CrawlerDeltaTarget"
+                    },
+                    "description": "List of nested Delta Lake target arguments. See Delta Target below.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the crawler.\n"
+                },
+                "dynamodbTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerDynamodbTarget:CrawlerDynamodbTarget"
+                    },
+                    "description": "List of nested DynamoDB target arguments. See Dynamodb Target below.\n"
+                },
+                "hudiTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerHudiTarget:CrawlerHudiTarget"
+                    },
+                    "description": "List of nested Hudi target arguments. See Iceberg Target below.\n"
+                },
+                "icebergTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerIcebergTarget:CrawlerIcebergTarget"
+                    },
+                    "description": "List of nested Iceberg target arguments. See Iceberg Target below.\n"
+                },
+                "jdbcTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerJdbcTarget:CrawlerJdbcTarget"
+                    },
+                    "description": "List of nested JDBC target arguments. See JDBC Target below.\n"
+                },
+                "lakeFormationConfiguration": {
+                    "$ref": "#/types/aws:glue/CrawlerLakeFormationConfiguration:CrawlerLakeFormationConfiguration",
+                    "description": "Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.\n"
+                },
+                "lineageConfiguration": {
+                    "$ref": "#/types/aws:glue/CrawlerLineageConfiguration:CrawlerLineageConfiguration",
+                    "description": "Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.\n"
+                },
+                "mongodbTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerMongodbTarget:CrawlerMongodbTarget"
+                    },
+                    "description": "List of nested MongoDB target arguments. See MongoDB Target below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the crawler.\n",
+                    "willReplaceOnChanges": true
+                },
+                "recrawlPolicy": {
+                    "$ref": "#/types/aws:glue/CrawlerRecrawlPolicy:CrawlerRecrawlPolicy",
+                    "description": "A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.\n"
+                },
+                "s3Targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:glue/CrawlerS3Target:CrawlerS3Target"
+                    },
+                    "description": "List of nested Amazon S3 target arguments. See S3 Target below.\n"
+                },
+                "schedule": {
+                    "type": "string",
+                    "description": "A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.\n"
+                },
+                "schemaChangePolicy": {
+                    "$ref": "#/types/aws:glue/CrawlerSchemaChangePolicy:CrawlerSchemaChangePolicy",
+                    "description": "Policy for the crawler's update and deletion behavior. See Schema Change Policy below.\n"
+                },
+                "securityConfiguration": {
+                    "type": "string",
+                    "description": "The name of Security Configuration to be used by the crawler\n"
+                },
+                "tablePrefix": {
+                    "type": "string",
+                    "description": "The table prefix used for catalog tables that are created.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "databaseName",
+                "role"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Crawler resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the crawler\n"
+                    },
+                    "catalogTargets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:glue/CrawlerCatalogTarget:CrawlerCatalogTarget"
+                        },
+                        "description": "List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.\n"
+                    },
+                    "classifiers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.\n"
+                    },
+                    "configuration": {
+                        "type": "string",
+                        "description": "JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).\n"
+                    },
+                    "databaseName": {
+                        "type": "string",
+                        "description": "Glue database where results are written.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "deltaTargets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:glue/CrawlerDeltaTarget:CrawlerDeltaTarget"
+                        },
+                        "description": "List of nested Delta Lake target arguments. See Delta Target below.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the crawler.\n"
+                    },
+                    "dynamodbTargets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:glue/CrawlerDynamodbTarget:CrawlerDynamodbTarget"
+                        },
+                        "description": "List of nested DynamoDB target arguments. See Dynamodb Target below.\n"
+                    },
+                    "hudiTargets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:glue/CrawlerHudiTarget:CrawlerHudiTarget"
+                        },
+                        "description": "List of nested Hudi target arguments. See Iceberg Target below.\n"
+                    },
+                    "icebergTargets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:glue/CrawlerIcebergTarget:CrawlerIcebergTarget"
+                        },
+                        "description": "List of nested Iceberg target arguments. See Iceberg Target below.\n"
+                    },
+                    "jdbcTargets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:glue/CrawlerJdbcTarget:CrawlerJdbcTarget"
+                        },
+                        "description": "List of nested JDBC target arguments. See JDBC Target below.\n"
+                    },
+                    "lakeFormationConfiguration": {
+                        "$ref": "#/types/aws:glue/CrawlerLakeFormationConfiguration:CrawlerLakeFormationConfiguration",
+                        "description": "Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.\n"
+                    },
+                    "lineageConfiguration": {
+                        "$ref": "#/types/aws:glue/CrawlerLineageConfiguration:CrawlerLineageConfiguration",
+                        "description": "Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.\n"
+                    },
+                    "mongodbTargets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:glue/CrawlerMongodbTarget:CrawlerMongodbTarget"
+                        },
+                        "description": "List of nested MongoDB target arguments. See MongoDB Target below.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the crawler.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "recrawlPolicy": {
+                        "$ref": "#/types/aws:glue/CrawlerRecrawlPolicy:CrawlerRecrawlPolicy",
+                        "description": "A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.\n"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.\n"
+                    },
+                    "s3Targets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:glue/CrawlerS3Target:CrawlerS3Target"
+                        },
+                        "description": "List of nested Amazon S3 target arguments. See S3 Target below.\n"
+                    },
+                    "schedule": {
+                        "type": "string",
+                        "description": "A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.\n"
+                    },
+                    "schemaChangePolicy": {
+                        "$ref": "#/types/aws:glue/CrawlerSchemaChangePolicy:CrawlerSchemaChangePolicy",
+                        "description": "Policy for the crawler's update and deletion behavior. See Schema Change Policy below.\n"
+                    },
+                    "securityConfiguration": {
+                        "type": "string",
+                        "description": "The name of Security Configuration to be used by the crawler\n"
+                    },
+                    "tablePrefix": {
+                        "type": "string",
+                        "description": "The table prefix used for catalog tables that are created.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

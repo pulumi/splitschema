@@ -1,58 +1,58 @@
 {
-    "properties": {
-        "cidrBlocks": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "cidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of CIDR blocks.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of this rule.\n"
+                },
+                "fromPort": {
+                    "type": "integer",
+                    "description": "Start port (or ICMP type number if protocol is `icmp`)\n"
+                },
+                "ipv6CidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of IPv6 CIDR blocks.\n"
+                },
+                "prefixListIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of prefix list IDs (for allowing access to VPC endpoints)\n"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "Protocol. If you select a protocol of \"-1\" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).\n"
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.\n"
+                },
+                "self": {
+                    "type": "boolean",
+                    "description": "Whether the security group itself will be added as a source to this egress rule.\n"
+                },
+                "toPort": {
+                    "type": "integer",
+                    "description": "End range port (or ICMP code if protocol is `icmp`).\n"
+                }
             },
-            "description": "List of CIDR blocks.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of this rule.\n"
-        },
-        "fromPort": {
-            "type": "integer",
-            "description": "Start port (or ICMP type number if protocol is `icmp`)\n"
-        },
-        "ipv6CidrBlocks": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of IPv6 CIDR blocks.\n"
-        },
-        "prefixListIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of prefix list IDs (for allowing access to VPC endpoints)\n"
-        },
-        "protocol": {
-            "type": "string",
-            "description": "Protocol. If you select a protocol of \"-1\" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).\n"
-        },
-        "securityGroups": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.\n"
-        },
-        "self": {
-            "type": "boolean",
-            "description": "Whether the security group itself will be added as a source to this egress rule.\n"
-        },
-        "toPort": {
-            "type": "integer",
-            "description": "End range port (or ICMP code if protocol is `icmp`).\n"
+            "type": "object",
+            "required": [
+                "fromPort",
+                "protocol",
+                "toPort"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "fromPort",
-        "protocol",
-        "toPort"
-    ]
-}

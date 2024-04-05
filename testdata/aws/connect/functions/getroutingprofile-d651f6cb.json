@@ -1,94 +1,94 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getRoutingProfile.\n",
-        "properties": {
-            "instanceId": {
-                "type": "string",
-                "description": "Reference to the hosting Amazon Connect Instance\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Returns information on a specific Routing Profile by name\n"
-            },
-            "routingProfileId": {
-                "type": "string",
-                "description": "Returns information on a specific Routing Profile by Routing Profile id\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getRoutingProfile.\n",
+                "properties": {
+                    "instanceId": {
+                        "type": "string",
+                        "description": "Reference to the hosting Amazon Connect Instance\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Returns information on a specific Routing Profile by name\n"
+                    },
+                    "routingProfileId": {
+                        "type": "string",
+                        "description": "Returns information on a specific Routing Profile by Routing Profile id\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the Routing Profile.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "instanceId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRoutingProfile.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the Routing Profile.\n",
+                        "type": "string"
+                    },
+                    "defaultOutboundQueueId": {
+                        "description": "Specifies the default outbound queue for the Routing Profile.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the Routing Profile.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "type": "string"
+                    },
+                    "mediaConcurrencies": {
+                        "description": "One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:connect/getRoutingProfileMediaConcurrency:getRoutingProfileMediaConcurrency"
+                        },
+                        "type": "array"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "queueConfigs": {
+                        "description": "One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:connect/getRoutingProfileQueueConfig:getRoutingProfileQueueConfig"
+                        },
+                        "type": "array"
+                    },
+                    "routingProfileId": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the Routing Profile.\n",
+                        "type": "object"
+                    }
                 },
-                "description": "Map of tags to assign to the Routing Profile.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "instanceId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getRoutingProfile.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the Routing Profile.\n",
-                "type": "string"
-            },
-            "defaultOutboundQueueId": {
-                "description": "Specifies the default outbound queue for the Routing Profile.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Description of the Routing Profile.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "instanceId": {
-                "type": "string"
-            },
-            "mediaConcurrencies": {
-                "description": "One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.\n",
-                "items": {
-                    "$ref": "#/types/aws:connect/getRoutingProfileMediaConcurrency:getRoutingProfileMediaConcurrency"
-                },
-                "type": "array"
-            },
-            "name": {
-                "type": "string"
-            },
-            "queueConfigs": {
-                "description": "One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.\n",
-                "items": {
-                    "$ref": "#/types/aws:connect/getRoutingProfileQueueConfig:getRoutingProfileQueueConfig"
-                },
-                "type": "array"
-            },
-            "routingProfileId": {
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags to assign to the Routing Profile.\n",
+                "required": [
+                    "arn",
+                    "defaultOutboundQueueId",
+                    "description",
+                    "instanceId",
+                    "mediaConcurrencies",
+                    "name",
+                    "queueConfigs",
+                    "routingProfileId",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "defaultOutboundQueueId",
-            "description",
-            "instanceId",
-            "mediaConcurrencies",
-            "name",
-            "queueConfigs",
-            "routingProfileId",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

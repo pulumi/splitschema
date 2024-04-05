@@ -1,160 +1,160 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the AppConfig Deployment Strategy.\n"
-        },
-        "deploymentDurationInMinutes": {
-            "type": "integer",
-            "description": "Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the deployment strategy. Can be at most 1024 characters.\n"
-        },
-        "finalBakeTimeInMinutes": {
-            "type": "integer",
-            "description": "Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.\n"
-        },
-        "growthFactor": {
-            "type": "number",
-            "description": "Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.\n"
-        },
-        "growthType": {
-            "type": "string",
-            "description": "Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name for the deployment strategy. Must be between 1 and 64 characters in length.\n"
-        },
-        "replicateTo": {
-            "type": "string",
-            "description": "Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "deploymentDurationInMinutes",
-        "growthFactor",
-        "name",
-        "replicateTo",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "deploymentDurationInMinutes": {
-            "type": "integer",
-            "description": "Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the deployment strategy. Can be at most 1024 characters.\n"
-        },
-        "finalBakeTimeInMinutes": {
-            "type": "integer",
-            "description": "Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.\n"
-        },
-        "growthFactor": {
-            "type": "number",
-            "description": "Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.\n"
-        },
-        "growthType": {
-            "type": "string",
-            "description": "Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name for the deployment strategy. Must be between 1 and 64 characters in length.\n",
-            "willReplaceOnChanges": true
-        },
-        "replicateTo": {
-            "type": "string",
-            "description": "Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "deploymentDurationInMinutes",
-        "growthFactor",
-        "replicateTo"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering DeploymentStrategy resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the AppConfig Deployment Strategy.\n"
-            },
-            "deploymentDurationInMinutes": {
-                "type": "integer",
-                "description": "Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "Description of the deployment strategy. Can be at most 1024 characters.\n"
-            },
-            "finalBakeTimeInMinutes": {
-                "type": "integer",
-                "description": "Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.\n"
-            },
-            "growthFactor": {
-                "type": "number",
-                "description": "Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.\n"
-            },
-            "growthType": {
-                "type": "string",
-                "description": "Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name for the deployment strategy. Must be between 1 and 64 characters in length.\n",
-                "willReplaceOnChanges": true
-            },
-            "replicateTo": {
-                "type": "string",
-                "description": "Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the AppConfig Deployment Strategy.\n"
                 },
-                "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "deploymentDurationInMinutes": {
+                    "type": "integer",
+                    "description": "Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "description": {
+                    "type": "string",
+                    "description": "Description of the deployment strategy. Can be at most 1024 characters.\n"
+                },
+                "finalBakeTimeInMinutes": {
+                    "type": "integer",
+                    "description": "Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.\n"
+                },
+                "growthFactor": {
+                    "type": "number",
+                    "description": "Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.\n"
+                },
+                "growthType": {
+                    "type": "string",
+                    "description": "Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name for the deployment strategy. Must be between 1 and 64 characters in length.\n"
+                },
+                "replicateTo": {
+                    "type": "string",
+                    "description": "Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "deploymentDurationInMinutes",
+                "growthFactor",
+                "name",
+                "replicateTo",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "deploymentDurationInMinutes": {
+                    "type": "integer",
+                    "description": "Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the deployment strategy. Can be at most 1024 characters.\n"
+                },
+                "finalBakeTimeInMinutes": {
+                    "type": "integer",
+                    "description": "Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.\n"
+                },
+                "growthFactor": {
+                    "type": "number",
+                    "description": "Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.\n"
+                },
+                "growthType": {
+                    "type": "string",
+                    "description": "Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name for the deployment strategy. Must be between 1 and 64 characters in length.\n",
+                    "willReplaceOnChanges": true
+                },
+                "replicateTo": {
+                    "type": "string",
+                    "description": "Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "deploymentDurationInMinutes",
+                "growthFactor",
+                "replicateTo"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DeploymentStrategy resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the AppConfig Deployment Strategy.\n"
+                    },
+                    "deploymentDurationInMinutes": {
+                        "type": "integer",
+                        "description": "Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the deployment strategy. Can be at most 1024 characters.\n"
+                    },
+                    "finalBakeTimeInMinutes": {
+                        "type": "integer",
+                        "description": "Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.\n"
+                    },
+                    "growthFactor": {
+                        "type": "number",
+                        "description": "Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.\n"
+                    },
+                    "growthType": {
+                        "type": "string",
+                        "description": "Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name for the deployment strategy. Must be between 1 and 64 characters in length.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "replicateTo": {
+                        "type": "string",
+                        "description": "Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,167 +1,167 @@
 {
-    "properties": {
-        "allocatedStorage": {
-            "type": "integer",
-            "description": "Specifies the allocated storage size in gigabytes (GB).\n"
-        },
-        "availabilityZones": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.\n"
-        },
-        "dbClusterIdentifier": {
-            "type": "string",
-            "description": "The DB Cluster Identifier from which to take the snapshot.\n"
-        },
-        "dbClusterSnapshotArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) for the DB Cluster Snapshot.\n"
-        },
-        "dbClusterSnapshotIdentifier": {
-            "type": "string",
-            "description": "The Identifier for the snapshot.\n"
-        },
-        "engine": {
-            "type": "string",
-            "description": "Specifies the name of the database engine.\n"
-        },
-        "engineVersion": {
-            "type": "string",
-            "description": "Version of the database engine for this DB cluster snapshot.\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.\n"
-        },
-        "licenseModel": {
-            "type": "string",
-            "description": "License model information for the restored DB cluster.\n"
-        },
-        "port": {
-            "type": "integer",
-            "description": "Port that the DB cluster was listening on at the time of the snapshot.\n"
-        },
-        "snapshotType": {
-            "type": "string"
-        },
-        "sourceDbClusterSnapshotArn": {
-            "type": "string"
-        },
-        "status": {
-            "type": "string",
-            "description": "The status of this DB Cluster Snapshot.\n"
-        },
-        "storageEncrypted": {
-            "type": "boolean",
-            "description": "Specifies whether the DB cluster snapshot is encrypted.\n"
-        },
-        "vpcId": {
-            "type": "string",
-            "description": "The VPC ID associated with the DB cluster snapshot.\n"
-        }
-    },
-    "required": [
-        "allocatedStorage",
-        "availabilityZones",
-        "dbClusterIdentifier",
-        "dbClusterSnapshotArn",
-        "dbClusterSnapshotIdentifier",
-        "engine",
-        "engineVersion",
-        "kmsKeyId",
-        "licenseModel",
-        "port",
-        "snapshotType",
-        "sourceDbClusterSnapshotArn",
-        "status",
-        "storageEncrypted",
-        "vpcId"
-    ],
-    "inputProperties": {
-        "dbClusterIdentifier": {
-            "type": "string",
-            "description": "The DB Cluster Identifier from which to take the snapshot.\n",
-            "willReplaceOnChanges": true
-        },
-        "dbClusterSnapshotIdentifier": {
-            "type": "string",
-            "description": "The Identifier for the snapshot.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "dbClusterIdentifier",
-        "dbClusterSnapshotIdentifier"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ClusterSnapshot resources.\n",
-        "properties": {
-            "allocatedStorage": {
-                "type": "integer",
-                "description": "Specifies the allocated storage size in gigabytes (GB).\n"
-            },
-            "availabilityZones": {
-                "type": "array",
-                "items": {
+            "properties": {
+                "allocatedStorage": {
+                    "type": "integer",
+                    "description": "Specifies the allocated storage size in gigabytes (GB).\n"
+                },
+                "availabilityZones": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.\n"
+                },
+                "dbClusterIdentifier": {
+                    "type": "string",
+                    "description": "The DB Cluster Identifier from which to take the snapshot.\n"
+                },
+                "dbClusterSnapshotArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the DB Cluster Snapshot.\n"
+                },
+                "dbClusterSnapshotIdentifier": {
+                    "type": "string",
+                    "description": "The Identifier for the snapshot.\n"
+                },
+                "engine": {
+                    "type": "string",
+                    "description": "Specifies the name of the database engine.\n"
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "Version of the database engine for this DB cluster snapshot.\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.\n"
+                },
+                "licenseModel": {
+                    "type": "string",
+                    "description": "License model information for the restored DB cluster.\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Port that the DB cluster was listening on at the time of the snapshot.\n"
+                },
+                "snapshotType": {
                     "type": "string"
                 },
-                "description": "List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.\n"
+                "sourceDbClusterSnapshotArn": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of this DB Cluster Snapshot.\n"
+                },
+                "storageEncrypted": {
+                    "type": "boolean",
+                    "description": "Specifies whether the DB cluster snapshot is encrypted.\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The VPC ID associated with the DB cluster snapshot.\n"
+                }
             },
-            "dbClusterIdentifier": {
-                "type": "string",
-                "description": "The DB Cluster Identifier from which to take the snapshot.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "allocatedStorage",
+                "availabilityZones",
+                "dbClusterIdentifier",
+                "dbClusterSnapshotArn",
+                "dbClusterSnapshotIdentifier",
+                "engine",
+                "engineVersion",
+                "kmsKeyId",
+                "licenseModel",
+                "port",
+                "snapshotType",
+                "sourceDbClusterSnapshotArn",
+                "status",
+                "storageEncrypted",
+                "vpcId"
+            ],
+            "inputProperties": {
+                "dbClusterIdentifier": {
+                    "type": "string",
+                    "description": "The DB Cluster Identifier from which to take the snapshot.\n",
+                    "willReplaceOnChanges": true
+                },
+                "dbClusterSnapshotIdentifier": {
+                    "type": "string",
+                    "description": "The Identifier for the snapshot.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "dbClusterSnapshotArn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) for the DB Cluster Snapshot.\n"
-            },
-            "dbClusterSnapshotIdentifier": {
-                "type": "string",
-                "description": "The Identifier for the snapshot.\n",
-                "willReplaceOnChanges": true
-            },
-            "engine": {
-                "type": "string",
-                "description": "Specifies the name of the database engine.\n"
-            },
-            "engineVersion": {
-                "type": "string",
-                "description": "Version of the database engine for this DB cluster snapshot.\n"
-            },
-            "kmsKeyId": {
-                "type": "string",
-                "description": "If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.\n"
-            },
-            "licenseModel": {
-                "type": "string",
-                "description": "License model information for the restored DB cluster.\n"
-            },
-            "port": {
-                "type": "integer",
-                "description": "Port that the DB cluster was listening on at the time of the snapshot.\n"
-            },
-            "snapshotType": {
-                "type": "string"
-            },
-            "sourceDbClusterSnapshotArn": {
-                "type": "string"
-            },
-            "status": {
-                "type": "string",
-                "description": "The status of this DB Cluster Snapshot.\n"
-            },
-            "storageEncrypted": {
-                "type": "boolean",
-                "description": "Specifies whether the DB cluster snapshot is encrypted.\n"
-            },
-            "vpcId": {
-                "type": "string",
-                "description": "The VPC ID associated with the DB cluster snapshot.\n"
+            "requiredInputs": [
+                "dbClusterIdentifier",
+                "dbClusterSnapshotIdentifier"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ClusterSnapshot resources.\n",
+                "properties": {
+                    "allocatedStorage": {
+                        "type": "integer",
+                        "description": "Specifies the allocated storage size in gigabytes (GB).\n"
+                    },
+                    "availabilityZones": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.\n"
+                    },
+                    "dbClusterIdentifier": {
+                        "type": "string",
+                        "description": "The DB Cluster Identifier from which to take the snapshot.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "dbClusterSnapshotArn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) for the DB Cluster Snapshot.\n"
+                    },
+                    "dbClusterSnapshotIdentifier": {
+                        "type": "string",
+                        "description": "The Identifier for the snapshot.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "engine": {
+                        "type": "string",
+                        "description": "Specifies the name of the database engine.\n"
+                    },
+                    "engineVersion": {
+                        "type": "string",
+                        "description": "Version of the database engine for this DB cluster snapshot.\n"
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "description": "If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.\n"
+                    },
+                    "licenseModel": {
+                        "type": "string",
+                        "description": "License model information for the restored DB cluster.\n"
+                    },
+                    "port": {
+                        "type": "integer",
+                        "description": "Port that the DB cluster was listening on at the time of the snapshot.\n"
+                    },
+                    "snapshotType": {
+                        "type": "string"
+                    },
+                    "sourceDbClusterSnapshotArn": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The status of this DB Cluster Snapshot.\n"
+                    },
+                    "storageEncrypted": {
+                        "type": "boolean",
+                        "description": "Specifies whether the DB cluster snapshot is encrypted.\n"
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "The VPC ID associated with the DB cluster snapshot.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

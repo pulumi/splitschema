@@ -1,62 +1,62 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the cluster\n"
-        },
-        "clusterEndpoints": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:route53recoverycontrol/ClusterClusterEndpoint:ClusterClusterEndpoint"
-            },
-            "description": "List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Unique name describing the cluster.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "clusterEndpoints",
-        "name",
-        "status"
-    ],
-    "inputProperties": {
-        "name": {
-            "type": "string",
-            "description": "Unique name describing the cluster.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Cluster resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the cluster\n"
-            },
-            "clusterEndpoints": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:route53recoverycontrol/ClusterClusterEndpoint:ClusterClusterEndpoint"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the cluster\n"
                 },
-                "description": "List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.\n"
+                "clusterEndpoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:route53recoverycontrol/ClusterClusterEndpoint:ClusterClusterEndpoint"
+                    },
+                    "description": "List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Unique name describing the cluster.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.\n"
+                }
             },
-            "name": {
-                "type": "string",
-                "description": "Unique name describing the cluster.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "clusterEndpoints",
+                "name",
+                "status"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "Unique name describing the cluster.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "status": {
-                "type": "string",
-                "description": "Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.\n"
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Cluster resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the cluster\n"
+                    },
+                    "clusterEndpoints": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:route53recoverycontrol/ClusterClusterEndpoint:ClusterClusterEndpoint"
+                        },
+                        "description": "List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Unique name describing the cluster.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

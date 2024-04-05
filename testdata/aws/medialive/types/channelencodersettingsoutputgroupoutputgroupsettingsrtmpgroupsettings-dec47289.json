@@ -1,47 +1,47 @@
 {
-    "properties": {
-        "adMarkers": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "adMarkers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ad marker type for this output group.\n"
+                },
+                "authenticationScheme": {
+                    "type": "string",
+                    "description": "Authentication scheme to use when connecting with CDN.\n"
+                },
+                "cacheFullBehavior": {
+                    "type": "string",
+                    "description": "Controls behavior when content cache fills up.\n"
+                },
+                "cacheLength": {
+                    "type": "integer",
+                    "description": "Cache length in seconds, is used to calculate buffer size.\n"
+                },
+                "captionData": {
+                    "type": "string",
+                    "description": "Controls the types of data that passes to onCaptionInfo outputs.\n"
+                },
+                "inputLossAction": {
+                    "type": "string",
+                    "description": "Controls the behavior of the RTMP group if input becomes unavailable.\n"
+                },
+                "restartDelay": {
+                    "type": "integer",
+                    "description": "Number of seconds to wait until a restart is initiated.\n"
+                }
             },
-            "description": "The ad marker type for this output group.\n"
-        },
-        "authenticationScheme": {
-            "type": "string",
-            "description": "Authentication scheme to use when connecting with CDN.\n"
-        },
-        "cacheFullBehavior": {
-            "type": "string",
-            "description": "Controls behavior when content cache fills up.\n"
-        },
-        "cacheLength": {
-            "type": "integer",
-            "description": "Cache length in seconds, is used to calculate buffer size.\n"
-        },
-        "captionData": {
-            "type": "string",
-            "description": "Controls the types of data that passes to onCaptionInfo outputs.\n"
-        },
-        "inputLossAction": {
-            "type": "string",
-            "description": "Controls the behavior of the RTMP group if input becomes unavailable.\n"
-        },
-        "restartDelay": {
-            "type": "integer",
-            "description": "Number of seconds to wait until a restart is initiated.\n"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "authenticationScheme",
+                        "cacheFullBehavior",
+                        "cacheLength",
+                        "captionData",
+                        "inputLossAction"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "authenticationScheme",
-                "cacheFullBehavior",
-                "cacheLength",
-                "captionData",
-                "inputLossAction"
-            ]
-        }
-    }
-}

@@ -1,98 +1,98 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getConfigurationProfile.\n",
-        "properties": {
-            "applicationId": {
-                "type": "string",
-                "description": "ID of the AppConfig application to which this configuration profile belongs.\n"
-            },
-            "configurationProfileId": {
-                "type": "string",
-                "description": "ID of the Configuration Profile.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getConfigurationProfile.\n",
+                "properties": {
+                    "applicationId": {
+                        "type": "string",
+                        "description": "ID of the AppConfig application to which this configuration profile belongs.\n"
+                    },
+                    "configurationProfileId": {
+                        "type": "string",
+                        "description": "ID of the Configuration Profile.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags for the resource.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "applicationId",
+                    "configurationProfileId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getConfigurationProfile.\n",
+                "properties": {
+                    "applicationId": {
+                        "type": "string"
+                    },
+                    "arn": {
+                        "description": "ARN of the Configuration Profile.\n",
+                        "type": "string"
+                    },
+                    "configurationProfileId": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the Configuration Profile.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "kmsKeyIdentifier": {
+                        "type": "string"
+                    },
+                    "locationUri": {
+                        "description": "Location URI of the Configuration Profile.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the Configuration Profile.\n",
+                        "type": "string"
+                    },
+                    "retrievalRoleArn": {
+                        "description": "ARN of an IAM role with permission to access the configuration at the specified location_uri.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags for the resource.\n",
+                        "type": "object"
+                    },
+                    "type": {
+                        "description": "Type of validator. Valid values: JSON_SCHEMA and LAMBDA.\n",
+                        "type": "string"
+                    },
+                    "validators": {
+                        "description": "Nested list of methods for validating the configuration.\n",
+                        "items": {
+                            "$ref": "#/types/aws:appconfig/getConfigurationProfileValidator:getConfigurationProfileValidator"
+                        },
+                        "type": "array"
+                    }
                 },
-                "description": "Map of tags for the resource.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "applicationId",
-            "configurationProfileId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getConfigurationProfile.\n",
-        "properties": {
-            "applicationId": {
-                "type": "string"
-            },
-            "arn": {
-                "description": "ARN of the Configuration Profile.\n",
-                "type": "string"
-            },
-            "configurationProfileId": {
-                "type": "string"
-            },
-            "description": {
-                "description": "Description of the Configuration Profile.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "kmsKeyIdentifier": {
-                "type": "string"
-            },
-            "locationUri": {
-                "description": "Location URI of the Configuration Profile.\n",
-                "type": "string"
-            },
-            "name": {
-                "description": "Name of the Configuration Profile.\n",
-                "type": "string"
-            },
-            "retrievalRoleArn": {
-                "description": "ARN of an IAM role with permission to access the configuration at the specified location_uri.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags for the resource.\n",
+                "required": [
+                    "applicationId",
+                    "arn",
+                    "configurationProfileId",
+                    "description",
+                    "kmsKeyIdentifier",
+                    "locationUri",
+                    "name",
+                    "retrievalRoleArn",
+                    "tags",
+                    "type",
+                    "validators",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "type": {
-                "description": "Type of validator. Valid values: JSON_SCHEMA and LAMBDA.\n",
-                "type": "string"
-            },
-            "validators": {
-                "description": "Nested list of methods for validating the configuration.\n",
-                "items": {
-                    "$ref": "#/types/aws:appconfig/getConfigurationProfileValidator:getConfigurationProfileValidator"
-                },
-                "type": "array"
             }
-        },
-        "required": [
-            "applicationId",
-            "arn",
-            "configurationProfileId",
-            "description",
-            "kmsKeyIdentifier",
-            "locationUri",
-            "name",
-            "retrievalRoleArn",
-            "tags",
-            "type",
-            "validators",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

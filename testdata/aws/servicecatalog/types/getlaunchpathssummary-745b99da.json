@@ -1,38 +1,38 @@
 {
-    "properties": {
-        "constraintSummaries": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:servicecatalog/getLaunchPathsSummaryConstraintSummary:getLaunchPathsSummaryConstraintSummary"
+            "properties": {
+                "constraintSummaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:servicecatalog/getLaunchPathsSummaryConstraintSummary:getLaunchPathsSummaryConstraintSummary"
+                    },
+                    "description": "Block for constraints on the portfolio-product relationship. See details below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the portfolio to which the path was assigned.\n"
+                },
+                "pathId": {
+                    "type": "string",
+                    "description": "Identifier of the product path.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Tags associated with this product path.\n"
+                }
             },
-            "description": "Block for constraints on the portfolio-product relationship. See details below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the portfolio to which the path was assigned.\n"
-        },
-        "pathId": {
-            "type": "string",
-            "description": "Identifier of the product path.\n"
-        },
-        "tags": {
             "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Tags associated with this product path.\n"
+            "required": [
+                "constraintSummaries",
+                "name",
+                "pathId",
+                "tags"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "constraintSummaries",
-        "name",
-        "pathId",
-        "tags"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

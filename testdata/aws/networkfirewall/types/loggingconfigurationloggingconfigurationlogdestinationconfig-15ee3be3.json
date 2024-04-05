@@ -1,25 +1,25 @@
 {
-    "properties": {
-        "logDestination": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
+            "properties": {
+                "logDestination": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map describing the logging destination for the chosen `log_destination_type`.\n* For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.\n* For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.\n* For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.\n"
+                },
+                "logDestinationType": {
+                    "type": "string",
+                    "description": "The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.\n"
+                },
+                "logType": {
+                    "type": "string",
+                    "description": "The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.\n"
+                }
             },
-            "description": "A map describing the logging destination for the chosen `log_destination_type`.\n* For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.\n* For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.\n* For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.\n"
-        },
-        "logDestinationType": {
-            "type": "string",
-            "description": "The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.\n"
-        },
-        "logType": {
-            "type": "string",
-            "description": "The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.\n"
+            "type": "object",
+            "required": [
+                "logDestination",
+                "logDestinationType",
+                "logType"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "logDestination",
-        "logDestinationType",
-        "logType"
-    ]
-}

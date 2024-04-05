@@ -1,32 +1,32 @@
 {
-    "properties": {
-        "connectorType": {
-            "type": "string",
-            "description": "Type of storage connector.\nValid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.\n"
-        },
-        "domains": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "connectorType": {
+                    "type": "string",
+                    "description": "Type of storage connector.\nValid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.\n"
+                },
+                "domains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Names of the domains for the account.\n"
+                },
+                "resourceIdentifier": {
+                    "type": "string",
+                    "description": "ARN of the storage connector.\n"
+                }
             },
-            "description": "Names of the domains for the account.\n"
-        },
-        "resourceIdentifier": {
-            "type": "string",
-            "description": "ARN of the storage connector.\n"
+            "type": "object",
+            "required": [
+                "connectorType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "connectorType",
+                        "domains",
+                        "resourceIdentifier"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "connectorType"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "connectorType",
-                "domains",
-                "resourceIdentifier"
-            ]
-        }
-    }
-}

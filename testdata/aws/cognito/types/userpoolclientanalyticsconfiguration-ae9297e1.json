@@ -1,33 +1,33 @@
 {
-    "properties": {
-        "applicationArn": {
-            "type": "string",
-            "description": "Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.\n"
-        },
-        "applicationId": {
-            "type": "string",
-            "description": "Application ID for an Amazon Pinpoint application.\n"
-        },
-        "externalId": {
-            "type": "string",
-            "description": "ID for the Analytics Configuration. Conflicts with `application_arn`.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.\n"
-        },
-        "userDataShared": {
-            "type": "boolean",
-            "description": "If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.\n"
+            "properties": {
+                "applicationArn": {
+                    "type": "string",
+                    "description": "Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.\n"
+                },
+                "applicationId": {
+                    "type": "string",
+                    "description": "Application ID for an Amazon Pinpoint application.\n"
+                },
+                "externalId": {
+                    "type": "string",
+                    "description": "ID for the Analytics Configuration. Conflicts with `application_arn`.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.\n"
+                },
+                "userDataShared": {
+                    "type": "boolean",
+                    "description": "If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "roleArn",
+                        "userDataShared"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "roleArn",
-                "userDataShared"
-            ]
-        }
-    }
-}

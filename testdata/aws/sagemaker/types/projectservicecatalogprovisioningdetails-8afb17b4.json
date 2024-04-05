@@ -1,37 +1,37 @@
 {
-    "properties": {
-        "pathId": {
-            "type": "string",
-            "description": "The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.\n",
-            "willReplaceOnChanges": true
-        },
-        "productId": {
-            "type": "string",
-            "description": "The ID of the product to provision.\n",
-            "willReplaceOnChanges": true
-        },
-        "provisioningArtifactId": {
-            "type": "string",
-            "description": "The ID of the provisioning artifact.\n"
-        },
-        "provisioningParameters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:sagemaker/ProjectServiceCatalogProvisioningDetailsProvisioningParameter:ProjectServiceCatalogProvisioningDetailsProvisioningParameter"
+            "properties": {
+                "pathId": {
+                    "type": "string",
+                    "description": "The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.\n",
+                    "willReplaceOnChanges": true
+                },
+                "productId": {
+                    "type": "string",
+                    "description": "The ID of the product to provision.\n",
+                    "willReplaceOnChanges": true
+                },
+                "provisioningArtifactId": {
+                    "type": "string",
+                    "description": "The ID of the provisioning artifact.\n"
+                },
+                "provisioningParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:sagemaker/ProjectServiceCatalogProvisioningDetailsProvisioningParameter:ProjectServiceCatalogProvisioningDetailsProvisioningParameter"
+                    },
+                    "description": "A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.\n"
+                }
             },
-            "description": "A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.\n"
+            "type": "object",
+            "required": [
+                "productId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "productId",
+                        "provisioningArtifactId"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "productId"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "productId",
-                "provisioningArtifactId"
-            ]
-        }
-    }
-}

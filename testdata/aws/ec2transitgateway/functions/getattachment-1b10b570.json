@@ -1,102 +1,102 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getAttachment.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getAttachmentFilter:getAttachmentFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getAttachment.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getAttachmentFilter:getAttachmentFilter"
+                        },
+                        "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the attachment.\n"
+                    },
+                    "transitGatewayAttachmentId": {
+                        "type": "string",
+                        "description": "ID of the attachment.\n"
+                    }
                 },
-                "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value tags for the attachment.\n"
-            },
-            "transitGatewayAttachmentId": {
-                "type": "string",
-                "description": "ID of the attachment.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getAttachment.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the attachment.\n",
-                "type": "string"
-            },
-            "associationState": {
-                "description": "The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).\n",
-                "type": "string"
-            },
-            "associationTransitGatewayRouteTableId": {
-                "description": "The ID of the route table for the transit gateway.\n",
-                "type": "string"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getAttachmentFilter:getAttachmentFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "resourceId": {
-                "description": "ID of the resource.\n",
-                "type": "string"
-            },
-            "resourceOwnerId": {
-                "description": "ID of the AWS account that owns the resource.\n",
-                "type": "string"
-            },
-            "resourceType": {
-                "description": "Resource type.\n",
-                "type": "string"
-            },
-            "state": {
-                "description": "Attachment state.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value tags for the attachment.\n",
                 "type": "object"
             },
-            "transitGatewayAttachmentId": {
-                "type": "string"
-            },
-            "transitGatewayId": {
-                "description": "ID of the transit gateway.\n",
-                "type": "string"
-            },
-            "transitGatewayOwnerId": {
-                "description": "The ID of the AWS account that owns the transit gateway.\n",
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getAttachment.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the attachment.\n",
+                        "type": "string"
+                    },
+                    "associationState": {
+                        "description": "The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).\n",
+                        "type": "string"
+                    },
+                    "associationTransitGatewayRouteTableId": {
+                        "description": "The ID of the route table for the transit gateway.\n",
+                        "type": "string"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getAttachmentFilter:getAttachmentFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "resourceId": {
+                        "description": "ID of the resource.\n",
+                        "type": "string"
+                    },
+                    "resourceOwnerId": {
+                        "description": "ID of the AWS account that owns the resource.\n",
+                        "type": "string"
+                    },
+                    "resourceType": {
+                        "description": "Resource type.\n",
+                        "type": "string"
+                    },
+                    "state": {
+                        "description": "Attachment state.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the attachment.\n",
+                        "type": "object"
+                    },
+                    "transitGatewayAttachmentId": {
+                        "type": "string"
+                    },
+                    "transitGatewayId": {
+                        "description": "ID of the transit gateway.\n",
+                        "type": "string"
+                    },
+                    "transitGatewayOwnerId": {
+                        "description": "The ID of the AWS account that owns the transit gateway.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "associationState",
+                    "associationTransitGatewayRouteTableId",
+                    "resourceId",
+                    "resourceOwnerId",
+                    "resourceType",
+                    "state",
+                    "tags",
+                    "transitGatewayAttachmentId",
+                    "transitGatewayId",
+                    "transitGatewayOwnerId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "associationState",
-            "associationTransitGatewayRouteTableId",
-            "resourceId",
-            "resourceOwnerId",
-            "resourceType",
-            "state",
-            "tags",
-            "transitGatewayAttachmentId",
-            "transitGatewayId",
-            "transitGatewayOwnerId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

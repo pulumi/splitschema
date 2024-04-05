@@ -1,381 +1,381 @@
 {
-    "properties": {
-        "acl": {
-            "type": "string",
-            "description": "[Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.\n"
-        },
-        "bucket": {
-            "type": "string",
-            "description": "Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.\n"
-        },
-        "bucketKeyEnabled": {
-            "type": "boolean",
-            "description": "Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.\n"
-        },
-        "cacheControl": {
-            "type": "string",
-            "description": "Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.\n"
-        },
-        "content": {
-            "type": "string",
-            "description": "Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.\n"
-        },
-        "contentBase64": {
-            "type": "string",
-            "description": "Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.\n"
-        },
-        "contentDisposition": {
-            "type": "string",
-            "description": "Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.\n"
-        },
-        "contentEncoding": {
-            "type": "string",
-            "description": "Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.\n"
-        },
-        "contentLanguage": {
-            "type": "string",
-            "description": "Language the content is in e.g., en-US or en-GB.\n"
-        },
-        "contentType": {
-            "type": "string",
-            "description": "Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.\n"
-        },
-        "etag": {
-            "type": "string",
-            "description": "Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = \"aws:kms\"` (see `source_hash` instead).\n"
-        },
-        "forceDestroy": {
-            "type": "boolean",
-            "description": "Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.\n"
-        },
-        "key": {
-            "type": "string",
-            "description": "Name of the object once it is in the bucket.\n\nThe following arguments are optional:\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.\n"
-        },
-        "metadata": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).\n"
-        },
-        "objectLockLegalHoldStatus": {
-            "type": "string",
-            "description": "[Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.\n"
-        },
-        "objectLockMode": {
-            "type": "string",
-            "description": "Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.\n"
-        },
-        "objectLockRetainUntilDate": {
-            "type": "string",
-            "description": "Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).\n"
-        },
-        "serverSideEncryption": {
-            "type": "string",
-            "description": "Server-side encryption of the object in S3. Valid values are \"`AES256`\" and \"`aws:kms`\".\n"
-        },
-        "source": {
-            "$ref": "pulumi.json#/Asset",
-            "description": "Path to a file that will be read and uploaded as raw bytes for the object content.\n"
-        },
-        "sourceHash": {
-            "type": "string",
-            "description": "Triggers updates like `etag` but useful to address `etag` encryption limitations.\n"
-        },
-        "storageClass": {
-            "type": "string",
-            "description": "[Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to \"`STANDARD`\".\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "versionId": {
-            "type": "string",
-            "description": "Unique version ID value for the object, if bucket versioning is enabled.\n"
-        },
-        "websiteRedirect": {
-            "type": "string",
-            "description": "Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).\n\nIf no content is provided through `source`, `content` or `content_base64`, then the object will be empty.\n"
-        }
-    },
-    "required": [
-        "bucket",
-        "bucketKeyEnabled",
-        "contentType",
-        "etag",
-        "key",
-        "kmsKeyId",
-        "serverSideEncryption",
-        "storageClass",
-        "tagsAll",
-        "versionId"
-    ],
-    "inputProperties": {
-        "acl": {
-            "type": "string",
-            "description": "[Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.\n"
-        },
-        "bucket": {
-            "type": "string",
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
+            "properties": {
+                "acl": {
                     "type": "string",
-                    "$ref": "#/types/aws:s3/bucket:Bucket"
-                }
-            ],
-            "description": "Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.\n",
-            "willReplaceOnChanges": true
-        },
-        "bucketKeyEnabled": {
-            "type": "boolean",
-            "description": "Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.\n"
-        },
-        "cacheControl": {
-            "type": "string",
-            "description": "Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.\n"
-        },
-        "content": {
-            "type": "string",
-            "description": "Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.\n"
-        },
-        "contentBase64": {
-            "type": "string",
-            "description": "Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.\n"
-        },
-        "contentDisposition": {
-            "type": "string",
-            "description": "Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.\n"
-        },
-        "contentEncoding": {
-            "type": "string",
-            "description": "Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.\n"
-        },
-        "contentLanguage": {
-            "type": "string",
-            "description": "Language the content is in e.g., en-US or en-GB.\n"
-        },
-        "contentType": {
-            "type": "string",
-            "description": "Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.\n"
-        },
-        "etag": {
-            "type": "string",
-            "description": "Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = \"aws:kms\"` (see `source_hash` instead).\n"
-        },
-        "forceDestroy": {
-            "type": "boolean",
-            "description": "Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.\n"
-        },
-        "key": {
-            "type": "string",
-            "description": "Name of the object once it is in the bucket.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.\n"
-        },
-        "metadata": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).\n"
-        },
-        "objectLockLegalHoldStatus": {
-            "type": "string",
-            "description": "[Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.\n"
-        },
-        "objectLockMode": {
-            "type": "string",
-            "description": "Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.\n"
-        },
-        "objectLockRetainUntilDate": {
-            "type": "string",
-            "description": "Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).\n"
-        },
-        "serverSideEncryption": {
-            "type": "string",
-            "description": "Server-side encryption of the object in S3. Valid values are \"`AES256`\" and \"`aws:kms`\".\n"
-        },
-        "source": {
-            "$ref": "pulumi.json#/Asset",
-            "description": "Path to a file that will be read and uploaded as raw bytes for the object content.\n"
-        },
-        "sourceHash": {
-            "type": "string",
-            "description": "Triggers updates like `etag` but useful to address `etag` encryption limitations.\n"
-        },
-        "storageClass": {
-            "type": "string",
-            "description": "[Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to \"`STANDARD`\".\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "websiteRedirect": {
-            "type": "string",
-            "description": "Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).\n\nIf no content is provided through `source`, `content` or `content_base64`, then the object will be empty.\n"
-        }
-    },
-    "requiredInputs": [
-        "bucket"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering BucketObject resources.\n",
-        "properties": {
-            "acl": {
-                "type": "string",
-                "description": "[Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.\n"
-            },
-            "bucket": {
-                "type": "string",
-                "oneOf": [
-                    {
+                    "description": "[Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.\n"
+                },
+                "bucket": {
+                    "type": "string",
+                    "description": "Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.\n"
+                },
+                "bucketKeyEnabled": {
+                    "type": "boolean",
+                    "description": "Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.\n"
+                },
+                "cacheControl": {
+                    "type": "string",
+                    "description": "Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.\n"
+                },
+                "content": {
+                    "type": "string",
+                    "description": "Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.\n"
+                },
+                "contentBase64": {
+                    "type": "string",
+                    "description": "Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.\n"
+                },
+                "contentDisposition": {
+                    "type": "string",
+                    "description": "Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.\n"
+                },
+                "contentEncoding": {
+                    "type": "string",
+                    "description": "Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.\n"
+                },
+                "contentLanguage": {
+                    "type": "string",
+                    "description": "Language the content is in e.g., en-US or en-GB.\n"
+                },
+                "contentType": {
+                    "type": "string",
+                    "description": "Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.\n"
+                },
+                "etag": {
+                    "type": "string",
+                    "description": "Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = \"aws:kms\"` (see `source_hash` instead).\n"
+                },
+                "forceDestroy": {
+                    "type": "boolean",
+                    "description": "Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "Name of the object once it is in the bucket.\n\nThe following arguments are optional:\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.\n"
+                },
+                "metadata": {
+                    "type": "object",
+                    "additionalProperties": {
                         "type": "string"
                     },
-                    {
+                    "description": "Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).\n"
+                },
+                "objectLockLegalHoldStatus": {
+                    "type": "string",
+                    "description": "[Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.\n"
+                },
+                "objectLockMode": {
+                    "type": "string",
+                    "description": "Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.\n"
+                },
+                "objectLockRetainUntilDate": {
+                    "type": "string",
+                    "description": "Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).\n"
+                },
+                "serverSideEncryption": {
+                    "type": "string",
+                    "description": "Server-side encryption of the object in S3. Valid values are \"`AES256`\" and \"`aws:kms`\".\n"
+                },
+                "source": {
+                    "$ref": "pulumi.json#/Asset",
+                    "description": "Path to a file that will be read and uploaded as raw bytes for the object content.\n"
+                },
+                "sourceHash": {
+                    "type": "string",
+                    "description": "Triggers updates like `etag` but useful to address `etag` encryption limitations.\n"
+                },
+                "storageClass": {
+                    "type": "string",
+                    "description": "[Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to \"`STANDARD`\".\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "versionId": {
+                    "type": "string",
+                    "description": "Unique version ID value for the object, if bucket versioning is enabled.\n"
+                },
+                "websiteRedirect": {
+                    "type": "string",
+                    "description": "Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).\n\nIf no content is provided through `source`, `content` or `content_base64`, then the object will be empty.\n"
+                }
+            },
+            "required": [
+                "bucket",
+                "bucketKeyEnabled",
+                "contentType",
+                "etag",
+                "key",
+                "kmsKeyId",
+                "serverSideEncryption",
+                "storageClass",
+                "tagsAll",
+                "versionId"
+            ],
+            "inputProperties": {
+                "acl": {
+                    "type": "string",
+                    "description": "[Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.\n"
+                },
+                "bucket": {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string",
+                            "$ref": "#/types/aws:s3/bucket:Bucket"
+                        }
+                    ],
+                    "description": "Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.\n",
+                    "willReplaceOnChanges": true
+                },
+                "bucketKeyEnabled": {
+                    "type": "boolean",
+                    "description": "Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.\n"
+                },
+                "cacheControl": {
+                    "type": "string",
+                    "description": "Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.\n"
+                },
+                "content": {
+                    "type": "string",
+                    "description": "Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.\n"
+                },
+                "contentBase64": {
+                    "type": "string",
+                    "description": "Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.\n"
+                },
+                "contentDisposition": {
+                    "type": "string",
+                    "description": "Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.\n"
+                },
+                "contentEncoding": {
+                    "type": "string",
+                    "description": "Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.\n"
+                },
+                "contentLanguage": {
+                    "type": "string",
+                    "description": "Language the content is in e.g., en-US or en-GB.\n"
+                },
+                "contentType": {
+                    "type": "string",
+                    "description": "Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.\n"
+                },
+                "etag": {
+                    "type": "string",
+                    "description": "Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = \"aws:kms\"` (see `source_hash` instead).\n"
+                },
+                "forceDestroy": {
+                    "type": "boolean",
+                    "description": "Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "Name of the object once it is in the bucket.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.\n"
+                },
+                "metadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).\n"
+                },
+                "objectLockLegalHoldStatus": {
+                    "type": "string",
+                    "description": "[Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.\n"
+                },
+                "objectLockMode": {
+                    "type": "string",
+                    "description": "Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.\n"
+                },
+                "objectLockRetainUntilDate": {
+                    "type": "string",
+                    "description": "Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).\n"
+                },
+                "serverSideEncryption": {
+                    "type": "string",
+                    "description": "Server-side encryption of the object in S3. Valid values are \"`AES256`\" and \"`aws:kms`\".\n"
+                },
+                "source": {
+                    "$ref": "pulumi.json#/Asset",
+                    "description": "Path to a file that will be read and uploaded as raw bytes for the object content.\n"
+                },
+                "sourceHash": {
+                    "type": "string",
+                    "description": "Triggers updates like `etag` but useful to address `etag` encryption limitations.\n"
+                },
+                "storageClass": {
+                    "type": "string",
+                    "description": "[Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to \"`STANDARD`\".\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "websiteRedirect": {
+                    "type": "string",
+                    "description": "Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).\n\nIf no content is provided through `source`, `content` or `content_base64`, then the object will be empty.\n"
+                }
+            },
+            "requiredInputs": [
+                "bucket"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering BucketObject resources.\n",
+                "properties": {
+                    "acl": {
                         "type": "string",
-                        "$ref": "#/types/aws:s3/bucket:Bucket"
+                        "description": "[Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.\n"
+                    },
+                    "bucket": {
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string",
+                                "$ref": "#/types/aws:s3/bucket:Bucket"
+                            }
+                        ],
+                        "description": "Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "bucketKeyEnabled": {
+                        "type": "boolean",
+                        "description": "Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.\n"
+                    },
+                    "cacheControl": {
+                        "type": "string",
+                        "description": "Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.\n"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.\n"
+                    },
+                    "contentBase64": {
+                        "type": "string",
+                        "description": "Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.\n"
+                    },
+                    "contentDisposition": {
+                        "type": "string",
+                        "description": "Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.\n"
+                    },
+                    "contentEncoding": {
+                        "type": "string",
+                        "description": "Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.\n"
+                    },
+                    "contentLanguage": {
+                        "type": "string",
+                        "description": "Language the content is in e.g., en-US or en-GB.\n"
+                    },
+                    "contentType": {
+                        "type": "string",
+                        "description": "Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.\n"
+                    },
+                    "etag": {
+                        "type": "string",
+                        "description": "Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = \"aws:kms\"` (see `source_hash` instead).\n"
+                    },
+                    "forceDestroy": {
+                        "type": "boolean",
+                        "description": "Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Name of the object once it is in the bucket.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "description": "ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.\n"
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).\n"
+                    },
+                    "objectLockLegalHoldStatus": {
+                        "type": "string",
+                        "description": "[Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.\n"
+                    },
+                    "objectLockMode": {
+                        "type": "string",
+                        "description": "Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.\n"
+                    },
+                    "objectLockRetainUntilDate": {
+                        "type": "string",
+                        "description": "Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).\n"
+                    },
+                    "serverSideEncryption": {
+                        "type": "string",
+                        "description": "Server-side encryption of the object in S3. Valid values are \"`AES256`\" and \"`aws:kms`\".\n"
+                    },
+                    "source": {
+                        "$ref": "pulumi.json#/Asset",
+                        "description": "Path to a file that will be read and uploaded as raw bytes for the object content.\n"
+                    },
+                    "sourceHash": {
+                        "type": "string",
+                        "description": "Triggers updates like `etag` but useful to address `etag` encryption limitations.\n"
+                    },
+                    "storageClass": {
+                        "type": "string",
+                        "description": "[Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to \"`STANDARD`\".\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "versionId": {
+                        "type": "string",
+                        "description": "Unique version ID value for the object, if bucket versioning is enabled.\n"
+                    },
+                    "websiteRedirect": {
+                        "type": "string",
+                        "description": "Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).\n\nIf no content is provided through `source`, `content` or `content_base64`, then the object will be empty.\n"
                     }
-                ],
-                "description": "Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.\n",
-                "willReplaceOnChanges": true
-            },
-            "bucketKeyEnabled": {
-                "type": "boolean",
-                "description": "Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.\n"
-            },
-            "cacheControl": {
-                "type": "string",
-                "description": "Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.\n"
-            },
-            "content": {
-                "type": "string",
-                "description": "Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.\n"
-            },
-            "contentBase64": {
-                "type": "string",
-                "description": "Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.\n"
-            },
-            "contentDisposition": {
-                "type": "string",
-                "description": "Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.\n"
-            },
-            "contentEncoding": {
-                "type": "string",
-                "description": "Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.\n"
-            },
-            "contentLanguage": {
-                "type": "string",
-                "description": "Language the content is in e.g., en-US or en-GB.\n"
-            },
-            "contentType": {
-                "type": "string",
-                "description": "Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.\n"
-            },
-            "etag": {
-                "type": "string",
-                "description": "Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = \"aws:kms\"` (see `source_hash` instead).\n"
-            },
-            "forceDestroy": {
-                "type": "boolean",
-                "description": "Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.\n"
-            },
-            "key": {
-                "type": "string",
-                "description": "Name of the object once it is in the bucket.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "kmsKeyId": {
-                "type": "string",
-                "description": "ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.\n"
-            },
-            "metadata": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
                 },
-                "description": "Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).\n"
-            },
-            "objectLockLegalHoldStatus": {
-                "type": "string",
-                "description": "[Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.\n"
-            },
-            "objectLockMode": {
-                "type": "string",
-                "description": "Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.\n"
-            },
-            "objectLockRetainUntilDate": {
-                "type": "string",
-                "description": "Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).\n"
-            },
-            "serverSideEncryption": {
-                "type": "string",
-                "description": "Server-side encryption of the object in S3. Valid values are \"`AES256`\" and \"`aws:kms`\".\n"
-            },
-            "source": {
-                "$ref": "pulumi.json#/Asset",
-                "description": "Path to a file that will be read and uploaded as raw bytes for the object content.\n"
-            },
-            "sourceHash": {
-                "type": "string",
-                "description": "Triggers updates like `etag` but useful to address `etag` encryption limitations.\n"
-            },
-            "storageClass": {
-                "type": "string",
-                "description": "[Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to \"`STANDARD`\".\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
-            },
-            "versionId": {
-                "type": "string",
-                "description": "Unique version ID value for the object, if bucket versioning is enabled.\n"
-            },
-            "websiteRedirect": {
-                "type": "string",
-                "description": "Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).\n\nIf no content is provided through `source`, `content` or `content_base64`, then the object will be empty.\n"
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

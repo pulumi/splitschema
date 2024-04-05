@@ -1,20 +1,20 @@
 {
-    "properties": {
-        "actions": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of IAM actions to grant or revoke permissions on.\n"
+                },
+                "principal": {
+                    "type": "string",
+                    "description": "ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.\n"
+                }
             },
-            "description": "List of IAM actions to grant or revoke permissions on.\n"
-        },
-        "principal": {
-            "type": "string",
-            "description": "ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.\n"
+            "type": "object",
+            "required": [
+                "actions",
+                "principal"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "actions",
-        "principal"
-    ]
-}

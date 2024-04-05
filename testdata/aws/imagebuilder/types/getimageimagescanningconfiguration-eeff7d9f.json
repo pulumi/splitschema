@@ -1,25 +1,25 @@
 {
-    "properties": {
-        "ecrConfigurations": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:imagebuilder/getImageImageScanningConfigurationEcrConfiguration:getImageImageScanningConfigurationEcrConfiguration"
+            "properties": {
+                "ecrConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:imagebuilder/getImageImageScanningConfigurationEcrConfiguration:getImageImageScanningConfigurationEcrConfiguration"
+                    },
+                    "description": "Configuration block with ECR configuration.\n"
+                },
+                "imageScanningEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.\n"
+                }
             },
-            "description": "Configuration block with ECR configuration.\n"
-        },
-        "imageScanningEnabled": {
-            "type": "boolean",
-            "description": "Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.\n"
+            "type": "object",
+            "required": [
+                "ecrConfigurations",
+                "imageScanningEnabled"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "ecrConfigurations",
-        "imageScanningEnabled"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

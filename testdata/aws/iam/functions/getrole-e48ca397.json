@@ -1,95 +1,95 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getRole.\n",
-        "properties": {
-            "name": {
-                "type": "string",
-                "description": "Friendly IAM role name to match.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getRole.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Friendly IAM role name to match.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Tags attached to the role.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRole.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the role.\n",
+                        "type": "string"
+                    },
+                    "assumeRolePolicy": {
+                        "description": "Policy document associated with the role.\n",
+                        "type": "string"
+                    },
+                    "createDate": {
+                        "description": "Creation date of the role in RFC 3339 format.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description for the role.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "maxSessionDuration": {
+                        "description": "Maximum session duration.\n",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "path": {
+                        "description": "Path to the role.\n",
+                        "type": "string"
+                    },
+                    "permissionsBoundary": {
+                        "description": "The ARN of the policy that is used to set the permissions boundary for the role.\n",
+                        "type": "string"
+                    },
+                    "roleLastUseds": {
+                        "description": "Contains information about the last time that an IAM role was used. See `role_last_used` for details.\n",
+                        "items": {
+                            "$ref": "#/types/aws:iam/getRoleRoleLastUsed:getRoleRoleLastUsed"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Tags attached to the role.\n",
+                        "type": "object"
+                    },
+                    "uniqueId": {
+                        "description": "Stable and unique string identifying the role.\n",
+                        "type": "string"
+                    }
                 },
-                "description": "Tags attached to the role.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "name"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getRole.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the role.\n",
-                "type": "string"
-            },
-            "assumeRolePolicy": {
-                "description": "Policy document associated with the role.\n",
-                "type": "string"
-            },
-            "createDate": {
-                "description": "Creation date of the role in RFC 3339 format.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Description for the role.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "maxSessionDuration": {
-                "description": "Maximum session duration.\n",
-                "type": "integer"
-            },
-            "name": {
-                "type": "string"
-            },
-            "path": {
-                "description": "Path to the role.\n",
-                "type": "string"
-            },
-            "permissionsBoundary": {
-                "description": "The ARN of the policy that is used to set the permissions boundary for the role.\n",
-                "type": "string"
-            },
-            "roleLastUseds": {
-                "description": "Contains information about the last time that an IAM role was used. See `role_last_used` for details.\n",
-                "items": {
-                    "$ref": "#/types/aws:iam/getRoleRoleLastUsed:getRoleRoleLastUsed"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Tags attached to the role.\n",
+                "required": [
+                    "arn",
+                    "assumeRolePolicy",
+                    "createDate",
+                    "description",
+                    "maxSessionDuration",
+                    "name",
+                    "path",
+                    "permissionsBoundary",
+                    "roleLastUseds",
+                    "tags",
+                    "uniqueId",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "uniqueId": {
-                "description": "Stable and unique string identifying the role.\n",
-                "type": "string"
             }
-        },
-        "required": [
-            "arn",
-            "assumeRolePolicy",
-            "createDate",
-            "description",
-            "maxSessionDuration",
-            "name",
-            "path",
-            "permissionsBoundary",
-            "roleLastUseds",
-            "tags",
-            "uniqueId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

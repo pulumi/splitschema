@@ -1,68 +1,68 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getConnection.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "CodeStar Connection ARN.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "CodeStar Connection name.\n\n\u003e **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getConnection.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "CodeStar Connection ARN.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "CodeStar Connection name.\n\n\u003e **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of key-value resource tags to associate with the resource.\n"
+                    }
                 },
-                "description": "Map of key-value resource tags to associate with the resource.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getConnection.\n",
-        "properties": {
-            "arn": {
-                "type": "string"
+                "type": "object"
             },
-            "connectionStatus": {
-                "description": "CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.\n",
-                "type": "string"
-            },
-            "hostArn": {
-                "description": "ARN of the host associated with the connection.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "description": "Name of the CodeStar Connection. The name is unique in the calling AWS account.\n",
-                "type": "string"
-            },
-            "providerType": {
-                "description": "Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getConnection.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string"
+                    },
+                    "connectionStatus": {
+                        "description": "CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.\n",
+                        "type": "string"
+                    },
+                    "hostArn": {
+                        "description": "ARN of the host associated with the connection.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the CodeStar Connection. The name is unique in the calling AWS account.\n",
+                        "type": "string"
+                    },
+                    "providerType": {
+                        "description": "Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of key-value resource tags to associate with the resource.\n",
+                        "type": "object"
+                    }
                 },
-                "description": "Map of key-value resource tags to associate with the resource.\n",
+                "required": [
+                    "arn",
+                    "connectionStatus",
+                    "hostArn",
+                    "name",
+                    "providerType",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "connectionStatus",
-            "hostArn",
-            "name",
-            "providerType",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

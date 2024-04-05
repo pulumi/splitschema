@@ -1,126 +1,126 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getImage.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getImage.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the image.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "arn"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getImage.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string"
+                    },
+                    "buildVersionArn": {
+                        "description": "Build version ARN of the image. This will always have the `#.#.#/#` suffix.\n",
+                        "type": "string"
+                    },
+                    "containerRecipeArn": {
+                        "description": "ARN of the container recipe.\n",
+                        "type": "string"
+                    },
+                    "dateCreated": {
+                        "description": "Date the image was created.\n",
+                        "type": "string"
+                    },
+                    "distributionConfigurationArn": {
+                        "description": "ARN of the Image Builder Distribution Configuration.\n",
+                        "type": "string"
+                    },
+                    "enhancedImageMetadataEnabled": {
+                        "description": "Whether additional information about the image being created is collected.\n",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "imageRecipeArn": {
+                        "description": "ARN of the image recipe.\n",
+                        "type": "string"
+                    },
+                    "imageScanningConfigurations": {
+                        "description": "List of an object with image scanning configuration fields.\n",
+                        "items": {
+                            "$ref": "#/types/aws:imagebuilder/getImageImageScanningConfiguration:getImageImageScanningConfiguration"
+                        },
+                        "type": "array"
+                    },
+                    "imageTestsConfigurations": {
+                        "description": "List of an object with image tests configuration.\n",
+                        "items": {
+                            "$ref": "#/types/aws:imagebuilder/getImageImageTestsConfiguration:getImageImageTestsConfiguration"
+                        },
+                        "type": "array"
+                    },
+                    "infrastructureConfigurationArn": {
+                        "description": "ARN of the Image Builder Infrastructure Configuration.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the AMI.\n",
+                        "type": "string"
+                    },
+                    "osVersion": {
+                        "description": "Operating System version of the image.\n",
+                        "type": "string"
+                    },
+                    "outputResources": {
+                        "description": "List of objects with resources created by the image.\n",
+                        "items": {
+                            "$ref": "#/types/aws:imagebuilder/getImageOutputResource:getImageOutputResource"
+                        },
+                        "type": "array"
+                    },
+                    "platform": {
+                        "description": "Platform of the image.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the image.\n",
+                        "type": "object"
+                    },
+                    "version": {
+                        "description": "Version of the image.\n",
+                        "type": "string"
+                    }
                 },
-                "description": "Key-value map of resource tags for the image.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "arn"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getImage.\n",
-        "properties": {
-            "arn": {
-                "type": "string"
-            },
-            "buildVersionArn": {
-                "description": "Build version ARN of the image. This will always have the `#.#.#/#` suffix.\n",
-                "type": "string"
-            },
-            "containerRecipeArn": {
-                "description": "ARN of the container recipe.\n",
-                "type": "string"
-            },
-            "dateCreated": {
-                "description": "Date the image was created.\n",
-                "type": "string"
-            },
-            "distributionConfigurationArn": {
-                "description": "ARN of the Image Builder Distribution Configuration.\n",
-                "type": "string"
-            },
-            "enhancedImageMetadataEnabled": {
-                "description": "Whether additional information about the image being created is collected.\n",
-                "type": "boolean"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "imageRecipeArn": {
-                "description": "ARN of the image recipe.\n",
-                "type": "string"
-            },
-            "imageScanningConfigurations": {
-                "description": "List of an object with image scanning configuration fields.\n",
-                "items": {
-                    "$ref": "#/types/aws:imagebuilder/getImageImageScanningConfiguration:getImageImageScanningConfiguration"
-                },
-                "type": "array"
-            },
-            "imageTestsConfigurations": {
-                "description": "List of an object with image tests configuration.\n",
-                "items": {
-                    "$ref": "#/types/aws:imagebuilder/getImageImageTestsConfiguration:getImageImageTestsConfiguration"
-                },
-                "type": "array"
-            },
-            "infrastructureConfigurationArn": {
-                "description": "ARN of the Image Builder Infrastructure Configuration.\n",
-                "type": "string"
-            },
-            "name": {
-                "description": "Name of the AMI.\n",
-                "type": "string"
-            },
-            "osVersion": {
-                "description": "Operating System version of the image.\n",
-                "type": "string"
-            },
-            "outputResources": {
-                "description": "List of objects with resources created by the image.\n",
-                "items": {
-                    "$ref": "#/types/aws:imagebuilder/getImageOutputResource:getImageOutputResource"
-                },
-                "type": "array"
-            },
-            "platform": {
-                "description": "Platform of the image.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value map of resource tags for the image.\n",
+                "required": [
+                    "arn",
+                    "buildVersionArn",
+                    "containerRecipeArn",
+                    "dateCreated",
+                    "distributionConfigurationArn",
+                    "enhancedImageMetadataEnabled",
+                    "imageRecipeArn",
+                    "imageScanningConfigurations",
+                    "imageTestsConfigurations",
+                    "infrastructureConfigurationArn",
+                    "name",
+                    "osVersion",
+                    "outputResources",
+                    "platform",
+                    "tags",
+                    "version",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "version": {
-                "description": "Version of the image.\n",
-                "type": "string"
             }
-        },
-        "required": [
-            "arn",
-            "buildVersionArn",
-            "containerRecipeArn",
-            "dateCreated",
-            "distributionConfigurationArn",
-            "enhancedImageMetadataEnabled",
-            "imageRecipeArn",
-            "imageScanningConfigurations",
-            "imageTestsConfigurations",
-            "infrastructureConfigurationArn",
-            "name",
-            "osVersion",
-            "outputResources",
-            "platform",
-            "tags",
-            "version",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

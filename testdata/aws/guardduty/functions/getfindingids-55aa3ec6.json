@@ -1,44 +1,44 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getFindingIds.\n",
-        "properties": {
-            "detectorId": {
-                "type": "string",
-                "description": "ID of the GuardDuty detector.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "detectorId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getFindingIds.\n",
-        "properties": {
-            "detectorId": {
-                "type": "string"
-            },
-            "findingIds": {
-                "description": "A list of finding IDs for the specified detector.\n",
-                "items": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getFindingIds.\n",
+                "properties": {
+                    "detectorId": {
+                        "type": "string",
+                        "description": "ID of the GuardDuty detector.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object",
+                "required": [
+                    "detectorId"
+                ]
             },
-            "hasFindings": {
-                "description": "Indicates whether findings are present for the specified detector.\n",
-                "type": "boolean"
-            },
-            "id": {
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getFindingIds.\n",
+                "properties": {
+                    "detectorId": {
+                        "type": "string"
+                    },
+                    "findingIds": {
+                        "description": "A list of finding IDs for the specified detector.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "hasFindings": {
+                        "description": "Indicates whether findings are present for the specified detector.\n",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "detectorId",
+                    "findingIds",
+                    "hasFindings",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "detectorId",
-            "findingIds",
-            "hasFindings",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

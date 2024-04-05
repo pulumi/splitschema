@@ -1,65 +1,65 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getPrincipalApplicationAssignments.\n",
-        "properties": {
-            "applicationAssignments": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ssoadmin/getPrincipalApplicationAssignmentsApplicationAssignment:getPrincipalApplicationAssignmentsApplicationAssignment"
+            "inputs": {
+                "description": "A collection of arguments for invoking getPrincipalApplicationAssignments.\n",
+                "properties": {
+                    "applicationAssignments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ssoadmin/getPrincipalApplicationAssignmentsApplicationAssignment:getPrincipalApplicationAssignmentsApplicationAssignment"
+                        },
+                        "description": "List of principals assigned to the application. See the `application_assignments` attribute reference below.\n"
+                    },
+                    "instanceArn": {
+                        "type": "string",
+                        "description": "ARN of the instance of IAM Identity Center.\n"
+                    },
+                    "principalId": {
+                        "type": "string",
+                        "description": "An identifier for an object in IAM Identity Center, such as a user or group.\n"
+                    },
+                    "principalType": {
+                        "type": "string",
+                        "description": "Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.\n"
+                    }
                 },
-                "description": "List of principals assigned to the application. See the `application_assignments` attribute reference below.\n"
+                "type": "object",
+                "required": [
+                    "instanceArn",
+                    "principalId",
+                    "principalType"
+                ]
             },
-            "instanceArn": {
-                "type": "string",
-                "description": "ARN of the instance of IAM Identity Center.\n"
-            },
-            "principalId": {
-                "type": "string",
-                "description": "An identifier for an object in IAM Identity Center, such as a user or group.\n"
-            },
-            "principalType": {
-                "type": "string",
-                "description": "Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "instanceArn",
-            "principalId",
-            "principalType"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getPrincipalApplicationAssignments.\n",
-        "properties": {
-            "applicationAssignments": {
-                "description": "List of principals assigned to the application. See the `application_assignments` attribute reference below.\n",
-                "items": {
-                    "$ref": "#/types/aws:ssoadmin/getPrincipalApplicationAssignmentsApplicationAssignment:getPrincipalApplicationAssignmentsApplicationAssignment"
+            "outputs": {
+                "description": "A collection of values returned by getPrincipalApplicationAssignments.\n",
+                "properties": {
+                    "applicationAssignments": {
+                        "description": "List of principals assigned to the application. See the `application_assignments` attribute reference below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:ssoadmin/getPrincipalApplicationAssignmentsApplicationAssignment:getPrincipalApplicationAssignmentsApplicationAssignment"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "instanceArn": {
+                        "type": "string"
+                    },
+                    "principalId": {
+                        "description": "An identifier for an object in IAM Identity Center, such as a user or group.\n",
+                        "type": "string"
+                    },
+                    "principalType": {
+                        "description": "Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.\n",
+                        "type": "string"
+                    }
                 },
-                "type": "array"
-            },
-            "id": {
-                "type": "string"
-            },
-            "instanceArn": {
-                "type": "string"
-            },
-            "principalId": {
-                "description": "An identifier for an object in IAM Identity Center, such as a user or group.\n",
-                "type": "string"
-            },
-            "principalType": {
-                "description": "Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.\n",
-                "type": "string"
+                "required": [
+                    "id",
+                    "instanceArn",
+                    "principalId",
+                    "principalType"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "id",
-            "instanceArn",
-            "principalId",
-            "principalType"
-        ],
-        "type": "object"
-    }
-}
+        }

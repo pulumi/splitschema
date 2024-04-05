@@ -1,68 +1,68 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getResolverEndpoint.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:route53/getResolverEndpointFilter:getResolverEndpointFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getResolverEndpoint.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:route53/getResolverEndpointFilter:getResolverEndpointFilter"
+                        },
+                        "description": "One or more name/value pairs to use as filters. There are\nseveral valid keys, for a full reference, check out\n[Route53resolver Filter value in the AWS API reference][1].\n\nIn addition to all arguments above, the following attributes are exported:\n"
+                    },
+                    "resolverEndpointId": {
+                        "type": "string",
+                        "description": "ID of the Route53 Resolver Endpoint.\n"
+                    }
                 },
-                "description": "One or more name/value pairs to use as filters. There are\nseveral valid keys, for a full reference, check out\n[Route53resolver Filter value in the AWS API reference][1].\n\nIn addition to all arguments above, the following attributes are exported:\n"
+                "type": "object"
             },
-            "resolverEndpointId": {
-                "type": "string",
-                "description": "ID of the Route53 Resolver Endpoint.\n"
+            "outputs": {
+                "description": "A collection of values returned by getResolverEndpoint.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string"
+                    },
+                    "direction": {
+                        "type": "string"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:route53/getResolverEndpointFilter:getResolverEndpointFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "ipAddresses": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "resolverEndpointId": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "vpcId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "direction",
+                    "ipAddresses",
+                    "name",
+                    "status",
+                    "vpcId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getResolverEndpoint.\n",
-        "properties": {
-            "arn": {
-                "type": "string"
-            },
-            "direction": {
-                "type": "string"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:route53/getResolverEndpointFilter:getResolverEndpointFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "ipAddresses": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "name": {
-                "type": "string"
-            },
-            "resolverEndpointId": {
-                "type": "string"
-            },
-            "status": {
-                "type": "string"
-            },
-            "vpcId": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "arn",
-            "direction",
-            "ipAddresses",
-            "name",
-            "status",
-            "vpcId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,51 +1,51 @@
 {
-    "properties": {
-        "amiTags": {
+            "properties": {
+                "amiTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of tags to apply to distributed AMI.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the container distribution configuration.\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "ARN of Key Management Service (KMS) Key to encrypt AMI.\n"
+                },
+                "launchPermissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:imagebuilder/getDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission:getDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission"
+                    },
+                    "description": "Nested list of EC2 launch permissions.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the distribution configuration.\n"
+                },
+                "targetAccountIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of target AWS Account identifiers.\n"
+                }
+            },
             "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of tags to apply to distributed AMI.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the container distribution configuration.\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "ARN of Key Management Service (KMS) Key to encrypt AMI.\n"
-        },
-        "launchPermissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:imagebuilder/getDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission:getDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission"
-            },
-            "description": "Nested list of EC2 launch permissions.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the distribution configuration.\n"
-        },
-        "targetAccountIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of target AWS Account identifiers.\n"
+            "required": [
+                "amiTags",
+                "description",
+                "kmsKeyId",
+                "launchPermissions",
+                "name",
+                "targetAccountIds"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "amiTags",
-        "description",
-        "kmsKeyId",
-        "launchPermissions",
-        "name",
-        "targetAccountIds"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

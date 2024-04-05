@@ -1,87 +1,87 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getContainerDefinition.\n",
-        "properties": {
-            "containerName": {
-                "type": "string",
-                "description": "Name of the container definition\n"
-            },
-            "taskDefinition": {
-                "type": "string",
-                "description": "ARN of the task definition which contains the container\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "containerName",
-            "taskDefinition"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getContainerDefinition.\n",
-        "properties": {
-            "containerName": {
-                "type": "string"
-            },
-            "cpu": {
-                "description": "CPU limit for this container definition\n",
-                "type": "integer"
-            },
-            "disableNetworking": {
-                "description": "Indicator if networking is disabled\n",
-                "type": "boolean"
-            },
-            "dockerLabels": {
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getContainerDefinition.\n",
+                "properties": {
+                    "containerName": {
+                        "type": "string",
+                        "description": "Name of the container definition\n"
+                    },
+                    "taskDefinition": {
+                        "type": "string",
+                        "description": "ARN of the task definition which contains the container\n"
+                    }
                 },
-                "description": "Set docker labels\n",
-                "type": "object"
+                "type": "object",
+                "required": [
+                    "containerName",
+                    "taskDefinition"
+                ]
             },
-            "environment": {
-                "additionalProperties": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getContainerDefinition.\n",
+                "properties": {
+                    "containerName": {
+                        "type": "string"
+                    },
+                    "cpu": {
+                        "description": "CPU limit for this container definition\n",
+                        "type": "integer"
+                    },
+                    "disableNetworking": {
+                        "description": "Indicator if networking is disabled\n",
+                        "type": "boolean"
+                    },
+                    "dockerLabels": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Set docker labels\n",
+                        "type": "object"
+                    },
+                    "environment": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Environment in use\n",
+                        "type": "object"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "image": {
+                        "description": "Docker image in use, including the digest\n",
+                        "type": "string"
+                    },
+                    "imageDigest": {
+                        "description": "Digest of the docker image in use\n",
+                        "type": "string"
+                    },
+                    "memory": {
+                        "description": "Memory limit for this container definition\n",
+                        "type": "integer"
+                    },
+                    "memoryReservation": {
+                        "description": "Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit\n",
+                        "type": "integer"
+                    },
+                    "taskDefinition": {
+                        "type": "string"
+                    }
                 },
-                "description": "Environment in use\n",
+                "required": [
+                    "containerName",
+                    "cpu",
+                    "disableNetworking",
+                    "dockerLabels",
+                    "environment",
+                    "image",
+                    "imageDigest",
+                    "memory",
+                    "memoryReservation",
+                    "taskDefinition",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "image": {
-                "description": "Docker image in use, including the digest\n",
-                "type": "string"
-            },
-            "imageDigest": {
-                "description": "Digest of the docker image in use\n",
-                "type": "string"
-            },
-            "memory": {
-                "description": "Memory limit for this container definition\n",
-                "type": "integer"
-            },
-            "memoryReservation": {
-                "description": "Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit\n",
-                "type": "integer"
-            },
-            "taskDefinition": {
-                "type": "string"
             }
-        },
-        "required": [
-            "containerName",
-            "cpu",
-            "disableNetworking",
-            "dockerLabels",
-            "environment",
-            "image",
-            "imageDigest",
-            "memory",
-            "memoryReservation",
-            "taskDefinition",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

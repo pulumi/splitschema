@@ -1,178 +1,178 @@
 {
-    "properties": {
-        "cidrBlock": {
-            "type": "string",
-            "description": "The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).\n"
-        },
-        "egress": {
-            "type": "boolean",
-            "description": "Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.\n"
-        },
-        "fromPort": {
-            "type": "integer",
-            "description": "The from port to match.\n"
-        },
-        "icmpCode": {
-            "type": "integer",
-            "description": "ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1\n\n\u003e **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.\n\n\u003e **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).\n\n\u003e Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml\n"
-        },
-        "icmpType": {
-            "type": "integer",
-            "description": "ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1\n"
-        },
-        "ipv6CidrBlock": {
-            "type": "string",
-            "description": "The IPv6 CIDR block to allow or deny.\n"
-        },
-        "networkAclId": {
-            "type": "string",
-            "description": "The ID of the network ACL.\n"
-        },
-        "protocol": {
-            "type": "string",
-            "description": "The protocol. A value of -1 means all protocols.\n"
-        },
-        "ruleAction": {
-            "type": "string",
-            "description": "Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`\n"
-        },
-        "ruleNumber": {
-            "type": "integer",
-            "description": "The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.\n"
-        },
-        "toPort": {
-            "type": "integer",
-            "description": "The to port to match.\n"
-        }
-    },
-    "required": [
-        "networkAclId",
-        "protocol",
-        "ruleAction",
-        "ruleNumber"
-    ],
-    "inputProperties": {
-        "cidrBlock": {
-            "type": "string",
-            "description": "The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).\n",
-            "willReplaceOnChanges": true
-        },
-        "egress": {
-            "type": "boolean",
-            "description": "Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.\n",
-            "willReplaceOnChanges": true
-        },
-        "fromPort": {
-            "type": "integer",
-            "description": "The from port to match.\n",
-            "willReplaceOnChanges": true
-        },
-        "icmpCode": {
-            "type": "integer",
-            "description": "ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1\n\n\u003e **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.\n\n\u003e **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).\n\n\u003e Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml\n",
-            "willReplaceOnChanges": true
-        },
-        "icmpType": {
-            "type": "integer",
-            "description": "ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1\n",
-            "willReplaceOnChanges": true
-        },
-        "ipv6CidrBlock": {
-            "type": "string",
-            "description": "The IPv6 CIDR block to allow or deny.\n",
-            "willReplaceOnChanges": true
-        },
-        "networkAclId": {
-            "type": "string",
-            "description": "The ID of the network ACL.\n",
-            "willReplaceOnChanges": true
-        },
-        "protocol": {
-            "type": "string",
-            "description": "The protocol. A value of -1 means all protocols.\n",
-            "willReplaceOnChanges": true
-        },
-        "ruleAction": {
-            "type": "string",
-            "description": "Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`\n",
-            "willReplaceOnChanges": true
-        },
-        "ruleNumber": {
-            "type": "integer",
-            "description": "The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.\n",
-            "willReplaceOnChanges": true
-        },
-        "toPort": {
-            "type": "integer",
-            "description": "The to port to match.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "networkAclId",
-        "protocol",
-        "ruleAction",
-        "ruleNumber"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering NetworkAclRule resources.\n",
-        "properties": {
-            "cidrBlock": {
-                "type": "string",
-                "description": "The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).\n",
-                "willReplaceOnChanges": true
+            "properties": {
+                "cidrBlock": {
+                    "type": "string",
+                    "description": "The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).\n"
+                },
+                "egress": {
+                    "type": "boolean",
+                    "description": "Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.\n"
+                },
+                "fromPort": {
+                    "type": "integer",
+                    "description": "The from port to match.\n"
+                },
+                "icmpCode": {
+                    "type": "integer",
+                    "description": "ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1\n\n\u003e **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.\n\n\u003e **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).\n\n\u003e Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml\n"
+                },
+                "icmpType": {
+                    "type": "integer",
+                    "description": "ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1\n"
+                },
+                "ipv6CidrBlock": {
+                    "type": "string",
+                    "description": "The IPv6 CIDR block to allow or deny.\n"
+                },
+                "networkAclId": {
+                    "type": "string",
+                    "description": "The ID of the network ACL.\n"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "The protocol. A value of -1 means all protocols.\n"
+                },
+                "ruleAction": {
+                    "type": "string",
+                    "description": "Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`\n"
+                },
+                "ruleNumber": {
+                    "type": "integer",
+                    "description": "The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.\n"
+                },
+                "toPort": {
+                    "type": "integer",
+                    "description": "The to port to match.\n"
+                }
             },
-            "egress": {
-                "type": "boolean",
-                "description": "Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "networkAclId",
+                "protocol",
+                "ruleAction",
+                "ruleNumber"
+            ],
+            "inputProperties": {
+                "cidrBlock": {
+                    "type": "string",
+                    "description": "The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).\n",
+                    "willReplaceOnChanges": true
+                },
+                "egress": {
+                    "type": "boolean",
+                    "description": "Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "fromPort": {
+                    "type": "integer",
+                    "description": "The from port to match.\n",
+                    "willReplaceOnChanges": true
+                },
+                "icmpCode": {
+                    "type": "integer",
+                    "description": "ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1\n\n\u003e **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.\n\n\u003e **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).\n\n\u003e Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml\n",
+                    "willReplaceOnChanges": true
+                },
+                "icmpType": {
+                    "type": "integer",
+                    "description": "ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1\n",
+                    "willReplaceOnChanges": true
+                },
+                "ipv6CidrBlock": {
+                    "type": "string",
+                    "description": "The IPv6 CIDR block to allow or deny.\n",
+                    "willReplaceOnChanges": true
+                },
+                "networkAclId": {
+                    "type": "string",
+                    "description": "The ID of the network ACL.\n",
+                    "willReplaceOnChanges": true
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "The protocol. A value of -1 means all protocols.\n",
+                    "willReplaceOnChanges": true
+                },
+                "ruleAction": {
+                    "type": "string",
+                    "description": "Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`\n",
+                    "willReplaceOnChanges": true
+                },
+                "ruleNumber": {
+                    "type": "integer",
+                    "description": "The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.\n",
+                    "willReplaceOnChanges": true
+                },
+                "toPort": {
+                    "type": "integer",
+                    "description": "The to port to match.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "fromPort": {
-                "type": "integer",
-                "description": "The from port to match.\n",
-                "willReplaceOnChanges": true
-            },
-            "icmpCode": {
-                "type": "integer",
-                "description": "ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1\n\n\u003e **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.\n\n\u003e **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).\n\n\u003e Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml\n",
-                "willReplaceOnChanges": true
-            },
-            "icmpType": {
-                "type": "integer",
-                "description": "ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1\n",
-                "willReplaceOnChanges": true
-            },
-            "ipv6CidrBlock": {
-                "type": "string",
-                "description": "The IPv6 CIDR block to allow or deny.\n",
-                "willReplaceOnChanges": true
-            },
-            "networkAclId": {
-                "type": "string",
-                "description": "The ID of the network ACL.\n",
-                "willReplaceOnChanges": true
-            },
-            "protocol": {
-                "type": "string",
-                "description": "The protocol. A value of -1 means all protocols.\n",
-                "willReplaceOnChanges": true
-            },
-            "ruleAction": {
-                "type": "string",
-                "description": "Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`\n",
-                "willReplaceOnChanges": true
-            },
-            "ruleNumber": {
-                "type": "integer",
-                "description": "The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.\n",
-                "willReplaceOnChanges": true
-            },
-            "toPort": {
-                "type": "integer",
-                "description": "The to port to match.\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "networkAclId",
+                "protocol",
+                "ruleAction",
+                "ruleNumber"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NetworkAclRule resources.\n",
+                "properties": {
+                    "cidrBlock": {
+                        "type": "string",
+                        "description": "The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "egress": {
+                        "type": "boolean",
+                        "description": "Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "fromPort": {
+                        "type": "integer",
+                        "description": "The from port to match.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "icmpCode": {
+                        "type": "integer",
+                        "description": "ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1\n\n\u003e **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.\n\n\u003e **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).\n\n\u003e Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "icmpType": {
+                        "type": "integer",
+                        "description": "ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ipv6CidrBlock": {
+                        "type": "string",
+                        "description": "The IPv6 CIDR block to allow or deny.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "networkAclId": {
+                        "type": "string",
+                        "description": "The ID of the network ACL.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "protocol": {
+                        "type": "string",
+                        "description": "The protocol. A value of -1 means all protocols.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ruleAction": {
+                        "type": "string",
+                        "description": "Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ruleNumber": {
+                        "type": "integer",
+                        "description": "The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "toPort": {
+                        "type": "integer",
+                        "description": "The to port to match.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

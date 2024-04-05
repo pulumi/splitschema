@@ -1,60 +1,60 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getParameter.\n",
-        "properties": {
-            "name": {
-                "type": "string",
-                "description": "Name of the parameter.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getParameter.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the parameter.\n"
+                    },
+                    "withDecryption": {
+                        "type": "boolean",
+                        "description": "Whether to return decrypted `SecureString` value. Defaults to `true`.\n\nIn addition to all arguments above, the following attributes are exported:\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
             },
-            "withDecryption": {
-                "type": "boolean",
-                "description": "Whether to return decrypted `SecureString` value. Defaults to `true`.\n\nIn addition to all arguments above, the following attributes are exported:\n"
+            "outputs": {
+                "description": "A collection of values returned by getParameter.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "insecureValue": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "secret": true,
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    },
+                    "withDecryption": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "insecureValue",
+                    "name",
+                    "type",
+                    "value",
+                    "version",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "name"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getParameter.\n",
-        "properties": {
-            "arn": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "insecureValue": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "type": {
-                "type": "string"
-            },
-            "value": {
-                "secret": true,
-                "type": "string"
-            },
-            "version": {
-                "type": "integer"
-            },
-            "withDecryption": {
-                "type": "boolean"
-            }
-        },
-        "required": [
-            "arn",
-            "insecureValue",
-            "name",
-            "type",
-            "value",
-            "version",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

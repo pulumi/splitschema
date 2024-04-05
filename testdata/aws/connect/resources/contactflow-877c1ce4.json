@@ -1,164 +1,164 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the Contact Flow.\n"
-        },
-        "contactFlowId": {
-            "type": "string",
-            "description": "The identifier of the Contact Flow.\n"
-        },
-        "content": {
-            "type": "string",
-            "description": "Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.\n"
-        },
-        "contentHash": {
-            "type": "string",
-            "description": "Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Specifies the description of the Contact Flow.\n"
-        },
-        "filename": {
-            "type": "string",
-            "description": "The path to the Contact Flow source within the local filesystem. Conflicts with `content`.\n"
-        },
-        "instanceId": {
-            "type": "string",
-            "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Specifies the name of the Contact Flow.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "type": {
-            "type": "string",
-            "description": "Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "contactFlowId",
-        "content",
-        "instanceId",
-        "name",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "content": {
-            "type": "string",
-            "description": "Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.\n"
-        },
-        "contentHash": {
-            "type": "string",
-            "description": "Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Specifies the description of the Contact Flow.\n"
-        },
-        "filename": {
-            "type": "string",
-            "description": "The path to the Contact Flow source within the local filesystem. Conflicts with `content`.\n"
-        },
-        "instanceId": {
-            "type": "string",
-            "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Specifies the name of the Contact Flow.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "instanceId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ContactFlow resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the Contact Flow.\n"
-            },
-            "contactFlowId": {
-                "type": "string",
-                "description": "The identifier of the Contact Flow.\n"
-            },
-            "content": {
-                "type": "string",
-                "description": "Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.\n"
-            },
-            "contentHash": {
-                "type": "string",
-                "description": "Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "Specifies the description of the Contact Flow.\n"
-            },
-            "filename": {
-                "type": "string",
-                "description": "The path to the Contact Flow source within the local filesystem. Conflicts with `content`.\n"
-            },
-            "instanceId": {
-                "type": "string",
-                "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Specifies the name of the Contact Flow.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Contact Flow.\n"
                 },
-                "description": "Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "contactFlowId": {
+                    "type": "string",
+                    "description": "The identifier of the Contact Flow.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "content": {
+                    "type": "string",
+                    "description": "Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.\n"
+                },
+                "contentHash": {
+                    "type": "string",
+                    "description": "Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies the description of the Contact Flow.\n"
+                },
+                "filename": {
+                    "type": "string",
+                    "description": "The path to the Contact Flow source within the local filesystem. Conflicts with `content`.\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the name of the Contact Flow.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.\n"
+                }
             },
-            "type": {
-                "type": "string",
-                "description": "Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "contactFlowId",
+                "content",
+                "instanceId",
+                "name",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "content": {
+                    "type": "string",
+                    "description": "Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.\n"
+                },
+                "contentHash": {
+                    "type": "string",
+                    "description": "Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies the description of the Contact Flow.\n"
+                },
+                "filename": {
+                    "type": "string",
+                    "description": "The path to the Contact Flow source within the local filesystem. Conflicts with `content`.\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the name of the Contact Flow.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "instanceId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ContactFlow resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the Contact Flow.\n"
+                    },
+                    "contactFlowId": {
+                        "type": "string",
+                        "description": "The identifier of the Contact Flow.\n"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.\n"
+                    },
+                    "contentHash": {
+                        "type": "string",
+                        "description": "Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Specifies the description of the Contact Flow.\n"
+                    },
+                    "filename": {
+                        "type": "string",
+                        "description": "The path to the Contact Flow source within the local filesystem. Conflicts with `content`.\n"
+                    },
+                    "instanceId": {
+                        "type": "string",
+                        "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the name of the Contact Flow.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

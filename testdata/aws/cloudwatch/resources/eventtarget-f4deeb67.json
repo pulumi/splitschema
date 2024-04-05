@@ -1,252 +1,252 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the target.\n"
-        },
-        "batchTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetBatchTarget:EventTargetBatchTarget",
-            "description": "Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "deadLetterConfig": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetDeadLetterConfig:EventTargetDeadLetterConfig",
-            "description": "Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "ecsTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetEcsTarget:EventTargetEcsTarget",
-            "description": "Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "eventBusName": {
-            "type": "string",
-            "description": "The name or ARN of the event bus to associate with the rule.\nIf you omit this, the `default` event bus is used.\n"
-        },
-        "httpTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetHttpTarget:EventTargetHttpTarget",
-            "description": "Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.\n"
-        },
-        "input": {
-            "type": "string",
-            "description": "Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.\n"
-        },
-        "inputPath": {
-            "type": "string",
-            "description": "The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.\n"
-        },
-        "inputTransformer": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetInputTransformer:EventTargetInputTransformer",
-            "description": "Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.\n"
-        },
-        "kinesisTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetKinesisTarget:EventTargetKinesisTarget",
-            "description": "Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "redshiftTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetRedshiftTarget:EventTargetRedshiftTarget",
-            "description": "Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "retryPolicy": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetRetryPolicy:EventTargetRetryPolicy",
-            "description": "Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.\n"
-        },
-        "rule": {
-            "type": "string",
-            "description": "The name of the rule you want to add targets to.\n\nThe following arguments are optional:\n"
-        },
-        "runCommandTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:cloudwatch/EventTargetRunCommandTarget:EventTargetRunCommandTarget"
-            },
-            "description": "Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.\n"
-        },
-        "sagemakerPipelineTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetSagemakerPipelineTarget:EventTargetSagemakerPipelineTarget",
-            "description": "Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "sqsTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetSqsTarget:EventTargetSqsTarget",
-            "description": "Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "targetId": {
-            "type": "string",
-            "description": "The unique target assignment ID. If missing, will generate a random, unique id.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "rule",
-        "targetId"
-    ],
-    "inputProperties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the target.\n"
-        },
-        "batchTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetBatchTarget:EventTargetBatchTarget",
-            "description": "Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "deadLetterConfig": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetDeadLetterConfig:EventTargetDeadLetterConfig",
-            "description": "Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "ecsTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetEcsTarget:EventTargetEcsTarget",
-            "description": "Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "eventBusName": {
-            "type": "string",
-            "description": "The name or ARN of the event bus to associate with the rule.\nIf you omit this, the `default` event bus is used.\n",
-            "willReplaceOnChanges": true
-        },
-        "httpTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetHttpTarget:EventTargetHttpTarget",
-            "description": "Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.\n"
-        },
-        "input": {
-            "type": "string",
-            "description": "Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.\n"
-        },
-        "inputPath": {
-            "type": "string",
-            "description": "The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.\n"
-        },
-        "inputTransformer": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetInputTransformer:EventTargetInputTransformer",
-            "description": "Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.\n"
-        },
-        "kinesisTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetKinesisTarget:EventTargetKinesisTarget",
-            "description": "Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "redshiftTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetRedshiftTarget:EventTargetRedshiftTarget",
-            "description": "Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "retryPolicy": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetRetryPolicy:EventTargetRetryPolicy",
-            "description": "Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.\n"
-        },
-        "rule": {
-            "type": "string",
-            "description": "The name of the rule you want to add targets to.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "runCommandTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:cloudwatch/EventTargetRunCommandTarget:EventTargetRunCommandTarget"
-            },
-            "description": "Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.\n"
-        },
-        "sagemakerPipelineTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetSagemakerPipelineTarget:EventTargetSagemakerPipelineTarget",
-            "description": "Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "sqsTarget": {
-            "$ref": "#/types/aws:cloudwatch/EventTargetSqsTarget:EventTargetSqsTarget",
-            "description": "Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.\n"
-        },
-        "targetId": {
-            "type": "string",
-            "description": "The unique target assignment ID. If missing, will generate a random, unique id.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "arn",
-        "rule"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering EventTarget resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the target.\n"
-            },
-            "batchTarget": {
-                "$ref": "#/types/aws:cloudwatch/EventTargetBatchTarget:EventTargetBatchTarget",
-                "description": "Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.\n"
-            },
-            "deadLetterConfig": {
-                "$ref": "#/types/aws:cloudwatch/EventTargetDeadLetterConfig:EventTargetDeadLetterConfig",
-                "description": "Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.\n"
-            },
-            "ecsTarget": {
-                "$ref": "#/types/aws:cloudwatch/EventTargetEcsTarget:EventTargetEcsTarget",
-                "description": "Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.\n"
-            },
-            "eventBusName": {
-                "type": "string",
-                "description": "The name or ARN of the event bus to associate with the rule.\nIf you omit this, the `default` event bus is used.\n",
-                "willReplaceOnChanges": true
-            },
-            "httpTarget": {
-                "$ref": "#/types/aws:cloudwatch/EventTargetHttpTarget:EventTargetHttpTarget",
-                "description": "Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.\n"
-            },
-            "input": {
-                "type": "string",
-                "description": "Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.\n"
-            },
-            "inputPath": {
-                "type": "string",
-                "description": "The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.\n"
-            },
-            "inputTransformer": {
-                "$ref": "#/types/aws:cloudwatch/EventTargetInputTransformer:EventTargetInputTransformer",
-                "description": "Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.\n"
-            },
-            "kinesisTarget": {
-                "$ref": "#/types/aws:cloudwatch/EventTargetKinesisTarget:EventTargetKinesisTarget",
-                "description": "Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.\n"
-            },
-            "redshiftTarget": {
-                "$ref": "#/types/aws:cloudwatch/EventTargetRedshiftTarget:EventTargetRedshiftTarget",
-                "description": "Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.\n"
-            },
-            "retryPolicy": {
-                "$ref": "#/types/aws:cloudwatch/EventTargetRetryPolicy:EventTargetRetryPolicy",
-                "description": "Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.\n"
-            },
-            "roleArn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.\n"
-            },
-            "rule": {
-                "type": "string",
-                "description": "The name of the rule you want to add targets to.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "runCommandTargets": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:cloudwatch/EventTargetRunCommandTarget:EventTargetRunCommandTarget"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the target.\n"
                 },
-                "description": "Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.\n"
+                "batchTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetBatchTarget:EventTargetBatchTarget",
+                    "description": "Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "deadLetterConfig": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetDeadLetterConfig:EventTargetDeadLetterConfig",
+                    "description": "Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "ecsTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetEcsTarget:EventTargetEcsTarget",
+                    "description": "Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "eventBusName": {
+                    "type": "string",
+                    "description": "The name or ARN of the event bus to associate with the rule.\nIf you omit this, the `default` event bus is used.\n"
+                },
+                "httpTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetHttpTarget:EventTargetHttpTarget",
+                    "description": "Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.\n"
+                },
+                "input": {
+                    "type": "string",
+                    "description": "Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.\n"
+                },
+                "inputPath": {
+                    "type": "string",
+                    "description": "The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.\n"
+                },
+                "inputTransformer": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetInputTransformer:EventTargetInputTransformer",
+                    "description": "Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.\n"
+                },
+                "kinesisTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetKinesisTarget:EventTargetKinesisTarget",
+                    "description": "Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "redshiftTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetRedshiftTarget:EventTargetRedshiftTarget",
+                    "description": "Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "retryPolicy": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetRetryPolicy:EventTargetRetryPolicy",
+                    "description": "Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.\n"
+                },
+                "rule": {
+                    "type": "string",
+                    "description": "The name of the rule you want to add targets to.\n\nThe following arguments are optional:\n"
+                },
+                "runCommandTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:cloudwatch/EventTargetRunCommandTarget:EventTargetRunCommandTarget"
+                    },
+                    "description": "Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.\n"
+                },
+                "sagemakerPipelineTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetSagemakerPipelineTarget:EventTargetSagemakerPipelineTarget",
+                    "description": "Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "sqsTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetSqsTarget:EventTargetSqsTarget",
+                    "description": "Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "targetId": {
+                    "type": "string",
+                    "description": "The unique target assignment ID. If missing, will generate a random, unique id.\n"
+                }
             },
-            "sagemakerPipelineTarget": {
-                "$ref": "#/types/aws:cloudwatch/EventTargetSagemakerPipelineTarget:EventTargetSagemakerPipelineTarget",
-                "description": "Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.\n"
+            "required": [
+                "arn",
+                "rule",
+                "targetId"
+            ],
+            "inputProperties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the target.\n"
+                },
+                "batchTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetBatchTarget:EventTargetBatchTarget",
+                    "description": "Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "deadLetterConfig": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetDeadLetterConfig:EventTargetDeadLetterConfig",
+                    "description": "Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "ecsTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetEcsTarget:EventTargetEcsTarget",
+                    "description": "Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "eventBusName": {
+                    "type": "string",
+                    "description": "The name or ARN of the event bus to associate with the rule.\nIf you omit this, the `default` event bus is used.\n",
+                    "willReplaceOnChanges": true
+                },
+                "httpTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetHttpTarget:EventTargetHttpTarget",
+                    "description": "Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.\n"
+                },
+                "input": {
+                    "type": "string",
+                    "description": "Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.\n"
+                },
+                "inputPath": {
+                    "type": "string",
+                    "description": "The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.\n"
+                },
+                "inputTransformer": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetInputTransformer:EventTargetInputTransformer",
+                    "description": "Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.\n"
+                },
+                "kinesisTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetKinesisTarget:EventTargetKinesisTarget",
+                    "description": "Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "redshiftTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetRedshiftTarget:EventTargetRedshiftTarget",
+                    "description": "Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "retryPolicy": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetRetryPolicy:EventTargetRetryPolicy",
+                    "description": "Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.\n"
+                },
+                "rule": {
+                    "type": "string",
+                    "description": "The name of the rule you want to add targets to.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "runCommandTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:cloudwatch/EventTargetRunCommandTarget:EventTargetRunCommandTarget"
+                    },
+                    "description": "Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.\n"
+                },
+                "sagemakerPipelineTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetSagemakerPipelineTarget:EventTargetSagemakerPipelineTarget",
+                    "description": "Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "sqsTarget": {
+                    "$ref": "#/types/aws:cloudwatch/EventTargetSqsTarget:EventTargetSqsTarget",
+                    "description": "Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.\n"
+                },
+                "targetId": {
+                    "type": "string",
+                    "description": "The unique target assignment ID. If missing, will generate a random, unique id.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "sqsTarget": {
-                "$ref": "#/types/aws:cloudwatch/EventTargetSqsTarget:EventTargetSqsTarget",
-                "description": "Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.\n"
-            },
-            "targetId": {
-                "type": "string",
-                "description": "The unique target assignment ID. If missing, will generate a random, unique id.\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "arn",
+                "rule"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EventTarget resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the target.\n"
+                    },
+                    "batchTarget": {
+                        "$ref": "#/types/aws:cloudwatch/EventTargetBatchTarget:EventTargetBatchTarget",
+                        "description": "Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.\n"
+                    },
+                    "deadLetterConfig": {
+                        "$ref": "#/types/aws:cloudwatch/EventTargetDeadLetterConfig:EventTargetDeadLetterConfig",
+                        "description": "Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.\n"
+                    },
+                    "ecsTarget": {
+                        "$ref": "#/types/aws:cloudwatch/EventTargetEcsTarget:EventTargetEcsTarget",
+                        "description": "Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.\n"
+                    },
+                    "eventBusName": {
+                        "type": "string",
+                        "description": "The name or ARN of the event bus to associate with the rule.\nIf you omit this, the `default` event bus is used.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "httpTarget": {
+                        "$ref": "#/types/aws:cloudwatch/EventTargetHttpTarget:EventTargetHttpTarget",
+                        "description": "Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.\n"
+                    },
+                    "input": {
+                        "type": "string",
+                        "description": "Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.\n"
+                    },
+                    "inputPath": {
+                        "type": "string",
+                        "description": "The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.\n"
+                    },
+                    "inputTransformer": {
+                        "$ref": "#/types/aws:cloudwatch/EventTargetInputTransformer:EventTargetInputTransformer",
+                        "description": "Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.\n"
+                    },
+                    "kinesisTarget": {
+                        "$ref": "#/types/aws:cloudwatch/EventTargetKinesisTarget:EventTargetKinesisTarget",
+                        "description": "Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.\n"
+                    },
+                    "redshiftTarget": {
+                        "$ref": "#/types/aws:cloudwatch/EventTargetRedshiftTarget:EventTargetRedshiftTarget",
+                        "description": "Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.\n"
+                    },
+                    "retryPolicy": {
+                        "$ref": "#/types/aws:cloudwatch/EventTargetRetryPolicy:EventTargetRetryPolicy",
+                        "description": "Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.\n"
+                    },
+                    "roleArn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.\n"
+                    },
+                    "rule": {
+                        "type": "string",
+                        "description": "The name of the rule you want to add targets to.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "runCommandTargets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:cloudwatch/EventTargetRunCommandTarget:EventTargetRunCommandTarget"
+                        },
+                        "description": "Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.\n"
+                    },
+                    "sagemakerPipelineTarget": {
+                        "$ref": "#/types/aws:cloudwatch/EventTargetSagemakerPipelineTarget:EventTargetSagemakerPipelineTarget",
+                        "description": "Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.\n"
+                    },
+                    "sqsTarget": {
+                        "$ref": "#/types/aws:cloudwatch/EventTargetSqsTarget:EventTargetSqsTarget",
+                        "description": "Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.\n"
+                    },
+                    "targetId": {
+                        "type": "string",
+                        "description": "The unique target assignment ID. If missing, will generate a random, unique id.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

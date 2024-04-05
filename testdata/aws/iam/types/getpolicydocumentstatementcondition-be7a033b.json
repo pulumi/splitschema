@@ -1,25 +1,25 @@
 {
-    "properties": {
-        "test": {
-            "type": "string",
-            "description": "Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.\n"
-        },
-        "values": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "test": {
+                    "type": "string",
+                    "description": "Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.\n"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an \"OR\" boolean operation.\n"
+                },
+                "variable": {
+                    "type": "string",
+                    "description": "Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.\n"
+                }
             },
-            "description": "Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an \"OR\" boolean operation.\n"
-        },
-        "variable": {
-            "type": "string",
-            "description": "Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.\n"
+            "type": "object",
+            "required": [
+                "test",
+                "values",
+                "variable"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "test",
-        "values",
-        "variable"
-    ]
-}

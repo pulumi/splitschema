@@ -1,39 +1,39 @@
 {
-    "properties": {
-        "events": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "[Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.\n"
+                },
+                "filterPrefix": {
+                    "type": "string",
+                    "description": "Object key name prefix.\n"
+                },
+                "filterSuffix": {
+                    "type": "string",
+                    "description": "Object key name suffix.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for each of the notification configurations.\n"
+                },
+                "lambdaFunctionArn": {
+                    "type": "string",
+                    "description": "Lambda function ARN.\n"
+                }
             },
-            "description": "[Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.\n"
-        },
-        "filterPrefix": {
-            "type": "string",
-            "description": "Object key name prefix.\n"
-        },
-        "filterSuffix": {
-            "type": "string",
-            "description": "Object key name suffix.\n"
-        },
-        "id": {
-            "type": "string",
-            "description": "Unique identifier for each of the notification configurations.\n"
-        },
-        "lambdaFunctionArn": {
-            "type": "string",
-            "description": "Lambda function ARN.\n"
+            "type": "object",
+            "required": [
+                "events"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "events",
+                        "id"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "events"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "events",
-                "id"
-            ]
-        }
-    }
-}

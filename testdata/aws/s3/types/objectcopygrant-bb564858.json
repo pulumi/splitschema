@@ -1,32 +1,32 @@
 {
-    "properties": {
-        "email": {
-            "type": "string",
-            "description": "Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.\n"
-        },
-        "id": {
-            "type": "string",
-            "description": "Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.\n"
-        },
-        "permissions": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.\n"
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.\n\nThis configuration block has the following optional arguments (one of the three is required):\n"
+                },
+                "uri": {
+                    "type": "string",
+                    "description": "URI of the grantee group. Used only when `type` is `Group`.\n"
+                }
             },
-            "description": "List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.\n\nThis configuration block has the following optional arguments (one of the three is required):\n"
-        },
-        "uri": {
-            "type": "string",
-            "description": "URI of the grantee group. Used only when `type` is `Group`.\n"
+            "type": "object",
+            "required": [
+                "permissions",
+                "type"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "permissions",
-        "type"
-    ]
-}

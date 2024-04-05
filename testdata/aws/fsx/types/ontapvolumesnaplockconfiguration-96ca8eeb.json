@@ -1,42 +1,42 @@
 {
-    "properties": {
-        "auditLogVolume": {
-            "type": "boolean",
-            "description": "Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.\n"
-        },
-        "autocommitPeriod": {
-            "$ref": "#/types/aws:fsx/OntapVolumeSnaplockConfigurationAutocommitPeriod:OntapVolumeSnaplockConfigurationAutocommitPeriod",
-            "description": "The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.\n"
-        },
-        "privilegedDelete": {
-            "type": "string",
-            "description": "Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.\n"
-        },
-        "retentionPeriod": {
-            "$ref": "#/types/aws:fsx/OntapVolumeSnaplockConfigurationRetentionPeriod:OntapVolumeSnaplockConfigurationRetentionPeriod",
-            "description": "The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.\n"
-        },
-        "snaplockType": {
-            "type": "string",
-            "description": "Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.\n",
-            "willReplaceOnChanges": true
-        },
-        "volumeAppendModeEnabled": {
-            "type": "boolean",
-            "description": "Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "snaplockType"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "autocommitPeriod",
-                "retentionPeriod",
+            "properties": {
+                "auditLogVolume": {
+                    "type": "boolean",
+                    "description": "Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.\n"
+                },
+                "autocommitPeriod": {
+                    "$ref": "#/types/aws:fsx/OntapVolumeSnaplockConfigurationAutocommitPeriod:OntapVolumeSnaplockConfigurationAutocommitPeriod",
+                    "description": "The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.\n"
+                },
+                "privilegedDelete": {
+                    "type": "string",
+                    "description": "Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.\n"
+                },
+                "retentionPeriod": {
+                    "$ref": "#/types/aws:fsx/OntapVolumeSnaplockConfigurationRetentionPeriod:OntapVolumeSnaplockConfigurationRetentionPeriod",
+                    "description": "The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.\n"
+                },
+                "snaplockType": {
+                    "type": "string",
+                    "description": "Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "volumeAppendModeEnabled": {
+                    "type": "boolean",
+                    "description": "Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
                 "snaplockType"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "autocommitPeriod",
+                        "retentionPeriod",
+                        "snaplockType"
+                    ]
+                }
+            }
         }
-    }
-}

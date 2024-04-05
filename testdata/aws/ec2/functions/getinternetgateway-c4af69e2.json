@@ -1,73 +1,73 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getInternetGateway.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getInternetGatewayFilter:getInternetGatewayFilter"
-                },
-                "description": "Custom filter block as described below.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
-            },
-            "internetGatewayId": {
-                "type": "string",
-                "description": "ID of the specific Internet Gateway to retrieve.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags, each pair of which must exactly match\na pair on the desired Internet Gateway.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getInternetGateway.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the Internet Gateway.\n",
-                "type": "string"
-            },
-            "attachments": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getInternetGatewayAttachment:getInternetGatewayAttachment"
-                },
-                "type": "array"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getInternetGatewayFilter:getInternetGatewayFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "internetGatewayId": {
-                "type": "string"
-            },
-            "ownerId": {
-                "description": "ID of the AWS account that owns the internet gateway.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getInternetGateway.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getInternetGatewayFilter:getInternetGatewayFilter"
+                        },
+                        "description": "Custom filter block as described below.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
+                    },
+                    "internetGatewayId": {
+                        "type": "string",
+                        "description": "ID of the specific Internet Gateway to retrieve.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags, each pair of which must exactly match\na pair on the desired Internet Gateway.\n"
+                    }
                 },
                 "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getInternetGateway.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the Internet Gateway.\n",
+                        "type": "string"
+                    },
+                    "attachments": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getInternetGatewayAttachment:getInternetGatewayAttachment"
+                        },
+                        "type": "array"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getInternetGatewayFilter:getInternetGatewayFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "internetGatewayId": {
+                        "type": "string"
+                    },
+                    "ownerId": {
+                        "description": "ID of the AWS account that owns the internet gateway.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "attachments",
+                    "internetGatewayId",
+                    "ownerId",
+                    "tags",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "attachments",
-            "internetGatewayId",
-            "ownerId",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

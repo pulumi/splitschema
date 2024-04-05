@@ -1,265 +1,265 @@
 {
-    "properties": {
-        "accessUrl": {
-            "type": "string",
-            "description": "The access URL for the directory, such as `http://alias.awsapps.com`.\n"
-        },
-        "alias": {
-            "type": "string",
-            "description": "The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.\n"
-        },
-        "connectSettings": {
-            "$ref": "#/types/aws:directoryservice/DirectoryConnectSettings:DirectoryConnectSettings",
-            "description": "Connector related information about the directory. Fields documented below.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A textual description for the directory.\n"
-        },
-        "desiredNumberOfDomainControllers": {
-            "type": "integer",
-            "description": "The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.\n"
-        },
-        "dnsIpAddresses": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of IP addresses of the DNS servers for the directory or connector.\n"
-        },
-        "edition": {
-            "type": "string",
-            "description": "The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.\n"
-        },
-        "enableSso": {
-            "type": "boolean",
-            "description": "Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The fully qualified name for the directory, such as `corp.example.com`\n"
-        },
-        "password": {
-            "type": "string",
-            "description": "The password for the directory administrator or connector user.\n",
-            "secret": true
-        },
-        "securityGroupId": {
-            "type": "string",
-            "description": "The ID of the security group created by the directory.\n"
-        },
-        "shortName": {
-            "type": "string",
-            "description": "The short name of the directory, such as `CORP`.\n"
-        },
-        "size": {
-            "type": "string",
-            "description": "(For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "type": {
-            "type": "string",
-            "description": "The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.\n"
-        },
-        "vpcSettings": {
-            "$ref": "#/types/aws:directoryservice/DirectoryVpcSettings:DirectoryVpcSettings",
-            "description": "VPC related information about the directory. Fields documented below.\n"
-        }
-    },
-    "required": [
-        "accessUrl",
-        "alias",
-        "desiredNumberOfDomainControllers",
-        "dnsIpAddresses",
-        "edition",
-        "name",
-        "password",
-        "securityGroupId",
-        "shortName",
-        "size",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "alias": {
-            "type": "string",
-            "description": "The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.\n",
-            "willReplaceOnChanges": true
-        },
-        "connectSettings": {
-            "$ref": "#/types/aws:directoryservice/DirectoryConnectSettings:DirectoryConnectSettings",
-            "description": "Connector related information about the directory. Fields documented below.\n",
-            "willReplaceOnChanges": true
-        },
-        "description": {
-            "type": "string",
-            "description": "A textual description for the directory.\n",
-            "willReplaceOnChanges": true
-        },
-        "desiredNumberOfDomainControllers": {
-            "type": "integer",
-            "description": "The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.\n"
-        },
-        "edition": {
-            "type": "string",
-            "description": "The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.\n",
-            "willReplaceOnChanges": true
-        },
-        "enableSso": {
-            "type": "boolean",
-            "description": "Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The fully qualified name for the directory, such as `corp.example.com`\n",
-            "willReplaceOnChanges": true
-        },
-        "password": {
-            "type": "string",
-            "description": "The password for the directory administrator or connector user.\n",
-            "secret": true,
-            "willReplaceOnChanges": true
-        },
-        "shortName": {
-            "type": "string",
-            "description": "The short name of the directory, such as `CORP`.\n",
-            "willReplaceOnChanges": true
-        },
-        "size": {
-            "type": "string",
-            "description": "(For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.\n",
-            "willReplaceOnChanges": true
-        },
-        "vpcSettings": {
-            "$ref": "#/types/aws:directoryservice/DirectoryVpcSettings:DirectoryVpcSettings",
-            "description": "VPC related information about the directory. Fields documented below.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "name",
-        "password"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Directory resources.\n",
-        "properties": {
-            "accessUrl": {
-                "type": "string",
-                "description": "The access URL for the directory, such as `http://alias.awsapps.com`.\n"
-            },
-            "alias": {
-                "type": "string",
-                "description": "The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.\n",
-                "willReplaceOnChanges": true
-            },
-            "connectSettings": {
-                "$ref": "#/types/aws:directoryservice/DirectoryConnectSettings:DirectoryConnectSettings",
-                "description": "Connector related information about the directory. Fields documented below.\n",
-                "willReplaceOnChanges": true
-            },
-            "description": {
-                "type": "string",
-                "description": "A textual description for the directory.\n",
-                "willReplaceOnChanges": true
-            },
-            "desiredNumberOfDomainControllers": {
-                "type": "integer",
-                "description": "The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.\n"
-            },
-            "dnsIpAddresses": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "accessUrl": {
+                    "type": "string",
+                    "description": "The access URL for the directory, such as `http://alias.awsapps.com`.\n"
                 },
-                "description": "A list of IP addresses of the DNS servers for the directory or connector.\n"
-            },
-            "edition": {
-                "type": "string",
-                "description": "The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.\n",
-                "willReplaceOnChanges": true
-            },
-            "enableSso": {
-                "type": "boolean",
-                "description": "Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The fully qualified name for the directory, such as `corp.example.com`\n",
-                "willReplaceOnChanges": true
-            },
-            "password": {
-                "type": "string",
-                "description": "The password for the directory administrator or connector user.\n",
-                "secret": true,
-                "willReplaceOnChanges": true
-            },
-            "securityGroupId": {
-                "type": "string",
-                "description": "The ID of the security group created by the directory.\n"
-            },
-            "shortName": {
-                "type": "string",
-                "description": "The short name of the directory, such as `CORP`.\n",
-                "willReplaceOnChanges": true
-            },
-            "size": {
-                "type": "string",
-                "description": "(For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "alias": {
+                    "type": "string",
+                    "description": "The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.\n"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "connectSettings": {
+                    "$ref": "#/types/aws:directoryservice/DirectoryConnectSettings:DirectoryConnectSettings",
+                    "description": "Connector related information about the directory. Fields documented below.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "description": {
+                    "type": "string",
+                    "description": "A textual description for the directory.\n"
+                },
+                "desiredNumberOfDomainControllers": {
+                    "type": "integer",
+                    "description": "The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.\n"
+                },
+                "dnsIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of IP addresses of the DNS servers for the directory or connector.\n"
+                },
+                "edition": {
+                    "type": "string",
+                    "description": "The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.\n"
+                },
+                "enableSso": {
+                    "type": "boolean",
+                    "description": "Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The fully qualified name for the directory, such as `corp.example.com`\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password for the directory administrator or connector user.\n",
+                    "secret": true
+                },
+                "securityGroupId": {
+                    "type": "string",
+                    "description": "The ID of the security group created by the directory.\n"
+                },
+                "shortName": {
+                    "type": "string",
+                    "description": "The short name of the directory, such as `CORP`.\n"
+                },
+                "size": {
+                    "type": "string",
+                    "description": "(For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.\n"
+                },
+                "vpcSettings": {
+                    "$ref": "#/types/aws:directoryservice/DirectoryVpcSettings:DirectoryVpcSettings",
+                    "description": "VPC related information about the directory. Fields documented below.\n"
+                }
             },
-            "type": {
-                "type": "string",
-                "description": "The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "accessUrl",
+                "alias",
+                "desiredNumberOfDomainControllers",
+                "dnsIpAddresses",
+                "edition",
+                "name",
+                "password",
+                "securityGroupId",
+                "shortName",
+                "size",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "alias": {
+                    "type": "string",
+                    "description": "The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "connectSettings": {
+                    "$ref": "#/types/aws:directoryservice/DirectoryConnectSettings:DirectoryConnectSettings",
+                    "description": "Connector related information about the directory. Fields documented below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A textual description for the directory.\n",
+                    "willReplaceOnChanges": true
+                },
+                "desiredNumberOfDomainControllers": {
+                    "type": "integer",
+                    "description": "The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.\n"
+                },
+                "edition": {
+                    "type": "string",
+                    "description": "The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "enableSso": {
+                    "type": "boolean",
+                    "description": "Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The fully qualified name for the directory, such as `corp.example.com`\n",
+                    "willReplaceOnChanges": true
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password for the directory administrator or connector user.\n",
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                },
+                "shortName": {
+                    "type": "string",
+                    "description": "The short name of the directory, such as `CORP`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "size": {
+                    "type": "string",
+                    "description": "(For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "vpcSettings": {
+                    "$ref": "#/types/aws:directoryservice/DirectoryVpcSettings:DirectoryVpcSettings",
+                    "description": "VPC related information about the directory. Fields documented below.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "vpcSettings": {
-                "$ref": "#/types/aws:directoryservice/DirectoryVpcSettings:DirectoryVpcSettings",
-                "description": "VPC related information about the directory. Fields documented below.\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "name",
+                "password"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Directory resources.\n",
+                "properties": {
+                    "accessUrl": {
+                        "type": "string",
+                        "description": "The access URL for the directory, such as `http://alias.awsapps.com`.\n"
+                    },
+                    "alias": {
+                        "type": "string",
+                        "description": "The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "connectSettings": {
+                        "$ref": "#/types/aws:directoryservice/DirectoryConnectSettings:DirectoryConnectSettings",
+                        "description": "Connector related information about the directory. Fields documented below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A textual description for the directory.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "desiredNumberOfDomainControllers": {
+                        "type": "integer",
+                        "description": "The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.\n"
+                    },
+                    "dnsIpAddresses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of IP addresses of the DNS servers for the directory or connector.\n"
+                    },
+                    "edition": {
+                        "type": "string",
+                        "description": "The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "enableSso": {
+                        "type": "boolean",
+                        "description": "Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The fully qualified name for the directory, such as `corp.example.com`\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "The password for the directory administrator or connector user.\n",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "securityGroupId": {
+                        "type": "string",
+                        "description": "The ID of the security group created by the directory.\n"
+                    },
+                    "shortName": {
+                        "type": "string",
+                        "description": "The short name of the directory, such as `CORP`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "size": {
+                        "type": "string",
+                        "description": "(For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "vpcSettings": {
+                        "$ref": "#/types/aws:directoryservice/DirectoryVpcSettings:DirectoryVpcSettings",
+                        "description": "VPC related information about the directory. Fields documented below.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

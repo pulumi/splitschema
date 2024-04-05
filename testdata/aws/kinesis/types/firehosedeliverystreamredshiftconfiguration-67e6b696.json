@@ -1,79 +1,79 @@
 {
-    "properties": {
-        "cloudwatchLoggingOptions": {
-            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions:FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions",
-            "description": "The CloudWatch Logging Options for the delivery stream. More details are given below\n"
-        },
-        "clusterJdbcurl": {
-            "type": "string",
-            "description": "The jdbcurl of the redshift cluster.\n"
-        },
-        "copyOptions": {
-            "type": "string",
-            "description": "Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)\n"
-        },
-        "dataTableColumns": {
-            "type": "string",
-            "description": "The data table columns that will be targeted by the copy command.\n"
-        },
-        "dataTableName": {
-            "type": "string",
-            "description": "The name of the table in the redshift cluster that the s3 bucket will copy to.\n"
-        },
-        "password": {
-            "type": "string",
-            "description": "The password for the username above.\n",
-            "secret": true
-        },
-        "processingConfiguration": {
-            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration:FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration",
-            "description": "The data processing configuration.  More details are given below.\n"
-        },
-        "retryDuration": {
-            "type": "integer",
-            "description": "The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The arn of the role the stream assumes.\n"
-        },
-        "s3BackupConfiguration": {
-            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration:FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration",
-            "description": "The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.\n"
-        },
-        "s3BackupMode": {
-            "type": "string",
-            "description": "The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.\n"
-        },
-        "s3Configuration": {
-            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfigurationS3Configuration:FirehoseDeliveryStreamRedshiftConfigurationS3Configuration",
-            "description": "The S3 Configuration. See s3_configuration for more details.\n"
-        },
-        "username": {
-            "type": "string",
-            "description": "The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "clusterJdbcurl",
-        "dataTableName",
-        "password",
-        "roleArn",
-        "s3Configuration",
-        "username"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "cloudwatchLoggingOptions",
+            "properties": {
+                "cloudwatchLoggingOptions": {
+                    "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions:FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions",
+                    "description": "The CloudWatch Logging Options for the delivery stream. More details are given below\n"
+                },
+                "clusterJdbcurl": {
+                    "type": "string",
+                    "description": "The jdbcurl of the redshift cluster.\n"
+                },
+                "copyOptions": {
+                    "type": "string",
+                    "description": "Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)\n"
+                },
+                "dataTableColumns": {
+                    "type": "string",
+                    "description": "The data table columns that will be targeted by the copy command.\n"
+                },
+                "dataTableName": {
+                    "type": "string",
+                    "description": "The name of the table in the redshift cluster that the s3 bucket will copy to.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password for the username above.\n",
+                    "secret": true
+                },
+                "processingConfiguration": {
+                    "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration:FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration",
+                    "description": "The data processing configuration.  More details are given below.\n"
+                },
+                "retryDuration": {
+                    "type": "integer",
+                    "description": "The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The arn of the role the stream assumes.\n"
+                },
+                "s3BackupConfiguration": {
+                    "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration:FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration",
+                    "description": "The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.\n"
+                },
+                "s3BackupMode": {
+                    "type": "string",
+                    "description": "The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.\n"
+                },
+                "s3Configuration": {
+                    "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfigurationS3Configuration:FirehoseDeliveryStreamRedshiftConfigurationS3Configuration",
+                    "description": "The S3 Configuration. See s3_configuration for more details.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.\n"
+                }
+            },
+            "type": "object",
+            "required": [
                 "clusterJdbcurl",
                 "dataTableName",
                 "password",
                 "roleArn",
                 "s3Configuration",
                 "username"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "cloudwatchLoggingOptions",
+                        "clusterJdbcurl",
+                        "dataTableName",
+                        "password",
+                        "roleArn",
+                        "s3Configuration",
+                        "username"
+                    ]
+                }
+            }
         }
-    }
-}

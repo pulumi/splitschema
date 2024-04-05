@@ -1,167 +1,167 @@
 {
-    "properties": {
-        "groups": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The group(s) the policy should be applied to\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the attachment. This cannot be an empty string.\n"
-        },
-        "policyArn": {
-            "type": "string",
-            "$ref": "#/types/aws:index/aRN:ARN",
-            "description": "The ARN of the policy you want to apply\n"
-        },
-        "roles": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The role(s) the policy should be applied to\n"
-        },
-        "users": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The user(s) the policy should be applied to\n"
-        }
-    },
-    "required": [
-        "name",
-        "policyArn"
-    ],
-    "inputProperties": {
-        "groups": {
-            "type": "array",
-            "items": {
-                "type": "string",
-                "oneOf": [
-                    {
+            "properties": {
+                "groups": {
+                    "type": "array",
+                    "items": {
                         "type": "string"
                     },
-                    {
-                        "type": "string",
-                        "$ref": "#/types/aws:iam/group:Group"
-                    }
-                ]
-            },
-            "description": "The group(s) the policy should be applied to\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the attachment. This cannot be an empty string.\n",
-            "willReplaceOnChanges": true
-        },
-        "policyArn": {
-            "type": "string",
-            "$ref": "#/types/aws:index/aRN:ARN",
-            "description": "The ARN of the policy you want to apply\n",
-            "willReplaceOnChanges": true
-        },
-        "roles": {
-            "type": "array",
-            "items": {
-                "type": "string",
-                "oneOf": [
-                    {
+                    "description": "The group(s) the policy should be applied to\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the attachment. This cannot be an empty string.\n"
+                },
+                "policyArn": {
+                    "type": "string",
+                    "$ref": "#/types/aws:index/aRN:ARN",
+                    "description": "The ARN of the policy you want to apply\n"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
                         "type": "string"
                     },
-                    {
-                        "type": "string",
-                        "$ref": "#/types/aws:iam/role:Role"
-                    }
-                ]
-            },
-            "description": "The role(s) the policy should be applied to\n"
-        },
-        "users": {
-            "type": "array",
-            "items": {
-                "type": "string",
-                "oneOf": [
-                    {
+                    "description": "The role(s) the policy should be applied to\n"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
                         "type": "string"
                     },
-                    {
+                    "description": "The user(s) the policy should be applied to\n"
+                }
+            },
+            "required": [
+                "name",
+                "policyArn"
+            ],
+            "inputProperties": {
+                "groups": {
+                    "type": "array",
+                    "items": {
                         "type": "string",
-                        "$ref": "#/types/aws:iam/user:User"
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string",
+                                "$ref": "#/types/aws:iam/group:Group"
+                            }
+                        ]
+                    },
+                    "description": "The group(s) the policy should be applied to\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the attachment. This cannot be an empty string.\n",
+                    "willReplaceOnChanges": true
+                },
+                "policyArn": {
+                    "type": "string",
+                    "$ref": "#/types/aws:index/aRN:ARN",
+                    "description": "The ARN of the policy you want to apply\n",
+                    "willReplaceOnChanges": true
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string",
+                                "$ref": "#/types/aws:iam/role:Role"
+                            }
+                        ]
+                    },
+                    "description": "The role(s) the policy should be applied to\n"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string",
+                                "$ref": "#/types/aws:iam/user:User"
+                            }
+                        ]
+                    },
+                    "description": "The user(s) the policy should be applied to\n"
+                }
+            },
+            "requiredInputs": [
+                "policyArn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PolicyAttachment resources.\n",
+                "properties": {
+                    "groups": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "string",
+                                    "$ref": "#/types/aws:iam/group:Group"
+                                }
+                            ]
+                        },
+                        "description": "The group(s) the policy should be applied to\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the attachment. This cannot be an empty string.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "policyArn": {
+                        "type": "string",
+                        "$ref": "#/types/aws:index/aRN:ARN",
+                        "description": "The ARN of the policy you want to apply\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "string",
+                                    "$ref": "#/types/aws:iam/role:Role"
+                                }
+                            ]
+                        },
+                        "description": "The role(s) the policy should be applied to\n"
+                    },
+                    "users": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "string",
+                                    "$ref": "#/types/aws:iam/user:User"
+                                }
+                            ]
+                        },
+                        "description": "The user(s) the policy should be applied to\n"
                     }
-                ]
-            },
-            "description": "The user(s) the policy should be applied to\n"
-        }
-    },
-    "requiredInputs": [
-        "policyArn"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering PolicyAttachment resources.\n",
-        "properties": {
-            "groups": {
-                "type": "array",
-                "items": {
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "string",
-                            "$ref": "#/types/aws:iam/group:Group"
-                        }
-                    ]
                 },
-                "description": "The group(s) the policy should be applied to\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the attachment. This cannot be an empty string.\n",
-                "willReplaceOnChanges": true
-            },
-            "policyArn": {
-                "type": "string",
-                "$ref": "#/types/aws:index/aRN:ARN",
-                "description": "The ARN of the policy you want to apply\n",
-                "willReplaceOnChanges": true
-            },
-            "roles": {
-                "type": "array",
-                "items": {
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "string",
-                            "$ref": "#/types/aws:iam/role:Role"
-                        }
-                    ]
-                },
-                "description": "The role(s) the policy should be applied to\n"
-            },
-            "users": {
-                "type": "array",
-                "items": {
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "string",
-                            "$ref": "#/types/aws:iam/user:User"
-                        }
-                    ]
-                },
-                "description": "The user(s) the policy should be applied to\n"
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

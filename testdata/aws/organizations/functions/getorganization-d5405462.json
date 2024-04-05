@@ -1,80 +1,80 @@
 {
-    "outputs": {
-        "description": "A collection of values returned by getOrganization.\n",
-        "properties": {
-            "accounts": {
-                "description": "List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:\n",
-                "items": {
-                    "$ref": "#/types/aws:organizations/getOrganizationAccount:getOrganizationAccount"
+            "outputs": {
+                "description": "A collection of values returned by getOrganization.\n",
+                "properties": {
+                    "accounts": {
+                        "description": "List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:\n",
+                        "items": {
+                            "$ref": "#/types/aws:organizations/getOrganizationAccount:getOrganizationAccount"
+                        },
+                        "type": "array"
+                    },
+                    "arn": {
+                        "description": "ARN of the root\n",
+                        "type": "string"
+                    },
+                    "awsServiceAccessPrincipals": {
+                        "description": "A list of AWS service principal names that have integration enabled with your organization. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "enabledPolicyTypes": {
+                        "description": "A list of Organizations policy types that are enabled in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "featureSet": {
+                        "description": "FeatureSet of the organization.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "masterAccountArn": {
+                        "description": "ARN of the account that is designated as the master account for the organization.\n",
+                        "type": "string"
+                    },
+                    "masterAccountEmail": {
+                        "description": "The email address that is associated with the AWS account that is designated as the master account for the organization.\n",
+                        "type": "string"
+                    },
+                    "masterAccountId": {
+                        "description": "Unique identifier (ID) of the master account of an organization.\n",
+                        "type": "string"
+                    },
+                    "nonMasterAccounts": {
+                        "description": "List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:\n",
+                        "items": {
+                            "$ref": "#/types/aws:organizations/getOrganizationNonMasterAccount:getOrganizationNonMasterAccount"
+                        },
+                        "type": "array"
+                    },
+                    "roots": {
+                        "description": "List of organization roots. All elements have these attributes:\n",
+                        "items": {
+                            "$ref": "#/types/aws:organizations/getOrganizationRoot:getOrganizationRoot"
+                        },
+                        "type": "array"
+                    }
                 },
-                "type": "array"
-            },
-            "arn": {
-                "description": "ARN of the root\n",
-                "type": "string"
-            },
-            "awsServiceAccessPrincipals": {
-                "description": "A list of AWS service principal names that have integration enabled with your organization. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "enabledPolicyTypes": {
-                "description": "A list of Organizations policy types that are enabled in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "featureSet": {
-                "description": "FeatureSet of the organization.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "masterAccountArn": {
-                "description": "ARN of the account that is designated as the master account for the organization.\n",
-                "type": "string"
-            },
-            "masterAccountEmail": {
-                "description": "The email address that is associated with the AWS account that is designated as the master account for the organization.\n",
-                "type": "string"
-            },
-            "masterAccountId": {
-                "description": "Unique identifier (ID) of the master account of an organization.\n",
-                "type": "string"
-            },
-            "nonMasterAccounts": {
-                "description": "List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:\n",
-                "items": {
-                    "$ref": "#/types/aws:organizations/getOrganizationNonMasterAccount:getOrganizationNonMasterAccount"
-                },
-                "type": "array"
-            },
-            "roots": {
-                "description": "List of organization roots. All elements have these attributes:\n",
-                "items": {
-                    "$ref": "#/types/aws:organizations/getOrganizationRoot:getOrganizationRoot"
-                },
-                "type": "array"
+                "required": [
+                    "accounts",
+                    "arn",
+                    "awsServiceAccessPrincipals",
+                    "enabledPolicyTypes",
+                    "featureSet",
+                    "masterAccountArn",
+                    "masterAccountEmail",
+                    "masterAccountId",
+                    "nonMasterAccounts",
+                    "roots",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "accounts",
-            "arn",
-            "awsServiceAccessPrincipals",
-            "enabledPolicyTypes",
-            "featureSet",
-            "masterAccountArn",
-            "masterAccountEmail",
-            "masterAccountId",
-            "nonMasterAccounts",
-            "roots",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,25 +1,25 @@
 {
-    "properties": {
-        "creationInfos": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:efs/getAccessPointRootDirectoryCreationInfo:getAccessPointRootDirectoryCreationInfo"
+            "properties": {
+                "creationInfos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:efs/getAccessPointRootDirectoryCreationInfo:getAccessPointRootDirectoryCreationInfo"
+                    },
+                    "description": "Single element list containing information on the creation permissions of the directory\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path exposed as the root directory\n"
+                }
             },
-            "description": "Single element list containing information on the creation permissions of the directory\n"
-        },
-        "path": {
-            "type": "string",
-            "description": "Path exposed as the root directory\n"
+            "type": "object",
+            "required": [
+                "creationInfos",
+                "path"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "creationInfos",
-        "path"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

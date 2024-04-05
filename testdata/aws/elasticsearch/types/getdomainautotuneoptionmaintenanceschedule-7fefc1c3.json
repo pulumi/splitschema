@@ -1,30 +1,30 @@
 {
-    "properties": {
-        "cronExpressionForRecurrence": {
-            "type": "string",
-            "description": "Cron expression for an Auto-Tune maintenance schedule.\n"
-        },
-        "durations": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:elasticsearch/getDomainAutoTuneOptionMaintenanceScheduleDuration:getDomainAutoTuneOptionMaintenanceScheduleDuration"
+            "properties": {
+                "cronExpressionForRecurrence": {
+                    "type": "string",
+                    "description": "Cron expression for an Auto-Tune maintenance schedule.\n"
+                },
+                "durations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:elasticsearch/getDomainAutoTuneOptionMaintenanceScheduleDuration:getDomainAutoTuneOptionMaintenanceScheduleDuration"
+                    },
+                    "description": "Configuration block for the duration of the Auto-Tune maintenance window.\n"
+                },
+                "startAt": {
+                    "type": "string",
+                    "description": "Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+                }
             },
-            "description": "Configuration block for the duration of the Auto-Tune maintenance window.\n"
-        },
-        "startAt": {
-            "type": "string",
-            "description": "Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+            "type": "object",
+            "required": [
+                "cronExpressionForRecurrence",
+                "durations",
+                "startAt"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "cronExpressionForRecurrence",
-        "durations",
-        "startAt"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

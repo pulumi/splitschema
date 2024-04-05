@@ -1,233 +1,233 @@
 {
-    "properties": {
-        "cidrBlocks": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the rule.\n"
-        },
-        "fromPort": {
-            "type": "integer",
-            "description": "Start port (or ICMP type number if protocol is \"icmp\" or \"icmpv6\").\n"
-        },
-        "ipv6CidrBlocks": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.\n"
-        },
-        "prefixListIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of Prefix List IDs.\n"
-        },
-        "protocol": {
-            "type": "string",
-            "description": "Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)\n"
-        },
-        "securityGroupId": {
-            "type": "string",
-            "description": "Security group to apply this rule to.\n"
-        },
-        "securityGroupRuleId": {
-            "type": "string",
-            "description": "If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.\n"
-        },
-        "self": {
-            "type": "boolean",
-            "description": "Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.\n"
-        },
-        "sourceSecurityGroupId": {
-            "type": "string",
-            "description": "Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.\n"
-        },
-        "toPort": {
-            "type": "integer",
-            "description": "End port (or ICMP code if protocol is \"icmp\").\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "Type of rule being created. Valid options are `ingress` (inbound)\nor `egress` (outbound).\n\nThe following arguments are optional:\n\n\u003e **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.\n"
-        }
-    },
-    "required": [
-        "fromPort",
-        "protocol",
-        "securityGroupId",
-        "securityGroupRuleId",
-        "sourceSecurityGroupId",
-        "toPort",
-        "type"
-    ],
-    "inputProperties": {
-        "cidrBlocks": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.\n",
-            "willReplaceOnChanges": true
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the rule.\n"
-        },
-        "fromPort": {
-            "type": "integer",
-            "description": "Start port (or ICMP type number if protocol is \"icmp\" or \"icmpv6\").\n",
-            "willReplaceOnChanges": true
-        },
-        "ipv6CidrBlocks": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.\n",
-            "willReplaceOnChanges": true
-        },
-        "prefixListIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of Prefix List IDs.\n",
-            "willReplaceOnChanges": true
-        },
-        "protocol": {
-            "type": "string",
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "string",
-                    "$ref": "#/types/aws:ec2/ProtocolType:ProtocolType"
-                }
-            ],
-            "description": "Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)\n",
-            "willReplaceOnChanges": true
-        },
-        "securityGroupId": {
-            "type": "string",
-            "description": "Security group to apply this rule to.\n",
-            "willReplaceOnChanges": true
-        },
-        "self": {
-            "type": "boolean",
-            "description": "Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.\n",
-            "willReplaceOnChanges": true
-        },
-        "sourceSecurityGroupId": {
-            "type": "string",
-            "description": "Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.\n",
-            "willReplaceOnChanges": true
-        },
-        "toPort": {
-            "type": "integer",
-            "description": "End port (or ICMP code if protocol is \"icmp\").\n",
-            "willReplaceOnChanges": true
-        },
-        "type": {
-            "type": "string",
-            "description": "Type of rule being created. Valid options are `ingress` (inbound)\nor `egress` (outbound).\n\nThe following arguments are optional:\n\n\u003e **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "fromPort",
-        "protocol",
-        "securityGroupId",
-        "toPort",
-        "type"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering SecurityGroupRule resources.\n",
-        "properties": {
-            "cidrBlocks": {
-                "type": "array",
-                "items": {
-                    "type": "string"
-                },
-                "description": "List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.\n",
-                "willReplaceOnChanges": true
-            },
-            "description": {
-                "type": "string",
-                "description": "Description of the rule.\n"
-            },
-            "fromPort": {
-                "type": "integer",
-                "description": "Start port (or ICMP type number if protocol is \"icmp\" or \"icmpv6\").\n",
-                "willReplaceOnChanges": true
-            },
-            "ipv6CidrBlocks": {
-                "type": "array",
-                "items": {
-                    "type": "string"
-                },
-                "description": "List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.\n",
-                "willReplaceOnChanges": true
-            },
-            "prefixListIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
-                },
-                "description": "List of Prefix List IDs.\n",
-                "willReplaceOnChanges": true
-            },
-            "protocol": {
-                "type": "string",
-                "oneOf": [
-                    {
+            "properties": {
+                "cidrBlocks": {
+                    "type": "array",
+                    "items": {
                         "type": "string"
                     },
-                    {
+                    "description": "List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the rule.\n"
+                },
+                "fromPort": {
+                    "type": "integer",
+                    "description": "Start port (or ICMP type number if protocol is \"icmp\" or \"icmpv6\").\n"
+                },
+                "ipv6CidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.\n"
+                },
+                "prefixListIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of Prefix List IDs.\n"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)\n"
+                },
+                "securityGroupId": {
+                    "type": "string",
+                    "description": "Security group to apply this rule to.\n"
+                },
+                "securityGroupRuleId": {
+                    "type": "string",
+                    "description": "If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.\n"
+                },
+                "self": {
+                    "type": "boolean",
+                    "description": "Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.\n"
+                },
+                "sourceSecurityGroupId": {
+                    "type": "string",
+                    "description": "Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.\n"
+                },
+                "toPort": {
+                    "type": "integer",
+                    "description": "End port (or ICMP code if protocol is \"icmp\").\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of rule being created. Valid options are `ingress` (inbound)\nor `egress` (outbound).\n\nThe following arguments are optional:\n\n\u003e **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.\n"
+                }
+            },
+            "required": [
+                "fromPort",
+                "protocol",
+                "securityGroupId",
+                "securityGroupRuleId",
+                "sourceSecurityGroupId",
+                "toPort",
+                "type"
+            ],
+            "inputProperties": {
+                "cidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the rule.\n"
+                },
+                "fromPort": {
+                    "type": "integer",
+                    "description": "Start port (or ICMP type number if protocol is \"icmp\" or \"icmpv6\").\n",
+                    "willReplaceOnChanges": true
+                },
+                "ipv6CidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "prefixListIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of Prefix List IDs.\n",
+                    "willReplaceOnChanges": true
+                },
+                "protocol": {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string",
+                            "$ref": "#/types/aws:ec2/ProtocolType:ProtocolType"
+                        }
+                    ],
+                    "description": "Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)\n",
+                    "willReplaceOnChanges": true
+                },
+                "securityGroupId": {
+                    "type": "string",
+                    "description": "Security group to apply this rule to.\n",
+                    "willReplaceOnChanges": true
+                },
+                "self": {
+                    "type": "boolean",
+                    "description": "Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "sourceSecurityGroupId": {
+                    "type": "string",
+                    "description": "Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "toPort": {
+                    "type": "integer",
+                    "description": "End port (or ICMP code if protocol is \"icmp\").\n",
+                    "willReplaceOnChanges": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of rule being created. Valid options are `ingress` (inbound)\nor `egress` (outbound).\n\nThe following arguments are optional:\n\n\u003e **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "fromPort",
+                "protocol",
+                "securityGroupId",
+                "toPort",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SecurityGroupRule resources.\n",
+                "properties": {
+                    "cidrBlocks": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "description": {
                         "type": "string",
-                        "$ref": "#/types/aws:ec2/ProtocolType:ProtocolType"
+                        "description": "Description of the rule.\n"
+                    },
+                    "fromPort": {
+                        "type": "integer",
+                        "description": "Start port (or ICMP type number if protocol is \"icmp\" or \"icmpv6\").\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ipv6CidrBlocks": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "prefixListIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of Prefix List IDs.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "protocol": {
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string",
+                                "$ref": "#/types/aws:ec2/ProtocolType:ProtocolType"
+                            }
+                        ],
+                        "description": "Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "securityGroupId": {
+                        "type": "string",
+                        "description": "Security group to apply this rule to.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "securityGroupRuleId": {
+                        "type": "string",
+                        "description": "If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.\n"
+                    },
+                    "self": {
+                        "type": "boolean",
+                        "description": "Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "sourceSecurityGroupId": {
+                        "type": "string",
+                        "description": "Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "toPort": {
+                        "type": "integer",
+                        "description": "End port (or ICMP code if protocol is \"icmp\").\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of rule being created. Valid options are `ingress` (inbound)\nor `egress` (outbound).\n\nThe following arguments are optional:\n\n\u003e **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.\n",
+                        "willReplaceOnChanges": true
                     }
-                ],
-                "description": "Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)\n",
-                "willReplaceOnChanges": true
-            },
-            "securityGroupId": {
-                "type": "string",
-                "description": "Security group to apply this rule to.\n",
-                "willReplaceOnChanges": true
-            },
-            "securityGroupRuleId": {
-                "type": "string",
-                "description": "If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.\n"
-            },
-            "self": {
-                "type": "boolean",
-                "description": "Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.\n",
-                "willReplaceOnChanges": true
-            },
-            "sourceSecurityGroupId": {
-                "type": "string",
-                "description": "Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.\n",
-                "willReplaceOnChanges": true
-            },
-            "toPort": {
-                "type": "integer",
-                "description": "End port (or ICMP code if protocol is \"icmp\").\n",
-                "willReplaceOnChanges": true
-            },
-            "type": {
-                "type": "string",
-                "description": "Type of rule being created. Valid options are `ingress` (inbound)\nor `egress` (outbound).\n\nThe following arguments are optional:\n\n\u003e **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.\n",
-                "willReplaceOnChanges": true
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

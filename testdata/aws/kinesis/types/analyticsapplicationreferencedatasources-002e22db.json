@@ -1,36 +1,36 @@
 {
-    "properties": {
-        "id": {
-            "type": "string",
-            "description": "The ARN of the Kinesis Analytics Application.\n"
-        },
-        "s3": {
-            "$ref": "#/types/aws:kinesis/AnalyticsApplicationReferenceDataSourcesS3:AnalyticsApplicationReferenceDataSourcesS3",
-            "description": "The S3 configuration for the reference data source. See S3 Reference below for more details.\n"
-        },
-        "schema": {
-            "$ref": "#/types/aws:kinesis/AnalyticsApplicationReferenceDataSourcesSchema:AnalyticsApplicationReferenceDataSourcesSchema",
-            "description": "The Schema format of the data in the streaming source. See Source Schema below for more details.\n"
-        },
-        "tableName": {
-            "type": "string",
-            "description": "The in-application Table Name.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "s3",
-        "schema",
-        "tableName"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "id",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ARN of the Kinesis Analytics Application.\n"
+                },
+                "s3": {
+                    "$ref": "#/types/aws:kinesis/AnalyticsApplicationReferenceDataSourcesS3:AnalyticsApplicationReferenceDataSourcesS3",
+                    "description": "The S3 configuration for the reference data source. See S3 Reference below for more details.\n"
+                },
+                "schema": {
+                    "$ref": "#/types/aws:kinesis/AnalyticsApplicationReferenceDataSourcesSchema:AnalyticsApplicationReferenceDataSourcesSchema",
+                    "description": "The Schema format of the data in the streaming source. See Source Schema below for more details.\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "The in-application Table Name.\n"
+                }
+            },
+            "type": "object",
+            "required": [
                 "s3",
                 "schema",
                 "tableName"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "s3",
+                        "schema",
+                        "tableName"
+                    ]
+                }
+            }
         }
-    }
-}

@@ -1,25 +1,25 @@
 {
-    "properties": {
-        "componentArn": {
-            "type": "string",
-            "description": "ARN of the Image Builder Component.\n"
-        },
-        "parameters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:imagebuilder/getImageRecipeComponentParameter:getImageRecipeComponentParameter"
+            "properties": {
+                "componentArn": {
+                    "type": "string",
+                    "description": "ARN of the Image Builder Component.\n"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:imagebuilder/getImageRecipeComponentParameter:getImageRecipeComponentParameter"
+                    },
+                    "description": "Set of parameters that are used to configure the component.\n"
+                }
             },
-            "description": "Set of parameters that are used to configure the component.\n"
+            "type": "object",
+            "required": [
+                "componentArn",
+                "parameters"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "componentArn",
-        "parameters"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

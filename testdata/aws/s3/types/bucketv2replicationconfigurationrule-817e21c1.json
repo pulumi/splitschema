@@ -1,50 +1,50 @@
 {
-    "properties": {
-        "deleteMarkerReplicationStatus": {
-            "type": "string",
-            "description": "Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).\n"
-        },
-        "destinations": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:s3/BucketV2ReplicationConfigurationRuleDestination:BucketV2ReplicationConfigurationRuleDestination"
+            "properties": {
+                "deleteMarkerReplicationStatus": {
+                    "type": "string",
+                    "description": "Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).\n"
+                },
+                "destinations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:s3/BucketV2ReplicationConfigurationRuleDestination:BucketV2ReplicationConfigurationRuleDestination"
+                    },
+                    "description": "Specifies the destination for the rule (documented below).\n"
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:s3/BucketV2ReplicationConfigurationRuleFilter:BucketV2ReplicationConfigurationRuleFilter"
+                    },
+                    "description": "Filter that identifies subset of objects to which the replication rule applies (documented below).\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for the rule. Must be less than or equal to 255 characters in length.\n"
+                },
+                "prefix": {
+                    "type": "string",
+                    "description": "Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.\n"
+                },
+                "sourceSelectionCriterias": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:s3/BucketV2ReplicationConfigurationRuleSourceSelectionCriteria:BucketV2ReplicationConfigurationRuleSourceSelectionCriteria"
+                    },
+                    "description": "Specifies special object selection criteria (documented below).\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.\n"
+                }
             },
-            "description": "Specifies the destination for the rule (documented below).\n"
-        },
-        "filters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:s3/BucketV2ReplicationConfigurationRuleFilter:BucketV2ReplicationConfigurationRuleFilter"
-            },
-            "description": "Filter that identifies subset of objects to which the replication rule applies (documented below).\n"
-        },
-        "id": {
-            "type": "string",
-            "description": "Unique identifier for the rule. Must be less than or equal to 255 characters in length.\n"
-        },
-        "prefix": {
-            "type": "string",
-            "description": "Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.\n"
-        },
-        "priority": {
-            "type": "integer",
-            "description": "Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.\n"
-        },
-        "sourceSelectionCriterias": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:s3/BucketV2ReplicationConfigurationRuleSourceSelectionCriteria:BucketV2ReplicationConfigurationRuleSourceSelectionCriteria"
-            },
-            "description": "Specifies special object selection criteria (documented below).\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.\n"
+            "type": "object",
+            "required": [
+                "destinations",
+                "status"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "destinations",
-        "status"
-    ]
-}

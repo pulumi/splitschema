@@ -1,130 +1,130 @@
 {
-    "properties": {
-        "dbClusterIdentifier": {
-            "type": "string",
-            "description": "DB cluster identifier.\n\n**NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together\n"
-        },
-        "dbInstanceIdentifier": {
-            "type": "string",
-            "description": "DB instance identifier.\n"
-        },
-        "dbProxyName": {
-            "type": "string",
-            "description": "The name of the DB proxy.\n"
-        },
-        "endpoint": {
-            "type": "string",
-            "description": "Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.\n"
-        },
-        "port": {
-            "type": "integer",
-            "description": "Port for the target RDS DB Instance or Aurora DB Cluster.\n"
-        },
-        "rdsResourceId": {
-            "type": "string",
-            "description": "Identifier representing the DB Instance or DB Cluster target.\n"
-        },
-        "targetArn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.\n"
-        },
-        "targetGroupName": {
-            "type": "string",
-            "description": "The name of the target group.\n"
-        },
-        "trackedClusterId": {
-            "type": "string",
-            "description": "DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`\n"
-        }
-    },
-    "required": [
-        "dbProxyName",
-        "endpoint",
-        "port",
-        "rdsResourceId",
-        "targetArn",
-        "targetGroupName",
-        "trackedClusterId",
-        "type"
-    ],
-    "inputProperties": {
-        "dbClusterIdentifier": {
-            "type": "string",
-            "description": "DB cluster identifier.\n\n**NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together\n",
-            "willReplaceOnChanges": true
-        },
-        "dbInstanceIdentifier": {
-            "type": "string",
-            "description": "DB instance identifier.\n",
-            "willReplaceOnChanges": true
-        },
-        "dbProxyName": {
-            "type": "string",
-            "description": "The name of the DB proxy.\n",
-            "willReplaceOnChanges": true
-        },
-        "targetGroupName": {
-            "type": "string",
-            "description": "The name of the target group.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "dbProxyName",
-        "targetGroupName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ProxyTarget resources.\n",
-        "properties": {
-            "dbClusterIdentifier": {
-                "type": "string",
-                "description": "DB cluster identifier.\n\n**NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together\n",
-                "willReplaceOnChanges": true
+            "properties": {
+                "dbClusterIdentifier": {
+                    "type": "string",
+                    "description": "DB cluster identifier.\n\n**NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together\n"
+                },
+                "dbInstanceIdentifier": {
+                    "type": "string",
+                    "description": "DB instance identifier.\n"
+                },
+                "dbProxyName": {
+                    "type": "string",
+                    "description": "The name of the DB proxy.\n"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Port for the target RDS DB Instance or Aurora DB Cluster.\n"
+                },
+                "rdsResourceId": {
+                    "type": "string",
+                    "description": "Identifier representing the DB Instance or DB Cluster target.\n"
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.\n"
+                },
+                "targetGroupName": {
+                    "type": "string",
+                    "description": "The name of the target group.\n"
+                },
+                "trackedClusterId": {
+                    "type": "string",
+                    "description": "DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`\n"
+                }
             },
-            "dbInstanceIdentifier": {
-                "type": "string",
-                "description": "DB instance identifier.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "dbProxyName",
+                "endpoint",
+                "port",
+                "rdsResourceId",
+                "targetArn",
+                "targetGroupName",
+                "trackedClusterId",
+                "type"
+            ],
+            "inputProperties": {
+                "dbClusterIdentifier": {
+                    "type": "string",
+                    "description": "DB cluster identifier.\n\n**NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together\n",
+                    "willReplaceOnChanges": true
+                },
+                "dbInstanceIdentifier": {
+                    "type": "string",
+                    "description": "DB instance identifier.\n",
+                    "willReplaceOnChanges": true
+                },
+                "dbProxyName": {
+                    "type": "string",
+                    "description": "The name of the DB proxy.\n",
+                    "willReplaceOnChanges": true
+                },
+                "targetGroupName": {
+                    "type": "string",
+                    "description": "The name of the target group.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "dbProxyName": {
-                "type": "string",
-                "description": "The name of the DB proxy.\n",
-                "willReplaceOnChanges": true
-            },
-            "endpoint": {
-                "type": "string",
-                "description": "Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.\n"
-            },
-            "port": {
-                "type": "integer",
-                "description": "Port for the target RDS DB Instance or Aurora DB Cluster.\n"
-            },
-            "rdsResourceId": {
-                "type": "string",
-                "description": "Identifier representing the DB Instance or DB Cluster target.\n"
-            },
-            "targetArn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.\n"
-            },
-            "targetGroupName": {
-                "type": "string",
-                "description": "The name of the target group.\n",
-                "willReplaceOnChanges": true
-            },
-            "trackedClusterId": {
-                "type": "string",
-                "description": "DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.\n"
-            },
-            "type": {
-                "type": "string",
-                "description": "Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`\n"
+            "requiredInputs": [
+                "dbProxyName",
+                "targetGroupName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ProxyTarget resources.\n",
+                "properties": {
+                    "dbClusterIdentifier": {
+                        "type": "string",
+                        "description": "DB cluster identifier.\n\n**NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "dbInstanceIdentifier": {
+                        "type": "string",
+                        "description": "DB instance identifier.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "dbProxyName": {
+                        "type": "string",
+                        "description": "The name of the DB proxy.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "endpoint": {
+                        "type": "string",
+                        "description": "Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.\n"
+                    },
+                    "port": {
+                        "type": "integer",
+                        "description": "Port for the target RDS DB Instance or Aurora DB Cluster.\n"
+                    },
+                    "rdsResourceId": {
+                        "type": "string",
+                        "description": "Identifier representing the DB Instance or DB Cluster target.\n"
+                    },
+                    "targetArn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.\n"
+                    },
+                    "targetGroupName": {
+                        "type": "string",
+                        "description": "The name of the target group.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "trackedClusterId": {
+                        "type": "string",
+                        "description": "DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

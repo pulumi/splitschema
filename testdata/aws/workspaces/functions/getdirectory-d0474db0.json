@@ -1,129 +1,129 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getDirectory.\n",
-        "properties": {
-            "directoryId": {
-                "type": "string",
-                "description": "Directory identifier for registration in WorkSpaces service.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDirectory.\n",
+                "properties": {
+                    "directoryId": {
+                        "type": "string",
+                        "description": "Directory identifier for registration in WorkSpaces service.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the WorkSpaces directory.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "directoryId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDirectory.\n",
+                "properties": {
+                    "alias": {
+                        "description": "Directory alias.\n",
+                        "type": "string"
+                    },
+                    "customerUserName": {
+                        "description": "User name for the service account.\n",
+                        "type": "string"
+                    },
+                    "directoryId": {
+                        "type": "string"
+                    },
+                    "directoryName": {
+                        "description": "Name of the directory.\n",
+                        "type": "string"
+                    },
+                    "directoryType": {
+                        "description": "Directory type.\n",
+                        "type": "string"
+                    },
+                    "dnsIpAddresses": {
+                        "description": "IP addresses of the DNS servers for the directory.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "iamRoleId": {
+                        "description": "Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "ipGroupIds": {
+                        "description": "Identifiers of the IP access control groups associated with the directory.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "registrationCode": {
+                        "description": "Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.\n",
+                        "type": "string"
+                    },
+                    "selfServicePermissions": {
+                        "description": "The permissions to enable or disable self-service capabilities.\n",
+                        "items": {
+                            "$ref": "#/types/aws:workspaces/getDirectorySelfServicePermission:getDirectorySelfServicePermission"
+                        },
+                        "type": "array"
+                    },
+                    "subnetIds": {
+                        "description": "Identifiers of the subnets where the directory resides.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the WorkSpaces directory.\n",
+                        "type": "object"
+                    },
+                    "workspaceAccessProperties": {
+                        "description": "(Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:workspaces/getDirectoryWorkspaceAccessProperty:getDirectoryWorkspaceAccessProperty"
+                        },
+                        "type": "array"
+                    },
+                    "workspaceCreationProperties": {
+                        "description": "The default properties that are used for creating WorkSpaces. Defined below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:workspaces/getDirectoryWorkspaceCreationProperty:getDirectoryWorkspaceCreationProperty"
+                        },
+                        "type": "array"
+                    },
+                    "workspaceSecurityGroupId": {
+                        "description": "The identifier of the security group that is assigned to new WorkSpaces. Defined below.\n",
+                        "type": "string"
+                    }
                 },
-                "description": "A map of tags assigned to the WorkSpaces directory.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "directoryId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getDirectory.\n",
-        "properties": {
-            "alias": {
-                "description": "Directory alias.\n",
-                "type": "string"
-            },
-            "customerUserName": {
-                "description": "User name for the service account.\n",
-                "type": "string"
-            },
-            "directoryId": {
-                "type": "string"
-            },
-            "directoryName": {
-                "description": "Name of the directory.\n",
-                "type": "string"
-            },
-            "directoryType": {
-                "description": "Directory type.\n",
-                "type": "string"
-            },
-            "dnsIpAddresses": {
-                "description": "IP addresses of the DNS servers for the directory.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "iamRoleId": {
-                "description": "Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "ipGroupIds": {
-                "description": "Identifiers of the IP access control groups associated with the directory.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "registrationCode": {
-                "description": "Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.\n",
-                "type": "string"
-            },
-            "selfServicePermissions": {
-                "description": "The permissions to enable or disable self-service capabilities.\n",
-                "items": {
-                    "$ref": "#/types/aws:workspaces/getDirectorySelfServicePermission:getDirectorySelfServicePermission"
-                },
-                "type": "array"
-            },
-            "subnetIds": {
-                "description": "Identifiers of the subnets where the directory resides.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "A map of tags assigned to the WorkSpaces directory.\n",
+                "required": [
+                    "alias",
+                    "customerUserName",
+                    "directoryId",
+                    "directoryName",
+                    "directoryType",
+                    "dnsIpAddresses",
+                    "iamRoleId",
+                    "ipGroupIds",
+                    "registrationCode",
+                    "selfServicePermissions",
+                    "subnetIds",
+                    "workspaceAccessProperties",
+                    "workspaceCreationProperties",
+                    "workspaceSecurityGroupId",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "workspaceAccessProperties": {
-                "description": "(Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.\n",
-                "items": {
-                    "$ref": "#/types/aws:workspaces/getDirectoryWorkspaceAccessProperty:getDirectoryWorkspaceAccessProperty"
-                },
-                "type": "array"
-            },
-            "workspaceCreationProperties": {
-                "description": "The default properties that are used for creating WorkSpaces. Defined below.\n",
-                "items": {
-                    "$ref": "#/types/aws:workspaces/getDirectoryWorkspaceCreationProperty:getDirectoryWorkspaceCreationProperty"
-                },
-                "type": "array"
-            },
-            "workspaceSecurityGroupId": {
-                "description": "The identifier of the security group that is assigned to new WorkSpaces. Defined below.\n",
-                "type": "string"
             }
-        },
-        "required": [
-            "alias",
-            "customerUserName",
-            "directoryId",
-            "directoryName",
-            "directoryType",
-            "dnsIpAddresses",
-            "iamRoleId",
-            "ipGroupIds",
-            "registrationCode",
-            "selfServicePermissions",
-            "subnetIds",
-            "workspaceAccessProperties",
-            "workspaceCreationProperties",
-            "workspaceSecurityGroupId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

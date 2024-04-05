@@ -1,35 +1,35 @@
 {
-    "properties": {
-        "cloudWatchDestination": {
-            "$ref": "#/types/aws:sesv2/ConfigurationSetEventDestinationEventDestinationCloudWatchDestination:ConfigurationSetEventDestinationEventDestinationCloudWatchDestination",
-            "description": "An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below\n"
-        },
-        "enabled": {
-            "type": "boolean",
-            "description": "When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.\n"
-        },
-        "kinesisFirehoseDestination": {
-            "$ref": "#/types/aws:sesv2/ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination:ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination",
-            "description": "An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.\n"
-        },
-        "matchingEventTypes": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "cloudWatchDestination": {
+                    "$ref": "#/types/aws:sesv2/ConfigurationSetEventDestinationEventDestinationCloudWatchDestination:ConfigurationSetEventDestinationEventDestinationCloudWatchDestination",
+                    "description": "An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.\n"
+                },
+                "kinesisFirehoseDestination": {
+                    "$ref": "#/types/aws:sesv2/ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination:ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination",
+                    "description": "An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.\n"
+                },
+                "matchingEventTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.\n\nThe following arguments are optional:\n"
+                },
+                "pinpointDestination": {
+                    "$ref": "#/types/aws:sesv2/ConfigurationSetEventDestinationEventDestinationPinpointDestination:ConfigurationSetEventDestinationEventDestinationPinpointDestination",
+                    "description": "An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.\n"
+                },
+                "snsDestination": {
+                    "$ref": "#/types/aws:sesv2/ConfigurationSetEventDestinationEventDestinationSnsDestination:ConfigurationSetEventDestinationEventDestinationSnsDestination",
+                    "description": "An object that defines an Amazon SNS destination for email events. See sns_destination below.\n"
+                }
             },
-            "description": "An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.\n\nThe following arguments are optional:\n"
-        },
-        "pinpointDestination": {
-            "$ref": "#/types/aws:sesv2/ConfigurationSetEventDestinationEventDestinationPinpointDestination:ConfigurationSetEventDestinationEventDestinationPinpointDestination",
-            "description": "An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.\n"
-        },
-        "snsDestination": {
-            "$ref": "#/types/aws:sesv2/ConfigurationSetEventDestinationEventDestinationSnsDestination:ConfigurationSetEventDestinationEventDestinationSnsDestination",
-            "description": "An object that defines an Amazon SNS destination for email events. See sns_destination below.\n"
+            "type": "object",
+            "required": [
+                "matchingEventTypes"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "matchingEventTypes"
-    ]
-}

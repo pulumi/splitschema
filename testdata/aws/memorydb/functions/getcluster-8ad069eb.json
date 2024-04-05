@@ -1,171 +1,171 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getCluster.\n",
-        "properties": {
-            "name": {
-                "type": "string",
-                "description": "Name of the cluster.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getCluster.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the cluster.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the cluster.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCluster.\n",
+                "properties": {
+                    "aclName": {
+                        "description": "Name of the Access Control List associated with the cluster.\n",
+                        "type": "string"
+                    },
+                    "arn": {
+                        "description": "ARN of the cluster.\n",
+                        "type": "string"
+                    },
+                    "autoMinorVersionUpgrade": {
+                        "description": "True when the cluster allows automatic minor version upgrades.\n",
+                        "type": "boolean"
+                    },
+                    "clusterEndpoints": {
+                        "items": {
+                            "$ref": "#/types/aws:memorydb/getClusterClusterEndpoint:getClusterClusterEndpoint"
+                        },
+                        "type": "array"
+                    },
+                    "dataTiering": {
+                        "description": "True when data tiering is enabled.\n",
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "description": "Description for the cluster.\n",
+                        "type": "string"
+                    },
+                    "enginePatchVersion": {
+                        "description": "Patch version number of the Redis engine used by the cluster.\n",
+                        "type": "string"
+                    },
+                    "engineVersion": {
+                        "description": "Version number of the Redis engine used by the cluster.\n",
+                        "type": "string"
+                    },
+                    "finalSnapshotName": {
+                        "description": "Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "kmsKeyArn": {
+                        "description": "ARN of the KMS key used to encrypt the cluster at rest.\n",
+                        "type": "string"
+                    },
+                    "maintenanceWindow": {
+                        "description": "Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of this node.\n",
+                        "type": "string"
+                    },
+                    "nodeType": {
+                        "description": "Compute and memory capacity of the nodes in the cluster.\n",
+                        "type": "string"
+                    },
+                    "numReplicasPerShard": {
+                        "description": "The number of replicas to apply to each shard.\n",
+                        "type": "integer"
+                    },
+                    "numShards": {
+                        "description": "Number of shards in the cluster.\n",
+                        "type": "integer"
+                    },
+                    "parameterGroupName": {
+                        "description": "The name of the parameter group associated with the cluster.\n",
+                        "type": "string"
+                    },
+                    "port": {
+                        "description": "Port number that this node is listening on.\n",
+                        "type": "integer"
+                    },
+                    "securityGroupIds": {
+                        "description": "Set of VPC Security Group ID-s associated with this cluster.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "shards": {
+                        "description": "Set of shards in this cluster.\n",
+                        "items": {
+                            "$ref": "#/types/aws:memorydb/getClusterShard:getClusterShard"
+                        },
+                        "type": "array"
+                    },
+                    "snapshotRetentionLimit": {
+                        "description": "The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.\n",
+                        "type": "integer"
+                    },
+                    "snapshotWindow": {
+                        "description": "Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.\n",
+                        "type": "string"
+                    },
+                    "snsTopicArn": {
+                        "description": "ARN of the SNS topic to which cluster notifications are sent.\n",
+                        "type": "string"
+                    },
+                    "subnetGroupName": {
+                        "description": "The name of the subnet group used for the cluster.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the cluster.\n",
+                        "type": "object"
+                    },
+                    "tlsEnabled": {
+                        "description": "When true, in-transit encryption is enabled for the cluster.\n",
+                        "type": "boolean"
+                    }
                 },
-                "description": "Map of tags assigned to the cluster.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "name"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getCluster.\n",
-        "properties": {
-            "aclName": {
-                "description": "Name of the Access Control List associated with the cluster.\n",
-                "type": "string"
-            },
-            "arn": {
-                "description": "ARN of the cluster.\n",
-                "type": "string"
-            },
-            "autoMinorVersionUpgrade": {
-                "description": "True when the cluster allows automatic minor version upgrades.\n",
-                "type": "boolean"
-            },
-            "clusterEndpoints": {
-                "items": {
-                    "$ref": "#/types/aws:memorydb/getClusterClusterEndpoint:getClusterClusterEndpoint"
-                },
-                "type": "array"
-            },
-            "dataTiering": {
-                "description": "True when data tiering is enabled.\n",
-                "type": "boolean"
-            },
-            "description": {
-                "description": "Description for the cluster.\n",
-                "type": "string"
-            },
-            "enginePatchVersion": {
-                "description": "Patch version number of the Redis engine used by the cluster.\n",
-                "type": "string"
-            },
-            "engineVersion": {
-                "description": "Version number of the Redis engine used by the cluster.\n",
-                "type": "string"
-            },
-            "finalSnapshotName": {
-                "description": "Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "kmsKeyArn": {
-                "description": "ARN of the KMS key used to encrypt the cluster at rest.\n",
-                "type": "string"
-            },
-            "maintenanceWindow": {
-                "description": "Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.\n",
-                "type": "string"
-            },
-            "name": {
-                "description": "Name of this node.\n",
-                "type": "string"
-            },
-            "nodeType": {
-                "description": "Compute and memory capacity of the nodes in the cluster.\n",
-                "type": "string"
-            },
-            "numReplicasPerShard": {
-                "description": "The number of replicas to apply to each shard.\n",
-                "type": "integer"
-            },
-            "numShards": {
-                "description": "Number of shards in the cluster.\n",
-                "type": "integer"
-            },
-            "parameterGroupName": {
-                "description": "The name of the parameter group associated with the cluster.\n",
-                "type": "string"
-            },
-            "port": {
-                "description": "Port number that this node is listening on.\n",
-                "type": "integer"
-            },
-            "securityGroupIds": {
-                "description": "Set of VPC Security Group ID-s associated with this cluster.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "shards": {
-                "description": "Set of shards in this cluster.\n",
-                "items": {
-                    "$ref": "#/types/aws:memorydb/getClusterShard:getClusterShard"
-                },
-                "type": "array"
-            },
-            "snapshotRetentionLimit": {
-                "description": "The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.\n",
-                "type": "integer"
-            },
-            "snapshotWindow": {
-                "description": "Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.\n",
-                "type": "string"
-            },
-            "snsTopicArn": {
-                "description": "ARN of the SNS topic to which cluster notifications are sent.\n",
-                "type": "string"
-            },
-            "subnetGroupName": {
-                "description": "The name of the subnet group used for the cluster.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags assigned to the cluster.\n",
+                "required": [
+                    "aclName",
+                    "arn",
+                    "autoMinorVersionUpgrade",
+                    "clusterEndpoints",
+                    "dataTiering",
+                    "description",
+                    "enginePatchVersion",
+                    "engineVersion",
+                    "finalSnapshotName",
+                    "kmsKeyArn",
+                    "maintenanceWindow",
+                    "name",
+                    "nodeType",
+                    "numReplicasPerShard",
+                    "numShards",
+                    "parameterGroupName",
+                    "port",
+                    "securityGroupIds",
+                    "shards",
+                    "snapshotRetentionLimit",
+                    "snapshotWindow",
+                    "snsTopicArn",
+                    "subnetGroupName",
+                    "tags",
+                    "tlsEnabled",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "tlsEnabled": {
-                "description": "When true, in-transit encryption is enabled for the cluster.\n",
-                "type": "boolean"
             }
-        },
-        "required": [
-            "aclName",
-            "arn",
-            "autoMinorVersionUpgrade",
-            "clusterEndpoints",
-            "dataTiering",
-            "description",
-            "enginePatchVersion",
-            "engineVersion",
-            "finalSnapshotName",
-            "kmsKeyArn",
-            "maintenanceWindow",
-            "name",
-            "nodeType",
-            "numReplicasPerShard",
-            "numShards",
-            "parameterGroupName",
-            "port",
-            "securityGroupIds",
-            "shards",
-            "snapshotRetentionLimit",
-            "snapshotWindow",
-            "snsTopicArn",
-            "subnetGroupName",
-            "tags",
-            "tlsEnabled",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

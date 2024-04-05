@@ -1,31 +1,31 @@
 {
-    "properties": {
-        "h265PackagingType": {
-            "type": "string"
-        },
-        "hlsSettings": {
-            "$ref": "#/types/aws:medialive/ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings:ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings"
-        },
-        "nameModifier": {
-            "type": "string",
-            "description": "String concatenated to the end of the destination filename. Required for multiple outputs of the same type.\n"
-        },
-        "segmentModifier": {
-            "type": "string"
+            "properties": {
+                "h265PackagingType": {
+                    "type": "string"
+                },
+                "hlsSettings": {
+                    "$ref": "#/types/aws:medialive/ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings:ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings"
+                },
+                "nameModifier": {
+                    "type": "string",
+                    "description": "String concatenated to the end of the destination filename. Required for multiple outputs of the same type.\n"
+                },
+                "segmentModifier": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "hlsSettings"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "h265PackagingType",
+                        "hlsSettings",
+                        "nameModifier",
+                        "segmentModifier"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "hlsSettings"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "h265PackagingType",
-                "hlsSettings",
-                "nameModifier",
-                "segmentModifier"
-            ]
-        }
-    }
-}

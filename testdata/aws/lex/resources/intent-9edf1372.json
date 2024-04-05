@@ -1,228 +1,228 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the Lex intent.\n"
-        },
-        "checksum": {
-            "type": "string",
-            "description": "Checksum identifying the version of the intent that was created. The checksum is not\nincluded as an argument because the resource will add it automatically when updating the intent.\n"
-        },
-        "conclusionStatement": {
-            "$ref": "#/types/aws:lex/IntentConclusionStatement:IntentConclusionStatement",
-            "description": "The statement that you want Amazon Lex to convey to the user\nafter the intent is successfully fulfilled by the Lambda function. This element is relevant only if\nyou provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client\napplication, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are\nmutually exclusive. You can specify only one. Attributes are documented under statement.\n"
-        },
-        "confirmationPrompt": {
-            "$ref": "#/types/aws:lex/IntentConfirmationPrompt:IntentConfirmationPrompt",
-            "description": "Prompts the user to confirm the intent. This question should\nhave a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,\nor neither. Attributes are documented under prompt.\n"
-        },
-        "createVersion": {
-            "type": "boolean",
-            "description": "Determines if a new slot type version is created when the initial\nresource is created and on each update. Defaults to `false`.\n"
-        },
-        "createdDate": {
-            "type": "string",
-            "description": "The date when the intent version was created.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A description of the intent. Must be less than or equal to 200 characters in length.\n"
-        },
-        "dialogCodeHook": {
-            "$ref": "#/types/aws:lex/IntentDialogCodeHook:IntentDialogCodeHook",
-            "description": "Specifies a Lambda function to invoke for each user input. You can\ninvoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.\n"
-        },
-        "followUpPrompt": {
-            "$ref": "#/types/aws:lex/IntentFollowUpPrompt:IntentFollowUpPrompt",
-            "description": "Amazon Lex uses this prompt to solicit additional activity after\nfulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the\nuser to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually\nexclusive. You can specify only one. Attributes are documented under follow_up_prompt.\n"
-        },
-        "fulfillmentActivity": {
-            "$ref": "#/types/aws:lex/IntentFulfillmentActivity:IntentFulfillmentActivity",
-            "description": "Describes how the intent is fulfilled. For example, after a\nuser provides all of the information for a pizza order, `fulfillment_activity` defines how the bot\nplaces an order with a local pizza store. Attributes are documented under fulfillment_activity.\n"
-        },
-        "lastUpdatedDate": {
-            "type": "string",
-            "description": "The date when the $LATEST version of this intent was updated.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.\n"
-        },
-        "parentIntentSignature": {
-            "type": "string",
-            "description": "A unique identifier for the built-in intent to base this\nintent on. To find the signature for an intent, see\n[Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)\nin the Alexa Skills Kit.\n"
-        },
-        "rejectionStatement": {
-            "$ref": "#/types/aws:lex/IntentRejectionStatement:IntentRejectionStatement",
-            "description": "When the user answers \"no\" to the question defined in\n`confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was\ncanceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.\nAttributes are documented under statement.\n"
-        },
-        "sampleUtterances": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "An array of utterances (strings) that a user might say to signal\nthe intent. For example, \"I want {PizzaSize} pizza\", \"Order {Quantity} {PizzaSize} pizzas\".\nIn each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.\n"
-        },
-        "slots": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:lex/IntentSlot:IntentSlot"
-            },
-            "description": "An list of intent slots. At runtime, Amazon Lex elicits required slot values\nfrom the user using prompts defined in the slots. Attributes are documented under slot.\n"
-        },
-        "version": {
-            "type": "string",
-            "description": "The version of the bot.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "checksum",
-        "createdDate",
-        "fulfillmentActivity",
-        "lastUpdatedDate",
-        "name",
-        "version"
-    ],
-    "inputProperties": {
-        "conclusionStatement": {
-            "$ref": "#/types/aws:lex/IntentConclusionStatement:IntentConclusionStatement",
-            "description": "The statement that you want Amazon Lex to convey to the user\nafter the intent is successfully fulfilled by the Lambda function. This element is relevant only if\nyou provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client\napplication, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are\nmutually exclusive. You can specify only one. Attributes are documented under statement.\n"
-        },
-        "confirmationPrompt": {
-            "$ref": "#/types/aws:lex/IntentConfirmationPrompt:IntentConfirmationPrompt",
-            "description": "Prompts the user to confirm the intent. This question should\nhave a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,\nor neither. Attributes are documented under prompt.\n"
-        },
-        "createVersion": {
-            "type": "boolean",
-            "description": "Determines if a new slot type version is created when the initial\nresource is created and on each update. Defaults to `false`.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A description of the intent. Must be less than or equal to 200 characters in length.\n"
-        },
-        "dialogCodeHook": {
-            "$ref": "#/types/aws:lex/IntentDialogCodeHook:IntentDialogCodeHook",
-            "description": "Specifies a Lambda function to invoke for each user input. You can\ninvoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.\n"
-        },
-        "followUpPrompt": {
-            "$ref": "#/types/aws:lex/IntentFollowUpPrompt:IntentFollowUpPrompt",
-            "description": "Amazon Lex uses this prompt to solicit additional activity after\nfulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the\nuser to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually\nexclusive. You can specify only one. Attributes are documented under follow_up_prompt.\n"
-        },
-        "fulfillmentActivity": {
-            "$ref": "#/types/aws:lex/IntentFulfillmentActivity:IntentFulfillmentActivity",
-            "description": "Describes how the intent is fulfilled. For example, after a\nuser provides all of the information for a pizza order, `fulfillment_activity` defines how the bot\nplaces an order with a local pizza store. Attributes are documented under fulfillment_activity.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.\n",
-            "willReplaceOnChanges": true
-        },
-        "parentIntentSignature": {
-            "type": "string",
-            "description": "A unique identifier for the built-in intent to base this\nintent on. To find the signature for an intent, see\n[Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)\nin the Alexa Skills Kit.\n"
-        },
-        "rejectionStatement": {
-            "$ref": "#/types/aws:lex/IntentRejectionStatement:IntentRejectionStatement",
-            "description": "When the user answers \"no\" to the question defined in\n`confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was\ncanceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.\nAttributes are documented under statement.\n"
-        },
-        "sampleUtterances": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "An array of utterances (strings) that a user might say to signal\nthe intent. For example, \"I want {PizzaSize} pizza\", \"Order {Quantity} {PizzaSize} pizzas\".\nIn each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.\n"
-        },
-        "slots": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:lex/IntentSlot:IntentSlot"
-            },
-            "description": "An list of intent slots. At runtime, Amazon Lex elicits required slot values\nfrom the user using prompts defined in the slots. Attributes are documented under slot.\n"
-        }
-    },
-    "requiredInputs": [
-        "fulfillmentActivity"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Intent resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the Lex intent.\n"
-            },
-            "checksum": {
-                "type": "string",
-                "description": "Checksum identifying the version of the intent that was created. The checksum is not\nincluded as an argument because the resource will add it automatically when updating the intent.\n"
-            },
-            "conclusionStatement": {
-                "$ref": "#/types/aws:lex/IntentConclusionStatement:IntentConclusionStatement",
-                "description": "The statement that you want Amazon Lex to convey to the user\nafter the intent is successfully fulfilled by the Lambda function. This element is relevant only if\nyou provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client\napplication, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are\nmutually exclusive. You can specify only one. Attributes are documented under statement.\n"
-            },
-            "confirmationPrompt": {
-                "$ref": "#/types/aws:lex/IntentConfirmationPrompt:IntentConfirmationPrompt",
-                "description": "Prompts the user to confirm the intent. This question should\nhave a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,\nor neither. Attributes are documented under prompt.\n"
-            },
-            "createVersion": {
-                "type": "boolean",
-                "description": "Determines if a new slot type version is created when the initial\nresource is created and on each update. Defaults to `false`.\n"
-            },
-            "createdDate": {
-                "type": "string",
-                "description": "The date when the intent version was created.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "A description of the intent. Must be less than or equal to 200 characters in length.\n"
-            },
-            "dialogCodeHook": {
-                "$ref": "#/types/aws:lex/IntentDialogCodeHook:IntentDialogCodeHook",
-                "description": "Specifies a Lambda function to invoke for each user input. You can\ninvoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.\n"
-            },
-            "followUpPrompt": {
-                "$ref": "#/types/aws:lex/IntentFollowUpPrompt:IntentFollowUpPrompt",
-                "description": "Amazon Lex uses this prompt to solicit additional activity after\nfulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the\nuser to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually\nexclusive. You can specify only one. Attributes are documented under follow_up_prompt.\n"
-            },
-            "fulfillmentActivity": {
-                "$ref": "#/types/aws:lex/IntentFulfillmentActivity:IntentFulfillmentActivity",
-                "description": "Describes how the intent is fulfilled. For example, after a\nuser provides all of the information for a pizza order, `fulfillment_activity` defines how the bot\nplaces an order with a local pizza store. Attributes are documented under fulfillment_activity.\n"
-            },
-            "lastUpdatedDate": {
-                "type": "string",
-                "description": "The date when the $LATEST version of this intent was updated.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.\n",
-                "willReplaceOnChanges": true
-            },
-            "parentIntentSignature": {
-                "type": "string",
-                "description": "A unique identifier for the built-in intent to base this\nintent on. To find the signature for an intent, see\n[Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)\nin the Alexa Skills Kit.\n"
-            },
-            "rejectionStatement": {
-                "$ref": "#/types/aws:lex/IntentRejectionStatement:IntentRejectionStatement",
-                "description": "When the user answers \"no\" to the question defined in\n`confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was\ncanceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.\nAttributes are documented under statement.\n"
-            },
-            "sampleUtterances": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the Lex intent.\n"
                 },
-                "description": "An array of utterances (strings) that a user might say to signal\nthe intent. For example, \"I want {PizzaSize} pizza\", \"Order {Quantity} {PizzaSize} pizzas\".\nIn each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.\n"
-            },
-            "slots": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:lex/IntentSlot:IntentSlot"
+                "checksum": {
+                    "type": "string",
+                    "description": "Checksum identifying the version of the intent that was created. The checksum is not\nincluded as an argument because the resource will add it automatically when updating the intent.\n"
                 },
-                "description": "An list of intent slots. At runtime, Amazon Lex elicits required slot values\nfrom the user using prompts defined in the slots. Attributes are documented under slot.\n"
+                "conclusionStatement": {
+                    "$ref": "#/types/aws:lex/IntentConclusionStatement:IntentConclusionStatement",
+                    "description": "The statement that you want Amazon Lex to convey to the user\nafter the intent is successfully fulfilled by the Lambda function. This element is relevant only if\nyou provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client\napplication, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are\nmutually exclusive. You can specify only one. Attributes are documented under statement.\n"
+                },
+                "confirmationPrompt": {
+                    "$ref": "#/types/aws:lex/IntentConfirmationPrompt:IntentConfirmationPrompt",
+                    "description": "Prompts the user to confirm the intent. This question should\nhave a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,\nor neither. Attributes are documented under prompt.\n"
+                },
+                "createVersion": {
+                    "type": "boolean",
+                    "description": "Determines if a new slot type version is created when the initial\nresource is created and on each update. Defaults to `false`.\n"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "description": "The date when the intent version was created.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the intent. Must be less than or equal to 200 characters in length.\n"
+                },
+                "dialogCodeHook": {
+                    "$ref": "#/types/aws:lex/IntentDialogCodeHook:IntentDialogCodeHook",
+                    "description": "Specifies a Lambda function to invoke for each user input. You can\ninvoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.\n"
+                },
+                "followUpPrompt": {
+                    "$ref": "#/types/aws:lex/IntentFollowUpPrompt:IntentFollowUpPrompt",
+                    "description": "Amazon Lex uses this prompt to solicit additional activity after\nfulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the\nuser to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually\nexclusive. You can specify only one. Attributes are documented under follow_up_prompt.\n"
+                },
+                "fulfillmentActivity": {
+                    "$ref": "#/types/aws:lex/IntentFulfillmentActivity:IntentFulfillmentActivity",
+                    "description": "Describes how the intent is fulfilled. For example, after a\nuser provides all of the information for a pizza order, `fulfillment_activity` defines how the bot\nplaces an order with a local pizza store. Attributes are documented under fulfillment_activity.\n"
+                },
+                "lastUpdatedDate": {
+                    "type": "string",
+                    "description": "The date when the $LATEST version of this intent was updated.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.\n"
+                },
+                "parentIntentSignature": {
+                    "type": "string",
+                    "description": "A unique identifier for the built-in intent to base this\nintent on. To find the signature for an intent, see\n[Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)\nin the Alexa Skills Kit.\n"
+                },
+                "rejectionStatement": {
+                    "$ref": "#/types/aws:lex/IntentRejectionStatement:IntentRejectionStatement",
+                    "description": "When the user answers \"no\" to the question defined in\n`confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was\ncanceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.\nAttributes are documented under statement.\n"
+                },
+                "sampleUtterances": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of utterances (strings) that a user might say to signal\nthe intent. For example, \"I want {PizzaSize} pizza\", \"Order {Quantity} {PizzaSize} pizzas\".\nIn each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.\n"
+                },
+                "slots": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:lex/IntentSlot:IntentSlot"
+                    },
+                    "description": "An list of intent slots. At runtime, Amazon Lex elicits required slot values\nfrom the user using prompts defined in the slots. Attributes are documented under slot.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The version of the bot.\n"
+                }
             },
-            "version": {
-                "type": "string",
-                "description": "The version of the bot.\n"
+            "required": [
+                "arn",
+                "checksum",
+                "createdDate",
+                "fulfillmentActivity",
+                "lastUpdatedDate",
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "conclusionStatement": {
+                    "$ref": "#/types/aws:lex/IntentConclusionStatement:IntentConclusionStatement",
+                    "description": "The statement that you want Amazon Lex to convey to the user\nafter the intent is successfully fulfilled by the Lambda function. This element is relevant only if\nyou provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client\napplication, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are\nmutually exclusive. You can specify only one. Attributes are documented under statement.\n"
+                },
+                "confirmationPrompt": {
+                    "$ref": "#/types/aws:lex/IntentConfirmationPrompt:IntentConfirmationPrompt",
+                    "description": "Prompts the user to confirm the intent. This question should\nhave a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,\nor neither. Attributes are documented under prompt.\n"
+                },
+                "createVersion": {
+                    "type": "boolean",
+                    "description": "Determines if a new slot type version is created when the initial\nresource is created and on each update. Defaults to `false`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the intent. Must be less than or equal to 200 characters in length.\n"
+                },
+                "dialogCodeHook": {
+                    "$ref": "#/types/aws:lex/IntentDialogCodeHook:IntentDialogCodeHook",
+                    "description": "Specifies a Lambda function to invoke for each user input. You can\ninvoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.\n"
+                },
+                "followUpPrompt": {
+                    "$ref": "#/types/aws:lex/IntentFollowUpPrompt:IntentFollowUpPrompt",
+                    "description": "Amazon Lex uses this prompt to solicit additional activity after\nfulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the\nuser to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually\nexclusive. You can specify only one. Attributes are documented under follow_up_prompt.\n"
+                },
+                "fulfillmentActivity": {
+                    "$ref": "#/types/aws:lex/IntentFulfillmentActivity:IntentFulfillmentActivity",
+                    "description": "Describes how the intent is fulfilled. For example, after a\nuser provides all of the information for a pizza order, `fulfillment_activity` defines how the bot\nplaces an order with a local pizza store. Attributes are documented under fulfillment_activity.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.\n",
+                    "willReplaceOnChanges": true
+                },
+                "parentIntentSignature": {
+                    "type": "string",
+                    "description": "A unique identifier for the built-in intent to base this\nintent on. To find the signature for an intent, see\n[Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)\nin the Alexa Skills Kit.\n"
+                },
+                "rejectionStatement": {
+                    "$ref": "#/types/aws:lex/IntentRejectionStatement:IntentRejectionStatement",
+                    "description": "When the user answers \"no\" to the question defined in\n`confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was\ncanceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.\nAttributes are documented under statement.\n"
+                },
+                "sampleUtterances": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of utterances (strings) that a user might say to signal\nthe intent. For example, \"I want {PizzaSize} pizza\", \"Order {Quantity} {PizzaSize} pizzas\".\nIn each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.\n"
+                },
+                "slots": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:lex/IntentSlot:IntentSlot"
+                    },
+                    "description": "An list of intent slots. At runtime, Amazon Lex elicits required slot values\nfrom the user using prompts defined in the slots. Attributes are documented under slot.\n"
+                }
+            },
+            "requiredInputs": [
+                "fulfillmentActivity"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Intent resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the Lex intent.\n"
+                    },
+                    "checksum": {
+                        "type": "string",
+                        "description": "Checksum identifying the version of the intent that was created. The checksum is not\nincluded as an argument because the resource will add it automatically when updating the intent.\n"
+                    },
+                    "conclusionStatement": {
+                        "$ref": "#/types/aws:lex/IntentConclusionStatement:IntentConclusionStatement",
+                        "description": "The statement that you want Amazon Lex to convey to the user\nafter the intent is successfully fulfilled by the Lambda function. This element is relevant only if\nyou provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client\napplication, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are\nmutually exclusive. You can specify only one. Attributes are documented under statement.\n"
+                    },
+                    "confirmationPrompt": {
+                        "$ref": "#/types/aws:lex/IntentConfirmationPrompt:IntentConfirmationPrompt",
+                        "description": "Prompts the user to confirm the intent. This question should\nhave a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,\nor neither. Attributes are documented under prompt.\n"
+                    },
+                    "createVersion": {
+                        "type": "boolean",
+                        "description": "Determines if a new slot type version is created when the initial\nresource is created and on each update. Defaults to `false`.\n"
+                    },
+                    "createdDate": {
+                        "type": "string",
+                        "description": "The date when the intent version was created.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the intent. Must be less than or equal to 200 characters in length.\n"
+                    },
+                    "dialogCodeHook": {
+                        "$ref": "#/types/aws:lex/IntentDialogCodeHook:IntentDialogCodeHook",
+                        "description": "Specifies a Lambda function to invoke for each user input. You can\ninvoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.\n"
+                    },
+                    "followUpPrompt": {
+                        "$ref": "#/types/aws:lex/IntentFollowUpPrompt:IntentFollowUpPrompt",
+                        "description": "Amazon Lex uses this prompt to solicit additional activity after\nfulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the\nuser to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually\nexclusive. You can specify only one. Attributes are documented under follow_up_prompt.\n"
+                    },
+                    "fulfillmentActivity": {
+                        "$ref": "#/types/aws:lex/IntentFulfillmentActivity:IntentFulfillmentActivity",
+                        "description": "Describes how the intent is fulfilled. For example, after a\nuser provides all of the information for a pizza order, `fulfillment_activity` defines how the bot\nplaces an order with a local pizza store. Attributes are documented under fulfillment_activity.\n"
+                    },
+                    "lastUpdatedDate": {
+                        "type": "string",
+                        "description": "The date when the $LATEST version of this intent was updated.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "parentIntentSignature": {
+                        "type": "string",
+                        "description": "A unique identifier for the built-in intent to base this\nintent on. To find the signature for an intent, see\n[Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)\nin the Alexa Skills Kit.\n"
+                    },
+                    "rejectionStatement": {
+                        "$ref": "#/types/aws:lex/IntentRejectionStatement:IntentRejectionStatement",
+                        "description": "When the user answers \"no\" to the question defined in\n`confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was\ncanceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.\nAttributes are documented under statement.\n"
+                    },
+                    "sampleUtterances": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An array of utterances (strings) that a user might say to signal\nthe intent. For example, \"I want {PizzaSize} pizza\", \"Order {Quantity} {PizzaSize} pizzas\".\nIn each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.\n"
+                    },
+                    "slots": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:lex/IntentSlot:IntentSlot"
+                        },
+                        "description": "An list of intent slots. At runtime, Amazon Lex elicits required slot values\nfrom the user using prompts defined in the slots. Attributes are documented under slot.\n"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The version of the bot.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

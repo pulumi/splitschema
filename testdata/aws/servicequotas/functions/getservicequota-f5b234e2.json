@@ -1,86 +1,86 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getServiceQuota.\n",
-        "properties": {
-            "quotaCode": {
-                "type": "string",
-                "description": "Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_code` or `quota_name` must be specified.\n"
-            },
-            "quotaName": {
-                "type": "string",
-                "description": "Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.\n"
-            },
-            "serviceCode": {
-                "type": "string",
-                "description": "Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "serviceCode"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getServiceQuota.\n",
-        "properties": {
-            "adjustable": {
-                "description": "Whether the service quota is adjustable.\n",
-                "type": "boolean"
-            },
-            "arn": {
-                "description": "ARN of the service quota.\n",
-                "type": "string"
-            },
-            "defaultValue": {
-                "description": "Default value of the service quota.\n",
-                "type": "number"
-            },
-            "globalQuota": {
-                "description": "Whether the service quota is global for the AWS account.\n",
-                "type": "boolean"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "quotaCode": {
-                "type": "string"
-            },
-            "quotaName": {
-                "type": "string"
-            },
-            "serviceCode": {
-                "type": "string"
-            },
-            "serviceName": {
-                "description": "Name of the service.\n",
-                "type": "string"
-            },
-            "usageMetrics": {
-                "description": "Information about the measurement.\n",
-                "items": {
-                    "$ref": "#/types/aws:servicequotas/getServiceQuotaUsageMetric:getServiceQuotaUsageMetric"
+            "inputs": {
+                "description": "A collection of arguments for invoking getServiceQuota.\n",
+                "properties": {
+                    "quotaCode": {
+                        "type": "string",
+                        "description": "Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_code` or `quota_name` must be specified.\n"
+                    },
+                    "quotaName": {
+                        "type": "string",
+                        "description": "Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.\n"
+                    },
+                    "serviceCode": {
+                        "type": "string",
+                        "description": "Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).\n"
+                    }
                 },
-                "type": "array"
+                "type": "object",
+                "required": [
+                    "serviceCode"
+                ]
             },
-            "value": {
-                "description": "Current value of the service quota.\n",
-                "type": "number"
+            "outputs": {
+                "description": "A collection of values returned by getServiceQuota.\n",
+                "properties": {
+                    "adjustable": {
+                        "description": "Whether the service quota is adjustable.\n",
+                        "type": "boolean"
+                    },
+                    "arn": {
+                        "description": "ARN of the service quota.\n",
+                        "type": "string"
+                    },
+                    "defaultValue": {
+                        "description": "Default value of the service quota.\n",
+                        "type": "number"
+                    },
+                    "globalQuota": {
+                        "description": "Whether the service quota is global for the AWS account.\n",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "quotaCode": {
+                        "type": "string"
+                    },
+                    "quotaName": {
+                        "type": "string"
+                    },
+                    "serviceCode": {
+                        "type": "string"
+                    },
+                    "serviceName": {
+                        "description": "Name of the service.\n",
+                        "type": "string"
+                    },
+                    "usageMetrics": {
+                        "description": "Information about the measurement.\n",
+                        "items": {
+                            "$ref": "#/types/aws:servicequotas/getServiceQuotaUsageMetric:getServiceQuotaUsageMetric"
+                        },
+                        "type": "array"
+                    },
+                    "value": {
+                        "description": "Current value of the service quota.\n",
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "adjustable",
+                    "arn",
+                    "defaultValue",
+                    "globalQuota",
+                    "quotaCode",
+                    "quotaName",
+                    "serviceCode",
+                    "serviceName",
+                    "usageMetrics",
+                    "value",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "adjustable",
-            "arn",
-            "defaultValue",
-            "globalQuota",
-            "quotaCode",
-            "quotaName",
-            "serviceCode",
-            "serviceName",
-            "usageMetrics",
-            "value",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,46 +1,46 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getOrganizationalUnit.\n",
-        "properties": {
-            "name": {
-                "type": "string",
-                "description": "Name of the organizational unit\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getOrganizationalUnit.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the organizational unit\n"
+                    },
+                    "parentId": {
+                        "type": "string",
+                        "description": "Parent ID of the organizational unit.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "parentId"
+                ]
             },
-            "parentId": {
-                "type": "string",
-                "description": "Parent ID of the organizational unit.\n"
+            "outputs": {
+                "description": "A collection of values returned by getOrganizationalUnit.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the organizational unit\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "parentId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "name",
+                    "parentId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "name",
-            "parentId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getOrganizationalUnit.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the organizational unit\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "parentId": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "arn",
-            "name",
-            "parentId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

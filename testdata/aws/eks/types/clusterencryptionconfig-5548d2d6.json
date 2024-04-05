@@ -1,20 +1,20 @@
 {
-    "properties": {
-        "provider": {
-            "$ref": "#/types/aws:eks/ClusterEncryptionConfigProvider:ClusterEncryptionConfigProvider",
-            "description": "Configuration block with provider for encryption. Detailed below.\n"
-        },
-        "resources": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "provider": {
+                    "$ref": "#/types/aws:eks/ClusterEncryptionConfigProvider:ClusterEncryptionConfigProvider",
+                    "description": "Configuration block with provider for encryption. Detailed below.\n"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of strings with resources to be encrypted. Valid values: `secrets`.\n"
+                }
             },
-            "description": "List of strings with resources to be encrypted. Valid values: `secrets`.\n"
+            "type": "object",
+            "required": [
+                "provider",
+                "resources"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "provider",
-        "resources"
-    ]
-}

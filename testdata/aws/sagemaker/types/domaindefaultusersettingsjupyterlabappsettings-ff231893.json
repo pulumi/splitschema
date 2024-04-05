@@ -1,30 +1,30 @@
 {
-    "properties": {
-        "codeRepositories": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:sagemaker/DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository:DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository"
+            "properties": {
+                "codeRepositories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:sagemaker/DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository:DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository"
+                    },
+                    "description": "A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.\n"
+                },
+                "customImages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:sagemaker/DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage:DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage"
+                    },
+                    "description": "A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.\n"
+                },
+                "defaultResourceSpec": {
+                    "$ref": "#/types/aws:sagemaker/DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec:DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec",
+                    "description": "The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.\n"
+                },
+                "lifecycleConfigArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The Amazon Resource Name (ARN) of the Lifecycle Configurations.\n"
+                }
             },
-            "description": "A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.\n"
-        },
-        "customImages": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:sagemaker/DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage:DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage"
-            },
-            "description": "A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.\n"
-        },
-        "defaultResourceSpec": {
-            "$ref": "#/types/aws:sagemaker/DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec:DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec",
-            "description": "The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.\n"
-        },
-        "lifecycleConfigArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The Amazon Resource Name (ARN) of the Lifecycle Configurations.\n"
+            "type": "object"
         }
-    },
-    "type": "object"
-}

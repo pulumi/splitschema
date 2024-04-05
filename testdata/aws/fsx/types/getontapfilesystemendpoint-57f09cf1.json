@@ -1,28 +1,28 @@
 {
-    "properties": {
-        "interclusters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:fsx/getOntapFileSystemEndpointIntercluster:getOntapFileSystemEndpointIntercluster"
+            "properties": {
+                "interclusters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:fsx/getOntapFileSystemEndpointIntercluster:getOntapFileSystemEndpointIntercluster"
+                    },
+                    "description": "A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.\n"
+                },
+                "managements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:fsx/getOntapFileSystemEndpointManagement:getOntapFileSystemEndpointManagement"
+                    },
+                    "description": "A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.\n"
+                }
             },
-            "description": "A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.\n"
-        },
-        "managements": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:fsx/getOntapFileSystemEndpointManagement:getOntapFileSystemEndpointManagement"
-            },
-            "description": "A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.\n"
+            "type": "object",
+            "required": [
+                "interclusters",
+                "managements"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "interclusters",
-        "managements"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

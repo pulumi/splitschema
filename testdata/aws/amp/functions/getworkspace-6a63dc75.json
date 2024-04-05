@@ -1,72 +1,72 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getWorkspace.\n",
-        "properties": {
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getWorkspace.\n",
+                "properties": {
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Tags assigned to the resource.\n"
+                    },
+                    "workspaceId": {
+                        "type": "string",
+                        "description": "Prometheus workspace ID.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "workspaceId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getWorkspace.\n",
+                "properties": {
+                    "alias": {
+                        "description": "Prometheus workspace alias.\n",
+                        "type": "string"
+                    },
+                    "arn": {
+                        "description": "ARN of the Prometheus workspace.\n",
+                        "type": "string"
+                    },
+                    "createdDate": {
+                        "description": "Creation date of the Prometheus workspace.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "prometheusEndpoint": {
+                        "description": "Endpoint of the Prometheus workspace.\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Status of the Prometheus workspace.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Tags assigned to the resource.\n",
+                        "type": "object"
+                    },
+                    "workspaceId": {
+                        "type": "string"
+                    }
                 },
-                "description": "Tags assigned to the resource.\n"
-            },
-            "workspaceId": {
-                "type": "string",
-                "description": "Prometheus workspace ID.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "workspaceId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getWorkspace.\n",
-        "properties": {
-            "alias": {
-                "description": "Prometheus workspace alias.\n",
-                "type": "string"
-            },
-            "arn": {
-                "description": "ARN of the Prometheus workspace.\n",
-                "type": "string"
-            },
-            "createdDate": {
-                "description": "Creation date of the Prometheus workspace.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "prometheusEndpoint": {
-                "description": "Endpoint of the Prometheus workspace.\n",
-                "type": "string"
-            },
-            "status": {
-                "description": "Status of the Prometheus workspace.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Tags assigned to the resource.\n",
+                "required": [
+                    "alias",
+                    "arn",
+                    "createdDate",
+                    "prometheusEndpoint",
+                    "status",
+                    "tags",
+                    "workspaceId",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "workspaceId": {
-                "type": "string"
             }
-        },
-        "required": [
-            "alias",
-            "arn",
-            "createdDate",
-            "prometheusEndpoint",
-            "status",
-            "tags",
-            "workspaceId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

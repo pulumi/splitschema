@@ -1,186 +1,186 @@
 {
-    "properties": {
-        "activeDate": {
-            "type": "string",
-            "description": "An date when the certificate becomes active\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the certificate\n"
-        },
-        "certificate": {
-            "type": "string",
-            "description": "The valid certificate file required for the transfer.\n",
-            "language": {
-                "csharp": {
-                    "name": "CertificateFile"
+            "properties": {
+                "activeDate": {
+                    "type": "string",
+                    "description": "An date when the certificate becomes active\n"
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the certificate\n"
+                },
+                "certificate": {
+                    "type": "string",
+                    "description": "The valid certificate file required for the transfer.\n",
+                    "language": {
+                        "csharp": {
+                            "name": "CertificateFile"
+                        }
+                    },
+                    "secret": true
+                },
+                "certificateChain": {
+                    "type": "string",
+                    "description": "The optional list of certificate that make up the chain for the certificate that is being imported.\n",
+                    "secret": true
+                },
+                "certificateId": {
+                    "type": "string",
+                    "description": "The unique identifier for the AS2 certificate\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A short description that helps identify the certificate.\n"
+                },
+                "inactiveDate": {
+                    "type": "string",
+                    "description": "An date when the certificate becomes inactive\n"
+                },
+                "privateKey": {
+                    "type": "string",
+                    "description": "The private key associated with the certificate being imported.\n",
+                    "secret": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "usage": {
+                    "type": "string",
+                    "description": "Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.\n"
                 }
             },
-            "secret": true
-        },
-        "certificateChain": {
-            "type": "string",
-            "description": "The optional list of certificate that make up the chain for the certificate that is being imported.\n",
-            "secret": true
-        },
-        "certificateId": {
-            "type": "string",
-            "description": "The unique identifier for the AS2 certificate\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A short description that helps identify the certificate.\n"
-        },
-        "inactiveDate": {
-            "type": "string",
-            "description": "An date when the certificate becomes inactive\n"
-        },
-        "privateKey": {
-            "type": "string",
-            "description": "The private key associated with the certificate being imported.\n",
-            "secret": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "usage": {
-            "type": "string",
-            "description": "Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.\n"
-        }
-    },
-    "required": [
-        "activeDate",
-        "arn",
-        "certificate",
-        "certificateId",
-        "inactiveDate",
-        "tagsAll",
-        "usage"
-    ],
-    "inputProperties": {
-        "certificate": {
-            "type": "string",
-            "description": "The valid certificate file required for the transfer.\n",
-            "language": {
-                "csharp": {
-                    "name": "CertificateFile"
+            "required": [
+                "activeDate",
+                "arn",
+                "certificate",
+                "certificateId",
+                "inactiveDate",
+                "tagsAll",
+                "usage"
+            ],
+            "inputProperties": {
+                "certificate": {
+                    "type": "string",
+                    "description": "The valid certificate file required for the transfer.\n",
+                    "language": {
+                        "csharp": {
+                            "name": "CertificateFile"
+                        }
+                    },
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                },
+                "certificateChain": {
+                    "type": "string",
+                    "description": "The optional list of certificate that make up the chain for the certificate that is being imported.\n",
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A short description that helps identify the certificate.\n"
+                },
+                "privateKey": {
+                    "type": "string",
+                    "description": "The private key associated with the certificate being imported.\n",
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "usage": {
+                    "type": "string",
+                    "description": "Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.\n",
+                    "willReplaceOnChanges": true
                 }
             },
-            "secret": true,
-            "willReplaceOnChanges": true
-        },
-        "certificateChain": {
-            "type": "string",
-            "description": "The optional list of certificate that make up the chain for the certificate that is being imported.\n",
-            "secret": true,
-            "willReplaceOnChanges": true
-        },
-        "description": {
-            "type": "string",
-            "description": "A short description that helps identify the certificate.\n"
-        },
-        "privateKey": {
-            "type": "string",
-            "description": "The private key associated with the certificate being imported.\n",
-            "secret": true,
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "usage": {
-            "type": "string",
-            "description": "Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "certificate",
-        "usage"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Certificate resources.\n",
-        "properties": {
-            "activeDate": {
-                "type": "string",
-                "description": "An date when the certificate becomes active\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the certificate\n"
-            },
-            "certificate": {
-                "type": "string",
-                "description": "The valid certificate file required for the transfer.\n",
-                "language": {
-                    "csharp": {
-                        "name": "CertificateFile"
+            "requiredInputs": [
+                "certificate",
+                "usage"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Certificate resources.\n",
+                "properties": {
+                    "activeDate": {
+                        "type": "string",
+                        "description": "An date when the certificate becomes active\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the certificate\n"
+                    },
+                    "certificate": {
+                        "type": "string",
+                        "description": "The valid certificate file required for the transfer.\n",
+                        "language": {
+                            "csharp": {
+                                "name": "CertificateFile"
+                            }
+                        },
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "certificateChain": {
+                        "type": "string",
+                        "description": "The optional list of certificate that make up the chain for the certificate that is being imported.\n",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "certificateId": {
+                        "type": "string",
+                        "description": "The unique identifier for the AS2 certificate\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A short description that helps identify the certificate.\n"
+                    },
+                    "inactiveDate": {
+                        "type": "string",
+                        "description": "An date when the certificate becomes inactive\n"
+                    },
+                    "privateKey": {
+                        "type": "string",
+                        "description": "The private key associated with the certificate being imported.\n",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "usage": {
+                        "type": "string",
+                        "description": "Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
-                "secret": true,
-                "willReplaceOnChanges": true
-            },
-            "certificateChain": {
-                "type": "string",
-                "description": "The optional list of certificate that make up the chain for the certificate that is being imported.\n",
-                "secret": true,
-                "willReplaceOnChanges": true
-            },
-            "certificateId": {
-                "type": "string",
-                "description": "The unique identifier for the AS2 certificate\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "A short description that helps identify the certificate.\n"
-            },
-            "inactiveDate": {
-                "type": "string",
-                "description": "An date when the certificate becomes inactive\n"
-            },
-            "privateKey": {
-                "type": "string",
-                "description": "The private key associated with the certificate being imported.\n",
-                "secret": true,
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
-            },
-            "usage": {
-                "type": "string",
-                "description": "Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.\n",
-                "willReplaceOnChanges": true
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

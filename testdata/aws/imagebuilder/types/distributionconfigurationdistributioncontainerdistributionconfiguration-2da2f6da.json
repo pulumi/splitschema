@@ -1,23 +1,23 @@
 {
-    "properties": {
-        "containerTags": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "containerTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of tags that are attached to the container distribution configuration.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the container distribution configuration.\n"
+                },
+                "targetRepository": {
+                    "$ref": "#/types/aws:imagebuilder/DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository:DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository",
+                    "description": "Configuration block with the destination repository for the container distribution configuration.\n"
+                }
             },
-            "description": "Set of tags that are attached to the container distribution configuration.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the container distribution configuration.\n"
-        },
-        "targetRepository": {
-            "$ref": "#/types/aws:imagebuilder/DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository:DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository",
-            "description": "Configuration block with the destination repository for the container distribution configuration.\n"
+            "type": "object",
+            "required": [
+                "targetRepository"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "targetRepository"
-    ]
-}

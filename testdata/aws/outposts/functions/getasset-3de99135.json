@@ -1,61 +1,61 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getAsset.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Outpost ARN.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getAsset.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Outpost ARN.\n"
+                    },
+                    "assetId": {
+                        "type": "string",
+                        "description": "ID of the asset.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "arn",
+                    "assetId"
+                ]
             },
-            "assetId": {
-                "type": "string",
-                "description": "ID of the asset.\n"
+            "outputs": {
+                "description": "A collection of values returned by getAsset.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string"
+                    },
+                    "assetId": {
+                        "type": "string"
+                    },
+                    "assetType": {
+                        "description": "Type of the asset.\n",
+                        "type": "string"
+                    },
+                    "hostId": {
+                        "description": "Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "rackElevation": {
+                        "description": "Position of an asset in a rack measured in rack units.\n",
+                        "type": "integer"
+                    },
+                    "rackId": {
+                        "description": "Rack ID of the asset.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "assetId",
+                    "assetType",
+                    "hostId",
+                    "rackElevation",
+                    "rackId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "arn",
-            "assetId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getAsset.\n",
-        "properties": {
-            "arn": {
-                "type": "string"
-            },
-            "assetId": {
-                "type": "string"
-            },
-            "assetType": {
-                "description": "Type of the asset.\n",
-                "type": "string"
-            },
-            "hostId": {
-                "description": "Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "rackElevation": {
-                "description": "Position of an asset in a rack measured in rack units.\n",
-                "type": "integer"
-            },
-            "rackId": {
-                "description": "Rack ID of the asset.\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "arn",
-            "assetId",
-            "assetType",
-            "hostId",
-            "rackElevation",
-            "rackId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

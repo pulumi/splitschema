@@ -1,190 +1,190 @@
 {
-    "properties": {
-        "applicationId": {
-            "type": "string",
-            "description": "Application ID. Must be between 4 and 7 characters in length.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "ARN of the AppConfig Configuration Profile.\n"
-        },
-        "configurationProfileId": {
-            "type": "string",
-            "description": "The configuration profile ID.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the configuration profile. Can be at most 1024 characters.\n"
-        },
-        "kmsKeyIdentifier": {
-            "type": "string",
-            "description": "The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.\n"
-        },
-        "locationUri": {
-            "type": "string",
-            "description": "URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://\u003cDocument_name\u003e` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://\u003cParameter_name\u003e` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://\u003cbucket\u003e/\u003cobjectKey\u003e`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name for the configuration profile. Must be between 1 and 64 characters in length.\n"
-        },
-        "retrievalRoleArn": {
-            "type": "string",
-            "description": "ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "type": {
-            "type": "string",
-            "description": "Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.\n"
-        },
-        "validators": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:appconfig/ConfigurationProfileValidator:ConfigurationProfileValidator"
-            },
-            "description": "Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.\n"
-        }
-    },
-    "required": [
-        "applicationId",
-        "arn",
-        "configurationProfileId",
-        "locationUri",
-        "name",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "applicationId": {
-            "type": "string",
-            "description": "Application ID. Must be between 4 and 7 characters in length.\n",
-            "willReplaceOnChanges": true
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the configuration profile. Can be at most 1024 characters.\n"
-        },
-        "kmsKeyIdentifier": {
-            "type": "string",
-            "description": "The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.\n"
-        },
-        "locationUri": {
-            "type": "string",
-            "description": "URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://\u003cDocument_name\u003e` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://\u003cParameter_name\u003e` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://\u003cbucket\u003e/\u003cobjectKey\u003e`.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Name for the configuration profile. Must be between 1 and 64 characters in length.\n"
-        },
-        "retrievalRoleArn": {
-            "type": "string",
-            "description": "ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.\n",
-            "willReplaceOnChanges": true
-        },
-        "validators": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:appconfig/ConfigurationProfileValidator:ConfigurationProfileValidator"
-            },
-            "description": "Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.\n"
-        }
-    },
-    "requiredInputs": [
-        "applicationId",
-        "locationUri"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ConfigurationProfile resources.\n",
-        "properties": {
-            "applicationId": {
-                "type": "string",
-                "description": "Application ID. Must be between 4 and 7 characters in length.\n",
-                "willReplaceOnChanges": true
-            },
-            "arn": {
-                "type": "string",
-                "description": "ARN of the AppConfig Configuration Profile.\n"
-            },
-            "configurationProfileId": {
-                "type": "string",
-                "description": "The configuration profile ID.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "Description of the configuration profile. Can be at most 1024 characters.\n"
-            },
-            "kmsKeyIdentifier": {
-                "type": "string",
-                "description": "The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.\n"
-            },
-            "locationUri": {
-                "type": "string",
-                "description": "URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://\u003cDocument_name\u003e` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://\u003cParameter_name\u003e` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://\u003cbucket\u003e/\u003cobjectKey\u003e`.\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "Name for the configuration profile. Must be between 1 and 64 characters in length.\n"
-            },
-            "retrievalRoleArn": {
-                "type": "string",
-                "description": "ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "applicationId": {
+                    "type": "string",
+                    "description": "Application ID. Must be between 4 and 7 characters in length.\n"
                 },
-                "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the AppConfig Configuration Profile.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
-            },
-            "type": {
-                "type": "string",
-                "description": "Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.\n",
-                "willReplaceOnChanges": true
-            },
-            "validators": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:appconfig/ConfigurationProfileValidator:ConfigurationProfileValidator"
+                "configurationProfileId": {
+                    "type": "string",
+                    "description": "The configuration profile ID.\n"
                 },
-                "description": "Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.\n"
+                "description": {
+                    "type": "string",
+                    "description": "Description of the configuration profile. Can be at most 1024 characters.\n"
+                },
+                "kmsKeyIdentifier": {
+                    "type": "string",
+                    "description": "The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.\n"
+                },
+                "locationUri": {
+                    "type": "string",
+                    "description": "URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://\u003cDocument_name\u003e` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://\u003cParameter_name\u003e` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://\u003cbucket\u003e/\u003cobjectKey\u003e`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name for the configuration profile. Must be between 1 and 64 characters in length.\n"
+                },
+                "retrievalRoleArn": {
+                    "type": "string",
+                    "description": "ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.\n"
+                },
+                "validators": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:appconfig/ConfigurationProfileValidator:ConfigurationProfileValidator"
+                    },
+                    "description": "Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.\n"
+                }
+            },
+            "required": [
+                "applicationId",
+                "arn",
+                "configurationProfileId",
+                "locationUri",
+                "name",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "applicationId": {
+                    "type": "string",
+                    "description": "Application ID. Must be between 4 and 7 characters in length.\n",
+                    "willReplaceOnChanges": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the configuration profile. Can be at most 1024 characters.\n"
+                },
+                "kmsKeyIdentifier": {
+                    "type": "string",
+                    "description": "The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.\n"
+                },
+                "locationUri": {
+                    "type": "string",
+                    "description": "URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://\u003cDocument_name\u003e` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://\u003cParameter_name\u003e` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://\u003cbucket\u003e/\u003cobjectKey\u003e`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name for the configuration profile. Must be between 1 and 64 characters in length.\n"
+                },
+                "retrievalRoleArn": {
+                    "type": "string",
+                    "description": "ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "validators": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:appconfig/ConfigurationProfileValidator:ConfigurationProfileValidator"
+                    },
+                    "description": "Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.\n"
+                }
+            },
+            "requiredInputs": [
+                "applicationId",
+                "locationUri"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ConfigurationProfile resources.\n",
+                "properties": {
+                    "applicationId": {
+                        "type": "string",
+                        "description": "Application ID. Must be between 4 and 7 characters in length.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the AppConfig Configuration Profile.\n"
+                    },
+                    "configurationProfileId": {
+                        "type": "string",
+                        "description": "The configuration profile ID.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the configuration profile. Can be at most 1024 characters.\n"
+                    },
+                    "kmsKeyIdentifier": {
+                        "type": "string",
+                        "description": "The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.\n"
+                    },
+                    "locationUri": {
+                        "type": "string",
+                        "description": "URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://\u003cDocument_name\u003e` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://\u003cParameter_name\u003e` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://\u003cbucket\u003e/\u003cobjectKey\u003e`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name for the configuration profile. Must be between 1 and 64 characters in length.\n"
+                    },
+                    "retrievalRoleArn": {
+                        "type": "string",
+                        "description": "ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "validators": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:appconfig/ConfigurationProfileValidator:ConfigurationProfileValidator"
+                        },
+                        "description": "Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

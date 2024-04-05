@@ -1,659 +1,659 @@
 {
-    "properties": {
-        "acl": {
-            "type": "string",
-            "description": "[Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.\n"
-        },
-        "bucket": {
-            "type": "string",
-            "description": "Name of the bucket to put the file in.\n"
-        },
-        "bucketKeyEnabled": {
-            "type": "boolean"
-        },
-        "cacheControl": {
-            "type": "string",
-            "description": "Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.\n"
-        },
-        "checksumAlgorithm": {
-            "type": "string",
-            "description": "Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.\n"
-        },
-        "checksumCrc32": {
-            "type": "string",
-            "description": "The base64-encoded, 32-bit CRC32 checksum of the object.\n"
-        },
-        "checksumCrc32c": {
-            "type": "string",
-            "description": "The base64-encoded, 32-bit CRC32C checksum of the object.\n"
-        },
-        "checksumSha1": {
-            "type": "string",
-            "description": "The base64-encoded, 160-bit SHA-1 digest of the object.\n"
-        },
-        "checksumSha256": {
-            "type": "string",
-            "description": "The base64-encoded, 256-bit SHA-256 digest of the object.\n"
-        },
-        "contentDisposition": {
-            "type": "string",
-            "description": "Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.\n"
-        },
-        "contentEncoding": {
-            "type": "string",
-            "description": "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.\n"
-        },
-        "contentLanguage": {
-            "type": "string",
-            "description": "Language the content is in e.g., en-US or en-GB.\n"
-        },
-        "contentType": {
-            "type": "string",
-            "description": "Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.\n"
-        },
-        "copyIfMatch": {
-            "type": "string",
-            "description": "Copies the object if its entity tag (ETag) matches the specified tag.\n"
-        },
-        "copyIfModifiedSince": {
-            "type": "string",
-            "description": "Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
-        },
-        "copyIfNoneMatch": {
-            "type": "string",
-            "description": "Copies the object if its entity tag (ETag) is different than the specified ETag.\n"
-        },
-        "copyIfUnmodifiedSince": {
-            "type": "string",
-            "description": "Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
-        },
-        "customerAlgorithm": {
-            "type": "string",
-            "description": "Specifies the algorithm to use to when encrypting the object (for example, AES256).\n"
-        },
-        "customerKey": {
-            "type": "string",
-            "description": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.\n",
-            "secret": true
-        },
-        "customerKeyMd5": {
-            "type": "string",
-            "description": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.\n"
-        },
-        "etag": {
-            "type": "string",
-            "description": "ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).\n"
-        },
-        "expectedBucketOwner": {
-            "type": "string",
-            "description": "Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
-        },
-        "expectedSourceBucketOwner": {
-            "type": "string",
-            "description": "Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
-        },
-        "expiration": {
-            "type": "string",
-            "description": "If the object expiration is configured, this attribute will be set.\n"
-        },
-        "expires": {
-            "type": "string",
-            "description": "Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
-        },
-        "forceDestroy": {
-            "type": "boolean",
-            "description": "Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.\n"
-        },
-        "grants": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:s3/ObjectCopyGrant:ObjectCopyGrant"
-            },
-            "description": "Configuration block for header grants. Documented below. Conflicts with `acl`.\n"
-        },
-        "key": {
-            "type": "string",
-            "description": "Name of the object once it is in the bucket.\n"
-        },
-        "kmsEncryptionContext": {
-            "type": "string",
-            "description": "Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.\n",
-            "secret": true
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`\n",
-            "secret": true
-        },
-        "lastModified": {
-            "type": "string",
-            "description": "Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
-        },
-        "metadata": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).\n"
-        },
-        "metadataDirective": {
-            "type": "string",
-            "description": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.\n"
-        },
-        "objectLockLegalHoldStatus": {
-            "type": "string",
-            "description": "The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.\n"
-        },
-        "objectLockMode": {
-            "type": "string",
-            "description": "Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.\n"
-        },
-        "objectLockRetainUntilDate": {
-            "type": "string",
-            "description": "Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).\n"
-        },
-        "requestCharged": {
-            "type": "boolean",
-            "description": "If present, indicates that the requester was successfully charged for the request.\n"
-        },
-        "requestPayer": {
-            "type": "string",
-            "description": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.\n"
-        },
-        "serverSideEncryption": {
-            "type": "string",
-            "description": "Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.\n"
-        },
-        "source": {
-            "type": "string",
-            "description": "Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:\u003cRegion\u003e:\u003caccount-id\u003e:accesspoint/\u003caccess-point-name\u003e/object/\u003ckey\u003e`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.\n\nThe following arguments are optional:\n"
-        },
-        "sourceCustomerAlgorithm": {
-            "type": "string",
-            "description": "Specifies the algorithm to use when decrypting the source object (for example, AES256).\n"
-        },
-        "sourceCustomerKey": {
-            "type": "string",
-            "description": "Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.\n",
-            "secret": true
-        },
-        "sourceCustomerKeyMd5": {
-            "type": "string",
-            "description": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.\n"
-        },
-        "sourceVersionId": {
-            "type": "string",
-            "description": "Version of the copied object in the source bucket.\n"
-        },
-        "storageClass": {
-            "type": "string",
-            "description": "Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.\n"
-        },
-        "taggingDirective": {
-            "type": "string",
-            "description": "Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "versionId": {
-            "type": "string",
-            "description": "Version ID of the newly created copy.\n"
-        },
-        "websiteRedirect": {
-            "type": "string",
-            "description": "Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).\n"
-        }
-    },
-    "required": [
-        "acl",
-        "bucket",
-        "bucketKeyEnabled",
-        "cacheControl",
-        "checksumCrc32",
-        "checksumCrc32c",
-        "checksumSha1",
-        "checksumSha256",
-        "contentDisposition",
-        "contentEncoding",
-        "contentLanguage",
-        "contentType",
-        "customerAlgorithm",
-        "customerKeyMd5",
-        "etag",
-        "expiration",
-        "key",
-        "kmsEncryptionContext",
-        "kmsKeyId",
-        "lastModified",
-        "metadata",
-        "objectLockLegalHoldStatus",
-        "objectLockMode",
-        "objectLockRetainUntilDate",
-        "requestCharged",
-        "serverSideEncryption",
-        "source",
-        "sourceVersionId",
-        "storageClass",
-        "tagsAll",
-        "versionId",
-        "websiteRedirect"
-    ],
-    "inputProperties": {
-        "acl": {
-            "type": "string",
-            "description": "[Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.\n"
-        },
-        "bucket": {
-            "type": "string",
-            "description": "Name of the bucket to put the file in.\n",
-            "willReplaceOnChanges": true
-        },
-        "bucketKeyEnabled": {
-            "type": "boolean"
-        },
-        "cacheControl": {
-            "type": "string",
-            "description": "Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.\n"
-        },
-        "checksumAlgorithm": {
-            "type": "string",
-            "description": "Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.\n"
-        },
-        "contentDisposition": {
-            "type": "string",
-            "description": "Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.\n"
-        },
-        "contentEncoding": {
-            "type": "string",
-            "description": "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.\n"
-        },
-        "contentLanguage": {
-            "type": "string",
-            "description": "Language the content is in e.g., en-US or en-GB.\n"
-        },
-        "contentType": {
-            "type": "string",
-            "description": "Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.\n"
-        },
-        "copyIfMatch": {
-            "type": "string",
-            "description": "Copies the object if its entity tag (ETag) matches the specified tag.\n"
-        },
-        "copyIfModifiedSince": {
-            "type": "string",
-            "description": "Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
-        },
-        "copyIfNoneMatch": {
-            "type": "string",
-            "description": "Copies the object if its entity tag (ETag) is different than the specified ETag.\n"
-        },
-        "copyIfUnmodifiedSince": {
-            "type": "string",
-            "description": "Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
-        },
-        "customerAlgorithm": {
-            "type": "string",
-            "description": "Specifies the algorithm to use to when encrypting the object (for example, AES256).\n"
-        },
-        "customerKey": {
-            "type": "string",
-            "description": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.\n",
-            "secret": true
-        },
-        "customerKeyMd5": {
-            "type": "string",
-            "description": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.\n"
-        },
-        "expectedBucketOwner": {
-            "type": "string",
-            "description": "Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
-        },
-        "expectedSourceBucketOwner": {
-            "type": "string",
-            "description": "Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
-        },
-        "expires": {
-            "type": "string",
-            "description": "Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
-        },
-        "forceDestroy": {
-            "type": "boolean",
-            "description": "Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.\n"
-        },
-        "grants": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:s3/ObjectCopyGrant:ObjectCopyGrant"
-            },
-            "description": "Configuration block for header grants. Documented below. Conflicts with `acl`.\n"
-        },
-        "key": {
-            "type": "string",
-            "description": "Name of the object once it is in the bucket.\n",
-            "willReplaceOnChanges": true
-        },
-        "kmsEncryptionContext": {
-            "type": "string",
-            "description": "Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.\n",
-            "secret": true
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`\n",
-            "secret": true
-        },
-        "metadata": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).\n"
-        },
-        "metadataDirective": {
-            "type": "string",
-            "description": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.\n"
-        },
-        "objectLockLegalHoldStatus": {
-            "type": "string",
-            "description": "The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.\n"
-        },
-        "objectLockMode": {
-            "type": "string",
-            "description": "Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.\n"
-        },
-        "objectLockRetainUntilDate": {
-            "type": "string",
-            "description": "Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).\n"
-        },
-        "requestPayer": {
-            "type": "string",
-            "description": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.\n"
-        },
-        "serverSideEncryption": {
-            "type": "string",
-            "description": "Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.\n"
-        },
-        "source": {
-            "type": "string",
-            "description": "Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:\u003cRegion\u003e:\u003caccount-id\u003e:accesspoint/\u003caccess-point-name\u003e/object/\u003ckey\u003e`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "sourceCustomerAlgorithm": {
-            "type": "string",
-            "description": "Specifies the algorithm to use when decrypting the source object (for example, AES256).\n"
-        },
-        "sourceCustomerKey": {
-            "type": "string",
-            "description": "Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.\n",
-            "secret": true
-        },
-        "sourceCustomerKeyMd5": {
-            "type": "string",
-            "description": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.\n"
-        },
-        "storageClass": {
-            "type": "string",
-            "description": "Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.\n"
-        },
-        "taggingDirective": {
-            "type": "string",
-            "description": "Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "websiteRedirect": {
-            "type": "string",
-            "description": "Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).\n"
-        }
-    },
-    "requiredInputs": [
-        "bucket",
-        "key",
-        "source"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ObjectCopy resources.\n",
-        "properties": {
-            "acl": {
-                "type": "string",
-                "description": "[Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.\n"
-            },
-            "bucket": {
-                "type": "string",
-                "description": "Name of the bucket to put the file in.\n",
-                "willReplaceOnChanges": true
-            },
-            "bucketKeyEnabled": {
-                "type": "boolean"
-            },
-            "cacheControl": {
-                "type": "string",
-                "description": "Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.\n"
-            },
-            "checksumAlgorithm": {
-                "type": "string",
-                "description": "Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.\n"
-            },
-            "checksumCrc32": {
-                "type": "string",
-                "description": "The base64-encoded, 32-bit CRC32 checksum of the object.\n"
-            },
-            "checksumCrc32c": {
-                "type": "string",
-                "description": "The base64-encoded, 32-bit CRC32C checksum of the object.\n"
-            },
-            "checksumSha1": {
-                "type": "string",
-                "description": "The base64-encoded, 160-bit SHA-1 digest of the object.\n"
-            },
-            "checksumSha256": {
-                "type": "string",
-                "description": "The base64-encoded, 256-bit SHA-256 digest of the object.\n"
-            },
-            "contentDisposition": {
-                "type": "string",
-                "description": "Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.\n"
-            },
-            "contentEncoding": {
-                "type": "string",
-                "description": "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.\n"
-            },
-            "contentLanguage": {
-                "type": "string",
-                "description": "Language the content is in e.g., en-US or en-GB.\n"
-            },
-            "contentType": {
-                "type": "string",
-                "description": "Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.\n"
-            },
-            "copyIfMatch": {
-                "type": "string",
-                "description": "Copies the object if its entity tag (ETag) matches the specified tag.\n"
-            },
-            "copyIfModifiedSince": {
-                "type": "string",
-                "description": "Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
-            },
-            "copyIfNoneMatch": {
-                "type": "string",
-                "description": "Copies the object if its entity tag (ETag) is different than the specified ETag.\n"
-            },
-            "copyIfUnmodifiedSince": {
-                "type": "string",
-                "description": "Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
-            },
-            "customerAlgorithm": {
-                "type": "string",
-                "description": "Specifies the algorithm to use to when encrypting the object (for example, AES256).\n"
-            },
-            "customerKey": {
-                "type": "string",
-                "description": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.\n",
-                "secret": true
-            },
-            "customerKeyMd5": {
-                "type": "string",
-                "description": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.\n"
-            },
-            "etag": {
-                "type": "string",
-                "description": "ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).\n"
-            },
-            "expectedBucketOwner": {
-                "type": "string",
-                "description": "Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
-            },
-            "expectedSourceBucketOwner": {
-                "type": "string",
-                "description": "Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
-            },
-            "expiration": {
-                "type": "string",
-                "description": "If the object expiration is configured, this attribute will be set.\n"
-            },
-            "expires": {
-                "type": "string",
-                "description": "Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
-            },
-            "forceDestroy": {
-                "type": "boolean",
-                "description": "Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.\n"
-            },
-            "grants": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:s3/ObjectCopyGrant:ObjectCopyGrant"
+            "properties": {
+                "acl": {
+                    "type": "string",
+                    "description": "[Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.\n"
                 },
-                "description": "Configuration block for header grants. Documented below. Conflicts with `acl`.\n"
-            },
-            "key": {
-                "type": "string",
-                "description": "Name of the object once it is in the bucket.\n",
-                "willReplaceOnChanges": true
-            },
-            "kmsEncryptionContext": {
-                "type": "string",
-                "description": "Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.\n",
-                "secret": true
-            },
-            "kmsKeyId": {
-                "type": "string",
-                "description": "Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`\n",
-                "secret": true
-            },
-            "lastModified": {
-                "type": "string",
-                "description": "Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
-            },
-            "metadata": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "bucket": {
+                    "type": "string",
+                    "description": "Name of the bucket to put the file in.\n"
                 },
-                "description": "Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).\n"
-            },
-            "metadataDirective": {
-                "type": "string",
-                "description": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.\n"
-            },
-            "objectLockLegalHoldStatus": {
-                "type": "string",
-                "description": "The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.\n"
-            },
-            "objectLockMode": {
-                "type": "string",
-                "description": "Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.\n"
-            },
-            "objectLockRetainUntilDate": {
-                "type": "string",
-                "description": "Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).\n"
-            },
-            "requestCharged": {
-                "type": "boolean",
-                "description": "If present, indicates that the requester was successfully charged for the request.\n"
-            },
-            "requestPayer": {
-                "type": "string",
-                "description": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.\n"
-            },
-            "serverSideEncryption": {
-                "type": "string",
-                "description": "Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.\n"
-            },
-            "source": {
-                "type": "string",
-                "description": "Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:\u003cRegion\u003e:\u003caccount-id\u003e:accesspoint/\u003caccess-point-name\u003e/object/\u003ckey\u003e`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "sourceCustomerAlgorithm": {
-                "type": "string",
-                "description": "Specifies the algorithm to use when decrypting the source object (for example, AES256).\n"
-            },
-            "sourceCustomerKey": {
-                "type": "string",
-                "description": "Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.\n",
-                "secret": true
-            },
-            "sourceCustomerKeyMd5": {
-                "type": "string",
-                "description": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.\n"
-            },
-            "sourceVersionId": {
-                "type": "string",
-                "description": "Version of the copied object in the source bucket.\n"
-            },
-            "storageClass": {
-                "type": "string",
-                "description": "Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.\n"
-            },
-            "taggingDirective": {
-                "type": "string",
-                "description": "Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "bucketKeyEnabled": {
+                    "type": "boolean"
                 },
-                "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "cacheControl": {
+                    "type": "string",
+                    "description": "Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "checksumAlgorithm": {
+                    "type": "string",
+                    "description": "Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.\n"
+                },
+                "checksumCrc32": {
+                    "type": "string",
+                    "description": "The base64-encoded, 32-bit CRC32 checksum of the object.\n"
+                },
+                "checksumCrc32c": {
+                    "type": "string",
+                    "description": "The base64-encoded, 32-bit CRC32C checksum of the object.\n"
+                },
+                "checksumSha1": {
+                    "type": "string",
+                    "description": "The base64-encoded, 160-bit SHA-1 digest of the object.\n"
+                },
+                "checksumSha256": {
+                    "type": "string",
+                    "description": "The base64-encoded, 256-bit SHA-256 digest of the object.\n"
+                },
+                "contentDisposition": {
+                    "type": "string",
+                    "description": "Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.\n"
+                },
+                "contentEncoding": {
+                    "type": "string",
+                    "description": "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.\n"
+                },
+                "contentLanguage": {
+                    "type": "string",
+                    "description": "Language the content is in e.g., en-US or en-GB.\n"
+                },
+                "contentType": {
+                    "type": "string",
+                    "description": "Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.\n"
+                },
+                "copyIfMatch": {
+                    "type": "string",
+                    "description": "Copies the object if its entity tag (ETag) matches the specified tag.\n"
+                },
+                "copyIfModifiedSince": {
+                    "type": "string",
+                    "description": "Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+                },
+                "copyIfNoneMatch": {
+                    "type": "string",
+                    "description": "Copies the object if its entity tag (ETag) is different than the specified ETag.\n"
+                },
+                "copyIfUnmodifiedSince": {
+                    "type": "string",
+                    "description": "Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+                },
+                "customerAlgorithm": {
+                    "type": "string",
+                    "description": "Specifies the algorithm to use to when encrypting the object (for example, AES256).\n"
+                },
+                "customerKey": {
+                    "type": "string",
+                    "description": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.\n",
+                    "secret": true
+                },
+                "customerKeyMd5": {
+                    "type": "string",
+                    "description": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.\n"
+                },
+                "etag": {
+                    "type": "string",
+                    "description": "ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).\n"
+                },
+                "expectedBucketOwner": {
+                    "type": "string",
+                    "description": "Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
+                },
+                "expectedSourceBucketOwner": {
+                    "type": "string",
+                    "description": "Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
+                },
+                "expiration": {
+                    "type": "string",
+                    "description": "If the object expiration is configured, this attribute will be set.\n"
+                },
+                "expires": {
+                    "type": "string",
+                    "description": "Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+                },
+                "forceDestroy": {
+                    "type": "boolean",
+                    "description": "Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.\n"
+                },
+                "grants": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:s3/ObjectCopyGrant:ObjectCopyGrant"
+                    },
+                    "description": "Configuration block for header grants. Documented below. Conflicts with `acl`.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "Name of the object once it is in the bucket.\n"
+                },
+                "kmsEncryptionContext": {
+                    "type": "string",
+                    "description": "Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.\n",
+                    "secret": true
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`\n",
+                    "secret": true
+                },
+                "lastModified": {
+                    "type": "string",
+                    "description": "Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+                },
+                "metadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).\n"
+                },
+                "metadataDirective": {
+                    "type": "string",
+                    "description": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.\n"
+                },
+                "objectLockLegalHoldStatus": {
+                    "type": "string",
+                    "description": "The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.\n"
+                },
+                "objectLockMode": {
+                    "type": "string",
+                    "description": "Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.\n"
+                },
+                "objectLockRetainUntilDate": {
+                    "type": "string",
+                    "description": "Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).\n"
+                },
+                "requestCharged": {
+                    "type": "boolean",
+                    "description": "If present, indicates that the requester was successfully charged for the request.\n"
+                },
+                "requestPayer": {
+                    "type": "string",
+                    "description": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.\n"
+                },
+                "serverSideEncryption": {
+                    "type": "string",
+                    "description": "Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:\u003cRegion\u003e:\u003caccount-id\u003e:accesspoint/\u003caccess-point-name\u003e/object/\u003ckey\u003e`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.\n\nThe following arguments are optional:\n"
+                },
+                "sourceCustomerAlgorithm": {
+                    "type": "string",
+                    "description": "Specifies the algorithm to use when decrypting the source object (for example, AES256).\n"
+                },
+                "sourceCustomerKey": {
+                    "type": "string",
+                    "description": "Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.\n",
+                    "secret": true
+                },
+                "sourceCustomerKeyMd5": {
+                    "type": "string",
+                    "description": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.\n"
+                },
+                "sourceVersionId": {
+                    "type": "string",
+                    "description": "Version of the copied object in the source bucket.\n"
+                },
+                "storageClass": {
+                    "type": "string",
+                    "description": "Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.\n"
+                },
+                "taggingDirective": {
+                    "type": "string",
+                    "description": "Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "versionId": {
+                    "type": "string",
+                    "description": "Version ID of the newly created copy.\n"
+                },
+                "websiteRedirect": {
+                    "type": "string",
+                    "description": "Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).\n"
+                }
             },
-            "versionId": {
-                "type": "string",
-                "description": "Version ID of the newly created copy.\n"
+            "required": [
+                "acl",
+                "bucket",
+                "bucketKeyEnabled",
+                "cacheControl",
+                "checksumCrc32",
+                "checksumCrc32c",
+                "checksumSha1",
+                "checksumSha256",
+                "contentDisposition",
+                "contentEncoding",
+                "contentLanguage",
+                "contentType",
+                "customerAlgorithm",
+                "customerKeyMd5",
+                "etag",
+                "expiration",
+                "key",
+                "kmsEncryptionContext",
+                "kmsKeyId",
+                "lastModified",
+                "metadata",
+                "objectLockLegalHoldStatus",
+                "objectLockMode",
+                "objectLockRetainUntilDate",
+                "requestCharged",
+                "serverSideEncryption",
+                "source",
+                "sourceVersionId",
+                "storageClass",
+                "tagsAll",
+                "versionId",
+                "websiteRedirect"
+            ],
+            "inputProperties": {
+                "acl": {
+                    "type": "string",
+                    "description": "[Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.\n"
+                },
+                "bucket": {
+                    "type": "string",
+                    "description": "Name of the bucket to put the file in.\n",
+                    "willReplaceOnChanges": true
+                },
+                "bucketKeyEnabled": {
+                    "type": "boolean"
+                },
+                "cacheControl": {
+                    "type": "string",
+                    "description": "Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.\n"
+                },
+                "checksumAlgorithm": {
+                    "type": "string",
+                    "description": "Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.\n"
+                },
+                "contentDisposition": {
+                    "type": "string",
+                    "description": "Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.\n"
+                },
+                "contentEncoding": {
+                    "type": "string",
+                    "description": "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.\n"
+                },
+                "contentLanguage": {
+                    "type": "string",
+                    "description": "Language the content is in e.g., en-US or en-GB.\n"
+                },
+                "contentType": {
+                    "type": "string",
+                    "description": "Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.\n"
+                },
+                "copyIfMatch": {
+                    "type": "string",
+                    "description": "Copies the object if its entity tag (ETag) matches the specified tag.\n"
+                },
+                "copyIfModifiedSince": {
+                    "type": "string",
+                    "description": "Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+                },
+                "copyIfNoneMatch": {
+                    "type": "string",
+                    "description": "Copies the object if its entity tag (ETag) is different than the specified ETag.\n"
+                },
+                "copyIfUnmodifiedSince": {
+                    "type": "string",
+                    "description": "Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+                },
+                "customerAlgorithm": {
+                    "type": "string",
+                    "description": "Specifies the algorithm to use to when encrypting the object (for example, AES256).\n"
+                },
+                "customerKey": {
+                    "type": "string",
+                    "description": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.\n",
+                    "secret": true
+                },
+                "customerKeyMd5": {
+                    "type": "string",
+                    "description": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.\n"
+                },
+                "expectedBucketOwner": {
+                    "type": "string",
+                    "description": "Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
+                },
+                "expectedSourceBucketOwner": {
+                    "type": "string",
+                    "description": "Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
+                },
+                "expires": {
+                    "type": "string",
+                    "description": "Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+                },
+                "forceDestroy": {
+                    "type": "boolean",
+                    "description": "Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.\n"
+                },
+                "grants": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:s3/ObjectCopyGrant:ObjectCopyGrant"
+                    },
+                    "description": "Configuration block for header grants. Documented below. Conflicts with `acl`.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "Name of the object once it is in the bucket.\n",
+                    "willReplaceOnChanges": true
+                },
+                "kmsEncryptionContext": {
+                    "type": "string",
+                    "description": "Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.\n",
+                    "secret": true
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`\n",
+                    "secret": true
+                },
+                "metadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).\n"
+                },
+                "metadataDirective": {
+                    "type": "string",
+                    "description": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.\n"
+                },
+                "objectLockLegalHoldStatus": {
+                    "type": "string",
+                    "description": "The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.\n"
+                },
+                "objectLockMode": {
+                    "type": "string",
+                    "description": "Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.\n"
+                },
+                "objectLockRetainUntilDate": {
+                    "type": "string",
+                    "description": "Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).\n"
+                },
+                "requestPayer": {
+                    "type": "string",
+                    "description": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.\n"
+                },
+                "serverSideEncryption": {
+                    "type": "string",
+                    "description": "Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:\u003cRegion\u003e:\u003caccount-id\u003e:accesspoint/\u003caccess-point-name\u003e/object/\u003ckey\u003e`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "sourceCustomerAlgorithm": {
+                    "type": "string",
+                    "description": "Specifies the algorithm to use when decrypting the source object (for example, AES256).\n"
+                },
+                "sourceCustomerKey": {
+                    "type": "string",
+                    "description": "Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.\n",
+                    "secret": true
+                },
+                "sourceCustomerKeyMd5": {
+                    "type": "string",
+                    "description": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.\n"
+                },
+                "storageClass": {
+                    "type": "string",
+                    "description": "Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.\n"
+                },
+                "taggingDirective": {
+                    "type": "string",
+                    "description": "Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "websiteRedirect": {
+                    "type": "string",
+                    "description": "Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).\n"
+                }
             },
-            "websiteRedirect": {
-                "type": "string",
-                "description": "Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).\n"
+            "requiredInputs": [
+                "bucket",
+                "key",
+                "source"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ObjectCopy resources.\n",
+                "properties": {
+                    "acl": {
+                        "type": "string",
+                        "description": "[Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.\n"
+                    },
+                    "bucket": {
+                        "type": "string",
+                        "description": "Name of the bucket to put the file in.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "bucketKeyEnabled": {
+                        "type": "boolean"
+                    },
+                    "cacheControl": {
+                        "type": "string",
+                        "description": "Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.\n"
+                    },
+                    "checksumAlgorithm": {
+                        "type": "string",
+                        "description": "Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.\n"
+                    },
+                    "checksumCrc32": {
+                        "type": "string",
+                        "description": "The base64-encoded, 32-bit CRC32 checksum of the object.\n"
+                    },
+                    "checksumCrc32c": {
+                        "type": "string",
+                        "description": "The base64-encoded, 32-bit CRC32C checksum of the object.\n"
+                    },
+                    "checksumSha1": {
+                        "type": "string",
+                        "description": "The base64-encoded, 160-bit SHA-1 digest of the object.\n"
+                    },
+                    "checksumSha256": {
+                        "type": "string",
+                        "description": "The base64-encoded, 256-bit SHA-256 digest of the object.\n"
+                    },
+                    "contentDisposition": {
+                        "type": "string",
+                        "description": "Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.\n"
+                    },
+                    "contentEncoding": {
+                        "type": "string",
+                        "description": "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.\n"
+                    },
+                    "contentLanguage": {
+                        "type": "string",
+                        "description": "Language the content is in e.g., en-US or en-GB.\n"
+                    },
+                    "contentType": {
+                        "type": "string",
+                        "description": "Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.\n"
+                    },
+                    "copyIfMatch": {
+                        "type": "string",
+                        "description": "Copies the object if its entity tag (ETag) matches the specified tag.\n"
+                    },
+                    "copyIfModifiedSince": {
+                        "type": "string",
+                        "description": "Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+                    },
+                    "copyIfNoneMatch": {
+                        "type": "string",
+                        "description": "Copies the object if its entity tag (ETag) is different than the specified ETag.\n"
+                    },
+                    "copyIfUnmodifiedSince": {
+                        "type": "string",
+                        "description": "Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+                    },
+                    "customerAlgorithm": {
+                        "type": "string",
+                        "description": "Specifies the algorithm to use to when encrypting the object (for example, AES256).\n"
+                    },
+                    "customerKey": {
+                        "type": "string",
+                        "description": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.\n",
+                        "secret": true
+                    },
+                    "customerKeyMd5": {
+                        "type": "string",
+                        "description": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.\n"
+                    },
+                    "etag": {
+                        "type": "string",
+                        "description": "ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).\n"
+                    },
+                    "expectedBucketOwner": {
+                        "type": "string",
+                        "description": "Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
+                    },
+                    "expectedSourceBucketOwner": {
+                        "type": "string",
+                        "description": "Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
+                    },
+                    "expiration": {
+                        "type": "string",
+                        "description": "If the object expiration is configured, this attribute will be set.\n"
+                    },
+                    "expires": {
+                        "type": "string",
+                        "description": "Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+                    },
+                    "forceDestroy": {
+                        "type": "boolean",
+                        "description": "Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.\n"
+                    },
+                    "grants": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:s3/ObjectCopyGrant:ObjectCopyGrant"
+                        },
+                        "description": "Configuration block for header grants. Documented below. Conflicts with `acl`.\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Name of the object once it is in the bucket.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kmsEncryptionContext": {
+                        "type": "string",
+                        "description": "Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.\n",
+                        "secret": true
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "description": "Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`\n",
+                        "secret": true
+                    },
+                    "lastModified": {
+                        "type": "string",
+                        "description": "Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).\n"
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).\n"
+                    },
+                    "metadataDirective": {
+                        "type": "string",
+                        "description": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.\n"
+                    },
+                    "objectLockLegalHoldStatus": {
+                        "type": "string",
+                        "description": "The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.\n"
+                    },
+                    "objectLockMode": {
+                        "type": "string",
+                        "description": "Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.\n"
+                    },
+                    "objectLockRetainUntilDate": {
+                        "type": "string",
+                        "description": "Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).\n"
+                    },
+                    "requestCharged": {
+                        "type": "boolean",
+                        "description": "If present, indicates that the requester was successfully charged for the request.\n"
+                    },
+                    "requestPayer": {
+                        "type": "string",
+                        "description": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.\n"
+                    },
+                    "serverSideEncryption": {
+                        "type": "string",
+                        "description": "Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.\n"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:\u003cRegion\u003e:\u003caccount-id\u003e:accesspoint/\u003caccess-point-name\u003e/object/\u003ckey\u003e`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "sourceCustomerAlgorithm": {
+                        "type": "string",
+                        "description": "Specifies the algorithm to use when decrypting the source object (for example, AES256).\n"
+                    },
+                    "sourceCustomerKey": {
+                        "type": "string",
+                        "description": "Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.\n",
+                        "secret": true
+                    },
+                    "sourceCustomerKeyMd5": {
+                        "type": "string",
+                        "description": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.\n"
+                    },
+                    "sourceVersionId": {
+                        "type": "string",
+                        "description": "Version of the copied object in the source bucket.\n"
+                    },
+                    "storageClass": {
+                        "type": "string",
+                        "description": "Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.\n"
+                    },
+                    "taggingDirective": {
+                        "type": "string",
+                        "description": "Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "versionId": {
+                        "type": "string",
+                        "description": "Version ID of the newly created copy.\n"
+                    },
+                    "websiteRedirect": {
+                        "type": "string",
+                        "description": "Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

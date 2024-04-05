@@ -1,32 +1,32 @@
 {
-    "properties": {
-        "method": {
-            "type": "string",
-            "description": "Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`\n"
-        },
-        "parameters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:costexplorer/CostCategorySplitChargeRuleParameter:CostCategorySplitChargeRuleParameter"
+            "properties": {
+                "method": {
+                    "type": "string",
+                    "description": "Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`\n"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:costexplorer/CostCategorySplitChargeRuleParameter:CostCategorySplitChargeRuleParameter"
+                    },
+                    "description": "Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Cost Category value that you want to split.\n"
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.\n"
+                }
             },
-            "description": "Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.\n"
-        },
-        "source": {
-            "type": "string",
-            "description": "Cost Category value that you want to split.\n"
-        },
-        "targets": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.\n"
+            "type": "object",
+            "required": [
+                "method",
+                "source",
+                "targets"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "method",
-        "source",
-        "targets"
-    ]
-}

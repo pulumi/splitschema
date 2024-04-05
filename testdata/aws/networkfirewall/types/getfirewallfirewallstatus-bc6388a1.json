@@ -1,37 +1,37 @@
 {
-    "properties": {
-        "capacityUsageSummaries": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:networkfirewall/getFirewallFirewallStatusCapacityUsageSummary:getFirewallFirewallStatusCapacityUsageSummary"
+            "properties": {
+                "capacityUsageSummaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:networkfirewall/getFirewallFirewallStatusCapacityUsageSummary:getFirewallFirewallStatusCapacityUsageSummary"
+                    },
+                    "description": "Aggregated count of all resources used by reference sets in a firewall.\n"
+                },
+                "configurationSyncStateSummary": {
+                    "type": "string",
+                    "description": "Summary of sync states for all availability zones in which the firewall is configured.\n"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "syncStates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:networkfirewall/getFirewallFirewallStatusSyncState:getFirewallFirewallStatusSyncState"
+                    },
+                    "description": "Set of subnets configured for use by the firewall.\n"
+                }
             },
-            "description": "Aggregated count of all resources used by reference sets in a firewall.\n"
-        },
-        "configurationSyncStateSummary": {
-            "type": "string",
-            "description": "Summary of sync states for all availability zones in which the firewall is configured.\n"
-        },
-        "status": {
-            "type": "string"
-        },
-        "syncStates": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:networkfirewall/getFirewallFirewallStatusSyncState:getFirewallFirewallStatusSyncState"
-            },
-            "description": "Set of subnets configured for use by the firewall.\n"
+            "type": "object",
+            "required": [
+                "capacityUsageSummaries",
+                "configurationSyncStateSummary",
+                "status",
+                "syncStates"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "capacityUsageSummaries",
-        "configurationSyncStateSummary",
-        "status",
-        "syncStates"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

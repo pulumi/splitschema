@@ -1,196 +1,196 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) assigned by AWS to this feature_group.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A free-form description of a Feature Group.\n"
-        },
-        "eventTimeFeatureName": {
-            "type": "string",
-            "description": "The name of the feature that stores the EventTime of a Record in a Feature Group.\n"
-        },
-        "featureDefinitions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:sagemaker/FeatureGroupFeatureDefinition:FeatureGroupFeatureDefinition"
-            },
-            "description": "A list of Feature names and types. See Feature Definition Below.\n"
-        },
-        "featureGroupName": {
-            "type": "string",
-            "description": "The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.\n"
-        },
-        "offlineStoreConfig": {
-            "$ref": "#/types/aws:sagemaker/FeatureGroupOfflineStoreConfig:FeatureGroupOfflineStoreConfig",
-            "description": "The Offline Feature Store Configuration. See Offline Store Config Below.\n"
-        },
-        "onlineStoreConfig": {
-            "$ref": "#/types/aws:sagemaker/FeatureGroupOnlineStoreConfig:FeatureGroupOnlineStoreConfig",
-            "description": "The Online Feature Store Configuration. See Online Store Config Below.\n"
-        },
-        "recordIdentifierFeatureName": {
-            "type": "string",
-            "description": "The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "eventTimeFeatureName",
-        "featureDefinitions",
-        "featureGroupName",
-        "recordIdentifierFeatureName",
-        "roleArn",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "description": {
-            "type": "string",
-            "description": "A free-form description of a Feature Group.\n",
-            "willReplaceOnChanges": true
-        },
-        "eventTimeFeatureName": {
-            "type": "string",
-            "description": "The name of the feature that stores the EventTime of a Record in a Feature Group.\n",
-            "willReplaceOnChanges": true
-        },
-        "featureDefinitions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:sagemaker/FeatureGroupFeatureDefinition:FeatureGroupFeatureDefinition"
-            },
-            "description": "A list of Feature names and types. See Feature Definition Below.\n",
-            "willReplaceOnChanges": true
-        },
-        "featureGroupName": {
-            "type": "string",
-            "description": "The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.\n",
-            "willReplaceOnChanges": true
-        },
-        "offlineStoreConfig": {
-            "$ref": "#/types/aws:sagemaker/FeatureGroupOfflineStoreConfig:FeatureGroupOfflineStoreConfig",
-            "description": "The Offline Feature Store Configuration. See Offline Store Config Below.\n",
-            "willReplaceOnChanges": true
-        },
-        "onlineStoreConfig": {
-            "$ref": "#/types/aws:sagemaker/FeatureGroupOnlineStoreConfig:FeatureGroupOnlineStoreConfig",
-            "description": "The Online Feature Store Configuration. See Online Store Config Below.\n",
-            "willReplaceOnChanges": true
-        },
-        "recordIdentifierFeatureName": {
-            "type": "string",
-            "description": "The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.\n",
-            "willReplaceOnChanges": true
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "eventTimeFeatureName",
-        "featureDefinitions",
-        "featureGroupName",
-        "recordIdentifierFeatureName",
-        "roleArn"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering FeatureGroup resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) assigned by AWS to this feature_group.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "A free-form description of a Feature Group.\n",
-                "willReplaceOnChanges": true
-            },
-            "eventTimeFeatureName": {
-                "type": "string",
-                "description": "The name of the feature that stores the EventTime of a Record in a Feature Group.\n",
-                "willReplaceOnChanges": true
-            },
-            "featureDefinitions": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:sagemaker/FeatureGroupFeatureDefinition:FeatureGroupFeatureDefinition"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) assigned by AWS to this feature_group.\n"
                 },
-                "description": "A list of Feature names and types. See Feature Definition Below.\n",
-                "willReplaceOnChanges": true
-            },
-            "featureGroupName": {
-                "type": "string",
-                "description": "The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.\n",
-                "willReplaceOnChanges": true
-            },
-            "offlineStoreConfig": {
-                "$ref": "#/types/aws:sagemaker/FeatureGroupOfflineStoreConfig:FeatureGroupOfflineStoreConfig",
-                "description": "The Offline Feature Store Configuration. See Offline Store Config Below.\n",
-                "willReplaceOnChanges": true
-            },
-            "onlineStoreConfig": {
-                "$ref": "#/types/aws:sagemaker/FeatureGroupOnlineStoreConfig:FeatureGroupOnlineStoreConfig",
-                "description": "The Online Feature Store Configuration. See Online Store Config Below.\n",
-                "willReplaceOnChanges": true
-            },
-            "recordIdentifierFeatureName": {
-                "type": "string",
-                "description": "The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.\n",
-                "willReplaceOnChanges": true
-            },
-            "roleArn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "description": {
+                    "type": "string",
+                    "description": "A free-form description of a Feature Group.\n"
                 },
-                "description": "Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "eventTimeFeatureName": {
+                    "type": "string",
+                    "description": "The name of the feature that stores the EventTime of a Record in a Feature Group.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "featureDefinitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:sagemaker/FeatureGroupFeatureDefinition:FeatureGroupFeatureDefinition"
+                    },
+                    "description": "A list of Feature names and types. See Feature Definition Below.\n"
+                },
+                "featureGroupName": {
+                    "type": "string",
+                    "description": "The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.\n"
+                },
+                "offlineStoreConfig": {
+                    "$ref": "#/types/aws:sagemaker/FeatureGroupOfflineStoreConfig:FeatureGroupOfflineStoreConfig",
+                    "description": "The Offline Feature Store Configuration. See Offline Store Config Below.\n"
+                },
+                "onlineStoreConfig": {
+                    "$ref": "#/types/aws:sagemaker/FeatureGroupOnlineStoreConfig:FeatureGroupOnlineStoreConfig",
+                    "description": "The Online Feature Store Configuration. See Online Store Config Below.\n"
+                },
+                "recordIdentifierFeatureName": {
+                    "type": "string",
+                    "description": "The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "eventTimeFeatureName",
+                "featureDefinitions",
+                "featureGroupName",
+                "recordIdentifierFeatureName",
+                "roleArn",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A free-form description of a Feature Group.\n",
+                    "willReplaceOnChanges": true
+                },
+                "eventTimeFeatureName": {
+                    "type": "string",
+                    "description": "The name of the feature that stores the EventTime of a Record in a Feature Group.\n",
+                    "willReplaceOnChanges": true
+                },
+                "featureDefinitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:sagemaker/FeatureGroupFeatureDefinition:FeatureGroupFeatureDefinition"
+                    },
+                    "description": "A list of Feature names and types. See Feature Definition Below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "featureGroupName": {
+                    "type": "string",
+                    "description": "The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.\n",
+                    "willReplaceOnChanges": true
+                },
+                "offlineStoreConfig": {
+                    "$ref": "#/types/aws:sagemaker/FeatureGroupOfflineStoreConfig:FeatureGroupOfflineStoreConfig",
+                    "description": "The Offline Feature Store Configuration. See Offline Store Config Below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "onlineStoreConfig": {
+                    "$ref": "#/types/aws:sagemaker/FeatureGroupOnlineStoreConfig:FeatureGroupOnlineStoreConfig",
+                    "description": "The Online Feature Store Configuration. See Online Store Config Below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "recordIdentifierFeatureName": {
+                    "type": "string",
+                    "description": "The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.\n",
+                    "willReplaceOnChanges": true
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "eventTimeFeatureName",
+                "featureDefinitions",
+                "featureGroupName",
+                "recordIdentifierFeatureName",
+                "roleArn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FeatureGroup resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) assigned by AWS to this feature_group.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A free-form description of a Feature Group.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "eventTimeFeatureName": {
+                        "type": "string",
+                        "description": "The name of the feature that stores the EventTime of a Record in a Feature Group.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "featureDefinitions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:sagemaker/FeatureGroupFeatureDefinition:FeatureGroupFeatureDefinition"
+                        },
+                        "description": "A list of Feature names and types. See Feature Definition Below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "featureGroupName": {
+                        "type": "string",
+                        "description": "The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "offlineStoreConfig": {
+                        "$ref": "#/types/aws:sagemaker/FeatureGroupOfflineStoreConfig:FeatureGroupOfflineStoreConfig",
+                        "description": "The Offline Feature Store Configuration. See Offline Store Config Below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "onlineStoreConfig": {
+                        "$ref": "#/types/aws:sagemaker/FeatureGroupOnlineStoreConfig:FeatureGroupOnlineStoreConfig",
+                        "description": "The Online Feature Store Configuration. See Online Store Config Below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "recordIdentifierFeatureName": {
+                        "type": "string",
+                        "description": "The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "roleArn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

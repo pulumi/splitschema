@@ -1,153 +1,153 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getOntapFileSystem.\n",
-        "properties": {
-            "id": {
-                "type": "string",
-                "description": "Identifier of the file system (e.g. `fs-12345678`).\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getOntapFileSystem.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Identifier of the file system (e.g. `fs-12345678`).\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "The tags associated with the file system.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getOntapFileSystem.\n",
+                "properties": {
+                    "arn": {
+                        "description": "Amazon Resource Name of the file system.\n",
+                        "type": "string"
+                    },
+                    "automaticBackupRetentionDays": {
+                        "description": "The number of days to retain automatic backups.\n",
+                        "type": "integer"
+                    },
+                    "dailyAutomaticBackupStartTime": {
+                        "description": "The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.\n",
+                        "type": "string"
+                    },
+                    "deploymentType": {
+                        "description": "The file system deployment type.\n",
+                        "type": "string"
+                    },
+                    "diskIopsConfigurations": {
+                        "description": "The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:fsx/getOntapFileSystemDiskIopsConfiguration:getOntapFileSystemDiskIopsConfiguration"
+                        },
+                        "type": "array"
+                    },
+                    "dnsName": {
+                        "description": "DNS name for the file system (e.g. `fs-12345678.corp.example.com`).\n",
+                        "type": "string"
+                    },
+                    "endpointIpAddressRange": {
+                        "description": "(Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.\n",
+                        "type": "string"
+                    },
+                    "endpoints": {
+                        "description": "The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:fsx/getOntapFileSystemEndpoint:getOntapFileSystemEndpoint"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "Identifier of the file system (e.g. `fs-12345678`).\n",
+                        "type": "string"
+                    },
+                    "kmsKeyId": {
+                        "description": "ARN for the KMS Key to encrypt the file system at rest.\n",
+                        "type": "string"
+                    },
+                    "networkInterfaceIds": {
+                        "description": "The IDs of the elastic network interfaces from which a specific file system is accessible.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "ownerId": {
+                        "description": "AWS account identifier that created the file system.\n",
+                        "type": "string"
+                    },
+                    "preferredSubnetId": {
+                        "description": "Specifies the subnet in which you want the preferred file server to be located.\n",
+                        "type": "string"
+                    },
+                    "routeTableIds": {
+                        "description": "(Multi-AZ only) The VPC route tables in which your file system's endpoints exist.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "storageCapacity": {
+                        "description": "The storage capacity of the file system in gibibytes (GiB).\n",
+                        "type": "integer"
+                    },
+                    "storageType": {
+                        "description": "The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.\n",
+                        "type": "string"
+                    },
+                    "subnetIds": {
+                        "description": "Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferred_subnet_id` property.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "The tags associated with the file system.\n",
+                        "type": "object"
+                    },
+                    "throughputCapacity": {
+                        "description": "The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).\n",
+                        "type": "integer"
+                    },
+                    "vpcId": {
+                        "description": "The ID of the primary virtual private cloud (VPC) for the file system.\n",
+                        "type": "string"
+                    },
+                    "weeklyMaintenanceStartTime": {
+                        "description": "The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.\n",
+                        "type": "string"
+                    }
                 },
-                "description": "The tags associated with the file system.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "id"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getOntapFileSystem.\n",
-        "properties": {
-            "arn": {
-                "description": "Amazon Resource Name of the file system.\n",
-                "type": "string"
-            },
-            "automaticBackupRetentionDays": {
-                "description": "The number of days to retain automatic backups.\n",
-                "type": "integer"
-            },
-            "dailyAutomaticBackupStartTime": {
-                "description": "The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.\n",
-                "type": "string"
-            },
-            "deploymentType": {
-                "description": "The file system deployment type.\n",
-                "type": "string"
-            },
-            "diskIopsConfigurations": {
-                "description": "The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.\n",
-                "items": {
-                    "$ref": "#/types/aws:fsx/getOntapFileSystemDiskIopsConfiguration:getOntapFileSystemDiskIopsConfiguration"
-                },
-                "type": "array"
-            },
-            "dnsName": {
-                "description": "DNS name for the file system (e.g. `fs-12345678.corp.example.com`).\n",
-                "type": "string"
-            },
-            "endpointIpAddressRange": {
-                "description": "(Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.\n",
-                "type": "string"
-            },
-            "endpoints": {
-                "description": "The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.\n",
-                "items": {
-                    "$ref": "#/types/aws:fsx/getOntapFileSystemEndpoint:getOntapFileSystemEndpoint"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "Identifier of the file system (e.g. `fs-12345678`).\n",
-                "type": "string"
-            },
-            "kmsKeyId": {
-                "description": "ARN for the KMS Key to encrypt the file system at rest.\n",
-                "type": "string"
-            },
-            "networkInterfaceIds": {
-                "description": "The IDs of the elastic network interfaces from which a specific file system is accessible.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "ownerId": {
-                "description": "AWS account identifier that created the file system.\n",
-                "type": "string"
-            },
-            "preferredSubnetId": {
-                "description": "Specifies the subnet in which you want the preferred file server to be located.\n",
-                "type": "string"
-            },
-            "routeTableIds": {
-                "description": "(Multi-AZ only) The VPC route tables in which your file system's endpoints exist.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "storageCapacity": {
-                "description": "The storage capacity of the file system in gibibytes (GiB).\n",
-                "type": "integer"
-            },
-            "storageType": {
-                "description": "The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.\n",
-                "type": "string"
-            },
-            "subnetIds": {
-                "description": "Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferred_subnet_id` property.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "The tags associated with the file system.\n",
+                "required": [
+                    "arn",
+                    "automaticBackupRetentionDays",
+                    "dailyAutomaticBackupStartTime",
+                    "deploymentType",
+                    "diskIopsConfigurations",
+                    "dnsName",
+                    "endpointIpAddressRange",
+                    "endpoints",
+                    "id",
+                    "kmsKeyId",
+                    "networkInterfaceIds",
+                    "ownerId",
+                    "preferredSubnetId",
+                    "routeTableIds",
+                    "storageCapacity",
+                    "storageType",
+                    "subnetIds",
+                    "tags",
+                    "throughputCapacity",
+                    "vpcId",
+                    "weeklyMaintenanceStartTime"
+                ],
                 "type": "object"
-            },
-            "throughputCapacity": {
-                "description": "The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).\n",
-                "type": "integer"
-            },
-            "vpcId": {
-                "description": "The ID of the primary virtual private cloud (VPC) for the file system.\n",
-                "type": "string"
-            },
-            "weeklyMaintenanceStartTime": {
-                "description": "The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.\n",
-                "type": "string"
             }
-        },
-        "required": [
-            "arn",
-            "automaticBackupRetentionDays",
-            "dailyAutomaticBackupStartTime",
-            "deploymentType",
-            "diskIopsConfigurations",
-            "dnsName",
-            "endpointIpAddressRange",
-            "endpoints",
-            "id",
-            "kmsKeyId",
-            "networkInterfaceIds",
-            "ownerId",
-            "preferredSubnetId",
-            "routeTableIds",
-            "storageCapacity",
-            "storageType",
-            "subnetIds",
-            "tags",
-            "throughputCapacity",
-            "vpcId",
-            "weeklyMaintenanceStartTime"
-        ],
-        "type": "object"
-    }
-}
+        }

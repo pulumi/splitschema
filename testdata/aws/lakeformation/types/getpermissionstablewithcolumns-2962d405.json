@@ -1,48 +1,48 @@
 {
-    "properties": {
-        "catalogId": {
-            "type": "string",
-            "description": "Identifier for the Data Catalog. By default, it is the account ID of the caller.\n"
-        },
-        "columnNames": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "catalogId": {
+                    "type": "string",
+                    "description": "Identifier for the Data Catalog. By default, it is the account ID of the caller.\n"
+                },
+                "columnNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.\n"
+                },
+                "databaseName": {
+                    "type": "string",
+                    "description": "Name of the database for the table with columns resource. Unique to the Data Catalog.\n"
+                },
+                "excludedColumnNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the table resource.\n\nThe following arguments are optional:\n"
+                },
+                "wildcard": {
+                    "type": "boolean",
+                    "description": "Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.\n"
+                }
             },
-            "description": "Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.\n"
-        },
-        "databaseName": {
-            "type": "string",
-            "description": "Name of the database for the table with columns resource. Unique to the Data Catalog.\n"
-        },
-        "excludedColumnNames": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the table resource.\n\nThe following arguments are optional:\n"
-        },
-        "wildcard": {
-            "type": "boolean",
-            "description": "Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "catalogId",
-        "databaseName",
-        "name"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": [
+            "type": "object",
+            "required": [
+                "catalogId",
                 "databaseName",
                 "name"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": [
+                        "databaseName",
+                        "name"
+                    ]
+                }
+            }
         }
-    }
-}

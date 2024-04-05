@@ -1,120 +1,120 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of this observability configuration.\n"
-        },
-        "latest": {
-            "type": "boolean",
-            "description": "Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.\n"
-        },
-        "observabilityConfigurationName": {
-            "type": "string",
-            "description": "Name of the observability configuration.\n"
-        },
-        "observabilityConfigurationRevision": {
-            "type": "integer",
-            "description": "The revision of this observability configuration.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "traceConfiguration": {
-            "$ref": "#/types/aws:apprunner/ObservabilityConfigurationTraceConfiguration:ObservabilityConfigurationTraceConfiguration",
-            "description": "Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "latest",
-        "observabilityConfigurationName",
-        "observabilityConfigurationRevision",
-        "status",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "observabilityConfigurationName": {
-            "type": "string",
-            "description": "Name of the observability configuration.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "traceConfiguration": {
-            "$ref": "#/types/aws:apprunner/ObservabilityConfigurationTraceConfiguration:ObservabilityConfigurationTraceConfiguration",
-            "description": "Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.\n"
-        }
-    },
-    "requiredInputs": [
-        "observabilityConfigurationName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ObservabilityConfiguration resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of this observability configuration.\n"
-            },
-            "latest": {
-                "type": "boolean",
-                "description": "Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.\n"
-            },
-            "observabilityConfigurationName": {
-                "type": "string",
-                "description": "Name of the observability configuration.\n",
-                "willReplaceOnChanges": true
-            },
-            "observabilityConfigurationRevision": {
-                "type": "integer",
-                "description": "The revision of this observability configuration.\n"
-            },
-            "status": {
-                "type": "string",
-                "description": "Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of this observability configuration.\n"
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "latest": {
+                    "type": "boolean",
+                    "description": "Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "observabilityConfigurationName": {
+                    "type": "string",
+                    "description": "Name of the observability configuration.\n"
+                },
+                "observabilityConfigurationRevision": {
+                    "type": "integer",
+                    "description": "The revision of this observability configuration.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "traceConfiguration": {
+                    "$ref": "#/types/aws:apprunner/ObservabilityConfigurationTraceConfiguration:ObservabilityConfigurationTraceConfiguration",
+                    "description": "Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.\n"
+                }
             },
-            "traceConfiguration": {
-                "$ref": "#/types/aws:apprunner/ObservabilityConfigurationTraceConfiguration:ObservabilityConfigurationTraceConfiguration",
-                "description": "Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.\n"
+            "required": [
+                "arn",
+                "latest",
+                "observabilityConfigurationName",
+                "observabilityConfigurationRevision",
+                "status",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "observabilityConfigurationName": {
+                    "type": "string",
+                    "description": "Name of the observability configuration.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "traceConfiguration": {
+                    "$ref": "#/types/aws:apprunner/ObservabilityConfigurationTraceConfiguration:ObservabilityConfigurationTraceConfiguration",
+                    "description": "Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.\n"
+                }
+            },
+            "requiredInputs": [
+                "observabilityConfigurationName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ObservabilityConfiguration resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of this observability configuration.\n"
+                    },
+                    "latest": {
+                        "type": "boolean",
+                        "description": "Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.\n"
+                    },
+                    "observabilityConfigurationName": {
+                        "type": "string",
+                        "description": "Name of the observability configuration.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "observabilityConfigurationRevision": {
+                        "type": "integer",
+                        "description": "The revision of this observability configuration.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "traceConfiguration": {
+                        "$ref": "#/types/aws:apprunner/ObservabilityConfigurationTraceConfiguration:ObservabilityConfigurationTraceConfiguration",
+                        "description": "Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

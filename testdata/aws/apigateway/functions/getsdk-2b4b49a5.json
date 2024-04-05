@@ -1,78 +1,78 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getSdk.\n",
-        "properties": {
-            "parameters": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getSdk.\n",
+                "properties": {
+                    "parameters": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.\n"
+                    },
+                    "restApiId": {
+                        "type": "string",
+                        "description": "Identifier of the associated REST API.\n"
+                    },
+                    "sdkType": {
+                        "type": "string",
+                        "description": "Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.\n"
+                    },
+                    "stageName": {
+                        "type": "string",
+                        "description": "Name of the Stage that will be exported.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "restApiId",
+                    "sdkType",
+                    "stageName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSdk.\n",
+                "properties": {
+                    "body": {
+                        "description": "SDK as a string.\n",
+                        "type": "string"
+                    },
+                    "contentDisposition": {
+                        "description": "Content-disposition header value in the HTTP response.\n",
+                        "type": "string"
+                    },
+                    "contentType": {
+                        "description": "Content-type header value in the HTTP response.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "parameters": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "restApiId": {
+                        "type": "string"
+                    },
+                    "sdkType": {
+                        "type": "string"
+                    },
+                    "stageName": {
+                        "type": "string"
+                    }
                 },
-                "description": "Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.\n"
-            },
-            "restApiId": {
-                "type": "string",
-                "description": "Identifier of the associated REST API.\n"
-            },
-            "sdkType": {
-                "type": "string",
-                "description": "Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.\n"
-            },
-            "stageName": {
-                "type": "string",
-                "description": "Name of the Stage that will be exported.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "restApiId",
-            "sdkType",
-            "stageName"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getSdk.\n",
-        "properties": {
-            "body": {
-                "description": "SDK as a string.\n",
-                "type": "string"
-            },
-            "contentDisposition": {
-                "description": "Content-disposition header value in the HTTP response.\n",
-                "type": "string"
-            },
-            "contentType": {
-                "description": "Content-type header value in the HTTP response.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "parameters": {
-                "additionalProperties": {
-                    "type": "string"
-                },
+                "required": [
+                    "body",
+                    "contentDisposition",
+                    "contentType",
+                    "restApiId",
+                    "sdkType",
+                    "stageName",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "restApiId": {
-                "type": "string"
-            },
-            "sdkType": {
-                "type": "string"
-            },
-            "stageName": {
-                "type": "string"
             }
-        },
-        "required": [
-            "body",
-            "contentDisposition",
-            "contentType",
-            "restApiId",
-            "sdkType",
-            "stageName",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

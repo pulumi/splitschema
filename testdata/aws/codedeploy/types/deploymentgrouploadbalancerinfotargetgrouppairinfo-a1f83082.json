@@ -1,24 +1,24 @@
 {
-    "properties": {
-        "prodTrafficRoute": {
-            "$ref": "#/types/aws:codedeploy/DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute:DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute",
-            "description": "Configuration block for the production traffic route (documented below).\n"
-        },
-        "targetGroups": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:codedeploy/DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup:DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup"
+            "properties": {
+                "prodTrafficRoute": {
+                    "$ref": "#/types/aws:codedeploy/DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute:DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute",
+                    "description": "Configuration block for the production traffic route (documented below).\n"
+                },
+                "targetGroups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:codedeploy/DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup:DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup"
+                    },
+                    "description": "Configuration blocks for a target group within a target group pair (documented below).\n"
+                },
+                "testTrafficRoute": {
+                    "$ref": "#/types/aws:codedeploy/DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute:DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute",
+                    "description": "Configuration block for the test traffic route (documented below).\n"
+                }
             },
-            "description": "Configuration blocks for a target group within a target group pair (documented below).\n"
-        },
-        "testTrafficRoute": {
-            "$ref": "#/types/aws:codedeploy/DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute:DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute",
-            "description": "Configuration block for the test traffic route (documented below).\n"
+            "type": "object",
+            "required": [
+                "prodTrafficRoute",
+                "targetGroups"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "prodTrafficRoute",
-        "targetGroups"
-    ]
-}

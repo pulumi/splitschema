@@ -1,23 +1,23 @@
 {
-    "properties": {
-        "securityGroupIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.\n"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.\n"
+                }
             },
-            "description": "The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.\n"
-        },
-        "subnetIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.\n"
+            "type": "object",
+            "required": [
+                "securityGroupIds",
+                "subnetIds"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "securityGroupIds",
-        "subnetIds"
-    ]
-}

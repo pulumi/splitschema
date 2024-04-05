@@ -1,42 +1,42 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getReceivedLicenses.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:licensemanager/getReceivedLicensesFilter:getReceivedLicensesFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getReceivedLicenses.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:licensemanager/getReceivedLicensesFilter:getReceivedLicensesFilter"
+                        },
+                        "description": "Custom filter block as described below.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
+                    }
                 },
-                "description": "Custom filter block as described below.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getReceivedLicenses.\n",
-        "properties": {
-            "arns": {
-                "description": "List of all the license ARNs found.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
+                "type": "object"
             },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:licensemanager/getReceivedLicensesFilter:getReceivedLicensesFilter"
+            "outputs": {
+                "description": "A collection of values returned by getReceivedLicenses.\n",
+                "properties": {
+                    "arns": {
+                        "description": "List of all the license ARNs found.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:licensemanager/getReceivedLicensesFilter:getReceivedLicensesFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    }
                 },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
+                "required": [
+                    "arns",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "arns",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,94 +1,94 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getManagedPrefixList.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getManagedPrefixListFilter:getManagedPrefixListFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getManagedPrefixList.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getManagedPrefixListFilter:getManagedPrefixListFilter"
+                        },
+                        "description": "Configuration block(s) for filtering. Detailed below.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "ID of the prefix list to select.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the prefix list to select.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource.\n"
+                    }
                 },
-                "description": "Configuration block(s) for filtering. Detailed below.\n"
-            },
-            "id": {
-                "type": "string",
-                "description": "ID of the prefix list to select.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name of the prefix list to select.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags assigned to the resource.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getManagedPrefixList.\n",
-        "properties": {
-            "addressFamily": {
-                "description": "Address family of the prefix list. Valid values are `IPv4` and `IPv6`.\n",
-                "type": "string"
-            },
-            "arn": {
-                "description": "ARN of the selected prefix list.\n",
-                "type": "string"
-            },
-            "entries": {
-                "description": "Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.\n",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getManagedPrefixListEntry:getManagedPrefixListEntry"
-                },
-                "type": "array"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getManagedPrefixListFilter:getManagedPrefixListFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "ID of the selected prefix list.\n",
-                "type": "string"
-            },
-            "maxEntries": {
-                "description": "When then prefix list is managed, the maximum number of entries it supports, or null otherwise.\n",
-                "type": "integer"
-            },
-            "name": {
-                "description": "Name of the selected prefix list.\n",
-                "type": "string"
-            },
-            "ownerId": {
-                "description": "Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags assigned to the resource.\n",
                 "type": "object"
             },
-            "version": {
-                "type": "integer"
+            "outputs": {
+                "description": "A collection of values returned by getManagedPrefixList.\n",
+                "properties": {
+                    "addressFamily": {
+                        "description": "Address family of the prefix list. Valid values are `IPv4` and `IPv6`.\n",
+                        "type": "string"
+                    },
+                    "arn": {
+                        "description": "ARN of the selected prefix list.\n",
+                        "type": "string"
+                    },
+                    "entries": {
+                        "description": "Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.\n",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getManagedPrefixListEntry:getManagedPrefixListEntry"
+                        },
+                        "type": "array"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getManagedPrefixListFilter:getManagedPrefixListFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "ID of the selected prefix list.\n",
+                        "type": "string"
+                    },
+                    "maxEntries": {
+                        "description": "When then prefix list is managed, the maximum number of entries it supports, or null otherwise.\n",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Name of the selected prefix list.\n",
+                        "type": "string"
+                    },
+                    "ownerId": {
+                        "description": "Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource.\n",
+                        "type": "object"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "addressFamily",
+                    "arn",
+                    "entries",
+                    "id",
+                    "maxEntries",
+                    "name",
+                    "ownerId",
+                    "tags",
+                    "version"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "addressFamily",
-            "arn",
-            "entries",
-            "id",
-            "maxEntries",
-            "name",
-            "ownerId",
-            "tags",
-            "version"
-        ],
-        "type": "object"
-    }
-}
+        }

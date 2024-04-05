@@ -1,51 +1,51 @@
 {
-    "properties": {
-        "availabilityZones": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:mq/getInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone:getInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone"
+            "properties": {
+                "availabilityZones": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:mq/getInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone:getInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone"
+                    },
+                    "description": "List of available AZs. See Availability Zones. below\n"
+                },
+                "engineType": {
+                    "type": "string",
+                    "description": "Filter response by engine type.\n"
+                },
+                "hostInstanceType": {
+                    "type": "string",
+                    "description": "Filter response by host instance type.\n"
+                },
+                "storageType": {
+                    "type": "string",
+                    "description": "Filter response by storage type.\n"
+                },
+                "supportedDeploymentModes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of supported deployment modes.\n"
+                },
+                "supportedEngineVersions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of supported engine versions.\n"
+                }
             },
-            "description": "List of available AZs. See Availability Zones. below\n"
-        },
-        "engineType": {
-            "type": "string",
-            "description": "Filter response by engine type.\n"
-        },
-        "hostInstanceType": {
-            "type": "string",
-            "description": "Filter response by host instance type.\n"
-        },
-        "storageType": {
-            "type": "string",
-            "description": "Filter response by storage type.\n"
-        },
-        "supportedDeploymentModes": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The list of supported deployment modes.\n"
-        },
-        "supportedEngineVersions": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The list of supported engine versions.\n"
+            "type": "object",
+            "required": [
+                "availabilityZones",
+                "engineType",
+                "hostInstanceType",
+                "storageType",
+                "supportedDeploymentModes",
+                "supportedEngineVersions"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "availabilityZones",
-        "engineType",
-        "hostInstanceType",
-        "storageType",
-        "supportedDeploymentModes",
-        "supportedEngineVersions"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

@@ -1,194 +1,194 @@
 {
-    "properties": {
-        "admins": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of ARNs of AWS Lake Formation principals (IAM users or roles).\n"
-        },
-        "allowExternalDataFiltering": {
-            "type": "boolean",
-            "description": "Whether to allow Amazon EMR clusters to access data managed by Lake Formation.\n"
-        },
-        "authorizedSessionTagValueLists": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.\n\n\u003e **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.\n"
-        },
-        "catalogId": {
-            "type": "string",
-            "description": "Identifier for the Data Catalog. By default, the account ID.\n"
-        },
-        "createDatabaseDefaultPermissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:lakeformation/DataLakeSettingsCreateDatabaseDefaultPermission:DataLakeSettingsCreateDatabaseDefaultPermission"
-            },
-            "description": "Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.\n"
-        },
-        "createTableDefaultPermissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:lakeformation/DataLakeSettingsCreateTableDefaultPermission:DataLakeSettingsCreateTableDefaultPermission"
-            },
-            "description": "Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.\n"
-        },
-        "externalDataFilteringAllowLists": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.\n"
-        },
-        "readOnlyAdmins": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.\n"
-        },
-        "trustedResourceOwners": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).\n"
-        }
-    },
-    "required": [
-        "admins",
-        "authorizedSessionTagValueLists",
-        "createDatabaseDefaultPermissions",
-        "createTableDefaultPermissions",
-        "externalDataFilteringAllowLists",
-        "readOnlyAdmins",
-        "trustedResourceOwners"
-    ],
-    "inputProperties": {
-        "admins": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of ARNs of AWS Lake Formation principals (IAM users or roles).\n"
-        },
-        "allowExternalDataFiltering": {
-            "type": "boolean",
-            "description": "Whether to allow Amazon EMR clusters to access data managed by Lake Formation.\n"
-        },
-        "authorizedSessionTagValueLists": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.\n\n\u003e **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.\n"
-        },
-        "catalogId": {
-            "type": "string",
-            "description": "Identifier for the Data Catalog. By default, the account ID.\n",
-            "willReplaceOnChanges": true
-        },
-        "createDatabaseDefaultPermissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:lakeformation/DataLakeSettingsCreateDatabaseDefaultPermission:DataLakeSettingsCreateDatabaseDefaultPermission"
-            },
-            "description": "Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.\n"
-        },
-        "createTableDefaultPermissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:lakeformation/DataLakeSettingsCreateTableDefaultPermission:DataLakeSettingsCreateTableDefaultPermission"
-            },
-            "description": "Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.\n"
-        },
-        "externalDataFilteringAllowLists": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.\n"
-        },
-        "readOnlyAdmins": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.\n"
-        },
-        "trustedResourceOwners": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).\n"
-        }
-    },
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering DataLakeSettings resources.\n",
-        "properties": {
-            "admins": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "admins": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of ARNs of AWS Lake Formation principals (IAM users or roles).\n"
                 },
-                "description": "Set of ARNs of AWS Lake Formation principals (IAM users or roles).\n"
-            },
-            "allowExternalDataFiltering": {
-                "type": "boolean",
-                "description": "Whether to allow Amazon EMR clusters to access data managed by Lake Formation.\n"
-            },
-            "authorizedSessionTagValueLists": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "allowExternalDataFiltering": {
+                    "type": "boolean",
+                    "description": "Whether to allow Amazon EMR clusters to access data managed by Lake Formation.\n"
                 },
-                "description": "Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.\n\n\u003e **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.\n"
-            },
-            "catalogId": {
-                "type": "string",
-                "description": "Identifier for the Data Catalog. By default, the account ID.\n",
-                "willReplaceOnChanges": true
-            },
-            "createDatabaseDefaultPermissions": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:lakeformation/DataLakeSettingsCreateDatabaseDefaultPermission:DataLakeSettingsCreateDatabaseDefaultPermission"
+                "authorizedSessionTagValueLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.\n\n\u003e **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.\n"
                 },
-                "description": "Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.\n"
-            },
-            "createTableDefaultPermissions": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:lakeformation/DataLakeSettingsCreateTableDefaultPermission:DataLakeSettingsCreateTableDefaultPermission"
+                "catalogId": {
+                    "type": "string",
+                    "description": "Identifier for the Data Catalog. By default, the account ID.\n"
                 },
-                "description": "Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.\n"
-            },
-            "externalDataFilteringAllowLists": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "createDatabaseDefaultPermissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:lakeformation/DataLakeSettingsCreateDatabaseDefaultPermission:DataLakeSettingsCreateDatabaseDefaultPermission"
+                    },
+                    "description": "Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.\n"
                 },
-                "description": "A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.\n"
-            },
-            "readOnlyAdmins": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "createTableDefaultPermissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:lakeformation/DataLakeSettingsCreateTableDefaultPermission:DataLakeSettingsCreateTableDefaultPermission"
+                    },
+                    "description": "Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.\n"
                 },
-                "description": "Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.\n"
-            },
-            "trustedResourceOwners": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "externalDataFilteringAllowLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.\n"
                 },
-                "description": "List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).\n"
+                "readOnlyAdmins": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.\n"
+                },
+                "trustedResourceOwners": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).\n"
+                }
+            },
+            "required": [
+                "admins",
+                "authorizedSessionTagValueLists",
+                "createDatabaseDefaultPermissions",
+                "createTableDefaultPermissions",
+                "externalDataFilteringAllowLists",
+                "readOnlyAdmins",
+                "trustedResourceOwners"
+            ],
+            "inputProperties": {
+                "admins": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of ARNs of AWS Lake Formation principals (IAM users or roles).\n"
+                },
+                "allowExternalDataFiltering": {
+                    "type": "boolean",
+                    "description": "Whether to allow Amazon EMR clusters to access data managed by Lake Formation.\n"
+                },
+                "authorizedSessionTagValueLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.\n\n\u003e **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.\n"
+                },
+                "catalogId": {
+                    "type": "string",
+                    "description": "Identifier for the Data Catalog. By default, the account ID.\n",
+                    "willReplaceOnChanges": true
+                },
+                "createDatabaseDefaultPermissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:lakeformation/DataLakeSettingsCreateDatabaseDefaultPermission:DataLakeSettingsCreateDatabaseDefaultPermission"
+                    },
+                    "description": "Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.\n"
+                },
+                "createTableDefaultPermissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:lakeformation/DataLakeSettingsCreateTableDefaultPermission:DataLakeSettingsCreateTableDefaultPermission"
+                    },
+                    "description": "Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.\n"
+                },
+                "externalDataFilteringAllowLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.\n"
+                },
+                "readOnlyAdmins": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.\n"
+                },
+                "trustedResourceOwners": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DataLakeSettings resources.\n",
+                "properties": {
+                    "admins": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of ARNs of AWS Lake Formation principals (IAM users or roles).\n"
+                    },
+                    "allowExternalDataFiltering": {
+                        "type": "boolean",
+                        "description": "Whether to allow Amazon EMR clusters to access data managed by Lake Formation.\n"
+                    },
+                    "authorizedSessionTagValueLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.\n\n\u003e **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.\n"
+                    },
+                    "catalogId": {
+                        "type": "string",
+                        "description": "Identifier for the Data Catalog. By default, the account ID.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "createDatabaseDefaultPermissions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:lakeformation/DataLakeSettingsCreateDatabaseDefaultPermission:DataLakeSettingsCreateDatabaseDefaultPermission"
+                        },
+                        "description": "Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.\n"
+                    },
+                    "createTableDefaultPermissions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:lakeformation/DataLakeSettingsCreateTableDefaultPermission:DataLakeSettingsCreateTableDefaultPermission"
+                        },
+                        "description": "Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.\n"
+                    },
+                    "externalDataFilteringAllowLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.\n"
+                    },
+                    "readOnlyAdmins": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.\n"
+                    },
+                    "trustedResourceOwners": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

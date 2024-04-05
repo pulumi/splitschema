@@ -1,144 +1,144 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.\n"
-        },
-        "definitions": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "The description of the snapshot schedule.\n"
-        },
-        "forceDestroy": {
-            "type": "boolean",
-            "description": "Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.\n"
-        },
-        "identifier": {
-            "type": "string",
-            "description": "The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.\n"
-        },
-        "identifierPrefix": {
-            "type": "string",
-            "description": "Creates a unique\nidentifier beginning with the specified prefix. Conflicts with `identifier`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "definitions",
-        "identifier",
-        "identifierPrefix",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "definitions": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "The description of the snapshot schedule.\n",
-            "willReplaceOnChanges": true
-        },
-        "forceDestroy": {
-            "type": "boolean",
-            "description": "Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.\n"
-        },
-        "identifier": {
-            "type": "string",
-            "description": "The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.\n",
-            "willReplaceOnChanges": true
-        },
-        "identifierPrefix": {
-            "type": "string",
-            "description": "Creates a unique\nidentifier beginning with the specified prefix. Conflicts with `identifier`.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "definitions"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering SnapshotSchedule resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.\n"
-            },
-            "definitions": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.\n"
                 },
-                "description": "The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "The description of the snapshot schedule.\n",
-                "willReplaceOnChanges": true
-            },
-            "forceDestroy": {
-                "type": "boolean",
-                "description": "Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.\n"
-            },
-            "identifier": {
-                "type": "string",
-                "description": "The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.\n",
-                "willReplaceOnChanges": true
-            },
-            "identifierPrefix": {
-                "type": "string",
-                "description": "Creates a unique\nidentifier beginning with the specified prefix. Conflicts with `identifier`.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "definitions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.\n"
                 },
-                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "description": {
+                    "type": "string",
+                    "description": "The description of the snapshot schedule.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "forceDestroy": {
+                    "type": "boolean",
+                    "description": "Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.\n"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.\n"
+                },
+                "identifierPrefix": {
+                    "type": "string",
+                    "description": "Creates a unique\nidentifier beginning with the specified prefix. Conflicts with `identifier`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "definitions",
+                "identifier",
+                "identifierPrefix",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "definitions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the snapshot schedule.\n",
+                    "willReplaceOnChanges": true
+                },
+                "forceDestroy": {
+                    "type": "boolean",
+                    "description": "Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.\n"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.\n",
+                    "willReplaceOnChanges": true
+                },
+                "identifierPrefix": {
+                    "type": "string",
+                    "description": "Creates a unique\nidentifier beginning with the specified prefix. Conflicts with `identifier`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "definitions"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SnapshotSchedule resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.\n"
+                    },
+                    "definitions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the snapshot schedule.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "forceDestroy": {
+                        "type": "boolean",
+                        "description": "Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.\n"
+                    },
+                    "identifier": {
+                        "type": "string",
+                        "description": "The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "identifierPrefix": {
+                        "type": "string",
+                        "description": "Creates a unique\nidentifier beginning with the specified prefix. Conflicts with `identifier`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,70 +1,70 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getUser.\n",
-        "properties": {
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getUser.\n",
+                "properties": {
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the subnet group.\n"
+                    },
+                    "userName": {
+                        "type": "string",
+                        "description": "Name of the user.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "userName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getUser.\n",
+                "properties": {
+                    "accessString": {
+                        "description": "Access permissions string used for this user.\n",
+                        "type": "string"
+                    },
+                    "arn": {
+                        "description": "ARN of the user.\n",
+                        "type": "string"
+                    },
+                    "authenticationModes": {
+                        "description": "Denotes the user's authentication properties.\n",
+                        "items": {
+                            "$ref": "#/types/aws:memorydb/getUserAuthenticationMode:getUserAuthenticationMode"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "minimumEngineVersion": {
+                        "description": "The minimum engine version supported for the user.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the subnet group.\n",
+                        "type": "object"
+                    },
+                    "userName": {
+                        "type": "string"
+                    }
                 },
-                "description": "Map of tags assigned to the subnet group.\n"
-            },
-            "userName": {
-                "type": "string",
-                "description": "Name of the user.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "userName"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getUser.\n",
-        "properties": {
-            "accessString": {
-                "description": "Access permissions string used for this user.\n",
-                "type": "string"
-            },
-            "arn": {
-                "description": "ARN of the user.\n",
-                "type": "string"
-            },
-            "authenticationModes": {
-                "description": "Denotes the user's authentication properties.\n",
-                "items": {
-                    "$ref": "#/types/aws:memorydb/getUserAuthenticationMode:getUserAuthenticationMode"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "minimumEngineVersion": {
-                "description": "The minimum engine version supported for the user.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags assigned to the subnet group.\n",
+                "required": [
+                    "accessString",
+                    "arn",
+                    "authenticationModes",
+                    "minimumEngineVersion",
+                    "tags",
+                    "userName",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "userName": {
-                "type": "string"
             }
-        },
-        "required": [
-            "accessString",
-            "arn",
-            "authenticationModes",
-            "minimumEngineVersion",
-            "tags",
-            "userName",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

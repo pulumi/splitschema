@@ -1,100 +1,100 @@
 {
-    "properties": {
-        "deviceName": {
-            "type": "string",
-            "description": "The device name to expose to the instance (for\nexample, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.\n"
-        },
-        "forceDetach": {
-            "type": "boolean",
-            "description": "Set to `true` if you want to force the\nvolume to detach. Useful if previous attempts failed, but use this option only\nas a last resort, as this can result in **data loss**. See\n[Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.\n"
-        },
-        "instanceId": {
-            "type": "string",
-            "description": "ID of the Instance to attach to\n"
-        },
-        "skipDestroy": {
-            "type": "boolean",
-            "description": "Set this to true if you do not wish\nto detach the volume from the instance to which it is attached at destroy\ntime, and instead just remove the attachment from this provider state. This is\nuseful when destroying an instance which has volumes created by some other\nmeans attached.\n"
-        },
-        "stopInstanceBeforeDetaching": {
-            "type": "boolean",
-            "description": "Set this to true to ensure that the target instance is stopped\nbefore trying to detach the volume. Stops the instance, if it is not already stopped.\n"
-        },
-        "volumeId": {
-            "type": "string",
-            "description": "ID of the Volume to be attached\n"
-        }
-    },
-    "required": [
-        "deviceName",
-        "instanceId",
-        "volumeId"
-    ],
-    "inputProperties": {
-        "deviceName": {
-            "type": "string",
-            "description": "The device name to expose to the instance (for\nexample, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.\n",
-            "willReplaceOnChanges": true
-        },
-        "forceDetach": {
-            "type": "boolean",
-            "description": "Set to `true` if you want to force the\nvolume to detach. Useful if previous attempts failed, but use this option only\nas a last resort, as this can result in **data loss**. See\n[Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.\n"
-        },
-        "instanceId": {
-            "type": "string",
-            "description": "ID of the Instance to attach to\n",
-            "willReplaceOnChanges": true
-        },
-        "skipDestroy": {
-            "type": "boolean",
-            "description": "Set this to true if you do not wish\nto detach the volume from the instance to which it is attached at destroy\ntime, and instead just remove the attachment from this provider state. This is\nuseful when destroying an instance which has volumes created by some other\nmeans attached.\n"
-        },
-        "stopInstanceBeforeDetaching": {
-            "type": "boolean",
-            "description": "Set this to true to ensure that the target instance is stopped\nbefore trying to detach the volume. Stops the instance, if it is not already stopped.\n"
-        },
-        "volumeId": {
-            "type": "string",
-            "description": "ID of the Volume to be attached\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "deviceName",
-        "instanceId",
-        "volumeId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering VolumeAttachment resources.\n",
-        "properties": {
-            "deviceName": {
-                "type": "string",
-                "description": "The device name to expose to the instance (for\nexample, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.\n",
-                "willReplaceOnChanges": true
+            "properties": {
+                "deviceName": {
+                    "type": "string",
+                    "description": "The device name to expose to the instance (for\nexample, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.\n"
+                },
+                "forceDetach": {
+                    "type": "boolean",
+                    "description": "Set to `true` if you want to force the\nvolume to detach. Useful if previous attempts failed, but use this option only\nas a last resort, as this can result in **data loss**. See\n[Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "ID of the Instance to attach to\n"
+                },
+                "skipDestroy": {
+                    "type": "boolean",
+                    "description": "Set this to true if you do not wish\nto detach the volume from the instance to which it is attached at destroy\ntime, and instead just remove the attachment from this provider state. This is\nuseful when destroying an instance which has volumes created by some other\nmeans attached.\n"
+                },
+                "stopInstanceBeforeDetaching": {
+                    "type": "boolean",
+                    "description": "Set this to true to ensure that the target instance is stopped\nbefore trying to detach the volume. Stops the instance, if it is not already stopped.\n"
+                },
+                "volumeId": {
+                    "type": "string",
+                    "description": "ID of the Volume to be attached\n"
+                }
             },
-            "forceDetach": {
-                "type": "boolean",
-                "description": "Set to `true` if you want to force the\nvolume to detach. Useful if previous attempts failed, but use this option only\nas a last resort, as this can result in **data loss**. See\n[Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.\n"
+            "required": [
+                "deviceName",
+                "instanceId",
+                "volumeId"
+            ],
+            "inputProperties": {
+                "deviceName": {
+                    "type": "string",
+                    "description": "The device name to expose to the instance (for\nexample, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.\n",
+                    "willReplaceOnChanges": true
+                },
+                "forceDetach": {
+                    "type": "boolean",
+                    "description": "Set to `true` if you want to force the\nvolume to detach. Useful if previous attempts failed, but use this option only\nas a last resort, as this can result in **data loss**. See\n[Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "ID of the Instance to attach to\n",
+                    "willReplaceOnChanges": true
+                },
+                "skipDestroy": {
+                    "type": "boolean",
+                    "description": "Set this to true if you do not wish\nto detach the volume from the instance to which it is attached at destroy\ntime, and instead just remove the attachment from this provider state. This is\nuseful when destroying an instance which has volumes created by some other\nmeans attached.\n"
+                },
+                "stopInstanceBeforeDetaching": {
+                    "type": "boolean",
+                    "description": "Set this to true to ensure that the target instance is stopped\nbefore trying to detach the volume. Stops the instance, if it is not already stopped.\n"
+                },
+                "volumeId": {
+                    "type": "string",
+                    "description": "ID of the Volume to be attached\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "instanceId": {
-                "type": "string",
-                "description": "ID of the Instance to attach to\n",
-                "willReplaceOnChanges": true
-            },
-            "skipDestroy": {
-                "type": "boolean",
-                "description": "Set this to true if you do not wish\nto detach the volume from the instance to which it is attached at destroy\ntime, and instead just remove the attachment from this provider state. This is\nuseful when destroying an instance which has volumes created by some other\nmeans attached.\n"
-            },
-            "stopInstanceBeforeDetaching": {
-                "type": "boolean",
-                "description": "Set this to true to ensure that the target instance is stopped\nbefore trying to detach the volume. Stops the instance, if it is not already stopped.\n"
-            },
-            "volumeId": {
-                "type": "string",
-                "description": "ID of the Volume to be attached\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "deviceName",
+                "instanceId",
+                "volumeId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering VolumeAttachment resources.\n",
+                "properties": {
+                    "deviceName": {
+                        "type": "string",
+                        "description": "The device name to expose to the instance (for\nexample, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "forceDetach": {
+                        "type": "boolean",
+                        "description": "Set to `true` if you want to force the\nvolume to detach. Useful if previous attempts failed, but use this option only\nas a last resort, as this can result in **data loss**. See\n[Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.\n"
+                    },
+                    "instanceId": {
+                        "type": "string",
+                        "description": "ID of the Instance to attach to\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "skipDestroy": {
+                        "type": "boolean",
+                        "description": "Set this to true if you do not wish\nto detach the volume from the instance to which it is attached at destroy\ntime, and instead just remove the attachment from this provider state. This is\nuseful when destroying an instance which has volumes created by some other\nmeans attached.\n"
+                    },
+                    "stopInstanceBeforeDetaching": {
+                        "type": "boolean",
+                        "description": "Set this to true to ensure that the target instance is stopped\nbefore trying to detach the volume. Stops the instance, if it is not already stopped.\n"
+                    },
+                    "volumeId": {
+                        "type": "string",
+                        "description": "ID of the Volume to be attached\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

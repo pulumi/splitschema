@@ -1,156 +1,156 @@
 {
-    "properties": {
-        "appName": {
-            "type": "string",
-            "description": "The name of the app.\n"
-        },
-        "appType": {
-            "type": "string",
-            "description": "The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the app.\n"
-        },
-        "domainId": {
-            "type": "string",
-            "description": "The domain ID.\n"
-        },
-        "resourceSpec": {
-            "$ref": "#/types/aws:sagemaker/AppResourceSpec:AppResourceSpec",
-            "description": "The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.\n"
-        },
-        "spaceName": {
-            "type": "string",
-            "description": "The name of the space. At least one of `user_profile_name` or `space_name` required.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "userProfileName": {
-            "type": "string",
-            "description": "The user profile name. At least one of `user_profile_name` or `space_name` required.\n"
-        }
-    },
-    "required": [
-        "appName",
-        "appType",
-        "arn",
-        "domainId",
-        "resourceSpec",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "appName": {
-            "type": "string",
-            "description": "The name of the app.\n",
-            "willReplaceOnChanges": true
-        },
-        "appType": {
-            "type": "string",
-            "description": "The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.\n",
-            "willReplaceOnChanges": true
-        },
-        "domainId": {
-            "type": "string",
-            "description": "The domain ID.\n",
-            "willReplaceOnChanges": true
-        },
-        "resourceSpec": {
-            "$ref": "#/types/aws:sagemaker/AppResourceSpec:AppResourceSpec",
-            "description": "The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.\n",
-            "willReplaceOnChanges": true
-        },
-        "spaceName": {
-            "type": "string",
-            "description": "The name of the space. At least one of `user_profile_name` or `space_name` required.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "userProfileName": {
-            "type": "string",
-            "description": "The user profile name. At least one of `user_profile_name` or `space_name` required.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "appName",
-        "appType",
-        "domainId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering App resources.\n",
-        "properties": {
-            "appName": {
-                "type": "string",
-                "description": "The name of the app.\n",
-                "willReplaceOnChanges": true
-            },
-            "appType": {
-                "type": "string",
-                "description": "The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.\n",
-                "willReplaceOnChanges": true
-            },
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the app.\n"
-            },
-            "domainId": {
-                "type": "string",
-                "description": "The domain ID.\n",
-                "willReplaceOnChanges": true
-            },
-            "resourceSpec": {
-                "$ref": "#/types/aws:sagemaker/AppResourceSpec:AppResourceSpec",
-                "description": "The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.\n",
-                "willReplaceOnChanges": true
-            },
-            "spaceName": {
-                "type": "string",
-                "description": "The name of the space. At least one of `user_profile_name` or `space_name` required.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "appName": {
+                    "type": "string",
+                    "description": "The name of the app.\n"
                 },
-                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "appType": {
+                    "type": "string",
+                    "description": "The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the app.\n"
+                },
+                "domainId": {
+                    "type": "string",
+                    "description": "The domain ID.\n"
+                },
+                "resourceSpec": {
+                    "$ref": "#/types/aws:sagemaker/AppResourceSpec:AppResourceSpec",
+                    "description": "The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.\n"
+                },
+                "spaceName": {
+                    "type": "string",
+                    "description": "The name of the space. At least one of `user_profile_name` or `space_name` required.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "userProfileName": {
+                    "type": "string",
+                    "description": "The user profile name. At least one of `user_profile_name` or `space_name` required.\n"
+                }
             },
-            "userProfileName": {
-                "type": "string",
-                "description": "The user profile name. At least one of `user_profile_name` or `space_name` required.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "appName",
+                "appType",
+                "arn",
+                "domainId",
+                "resourceSpec",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "appName": {
+                    "type": "string",
+                    "description": "The name of the app.\n",
+                    "willReplaceOnChanges": true
+                },
+                "appType": {
+                    "type": "string",
+                    "description": "The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "domainId": {
+                    "type": "string",
+                    "description": "The domain ID.\n",
+                    "willReplaceOnChanges": true
+                },
+                "resourceSpec": {
+                    "$ref": "#/types/aws:sagemaker/AppResourceSpec:AppResourceSpec",
+                    "description": "The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "spaceName": {
+                    "type": "string",
+                    "description": "The name of the space. At least one of `user_profile_name` or `space_name` required.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "userProfileName": {
+                    "type": "string",
+                    "description": "The user profile name. At least one of `user_profile_name` or `space_name` required.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "appName",
+                "appType",
+                "domainId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering App resources.\n",
+                "properties": {
+                    "appName": {
+                        "type": "string",
+                        "description": "The name of the app.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "appType": {
+                        "type": "string",
+                        "description": "The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the app.\n"
+                    },
+                    "domainId": {
+                        "type": "string",
+                        "description": "The domain ID.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "resourceSpec": {
+                        "$ref": "#/types/aws:sagemaker/AppResourceSpec:AppResourceSpec",
+                        "description": "The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "spaceName": {
+                        "type": "string",
+                        "description": "The name of the space. At least one of `user_profile_name` or `space_name` required.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "userProfileName": {
+                        "type": "string",
+                        "description": "The user profile name. At least one of `user_profile_name` or `space_name` required.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

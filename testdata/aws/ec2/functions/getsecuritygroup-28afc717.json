@@ -1,77 +1,77 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getSecurityGroup.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getSecurityGroupFilter:getSecurityGroupFilter"
-                },
-                "description": "Custom filter block as described below.\n"
-            },
-            "id": {
-                "type": "string",
-                "description": "Id of the specific security group to retrieve.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name of the field to filter by, as defined by\n[the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags, each pair of which must exactly match\na pair on the desired security group.\n"
-            },
-            "vpcId": {
-                "type": "string",
-                "description": "Id of the VPC that the desired security group belongs to.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getSecurityGroup.\n",
-        "properties": {
-            "arn": {
-                "description": "Computed ARN of the security group.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Description of the security group.\n",
-                "type": "string"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getSecurityGroupFilter:getSecurityGroupFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getSecurityGroup.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getSecurityGroupFilter:getSecurityGroupFilter"
+                        },
+                        "description": "Custom filter block as described below.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Id of the specific security group to retrieve.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the field to filter by, as defined by\n[the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags, each pair of which must exactly match\na pair on the desired security group.\n"
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "Id of the VPC that the desired security group belongs to.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
+                    }
                 },
                 "type": "object"
             },
-            "vpcId": {
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getSecurityGroup.\n",
+                "properties": {
+                    "arn": {
+                        "description": "Computed ARN of the security group.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the security group.\n",
+                        "type": "string"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getSecurityGroupFilter:getSecurityGroupFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "vpcId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "description",
+                    "id",
+                    "name",
+                    "tags",
+                    "vpcId"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "description",
-            "id",
-            "name",
-            "tags",
-            "vpcId"
-        ],
-        "type": "object"
-    }
-}
+        }

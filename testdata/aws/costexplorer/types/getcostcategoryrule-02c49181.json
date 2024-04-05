@@ -1,38 +1,38 @@
 {
-    "properties": {
-        "inheritedValues": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:costexplorer/getCostCategoryRuleInheritedValue:getCostCategoryRuleInheritedValue"
+            "properties": {
+                "inheritedValues": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:costexplorer/getCostCategoryRuleInheritedValue:getCostCategoryRuleInheritedValue"
+                    },
+                    "description": "Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:costexplorer/getCostCategoryRuleRule:getCostCategoryRuleRule"
+                    },
+                    "description": "Configuration block for the `Expression` object used to categorize costs. See below.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Parameter type.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Default value for the cost category.\n"
+                }
             },
-            "description": "Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.\n"
-        },
-        "rules": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:costexplorer/getCostCategoryRuleRule:getCostCategoryRuleRule"
-            },
-            "description": "Configuration block for the `Expression` object used to categorize costs. See below.\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "Parameter type.\n"
-        },
-        "value": {
-            "type": "string",
-            "description": "Default value for the cost category.\n"
+            "type": "object",
+            "required": [
+                "inheritedValues",
+                "rules",
+                "type",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "inheritedValues",
-        "rules",
-        "type",
-        "value"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

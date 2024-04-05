@@ -1,27 +1,27 @@
 {
-    "properties": {
-        "interclusters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:fsx/OntapFileSystemEndpointIntercluster:OntapFileSystemEndpointIntercluster"
+            "properties": {
+                "interclusters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:fsx/OntapFileSystemEndpointIntercluster:OntapFileSystemEndpointIntercluster"
+                    },
+                    "description": "An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.\n"
+                },
+                "managements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:fsx/OntapFileSystemEndpointManagement:OntapFileSystemEndpointManagement"
+                    },
+                    "description": "An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.\n"
+                }
             },
-            "description": "An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.\n"
-        },
-        "managements": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:fsx/OntapFileSystemEndpointManagement:OntapFileSystemEndpointManagement"
-            },
-            "description": "An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.\n"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "interclusters",
+                        "managements"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "interclusters",
-                "managements"
-            ]
-        }
-    }
-}

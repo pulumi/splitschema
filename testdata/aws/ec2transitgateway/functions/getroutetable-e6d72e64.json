@@ -1,73 +1,73 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getRouteTable.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getRouteTableFilter:getRouteTableFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getRouteTable.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getRouteTableFilter:getRouteTableFilter"
+                        },
+                        "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Identifier of the EC2 Transit Gateway Route Table.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the EC2 Transit Gateway Route Table\n"
+                    }
                 },
-                "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
-            },
-            "id": {
-                "type": "string",
-                "description": "Identifier of the EC2 Transit Gateway Route Table.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value tags for the EC2 Transit Gateway Route Table\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getRouteTable.\n",
-        "properties": {
-            "arn": {
-                "description": "EC2 Transit Gateway Route Table ARN.\n",
-                "type": "string"
-            },
-            "defaultAssociationRouteTable": {
-                "description": "Boolean whether this is the default association route table for the EC2 Transit Gateway\n",
-                "type": "boolean"
-            },
-            "defaultPropagationRouteTable": {
-                "description": "Boolean whether this is the default propagation route table for the EC2 Transit Gateway\n",
-                "type": "boolean"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getRouteTableFilter:getRouteTableFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "EC2 Transit Gateway Route Table identifier\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value tags for the EC2 Transit Gateway Route Table\n",
                 "type": "object"
             },
-            "transitGatewayId": {
-                "description": "EC2 Transit Gateway identifier\n",
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getRouteTable.\n",
+                "properties": {
+                    "arn": {
+                        "description": "EC2 Transit Gateway Route Table ARN.\n",
+                        "type": "string"
+                    },
+                    "defaultAssociationRouteTable": {
+                        "description": "Boolean whether this is the default association route table for the EC2 Transit Gateway\n",
+                        "type": "boolean"
+                    },
+                    "defaultPropagationRouteTable": {
+                        "description": "Boolean whether this is the default propagation route table for the EC2 Transit Gateway\n",
+                        "type": "boolean"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getRouteTableFilter:getRouteTableFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "EC2 Transit Gateway Route Table identifier\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the EC2 Transit Gateway Route Table\n",
+                        "type": "object"
+                    },
+                    "transitGatewayId": {
+                        "description": "EC2 Transit Gateway identifier\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "defaultAssociationRouteTable",
+                    "defaultPropagationRouteTable",
+                    "id",
+                    "tags",
+                    "transitGatewayId"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "defaultAssociationRouteTable",
-            "defaultPropagationRouteTable",
-            "id",
-            "tags",
-            "transitGatewayId"
-        ],
-        "type": "object"
-    }
-}
+        }

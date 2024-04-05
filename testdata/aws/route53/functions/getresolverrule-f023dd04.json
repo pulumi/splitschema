@@ -1,91 +1,91 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getResolverRule.\n",
-        "properties": {
-            "domainName": {
-                "type": "string",
-                "description": "Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.\n"
-            },
-            "resolverEndpointId": {
-                "type": "string",
-                "description": "ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.\n"
-            },
-            "resolverRuleId": {
-                "type": "string",
-                "description": "ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.\n"
-            },
-            "ruleType": {
-                "type": "string",
-                "description": "Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getResolverRule.\n",
+                "properties": {
+                    "domainName": {
+                        "type": "string",
+                        "description": "Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.\n"
+                    },
+                    "resolverEndpointId": {
+                        "type": "string",
+                        "description": "ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.\n"
+                    },
+                    "resolverRuleId": {
+                        "type": "string",
+                        "description": "ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.\n"
+                    },
+                    "ruleType": {
+                        "type": "string",
+                        "description": "Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resolver rule.\n"
+                    }
                 },
-                "description": "Map of tags assigned to the resolver rule.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getResolverRule.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN (Amazon Resource Name) for the resolver rule.\n",
-                "type": "string"
+                "type": "object"
             },
-            "domainName": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "ownerId": {
-                "description": "When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.\n",
-                "type": "string"
-            },
-            "resolverEndpointId": {
-                "type": "string"
-            },
-            "resolverRuleId": {
-                "type": "string"
-            },
-            "ruleType": {
-                "type": "string"
-            },
-            "shareStatus": {
-                "description": "Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.\nValues are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getResolverRule.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN (Amazon Resource Name) for the resolver rule.\n",
+                        "type": "string"
+                    },
+                    "domainName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "ownerId": {
+                        "description": "When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.\n",
+                        "type": "string"
+                    },
+                    "resolverEndpointId": {
+                        "type": "string"
+                    },
+                    "resolverRuleId": {
+                        "type": "string"
+                    },
+                    "ruleType": {
+                        "type": "string"
+                    },
+                    "shareStatus": {
+                        "description": "Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.\nValues are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resolver rule.\n",
+                        "type": "object"
+                    }
                 },
-                "description": "Map of tags assigned to the resolver rule.\n",
+                "required": [
+                    "arn",
+                    "domainName",
+                    "name",
+                    "ownerId",
+                    "resolverEndpointId",
+                    "resolverRuleId",
+                    "ruleType",
+                    "shareStatus",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "domainName",
-            "name",
-            "ownerId",
-            "resolverEndpointId",
-            "resolverRuleId",
-            "ruleType",
-            "shareStatus",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

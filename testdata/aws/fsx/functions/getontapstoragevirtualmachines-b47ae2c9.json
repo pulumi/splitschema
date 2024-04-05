@@ -1,42 +1,42 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getOntapStorageVirtualMachines.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:fsx/getOntapStorageVirtualMachinesFilter:getOntapStorageVirtualMachinesFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getOntapStorageVirtualMachines.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:fsx/getOntapStorageVirtualMachinesFilter:getOntapStorageVirtualMachinesFilter"
+                        },
+                        "description": "Configuration block. Detailed below.\n"
+                    }
                 },
-                "description": "Configuration block. Detailed below.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getOntapStorageVirtualMachines.\n",
-        "properties": {
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:fsx/getOntapStorageVirtualMachinesFilter:getOntapStorageVirtualMachinesFilter"
-                },
-                "type": "array"
+                "type": "object"
             },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "ids": {
-                "description": "List of all SVM IDs found.\n",
-                "items": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getOntapStorageVirtualMachines.\n",
+                "properties": {
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:fsx/getOntapStorageVirtualMachinesFilter:getOntapStorageVirtualMachinesFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "List of all SVM IDs found.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
                 },
-                "type": "array"
+                "required": [
+                    "ids",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "ids",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

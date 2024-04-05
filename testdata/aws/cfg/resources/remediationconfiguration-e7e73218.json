@@ -1,162 +1,162 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the Config Remediation Configuration.\n"
-        },
-        "automatic": {
-            "type": "boolean",
-            "description": "Remediation is triggered automatically if `true`.\n"
-        },
-        "configRuleName": {
-            "type": "string",
-            "description": "Name of the AWS Config rule.\n"
-        },
-        "executionControls": {
-            "$ref": "#/types/aws:cfg/RemediationConfigurationExecutionControls:RemediationConfigurationExecutionControls",
-            "description": "Configuration block for execution controls. See below.\n"
-        },
-        "maximumAutomaticAttempts": {
-            "type": "integer",
-            "description": "Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.\n"
-        },
-        "parameters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:cfg/RemediationConfigurationParameter:RemediationConfigurationParameter"
-            },
-            "description": "Can be specified multiple times for each parameter. Each parameter block supports arguments below.\n"
-        },
-        "resourceType": {
-            "type": "string",
-            "description": "Type of resource.\n"
-        },
-        "retryAttemptSeconds": {
-            "type": "integer",
-            "description": "Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.\n"
-        },
-        "targetId": {
-            "type": "string",
-            "description": "Target ID is the name of the public document.\n"
-        },
-        "targetType": {
-            "type": "string",
-            "description": "Type of the target. Target executes remediation. For example, SSM document.\n\nThe following arguments are optional:\n"
-        },
-        "targetVersion": {
-            "type": "string",
-            "description": "Version of the target. For example, version of the SSM document\n"
-        }
-    },
-    "required": [
-        "arn",
-        "configRuleName",
-        "targetId",
-        "targetType"
-    ],
-    "inputProperties": {
-        "automatic": {
-            "type": "boolean",
-            "description": "Remediation is triggered automatically if `true`.\n"
-        },
-        "configRuleName": {
-            "type": "string",
-            "description": "Name of the AWS Config rule.\n",
-            "willReplaceOnChanges": true
-        },
-        "executionControls": {
-            "$ref": "#/types/aws:cfg/RemediationConfigurationExecutionControls:RemediationConfigurationExecutionControls",
-            "description": "Configuration block for execution controls. See below.\n"
-        },
-        "maximumAutomaticAttempts": {
-            "type": "integer",
-            "description": "Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.\n"
-        },
-        "parameters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:cfg/RemediationConfigurationParameter:RemediationConfigurationParameter"
-            },
-            "description": "Can be specified multiple times for each parameter. Each parameter block supports arguments below.\n"
-        },
-        "resourceType": {
-            "type": "string",
-            "description": "Type of resource.\n"
-        },
-        "retryAttemptSeconds": {
-            "type": "integer",
-            "description": "Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.\n"
-        },
-        "targetId": {
-            "type": "string",
-            "description": "Target ID is the name of the public document.\n"
-        },
-        "targetType": {
-            "type": "string",
-            "description": "Type of the target. Target executes remediation. For example, SSM document.\n\nThe following arguments are optional:\n"
-        },
-        "targetVersion": {
-            "type": "string",
-            "description": "Version of the target. For example, version of the SSM document\n"
-        }
-    },
-    "requiredInputs": [
-        "configRuleName",
-        "targetId",
-        "targetType"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering RemediationConfiguration resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the Config Remediation Configuration.\n"
-            },
-            "automatic": {
-                "type": "boolean",
-                "description": "Remediation is triggered automatically if `true`.\n"
-            },
-            "configRuleName": {
-                "type": "string",
-                "description": "Name of the AWS Config rule.\n",
-                "willReplaceOnChanges": true
-            },
-            "executionControls": {
-                "$ref": "#/types/aws:cfg/RemediationConfigurationExecutionControls:RemediationConfigurationExecutionControls",
-                "description": "Configuration block for execution controls. See below.\n"
-            },
-            "maximumAutomaticAttempts": {
-                "type": "integer",
-                "description": "Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.\n"
-            },
-            "parameters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:cfg/RemediationConfigurationParameter:RemediationConfigurationParameter"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the Config Remediation Configuration.\n"
                 },
-                "description": "Can be specified multiple times for each parameter. Each parameter block supports arguments below.\n"
+                "automatic": {
+                    "type": "boolean",
+                    "description": "Remediation is triggered automatically if `true`.\n"
+                },
+                "configRuleName": {
+                    "type": "string",
+                    "description": "Name of the AWS Config rule.\n"
+                },
+                "executionControls": {
+                    "$ref": "#/types/aws:cfg/RemediationConfigurationExecutionControls:RemediationConfigurationExecutionControls",
+                    "description": "Configuration block for execution controls. See below.\n"
+                },
+                "maximumAutomaticAttempts": {
+                    "type": "integer",
+                    "description": "Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.\n"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:cfg/RemediationConfigurationParameter:RemediationConfigurationParameter"
+                    },
+                    "description": "Can be specified multiple times for each parameter. Each parameter block supports arguments below.\n"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "Type of resource.\n"
+                },
+                "retryAttemptSeconds": {
+                    "type": "integer",
+                    "description": "Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.\n"
+                },
+                "targetId": {
+                    "type": "string",
+                    "description": "Target ID is the name of the public document.\n"
+                },
+                "targetType": {
+                    "type": "string",
+                    "description": "Type of the target. Target executes remediation. For example, SSM document.\n\nThe following arguments are optional:\n"
+                },
+                "targetVersion": {
+                    "type": "string",
+                    "description": "Version of the target. For example, version of the SSM document\n"
+                }
             },
-            "resourceType": {
-                "type": "string",
-                "description": "Type of resource.\n"
+            "required": [
+                "arn",
+                "configRuleName",
+                "targetId",
+                "targetType"
+            ],
+            "inputProperties": {
+                "automatic": {
+                    "type": "boolean",
+                    "description": "Remediation is triggered automatically if `true`.\n"
+                },
+                "configRuleName": {
+                    "type": "string",
+                    "description": "Name of the AWS Config rule.\n",
+                    "willReplaceOnChanges": true
+                },
+                "executionControls": {
+                    "$ref": "#/types/aws:cfg/RemediationConfigurationExecutionControls:RemediationConfigurationExecutionControls",
+                    "description": "Configuration block for execution controls. See below.\n"
+                },
+                "maximumAutomaticAttempts": {
+                    "type": "integer",
+                    "description": "Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.\n"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:cfg/RemediationConfigurationParameter:RemediationConfigurationParameter"
+                    },
+                    "description": "Can be specified multiple times for each parameter. Each parameter block supports arguments below.\n"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "Type of resource.\n"
+                },
+                "retryAttemptSeconds": {
+                    "type": "integer",
+                    "description": "Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.\n"
+                },
+                "targetId": {
+                    "type": "string",
+                    "description": "Target ID is the name of the public document.\n"
+                },
+                "targetType": {
+                    "type": "string",
+                    "description": "Type of the target. Target executes remediation. For example, SSM document.\n\nThe following arguments are optional:\n"
+                },
+                "targetVersion": {
+                    "type": "string",
+                    "description": "Version of the target. For example, version of the SSM document\n"
+                }
             },
-            "retryAttemptSeconds": {
-                "type": "integer",
-                "description": "Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.\n"
-            },
-            "targetId": {
-                "type": "string",
-                "description": "Target ID is the name of the public document.\n"
-            },
-            "targetType": {
-                "type": "string",
-                "description": "Type of the target. Target executes remediation. For example, SSM document.\n\nThe following arguments are optional:\n"
-            },
-            "targetVersion": {
-                "type": "string",
-                "description": "Version of the target. For example, version of the SSM document\n"
+            "requiredInputs": [
+                "configRuleName",
+                "targetId",
+                "targetType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RemediationConfiguration resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the Config Remediation Configuration.\n"
+                    },
+                    "automatic": {
+                        "type": "boolean",
+                        "description": "Remediation is triggered automatically if `true`.\n"
+                    },
+                    "configRuleName": {
+                        "type": "string",
+                        "description": "Name of the AWS Config rule.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "executionControls": {
+                        "$ref": "#/types/aws:cfg/RemediationConfigurationExecutionControls:RemediationConfigurationExecutionControls",
+                        "description": "Configuration block for execution controls. See below.\n"
+                    },
+                    "maximumAutomaticAttempts": {
+                        "type": "integer",
+                        "description": "Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.\n"
+                    },
+                    "parameters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:cfg/RemediationConfigurationParameter:RemediationConfigurationParameter"
+                        },
+                        "description": "Can be specified multiple times for each parameter. Each parameter block supports arguments below.\n"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Type of resource.\n"
+                    },
+                    "retryAttemptSeconds": {
+                        "type": "integer",
+                        "description": "Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.\n"
+                    },
+                    "targetId": {
+                        "type": "string",
+                        "description": "Target ID is the name of the public document.\n"
+                    },
+                    "targetType": {
+                        "type": "string",
+                        "description": "Type of the target. Target executes remediation. For example, SSM document.\n\nThe following arguments are optional:\n"
+                    },
+                    "targetVersion": {
+                        "type": "string",
+                        "description": "Version of the target. For example, version of the SSM document\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

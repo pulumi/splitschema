@@ -1,168 +1,168 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the gateway route.\n"
-        },
-        "createdDate": {
-            "type": "string",
-            "description": "Creation date of the gateway route.\n"
-        },
-        "lastUpdatedDate": {
-            "type": "string",
-            "description": "Last update date of the gateway route.\n"
-        },
-        "meshName": {
-            "type": "string",
-            "description": "Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.\n"
-        },
-        "meshOwner": {
-            "type": "string",
-            "description": "AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name to use for the gateway route. Must be between 1 and 255 characters in length.\n"
-        },
-        "resourceOwner": {
-            "type": "string",
-            "description": "Resource owner's AWS account ID.\n"
-        },
-        "spec": {
-            "$ref": "#/types/aws:appmesh/GatewayRouteSpec:GatewayRouteSpec",
-            "description": "Gateway route specification to apply.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "virtualGatewayName": {
-            "type": "string",
-            "description": "Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "createdDate",
-        "lastUpdatedDate",
-        "meshName",
-        "meshOwner",
-        "name",
-        "resourceOwner",
-        "spec",
-        "tagsAll",
-        "virtualGatewayName"
-    ],
-    "inputProperties": {
-        "meshName": {
-            "type": "string",
-            "description": "Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.\n",
-            "willReplaceOnChanges": true
-        },
-        "meshOwner": {
-            "type": "string",
-            "description": "AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Name to use for the gateway route. Must be between 1 and 255 characters in length.\n",
-            "willReplaceOnChanges": true
-        },
-        "spec": {
-            "$ref": "#/types/aws:appmesh/GatewayRouteSpec:GatewayRouteSpec",
-            "description": "Gateway route specification to apply.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "virtualGatewayName": {
-            "type": "string",
-            "description": "Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "meshName",
-        "spec",
-        "virtualGatewayName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering GatewayRoute resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the gateway route.\n"
-            },
-            "createdDate": {
-                "type": "string",
-                "description": "Creation date of the gateway route.\n"
-            },
-            "lastUpdatedDate": {
-                "type": "string",
-                "description": "Last update date of the gateway route.\n"
-            },
-            "meshName": {
-                "type": "string",
-                "description": "Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.\n",
-                "willReplaceOnChanges": true
-            },
-            "meshOwner": {
-                "type": "string",
-                "description": "AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "Name to use for the gateway route. Must be between 1 and 255 characters in length.\n",
-                "willReplaceOnChanges": true
-            },
-            "resourceOwner": {
-                "type": "string",
-                "description": "Resource owner's AWS account ID.\n"
-            },
-            "spec": {
-                "$ref": "#/types/aws:appmesh/GatewayRouteSpec:GatewayRouteSpec",
-                "description": "Gateway route specification to apply.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the gateway route.\n"
                 },
-                "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "createdDate": {
+                    "type": "string",
+                    "description": "Creation date of the gateway route.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "lastUpdatedDate": {
+                    "type": "string",
+                    "description": "Last update date of the gateway route.\n"
+                },
+                "meshName": {
+                    "type": "string",
+                    "description": "Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.\n"
+                },
+                "meshOwner": {
+                    "type": "string",
+                    "description": "AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name to use for the gateway route. Must be between 1 and 255 characters in length.\n"
+                },
+                "resourceOwner": {
+                    "type": "string",
+                    "description": "Resource owner's AWS account ID.\n"
+                },
+                "spec": {
+                    "$ref": "#/types/aws:appmesh/GatewayRouteSpec:GatewayRouteSpec",
+                    "description": "Gateway route specification to apply.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "virtualGatewayName": {
+                    "type": "string",
+                    "description": "Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.\n"
+                }
             },
-            "virtualGatewayName": {
-                "type": "string",
-                "description": "Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "createdDate",
+                "lastUpdatedDate",
+                "meshName",
+                "meshOwner",
+                "name",
+                "resourceOwner",
+                "spec",
+                "tagsAll",
+                "virtualGatewayName"
+            ],
+            "inputProperties": {
+                "meshName": {
+                    "type": "string",
+                    "description": "Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.\n",
+                    "willReplaceOnChanges": true
+                },
+                "meshOwner": {
+                    "type": "string",
+                    "description": "AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name to use for the gateway route. Must be between 1 and 255 characters in length.\n",
+                    "willReplaceOnChanges": true
+                },
+                "spec": {
+                    "$ref": "#/types/aws:appmesh/GatewayRouteSpec:GatewayRouteSpec",
+                    "description": "Gateway route specification to apply.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "virtualGatewayName": {
+                    "type": "string",
+                    "description": "Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "meshName",
+                "spec",
+                "virtualGatewayName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GatewayRoute resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the gateway route.\n"
+                    },
+                    "createdDate": {
+                        "type": "string",
+                        "description": "Creation date of the gateway route.\n"
+                    },
+                    "lastUpdatedDate": {
+                        "type": "string",
+                        "description": "Last update date of the gateway route.\n"
+                    },
+                    "meshName": {
+                        "type": "string",
+                        "description": "Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "meshOwner": {
+                        "type": "string",
+                        "description": "AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name to use for the gateway route. Must be between 1 and 255 characters in length.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "resourceOwner": {
+                        "type": "string",
+                        "description": "Resource owner's AWS account ID.\n"
+                    },
+                    "spec": {
+                        "$ref": "#/types/aws:appmesh/GatewayRouteSpec:GatewayRouteSpec",
+                        "description": "Gateway route specification to apply.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "virtualGatewayName": {
+                        "type": "string",
+                        "description": "Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

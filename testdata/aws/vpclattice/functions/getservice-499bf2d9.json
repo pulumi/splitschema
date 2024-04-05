@@ -1,85 +1,85 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getService.\n",
-        "properties": {
-            "name": {
-                "type": "string",
-                "description": "Service name.\n"
-            },
-            "serviceIdentifier": {
-                "type": "string",
-                "description": "ID or Amazon Resource Name (ARN) of the service.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getService.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Service name.\n"
+                    },
+                    "serviceIdentifier": {
+                        "type": "string",
+                        "description": "ID or Amazon Resource Name (ARN) of the service.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "List of tags associated with the service.\n"
+                    }
                 },
-                "description": "List of tags associated with the service.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getService.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the service.\n",
-                "type": "string"
+                "type": "object"
             },
-            "authType": {
-                "description": "Type of IAM policy. Either `NONE` or `AWS_IAM`.\n",
-                "type": "string"
-            },
-            "certificateArn": {
-                "description": "Amazon Resource Name (ARN) of the certificate.\n",
-                "type": "string"
-            },
-            "customDomainName": {
-                "description": "Custom domain name of the service.\n",
-                "type": "string"
-            },
-            "dnsEntries": {
-                "description": "DNS name of the service.\n",
-                "items": {
-                    "$ref": "#/types/aws:vpclattice/getServiceDnsEntry:getServiceDnsEntry"
+            "outputs": {
+                "description": "A collection of values returned by getService.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the service.\n",
+                        "type": "string"
+                    },
+                    "authType": {
+                        "description": "Type of IAM policy. Either `NONE` or `AWS_IAM`.\n",
+                        "type": "string"
+                    },
+                    "certificateArn": {
+                        "description": "Amazon Resource Name (ARN) of the certificate.\n",
+                        "type": "string"
+                    },
+                    "customDomainName": {
+                        "description": "Custom domain name of the service.\n",
+                        "type": "string"
+                    },
+                    "dnsEntries": {
+                        "description": "DNS name of the service.\n",
+                        "items": {
+                            "$ref": "#/types/aws:vpclattice/getServiceDnsEntry:getServiceDnsEntry"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "serviceIdentifier": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Status of the service.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "List of tags associated with the service.\n",
+                        "type": "object"
+                    }
                 },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "serviceIdentifier": {
-                "type": "string"
-            },
-            "status": {
-                "description": "Status of the service.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "List of tags associated with the service.\n",
+                "required": [
+                    "arn",
+                    "authType",
+                    "certificateArn",
+                    "customDomainName",
+                    "dnsEntries",
+                    "name",
+                    "serviceIdentifier",
+                    "status",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "authType",
-            "certificateArn",
-            "customDomainName",
-            "dnsEntries",
-            "name",
-            "serviceIdentifier",
-            "status",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

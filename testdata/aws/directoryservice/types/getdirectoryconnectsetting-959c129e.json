@@ -1,53 +1,53 @@
 {
-    "properties": {
-        "availabilityZones": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "availabilityZones": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "connectIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "IP addresses of the AD Connector servers.\n"
+                },
+                "customerDnsIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "DNS IP addresses of the domain to connect to.\n"
+                },
+                "customerUsername": {
+                    "type": "string",
+                    "description": "Username corresponding to the password provided.\n"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "ID of the VPC that the connector is in.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "availabilityZones",
+                "connectIps",
+                "customerDnsIps",
+                "customerUsername",
+                "subnetIds",
+                "vpcId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
             }
-        },
-        "connectIps": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "IP addresses of the AD Connector servers.\n"
-        },
-        "customerDnsIps": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "DNS IP addresses of the domain to connect to.\n"
-        },
-        "customerUsername": {
-            "type": "string",
-            "description": "Username corresponding to the password provided.\n"
-        },
-        "subnetIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).\n"
-        },
-        "vpcId": {
-            "type": "string",
-            "description": "ID of the VPC that the connector is in.\n"
         }
-    },
-    "type": "object",
-    "required": [
-        "availabilityZones",
-        "connectIps",
-        "customerDnsIps",
-        "customerUsername",
-        "subnetIds",
-        "vpcId"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

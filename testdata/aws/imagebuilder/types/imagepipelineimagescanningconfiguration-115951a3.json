@@ -1,20 +1,20 @@
 {
-    "properties": {
-        "ecrConfiguration": {
-            "$ref": "#/types/aws:imagebuilder/ImagePipelineImageScanningConfigurationEcrConfiguration:ImagePipelineImageScanningConfigurationEcrConfiguration",
-            "description": "Configuration block with ECR configuration for image scanning. Detailed below.\n"
-        },
-        "imageScanningEnabled": {
-            "type": "boolean",
-            "description": "Whether image scans are enabled. Defaults to `false`.\n"
+            "properties": {
+                "ecrConfiguration": {
+                    "$ref": "#/types/aws:imagebuilder/ImagePipelineImageScanningConfigurationEcrConfiguration:ImagePipelineImageScanningConfigurationEcrConfiguration",
+                    "description": "Configuration block with ECR configuration for image scanning. Detailed below.\n"
+                },
+                "imageScanningEnabled": {
+                    "type": "boolean",
+                    "description": "Whether image scans are enabled. Defaults to `false`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ecrConfiguration"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "ecrConfiguration"
-            ]
-        }
-    }
-}

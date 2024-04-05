@@ -1,20 +1,20 @@
 {
-    "properties": {
-        "name": {
-            "type": "string",
-            "description": "Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).\n"
-        },
-        "values": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).\n"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of values that are accepted for the given filter field. Results will be selected if any given value matches.\n"
+                }
             },
-            "description": "Set of values that are accepted for the given filter field. Results will be selected if any given value matches.\n"
+            "type": "object",
+            "required": [
+                "name",
+                "values"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "name",
-        "values"
-    ]
-}

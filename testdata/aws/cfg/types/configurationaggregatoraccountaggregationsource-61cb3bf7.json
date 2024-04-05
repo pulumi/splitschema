@@ -1,26 +1,26 @@
 {
-    "properties": {
-        "accountIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "accountIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of 12-digit account IDs of the account(s) being aggregated.\n"
+                },
+                "allRegions": {
+                    "type": "boolean",
+                    "description": "If true, aggregate existing AWS Config regions and future regions.\n"
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of source regions being aggregated.\n\nEither `regions` or `all_regions` (as true) must be specified.\n"
+                }
             },
-            "description": "List of 12-digit account IDs of the account(s) being aggregated.\n"
-        },
-        "allRegions": {
-            "type": "boolean",
-            "description": "If true, aggregate existing AWS Config regions and future regions.\n"
-        },
-        "regions": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of source regions being aggregated.\n\nEither `regions` or `all_regions` (as true) must be specified.\n"
+            "type": "object",
+            "required": [
+                "accountIds"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "accountIds"
-    ]
-}

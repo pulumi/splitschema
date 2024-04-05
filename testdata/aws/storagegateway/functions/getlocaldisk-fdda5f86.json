@@ -1,53 +1,53 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getLocalDisk.\n",
-        "properties": {
-            "diskNode": {
-                "type": "string",
-                "description": "Device node of the local disk to retrieve. For example, `/dev/sdb`.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalDisk.\n",
+                "properties": {
+                    "diskNode": {
+                        "type": "string",
+                        "description": "Device node of the local disk to retrieve. For example, `/dev/sdb`.\n"
+                    },
+                    "diskPath": {
+                        "type": "string",
+                        "description": "Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.\n"
+                    },
+                    "gatewayArn": {
+                        "type": "string",
+                        "description": "ARN of the gateway.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "gatewayArn"
+                ]
             },
-            "diskPath": {
-                "type": "string",
-                "description": "Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.\n"
-            },
-            "gatewayArn": {
-                "type": "string",
-                "description": "ARN of the gateway.\n"
+            "outputs": {
+                "description": "A collection of values returned by getLocalDisk.\n",
+                "properties": {
+                    "diskId": {
+                        "description": "Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`\n",
+                        "type": "string"
+                    },
+                    "diskNode": {
+                        "type": "string"
+                    },
+                    "diskPath": {
+                        "type": "string"
+                    },
+                    "gatewayArn": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "diskId",
+                    "diskNode",
+                    "diskPath",
+                    "gatewayArn",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "gatewayArn"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getLocalDisk.\n",
-        "properties": {
-            "diskId": {
-                "description": "Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`\n",
-                "type": "string"
-            },
-            "diskNode": {
-                "type": "string"
-            },
-            "diskPath": {
-                "type": "string"
-            },
-            "gatewayArn": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "diskId",
-            "diskNode",
-            "diskPath",
-            "gatewayArn",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

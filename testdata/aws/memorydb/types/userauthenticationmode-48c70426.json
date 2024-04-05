@@ -1,34 +1,34 @@
 {
-    "properties": {
-        "passwordCount": {
-            "type": "integer",
-            "description": "The number of passwords belonging to the user.\n"
-        },
-        "passwords": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "passwordCount": {
+                    "type": "integer",
+                    "description": "The number of passwords belonging to the user.\n"
+                },
+                "passwords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The set of passwords used for authentication. You can create up to two passwords for each user.\n",
+                    "secret": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Indicates whether the user requires a password to authenticate. Must be set to `password`.\n"
+                }
             },
-            "description": "The set of passwords used for authentication. You can create up to two passwords for each user.\n",
-            "secret": true
-        },
-        "type": {
-            "type": "string",
-            "description": "Indicates whether the user requires a password to authenticate. Must be set to `password`.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "passwords",
-        "type"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "passwordCount",
+            "type": "object",
+            "required": [
                 "passwords",
                 "type"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "passwordCount",
+                        "passwords",
+                        "type"
+                    ]
+                }
+            }
         }
-    }
-}

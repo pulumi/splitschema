@@ -1,19 +1,19 @@
 {
-    "properties": {
-        "parameters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter:FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter"
+            "properties": {
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter:FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter"
+                    },
+                    "description": "Array of processor parameters. More details are given below\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.\n"
+                }
             },
-            "description": "Array of processor parameters. More details are given below\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.\n"
+            "type": "object",
+            "required": [
+                "type"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "type"
-    ]
-}

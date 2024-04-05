@@ -1,80 +1,80 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getPlaceIndex.\n",
-        "properties": {
-            "indexName": {
-                "type": "string",
-                "description": "Name of the place index resource.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getPlaceIndex.\n",
+                "properties": {
+                    "indexName": {
+                        "type": "string",
+                        "description": "Name of the place index resource.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the place index.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "indexName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPlaceIndex.\n",
+                "properties": {
+                    "createTime": {
+                        "description": "Timestamp for when the place index resource was created in ISO 8601 format.\n",
+                        "type": "string"
+                    },
+                    "dataSource": {
+                        "description": "Data provider of geospatial data.\n",
+                        "type": "string"
+                    },
+                    "dataSourceConfigurations": {
+                        "description": "List of configurations that specify data storage option for requesting Places.\n",
+                        "items": {
+                            "$ref": "#/types/aws:location/getPlaceIndexDataSourceConfiguration:getPlaceIndexDataSourceConfiguration"
+                        },
+                        "type": "array"
+                    },
+                    "description": {
+                        "description": "Optional description for the place index resource.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "indexArn": {
+                        "description": "ARN for the place index resource.\n",
+                        "type": "string"
+                    },
+                    "indexName": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the place index.\n",
+                        "type": "object"
+                    },
+                    "updateTime": {
+                        "description": "Timestamp for when the place index resource was last updated in ISO 8601 format.\n",
+                        "type": "string"
+                    }
                 },
-                "description": "Key-value map of resource tags for the place index.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "indexName"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getPlaceIndex.\n",
-        "properties": {
-            "createTime": {
-                "description": "Timestamp for when the place index resource was created in ISO 8601 format.\n",
-                "type": "string"
-            },
-            "dataSource": {
-                "description": "Data provider of geospatial data.\n",
-                "type": "string"
-            },
-            "dataSourceConfigurations": {
-                "description": "List of configurations that specify data storage option for requesting Places.\n",
-                "items": {
-                    "$ref": "#/types/aws:location/getPlaceIndexDataSourceConfiguration:getPlaceIndexDataSourceConfiguration"
-                },
-                "type": "array"
-            },
-            "description": {
-                "description": "Optional description for the place index resource.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "indexArn": {
-                "description": "ARN for the place index resource.\n",
-                "type": "string"
-            },
-            "indexName": {
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value map of resource tags for the place index.\n",
+                "required": [
+                    "createTime",
+                    "dataSource",
+                    "dataSourceConfigurations",
+                    "description",
+                    "indexArn",
+                    "indexName",
+                    "tags",
+                    "updateTime",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "updateTime": {
-                "description": "Timestamp for when the place index resource was last updated in ISO 8601 format.\n",
-                "type": "string"
             }
-        },
-        "required": [
-            "createTime",
-            "dataSource",
-            "dataSourceConfigurations",
-            "description",
-            "indexArn",
-            "indexName",
-            "tags",
-            "updateTime",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

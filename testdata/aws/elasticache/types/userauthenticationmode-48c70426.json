@@ -1,31 +1,31 @@
 {
-    "properties": {
-        "passwordCount": {
-            "type": "integer"
-        },
-        "passwords": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "passwordCount": {
+                    "type": "integer"
+                },
+                "passwords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the passwords to use for authentication if `type` is set to `password`.\n",
+                    "secret": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.\n"
+                }
             },
-            "description": "Specifies the passwords to use for authentication if `type` is set to `password`.\n",
-            "secret": true
-        },
-        "type": {
-            "type": "string",
-            "description": "Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "type"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "passwordCount",
+            "type": "object",
+            "required": [
                 "type"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "passwordCount",
+                        "type"
+                    ]
+                }
+            }
         }
-    }
-}

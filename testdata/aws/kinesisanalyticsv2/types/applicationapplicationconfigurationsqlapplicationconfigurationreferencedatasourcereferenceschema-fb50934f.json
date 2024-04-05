@@ -1,24 +1,24 @@
 {
-    "properties": {
-        "recordColumns": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn:ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn"
+            "properties": {
+                "recordColumns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn:ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn"
+                    },
+                    "description": "Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.\n"
+                },
+                "recordEncoding": {
+                    "type": "string",
+                    "description": "Specifies the encoding of the records in the streaming source. For example, `UTF-8`.\n\nThe `s3_reference_data_source` object supports the following:\n"
+                },
+                "recordFormat": {
+                    "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat:ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat",
+                    "description": "Specifies the format of the records on the streaming source.\n"
+                }
             },
-            "description": "Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.\n"
-        },
-        "recordEncoding": {
-            "type": "string",
-            "description": "Specifies the encoding of the records in the streaming source. For example, `UTF-8`.\n\nThe `s3_reference_data_source` object supports the following:\n"
-        },
-        "recordFormat": {
-            "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat:ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat",
-            "description": "Specifies the format of the records on the streaming source.\n"
+            "type": "object",
+            "required": [
+                "recordColumns",
+                "recordFormat"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "recordColumns",
-        "recordFormat"
-    ]
-}

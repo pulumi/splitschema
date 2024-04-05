@@ -1,26 +1,26 @@
 {
-    "properties": {
-        "containerName": {
-            "type": "string",
-            "description": "Name of the container that will serve as the App Mesh proxy.\n",
-            "willReplaceOnChanges": true
-        },
-        "properties": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
+            "properties": {
+                "containerName": {
+                    "type": "string",
+                    "description": "Name of the container that will serve as the App Mesh proxy.\n",
+                    "willReplaceOnChanges": true
+                },
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.\n",
+                    "willReplaceOnChanges": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "description": "Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.\n",
-            "willReplaceOnChanges": true
-        },
-        "type": {
-            "type": "string",
-            "description": "Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.\n",
-            "willReplaceOnChanges": true
+            "type": "object",
+            "required": [
+                "containerName"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "containerName"
-    ]
-}

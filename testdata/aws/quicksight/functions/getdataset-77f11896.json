@@ -1,148 +1,148 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getDataSet.\n",
-        "properties": {
-            "awsAccountId": {
-                "type": "string",
-                "description": "AWS account ID.\n"
-            },
-            "columnLevelPermissionRules": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:quicksight/getDataSetColumnLevelPermissionRule:getDataSetColumnLevelPermissionRule"
-                }
-            },
-            "dataSetId": {
-                "type": "string",
-                "description": "Identifier for the data set.\n\nThe following arguments are optional:\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDataSet.\n",
+                "properties": {
+                    "awsAccountId": {
+                        "type": "string",
+                        "description": "AWS account ID.\n"
+                    },
+                    "columnLevelPermissionRules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/getDataSetColumnLevelPermissionRule:getDataSetColumnLevelPermissionRule"
+                        }
+                    },
+                    "dataSetId": {
+                        "type": "string",
+                        "description": "Identifier for the data set.\n\nThe following arguments are optional:\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "deprecationMessage": "this attribute has been deprecated"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                }
+                "required": [
+                    "dataSetId"
+                ]
             },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getDataSet.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string"
+                    },
+                    "awsAccountId": {
+                        "type": "string"
+                    },
+                    "columnGroups": {
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/getDataSetColumnGroup:getDataSetColumnGroup"
+                        },
+                        "type": "array"
+                    },
+                    "columnLevelPermissionRules": {
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/getDataSetColumnLevelPermissionRule:getDataSetColumnLevelPermissionRule"
+                        },
+                        "type": "array"
+                    },
+                    "dataSetId": {
+                        "type": "string"
+                    },
+                    "dataSetUsageConfigurations": {
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/getDataSetDataSetUsageConfiguration:getDataSetDataSetUsageConfiguration"
+                        },
+                        "type": "array"
+                    },
+                    "fieldFolders": {
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/getDataSetFieldFolder:getDataSetFieldFolder"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "importMode": {
+                        "type": "string"
+                    },
+                    "logicalTableMaps": {
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/getDataSetLogicalTableMap:getDataSetLogicalTableMap"
+                        },
+                        "type": "array"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "permissions": {
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/getDataSetPermission:getDataSetPermission"
+                        },
+                        "type": "array"
+                    },
+                    "physicalTableMaps": {
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/getDataSetPhysicalTableMap:getDataSetPhysicalTableMap"
+                        },
+                        "type": "array"
+                    },
+                    "rowLevelPermissionDataSets": {
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/getDataSetRowLevelPermissionDataSet:getDataSetRowLevelPermissionDataSet"
+                        },
+                        "type": "array"
+                    },
+                    "rowLevelPermissionTagConfigurations": {
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/getDataSetRowLevelPermissionTagConfiguration:getDataSetRowLevelPermissionTagConfiguration"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "tagsAll": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "deprecationMessage": "this attribute has been deprecated",
+                        "type": "object"
+                    }
                 },
-                "deprecationMessage": "this attribute has been deprecated"
-            }
-        },
-        "type": "object",
-        "required": [
-            "dataSetId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getDataSet.\n",
-        "properties": {
-            "arn": {
-                "type": "string"
-            },
-            "awsAccountId": {
-                "type": "string"
-            },
-            "columnGroups": {
-                "items": {
-                    "$ref": "#/types/aws:quicksight/getDataSetColumnGroup:getDataSetColumnGroup"
-                },
-                "type": "array"
-            },
-            "columnLevelPermissionRules": {
-                "items": {
-                    "$ref": "#/types/aws:quicksight/getDataSetColumnLevelPermissionRule:getDataSetColumnLevelPermissionRule"
-                },
-                "type": "array"
-            },
-            "dataSetId": {
-                "type": "string"
-            },
-            "dataSetUsageConfigurations": {
-                "items": {
-                    "$ref": "#/types/aws:quicksight/getDataSetDataSetUsageConfiguration:getDataSetDataSetUsageConfiguration"
-                },
-                "type": "array"
-            },
-            "fieldFolders": {
-                "items": {
-                    "$ref": "#/types/aws:quicksight/getDataSetFieldFolder:getDataSetFieldFolder"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "importMode": {
-                "type": "string"
-            },
-            "logicalTableMaps": {
-                "items": {
-                    "$ref": "#/types/aws:quicksight/getDataSetLogicalTableMap:getDataSetLogicalTableMap"
-                },
-                "type": "array"
-            },
-            "name": {
-                "type": "string"
-            },
-            "permissions": {
-                "items": {
-                    "$ref": "#/types/aws:quicksight/getDataSetPermission:getDataSetPermission"
-                },
-                "type": "array"
-            },
-            "physicalTableMaps": {
-                "items": {
-                    "$ref": "#/types/aws:quicksight/getDataSetPhysicalTableMap:getDataSetPhysicalTableMap"
-                },
-                "type": "array"
-            },
-            "rowLevelPermissionDataSets": {
-                "items": {
-                    "$ref": "#/types/aws:quicksight/getDataSetRowLevelPermissionDataSet:getDataSetRowLevelPermissionDataSet"
-                },
-                "type": "array"
-            },
-            "rowLevelPermissionTagConfigurations": {
-                "items": {
-                    "$ref": "#/types/aws:quicksight/getDataSetRowLevelPermissionTagConfiguration:getDataSetRowLevelPermissionTagConfiguration"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
+                "required": [
+                    "arn",
+                    "awsAccountId",
+                    "columnGroups",
+                    "dataSetId",
+                    "dataSetUsageConfigurations",
+                    "fieldFolders",
+                    "importMode",
+                    "logicalTableMaps",
+                    "name",
+                    "permissions",
+                    "physicalTableMaps",
+                    "rowLevelPermissionDataSets",
+                    "rowLevelPermissionTagConfigurations",
+                    "tags",
+                    "tagsAll",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "tagsAll": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "deprecationMessage": "this attribute has been deprecated",
-                "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "awsAccountId",
-            "columnGroups",
-            "dataSetId",
-            "dataSetUsageConfigurations",
-            "fieldFolders",
-            "importMode",
-            "logicalTableMaps",
-            "name",
-            "permissions",
-            "physicalTableMaps",
-            "rowLevelPermissionDataSets",
-            "rowLevelPermissionTagConfigurations",
-            "tags",
-            "tagsAll",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,72 +1,72 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getRouteCalculator.\n",
-        "properties": {
-            "calculatorName": {
-                "type": "string",
-                "description": "Name of the route calculator resource.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getRouteCalculator.\n",
+                "properties": {
+                    "calculatorName": {
+                        "type": "string",
+                        "description": "Name of the route calculator resource.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the route calculator.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "calculatorName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRouteCalculator.\n",
+                "properties": {
+                    "calculatorArn": {
+                        "description": "ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.\n",
+                        "type": "string"
+                    },
+                    "calculatorName": {
+                        "type": "string"
+                    },
+                    "createTime": {
+                        "description": "Timestamp for when the route calculator resource was created in ISO 8601 format.\n",
+                        "type": "string"
+                    },
+                    "dataSource": {
+                        "description": "Data provider of traffic and road network data.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Optional description of the route calculator resource.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the route calculator.\n",
+                        "type": "object"
+                    },
+                    "updateTime": {
+                        "description": "Timestamp for when the route calculator resource was last updated in ISO 8601 format.\n",
+                        "type": "string"
+                    }
                 },
-                "description": "Key-value map of resource tags for the route calculator.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "calculatorName"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getRouteCalculator.\n",
-        "properties": {
-            "calculatorArn": {
-                "description": "ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.\n",
-                "type": "string"
-            },
-            "calculatorName": {
-                "type": "string"
-            },
-            "createTime": {
-                "description": "Timestamp for when the route calculator resource was created in ISO 8601 format.\n",
-                "type": "string"
-            },
-            "dataSource": {
-                "description": "Data provider of traffic and road network data.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Optional description of the route calculator resource.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value map of resource tags for the route calculator.\n",
+                "required": [
+                    "calculatorArn",
+                    "calculatorName",
+                    "createTime",
+                    "dataSource",
+                    "description",
+                    "tags",
+                    "updateTime",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "updateTime": {
-                "description": "Timestamp for when the route calculator resource was last updated in ISO 8601 format.\n",
-                "type": "string"
             }
-        },
-        "required": [
-            "calculatorArn",
-            "calculatorName",
-            "createTime",
-            "dataSource",
-            "description",
-            "tags",
-            "updateTime",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

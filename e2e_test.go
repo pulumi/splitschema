@@ -103,30 +103,54 @@ func TestAwsWrite(t *testing.T) {
 	require.NoError(t, err)
 }
 
-func TestAws(t *testing.T) {
-	awsPath := filepath.Join("testdata", "aws")
+func TestAwsRoundTrip(t *testing.T) {
 	pkg, err := readPackage(filepath.Join("testdata", "aws.json"))
 	require.NoError(t, err)
 	assert.NotNil(t, pkg)
-	// err = WritePackageSpec(awsPath, pkg)
-	// require.NoError(t, err)
 
-	readSpec, err := ReadPackageSpec(awsPath)
+	dir := t.TempDir()
+	err = WritePackageSpec(dir, pkg)
+	require.NoError(t, err)
+
+	readSpec, err := ReadPackageSpec(dir)
 	require.NoError(t, err)
 	require.NotNil(t, readSpec)
 	assert.Equal(t, len(pkg.Resources), len(readSpec.Resources))
 	assert.Equal(t, len(pkg.Types), len(readSpec.Types))
 	assert.Equal(t, len(pkg.Functions), len(readSpec.Functions))
-	assert.Equal(t, pkg.Provider, readSpec.Provider)
 
-	pp := NewPartialFsPackage(awsPath)
-	resourceTokens, err := pp.GetResourceTokens()
-	require.NoError(t, err)
-	for _, tok := range resourceTokens {
-		res, err := pp.GetResource(tok)
-		require.NoError(t, err)
-		assert.Equal(t, pkg.Resources[tok], *res, "resource %s", tok)
+	assert.Equal(t, pkg.AllowedPackageNames, readSpec.AllowedPackageNames)
+	assert.Equal(t, pkg.Attribution, readSpec.Attribution)
+	assert.Equal(t, pkg.Config, readSpec.Config)
+	assert.Equal(t, pkg.Description, readSpec.Description)
+	assert.Equal(t, pkg.DisplayName, readSpec.DisplayName)
+	assert.Equal(t, pkg.Homepage, readSpec.Homepage)
+	assert.Equal(t, pkg.Keywords, readSpec.Keywords)
+	assert.Equal(t, pkg.Language, readSpec.Language)
+	assert.Equal(t, pkg.License, readSpec.License)
+	assert.Equal(t, pkg.LogoURL, readSpec.LogoURL)
+	assert.Equal(t, pkg.Meta, readSpec.Meta)
+	assert.Equal(t, pkg.Name, readSpec.Name)
+	assert.Equal(t, pkg.PluginDownloadURL, readSpec.PluginDownloadURL)
+	assert.Equal(t, pkg.Provider, readSpec.Provider)
+	assert.Equal(t, pkg.Publisher, readSpec.Publisher)
+	assert.Equal(t, pkg.Repository, readSpec.Repository)
+	assert.Equal(t, pkg.Version, readSpec.Version)
+
+	for tok, readResource := range readSpec.Resources {
+		assert.Equal(t, pkg.Resources[tok], readResource, "resource %s", tok)
 	}
+
+	for tok, readType := range readSpec.Types {
+		assert.Equal(t, pkg.Types[tok], readType, "type %s", tok)
+	}
+
+	for tok, readFunction := range readSpec.Functions {
+		assert.Equal(t, pkg.Functions[tok], readFunction, "function %s", tok)
+	}
+
+	// When this full equality check fails, it's often slow so we use the above specific comparisons which are faster, and comment this out.
+	assert.Equal(t, pkg, readSpec)
 }
 
 func readPackage(path string) (*schema.PackageSpec, error) {

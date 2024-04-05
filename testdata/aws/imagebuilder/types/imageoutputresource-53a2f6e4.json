@@ -1,27 +1,27 @@
 {
-    "properties": {
-        "amis": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:imagebuilder/ImageOutputResourceAmi:ImageOutputResourceAmi"
+            "properties": {
+                "amis": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:imagebuilder/ImageOutputResourceAmi:ImageOutputResourceAmi"
+                    },
+                    "description": "Set of objects with each Amazon Machine Image (AMI) created.\n"
+                },
+                "containers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:imagebuilder/ImageOutputResourceContainer:ImageOutputResourceContainer"
+                    },
+                    "description": "Set of objects with each container image created and stored in the output repository.\n"
+                }
             },
-            "description": "Set of objects with each Amazon Machine Image (AMI) created.\n"
-        },
-        "containers": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:imagebuilder/ImageOutputResourceContainer:ImageOutputResourceContainer"
-            },
-            "description": "Set of objects with each container image created and stored in the output repository.\n"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "amis",
+                        "containers"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "amis",
-                "containers"
-            ]
-        }
-    }
-}

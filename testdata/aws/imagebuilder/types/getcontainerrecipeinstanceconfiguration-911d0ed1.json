@@ -1,25 +1,25 @@
 {
-    "properties": {
-        "blockDeviceMappings": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:imagebuilder/getContainerRecipeInstanceConfigurationBlockDeviceMapping:getContainerRecipeInstanceConfigurationBlockDeviceMapping"
+            "properties": {
+                "blockDeviceMappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:imagebuilder/getContainerRecipeInstanceConfigurationBlockDeviceMapping:getContainerRecipeInstanceConfigurationBlockDeviceMapping"
+                    },
+                    "description": "Set of objects with block device mappings for the instance configuration.\n"
+                },
+                "image": {
+                    "type": "string",
+                    "description": "AMI ID of the base image for container build and test instance.\n"
+                }
             },
-            "description": "Set of objects with block device mappings for the instance configuration.\n"
-        },
-        "image": {
-            "type": "string",
-            "description": "AMI ID of the base image for container build and test instance.\n"
+            "type": "object",
+            "required": [
+                "blockDeviceMappings",
+                "image"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "blockDeviceMappings",
-        "image"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

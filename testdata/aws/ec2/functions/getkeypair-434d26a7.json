@@ -1,95 +1,95 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getKeyPair.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getKeyPairFilter:getKeyPairFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getKeyPair.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getKeyPairFilter:getKeyPairFilter"
+                        },
+                        "description": "Custom filter block as described below.\n"
+                    },
+                    "includePublicKey": {
+                        "type": "boolean",
+                        "description": "Whether to include the public key material in the response.\n"
+                    },
+                    "keyName": {
+                        "type": "string",
+                        "description": "Key Pair name.\n"
+                    },
+                    "keyPairId": {
+                        "type": "string",
+                        "description": "Key Pair ID.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Any tags assigned to the Key Pair.\n"
+                    }
                 },
-                "description": "Custom filter block as described below.\n"
+                "type": "object"
             },
-            "includePublicKey": {
-                "type": "boolean",
-                "description": "Whether to include the public key material in the response.\n"
-            },
-            "keyName": {
-                "type": "string",
-                "description": "Key Pair name.\n"
-            },
-            "keyPairId": {
-                "type": "string",
-                "description": "Key Pair ID.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getKeyPair.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the Key Pair.\n",
+                        "type": "string"
+                    },
+                    "createTime": {
+                        "description": "Timestamp for when the key pair was created in ISO 8601 format.\n",
+                        "type": "string"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getKeyPairFilter:getKeyPairFilter"
+                        },
+                        "type": "array"
+                    },
+                    "fingerprint": {
+                        "description": "SHA-1 digest of the DER encoded private key.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "includePublicKey": {
+                        "type": "boolean"
+                    },
+                    "keyName": {
+                        "type": "string"
+                    },
+                    "keyPairId": {
+                        "type": "string"
+                    },
+                    "keyType": {
+                        "description": "Type of key pair.\n",
+                        "type": "string"
+                    },
+                    "publicKey": {
+                        "description": "Public key material.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Any tags assigned to the Key Pair.\n",
+                        "type": "object"
+                    }
                 },
-                "description": "Any tags assigned to the Key Pair.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getKeyPair.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the Key Pair.\n",
-                "type": "string"
-            },
-            "createTime": {
-                "description": "Timestamp for when the key pair was created in ISO 8601 format.\n",
-                "type": "string"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getKeyPairFilter:getKeyPairFilter"
-                },
-                "type": "array"
-            },
-            "fingerprint": {
-                "description": "SHA-1 digest of the DER encoded private key.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "includePublicKey": {
-                "type": "boolean"
-            },
-            "keyName": {
-                "type": "string"
-            },
-            "keyPairId": {
-                "type": "string"
-            },
-            "keyType": {
-                "description": "Type of key pair.\n",
-                "type": "string"
-            },
-            "publicKey": {
-                "description": "Public key material.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Any tags assigned to the Key Pair.\n",
+                "required": [
+                    "arn",
+                    "createTime",
+                    "fingerprint",
+                    "keyType",
+                    "publicKey",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "createTime",
-            "fingerprint",
-            "keyType",
-            "publicKey",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

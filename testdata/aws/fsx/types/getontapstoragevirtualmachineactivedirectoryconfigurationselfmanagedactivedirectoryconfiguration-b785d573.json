@@ -1,40 +1,40 @@
 {
-    "properties": {
-        "dnsIps": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "dnsIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.\n"
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "The fully qualified domain name of the self-managed AD directory.\n"
+                },
+                "fileSystemAdministratorsGroup": {
+                    "type": "string",
+                    "description": "The name of the domain group whose members have administrative privileges for the FSx file system.\n"
+                },
+                "organizationalUnitDistinguishedName": {
+                    "type": "string",
+                    "description": "The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.\n"
+                }
             },
-            "description": "A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.\n"
-        },
-        "domainName": {
-            "type": "string",
-            "description": "The fully qualified domain name of the self-managed AD directory.\n"
-        },
-        "fileSystemAdministratorsGroup": {
-            "type": "string",
-            "description": "The name of the domain group whose members have administrative privileges for the FSx file system.\n"
-        },
-        "organizationalUnitDistinguishedName": {
-            "type": "string",
-            "description": "The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.\n"
-        },
-        "username": {
-            "type": "string",
-            "description": "The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.\n"
+            "type": "object",
+            "required": [
+                "dnsIps",
+                "domainName",
+                "fileSystemAdministratorsGroup",
+                "organizationalUnitDistinguishedName",
+                "username"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "dnsIps",
-        "domainName",
-        "fileSystemAdministratorsGroup",
-        "organizationalUnitDistinguishedName",
-        "username"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

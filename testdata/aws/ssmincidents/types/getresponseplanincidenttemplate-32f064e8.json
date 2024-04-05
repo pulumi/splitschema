@@ -1,48 +1,48 @@
 {
-    "properties": {
-        "dedupeString": {
-            "type": "string",
-            "description": "A string used to stop Incident Manager from creating multiple incident records for the same incident.\n"
-        },
-        "impact": {
-            "type": "integer",
-            "description": "The impact value of a generated incident. The following values are supported:\n"
-        },
-        "incidentTags": {
+            "properties": {
+                "dedupeString": {
+                    "type": "string",
+                    "description": "A string used to stop Incident Manager from creating multiple incident records for the same incident.\n"
+                },
+                "impact": {
+                    "type": "integer",
+                    "description": "The impact value of a generated incident. The following values are supported:\n"
+                },
+                "incidentTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.\n"
+                },
+                "notificationTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ssmincidents/getResponsePlanIncidentTemplateNotificationTarget:getResponsePlanIncidentTemplateNotificationTarget"
+                    },
+                    "description": "The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:\n"
+                },
+                "summary": {
+                    "type": "string",
+                    "description": "The summary of an incident.\n"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of a generated incident.\n"
+                }
+            },
             "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.\n"
-        },
-        "notificationTargets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ssmincidents/getResponsePlanIncidentTemplateNotificationTarget:getResponsePlanIncidentTemplateNotificationTarget"
-            },
-            "description": "The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:\n"
-        },
-        "summary": {
-            "type": "string",
-            "description": "The summary of an incident.\n"
-        },
-        "title": {
-            "type": "string",
-            "description": "The title of a generated incident.\n"
+            "required": [
+                "dedupeString",
+                "impact",
+                "incidentTags",
+                "notificationTargets",
+                "summary",
+                "title"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "dedupeString",
-        "impact",
-        "incidentTags",
-        "notificationTargets",
-        "summary",
-        "title"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

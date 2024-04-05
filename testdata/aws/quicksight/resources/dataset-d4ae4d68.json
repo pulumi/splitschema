@@ -1,312 +1,312 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "ARN of the dataset that contains permissions for RLS.\n"
-        },
-        "awsAccountId": {
-            "type": "string",
-            "description": "AWS account ID.\n"
-        },
-        "columnGroups": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetColumnGroup:DataSetColumnGroup"
-            },
-            "description": "Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.\n"
-        },
-        "columnLevelPermissionRules": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetColumnLevelPermissionRule:DataSetColumnLevelPermissionRule"
-            },
-            "description": "A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.\n"
-        },
-        "dataSetId": {
-            "type": "string",
-            "description": "Identifier for the data set.\n"
-        },
-        "dataSetUsageConfiguration": {
-            "$ref": "#/types/aws:quicksight/DataSetDataSetUsageConfiguration:DataSetDataSetUsageConfiguration",
-            "description": "The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.\n"
-        },
-        "fieldFolders": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetFieldFolder:DataSetFieldFolder"
-            },
-            "description": "The folder that contains fields and nested subfolders for your dataset. See field_folders.\n"
-        },
-        "importMode": {
-            "type": "string",
-            "description": "Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.\n"
-        },
-        "logicalTableMaps": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetLogicalTableMap:DataSetLogicalTableMap"
-            },
-            "description": "Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Display name for the dataset.\n"
-        },
-        "outputColumns": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetOutputColumn:DataSetOutputColumn"
-            }
-        },
-        "permissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetPermission:DataSetPermission"
-            },
-            "description": "A set of resource permissions on the data source. Maximum of 64 items. See permissions.\n"
-        },
-        "physicalTableMaps": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMap:DataSetPhysicalTableMap"
-            },
-            "description": "Declares the physical tables that are available in the underlying data sources. See physical_table_map.\n\nThe following arguments are optional:\n"
-        },
-        "refreshProperties": {
-            "$ref": "#/types/aws:quicksight/DataSetRefreshProperties:DataSetRefreshProperties",
-            "description": "The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.\n"
-        },
-        "rowLevelPermissionDataSet": {
-            "$ref": "#/types/aws:quicksight/DataSetRowLevelPermissionDataSet:DataSetRowLevelPermissionDataSet",
-            "description": "The row-level security configuration for the data that you want to create. See row_level_permission_data_set.\n"
-        },
-        "rowLevelPermissionTagConfiguration": {
-            "$ref": "#/types/aws:quicksight/DataSetRowLevelPermissionTagConfiguration:DataSetRowLevelPermissionTagConfiguration",
-            "description": "The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "awsAccountId",
-        "dataSetId",
-        "dataSetUsageConfiguration",
-        "importMode",
-        "logicalTableMaps",
-        "name",
-        "outputColumns",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "awsAccountId": {
-            "type": "string",
-            "description": "AWS account ID.\n",
-            "willReplaceOnChanges": true
-        },
-        "columnGroups": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetColumnGroup:DataSetColumnGroup"
-            },
-            "description": "Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.\n"
-        },
-        "columnLevelPermissionRules": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetColumnLevelPermissionRule:DataSetColumnLevelPermissionRule"
-            },
-            "description": "A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.\n"
-        },
-        "dataSetId": {
-            "type": "string",
-            "description": "Identifier for the data set.\n",
-            "willReplaceOnChanges": true
-        },
-        "dataSetUsageConfiguration": {
-            "$ref": "#/types/aws:quicksight/DataSetDataSetUsageConfiguration:DataSetDataSetUsageConfiguration",
-            "description": "The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.\n"
-        },
-        "fieldFolders": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetFieldFolder:DataSetFieldFolder"
-            },
-            "description": "The folder that contains fields and nested subfolders for your dataset. See field_folders.\n"
-        },
-        "importMode": {
-            "type": "string",
-            "description": "Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.\n"
-        },
-        "logicalTableMaps": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetLogicalTableMap:DataSetLogicalTableMap"
-            },
-            "description": "Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Display name for the dataset.\n"
-        },
-        "permissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetPermission:DataSetPermission"
-            },
-            "description": "A set of resource permissions on the data source. Maximum of 64 items. See permissions.\n"
-        },
-        "physicalTableMaps": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMap:DataSetPhysicalTableMap"
-            },
-            "description": "Declares the physical tables that are available in the underlying data sources. See physical_table_map.\n\nThe following arguments are optional:\n"
-        },
-        "refreshProperties": {
-            "$ref": "#/types/aws:quicksight/DataSetRefreshProperties:DataSetRefreshProperties",
-            "description": "The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.\n"
-        },
-        "rowLevelPermissionDataSet": {
-            "$ref": "#/types/aws:quicksight/DataSetRowLevelPermissionDataSet:DataSetRowLevelPermissionDataSet",
-            "description": "The row-level security configuration for the data that you want to create. See row_level_permission_data_set.\n"
-        },
-        "rowLevelPermissionTagConfiguration": {
-            "$ref": "#/types/aws:quicksight/DataSetRowLevelPermissionTagConfiguration:DataSetRowLevelPermissionTagConfiguration",
-            "description": "The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "dataSetId",
-        "importMode"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering DataSet resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the dataset that contains permissions for RLS.\n"
-            },
-            "awsAccountId": {
-                "type": "string",
-                "description": "AWS account ID.\n",
-                "willReplaceOnChanges": true
-            },
-            "columnGroups": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:quicksight/DataSetColumnGroup:DataSetColumnGroup"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the dataset that contains permissions for RLS.\n"
                 },
-                "description": "Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.\n"
-            },
-            "columnLevelPermissionRules": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:quicksight/DataSetColumnLevelPermissionRule:DataSetColumnLevelPermissionRule"
+                "awsAccountId": {
+                    "type": "string",
+                    "description": "AWS account ID.\n"
                 },
-                "description": "A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.\n"
-            },
-            "dataSetId": {
-                "type": "string",
-                "description": "Identifier for the data set.\n",
-                "willReplaceOnChanges": true
-            },
-            "dataSetUsageConfiguration": {
-                "$ref": "#/types/aws:quicksight/DataSetDataSetUsageConfiguration:DataSetDataSetUsageConfiguration",
-                "description": "The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.\n"
-            },
-            "fieldFolders": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:quicksight/DataSetFieldFolder:DataSetFieldFolder"
+                "columnGroups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetColumnGroup:DataSetColumnGroup"
+                    },
+                    "description": "Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.\n"
                 },
-                "description": "The folder that contains fields and nested subfolders for your dataset. See field_folders.\n"
-            },
-            "importMode": {
-                "type": "string",
-                "description": "Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.\n"
-            },
-            "logicalTableMaps": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:quicksight/DataSetLogicalTableMap:DataSetLogicalTableMap"
+                "columnLevelPermissionRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetColumnLevelPermissionRule:DataSetColumnLevelPermissionRule"
+                    },
+                    "description": "A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.\n"
                 },
-                "description": "Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Display name for the dataset.\n"
-            },
-            "outputColumns": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:quicksight/DataSetOutputColumn:DataSetOutputColumn"
+                "dataSetId": {
+                    "type": "string",
+                    "description": "Identifier for the data set.\n"
+                },
+                "dataSetUsageConfiguration": {
+                    "$ref": "#/types/aws:quicksight/DataSetDataSetUsageConfiguration:DataSetDataSetUsageConfiguration",
+                    "description": "The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.\n"
+                },
+                "fieldFolders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetFieldFolder:DataSetFieldFolder"
+                    },
+                    "description": "The folder that contains fields and nested subfolders for your dataset. See field_folders.\n"
+                },
+                "importMode": {
+                    "type": "string",
+                    "description": "Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.\n"
+                },
+                "logicalTableMaps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetLogicalTableMap:DataSetLogicalTableMap"
+                    },
+                    "description": "Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Display name for the dataset.\n"
+                },
+                "outputColumns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetOutputColumn:DataSetOutputColumn"
+                    }
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetPermission:DataSetPermission"
+                    },
+                    "description": "A set of resource permissions on the data source. Maximum of 64 items. See permissions.\n"
+                },
+                "physicalTableMaps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMap:DataSetPhysicalTableMap"
+                    },
+                    "description": "Declares the physical tables that are available in the underlying data sources. See physical_table_map.\n\nThe following arguments are optional:\n"
+                },
+                "refreshProperties": {
+                    "$ref": "#/types/aws:quicksight/DataSetRefreshProperties:DataSetRefreshProperties",
+                    "description": "The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.\n"
+                },
+                "rowLevelPermissionDataSet": {
+                    "$ref": "#/types/aws:quicksight/DataSetRowLevelPermissionDataSet:DataSetRowLevelPermissionDataSet",
+                    "description": "The row-level security configuration for the data that you want to create. See row_level_permission_data_set.\n"
+                },
+                "rowLevelPermissionTagConfiguration": {
+                    "$ref": "#/types/aws:quicksight/DataSetRowLevelPermissionTagConfiguration:DataSetRowLevelPermissionTagConfiguration",
+                    "description": "The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
                 }
             },
-            "permissions": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:quicksight/DataSetPermission:DataSetPermission"
+            "required": [
+                "arn",
+                "awsAccountId",
+                "dataSetId",
+                "dataSetUsageConfiguration",
+                "importMode",
+                "logicalTableMaps",
+                "name",
+                "outputColumns",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "awsAccountId": {
+                    "type": "string",
+                    "description": "AWS account ID.\n",
+                    "willReplaceOnChanges": true
                 },
-                "description": "A set of resource permissions on the data source. Maximum of 64 items. See permissions.\n"
-            },
-            "physicalTableMaps": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMap:DataSetPhysicalTableMap"
+                "columnGroups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetColumnGroup:DataSetColumnGroup"
+                    },
+                    "description": "Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.\n"
                 },
-                "description": "Declares the physical tables that are available in the underlying data sources. See physical_table_map.\n\nThe following arguments are optional:\n"
-            },
-            "refreshProperties": {
-                "$ref": "#/types/aws:quicksight/DataSetRefreshProperties:DataSetRefreshProperties",
-                "description": "The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.\n"
-            },
-            "rowLevelPermissionDataSet": {
-                "$ref": "#/types/aws:quicksight/DataSetRowLevelPermissionDataSet:DataSetRowLevelPermissionDataSet",
-                "description": "The row-level security configuration for the data that you want to create. See row_level_permission_data_set.\n"
-            },
-            "rowLevelPermissionTagConfiguration": {
-                "$ref": "#/types/aws:quicksight/DataSetRowLevelPermissionTagConfiguration:DataSetRowLevelPermissionTagConfiguration",
-                "description": "The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "columnLevelPermissionRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetColumnLevelPermissionRule:DataSetColumnLevelPermissionRule"
+                    },
+                    "description": "A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.\n"
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "dataSetId": {
+                    "type": "string",
+                    "description": "Identifier for the data set.\n",
+                    "willReplaceOnChanges": true
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "dataSetUsageConfiguration": {
+                    "$ref": "#/types/aws:quicksight/DataSetDataSetUsageConfiguration:DataSetDataSetUsageConfiguration",
+                    "description": "The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.\n"
+                },
+                "fieldFolders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetFieldFolder:DataSetFieldFolder"
+                    },
+                    "description": "The folder that contains fields and nested subfolders for your dataset. See field_folders.\n"
+                },
+                "importMode": {
+                    "type": "string",
+                    "description": "Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.\n"
+                },
+                "logicalTableMaps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetLogicalTableMap:DataSetLogicalTableMap"
+                    },
+                    "description": "Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Display name for the dataset.\n"
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetPermission:DataSetPermission"
+                    },
+                    "description": "A set of resource permissions on the data source. Maximum of 64 items. See permissions.\n"
+                },
+                "physicalTableMaps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMap:DataSetPhysicalTableMap"
+                    },
+                    "description": "Declares the physical tables that are available in the underlying data sources. See physical_table_map.\n\nThe following arguments are optional:\n"
+                },
+                "refreshProperties": {
+                    "$ref": "#/types/aws:quicksight/DataSetRefreshProperties:DataSetRefreshProperties",
+                    "description": "The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.\n"
+                },
+                "rowLevelPermissionDataSet": {
+                    "$ref": "#/types/aws:quicksight/DataSetRowLevelPermissionDataSet:DataSetRowLevelPermissionDataSet",
+                    "description": "The row-level security configuration for the data that you want to create. See row_level_permission_data_set.\n"
+                },
+                "rowLevelPermissionTagConfiguration": {
+                    "$ref": "#/types/aws:quicksight/DataSetRowLevelPermissionTagConfiguration:DataSetRowLevelPermissionTagConfiguration",
+                    "description": "The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "dataSetId",
+                "importMode"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DataSet resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the dataset that contains permissions for RLS.\n"
+                    },
+                    "awsAccountId": {
+                        "type": "string",
+                        "description": "AWS account ID.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "columnGroups": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/DataSetColumnGroup:DataSetColumnGroup"
+                        },
+                        "description": "Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.\n"
+                    },
+                    "columnLevelPermissionRules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/DataSetColumnLevelPermissionRule:DataSetColumnLevelPermissionRule"
+                        },
+                        "description": "A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.\n"
+                    },
+                    "dataSetId": {
+                        "type": "string",
+                        "description": "Identifier for the data set.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "dataSetUsageConfiguration": {
+                        "$ref": "#/types/aws:quicksight/DataSetDataSetUsageConfiguration:DataSetDataSetUsageConfiguration",
+                        "description": "The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.\n"
+                    },
+                    "fieldFolders": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/DataSetFieldFolder:DataSetFieldFolder"
+                        },
+                        "description": "The folder that contains fields and nested subfolders for your dataset. See field_folders.\n"
+                    },
+                    "importMode": {
+                        "type": "string",
+                        "description": "Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.\n"
+                    },
+                    "logicalTableMaps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/DataSetLogicalTableMap:DataSetLogicalTableMap"
+                        },
+                        "description": "Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Display name for the dataset.\n"
+                    },
+                    "outputColumns": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/DataSetOutputColumn:DataSetOutputColumn"
+                        }
+                    },
+                    "permissions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/DataSetPermission:DataSetPermission"
+                        },
+                        "description": "A set of resource permissions on the data source. Maximum of 64 items. See permissions.\n"
+                    },
+                    "physicalTableMaps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMap:DataSetPhysicalTableMap"
+                        },
+                        "description": "Declares the physical tables that are available in the underlying data sources. See physical_table_map.\n\nThe following arguments are optional:\n"
+                    },
+                    "refreshProperties": {
+                        "$ref": "#/types/aws:quicksight/DataSetRefreshProperties:DataSetRefreshProperties",
+                        "description": "The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.\n"
+                    },
+                    "rowLevelPermissionDataSet": {
+                        "$ref": "#/types/aws:quicksight/DataSetRowLevelPermissionDataSet:DataSetRowLevelPermissionDataSet",
+                        "description": "The row-level security configuration for the data that you want to create. See row_level_permission_data_set.\n"
+                    },
+                    "rowLevelPermissionTagConfiguration": {
+                        "$ref": "#/types/aws:quicksight/DataSetRowLevelPermissionTagConfiguration:DataSetRowLevelPermissionTagConfiguration",
+                        "description": "The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

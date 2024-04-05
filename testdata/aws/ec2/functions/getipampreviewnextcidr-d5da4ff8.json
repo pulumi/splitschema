@@ -1,57 +1,57 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getIpamPreviewNextCidr.\n",
-        "properties": {
-            "disallowedCidrs": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getIpamPreviewNextCidr.\n",
+                "properties": {
+                    "disallowedCidrs": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Exclude a particular CIDR range from being returned by the pool.\n"
+                    },
+                    "ipamPoolId": {
+                        "type": "string",
+                        "description": "ID of the pool to which you want to assign a CIDR.\n"
+                    },
+                    "netmaskLength": {
+                        "type": "integer",
+                        "description": "Netmask length of the CIDR you would like to preview from the IPAM pool.\n"
+                    }
                 },
-                "description": "Exclude a particular CIDR range from being returned by the pool.\n"
+                "type": "object",
+                "required": [
+                    "ipamPoolId"
+                ]
             },
-            "ipamPoolId": {
-                "type": "string",
-                "description": "ID of the pool to which you want to assign a CIDR.\n"
-            },
-            "netmaskLength": {
-                "type": "integer",
-                "description": "Netmask length of the CIDR you would like to preview from the IPAM pool.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "ipamPoolId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getIpamPreviewNextCidr.\n",
-        "properties": {
-            "cidr": {
-                "description": "Previewed CIDR from the pool.\n",
-                "type": "string"
-            },
-            "disallowedCidrs": {
-                "items": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getIpamPreviewNextCidr.\n",
+                "properties": {
+                    "cidr": {
+                        "description": "Previewed CIDR from the pool.\n",
+                        "type": "string"
+                    },
+                    "disallowedCidrs": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "ipamPoolId": {
+                        "type": "string"
+                    },
+                    "netmaskLength": {
+                        "type": "integer"
+                    }
                 },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "ipamPoolId": {
-                "type": "string"
-            },
-            "netmaskLength": {
-                "type": "integer"
+                "required": [
+                    "cidr",
+                    "ipamPoolId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "cidr",
-            "ipamPoolId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

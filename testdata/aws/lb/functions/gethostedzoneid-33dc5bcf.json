@@ -1,35 +1,35 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getHostedZoneId.\n",
-        "properties": {
-            "loadBalancerType": {
-                "type": "string",
-                "description": "Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getHostedZoneId.\n",
+                "properties": {
+                    "loadBalancerType": {
+                        "type": "string",
+                        "description": "Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Name of the region whose AWS ELB HostedZoneId is desired.\nDefaults to the region from the AWS provider configuration.\n"
+                    }
+                },
+                "type": "object"
             },
-            "region": {
-                "type": "string",
-                "description": "Name of the region whose AWS ELB HostedZoneId is desired.\nDefaults to the region from the AWS provider configuration.\n"
+            "outputs": {
+                "description": "A collection of values returned by getHostedZoneId.\n",
+                "properties": {
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "loadBalancerType": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getHostedZoneId.\n",
-        "properties": {
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "loadBalancerType": {
-                "type": "string"
-            },
-            "region": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

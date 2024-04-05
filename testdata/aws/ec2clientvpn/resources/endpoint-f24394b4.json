@@ -1,308 +1,308 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the Client VPN endpoint.\n"
-        },
-        "authenticationOptions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ec2clientvpn/EndpointAuthenticationOption:EndpointAuthenticationOption"
-            },
-            "description": "Information about the authentication method to be used to authenticate clients.\n"
-        },
-        "clientCidrBlock": {
-            "type": "string",
-            "description": "The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.\n"
-        },
-        "clientConnectOptions": {
-            "$ref": "#/types/aws:ec2clientvpn/EndpointClientConnectOptions:EndpointClientConnectOptions",
-            "description": "The options for managing connection authorization for new client connections.\n"
-        },
-        "clientLoginBannerOptions": {
-            "$ref": "#/types/aws:ec2clientvpn/EndpointClientLoginBannerOptions:EndpointClientLoginBannerOptions",
-            "description": "Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.\n"
-        },
-        "connectionLogOptions": {
-            "$ref": "#/types/aws:ec2clientvpn/EndpointConnectionLogOptions:EndpointConnectionLogOptions",
-            "description": "Information about the client connection logging options.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A brief description of the Client VPN endpoint.\n"
-        },
-        "dnsName": {
-            "type": "string",
-            "description": "The DNS name to be used by clients when establishing their VPN session.\n"
-        },
-        "dnsServers": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.\n"
-        },
-        "securityGroupIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.\n"
-        },
-        "selfServicePortal": {
-            "type": "string",
-            "description": "Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.\n"
-        },
-        "selfServicePortalUrl": {
-            "type": "string",
-            "description": "The URL of the self-service portal.\n"
-        },
-        "serverCertificateArn": {
-            "type": "string",
-            "description": "The ARN of the ACM server certificate.\n"
-        },
-        "sessionTimeoutHours": {
-            "type": "integer",
-            "description": "The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`\n"
-        },
-        "splitTunnel": {
-            "type": "boolean",
-            "description": "Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "transportProtocol": {
-            "type": "string",
-            "description": "The transport protocol to be used by the VPN session. Default value is `udp`.\n"
-        },
-        "vpcId": {
-            "type": "string",
-            "description": "The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.\n"
-        },
-        "vpnPort": {
-            "type": "integer",
-            "description": "The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "authenticationOptions",
-        "clientCidrBlock",
-        "clientConnectOptions",
-        "clientLoginBannerOptions",
-        "connectionLogOptions",
-        "dnsName",
-        "securityGroupIds",
-        "selfServicePortalUrl",
-        "serverCertificateArn",
-        "tagsAll",
-        "vpcId"
-    ],
-    "inputProperties": {
-        "authenticationOptions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ec2clientvpn/EndpointAuthenticationOption:EndpointAuthenticationOption"
-            },
-            "description": "Information about the authentication method to be used to authenticate clients.\n",
-            "willReplaceOnChanges": true
-        },
-        "clientCidrBlock": {
-            "type": "string",
-            "description": "The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.\n",
-            "willReplaceOnChanges": true
-        },
-        "clientConnectOptions": {
-            "$ref": "#/types/aws:ec2clientvpn/EndpointClientConnectOptions:EndpointClientConnectOptions",
-            "description": "The options for managing connection authorization for new client connections.\n"
-        },
-        "clientLoginBannerOptions": {
-            "$ref": "#/types/aws:ec2clientvpn/EndpointClientLoginBannerOptions:EndpointClientLoginBannerOptions",
-            "description": "Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.\n"
-        },
-        "connectionLogOptions": {
-            "$ref": "#/types/aws:ec2clientvpn/EndpointConnectionLogOptions:EndpointConnectionLogOptions",
-            "description": "Information about the client connection logging options.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A brief description of the Client VPN endpoint.\n"
-        },
-        "dnsServers": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.\n"
-        },
-        "securityGroupIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.\n"
-        },
-        "selfServicePortal": {
-            "type": "string",
-            "description": "Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.\n"
-        },
-        "serverCertificateArn": {
-            "type": "string",
-            "description": "The ARN of the ACM server certificate.\n"
-        },
-        "sessionTimeoutHours": {
-            "type": "integer",
-            "description": "The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`\n"
-        },
-        "splitTunnel": {
-            "type": "boolean",
-            "description": "Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "transportProtocol": {
-            "type": "string",
-            "description": "The transport protocol to be used by the VPN session. Default value is `udp`.\n",
-            "willReplaceOnChanges": true
-        },
-        "vpcId": {
-            "type": "string",
-            "description": "The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.\n"
-        },
-        "vpnPort": {
-            "type": "integer",
-            "description": "The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.\n"
-        }
-    },
-    "requiredInputs": [
-        "authenticationOptions",
-        "clientCidrBlock",
-        "connectionLogOptions",
-        "serverCertificateArn"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Endpoint resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the Client VPN endpoint.\n"
-            },
-            "authenticationOptions": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2clientvpn/EndpointAuthenticationOption:EndpointAuthenticationOption"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the Client VPN endpoint.\n"
                 },
-                "description": "Information about the authentication method to be used to authenticate clients.\n",
-                "willReplaceOnChanges": true
-            },
-            "clientCidrBlock": {
-                "type": "string",
-                "description": "The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.\n",
-                "willReplaceOnChanges": true
-            },
-            "clientConnectOptions": {
-                "$ref": "#/types/aws:ec2clientvpn/EndpointClientConnectOptions:EndpointClientConnectOptions",
-                "description": "The options for managing connection authorization for new client connections.\n"
-            },
-            "clientLoginBannerOptions": {
-                "$ref": "#/types/aws:ec2clientvpn/EndpointClientLoginBannerOptions:EndpointClientLoginBannerOptions",
-                "description": "Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.\n"
-            },
-            "connectionLogOptions": {
-                "$ref": "#/types/aws:ec2clientvpn/EndpointConnectionLogOptions:EndpointConnectionLogOptions",
-                "description": "Information about the client connection logging options.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "A brief description of the Client VPN endpoint.\n"
-            },
-            "dnsName": {
-                "type": "string",
-                "description": "The DNS name to be used by clients when establishing their VPN session.\n"
-            },
-            "dnsServers": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "authenticationOptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ec2clientvpn/EndpointAuthenticationOption:EndpointAuthenticationOption"
+                    },
+                    "description": "Information about the authentication method to be used to authenticate clients.\n"
                 },
-                "description": "Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.\n"
-            },
-            "securityGroupIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "clientCidrBlock": {
+                    "type": "string",
+                    "description": "The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.\n"
                 },
-                "description": "The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.\n"
-            },
-            "selfServicePortal": {
-                "type": "string",
-                "description": "Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.\n"
-            },
-            "selfServicePortalUrl": {
-                "type": "string",
-                "description": "The URL of the self-service portal.\n"
-            },
-            "serverCertificateArn": {
-                "type": "string",
-                "description": "The ARN of the ACM server certificate.\n"
-            },
-            "sessionTimeoutHours": {
-                "type": "integer",
-                "description": "The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`\n"
-            },
-            "splitTunnel": {
-                "type": "boolean",
-                "description": "Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "clientConnectOptions": {
+                    "$ref": "#/types/aws:ec2clientvpn/EndpointClientConnectOptions:EndpointClientConnectOptions",
+                    "description": "The options for managing connection authorization for new client connections.\n"
                 },
-                "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "clientLoginBannerOptions": {
+                    "$ref": "#/types/aws:ec2clientvpn/EndpointClientLoginBannerOptions:EndpointClientLoginBannerOptions",
+                    "description": "Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "connectionLogOptions": {
+                    "$ref": "#/types/aws:ec2clientvpn/EndpointConnectionLogOptions:EndpointConnectionLogOptions",
+                    "description": "Information about the client connection logging options.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A brief description of the Client VPN endpoint.\n"
+                },
+                "dnsName": {
+                    "type": "string",
+                    "description": "The DNS name to be used by clients when establishing their VPN session.\n"
+                },
+                "dnsServers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.\n"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.\n"
+                },
+                "selfServicePortal": {
+                    "type": "string",
+                    "description": "Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.\n"
+                },
+                "selfServicePortalUrl": {
+                    "type": "string",
+                    "description": "The URL of the self-service portal.\n"
+                },
+                "serverCertificateArn": {
+                    "type": "string",
+                    "description": "The ARN of the ACM server certificate.\n"
+                },
+                "sessionTimeoutHours": {
+                    "type": "integer",
+                    "description": "The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`\n"
+                },
+                "splitTunnel": {
+                    "type": "boolean",
+                    "description": "Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "transportProtocol": {
+                    "type": "string",
+                    "description": "The transport protocol to be used by the VPN session. Default value is `udp`.\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.\n"
+                },
+                "vpnPort": {
+                    "type": "integer",
+                    "description": "The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.\n"
+                }
             },
-            "transportProtocol": {
-                "type": "string",
-                "description": "The transport protocol to be used by the VPN session. Default value is `udp`.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "authenticationOptions",
+                "clientCidrBlock",
+                "clientConnectOptions",
+                "clientLoginBannerOptions",
+                "connectionLogOptions",
+                "dnsName",
+                "securityGroupIds",
+                "selfServicePortalUrl",
+                "serverCertificateArn",
+                "tagsAll",
+                "vpcId"
+            ],
+            "inputProperties": {
+                "authenticationOptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ec2clientvpn/EndpointAuthenticationOption:EndpointAuthenticationOption"
+                    },
+                    "description": "Information about the authentication method to be used to authenticate clients.\n",
+                    "willReplaceOnChanges": true
+                },
+                "clientCidrBlock": {
+                    "type": "string",
+                    "description": "The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.\n",
+                    "willReplaceOnChanges": true
+                },
+                "clientConnectOptions": {
+                    "$ref": "#/types/aws:ec2clientvpn/EndpointClientConnectOptions:EndpointClientConnectOptions",
+                    "description": "The options for managing connection authorization for new client connections.\n"
+                },
+                "clientLoginBannerOptions": {
+                    "$ref": "#/types/aws:ec2clientvpn/EndpointClientLoginBannerOptions:EndpointClientLoginBannerOptions",
+                    "description": "Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.\n"
+                },
+                "connectionLogOptions": {
+                    "$ref": "#/types/aws:ec2clientvpn/EndpointConnectionLogOptions:EndpointConnectionLogOptions",
+                    "description": "Information about the client connection logging options.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A brief description of the Client VPN endpoint.\n"
+                },
+                "dnsServers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.\n"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.\n"
+                },
+                "selfServicePortal": {
+                    "type": "string",
+                    "description": "Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.\n"
+                },
+                "serverCertificateArn": {
+                    "type": "string",
+                    "description": "The ARN of the ACM server certificate.\n"
+                },
+                "sessionTimeoutHours": {
+                    "type": "integer",
+                    "description": "The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`\n"
+                },
+                "splitTunnel": {
+                    "type": "boolean",
+                    "description": "Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "transportProtocol": {
+                    "type": "string",
+                    "description": "The transport protocol to be used by the VPN session. Default value is `udp`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.\n"
+                },
+                "vpnPort": {
+                    "type": "integer",
+                    "description": "The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.\n"
+                }
             },
-            "vpcId": {
-                "type": "string",
-                "description": "The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.\n"
-            },
-            "vpnPort": {
-                "type": "integer",
-                "description": "The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.\n"
+            "requiredInputs": [
+                "authenticationOptions",
+                "clientCidrBlock",
+                "connectionLogOptions",
+                "serverCertificateArn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Endpoint resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the Client VPN endpoint.\n"
+                    },
+                    "authenticationOptions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2clientvpn/EndpointAuthenticationOption:EndpointAuthenticationOption"
+                        },
+                        "description": "Information about the authentication method to be used to authenticate clients.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "clientCidrBlock": {
+                        "type": "string",
+                        "description": "The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "clientConnectOptions": {
+                        "$ref": "#/types/aws:ec2clientvpn/EndpointClientConnectOptions:EndpointClientConnectOptions",
+                        "description": "The options for managing connection authorization for new client connections.\n"
+                    },
+                    "clientLoginBannerOptions": {
+                        "$ref": "#/types/aws:ec2clientvpn/EndpointClientLoginBannerOptions:EndpointClientLoginBannerOptions",
+                        "description": "Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.\n"
+                    },
+                    "connectionLogOptions": {
+                        "$ref": "#/types/aws:ec2clientvpn/EndpointConnectionLogOptions:EndpointConnectionLogOptions",
+                        "description": "Information about the client connection logging options.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A brief description of the Client VPN endpoint.\n"
+                    },
+                    "dnsName": {
+                        "type": "string",
+                        "description": "The DNS name to be used by clients when establishing their VPN session.\n"
+                    },
+                    "dnsServers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.\n"
+                    },
+                    "securityGroupIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.\n"
+                    },
+                    "selfServicePortal": {
+                        "type": "string",
+                        "description": "Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.\n"
+                    },
+                    "selfServicePortalUrl": {
+                        "type": "string",
+                        "description": "The URL of the self-service portal.\n"
+                    },
+                    "serverCertificateArn": {
+                        "type": "string",
+                        "description": "The ARN of the ACM server certificate.\n"
+                    },
+                    "sessionTimeoutHours": {
+                        "type": "integer",
+                        "description": "The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`\n"
+                    },
+                    "splitTunnel": {
+                        "type": "boolean",
+                        "description": "Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "transportProtocol": {
+                        "type": "string",
+                        "description": "The transport protocol to be used by the VPN session. Default value is `udp`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.\n"
+                    },
+                    "vpnPort": {
+                        "type": "integer",
+                        "description": "The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,84 +1,84 @@
 {
-    "properties": {
-        "bucket": {
-            "type": "string",
-            "description": "Name of the source S3 bucket you want Amazon S3 to monitor.\n"
-        },
-        "role": {
-            "type": "string",
-            "description": "ARN of the IAM role for Amazon S3 to assume when replicating the objects.\n"
-        },
-        "rules": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:s3/BucketReplicationConfigRule:BucketReplicationConfigRule"
-            },
-            "description": "List of configuration blocks describing the rules managing the replication. See below.\n"
-        },
-        "token": {
-            "type": "string",
-            "description": "Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's \"Object Lock token\".\nFor more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).\n",
-            "secret": true
-        }
-    },
-    "required": [
-        "bucket",
-        "role",
-        "rules"
-    ],
-    "inputProperties": {
-        "bucket": {
-            "type": "string",
-            "description": "Name of the source S3 bucket you want Amazon S3 to monitor.\n",
-            "willReplaceOnChanges": true
-        },
-        "role": {
-            "type": "string",
-            "description": "ARN of the IAM role for Amazon S3 to assume when replicating the objects.\n"
-        },
-        "rules": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:s3/BucketReplicationConfigRule:BucketReplicationConfigRule"
-            },
-            "description": "List of configuration blocks describing the rules managing the replication. See below.\n"
-        },
-        "token": {
-            "type": "string",
-            "description": "Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's \"Object Lock token\".\nFor more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).\n",
-            "secret": true
-        }
-    },
-    "requiredInputs": [
-        "bucket",
-        "role",
-        "rules"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering BucketReplicationConfig resources.\n",
-        "properties": {
-            "bucket": {
-                "type": "string",
-                "description": "Name of the source S3 bucket you want Amazon S3 to monitor.\n",
-                "willReplaceOnChanges": true
-            },
-            "role": {
-                "type": "string",
-                "description": "ARN of the IAM role for Amazon S3 to assume when replicating the objects.\n"
-            },
-            "rules": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:s3/BucketReplicationConfigRule:BucketReplicationConfigRule"
+            "properties": {
+                "bucket": {
+                    "type": "string",
+                    "description": "Name of the source S3 bucket you want Amazon S3 to monitor.\n"
                 },
-                "description": "List of configuration blocks describing the rules managing the replication. See below.\n"
+                "role": {
+                    "type": "string",
+                    "description": "ARN of the IAM role for Amazon S3 to assume when replicating the objects.\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:s3/BucketReplicationConfigRule:BucketReplicationConfigRule"
+                    },
+                    "description": "List of configuration blocks describing the rules managing the replication. See below.\n"
+                },
+                "token": {
+                    "type": "string",
+                    "description": "Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's \"Object Lock token\".\nFor more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).\n",
+                    "secret": true
+                }
             },
-            "token": {
-                "type": "string",
-                "description": "Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's \"Object Lock token\".\nFor more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).\n",
-                "secret": true
+            "required": [
+                "bucket",
+                "role",
+                "rules"
+            ],
+            "inputProperties": {
+                "bucket": {
+                    "type": "string",
+                    "description": "Name of the source S3 bucket you want Amazon S3 to monitor.\n",
+                    "willReplaceOnChanges": true
+                },
+                "role": {
+                    "type": "string",
+                    "description": "ARN of the IAM role for Amazon S3 to assume when replicating the objects.\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:s3/BucketReplicationConfigRule:BucketReplicationConfigRule"
+                    },
+                    "description": "List of configuration blocks describing the rules managing the replication. See below.\n"
+                },
+                "token": {
+                    "type": "string",
+                    "description": "Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's \"Object Lock token\".\nFor more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).\n",
+                    "secret": true
+                }
+            },
+            "requiredInputs": [
+                "bucket",
+                "role",
+                "rules"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering BucketReplicationConfig resources.\n",
+                "properties": {
+                    "bucket": {
+                        "type": "string",
+                        "description": "Name of the source S3 bucket you want Amazon S3 to monitor.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "ARN of the IAM role for Amazon S3 to assume when replicating the objects.\n"
+                    },
+                    "rules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:s3/BucketReplicationConfigRule:BucketReplicationConfigRule"
+                        },
+                        "description": "List of configuration blocks describing the rules managing the replication. See below.\n"
+                    },
+                    "token": {
+                        "type": "string",
+                        "description": "Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's \"Object Lock token\".\nFor more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).\n",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,33 +1,33 @@
 {
-    "properties": {
-        "controlPlaneInstanceType": {
-            "type": "string",
-            "description": "The Amazon EC2 instance type for all Kubernetes control plane instances.\n"
-        },
-        "controlPlanePlacements": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:eks/getClusterOutpostConfigControlPlanePlacement:getClusterOutpostConfigControlPlanePlacement"
+            "properties": {
+                "controlPlaneInstanceType": {
+                    "type": "string",
+                    "description": "The Amazon EC2 instance type for all Kubernetes control plane instances.\n"
+                },
+                "controlPlanePlacements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:eks/getClusterOutpostConfigControlPlanePlacement:getClusterOutpostConfigControlPlanePlacement"
+                    },
+                    "description": "An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.\n"
+                },
+                "outpostArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.\n"
+                }
             },
-            "description": "An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.\n"
-        },
-        "outpostArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.\n"
+            "type": "object",
+            "required": [
+                "controlPlaneInstanceType",
+                "controlPlanePlacements",
+                "outpostArns"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "controlPlaneInstanceType",
-        "controlPlanePlacements",
-        "outpostArns"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

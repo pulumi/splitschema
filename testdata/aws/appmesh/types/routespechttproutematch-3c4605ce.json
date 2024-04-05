@@ -1,39 +1,39 @@
 {
-    "properties": {
-        "headers": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:appmesh/RouteSpecHttpRouteMatchHeader:RouteSpecHttpRouteMatchHeader"
+            "properties": {
+                "headers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:appmesh/RouteSpecHttpRouteMatchHeader:RouteSpecHttpRouteMatchHeader"
+                    },
+                    "description": "Client request headers to match on.\n"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.\n"
+                },
+                "path": {
+                    "$ref": "#/types/aws:appmesh/RouteSpecHttpRouteMatchPath:RouteSpecHttpRouteMatchPath",
+                    "description": "Client request path to match on.\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port number to match from the request.\n"
+                },
+                "prefix": {
+                    "type": "string",
+                    "description": "Header value sent by the client must begin with the specified characters.\n"
+                },
+                "queryParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:appmesh/RouteSpecHttpRouteMatchQueryParameter:RouteSpecHttpRouteMatchQueryParameter"
+                    },
+                    "description": "Client request query parameters to match on.\n"
+                },
+                "scheme": {
+                    "type": "string",
+                    "description": "Client request header scheme to match on. Valid values: `http`, `https`.\n"
+                }
             },
-            "description": "Client request headers to match on.\n"
-        },
-        "method": {
-            "type": "string",
-            "description": "Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.\n"
-        },
-        "path": {
-            "$ref": "#/types/aws:appmesh/RouteSpecHttpRouteMatchPath:RouteSpecHttpRouteMatchPath",
-            "description": "Client request path to match on.\n"
-        },
-        "port": {
-            "type": "integer",
-            "description": "The port number to match from the request.\n"
-        },
-        "prefix": {
-            "type": "string",
-            "description": "Header value sent by the client must begin with the specified characters.\n"
-        },
-        "queryParameters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:appmesh/RouteSpecHttpRouteMatchQueryParameter:RouteSpecHttpRouteMatchQueryParameter"
-            },
-            "description": "Client request query parameters to match on.\n"
-        },
-        "scheme": {
-            "type": "string",
-            "description": "Client request header scheme to match on. Valid values: `http`, `https`.\n"
+            "type": "object"
         }
-    },
-    "type": "object"
-}

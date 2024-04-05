@@ -1,21 +1,21 @@
 {
-    "properties": {
-        "crossClusterSearch": {
-            "$ref": "#/types/aws:opensearch/OutboundConnectionConnectionPropertiesCrossClusterSearch:OutboundConnectionConnectionPropertiesCrossClusterSearch",
-            "description": "Configuration block for cross cluster search.\n",
-            "willReplaceOnChanges": true
-        },
-        "endpoint": {
-            "type": "string",
-            "description": "The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.\n"
+            "properties": {
+                "crossClusterSearch": {
+                    "$ref": "#/types/aws:opensearch/OutboundConnectionConnectionPropertiesCrossClusterSearch:OutboundConnectionConnectionPropertiesCrossClusterSearch",
+                    "description": "Configuration block for cross cluster search.\n",
+                    "willReplaceOnChanges": true
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "endpoint"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "endpoint"
-            ]
-        }
-    }
-}

@@ -1,201 +1,201 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.\n"
-        },
-        "dataQualityAppSpecification": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityAppSpecification:DataQualityJobDefinitionDataQualityAppSpecification",
-            "description": "Specifies the container that runs the monitoring job. Fields are documented below.\n"
-        },
-        "dataQualityBaselineConfig": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityBaselineConfig:DataQualityJobDefinitionDataQualityBaselineConfig",
-            "description": "Configures the constraints and baselines for the monitoring job. Fields are documented below.\n"
-        },
-        "dataQualityJobInput": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobInput:DataQualityJobDefinitionDataQualityJobInput",
-            "description": "A list of inputs for the monitoring job. Fields are documented below.\n"
-        },
-        "dataQualityJobOutputConfig": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobOutputConfig:DataQualityJobDefinitionDataQualityJobOutputConfig",
-            "description": "The output configuration for monitoring jobs. Fields are documented below.\n"
-        },
-        "jobResources": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionJobResources:DataQualityJobDefinitionJobResources",
-            "description": "Identifies the resources to deploy for a monitoring job. Fields are documented below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the data quality job definition. If omitted, the provider will assign a random, unique name.\n"
-        },
-        "networkConfig": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionNetworkConfig:DataQualityJobDefinitionNetworkConfig",
-            "description": "Specifies networking configuration for the monitoring job. Fields are documented below.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.\n"
-        },
-        "stoppingCondition": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionStoppingCondition:DataQualityJobDefinitionStoppingCondition",
-            "description": "A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "dataQualityAppSpecification",
-        "dataQualityJobInput",
-        "dataQualityJobOutputConfig",
-        "jobResources",
-        "name",
-        "roleArn",
-        "stoppingCondition",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "dataQualityAppSpecification": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityAppSpecification:DataQualityJobDefinitionDataQualityAppSpecification",
-            "description": "Specifies the container that runs the monitoring job. Fields are documented below.\n",
-            "willReplaceOnChanges": true
-        },
-        "dataQualityBaselineConfig": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityBaselineConfig:DataQualityJobDefinitionDataQualityBaselineConfig",
-            "description": "Configures the constraints and baselines for the monitoring job. Fields are documented below.\n",
-            "willReplaceOnChanges": true
-        },
-        "dataQualityJobInput": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobInput:DataQualityJobDefinitionDataQualityJobInput",
-            "description": "A list of inputs for the monitoring job. Fields are documented below.\n",
-            "willReplaceOnChanges": true
-        },
-        "dataQualityJobOutputConfig": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobOutputConfig:DataQualityJobDefinitionDataQualityJobOutputConfig",
-            "description": "The output configuration for monitoring jobs. Fields are documented below.\n",
-            "willReplaceOnChanges": true
-        },
-        "jobResources": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionJobResources:DataQualityJobDefinitionJobResources",
-            "description": "Identifies the resources to deploy for a monitoring job. Fields are documented below.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the data quality job definition. If omitted, the provider will assign a random, unique name.\n",
-            "willReplaceOnChanges": true
-        },
-        "networkConfig": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionNetworkConfig:DataQualityJobDefinitionNetworkConfig",
-            "description": "Specifies networking configuration for the monitoring job. Fields are documented below.\n",
-            "willReplaceOnChanges": true
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.\n"
-        },
-        "stoppingCondition": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionStoppingCondition:DataQualityJobDefinitionStoppingCondition",
-            "description": "A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "dataQualityAppSpecification",
-        "dataQualityJobInput",
-        "dataQualityJobOutputConfig",
-        "jobResources",
-        "roleArn"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering DataQualityJobDefinition resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.\n"
-            },
-            "dataQualityAppSpecification": {
-                "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityAppSpecification:DataQualityJobDefinitionDataQualityAppSpecification",
-                "description": "Specifies the container that runs the monitoring job. Fields are documented below.\n",
-                "willReplaceOnChanges": true
-            },
-            "dataQualityBaselineConfig": {
-                "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityBaselineConfig:DataQualityJobDefinitionDataQualityBaselineConfig",
-                "description": "Configures the constraints and baselines for the monitoring job. Fields are documented below.\n",
-                "willReplaceOnChanges": true
-            },
-            "dataQualityJobInput": {
-                "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobInput:DataQualityJobDefinitionDataQualityJobInput",
-                "description": "A list of inputs for the monitoring job. Fields are documented below.\n",
-                "willReplaceOnChanges": true
-            },
-            "dataQualityJobOutputConfig": {
-                "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobOutputConfig:DataQualityJobDefinitionDataQualityJobOutputConfig",
-                "description": "The output configuration for monitoring jobs. Fields are documented below.\n",
-                "willReplaceOnChanges": true
-            },
-            "jobResources": {
-                "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionJobResources:DataQualityJobDefinitionJobResources",
-                "description": "Identifies the resources to deploy for a monitoring job. Fields are documented below.\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the data quality job definition. If omitted, the provider will assign a random, unique name.\n",
-                "willReplaceOnChanges": true
-            },
-            "networkConfig": {
-                "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionNetworkConfig:DataQualityJobDefinitionNetworkConfig",
-                "description": "Specifies networking configuration for the monitoring job. Fields are documented below.\n",
-                "willReplaceOnChanges": true
-            },
-            "roleArn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.\n"
-            },
-            "stoppingCondition": {
-                "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionStoppingCondition:DataQualityJobDefinitionStoppingCondition",
-                "description": "A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.\n"
                 },
-                "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "dataQualityAppSpecification": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityAppSpecification:DataQualityJobDefinitionDataQualityAppSpecification",
+                    "description": "Specifies the container that runs the monitoring job. Fields are documented below.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "dataQualityBaselineConfig": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityBaselineConfig:DataQualityJobDefinitionDataQualityBaselineConfig",
+                    "description": "Configures the constraints and baselines for the monitoring job. Fields are documented below.\n"
+                },
+                "dataQualityJobInput": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobInput:DataQualityJobDefinitionDataQualityJobInput",
+                    "description": "A list of inputs for the monitoring job. Fields are documented below.\n"
+                },
+                "dataQualityJobOutputConfig": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobOutputConfig:DataQualityJobDefinitionDataQualityJobOutputConfig",
+                    "description": "The output configuration for monitoring jobs. Fields are documented below.\n"
+                },
+                "jobResources": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionJobResources:DataQualityJobDefinitionJobResources",
+                    "description": "Identifies the resources to deploy for a monitoring job. Fields are documented below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the data quality job definition. If omitted, the provider will assign a random, unique name.\n"
+                },
+                "networkConfig": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionNetworkConfig:DataQualityJobDefinitionNetworkConfig",
+                    "description": "Specifies networking configuration for the monitoring job. Fields are documented below.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.\n"
+                },
+                "stoppingCondition": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionStoppingCondition:DataQualityJobDefinitionStoppingCondition",
+                    "description": "A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "dataQualityAppSpecification",
+                "dataQualityJobInput",
+                "dataQualityJobOutputConfig",
+                "jobResources",
+                "name",
+                "roleArn",
+                "stoppingCondition",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "dataQualityAppSpecification": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityAppSpecification:DataQualityJobDefinitionDataQualityAppSpecification",
+                    "description": "Specifies the container that runs the monitoring job. Fields are documented below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "dataQualityBaselineConfig": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityBaselineConfig:DataQualityJobDefinitionDataQualityBaselineConfig",
+                    "description": "Configures the constraints and baselines for the monitoring job. Fields are documented below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "dataQualityJobInput": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobInput:DataQualityJobDefinitionDataQualityJobInput",
+                    "description": "A list of inputs for the monitoring job. Fields are documented below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "dataQualityJobOutputConfig": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobOutputConfig:DataQualityJobDefinitionDataQualityJobOutputConfig",
+                    "description": "The output configuration for monitoring jobs. Fields are documented below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "jobResources": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionJobResources:DataQualityJobDefinitionJobResources",
+                    "description": "Identifies the resources to deploy for a monitoring job. Fields are documented below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the data quality job definition. If omitted, the provider will assign a random, unique name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "networkConfig": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionNetworkConfig:DataQualityJobDefinitionNetworkConfig",
+                    "description": "Specifies networking configuration for the monitoring job. Fields are documented below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.\n"
+                },
+                "stoppingCondition": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionStoppingCondition:DataQualityJobDefinitionStoppingCondition",
+                    "description": "A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "dataQualityAppSpecification",
+                "dataQualityJobInput",
+                "dataQualityJobOutputConfig",
+                "jobResources",
+                "roleArn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DataQualityJobDefinition resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.\n"
+                    },
+                    "dataQualityAppSpecification": {
+                        "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityAppSpecification:DataQualityJobDefinitionDataQualityAppSpecification",
+                        "description": "Specifies the container that runs the monitoring job. Fields are documented below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "dataQualityBaselineConfig": {
+                        "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityBaselineConfig:DataQualityJobDefinitionDataQualityBaselineConfig",
+                        "description": "Configures the constraints and baselines for the monitoring job. Fields are documented below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "dataQualityJobInput": {
+                        "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobInput:DataQualityJobDefinitionDataQualityJobInput",
+                        "description": "A list of inputs for the monitoring job. Fields are documented below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "dataQualityJobOutputConfig": {
+                        "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobOutputConfig:DataQualityJobDefinitionDataQualityJobOutputConfig",
+                        "description": "The output configuration for monitoring jobs. Fields are documented below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "jobResources": {
+                        "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionJobResources:DataQualityJobDefinitionJobResources",
+                        "description": "Identifies the resources to deploy for a monitoring job. Fields are documented below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the data quality job definition. If omitted, the provider will assign a random, unique name.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "networkConfig": {
+                        "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionNetworkConfig:DataQualityJobDefinitionNetworkConfig",
+                        "description": "Specifies networking configuration for the monitoring job. Fields are documented below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "roleArn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.\n"
+                    },
+                    "stoppingCondition": {
+                        "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionStoppingCondition:DataQualityJobDefinitionStoppingCondition",
+                        "description": "A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

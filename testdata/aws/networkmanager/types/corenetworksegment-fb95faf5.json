@@ -1,32 +1,32 @@
 {
-    "properties": {
-        "edgeLocations": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "edgeLocations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Regions where the edges are located.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of a core network segment.\n"
+                },
+                "sharedSegments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Shared segments of a core network.\n"
+                }
             },
-            "description": "Regions where the edges are located.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of a core network segment.\n"
-        },
-        "sharedSegments": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Shared segments of a core network.\n"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "edgeLocations",
+                        "name",
+                        "sharedSegments"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "edgeLocations",
-                "name",
-                "sharedSegments"
-            ]
-        }
-    }
-}

@@ -1,148 +1,148 @@
 {
-    "properties": {
-        "availabilityZoneId": {
-            "type": "string",
-            "description": "The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.\n"
-        },
-        "availabilityZoneName": {
-            "type": "string",
-            "description": "The name of the Availability Zone (AZ) that the mount target resides in.\n"
-        },
-        "dnsName": {
-            "type": "string",
-            "description": "The DNS name for the EFS file system.\n"
-        },
-        "fileSystemArn": {
-            "type": "string",
-            "description": "Amazon Resource Name of the file system.\n"
-        },
-        "fileSystemId": {
-            "type": "string",
-            "description": "The ID of the file system for which the mount target is intended.\n"
-        },
-        "ipAddress": {
-            "type": "string",
-            "description": "The address (within the address range of the specified subnet) at\nwhich the file system may be mounted via the mount target.\n"
-        },
-        "mountTargetDnsName": {
-            "type": "string",
-            "description": "The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).\n"
-        },
-        "networkInterfaceId": {
-            "type": "string",
-            "description": "The ID of the network interface that Amazon EFS created when it created the mount target.\n"
-        },
-        "ownerId": {
-            "type": "string",
-            "description": "AWS account ID that owns the resource.\n"
-        },
-        "securityGroups": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of up to 5 VPC security group IDs (that must\nbe for the same VPC as subnet specified) in effect for the mount target.\n"
-        },
-        "subnetId": {
-            "type": "string",
-            "description": "The ID of the subnet to add the mount target in.\n"
-        }
-    },
-    "required": [
-        "availabilityZoneId",
-        "availabilityZoneName",
-        "dnsName",
-        "fileSystemArn",
-        "fileSystemId",
-        "ipAddress",
-        "mountTargetDnsName",
-        "networkInterfaceId",
-        "ownerId",
-        "securityGroups",
-        "subnetId"
-    ],
-    "inputProperties": {
-        "fileSystemId": {
-            "type": "string",
-            "description": "The ID of the file system for which the mount target is intended.\n",
-            "willReplaceOnChanges": true
-        },
-        "ipAddress": {
-            "type": "string",
-            "description": "The address (within the address range of the specified subnet) at\nwhich the file system may be mounted via the mount target.\n",
-            "willReplaceOnChanges": true
-        },
-        "securityGroups": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of up to 5 VPC security group IDs (that must\nbe for the same VPC as subnet specified) in effect for the mount target.\n"
-        },
-        "subnetId": {
-            "type": "string",
-            "description": "The ID of the subnet to add the mount target in.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "fileSystemId",
-        "subnetId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering MountTarget resources.\n",
-        "properties": {
-            "availabilityZoneId": {
-                "type": "string",
-                "description": "The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.\n"
-            },
-            "availabilityZoneName": {
-                "type": "string",
-                "description": "The name of the Availability Zone (AZ) that the mount target resides in.\n"
-            },
-            "dnsName": {
-                "type": "string",
-                "description": "The DNS name for the EFS file system.\n"
-            },
-            "fileSystemArn": {
-                "type": "string",
-                "description": "Amazon Resource Name of the file system.\n"
-            },
-            "fileSystemId": {
-                "type": "string",
-                "description": "The ID of the file system for which the mount target is intended.\n",
-                "willReplaceOnChanges": true
-            },
-            "ipAddress": {
-                "type": "string",
-                "description": "The address (within the address range of the specified subnet) at\nwhich the file system may be mounted via the mount target.\n",
-                "willReplaceOnChanges": true
-            },
-            "mountTargetDnsName": {
-                "type": "string",
-                "description": "The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).\n"
-            },
-            "networkInterfaceId": {
-                "type": "string",
-                "description": "The ID of the network interface that Amazon EFS created when it created the mount target.\n"
-            },
-            "ownerId": {
-                "type": "string",
-                "description": "AWS account ID that owns the resource.\n"
-            },
-            "securityGroups": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "availabilityZoneId": {
+                    "type": "string",
+                    "description": "The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.\n"
                 },
-                "description": "A list of up to 5 VPC security group IDs (that must\nbe for the same VPC as subnet specified) in effect for the mount target.\n"
+                "availabilityZoneName": {
+                    "type": "string",
+                    "description": "The name of the Availability Zone (AZ) that the mount target resides in.\n"
+                },
+                "dnsName": {
+                    "type": "string",
+                    "description": "The DNS name for the EFS file system.\n"
+                },
+                "fileSystemArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name of the file system.\n"
+                },
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "The ID of the file system for which the mount target is intended.\n"
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "The address (within the address range of the specified subnet) at\nwhich the file system may be mounted via the mount target.\n"
+                },
+                "mountTargetDnsName": {
+                    "type": "string",
+                    "description": "The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).\n"
+                },
+                "networkInterfaceId": {
+                    "type": "string",
+                    "description": "The ID of the network interface that Amazon EFS created when it created the mount target.\n"
+                },
+                "ownerId": {
+                    "type": "string",
+                    "description": "AWS account ID that owns the resource.\n"
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of up to 5 VPC security group IDs (that must\nbe for the same VPC as subnet specified) in effect for the mount target.\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "The ID of the subnet to add the mount target in.\n"
+                }
             },
-            "subnetId": {
-                "type": "string",
-                "description": "The ID of the subnet to add the mount target in.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "availabilityZoneId",
+                "availabilityZoneName",
+                "dnsName",
+                "fileSystemArn",
+                "fileSystemId",
+                "ipAddress",
+                "mountTargetDnsName",
+                "networkInterfaceId",
+                "ownerId",
+                "securityGroups",
+                "subnetId"
+            ],
+            "inputProperties": {
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "The ID of the file system for which the mount target is intended.\n",
+                    "willReplaceOnChanges": true
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "The address (within the address range of the specified subnet) at\nwhich the file system may be mounted via the mount target.\n",
+                    "willReplaceOnChanges": true
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of up to 5 VPC security group IDs (that must\nbe for the same VPC as subnet specified) in effect for the mount target.\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "The ID of the subnet to add the mount target in.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "fileSystemId",
+                "subnetId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MountTarget resources.\n",
+                "properties": {
+                    "availabilityZoneId": {
+                        "type": "string",
+                        "description": "The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.\n"
+                    },
+                    "availabilityZoneName": {
+                        "type": "string",
+                        "description": "The name of the Availability Zone (AZ) that the mount target resides in.\n"
+                    },
+                    "dnsName": {
+                        "type": "string",
+                        "description": "The DNS name for the EFS file system.\n"
+                    },
+                    "fileSystemArn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name of the file system.\n"
+                    },
+                    "fileSystemId": {
+                        "type": "string",
+                        "description": "The ID of the file system for which the mount target is intended.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ipAddress": {
+                        "type": "string",
+                        "description": "The address (within the address range of the specified subnet) at\nwhich the file system may be mounted via the mount target.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "mountTargetDnsName": {
+                        "type": "string",
+                        "description": "The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).\n"
+                    },
+                    "networkInterfaceId": {
+                        "type": "string",
+                        "description": "The ID of the network interface that Amazon EFS created when it created the mount target.\n"
+                    },
+                    "ownerId": {
+                        "type": "string",
+                        "description": "AWS account ID that owns the resource.\n"
+                    },
+                    "securityGroups": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of up to 5 VPC security group IDs (that must\nbe for the same VPC as subnet specified) in effect for the mount target.\n"
+                    },
+                    "subnetId": {
+                        "type": "string",
+                        "description": "The ID of the subnet to add the mount target in.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

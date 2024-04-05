@@ -1,132 +1,132 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getBudget.\n",
-        "properties": {
-            "accountId": {
-                "type": "string",
-                "description": "The ID of the target account for budget. Will use current user's account_id by default if omitted.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getBudget.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "The ID of the target account for budget. Will use current user's account_id by default if omitted.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of a budget. Unique within accounts.\n\nThe following arguments are optional:\n"
+                    },
+                    "namePrefix": {
+                        "type": "string",
+                        "description": "The prefix of the name of a budget. Unique within accounts.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
             },
-            "name": {
-                "type": "string",
-                "description": "The name of a budget. Unique within accounts.\n\nThe following arguments are optional:\n"
-            },
-            "namePrefix": {
-                "type": "string",
-                "description": "The prefix of the name of a budget. Unique within accounts.\n"
+            "outputs": {
+                "description": "A collection of values returned by getBudget.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
+                    "arn": {
+                        "type": "string"
+                    },
+                    "autoAdjustDatas": {
+                        "description": "Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.\n",
+                        "items": {
+                            "$ref": "#/types/aws:budgets/getBudgetAutoAdjustData:getBudgetAutoAdjustData"
+                        },
+                        "type": "array"
+                    },
+                    "budgetExceeded": {
+                        "description": "Boolean indicating whether this budget has been exceeded.\n",
+                        "type": "boolean"
+                    },
+                    "budgetLimits": {
+                        "description": "The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.\n",
+                        "items": {
+                            "$ref": "#/types/aws:budgets/getBudgetBudgetLimit:getBudgetBudgetLimit"
+                        },
+                        "type": "array"
+                    },
+                    "budgetType": {
+                        "description": "Whether this budget tracks monetary cost or usage.\n",
+                        "type": "string"
+                    },
+                    "calculatedSpends": {
+                        "description": "The spend objects that are associated with this budget. The actualSpend tracks how much you've used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you're predicted to spend based on your historical usage profile.\n",
+                        "items": {
+                            "$ref": "#/types/aws:budgets/getBudgetCalculatedSpend:getBudgetCalculatedSpend"
+                        },
+                        "type": "array"
+                    },
+                    "costFilters": {
+                        "description": "A list of CostFilter name/values pair to apply to budget.\n",
+                        "items": {
+                            "$ref": "#/types/aws:budgets/getBudgetCostFilter:getBudgetCostFilter"
+                        },
+                        "type": "array"
+                    },
+                    "costTypes": {
+                        "description": "Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.\n",
+                        "items": {
+                            "$ref": "#/types/aws:budgets/getBudgetCostType:getBudgetCostType"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "namePrefix": {
+                        "type": "string"
+                    },
+                    "notifications": {
+                        "description": "Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.\n",
+                        "items": {
+                            "$ref": "#/types/aws:budgets/getBudgetNotification:getBudgetNotification"
+                        },
+                        "type": "array"
+                    },
+                    "plannedLimits": {
+                        "description": "Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.\n",
+                        "items": {
+                            "$ref": "#/types/aws:budgets/getBudgetPlannedLimit:getBudgetPlannedLimit"
+                        },
+                        "type": "array"
+                    },
+                    "timePeriodEnd": {
+                        "description": "The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.\n",
+                        "type": "string"
+                    },
+                    "timePeriodStart": {
+                        "description": "The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.\n",
+                        "type": "string"
+                    },
+                    "timeUnit": {
+                        "description": "The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "accountId",
+                    "arn",
+                    "autoAdjustDatas",
+                    "budgetExceeded",
+                    "budgetLimits",
+                    "budgetType",
+                    "calculatedSpends",
+                    "costFilters",
+                    "costTypes",
+                    "name",
+                    "notifications",
+                    "plannedLimits",
+                    "timePeriodEnd",
+                    "timePeriodStart",
+                    "timeUnit",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "name"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getBudget.\n",
-        "properties": {
-            "accountId": {
-                "type": "string"
-            },
-            "arn": {
-                "type": "string"
-            },
-            "autoAdjustDatas": {
-                "description": "Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.\n",
-                "items": {
-                    "$ref": "#/types/aws:budgets/getBudgetAutoAdjustData:getBudgetAutoAdjustData"
-                },
-                "type": "array"
-            },
-            "budgetExceeded": {
-                "description": "Boolean indicating whether this budget has been exceeded.\n",
-                "type": "boolean"
-            },
-            "budgetLimits": {
-                "description": "The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.\n",
-                "items": {
-                    "$ref": "#/types/aws:budgets/getBudgetBudgetLimit:getBudgetBudgetLimit"
-                },
-                "type": "array"
-            },
-            "budgetType": {
-                "description": "Whether this budget tracks monetary cost or usage.\n",
-                "type": "string"
-            },
-            "calculatedSpends": {
-                "description": "The spend objects that are associated with this budget. The actualSpend tracks how much you've used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you're predicted to spend based on your historical usage profile.\n",
-                "items": {
-                    "$ref": "#/types/aws:budgets/getBudgetCalculatedSpend:getBudgetCalculatedSpend"
-                },
-                "type": "array"
-            },
-            "costFilters": {
-                "description": "A list of CostFilter name/values pair to apply to budget.\n",
-                "items": {
-                    "$ref": "#/types/aws:budgets/getBudgetCostFilter:getBudgetCostFilter"
-                },
-                "type": "array"
-            },
-            "costTypes": {
-                "description": "Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.\n",
-                "items": {
-                    "$ref": "#/types/aws:budgets/getBudgetCostType:getBudgetCostType"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "namePrefix": {
-                "type": "string"
-            },
-            "notifications": {
-                "description": "Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.\n",
-                "items": {
-                    "$ref": "#/types/aws:budgets/getBudgetNotification:getBudgetNotification"
-                },
-                "type": "array"
-            },
-            "plannedLimits": {
-                "description": "Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.\n",
-                "items": {
-                    "$ref": "#/types/aws:budgets/getBudgetPlannedLimit:getBudgetPlannedLimit"
-                },
-                "type": "array"
-            },
-            "timePeriodEnd": {
-                "description": "The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.\n",
-                "type": "string"
-            },
-            "timePeriodStart": {
-                "description": "The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.\n",
-                "type": "string"
-            },
-            "timeUnit": {
-                "description": "The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "accountId",
-            "arn",
-            "autoAdjustDatas",
-            "budgetExceeded",
-            "budgetLimits",
-            "budgetType",
-            "calculatedSpends",
-            "costFilters",
-            "costTypes",
-            "name",
-            "notifications",
-            "plannedLimits",
-            "timePeriodEnd",
-            "timePeriodStart",
-            "timeUnit",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

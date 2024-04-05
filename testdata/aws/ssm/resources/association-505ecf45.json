@@ -1,241 +1,241 @@
 {
-    "properties": {
-        "applyOnlyAtCronInterval": {
-            "type": "boolean",
-            "description": "By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the SSM association\n"
-        },
-        "associationId": {
-            "type": "string",
-            "description": "The ID of the SSM association.\n"
-        },
-        "associationName": {
-            "type": "string",
-            "description": "The descriptive name for the association.\n"
-        },
-        "automationTargetParameterName": {
-            "type": "string",
-            "description": "Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.\n"
-        },
-        "complianceSeverity": {
-            "type": "string",
-            "description": "The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`\n"
-        },
-        "documentVersion": {
-            "type": "string",
-            "description": "The document version you want to associate with the target(s). Can be a specific version or the default version.\n"
-        },
-        "instanceId": {
-            "type": "string",
-            "description": "The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.\n",
-            "deprecationMessage": "use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId"
-        },
-        "maxConcurrency": {
-            "type": "string",
-            "description": "The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.\n"
-        },
-        "maxErrors": {
-            "type": "string",
-            "description": "The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the SSM document to apply.\n"
-        },
-        "outputLocation": {
-            "$ref": "#/types/aws:ssm/AssociationOutputLocation:AssociationOutputLocation",
-            "description": "An output location block. Output Location is documented below.\n"
-        },
-        "parameters": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A block of arbitrary string parameters to pass to the SSM document.\n"
-        },
-        "scheduleExpression": {
-            "type": "string",
-            "description": "A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.\n"
-        },
-        "syncCompliance": {
-            "type": "string",
-            "description": "The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.\n"
-        },
-        "targets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ssm/AssociationTarget:AssociationTarget"
-            },
-            "description": "A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.\n"
-        },
-        "waitForSuccessTimeoutSeconds": {
-            "type": "integer",
-            "description": "The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.\n\nOutput Location (`output_location`) is an S3 bucket where you want to store the results of this association:\n"
-        }
-    },
-    "required": [
-        "arn",
-        "associationId",
-        "documentVersion",
-        "name",
-        "parameters",
-        "targets"
-    ],
-    "inputProperties": {
-        "applyOnlyAtCronInterval": {
-            "type": "boolean",
-            "description": "By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.\n"
-        },
-        "associationName": {
-            "type": "string",
-            "description": "The descriptive name for the association.\n"
-        },
-        "automationTargetParameterName": {
-            "type": "string",
-            "description": "Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.\n"
-        },
-        "complianceSeverity": {
-            "type": "string",
-            "description": "The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`\n"
-        },
-        "documentVersion": {
-            "type": "string",
-            "description": "The document version you want to associate with the target(s). Can be a specific version or the default version.\n"
-        },
-        "instanceId": {
-            "type": "string",
-            "description": "The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.\n",
-            "deprecationMessage": "use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId",
-            "willReplaceOnChanges": true
-        },
-        "maxConcurrency": {
-            "type": "string",
-            "description": "The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.\n"
-        },
-        "maxErrors": {
-            "type": "string",
-            "description": "The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the SSM document to apply.\n",
-            "willReplaceOnChanges": true
-        },
-        "outputLocation": {
-            "$ref": "#/types/aws:ssm/AssociationOutputLocation:AssociationOutputLocation",
-            "description": "An output location block. Output Location is documented below.\n"
-        },
-        "parameters": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A block of arbitrary string parameters to pass to the SSM document.\n"
-        },
-        "scheduleExpression": {
-            "type": "string",
-            "description": "A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.\n"
-        },
-        "syncCompliance": {
-            "type": "string",
-            "description": "The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.\n"
-        },
-        "targets": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ssm/AssociationTarget:AssociationTarget"
-            },
-            "description": "A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.\n"
-        },
-        "waitForSuccessTimeoutSeconds": {
-            "type": "integer",
-            "description": "The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.\n\nOutput Location (`output_location`) is an S3 bucket where you want to store the results of this association:\n"
-        }
-    },
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Association resources.\n",
-        "properties": {
-            "applyOnlyAtCronInterval": {
-                "type": "boolean",
-                "description": "By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the SSM association\n"
-            },
-            "associationId": {
-                "type": "string",
-                "description": "The ID of the SSM association.\n"
-            },
-            "associationName": {
-                "type": "string",
-                "description": "The descriptive name for the association.\n"
-            },
-            "automationTargetParameterName": {
-                "type": "string",
-                "description": "Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.\n"
-            },
-            "complianceSeverity": {
-                "type": "string",
-                "description": "The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`\n"
-            },
-            "documentVersion": {
-                "type": "string",
-                "description": "The document version you want to associate with the target(s). Can be a specific version or the default version.\n"
-            },
-            "instanceId": {
-                "type": "string",
-                "description": "The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.\n",
-                "deprecationMessage": "use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId",
-                "willReplaceOnChanges": true
-            },
-            "maxConcurrency": {
-                "type": "string",
-                "description": "The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.\n"
-            },
-            "maxErrors": {
-                "type": "string",
-                "description": "The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the SSM document to apply.\n",
-                "willReplaceOnChanges": true
-            },
-            "outputLocation": {
-                "$ref": "#/types/aws:ssm/AssociationOutputLocation:AssociationOutputLocation",
-                "description": "An output location block. Output Location is documented below.\n"
-            },
-            "parameters": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "applyOnlyAtCronInterval": {
+                    "type": "boolean",
+                    "description": "By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.\n"
                 },
-                "description": "A block of arbitrary string parameters to pass to the SSM document.\n"
-            },
-            "scheduleExpression": {
-                "type": "string",
-                "description": "A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.\n"
-            },
-            "syncCompliance": {
-                "type": "string",
-                "description": "The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.\n"
-            },
-            "targets": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ssm/AssociationTarget:AssociationTarget"
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the SSM association\n"
                 },
-                "description": "A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.\n"
+                "associationId": {
+                    "type": "string",
+                    "description": "The ID of the SSM association.\n"
+                },
+                "associationName": {
+                    "type": "string",
+                    "description": "The descriptive name for the association.\n"
+                },
+                "automationTargetParameterName": {
+                    "type": "string",
+                    "description": "Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.\n"
+                },
+                "complianceSeverity": {
+                    "type": "string",
+                    "description": "The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`\n"
+                },
+                "documentVersion": {
+                    "type": "string",
+                    "description": "The document version you want to associate with the target(s). Can be a specific version or the default version.\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.\n",
+                    "deprecationMessage": "use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId"
+                },
+                "maxConcurrency": {
+                    "type": "string",
+                    "description": "The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.\n"
+                },
+                "maxErrors": {
+                    "type": "string",
+                    "description": "The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the SSM document to apply.\n"
+                },
+                "outputLocation": {
+                    "$ref": "#/types/aws:ssm/AssociationOutputLocation:AssociationOutputLocation",
+                    "description": "An output location block. Output Location is documented below.\n"
+                },
+                "parameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A block of arbitrary string parameters to pass to the SSM document.\n"
+                },
+                "scheduleExpression": {
+                    "type": "string",
+                    "description": "A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.\n"
+                },
+                "syncCompliance": {
+                    "type": "string",
+                    "description": "The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.\n"
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ssm/AssociationTarget:AssociationTarget"
+                    },
+                    "description": "A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.\n"
+                },
+                "waitForSuccessTimeoutSeconds": {
+                    "type": "integer",
+                    "description": "The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.\n\nOutput Location (`output_location`) is an S3 bucket where you want to store the results of this association:\n"
+                }
             },
-            "waitForSuccessTimeoutSeconds": {
-                "type": "integer",
-                "description": "The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.\n\nOutput Location (`output_location`) is an S3 bucket where you want to store the results of this association:\n"
+            "required": [
+                "arn",
+                "associationId",
+                "documentVersion",
+                "name",
+                "parameters",
+                "targets"
+            ],
+            "inputProperties": {
+                "applyOnlyAtCronInterval": {
+                    "type": "boolean",
+                    "description": "By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.\n"
+                },
+                "associationName": {
+                    "type": "string",
+                    "description": "The descriptive name for the association.\n"
+                },
+                "automationTargetParameterName": {
+                    "type": "string",
+                    "description": "Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.\n"
+                },
+                "complianceSeverity": {
+                    "type": "string",
+                    "description": "The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`\n"
+                },
+                "documentVersion": {
+                    "type": "string",
+                    "description": "The document version you want to associate with the target(s). Can be a specific version or the default version.\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.\n",
+                    "deprecationMessage": "use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId",
+                    "willReplaceOnChanges": true
+                },
+                "maxConcurrency": {
+                    "type": "string",
+                    "description": "The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.\n"
+                },
+                "maxErrors": {
+                    "type": "string",
+                    "description": "The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the SSM document to apply.\n",
+                    "willReplaceOnChanges": true
+                },
+                "outputLocation": {
+                    "$ref": "#/types/aws:ssm/AssociationOutputLocation:AssociationOutputLocation",
+                    "description": "An output location block. Output Location is documented below.\n"
+                },
+                "parameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A block of arbitrary string parameters to pass to the SSM document.\n"
+                },
+                "scheduleExpression": {
+                    "type": "string",
+                    "description": "A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.\n"
+                },
+                "syncCompliance": {
+                    "type": "string",
+                    "description": "The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.\n"
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ssm/AssociationTarget:AssociationTarget"
+                    },
+                    "description": "A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.\n"
+                },
+                "waitForSuccessTimeoutSeconds": {
+                    "type": "integer",
+                    "description": "The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.\n\nOutput Location (`output_location`) is an S3 bucket where you want to store the results of this association:\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Association resources.\n",
+                "properties": {
+                    "applyOnlyAtCronInterval": {
+                        "type": "boolean",
+                        "description": "By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the SSM association\n"
+                    },
+                    "associationId": {
+                        "type": "string",
+                        "description": "The ID of the SSM association.\n"
+                    },
+                    "associationName": {
+                        "type": "string",
+                        "description": "The descriptive name for the association.\n"
+                    },
+                    "automationTargetParameterName": {
+                        "type": "string",
+                        "description": "Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.\n"
+                    },
+                    "complianceSeverity": {
+                        "type": "string",
+                        "description": "The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`\n"
+                    },
+                    "documentVersion": {
+                        "type": "string",
+                        "description": "The document version you want to associate with the target(s). Can be a specific version or the default version.\n"
+                    },
+                    "instanceId": {
+                        "type": "string",
+                        "description": "The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.\n",
+                        "deprecationMessage": "use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId",
+                        "willReplaceOnChanges": true
+                    },
+                    "maxConcurrency": {
+                        "type": "string",
+                        "description": "The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.\n"
+                    },
+                    "maxErrors": {
+                        "type": "string",
+                        "description": "The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the SSM document to apply.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "outputLocation": {
+                        "$ref": "#/types/aws:ssm/AssociationOutputLocation:AssociationOutputLocation",
+                        "description": "An output location block. Output Location is documented below.\n"
+                    },
+                    "parameters": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A block of arbitrary string parameters to pass to the SSM document.\n"
+                    },
+                    "scheduleExpression": {
+                        "type": "string",
+                        "description": "A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.\n"
+                    },
+                    "syncCompliance": {
+                        "type": "string",
+                        "description": "The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.\n"
+                    },
+                    "targets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ssm/AssociationTarget:AssociationTarget"
+                        },
+                        "description": "A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.\n"
+                    },
+                    "waitForSuccessTimeoutSeconds": {
+                        "type": "integer",
+                        "description": "The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.\n\nOutput Location (`output_location`) is an S3 bucket where you want to store the results of this association:\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

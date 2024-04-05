@@ -1,63 +1,63 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getCachePolicy.\n",
-        "properties": {
-            "id": {
-                "type": "string",
-                "description": "Identifier for the cache policy.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Unique name to identify the cache policy.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getCachePolicy.\n",
-        "properties": {
-            "comment": {
-                "description": "Comment to describe the cache policy.\n",
-                "type": "string"
-            },
-            "defaultTtl": {
-                "description": "Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.\n",
-                "type": "integer"
-            },
-            "etag": {
-                "description": "Current version of the cache policy.\n",
-                "type": "string"
-            },
-            "id": {
-                "type": "string"
-            },
-            "maxTtl": {
-                "description": "Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.\n",
-                "type": "integer"
-            },
-            "minTtl": {
-                "description": "Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.\n",
-                "type": "integer"
-            },
-            "name": {
-                "type": "string"
-            },
-            "parametersInCacheKeyAndForwardedToOrigins": {
-                "description": "The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.\n",
-                "items": {
-                    "$ref": "#/types/aws:cloudfront/getCachePolicyParametersInCacheKeyAndForwardedToOrigin:getCachePolicyParametersInCacheKeyAndForwardedToOrigin"
+            "inputs": {
+                "description": "A collection of arguments for invoking getCachePolicy.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Identifier for the cache policy.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Unique name to identify the cache policy.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCachePolicy.\n",
+                "properties": {
+                    "comment": {
+                        "description": "Comment to describe the cache policy.\n",
+                        "type": "string"
+                    },
+                    "defaultTtl": {
+                        "description": "Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.\n",
+                        "type": "integer"
+                    },
+                    "etag": {
+                        "description": "Current version of the cache policy.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "maxTtl": {
+                        "description": "Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.\n",
+                        "type": "integer"
+                    },
+                    "minTtl": {
+                        "description": "Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.\n",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "parametersInCacheKeyAndForwardedToOrigins": {
+                        "description": "The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.\n",
+                        "items": {
+                            "$ref": "#/types/aws:cloudfront/getCachePolicyParametersInCacheKeyAndForwardedToOrigin:getCachePolicyParametersInCacheKeyAndForwardedToOrigin"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "comment",
+                    "defaultTtl",
+                    "etag",
+                    "maxTtl",
+                    "minTtl",
+                    "parametersInCacheKeyAndForwardedToOrigins"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "comment",
-            "defaultTtl",
-            "etag",
-            "maxTtl",
-            "minTtl",
-            "parametersInCacheKeyAndForwardedToOrigins"
-        ],
-        "type": "object"
-    }
-}
+        }

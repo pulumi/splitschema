@@ -1,55 +1,55 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getServerlessAccessPolicy.\n",
-        "properties": {
-            "name": {
-                "type": "string",
-                "description": "Name of the policy.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getServerlessAccessPolicy.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the policy.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of access policy. Must be `data`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "type"
+                ]
             },
-            "type": {
-                "type": "string",
-                "description": "Type of access policy. Must be `data`.\n"
+            "outputs": {
+                "description": "A collection of values returned by getServerlessAccessPolicy.\n",
+                "properties": {
+                    "description": {
+                        "description": "Description of the policy. Typically used to store information about the permissions defined in the policy.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "policy": {
+                        "description": "JSON policy document to use as the content for the new policy.\n",
+                        "type": "string"
+                    },
+                    "policyVersion": {
+                        "description": "Version of the policy.\n",
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description",
+                    "id",
+                    "name",
+                    "policy",
+                    "policyVersion",
+                    "type"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "name",
-            "type"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getServerlessAccessPolicy.\n",
-        "properties": {
-            "description": {
-                "description": "Description of the policy. Typically used to store information about the permissions defined in the policy.\n",
-                "type": "string"
-            },
-            "id": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "policy": {
-                "description": "JSON policy document to use as the content for the new policy.\n",
-                "type": "string"
-            },
-            "policyVersion": {
-                "description": "Version of the policy.\n",
-                "type": "string"
-            },
-            "type": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "description",
-            "id",
-            "name",
-            "policy",
-            "policyVersion",
-            "type"
-        ],
-        "type": "object"
-    }
-}
+        }

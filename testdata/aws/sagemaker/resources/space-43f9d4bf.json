@@ -1,139 +1,139 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The space's Amazon Resource Name (ARN).\n"
-        },
-        "domainId": {
-            "type": "string",
-            "description": "The ID of the associated Domain.\n"
-        },
-        "homeEfsFileSystemUid": {
-            "type": "string",
-            "description": "The ID of the space's profile in the Amazon Elastic File System volume.\n"
-        },
-        "spaceDisplayName": {
-            "type": "string",
-            "description": "The name of the space that appears in the SageMaker Studio UI.\n"
-        },
-        "spaceName": {
-            "type": "string",
-            "description": "The name of the space.\n"
-        },
-        "spaceSettings": {
-            "$ref": "#/types/aws:sagemaker/SpaceSpaceSettings:SpaceSpaceSettings",
-            "description": "A collection of space settings. See Space Settings below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "url": {
-            "type": "string",
-            "description": "Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "domainId",
-        "homeEfsFileSystemUid",
-        "spaceName",
-        "tagsAll",
-        "url"
-    ],
-    "inputProperties": {
-        "domainId": {
-            "type": "string",
-            "description": "The ID of the associated Domain.\n",
-            "willReplaceOnChanges": true
-        },
-        "spaceDisplayName": {
-            "type": "string",
-            "description": "The name of the space that appears in the SageMaker Studio UI.\n"
-        },
-        "spaceName": {
-            "type": "string",
-            "description": "The name of the space.\n",
-            "willReplaceOnChanges": true
-        },
-        "spaceSettings": {
-            "$ref": "#/types/aws:sagemaker/SpaceSpaceSettings:SpaceSpaceSettings",
-            "description": "A collection of space settings. See Space Settings below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "domainId",
-        "spaceName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Space resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The space's Amazon Resource Name (ARN).\n"
-            },
-            "domainId": {
-                "type": "string",
-                "description": "The ID of the associated Domain.\n",
-                "willReplaceOnChanges": true
-            },
-            "homeEfsFileSystemUid": {
-                "type": "string",
-                "description": "The ID of the space's profile in the Amazon Elastic File System volume.\n"
-            },
-            "spaceDisplayName": {
-                "type": "string",
-                "description": "The name of the space that appears in the SageMaker Studio UI.\n"
-            },
-            "spaceName": {
-                "type": "string",
-                "description": "The name of the space.\n",
-                "willReplaceOnChanges": true
-            },
-            "spaceSettings": {
-                "$ref": "#/types/aws:sagemaker/SpaceSpaceSettings:SpaceSpaceSettings",
-                "description": "A collection of space settings. See Space Settings below.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The space's Amazon Resource Name (ARN).\n"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "domainId": {
+                    "type": "string",
+                    "description": "The ID of the associated Domain.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "homeEfsFileSystemUid": {
+                    "type": "string",
+                    "description": "The ID of the space's profile in the Amazon Elastic File System volume.\n"
+                },
+                "spaceDisplayName": {
+                    "type": "string",
+                    "description": "The name of the space that appears in the SageMaker Studio UI.\n"
+                },
+                "spaceName": {
+                    "type": "string",
+                    "description": "The name of the space.\n"
+                },
+                "spaceSettings": {
+                    "$ref": "#/types/aws:sagemaker/SpaceSpaceSettings:SpaceSpaceSettings",
+                    "description": "A collection of space settings. See Space Settings below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.\n"
+                }
             },
-            "url": {
-                "type": "string",
-                "description": "Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.\n"
+            "required": [
+                "arn",
+                "domainId",
+                "homeEfsFileSystemUid",
+                "spaceName",
+                "tagsAll",
+                "url"
+            ],
+            "inputProperties": {
+                "domainId": {
+                    "type": "string",
+                    "description": "The ID of the associated Domain.\n",
+                    "willReplaceOnChanges": true
+                },
+                "spaceDisplayName": {
+                    "type": "string",
+                    "description": "The name of the space that appears in the SageMaker Studio UI.\n"
+                },
+                "spaceName": {
+                    "type": "string",
+                    "description": "The name of the space.\n",
+                    "willReplaceOnChanges": true
+                },
+                "spaceSettings": {
+                    "$ref": "#/types/aws:sagemaker/SpaceSpaceSettings:SpaceSpaceSettings",
+                    "description": "A collection of space settings. See Space Settings below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "domainId",
+                "spaceName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Space resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The space's Amazon Resource Name (ARN).\n"
+                    },
+                    "domainId": {
+                        "type": "string",
+                        "description": "The ID of the associated Domain.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "homeEfsFileSystemUid": {
+                        "type": "string",
+                        "description": "The ID of the space's profile in the Amazon Elastic File System volume.\n"
+                    },
+                    "spaceDisplayName": {
+                        "type": "string",
+                        "description": "The name of the space that appears in the SageMaker Studio UI.\n"
+                    },
+                    "spaceName": {
+                        "type": "string",
+                        "description": "The name of the space.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "spaceSettings": {
+                        "$ref": "#/types/aws:sagemaker/SpaceSpaceSettings:SpaceSpaceSettings",
+                        "description": "A collection of space settings. See Space Settings below.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

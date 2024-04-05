@@ -1,111 +1,111 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getTheme.\n",
-        "properties": {
-            "awsAccountId": {
-                "type": "string",
-                "description": "AWS account ID.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getTheme.\n",
+                "properties": {
+                    "awsAccountId": {
+                        "type": "string",
+                        "description": "AWS account ID.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n"
+                    },
+                    "themeId": {
+                        "type": "string",
+                        "description": "Identifier of the theme.\n\nThe following arguments are optional:\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "themeId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTheme.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the theme.\n",
+                        "type": "string"
+                    },
+                    "awsAccountId": {
+                        "type": "string"
+                    },
+                    "baseThemeId": {
+                        "description": "The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.\n",
+                        "type": "string"
+                    },
+                    "configurations": {
+                        "description": "The theme configuration, which contains the theme display properties. See configuration.\n",
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/getThemeConfiguration:getThemeConfiguration"
+                        },
+                        "type": "array"
+                    },
+                    "createdTime": {
+                        "description": "The time that the theme was created.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "lastUpdatedTime": {
+                        "description": "The time that the theme was last updated.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Display name of the theme.\n",
+                        "type": "string"
+                    },
+                    "permissions": {
+                        "description": "A set of resource permissions on the theme. See permissions.\n",
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/getThemePermission:getThemePermission"
+                        },
+                        "type": "array"
+                    },
+                    "status": {
+                        "description": "The theme creation status.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "type": "object"
+                    },
+                    "themeId": {
+                        "type": "string"
+                    },
+                    "versionDescription": {
+                        "description": "A description of the current theme version being created/updated.\n",
+                        "type": "string"
+                    },
+                    "versionNumber": {
+                        "description": "The version number of the theme version.\n",
+                        "type": "integer"
+                    }
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n"
-            },
-            "themeId": {
-                "type": "string",
-                "description": "Identifier of the theme.\n\nThe following arguments are optional:\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "themeId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getTheme.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the theme.\n",
-                "type": "string"
-            },
-            "awsAccountId": {
-                "type": "string"
-            },
-            "baseThemeId": {
-                "description": "The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.\n",
-                "type": "string"
-            },
-            "configurations": {
-                "description": "The theme configuration, which contains the theme display properties. See configuration.\n",
-                "items": {
-                    "$ref": "#/types/aws:quicksight/getThemeConfiguration:getThemeConfiguration"
-                },
-                "type": "array"
-            },
-            "createdTime": {
-                "description": "The time that the theme was created.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "lastUpdatedTime": {
-                "description": "The time that the theme was last updated.\n",
-                "type": "string"
-            },
-            "name": {
-                "description": "Display name of the theme.\n",
-                "type": "string"
-            },
-            "permissions": {
-                "description": "A set of resource permissions on the theme. See permissions.\n",
-                "items": {
-                    "$ref": "#/types/aws:quicksight/getThemePermission:getThemePermission"
-                },
-                "type": "array"
-            },
-            "status": {
-                "description": "The theme creation status.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "required": [
+                    "arn",
+                    "awsAccountId",
+                    "baseThemeId",
+                    "configurations",
+                    "createdTime",
+                    "lastUpdatedTime",
+                    "name",
+                    "permissions",
+                    "status",
+                    "tags",
+                    "themeId",
+                    "versionDescription",
+                    "versionNumber",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "themeId": {
-                "type": "string"
-            },
-            "versionDescription": {
-                "description": "A description of the current theme version being created/updated.\n",
-                "type": "string"
-            },
-            "versionNumber": {
-                "description": "The version number of the theme version.\n",
-                "type": "integer"
             }
-        },
-        "required": [
-            "arn",
-            "awsAccountId",
-            "baseThemeId",
-            "configurations",
-            "createdTime",
-            "lastUpdatedTime",
-            "name",
-            "permissions",
-            "status",
-            "tags",
-            "themeId",
-            "versionDescription",
-            "versionNumber",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

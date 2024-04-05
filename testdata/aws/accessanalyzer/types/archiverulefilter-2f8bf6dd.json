@@ -1,48 +1,48 @@
 {
-    "properties": {
-        "contains": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "contains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Contains comparator.\n"
+                },
+                "criteria": {
+                    "type": "string",
+                    "description": "Filter criteria.\n"
+                },
+                "eqs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Equals comparator.\n"
+                },
+                "exists": {
+                    "type": "string",
+                    "description": "Boolean comparator.\n"
+                },
+                "neqs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Not Equals comparator.\n"
+                }
             },
-            "description": "Contains comparator.\n"
-        },
-        "criteria": {
-            "type": "string",
-            "description": "Filter criteria.\n"
-        },
-        "eqs": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Equals comparator.\n"
-        },
-        "exists": {
-            "type": "string",
-            "description": "Boolean comparator.\n"
-        },
-        "neqs": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Not Equals comparator.\n"
+            "type": "object",
+            "required": [
+                "criteria"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "contains",
+                        "criteria",
+                        "eqs",
+                        "exists",
+                        "neqs"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "criteria"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "contains",
-                "criteria",
-                "eqs",
-                "exists",
-                "neqs"
-            ]
-        }
-    }
-}

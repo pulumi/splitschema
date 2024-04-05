@@ -1,33 +1,33 @@
 {
-    "properties": {
-        "catalogId": {
-            "type": "string",
-            "description": "Identifier for the Data Catalog. By default, it is the account ID of the caller.\n"
-        },
-        "databaseName": {
-            "type": "string",
-            "description": "Name of the database for the table. Unique to a Data Catalog.\n\nThe following arguments are optional:\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the table. At least one of `name` or `wildcard` is required.\n"
-        },
-        "wildcard": {
-            "type": "boolean",
-            "description": "Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.\n"
+            "properties": {
+                "catalogId": {
+                    "type": "string",
+                    "description": "Identifier for the Data Catalog. By default, it is the account ID of the caller.\n"
+                },
+                "databaseName": {
+                    "type": "string",
+                    "description": "Name of the database for the table. Unique to a Data Catalog.\n\nThe following arguments are optional:\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the table. At least one of `name` or `wildcard` is required.\n"
+                },
+                "wildcard": {
+                    "type": "boolean",
+                    "description": "Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "catalogId",
+                "databaseName",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": [
+                        "databaseName"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "catalogId",
-        "databaseName",
-        "name"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": [
-                "databaseName"
-            ]
-        }
-    }
-}

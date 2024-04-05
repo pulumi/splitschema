@@ -1,191 +1,191 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN for this account.\n"
-        },
-        "closeOnDeletion": {
-            "type": "boolean",
-            "description": "If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.\n"
-        },
-        "createGovcloud": {
-            "type": "boolean",
-            "description": "Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.\n"
-        },
-        "email": {
-            "type": "string",
-            "description": "Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.\n"
-        },
-        "govcloudId": {
-            "type": "string",
-            "description": "ID for a GovCloud account created with the account.\n"
-        },
-        "iamUserAccessToBilling": {
-            "type": "string",
-            "description": "If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.\n"
-        },
-        "joinedMethod": {
-            "type": "string"
-        },
-        "joinedTimestamp": {
-            "type": "string"
-        },
-        "name": {
-            "type": "string",
-            "description": "Friendly name for the member account.\n\nThe following arguments are optional:\n"
-        },
-        "parentId": {
-            "type": "string",
-            "description": "Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.\n"
-        },
-        "roleName": {
-            "type": "string",
-            "description": "The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.\n"
-        },
-        "status": {
-            "type": "string"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "email",
-        "govcloudId",
-        "joinedMethod",
-        "joinedTimestamp",
-        "name",
-        "parentId",
-        "status",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "closeOnDeletion": {
-            "type": "boolean",
-            "description": "If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.\n"
-        },
-        "createGovcloud": {
-            "type": "boolean",
-            "description": "Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.\n"
-        },
-        "email": {
-            "type": "string",
-            "description": "Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.\n",
-            "willReplaceOnChanges": true
-        },
-        "iamUserAccessToBilling": {
-            "type": "string",
-            "description": "If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Friendly name for the member account.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "parentId": {
-            "type": "string",
-            "description": "Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.\n"
-        },
-        "roleName": {
-            "type": "string",
-            "description": "The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "email"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Account resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN for this account.\n"
-            },
-            "closeOnDeletion": {
-                "type": "boolean",
-                "description": "If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.\n"
-            },
-            "createGovcloud": {
-                "type": "boolean",
-                "description": "Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.\n"
-            },
-            "email": {
-                "type": "string",
-                "description": "Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.\n",
-                "willReplaceOnChanges": true
-            },
-            "govcloudId": {
-                "type": "string",
-                "description": "ID for a GovCloud account created with the account.\n"
-            },
-            "iamUserAccessToBilling": {
-                "type": "string",
-                "description": "If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.\n",
-                "willReplaceOnChanges": true
-            },
-            "joinedMethod": {
-                "type": "string"
-            },
-            "joinedTimestamp": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string",
-                "description": "Friendly name for the member account.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "parentId": {
-                "type": "string",
-                "description": "Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.\n"
-            },
-            "roleName": {
-                "type": "string",
-                "description": "The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.\n",
-                "willReplaceOnChanges": true
-            },
-            "status": {
-                "type": "string"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN for this account.\n"
+                },
+                "closeOnDeletion": {
+                    "type": "boolean",
+                    "description": "If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.\n"
+                },
+                "createGovcloud": {
+                    "type": "boolean",
+                    "description": "Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.\n"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.\n"
+                },
+                "govcloudId": {
+                    "type": "string",
+                    "description": "ID for a GovCloud account created with the account.\n"
+                },
+                "iamUserAccessToBilling": {
+                    "type": "string",
+                    "description": "If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.\n"
+                },
+                "joinedMethod": {
                     "type": "string"
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
+                "joinedTimestamp": {
                     "type": "string"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "name": {
+                    "type": "string",
+                    "description": "Friendly name for the member account.\n\nThe following arguments are optional:\n"
+                },
+                "parentId": {
+                    "type": "string",
+                    "description": "Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.\n"
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.\n"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "email",
+                "govcloudId",
+                "joinedMethod",
+                "joinedTimestamp",
+                "name",
+                "parentId",
+                "status",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "closeOnDeletion": {
+                    "type": "boolean",
+                    "description": "If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.\n"
+                },
+                "createGovcloud": {
+                    "type": "boolean",
+                    "description": "Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.\n"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.\n",
+                    "willReplaceOnChanges": true
+                },
+                "iamUserAccessToBilling": {
+                    "type": "string",
+                    "description": "If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Friendly name for the member account.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "parentId": {
+                    "type": "string",
+                    "description": "Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.\n"
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "email"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Account resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN for this account.\n"
+                    },
+                    "closeOnDeletion": {
+                        "type": "boolean",
+                        "description": "If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.\n"
+                    },
+                    "createGovcloud": {
+                        "type": "boolean",
+                        "description": "Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.\n"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "govcloudId": {
+                        "type": "string",
+                        "description": "ID for a GovCloud account created with the account.\n"
+                    },
+                    "iamUserAccessToBilling": {
+                        "type": "string",
+                        "description": "If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "joinedMethod": {
+                        "type": "string"
+                    },
+                    "joinedTimestamp": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Friendly name for the member account.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "parentId": {
+                        "type": "string",
+                        "description": "Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.\n"
+                    },
+                    "roleName": {
+                        "type": "string",
+                        "description": "The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

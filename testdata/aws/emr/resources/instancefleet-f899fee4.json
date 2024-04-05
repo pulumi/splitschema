@@ -1,126 +1,126 @@
 {
-    "properties": {
-        "clusterId": {
-            "type": "string",
-            "description": "ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.\n"
-        },
-        "instanceTypeConfigs": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:emr/InstanceFleetInstanceTypeConfig:InstanceFleetInstanceTypeConfig"
-            },
-            "description": "Configuration block for instance fleet\n"
-        },
-        "launchSpecifications": {
-            "$ref": "#/types/aws:emr/InstanceFleetLaunchSpecifications:InstanceFleetLaunchSpecifications",
-            "description": "Configuration block for launch specification\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Friendly name given to the instance fleet.\n"
-        },
-        "provisionedOnDemandCapacity": {
-            "type": "integer",
-            "description": "The number of On-Demand units that have been provisioned for the instance\nfleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.\n"
-        },
-        "provisionedSpotCapacity": {
-            "type": "integer",
-            "description": "The number of Spot units that have been provisioned for this instance fleet\nto fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.\n"
-        },
-        "targetOnDemandCapacity": {
-            "type": "integer",
-            "description": "The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.\n"
-        },
-        "targetSpotCapacity": {
-            "type": "integer",
-            "description": "The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.\n"
-        }
-    },
-    "required": [
-        "clusterId",
-        "name",
-        "provisionedOnDemandCapacity",
-        "provisionedSpotCapacity"
-    ],
-    "inputProperties": {
-        "clusterId": {
-            "type": "string",
-            "description": "ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.\n",
-            "willReplaceOnChanges": true
-        },
-        "instanceTypeConfigs": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:emr/InstanceFleetInstanceTypeConfig:InstanceFleetInstanceTypeConfig"
-            },
-            "description": "Configuration block for instance fleet\n",
-            "willReplaceOnChanges": true
-        },
-        "launchSpecifications": {
-            "$ref": "#/types/aws:emr/InstanceFleetLaunchSpecifications:InstanceFleetLaunchSpecifications",
-            "description": "Configuration block for launch specification\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Friendly name given to the instance fleet.\n",
-            "willReplaceOnChanges": true
-        },
-        "targetOnDemandCapacity": {
-            "type": "integer",
-            "description": "The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.\n"
-        },
-        "targetSpotCapacity": {
-            "type": "integer",
-            "description": "The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.\n"
-        }
-    },
-    "requiredInputs": [
-        "clusterId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering InstanceFleet resources.\n",
-        "properties": {
-            "clusterId": {
-                "type": "string",
-                "description": "ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.\n",
-                "willReplaceOnChanges": true
-            },
-            "instanceTypeConfigs": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:emr/InstanceFleetInstanceTypeConfig:InstanceFleetInstanceTypeConfig"
+            "properties": {
+                "clusterId": {
+                    "type": "string",
+                    "description": "ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.\n"
                 },
-                "description": "Configuration block for instance fleet\n",
-                "willReplaceOnChanges": true
+                "instanceTypeConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:emr/InstanceFleetInstanceTypeConfig:InstanceFleetInstanceTypeConfig"
+                    },
+                    "description": "Configuration block for instance fleet\n"
+                },
+                "launchSpecifications": {
+                    "$ref": "#/types/aws:emr/InstanceFleetLaunchSpecifications:InstanceFleetLaunchSpecifications",
+                    "description": "Configuration block for launch specification\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Friendly name given to the instance fleet.\n"
+                },
+                "provisionedOnDemandCapacity": {
+                    "type": "integer",
+                    "description": "The number of On-Demand units that have been provisioned for the instance\nfleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.\n"
+                },
+                "provisionedSpotCapacity": {
+                    "type": "integer",
+                    "description": "The number of Spot units that have been provisioned for this instance fleet\nto fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.\n"
+                },
+                "targetOnDemandCapacity": {
+                    "type": "integer",
+                    "description": "The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.\n"
+                },
+                "targetSpotCapacity": {
+                    "type": "integer",
+                    "description": "The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.\n"
+                }
             },
-            "launchSpecifications": {
-                "$ref": "#/types/aws:emr/InstanceFleetLaunchSpecifications:InstanceFleetLaunchSpecifications",
-                "description": "Configuration block for launch specification\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "clusterId",
+                "name",
+                "provisionedOnDemandCapacity",
+                "provisionedSpotCapacity"
+            ],
+            "inputProperties": {
+                "clusterId": {
+                    "type": "string",
+                    "description": "ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.\n",
+                    "willReplaceOnChanges": true
+                },
+                "instanceTypeConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:emr/InstanceFleetInstanceTypeConfig:InstanceFleetInstanceTypeConfig"
+                    },
+                    "description": "Configuration block for instance fleet\n",
+                    "willReplaceOnChanges": true
+                },
+                "launchSpecifications": {
+                    "$ref": "#/types/aws:emr/InstanceFleetLaunchSpecifications:InstanceFleetLaunchSpecifications",
+                    "description": "Configuration block for launch specification\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Friendly name given to the instance fleet.\n",
+                    "willReplaceOnChanges": true
+                },
+                "targetOnDemandCapacity": {
+                    "type": "integer",
+                    "description": "The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.\n"
+                },
+                "targetSpotCapacity": {
+                    "type": "integer",
+                    "description": "The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.\n"
+                }
             },
-            "name": {
-                "type": "string",
-                "description": "Friendly name given to the instance fleet.\n",
-                "willReplaceOnChanges": true
-            },
-            "provisionedOnDemandCapacity": {
-                "type": "integer",
-                "description": "The number of On-Demand units that have been provisioned for the instance\nfleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.\n"
-            },
-            "provisionedSpotCapacity": {
-                "type": "integer",
-                "description": "The number of Spot units that have been provisioned for this instance fleet\nto fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.\n"
-            },
-            "targetOnDemandCapacity": {
-                "type": "integer",
-                "description": "The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.\n"
-            },
-            "targetSpotCapacity": {
-                "type": "integer",
-                "description": "The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.\n"
+            "requiredInputs": [
+                "clusterId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering InstanceFleet resources.\n",
+                "properties": {
+                    "clusterId": {
+                        "type": "string",
+                        "description": "ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "instanceTypeConfigs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:emr/InstanceFleetInstanceTypeConfig:InstanceFleetInstanceTypeConfig"
+                        },
+                        "description": "Configuration block for instance fleet\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "launchSpecifications": {
+                        "$ref": "#/types/aws:emr/InstanceFleetLaunchSpecifications:InstanceFleetLaunchSpecifications",
+                        "description": "Configuration block for launch specification\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Friendly name given to the instance fleet.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "provisionedOnDemandCapacity": {
+                        "type": "integer",
+                        "description": "The number of On-Demand units that have been provisioned for the instance\nfleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.\n"
+                    },
+                    "provisionedSpotCapacity": {
+                        "type": "integer",
+                        "description": "The number of Spot units that have been provisioned for this instance fleet\nto fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.\n"
+                    },
+                    "targetOnDemandCapacity": {
+                        "type": "integer",
+                        "description": "The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.\n"
+                    },
+                    "targetSpotCapacity": {
+                        "type": "integer",
+                        "description": "The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,68 +1,68 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getFirewallPolicy.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the firewall policy.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Descriptive name of the firewall policy.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getFirewallPolicy.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the firewall policy.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Descriptive name of the firewall policy.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the firewall policy.\n"
+                    }
                 },
-                "description": "Key-value tags for the firewall policy.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getFirewallPolicy.\n",
-        "properties": {
-            "arn": {
-                "type": "string"
-            },
-            "description": {
-                "description": "Description of the firewall policy.\n",
-                "type": "string"
-            },
-            "firewallPolicies": {
-                "description": "The [policy][2] for the specified firewall policy.\n",
-                "items": {
-                    "$ref": "#/types/aws:networkfirewall/getFirewallPolicyFirewallPolicy:getFirewallPolicyFirewallPolicy"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value tags for the firewall policy.\n",
                 "type": "object"
             },
-            "updateToken": {
-                "description": "Token used for optimistic locking.\n",
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getFirewallPolicy.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the firewall policy.\n",
+                        "type": "string"
+                    },
+                    "firewallPolicies": {
+                        "description": "The [policy][2] for the specified firewall policy.\n",
+                        "items": {
+                            "$ref": "#/types/aws:networkfirewall/getFirewallPolicyFirewallPolicy:getFirewallPolicyFirewallPolicy"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the firewall policy.\n",
+                        "type": "object"
+                    },
+                    "updateToken": {
+                        "description": "Token used for optimistic locking.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description",
+                    "firewallPolicies",
+                    "tags",
+                    "updateToken",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "description",
-            "firewallPolicies",
-            "tags",
-            "updateToken",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

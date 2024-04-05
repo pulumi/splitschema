@@ -1,58 +1,58 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getSpotPrice.\n",
-        "properties": {
-            "availabilityZone": {
-                "type": "string",
-                "description": "Availability zone in which to query Spot price information.\n"
-            },
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getSpotPriceFilter:getSpotPriceFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getSpotPrice.\n",
+                "properties": {
+                    "availabilityZone": {
+                        "type": "string",
+                        "description": "Availability zone in which to query Spot price information.\n"
+                    },
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getSpotPriceFilter:getSpotPriceFilter"
+                        },
+                        "description": "One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.\n"
+                    },
+                    "instanceType": {
+                        "type": "string",
+                        "description": "Type of instance for which to query Spot Price information.\n"
+                    }
                 },
-                "description": "One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.\n"
+                "type": "object"
             },
-            "instanceType": {
-                "type": "string",
-                "description": "Type of instance for which to query Spot Price information.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getSpotPrice.\n",
-        "properties": {
-            "availabilityZone": {
-                "type": "string"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getSpotPriceFilter:getSpotPriceFilter"
+            "outputs": {
+                "description": "A collection of values returned by getSpotPrice.\n",
+                "properties": {
+                    "availabilityZone": {
+                        "type": "string"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getSpotPriceFilter:getSpotPriceFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "instanceType": {
+                        "type": "string"
+                    },
+                    "spotPrice": {
+                        "description": "Most recent Spot Price value for the given instance type and AZ.\n",
+                        "type": "string"
+                    },
+                    "spotPriceTimestamp": {
+                        "description": "The timestamp at which the Spot Price value was published.\n",
+                        "type": "string"
+                    }
                 },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "instanceType": {
-                "type": "string"
-            },
-            "spotPrice": {
-                "description": "Most recent Spot Price value for the given instance type and AZ.\n",
-                "type": "string"
-            },
-            "spotPriceTimestamp": {
-                "description": "The timestamp at which the Spot Price value was published.\n",
-                "type": "string"
+                "required": [
+                    "spotPrice",
+                    "spotPriceTimestamp",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "spotPrice",
-            "spotPriceTimestamp",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

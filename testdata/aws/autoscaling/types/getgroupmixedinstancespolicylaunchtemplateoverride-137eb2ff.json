@@ -1,38 +1,38 @@
 {
-    "properties": {
-        "instanceRequirements": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:autoscaling/getGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement:getGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement"
+            "properties": {
+                "instanceRequirements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:autoscaling/getGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement:getGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement"
+                    },
+                    "description": "List of instance requirements objects.\n* `accelerator_count - List of objects describing the minimum and maximum number of accelerators for an instance type.\n"
+                },
+                "instanceType": {
+                    "type": "string",
+                    "description": "Overriding instance type.\n"
+                },
+                "launchTemplateSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:autoscaling/getGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification:getGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification"
+                    },
+                    "description": "List of overriding launch template specification objects.\n"
+                },
+                "weightedCapacity": {
+                    "type": "string",
+                    "description": "Number of capacity units, which gives the instance type a proportional weight to other instance types.\n"
+                }
             },
-            "description": "List of instance requirements objects.\n* `accelerator_count - List of objects describing the minimum and maximum number of accelerators for an instance type.\n"
-        },
-        "instanceType": {
-            "type": "string",
-            "description": "Overriding instance type.\n"
-        },
-        "launchTemplateSpecifications": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:autoscaling/getGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification:getGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification"
-            },
-            "description": "List of overriding launch template specification objects.\n"
-        },
-        "weightedCapacity": {
-            "type": "string",
-            "description": "Number of capacity units, which gives the instance type a proportional weight to other instance types.\n"
+            "type": "object",
+            "required": [
+                "instanceRequirements",
+                "instanceType",
+                "launchTemplateSpecifications",
+                "weightedCapacity"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "instanceRequirements",
-        "instanceType",
-        "launchTemplateSpecifications",
-        "weightedCapacity"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

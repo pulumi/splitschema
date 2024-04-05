@@ -1,214 +1,214 @@
 {
-    "properties": {
-        "catalogId": {
-            "type": "string",
-            "description": "Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.\n"
-        },
-        "catalogResource": {
-            "type": "boolean",
-            "description": "Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.\n"
-        },
-        "dataLocation": {
-            "$ref": "#/types/aws:lakeformation/PermissionsDataLocation:PermissionsDataLocation",
-            "description": "Configuration block for a data location resource. Detailed below.\n"
-        },
-        "database": {
-            "$ref": "#/types/aws:lakeformation/PermissionsDatabase:PermissionsDatabase",
-            "description": "Configuration block for a database resource. Detailed below.\n"
-        },
-        "lfTag": {
-            "$ref": "#/types/aws:lakeformation/PermissionsLfTag:PermissionsLfTag",
-            "description": "Configuration block for an LF-tag resource. Detailed below.\n"
-        },
-        "lfTagPolicy": {
-            "$ref": "#/types/aws:lakeformation/PermissionsLfTagPolicy:PermissionsLfTagPolicy",
-            "description": "Configuration block for an LF-tag policy resource. Detailed below.\n"
-        },
-        "permissions": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n",
-            "language": {
-                "csharp": {
-                    "name": "PermissionDetails"
-                }
-            }
-        },
-        "permissionsWithGrantOptions": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Subset of `permissions` which the principal can pass.\n"
-        },
-        "principal": {
-            "type": "string",
-            "description": "Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n\n\u003e **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.\n\nOne of the following is required:\n"
-        },
-        "table": {
-            "$ref": "#/types/aws:lakeformation/PermissionsTable:PermissionsTable",
-            "description": "Configuration block for a table resource. Detailed below.\n"
-        },
-        "tableWithColumns": {
-            "$ref": "#/types/aws:lakeformation/PermissionsTableWithColumns:PermissionsTableWithColumns",
-            "description": "Configuration block for a table with columns resource. Detailed below.\n\nThe following arguments are optional:\n"
-        }
-    },
-    "required": [
-        "dataLocation",
-        "database",
-        "lfTag",
-        "lfTagPolicy",
-        "permissions",
-        "permissionsWithGrantOptions",
-        "principal",
-        "table",
-        "tableWithColumns"
-    ],
-    "inputProperties": {
-        "catalogId": {
-            "type": "string",
-            "description": "Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.\n",
-            "willReplaceOnChanges": true
-        },
-        "catalogResource": {
-            "type": "boolean",
-            "description": "Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.\n",
-            "willReplaceOnChanges": true
-        },
-        "dataLocation": {
-            "$ref": "#/types/aws:lakeformation/PermissionsDataLocation:PermissionsDataLocation",
-            "description": "Configuration block for a data location resource. Detailed below.\n",
-            "willReplaceOnChanges": true
-        },
-        "database": {
-            "$ref": "#/types/aws:lakeformation/PermissionsDatabase:PermissionsDatabase",
-            "description": "Configuration block for a database resource. Detailed below.\n",
-            "willReplaceOnChanges": true
-        },
-        "lfTag": {
-            "$ref": "#/types/aws:lakeformation/PermissionsLfTag:PermissionsLfTag",
-            "description": "Configuration block for an LF-tag resource. Detailed below.\n",
-            "willReplaceOnChanges": true
-        },
-        "lfTagPolicy": {
-            "$ref": "#/types/aws:lakeformation/PermissionsLfTagPolicy:PermissionsLfTagPolicy",
-            "description": "Configuration block for an LF-tag policy resource. Detailed below.\n",
-            "willReplaceOnChanges": true
-        },
-        "permissions": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n",
-            "language": {
-                "csharp": {
-                    "name": "PermissionDetails"
-                }
-            },
-            "willReplaceOnChanges": true
-        },
-        "permissionsWithGrantOptions": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Subset of `permissions` which the principal can pass.\n",
-            "willReplaceOnChanges": true
-        },
-        "principal": {
-            "type": "string",
-            "description": "Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n\n\u003e **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.\n\nOne of the following is required:\n",
-            "willReplaceOnChanges": true
-        },
-        "table": {
-            "$ref": "#/types/aws:lakeformation/PermissionsTable:PermissionsTable",
-            "description": "Configuration block for a table resource. Detailed below.\n",
-            "willReplaceOnChanges": true
-        },
-        "tableWithColumns": {
-            "$ref": "#/types/aws:lakeformation/PermissionsTableWithColumns:PermissionsTableWithColumns",
-            "description": "Configuration block for a table with columns resource. Detailed below.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "permissions",
-        "principal"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Permissions resources.\n",
-        "properties": {
-            "catalogId": {
-                "type": "string",
-                "description": "Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.\n",
-                "willReplaceOnChanges": true
-            },
-            "catalogResource": {
-                "type": "boolean",
-                "description": "Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.\n",
-                "willReplaceOnChanges": true
-            },
-            "dataLocation": {
-                "$ref": "#/types/aws:lakeformation/PermissionsDataLocation:PermissionsDataLocation",
-                "description": "Configuration block for a data location resource. Detailed below.\n",
-                "willReplaceOnChanges": true
-            },
-            "database": {
-                "$ref": "#/types/aws:lakeformation/PermissionsDatabase:PermissionsDatabase",
-                "description": "Configuration block for a database resource. Detailed below.\n",
-                "willReplaceOnChanges": true
-            },
-            "lfTag": {
-                "$ref": "#/types/aws:lakeformation/PermissionsLfTag:PermissionsLfTag",
-                "description": "Configuration block for an LF-tag resource. Detailed below.\n",
-                "willReplaceOnChanges": true
-            },
-            "lfTagPolicy": {
-                "$ref": "#/types/aws:lakeformation/PermissionsLfTagPolicy:PermissionsLfTagPolicy",
-                "description": "Configuration block for an LF-tag policy resource. Detailed below.\n",
-                "willReplaceOnChanges": true
-            },
-            "permissions": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "catalogId": {
+                    "type": "string",
+                    "description": "Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.\n"
                 },
-                "description": "List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n",
-                "language": {
-                    "csharp": {
-                        "name": "PermissionDetails"
+                "catalogResource": {
+                    "type": "boolean",
+                    "description": "Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.\n"
+                },
+                "dataLocation": {
+                    "$ref": "#/types/aws:lakeformation/PermissionsDataLocation:PermissionsDataLocation",
+                    "description": "Configuration block for a data location resource. Detailed below.\n"
+                },
+                "database": {
+                    "$ref": "#/types/aws:lakeformation/PermissionsDatabase:PermissionsDatabase",
+                    "description": "Configuration block for a database resource. Detailed below.\n"
+                },
+                "lfTag": {
+                    "$ref": "#/types/aws:lakeformation/PermissionsLfTag:PermissionsLfTag",
+                    "description": "Configuration block for an LF-tag resource. Detailed below.\n"
+                },
+                "lfTagPolicy": {
+                    "$ref": "#/types/aws:lakeformation/PermissionsLfTagPolicy:PermissionsLfTagPolicy",
+                    "description": "Configuration block for an LF-tag policy resource. Detailed below.\n"
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n",
+                    "language": {
+                        "csharp": {
+                            "name": "PermissionDetails"
+                        }
                     }
                 },
-                "willReplaceOnChanges": true
-            },
-            "permissionsWithGrantOptions": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "permissionsWithGrantOptions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Subset of `permissions` which the principal can pass.\n"
                 },
-                "description": "Subset of `permissions` which the principal can pass.\n",
-                "willReplaceOnChanges": true
+                "principal": {
+                    "type": "string",
+                    "description": "Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n\n\u003e **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.\n\nOne of the following is required:\n"
+                },
+                "table": {
+                    "$ref": "#/types/aws:lakeformation/PermissionsTable:PermissionsTable",
+                    "description": "Configuration block for a table resource. Detailed below.\n"
+                },
+                "tableWithColumns": {
+                    "$ref": "#/types/aws:lakeformation/PermissionsTableWithColumns:PermissionsTableWithColumns",
+                    "description": "Configuration block for a table with columns resource. Detailed below.\n\nThe following arguments are optional:\n"
+                }
             },
-            "principal": {
-                "type": "string",
-                "description": "Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n\n\u003e **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.\n\nOne of the following is required:\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "dataLocation",
+                "database",
+                "lfTag",
+                "lfTagPolicy",
+                "permissions",
+                "permissionsWithGrantOptions",
+                "principal",
+                "table",
+                "tableWithColumns"
+            ],
+            "inputProperties": {
+                "catalogId": {
+                    "type": "string",
+                    "description": "Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.\n",
+                    "willReplaceOnChanges": true
+                },
+                "catalogResource": {
+                    "type": "boolean",
+                    "description": "Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "dataLocation": {
+                    "$ref": "#/types/aws:lakeformation/PermissionsDataLocation:PermissionsDataLocation",
+                    "description": "Configuration block for a data location resource. Detailed below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "database": {
+                    "$ref": "#/types/aws:lakeformation/PermissionsDatabase:PermissionsDatabase",
+                    "description": "Configuration block for a database resource. Detailed below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "lfTag": {
+                    "$ref": "#/types/aws:lakeformation/PermissionsLfTag:PermissionsLfTag",
+                    "description": "Configuration block for an LF-tag resource. Detailed below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "lfTagPolicy": {
+                    "$ref": "#/types/aws:lakeformation/PermissionsLfTagPolicy:PermissionsLfTagPolicy",
+                    "description": "Configuration block for an LF-tag policy resource. Detailed below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n",
+                    "language": {
+                        "csharp": {
+                            "name": "PermissionDetails"
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "permissionsWithGrantOptions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Subset of `permissions` which the principal can pass.\n",
+                    "willReplaceOnChanges": true
+                },
+                "principal": {
+                    "type": "string",
+                    "description": "Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n\n\u003e **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.\n\nOne of the following is required:\n",
+                    "willReplaceOnChanges": true
+                },
+                "table": {
+                    "$ref": "#/types/aws:lakeformation/PermissionsTable:PermissionsTable",
+                    "description": "Configuration block for a table resource. Detailed below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tableWithColumns": {
+                    "$ref": "#/types/aws:lakeformation/PermissionsTableWithColumns:PermissionsTableWithColumns",
+                    "description": "Configuration block for a table with columns resource. Detailed below.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "table": {
-                "$ref": "#/types/aws:lakeformation/PermissionsTable:PermissionsTable",
-                "description": "Configuration block for a table resource. Detailed below.\n",
-                "willReplaceOnChanges": true
-            },
-            "tableWithColumns": {
-                "$ref": "#/types/aws:lakeformation/PermissionsTableWithColumns:PermissionsTableWithColumns",
-                "description": "Configuration block for a table with columns resource. Detailed below.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "permissions",
+                "principal"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Permissions resources.\n",
+                "properties": {
+                    "catalogId": {
+                        "type": "string",
+                        "description": "Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "catalogResource": {
+                        "type": "boolean",
+                        "description": "Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "dataLocation": {
+                        "$ref": "#/types/aws:lakeformation/PermissionsDataLocation:PermissionsDataLocation",
+                        "description": "Configuration block for a data location resource. Detailed below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "database": {
+                        "$ref": "#/types/aws:lakeformation/PermissionsDatabase:PermissionsDatabase",
+                        "description": "Configuration block for a database resource. Detailed below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "lfTag": {
+                        "$ref": "#/types/aws:lakeformation/PermissionsLfTag:PermissionsLfTag",
+                        "description": "Configuration block for an LF-tag resource. Detailed below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "lfTagPolicy": {
+                        "$ref": "#/types/aws:lakeformation/PermissionsLfTagPolicy:PermissionsLfTagPolicy",
+                        "description": "Configuration block for an LF-tag policy resource. Detailed below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "permissions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n",
+                        "language": {
+                            "csharp": {
+                                "name": "PermissionDetails"
+                            }
+                        },
+                        "willReplaceOnChanges": true
+                    },
+                    "permissionsWithGrantOptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Subset of `permissions` which the principal can pass.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "principal": {
+                        "type": "string",
+                        "description": "Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n\n\u003e **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.\n\nOne of the following is required:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "table": {
+                        "$ref": "#/types/aws:lakeformation/PermissionsTable:PermissionsTable",
+                        "description": "Configuration block for a table resource. Detailed below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tableWithColumns": {
+                        "$ref": "#/types/aws:lakeformation/PermissionsTableWithColumns:PermissionsTableWithColumns",
+                        "description": "Configuration block for a table with columns resource. Detailed below.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

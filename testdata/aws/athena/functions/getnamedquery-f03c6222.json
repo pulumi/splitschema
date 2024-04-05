@@ -1,53 +1,53 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getNamedQuery.\n",
-        "properties": {
-            "name": {
-                "type": "string",
-                "description": "The plain language name for the query. Maximum length of 128.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getNamedQuery.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The plain language name for the query. Maximum length of 128.\n"
+                    },
+                    "workgroup": {
+                        "type": "string",
+                        "description": "The workgroup to which the query belongs. Defaults to `primary`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
             },
-            "workgroup": {
-                "type": "string",
-                "description": "The workgroup to which the query belongs. Defaults to `primary`.\n"
+            "outputs": {
+                "description": "A collection of values returned by getNamedQuery.\n",
+                "properties": {
+                    "database": {
+                        "description": "Database to which the query belongs.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Brief explanation of the query.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "querystring": {
+                        "type": "string"
+                    },
+                    "workgroup": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "database",
+                    "description",
+                    "name",
+                    "querystring",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "name"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getNamedQuery.\n",
-        "properties": {
-            "database": {
-                "description": "Database to which the query belongs.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Brief explanation of the query.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "querystring": {
-                "type": "string"
-            },
-            "workgroup": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "database",
-            "description",
-            "name",
-            "querystring",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

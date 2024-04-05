@@ -1,42 +1,42 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getExport.\n",
-        "properties": {
-            "name": {
-                "type": "string",
-                "description": "Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getExport.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getExport.\n",
+                "properties": {
+                    "exportingStackId": {
+                        "description": "ARN of stack that contains the exported output name and value.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "exportingStackId",
+                    "name",
+                    "value",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "name"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getExport.\n",
-        "properties": {
-            "exportingStackId": {
-                "description": "ARN of stack that contains the exported output name and value.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "value": {
-                "description": "Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "exportingStackId",
-            "name",
-            "value",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,191 +1,191 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The action ARN.\n"
-        },
-        "category": {
-            "type": "string",
-            "description": "The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`\n"
-        },
-        "configurationProperties": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:codepipeline/CustomActionTypeConfigurationProperty:CustomActionTypeConfigurationProperty"
-            },
-            "description": "The configuration properties for the custom action. Max 10 items.\n"
-        },
-        "inputArtifactDetails": {
-            "$ref": "#/types/aws:codepipeline/CustomActionTypeInputArtifactDetails:CustomActionTypeInputArtifactDetails",
-            "description": "The details of the input artifact for the action.\n"
-        },
-        "outputArtifactDetails": {
-            "$ref": "#/types/aws:codepipeline/CustomActionTypeOutputArtifactDetails:CustomActionTypeOutputArtifactDetails",
-            "description": "The details of the output artifact of the action.\n"
-        },
-        "owner": {
-            "type": "string",
-            "description": "The creator of the action being called.\n"
-        },
-        "providerName": {
-            "type": "string",
-            "description": "The provider of the service used in the custom action\n"
-        },
-        "settings": {
-            "$ref": "#/types/aws:codepipeline/CustomActionTypeSettings:CustomActionTypeSettings",
-            "description": "The settings for an action type.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "version": {
-            "type": "string",
-            "description": "The version identifier of the custom action.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "category",
-        "inputArtifactDetails",
-        "outputArtifactDetails",
-        "owner",
-        "providerName",
-        "tagsAll",
-        "version"
-    ],
-    "inputProperties": {
-        "category": {
-            "type": "string",
-            "description": "The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`\n",
-            "willReplaceOnChanges": true
-        },
-        "configurationProperties": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:codepipeline/CustomActionTypeConfigurationProperty:CustomActionTypeConfigurationProperty"
-            },
-            "description": "The configuration properties for the custom action. Max 10 items.\n",
-            "willReplaceOnChanges": true
-        },
-        "inputArtifactDetails": {
-            "$ref": "#/types/aws:codepipeline/CustomActionTypeInputArtifactDetails:CustomActionTypeInputArtifactDetails",
-            "description": "The details of the input artifact for the action.\n",
-            "willReplaceOnChanges": true
-        },
-        "outputArtifactDetails": {
-            "$ref": "#/types/aws:codepipeline/CustomActionTypeOutputArtifactDetails:CustomActionTypeOutputArtifactDetails",
-            "description": "The details of the output artifact of the action.\n",
-            "willReplaceOnChanges": true
-        },
-        "providerName": {
-            "type": "string",
-            "description": "The provider of the service used in the custom action\n",
-            "willReplaceOnChanges": true
-        },
-        "settings": {
-            "$ref": "#/types/aws:codepipeline/CustomActionTypeSettings:CustomActionTypeSettings",
-            "description": "The settings for an action type.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "version": {
-            "type": "string",
-            "description": "The version identifier of the custom action.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "category",
-        "inputArtifactDetails",
-        "outputArtifactDetails",
-        "providerName",
-        "version"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering CustomActionType resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The action ARN.\n"
-            },
-            "category": {
-                "type": "string",
-                "description": "The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`\n",
-                "willReplaceOnChanges": true
-            },
-            "configurationProperties": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:codepipeline/CustomActionTypeConfigurationProperty:CustomActionTypeConfigurationProperty"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The action ARN.\n"
                 },
-                "description": "The configuration properties for the custom action. Max 10 items.\n",
-                "willReplaceOnChanges": true
-            },
-            "inputArtifactDetails": {
-                "$ref": "#/types/aws:codepipeline/CustomActionTypeInputArtifactDetails:CustomActionTypeInputArtifactDetails",
-                "description": "The details of the input artifact for the action.\n",
-                "willReplaceOnChanges": true
-            },
-            "outputArtifactDetails": {
-                "$ref": "#/types/aws:codepipeline/CustomActionTypeOutputArtifactDetails:CustomActionTypeOutputArtifactDetails",
-                "description": "The details of the output artifact of the action.\n",
-                "willReplaceOnChanges": true
-            },
-            "owner": {
-                "type": "string",
-                "description": "The creator of the action being called.\n"
-            },
-            "providerName": {
-                "type": "string",
-                "description": "The provider of the service used in the custom action\n",
-                "willReplaceOnChanges": true
-            },
-            "settings": {
-                "$ref": "#/types/aws:codepipeline/CustomActionTypeSettings:CustomActionTypeSettings",
-                "description": "The settings for an action type.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "category": {
+                    "type": "string",
+                    "description": "The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`\n"
                 },
-                "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "configurationProperties": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:codepipeline/CustomActionTypeConfigurationProperty:CustomActionTypeConfigurationProperty"
+                    },
+                    "description": "The configuration properties for the custom action. Max 10 items.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "inputArtifactDetails": {
+                    "$ref": "#/types/aws:codepipeline/CustomActionTypeInputArtifactDetails:CustomActionTypeInputArtifactDetails",
+                    "description": "The details of the input artifact for the action.\n"
+                },
+                "outputArtifactDetails": {
+                    "$ref": "#/types/aws:codepipeline/CustomActionTypeOutputArtifactDetails:CustomActionTypeOutputArtifactDetails",
+                    "description": "The details of the output artifact of the action.\n"
+                },
+                "owner": {
+                    "type": "string",
+                    "description": "The creator of the action being called.\n"
+                },
+                "providerName": {
+                    "type": "string",
+                    "description": "The provider of the service used in the custom action\n"
+                },
+                "settings": {
+                    "$ref": "#/types/aws:codepipeline/CustomActionTypeSettings:CustomActionTypeSettings",
+                    "description": "The settings for an action type.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The version identifier of the custom action.\n"
+                }
             },
-            "version": {
-                "type": "string",
-                "description": "The version identifier of the custom action.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "category",
+                "inputArtifactDetails",
+                "outputArtifactDetails",
+                "owner",
+                "providerName",
+                "tagsAll",
+                "version"
+            ],
+            "inputProperties": {
+                "category": {
+                    "type": "string",
+                    "description": "The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`\n",
+                    "willReplaceOnChanges": true
+                },
+                "configurationProperties": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:codepipeline/CustomActionTypeConfigurationProperty:CustomActionTypeConfigurationProperty"
+                    },
+                    "description": "The configuration properties for the custom action. Max 10 items.\n",
+                    "willReplaceOnChanges": true
+                },
+                "inputArtifactDetails": {
+                    "$ref": "#/types/aws:codepipeline/CustomActionTypeInputArtifactDetails:CustomActionTypeInputArtifactDetails",
+                    "description": "The details of the input artifact for the action.\n",
+                    "willReplaceOnChanges": true
+                },
+                "outputArtifactDetails": {
+                    "$ref": "#/types/aws:codepipeline/CustomActionTypeOutputArtifactDetails:CustomActionTypeOutputArtifactDetails",
+                    "description": "The details of the output artifact of the action.\n",
+                    "willReplaceOnChanges": true
+                },
+                "providerName": {
+                    "type": "string",
+                    "description": "The provider of the service used in the custom action\n",
+                    "willReplaceOnChanges": true
+                },
+                "settings": {
+                    "$ref": "#/types/aws:codepipeline/CustomActionTypeSettings:CustomActionTypeSettings",
+                    "description": "The settings for an action type.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The version identifier of the custom action.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "category",
+                "inputArtifactDetails",
+                "outputArtifactDetails",
+                "providerName",
+                "version"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CustomActionType resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The action ARN.\n"
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "configurationProperties": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:codepipeline/CustomActionTypeConfigurationProperty:CustomActionTypeConfigurationProperty"
+                        },
+                        "description": "The configuration properties for the custom action. Max 10 items.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "inputArtifactDetails": {
+                        "$ref": "#/types/aws:codepipeline/CustomActionTypeInputArtifactDetails:CustomActionTypeInputArtifactDetails",
+                        "description": "The details of the input artifact for the action.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "outputArtifactDetails": {
+                        "$ref": "#/types/aws:codepipeline/CustomActionTypeOutputArtifactDetails:CustomActionTypeOutputArtifactDetails",
+                        "description": "The details of the output artifact of the action.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "The creator of the action being called.\n"
+                    },
+                    "providerName": {
+                        "type": "string",
+                        "description": "The provider of the service used in the custom action\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "settings": {
+                        "$ref": "#/types/aws:codepipeline/CustomActionTypeSettings:CustomActionTypeSettings",
+                        "description": "The settings for an action type.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The version identifier of the custom action.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,36 +1,36 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getReleaseLabels.\n",
-        "properties": {
-            "filters": {
-                "$ref": "#/types/aws:emr/getReleaseLabelsFilters:getReleaseLabelsFilters",
-                "description": "Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getReleaseLabels.\n",
-        "properties": {
-            "filters": {
-                "$ref": "#/types/aws:emr/getReleaseLabelsFilters:getReleaseLabelsFilters"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "releaseLabels": {
-                "description": "Returned release labels.\n",
-                "items": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getReleaseLabels.\n",
+                "properties": {
+                    "filters": {
+                        "$ref": "#/types/aws:emr/getReleaseLabelsFilters:getReleaseLabelsFilters",
+                        "description": "Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getReleaseLabels.\n",
+                "properties": {
+                    "filters": {
+                        "$ref": "#/types/aws:emr/getReleaseLabelsFilters:getReleaseLabelsFilters"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "releaseLabels": {
+                        "description": "Returned release labels.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "releaseLabels",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "releaseLabels",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

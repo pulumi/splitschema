@@ -1,24 +1,24 @@
 {
-    "properties": {
-        "enableRegexInPath": {
-            "type": "boolean",
-            "description": "Whether or not to allow the use of regular expressions in the login page path.\n"
-        },
-        "loginPath": {
-            "type": "string",
-            "description": "The path of the login endpoint for your application.\n"
-        },
-        "requestInspection": {
-            "$ref": "#/types/aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection",
-            "description": "The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.\n"
-        },
-        "responseInspection": {
-            "$ref": "#/types/aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection",
-            "description": "The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.\n"
+            "properties": {
+                "enableRegexInPath": {
+                    "type": "boolean",
+                    "description": "Whether or not to allow the use of regular expressions in the login page path.\n"
+                },
+                "loginPath": {
+                    "type": "string",
+                    "description": "The path of the login endpoint for your application.\n"
+                },
+                "requestInspection": {
+                    "$ref": "#/types/aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection",
+                    "description": "The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.\n"
+                },
+                "responseInspection": {
+                    "$ref": "#/types/aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection",
+                    "description": "The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "loginPath"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "loginPath"
-    ]
-}

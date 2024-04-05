@@ -1,21 +1,21 @@
 {
-    "properties": {
-        "instanceReusePolicy": {
-            "$ref": "#/types/aws:autoscaling/GroupWarmPoolInstanceReusePolicy:GroupWarmPoolInstanceReusePolicy",
-            "description": "Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.\n"
-        },
-        "maxGroupPreparedCapacity": {
-            "type": "integer",
-            "description": "Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.\n"
-        },
-        "minSize": {
-            "type": "integer",
-            "description": "Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.\n"
-        },
-        "poolState": {
-            "type": "string",
-            "description": "Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.\n"
+            "properties": {
+                "instanceReusePolicy": {
+                    "$ref": "#/types/aws:autoscaling/GroupWarmPoolInstanceReusePolicy:GroupWarmPoolInstanceReusePolicy",
+                    "description": "Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.\n"
+                },
+                "maxGroupPreparedCapacity": {
+                    "type": "integer",
+                    "description": "Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.\n"
+                },
+                "minSize": {
+                    "type": "integer",
+                    "description": "Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.\n"
+                },
+                "poolState": {
+                    "type": "string",
+                    "description": "Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.\n"
+                }
+            },
+            "type": "object"
         }
-    },
-    "type": "object"
-}

@@ -1,191 +1,191 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the compute environment.\n"
-        },
-        "computeEnvironmentName": {
-            "type": "string",
-            "description": "The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.\n"
-        },
-        "computeEnvironmentNamePrefix": {
-            "type": "string",
-            "description": "Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.\n"
-        },
-        "computeResources": {
-            "$ref": "#/types/aws:batch/ComputeEnvironmentComputeResources:ComputeEnvironmentComputeResources",
-            "description": "Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.\n"
-        },
-        "ecsClusterArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.\n"
-        },
-        "eksConfiguration": {
-            "$ref": "#/types/aws:batch/ComputeEnvironmentEksConfiguration:ComputeEnvironmentEksConfiguration",
-            "description": "Details for the Amazon EKS cluster that supports the compute environment. See details below.\n"
-        },
-        "serviceRole": {
-            "type": "string",
-            "description": "The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.\n"
-        },
-        "state": {
-            "type": "string",
-            "description": "The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "The current status of the compute environment (for example, CREATING or VALID).\n"
-        },
-        "statusReason": {
-            "type": "string",
-            "description": "A short, human-readable string to provide additional details about the current status of the compute environment.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "type": {
-            "type": "string",
-            "description": "The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "computeEnvironmentName",
-        "computeEnvironmentNamePrefix",
-        "ecsClusterArn",
-        "serviceRole",
-        "status",
-        "statusReason",
-        "tagsAll",
-        "type"
-    ],
-    "inputProperties": {
-        "computeEnvironmentName": {
-            "type": "string",
-            "description": "The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.\n",
-            "willReplaceOnChanges": true
-        },
-        "computeEnvironmentNamePrefix": {
-            "type": "string",
-            "description": "Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.\n",
-            "willReplaceOnChanges": true
-        },
-        "computeResources": {
-            "$ref": "#/types/aws:batch/ComputeEnvironmentComputeResources:ComputeEnvironmentComputeResources",
-            "description": "Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.\n",
-            "willReplaceOnChanges": true
-        },
-        "eksConfiguration": {
-            "$ref": "#/types/aws:batch/ComputeEnvironmentEksConfiguration:ComputeEnvironmentEksConfiguration",
-            "description": "Details for the Amazon EKS cluster that supports the compute environment. See details below.\n",
-            "willReplaceOnChanges": true
-        },
-        "serviceRole": {
-            "type": "string",
-            "description": "The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.\n"
-        },
-        "state": {
-            "type": "string",
-            "description": "The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "type"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ComputeEnvironment resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the compute environment.\n"
-            },
-            "computeEnvironmentName": {
-                "type": "string",
-                "description": "The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.\n",
-                "willReplaceOnChanges": true
-            },
-            "computeEnvironmentNamePrefix": {
-                "type": "string",
-                "description": "Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.\n",
-                "willReplaceOnChanges": true
-            },
-            "computeResources": {
-                "$ref": "#/types/aws:batch/ComputeEnvironmentComputeResources:ComputeEnvironmentComputeResources",
-                "description": "Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.\n",
-                "willReplaceOnChanges": true
-            },
-            "ecsClusterArn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.\n"
-            },
-            "eksConfiguration": {
-                "$ref": "#/types/aws:batch/ComputeEnvironmentEksConfiguration:ComputeEnvironmentEksConfiguration",
-                "description": "Details for the Amazon EKS cluster that supports the compute environment. See details below.\n",
-                "willReplaceOnChanges": true
-            },
-            "serviceRole": {
-                "type": "string",
-                "description": "The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.\n"
-            },
-            "state": {
-                "type": "string",
-                "description": "The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.\n"
-            },
-            "status": {
-                "type": "string",
-                "description": "The current status of the compute environment (for example, CREATING or VALID).\n"
-            },
-            "statusReason": {
-                "type": "string",
-                "description": "A short, human-readable string to provide additional details about the current status of the compute environment.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the compute environment.\n"
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "computeEnvironmentName": {
+                    "type": "string",
+                    "description": "The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "computeEnvironmentNamePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.\n"
+                },
+                "computeResources": {
+                    "$ref": "#/types/aws:batch/ComputeEnvironmentComputeResources:ComputeEnvironmentComputeResources",
+                    "description": "Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.\n"
+                },
+                "ecsClusterArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.\n"
+                },
+                "eksConfiguration": {
+                    "$ref": "#/types/aws:batch/ComputeEnvironmentEksConfiguration:ComputeEnvironmentEksConfiguration",
+                    "description": "Details for the Amazon EKS cluster that supports the compute environment. See details below.\n"
+                },
+                "serviceRole": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.\n"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The current status of the compute environment (for example, CREATING or VALID).\n"
+                },
+                "statusReason": {
+                    "type": "string",
+                    "description": "A short, human-readable string to provide additional details about the current status of the compute environment.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.\n"
+                }
             },
-            "type": {
-                "type": "string",
-                "description": "The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "computeEnvironmentName",
+                "computeEnvironmentNamePrefix",
+                "ecsClusterArn",
+                "serviceRole",
+                "status",
+                "statusReason",
+                "tagsAll",
+                "type"
+            ],
+            "inputProperties": {
+                "computeEnvironmentName": {
+                    "type": "string",
+                    "description": "The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "computeEnvironmentNamePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "computeResources": {
+                    "$ref": "#/types/aws:batch/ComputeEnvironmentComputeResources:ComputeEnvironmentComputeResources",
+                    "description": "Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "eksConfiguration": {
+                    "$ref": "#/types/aws:batch/ComputeEnvironmentEksConfiguration:ComputeEnvironmentEksConfiguration",
+                    "description": "Details for the Amazon EKS cluster that supports the compute environment. See details below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "serviceRole": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.\n"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ComputeEnvironment resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the compute environment.\n"
+                    },
+                    "computeEnvironmentName": {
+                        "type": "string",
+                        "description": "The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "computeEnvironmentNamePrefix": {
+                        "type": "string",
+                        "description": "Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "computeResources": {
+                        "$ref": "#/types/aws:batch/ComputeEnvironmentComputeResources:ComputeEnvironmentComputeResources",
+                        "description": "Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ecsClusterArn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.\n"
+                    },
+                    "eksConfiguration": {
+                        "$ref": "#/types/aws:batch/ComputeEnvironmentEksConfiguration:ComputeEnvironmentEksConfiguration",
+                        "description": "Details for the Amazon EKS cluster that supports the compute environment. See details below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "serviceRole": {
+                        "type": "string",
+                        "description": "The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.\n"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The current status of the compute environment (for example, CREATING or VALID).\n"
+                    },
+                    "statusReason": {
+                        "type": "string",
+                        "description": "A short, human-readable string to provide additional details about the current status of the compute environment.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

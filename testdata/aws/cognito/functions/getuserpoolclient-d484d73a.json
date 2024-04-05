@@ -1,175 +1,175 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getUserPoolClient.\n",
-        "properties": {
-            "clientId": {
-                "type": "string",
-                "description": "Client Id of the user pool.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getUserPoolClient.\n",
+                "properties": {
+                    "clientId": {
+                        "type": "string",
+                        "description": "Client Id of the user pool.\n"
+                    },
+                    "userPoolId": {
+                        "type": "string",
+                        "description": "User pool the client belongs to.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "clientId",
+                    "userPoolId"
+                ]
             },
-            "userPoolId": {
-                "type": "string",
-                "description": "User pool the client belongs to.\n"
+            "outputs": {
+                "description": "A collection of values returned by getUserPoolClient.\n",
+                "properties": {
+                    "accessTokenValidity": {
+                        "description": "(Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.\n",
+                        "type": "integer"
+                    },
+                    "allowedOauthFlows": {
+                        "description": "(Optional) List of allowed OAuth flows (code, implicit, client_credentials).\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "allowedOauthFlowsUserPoolClient": {
+                        "description": "(Optional) Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.\n",
+                        "type": "boolean"
+                    },
+                    "allowedOauthScopes": {
+                        "description": "(Optional) List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "analyticsConfigurations": {
+                        "description": "(Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:cognito/getUserPoolClientAnalyticsConfiguration:getUserPoolClientAnalyticsConfiguration"
+                        },
+                        "type": "array"
+                    },
+                    "callbackUrls": {
+                        "description": "(Optional) List of allowed callback URLs for the identity providers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "clientId": {
+                        "type": "string"
+                    },
+                    "clientSecret": {
+                        "description": "Client secret of the user pool client.\n",
+                        "secret": true,
+                        "type": "string"
+                    },
+                    "defaultRedirectUri": {
+                        "description": "(Optional) Default redirect URI. Must be in the list of callback URLs.\n",
+                        "type": "string"
+                    },
+                    "enablePropagateAdditionalUserContextData": {
+                        "type": "boolean"
+                    },
+                    "enableTokenRevocation": {
+                        "description": "(Optional) Enables or disables token revocation.\n",
+                        "type": "boolean"
+                    },
+                    "explicitAuthFlows": {
+                        "description": "(Optional) List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "generateSecret": {
+                        "description": "(Optional) Should an application secret be generated.\n",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "idTokenValidity": {
+                        "description": "(Optional) Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.\n",
+                        "type": "integer"
+                    },
+                    "logoutUrls": {
+                        "description": "(Optional) List of allowed logout URLs for the identity providers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "preventUserExistenceErrors": {
+                        "description": "(Optional) Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.\n",
+                        "type": "string"
+                    },
+                    "readAttributes": {
+                        "description": "(Optional) List of user pool attributes the application client can read from.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "refreshTokenValidity": {
+                        "description": "(Optional) Time limit in days refresh tokens are valid for.\n",
+                        "type": "integer"
+                    },
+                    "supportedIdentityProviders": {
+                        "description": "(Optional) List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "tokenValidityUnits": {
+                        "description": "(Optional) Configuration block for units in which the validity times are represented in. Detailed below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:cognito/getUserPoolClientTokenValidityUnit:getUserPoolClientTokenValidityUnit"
+                        },
+                        "type": "array"
+                    },
+                    "userPoolId": {
+                        "type": "string"
+                    },
+                    "writeAttributes": {
+                        "description": "(Optional) List of user pool attributes the application client can write to.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "accessTokenValidity",
+                    "allowedOauthFlows",
+                    "allowedOauthFlowsUserPoolClient",
+                    "allowedOauthScopes",
+                    "analyticsConfigurations",
+                    "callbackUrls",
+                    "clientId",
+                    "clientSecret",
+                    "defaultRedirectUri",
+                    "enablePropagateAdditionalUserContextData",
+                    "enableTokenRevocation",
+                    "explicitAuthFlows",
+                    "generateSecret",
+                    "idTokenValidity",
+                    "logoutUrls",
+                    "name",
+                    "preventUserExistenceErrors",
+                    "readAttributes",
+                    "refreshTokenValidity",
+                    "supportedIdentityProviders",
+                    "tokenValidityUnits",
+                    "userPoolId",
+                    "writeAttributes",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "clientId",
-            "userPoolId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getUserPoolClient.\n",
-        "properties": {
-            "accessTokenValidity": {
-                "description": "(Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.\n",
-                "type": "integer"
-            },
-            "allowedOauthFlows": {
-                "description": "(Optional) List of allowed OAuth flows (code, implicit, client_credentials).\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "allowedOauthFlowsUserPoolClient": {
-                "description": "(Optional) Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.\n",
-                "type": "boolean"
-            },
-            "allowedOauthScopes": {
-                "description": "(Optional) List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "analyticsConfigurations": {
-                "description": "(Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.\n",
-                "items": {
-                    "$ref": "#/types/aws:cognito/getUserPoolClientAnalyticsConfiguration:getUserPoolClientAnalyticsConfiguration"
-                },
-                "type": "array"
-            },
-            "callbackUrls": {
-                "description": "(Optional) List of allowed callback URLs for the identity providers.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "clientId": {
-                "type": "string"
-            },
-            "clientSecret": {
-                "description": "Client secret of the user pool client.\n",
-                "secret": true,
-                "type": "string"
-            },
-            "defaultRedirectUri": {
-                "description": "(Optional) Default redirect URI. Must be in the list of callback URLs.\n",
-                "type": "string"
-            },
-            "enablePropagateAdditionalUserContextData": {
-                "type": "boolean"
-            },
-            "enableTokenRevocation": {
-                "description": "(Optional) Enables or disables token revocation.\n",
-                "type": "boolean"
-            },
-            "explicitAuthFlows": {
-                "description": "(Optional) List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "generateSecret": {
-                "description": "(Optional) Should an application secret be generated.\n",
-                "type": "boolean"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "idTokenValidity": {
-                "description": "(Optional) Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.\n",
-                "type": "integer"
-            },
-            "logoutUrls": {
-                "description": "(Optional) List of allowed logout URLs for the identity providers.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "name": {
-                "type": "string"
-            },
-            "preventUserExistenceErrors": {
-                "description": "(Optional) Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.\n",
-                "type": "string"
-            },
-            "readAttributes": {
-                "description": "(Optional) List of user pool attributes the application client can read from.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "refreshTokenValidity": {
-                "description": "(Optional) Time limit in days refresh tokens are valid for.\n",
-                "type": "integer"
-            },
-            "supportedIdentityProviders": {
-                "description": "(Optional) List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "tokenValidityUnits": {
-                "description": "(Optional) Configuration block for units in which the validity times are represented in. Detailed below.\n",
-                "items": {
-                    "$ref": "#/types/aws:cognito/getUserPoolClientTokenValidityUnit:getUserPoolClientTokenValidityUnit"
-                },
-                "type": "array"
-            },
-            "userPoolId": {
-                "type": "string"
-            },
-            "writeAttributes": {
-                "description": "(Optional) List of user pool attributes the application client can write to.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            }
-        },
-        "required": [
-            "accessTokenValidity",
-            "allowedOauthFlows",
-            "allowedOauthFlowsUserPoolClient",
-            "allowedOauthScopes",
-            "analyticsConfigurations",
-            "callbackUrls",
-            "clientId",
-            "clientSecret",
-            "defaultRedirectUri",
-            "enablePropagateAdditionalUserContextData",
-            "enableTokenRevocation",
-            "explicitAuthFlows",
-            "generateSecret",
-            "idTokenValidity",
-            "logoutUrls",
-            "name",
-            "preventUserExistenceErrors",
-            "readAttributes",
-            "refreshTokenValidity",
-            "supportedIdentityProviders",
-            "tokenValidityUnits",
-            "userPoolId",
-            "writeAttributes",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

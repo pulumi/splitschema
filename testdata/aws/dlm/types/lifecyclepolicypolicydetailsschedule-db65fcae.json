@@ -1,70 +1,70 @@
 {
-    "properties": {
-        "copyTags": {
-            "type": "boolean",
-            "description": "Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.\n",
-            "willReplaceOnChanges": true
-        },
-        "createRule": {
-            "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsScheduleCreateRule:LifecyclePolicyPolicyDetailsScheduleCreateRule",
-            "description": "See the `create_rule` block. Max of 1 per schedule.\n"
-        },
-        "crossRegionCopyRules": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule:LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule"
+            "properties": {
+                "copyTags": {
+                    "type": "boolean",
+                    "description": "Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.\n",
+                    "willReplaceOnChanges": true
+                },
+                "createRule": {
+                    "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsScheduleCreateRule:LifecyclePolicyPolicyDetailsScheduleCreateRule",
+                    "description": "See the `create_rule` block. Max of 1 per schedule.\n"
+                },
+                "crossRegionCopyRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule:LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule"
+                    },
+                    "description": "See the `cross_region_copy_rule` block. Max of 3 per schedule.\n"
+                },
+                "deprecateRule": {
+                    "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsScheduleDeprecateRule:LifecyclePolicyPolicyDetailsScheduleDeprecateRule",
+                    "description": "The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.\n"
+                },
+                "fastRestoreRule": {
+                    "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsScheduleFastRestoreRule:LifecyclePolicyPolicyDetailsScheduleFastRestoreRule",
+                    "description": "See the `fast_restore_rule` block. Max of 1 per schedule.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A descriptive name for the action.\n"
+                },
+                "retainRule": {
+                    "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsScheduleRetainRule:LifecyclePolicyPolicyDetailsScheduleRetainRule",
+                    "description": "Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.\n"
+                },
+                "shareRule": {
+                    "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsScheduleShareRule:LifecyclePolicyPolicyDetailsScheduleShareRule",
+                    "description": "See the `share_rule` block. Max of 1 per schedule.\n"
+                },
+                "tagsToAdd": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.\n"
+                },
+                "variableTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.\n"
+                }
             },
-            "description": "See the `cross_region_copy_rule` block. Max of 3 per schedule.\n"
-        },
-        "deprecateRule": {
-            "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsScheduleDeprecateRule:LifecyclePolicyPolicyDetailsScheduleDeprecateRule",
-            "description": "The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.\n"
-        },
-        "fastRestoreRule": {
-            "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsScheduleFastRestoreRule:LifecyclePolicyPolicyDetailsScheduleFastRestoreRule",
-            "description": "See the `fast_restore_rule` block. Max of 1 per schedule.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "A descriptive name for the action.\n"
-        },
-        "retainRule": {
-            "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsScheduleRetainRule:LifecyclePolicyPolicyDetailsScheduleRetainRule",
-            "description": "Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.\n"
-        },
-        "shareRule": {
-            "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsScheduleShareRule:LifecyclePolicyPolicyDetailsScheduleShareRule",
-            "description": "See the `share_rule` block. Max of 1 per schedule.\n"
-        },
-        "tagsToAdd": {
             "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.\n"
-        },
-        "variableTags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "createRule",
-        "name",
-        "retainRule"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "copyTags",
+            "required": [
                 "createRule",
                 "name",
                 "retainRule"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "copyTags",
+                        "createRule",
+                        "name",
+                        "retainRule"
+                    ]
+                }
+            }
         }
-    }
-}

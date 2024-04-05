@@ -1,212 +1,212 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A description of the pipe. At most 512 characters.\n"
-        },
-        "desiredState": {
-            "type": "string",
-            "description": "The state the pipe should be in. One of: `RUNNING`, `STOPPED`.\n"
-        },
-        "enrichment": {
-            "type": "string",
-            "description": "Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).\n"
-        },
-        "enrichmentParameters": {
-            "$ref": "#/types/aws:pipes/PipeEnrichmentParameters:PipeEnrichmentParameters",
-            "description": "Parameters to configure enrichment for your pipe. Detailed below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "ARN of the role that allows the pipe to send data to the target.\n"
-        },
-        "source": {
-            "type": "string",
-            "description": "Source resource of the pipe (typically an ARN).\n"
-        },
-        "sourceParameters": {
-            "$ref": "#/types/aws:pipes/PipeSourceParameters:PipeSourceParameters",
-            "description": "Parameters to configure a source for the pipe. Detailed below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "target": {
-            "type": "string",
-            "description": "Target resource of the pipe (typically an ARN).\n\nThe following arguments are optional:\n"
-        },
-        "targetParameters": {
-            "$ref": "#/types/aws:pipes/PipeTargetParameters:PipeTargetParameters",
-            "description": "Parameters to configure a target for your pipe. Detailed below.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "name",
-        "namePrefix",
-        "roleArn",
-        "source",
-        "sourceParameters",
-        "tagsAll",
-        "target"
-    ],
-    "inputProperties": {
-        "description": {
-            "type": "string",
-            "description": "A description of the pipe. At most 512 characters.\n"
-        },
-        "desiredState": {
-            "type": "string",
-            "description": "The state the pipe should be in. One of: `RUNNING`, `STOPPED`.\n"
-        },
-        "enrichment": {
-            "type": "string",
-            "description": "Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).\n"
-        },
-        "enrichmentParameters": {
-            "$ref": "#/types/aws:pipes/PipeEnrichmentParameters:PipeEnrichmentParameters",
-            "description": "Parameters to configure enrichment for your pipe. Detailed below.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
-            "willReplaceOnChanges": true
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
-            "willReplaceOnChanges": true
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "ARN of the role that allows the pipe to send data to the target.\n"
-        },
-        "source": {
-            "type": "string",
-            "description": "Source resource of the pipe (typically an ARN).\n",
-            "willReplaceOnChanges": true
-        },
-        "sourceParameters": {
-            "$ref": "#/types/aws:pipes/PipeSourceParameters:PipeSourceParameters",
-            "description": "Parameters to configure a source for the pipe. Detailed below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "target": {
-            "type": "string",
-            "description": "Target resource of the pipe (typically an ARN).\n\nThe following arguments are optional:\n"
-        },
-        "targetParameters": {
-            "$ref": "#/types/aws:pipes/PipeTargetParameters:PipeTargetParameters",
-            "description": "Parameters to configure a target for your pipe. Detailed below.\n"
-        }
-    },
-    "requiredInputs": [
-        "roleArn",
-        "source",
-        "target"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Pipe resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "A description of the pipe. At most 512 characters.\n"
-            },
-            "desiredState": {
-                "type": "string",
-                "description": "The state the pipe should be in. One of: `RUNNING`, `STOPPED`.\n"
-            },
-            "enrichment": {
-                "type": "string",
-                "description": "Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).\n"
-            },
-            "enrichmentParameters": {
-                "$ref": "#/types/aws:pipes/PipeEnrichmentParameters:PipeEnrichmentParameters",
-                "description": "Parameters to configure enrichment for your pipe. Detailed below.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
-                "willReplaceOnChanges": true
-            },
-            "namePrefix": {
-                "type": "string",
-                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
-                "willReplaceOnChanges": true
-            },
-            "roleArn": {
-                "type": "string",
-                "description": "ARN of the role that allows the pipe to send data to the target.\n"
-            },
-            "source": {
-                "type": "string",
-                "description": "Source resource of the pipe (typically an ARN).\n",
-                "willReplaceOnChanges": true
-            },
-            "sourceParameters": {
-                "$ref": "#/types/aws:pipes/PipeSourceParameters:PipeSourceParameters",
-                "description": "Parameters to configure a source for the pipe. Detailed below.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.\n"
                 },
-                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "description": {
+                    "type": "string",
+                    "description": "A description of the pipe. At most 512 characters.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "desiredState": {
+                    "type": "string",
+                    "description": "The state the pipe should be in. One of: `RUNNING`, `STOPPED`.\n"
+                },
+                "enrichment": {
+                    "type": "string",
+                    "description": "Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).\n"
+                },
+                "enrichmentParameters": {
+                    "$ref": "#/types/aws:pipes/PipeEnrichmentParameters:PipeEnrichmentParameters",
+                    "description": "Parameters to configure enrichment for your pipe. Detailed below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "ARN of the role that allows the pipe to send data to the target.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Source resource of the pipe (typically an ARN).\n"
+                },
+                "sourceParameters": {
+                    "$ref": "#/types/aws:pipes/PipeSourceParameters:PipeSourceParameters",
+                    "description": "Parameters to configure a source for the pipe. Detailed below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Target resource of the pipe (typically an ARN).\n\nThe following arguments are optional:\n"
+                },
+                "targetParameters": {
+                    "$ref": "#/types/aws:pipes/PipeTargetParameters:PipeTargetParameters",
+                    "description": "Parameters to configure a target for your pipe. Detailed below.\n"
+                }
             },
-            "target": {
-                "type": "string",
-                "description": "Target resource of the pipe (typically an ARN).\n\nThe following arguments are optional:\n"
+            "required": [
+                "arn",
+                "name",
+                "namePrefix",
+                "roleArn",
+                "source",
+                "sourceParameters",
+                "tagsAll",
+                "target"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description of the pipe. At most 512 characters.\n"
+                },
+                "desiredState": {
+                    "type": "string",
+                    "description": "The state the pipe should be in. One of: `RUNNING`, `STOPPED`.\n"
+                },
+                "enrichment": {
+                    "type": "string",
+                    "description": "Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).\n"
+                },
+                "enrichmentParameters": {
+                    "$ref": "#/types/aws:pipes/PipeEnrichmentParameters:PipeEnrichmentParameters",
+                    "description": "Parameters to configure enrichment for your pipe. Detailed below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "ARN of the role that allows the pipe to send data to the target.\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Source resource of the pipe (typically an ARN).\n",
+                    "willReplaceOnChanges": true
+                },
+                "sourceParameters": {
+                    "$ref": "#/types/aws:pipes/PipeSourceParameters:PipeSourceParameters",
+                    "description": "Parameters to configure a source for the pipe. Detailed below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Target resource of the pipe (typically an ARN).\n\nThe following arguments are optional:\n"
+                },
+                "targetParameters": {
+                    "$ref": "#/types/aws:pipes/PipeTargetParameters:PipeTargetParameters",
+                    "description": "Parameters to configure a target for your pipe. Detailed below.\n"
+                }
             },
-            "targetParameters": {
-                "$ref": "#/types/aws:pipes/PipeTargetParameters:PipeTargetParameters",
-                "description": "Parameters to configure a target for your pipe. Detailed below.\n"
+            "requiredInputs": [
+                "roleArn",
+                "source",
+                "target"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Pipe resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the pipe. At most 512 characters.\n"
+                    },
+                    "desiredState": {
+                        "type": "string",
+                        "description": "The state the pipe should be in. One of: `RUNNING`, `STOPPED`.\n"
+                    },
+                    "enrichment": {
+                        "type": "string",
+                        "description": "Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).\n"
+                    },
+                    "enrichmentParameters": {
+                        "$ref": "#/types/aws:pipes/PipeEnrichmentParameters:PipeEnrichmentParameters",
+                        "description": "Parameters to configure enrichment for your pipe. Detailed below.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "namePrefix": {
+                        "type": "string",
+                        "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "roleArn": {
+                        "type": "string",
+                        "description": "ARN of the role that allows the pipe to send data to the target.\n"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "Source resource of the pipe (typically an ARN).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "sourceParameters": {
+                        "$ref": "#/types/aws:pipes/PipeSourceParameters:PipeSourceParameters",
+                        "description": "Parameters to configure a source for the pipe. Detailed below.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "target": {
+                        "type": "string",
+                        "description": "Target resource of the pipe (typically an ARN).\n\nThe following arguments are optional:\n"
+                    },
+                    "targetParameters": {
+                        "$ref": "#/types/aws:pipes/PipeTargetParameters:PipeTargetParameters",
+                        "description": "Parameters to configure a target for your pipe. Detailed below.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

@@ -1,51 +1,51 @@
 {
-    "properties": {
-        "completionWindow": {
-            "type": "integer",
-            "description": "The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.\n"
-        },
-        "copyActions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:backup/PlanRuleCopyAction:PlanRuleCopyAction"
+            "properties": {
+                "completionWindow": {
+                    "type": "integer",
+                    "description": "The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.\n"
+                },
+                "copyActions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:backup/PlanRuleCopyAction:PlanRuleCopyAction"
+                    },
+                    "description": "Configuration block(s) with copy operation settings. Detailed below.\n"
+                },
+                "enableContinuousBackup": {
+                    "type": "boolean",
+                    "description": "Enable continuous backups for supported resources.\n"
+                },
+                "lifecycle": {
+                    "$ref": "#/types/aws:backup/PlanRuleLifecycle:PlanRuleLifecycle",
+                    "description": "The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.\n"
+                },
+                "recoveryPointTags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Metadata that you can assign to help organize the resources that you create.\n"
+                },
+                "ruleName": {
+                    "type": "string",
+                    "description": "An display name for a backup rule.\n"
+                },
+                "schedule": {
+                    "type": "string",
+                    "description": "A CRON expression specifying when AWS Backup initiates a backup job.\n"
+                },
+                "startWindow": {
+                    "type": "integer",
+                    "description": "The amount of time in minutes before beginning a backup.\n"
+                },
+                "targetVaultName": {
+                    "type": "string",
+                    "description": "The name of a logical container where backups are stored.\n"
+                }
             },
-            "description": "Configuration block(s) with copy operation settings. Detailed below.\n"
-        },
-        "enableContinuousBackup": {
-            "type": "boolean",
-            "description": "Enable continuous backups for supported resources.\n"
-        },
-        "lifecycle": {
-            "$ref": "#/types/aws:backup/PlanRuleLifecycle:PlanRuleLifecycle",
-            "description": "The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.\n"
-        },
-        "recoveryPointTags": {
             "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Metadata that you can assign to help organize the resources that you create.\n"
-        },
-        "ruleName": {
-            "type": "string",
-            "description": "An display name for a backup rule.\n"
-        },
-        "schedule": {
-            "type": "string",
-            "description": "A CRON expression specifying when AWS Backup initiates a backup job.\n"
-        },
-        "startWindow": {
-            "type": "integer",
-            "description": "The amount of time in minutes before beginning a backup.\n"
-        },
-        "targetVaultName": {
-            "type": "string",
-            "description": "The name of a logical container where backups are stored.\n"
+            "required": [
+                "ruleName",
+                "targetVaultName"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "ruleName",
-        "targetVaultName"
-    ]
-}

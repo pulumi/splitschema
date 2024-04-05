@@ -1,42 +1,42 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getMaintenanceWindows.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ssm/getMaintenanceWindowsFilter:getMaintenanceWindowsFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getMaintenanceWindows.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ssm/getMaintenanceWindowsFilter:getMaintenanceWindowsFilter"
+                        },
+                        "description": "Configuration block(s) for filtering. Detailed below.\n"
+                    }
                 },
-                "description": "Configuration block(s) for filtering. Detailed below.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getMaintenanceWindows.\n",
-        "properties": {
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ssm/getMaintenanceWindowsFilter:getMaintenanceWindowsFilter"
-                },
-                "type": "array"
+                "type": "object"
             },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "ids": {
-                "description": "List of window IDs of the matched SSM maintenance windows.\n",
-                "items": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getMaintenanceWindows.\n",
+                "properties": {
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ssm/getMaintenanceWindowsFilter:getMaintenanceWindowsFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "List of window IDs of the matched SSM maintenance windows.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
                 },
-                "type": "array"
+                "required": [
+                    "ids",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "ids",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

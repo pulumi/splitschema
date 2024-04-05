@@ -1,176 +1,176 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) specifying the server certificate.\n"
-        },
-        "certificateBody": {
-            "type": "string",
-            "description": "The contents of the public key certificate in\nPEM-encoded format.\n"
-        },
-        "certificateChain": {
-            "type": "string",
-            "description": "The contents of the certificate chain.\nThis is typically a concatenation of the PEM-encoded public key certificates\nof the chain.\n"
-        },
-        "expiration": {
-            "type": "string",
-            "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the Server Certificate. Do not include the\npath in this value. If omitted, the provider will assign a random, unique name.\n"
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified\nprefix. Conflicts with `name`.\n"
-        },
-        "path": {
-            "type": "string",
-            "description": "The IAM path for the server certificate.  If it is not\nincluded, it defaults to a slash (/). If this certificate is for use with\nAWS CloudFront, the path must be in format `/cloudfront/your_path_here`.\nSee [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.\n"
-        },
-        "privateKey": {
-            "type": "string",
-            "description": "The contents of the private key in PEM-encoded format.\n",
-            "secret": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "uploadDate": {
-            "type": "string",
-            "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "certificateBody",
-        "expiration",
-        "name",
-        "namePrefix",
-        "privateKey",
-        "tagsAll",
-        "uploadDate"
-    ],
-    "inputProperties": {
-        "certificateBody": {
-            "type": "string",
-            "description": "The contents of the public key certificate in\nPEM-encoded format.\n",
-            "willReplaceOnChanges": true
-        },
-        "certificateChain": {
-            "type": "string",
-            "description": "The contents of the certificate chain.\nThis is typically a concatenation of the PEM-encoded public key certificates\nof the chain.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the Server Certificate. Do not include the\npath in this value. If omitted, the provider will assign a random, unique name.\n",
-            "willReplaceOnChanges": true
-        },
-        "namePrefix": {
-            "type": "string",
-            "description": "Creates a unique name beginning with the specified\nprefix. Conflicts with `name`.\n",
-            "willReplaceOnChanges": true
-        },
-        "path": {
-            "type": "string",
-            "description": "The IAM path for the server certificate.  If it is not\nincluded, it defaults to a slash (/). If this certificate is for use with\nAWS CloudFront, the path must be in format `/cloudfront/your_path_here`.\nSee [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.\n",
-            "willReplaceOnChanges": true
-        },
-        "privateKey": {
-            "type": "string",
-            "description": "The contents of the private key in PEM-encoded format.\n",
-            "secret": true,
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.\n"
-        }
-    },
-    "requiredInputs": [
-        "certificateBody",
-        "privateKey"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ServerCertificate resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) specifying the server certificate.\n"
-            },
-            "certificateBody": {
-                "type": "string",
-                "description": "The contents of the public key certificate in\nPEM-encoded format.\n",
-                "willReplaceOnChanges": true
-            },
-            "certificateChain": {
-                "type": "string",
-                "description": "The contents of the certificate chain.\nThis is typically a concatenation of the PEM-encoded public key certificates\nof the chain.\n",
-                "willReplaceOnChanges": true
-            },
-            "expiration": {
-                "type": "string",
-                "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the Server Certificate. Do not include the\npath in this value. If omitted, the provider will assign a random, unique name.\n",
-                "willReplaceOnChanges": true
-            },
-            "namePrefix": {
-                "type": "string",
-                "description": "Creates a unique name beginning with the specified\nprefix. Conflicts with `name`.\n",
-                "willReplaceOnChanges": true
-            },
-            "path": {
-                "type": "string",
-                "description": "The IAM path for the server certificate.  If it is not\nincluded, it defaults to a slash (/). If this certificate is for use with\nAWS CloudFront, the path must be in format `/cloudfront/your_path_here`.\nSee [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.\n",
-                "willReplaceOnChanges": true
-            },
-            "privateKey": {
-                "type": "string",
-                "description": "The contents of the private key in PEM-encoded format.\n",
-                "secret": true,
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) specifying the server certificate.\n"
                 },
-                "description": "Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "certificateBody": {
+                    "type": "string",
+                    "description": "The contents of the public key certificate in\nPEM-encoded format.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "certificateChain": {
+                    "type": "string",
+                    "description": "The contents of the certificate chain.\nThis is typically a concatenation of the PEM-encoded public key certificates\nof the chain.\n"
+                },
+                "expiration": {
+                    "type": "string",
+                    "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Server Certificate. Do not include the\npath in this value. If omitted, the provider will assign a random, unique name.\n"
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified\nprefix. Conflicts with `name`.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The IAM path for the server certificate.  If it is not\nincluded, it defaults to a slash (/). If this certificate is for use with\nAWS CloudFront, the path must be in format `/cloudfront/your_path_here`.\nSee [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.\n"
+                },
+                "privateKey": {
+                    "type": "string",
+                    "description": "The contents of the private key in PEM-encoded format.\n",
+                    "secret": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "uploadDate": {
+                    "type": "string",
+                    "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.\n"
+                }
             },
-            "uploadDate": {
-                "type": "string",
-                "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.\n"
+            "required": [
+                "arn",
+                "certificateBody",
+                "expiration",
+                "name",
+                "namePrefix",
+                "privateKey",
+                "tagsAll",
+                "uploadDate"
+            ],
+            "inputProperties": {
+                "certificateBody": {
+                    "type": "string",
+                    "description": "The contents of the public key certificate in\nPEM-encoded format.\n",
+                    "willReplaceOnChanges": true
+                },
+                "certificateChain": {
+                    "type": "string",
+                    "description": "The contents of the certificate chain.\nThis is typically a concatenation of the PEM-encoded public key certificates\nof the chain.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Server Certificate. Do not include the\npath in this value. If omitted, the provider will assign a random, unique name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "namePrefix": {
+                    "type": "string",
+                    "description": "Creates a unique name beginning with the specified\nprefix. Conflicts with `name`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The IAM path for the server certificate.  If it is not\nincluded, it defaults to a slash (/). If this certificate is for use with\nAWS CloudFront, the path must be in format `/cloudfront/your_path_here`.\nSee [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.\n",
+                    "willReplaceOnChanges": true
+                },
+                "privateKey": {
+                    "type": "string",
+                    "description": "The contents of the private key in PEM-encoded format.\n",
+                    "secret": true,
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.\n"
+                }
+            },
+            "requiredInputs": [
+                "certificateBody",
+                "privateKey"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServerCertificate resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) specifying the server certificate.\n"
+                    },
+                    "certificateBody": {
+                        "type": "string",
+                        "description": "The contents of the public key certificate in\nPEM-encoded format.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "certificateChain": {
+                        "type": "string",
+                        "description": "The contents of the certificate chain.\nThis is typically a concatenation of the PEM-encoded public key certificates\nof the chain.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "expiration": {
+                        "type": "string",
+                        "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Server Certificate. Do not include the\npath in this value. If omitted, the provider will assign a random, unique name.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "namePrefix": {
+                        "type": "string",
+                        "description": "Creates a unique name beginning with the specified\nprefix. Conflicts with `name`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "The IAM path for the server certificate.  If it is not\nincluded, it defaults to a slash (/). If this certificate is for use with\nAWS CloudFront, the path must be in format `/cloudfront/your_path_here`.\nSee [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "privateKey": {
+                        "type": "string",
+                        "description": "The contents of the private key in PEM-encoded format.\n",
+                        "secret": true,
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "uploadDate": {
+                        "type": "string",
+                        "description": "Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

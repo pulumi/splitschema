@@ -1,131 +1,131 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getVpcEndpointService.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getVpcEndpointServiceFilter:getVpcEndpointServiceFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getVpcEndpointService.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getVpcEndpointServiceFilter:getVpcEndpointServiceFilter"
+                        },
+                        "description": "Configuration block(s) for filtering. Detailed below.\n"
+                    },
+                    "service": {
+                        "type": "string",
+                        "description": "Common name of an AWS service (e.g., `s3`).\n"
+                    },
+                    "serviceName": {
+                        "type": "string",
+                        "description": "Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.\u003cregion\u003e.\u003cservice\u003e` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.\u003cregion\u003e.notebook`).\n"
+                    },
+                    "serviceType": {
+                        "type": "string",
+                        "description": "Service type, `Gateway` or `Interface`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.\n\n\u003e **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `service_name` pattern of `com.amazonaws.\u003cregion\u003e.\u003cservice\u003e`.\n"
+                    }
                 },
-                "description": "Configuration block(s) for filtering. Detailed below.\n"
-            },
-            "service": {
-                "type": "string",
-                "description": "Common name of an AWS service (e.g., `s3`).\n"
-            },
-            "serviceName": {
-                "type": "string",
-                "description": "Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.\u003cregion\u003e.\u003cservice\u003e` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.\u003cregion\u003e.notebook`).\n"
-            },
-            "serviceType": {
-                "type": "string",
-                "description": "Service type, `Gateway` or `Interface`.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.\n\n\u003e **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `service_name` pattern of `com.amazonaws.\u003cregion\u003e.\u003cservice\u003e`.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getVpcEndpointService.\n",
-        "properties": {
-            "acceptanceRequired": {
-                "description": "Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.\n",
-                "type": "boolean"
-            },
-            "arn": {
-                "description": "ARN of the VPC endpoint service.\n",
-                "type": "string"
-            },
-            "availabilityZones": {
-                "description": "Availability Zones in which the service is available.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "baseEndpointDnsNames": {
-                "description": "The DNS names for the service.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getVpcEndpointServiceFilter:getVpcEndpointServiceFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "managesVpcEndpoints": {
-                "description": "Whether or not the service manages its VPC endpoints - `true` or `false`.\n",
-                "type": "boolean"
-            },
-            "owner": {
-                "description": "AWS account ID of the service owner or `amazon`.\n",
-                "type": "string"
-            },
-            "privateDnsName": {
-                "description": "Private DNS name for the service.\n",
-                "type": "string"
-            },
-            "service": {
-                "type": "string"
-            },
-            "serviceId": {
-                "description": "ID of the endpoint service.\n",
-                "type": "string"
-            },
-            "serviceName": {
-                "type": "string"
-            },
-            "serviceType": {
-                "type": "string"
-            },
-            "supportedIpAddressTypes": {
-                "description": "The supported IP address types.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags assigned to the resource.\n",
                 "type": "object"
             },
-            "vpcEndpointPolicySupported": {
-                "description": "Whether or not the service supports endpoint policies - `true` or `false`.\n",
-                "type": "boolean"
+            "outputs": {
+                "description": "A collection of values returned by getVpcEndpointService.\n",
+                "properties": {
+                    "acceptanceRequired": {
+                        "description": "Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.\n",
+                        "type": "boolean"
+                    },
+                    "arn": {
+                        "description": "ARN of the VPC endpoint service.\n",
+                        "type": "string"
+                    },
+                    "availabilityZones": {
+                        "description": "Availability Zones in which the service is available.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "baseEndpointDnsNames": {
+                        "description": "The DNS names for the service.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getVpcEndpointServiceFilter:getVpcEndpointServiceFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "managesVpcEndpoints": {
+                        "description": "Whether or not the service manages its VPC endpoints - `true` or `false`.\n",
+                        "type": "boolean"
+                    },
+                    "owner": {
+                        "description": "AWS account ID of the service owner or `amazon`.\n",
+                        "type": "string"
+                    },
+                    "privateDnsName": {
+                        "description": "Private DNS name for the service.\n",
+                        "type": "string"
+                    },
+                    "service": {
+                        "type": "string"
+                    },
+                    "serviceId": {
+                        "description": "ID of the endpoint service.\n",
+                        "type": "string"
+                    },
+                    "serviceName": {
+                        "type": "string"
+                    },
+                    "serviceType": {
+                        "type": "string"
+                    },
+                    "supportedIpAddressTypes": {
+                        "description": "The supported IP address types.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource.\n",
+                        "type": "object"
+                    },
+                    "vpcEndpointPolicySupported": {
+                        "description": "Whether or not the service supports endpoint policies - `true` or `false`.\n",
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "acceptanceRequired",
+                    "arn",
+                    "availabilityZones",
+                    "baseEndpointDnsNames",
+                    "managesVpcEndpoints",
+                    "owner",
+                    "privateDnsName",
+                    "serviceId",
+                    "serviceName",
+                    "serviceType",
+                    "supportedIpAddressTypes",
+                    "tags",
+                    "vpcEndpointPolicySupported",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "acceptanceRequired",
-            "arn",
-            "availabilityZones",
-            "baseEndpointDnsNames",
-            "managesVpcEndpoints",
-            "owner",
-            "privateDnsName",
-            "serviceId",
-            "serviceName",
-            "serviceType",
-            "supportedIpAddressTypes",
-            "tags",
-            "vpcEndpointPolicySupported",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

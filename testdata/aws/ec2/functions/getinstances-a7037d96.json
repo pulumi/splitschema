@@ -1,93 +1,93 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getInstances.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getInstancesFilter:getInstancesFilter"
-                },
-                "description": "One or more name/value pairs to use as filters. There are\nseveral valid keys, for a full reference, check out\n[describe-instances in the AWS CLI reference][1].\n"
-            },
-            "instanceStateNames": {
-                "type": "array",
-                "items": {
-                    "type": "string"
-                },
-                "description": "List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.\n"
-            },
-            "instanceTags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags, each pair of which must\nexactly match a pair on desired instances.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getInstances.\n",
-        "properties": {
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getInstancesFilter:getInstancesFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "ids": {
-                "description": "IDs of instances found through the filter\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "instanceStateNames": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "instanceTags": {
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getInstances.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getInstancesFilter:getInstancesFilter"
+                        },
+                        "description": "One or more name/value pairs to use as filters. There are\nseveral valid keys, for a full reference, check out\n[describe-instances in the AWS CLI reference][1].\n"
+                    },
+                    "instanceStateNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.\n"
+                    },
+                    "instanceTags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags, each pair of which must\nexactly match a pair on desired instances.\n"
+                    }
                 },
                 "type": "object"
             },
-            "ipv6Addresses": {
-                "description": "IPv6 addresses of instances found through the filter\n",
-                "items": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getInstances.\n",
+                "properties": {
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getInstancesFilter:getInstancesFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "IDs of instances found through the filter\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "instanceStateNames": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "instanceTags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "ipv6Addresses": {
+                        "description": "IPv6 addresses of instances found through the filter\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "privateIps": {
+                        "description": "Private IP addresses of instances found through the filter\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "publicIps": {
+                        "description": "Public IP addresses of instances found through the filter\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
                 },
-                "type": "array"
-            },
-            "privateIps": {
-                "description": "Private IP addresses of instances found through the filter\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "publicIps": {
-                "description": "Public IP addresses of instances found through the filter\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
+                "required": [
+                    "ids",
+                    "instanceTags",
+                    "ipv6Addresses",
+                    "privateIps",
+                    "publicIps",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "ids",
-            "instanceTags",
-            "ipv6Addresses",
-            "privateIps",
-            "publicIps",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

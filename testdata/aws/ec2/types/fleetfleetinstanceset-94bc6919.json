@@ -1,34 +1,34 @@
 {
-    "properties": {
-        "instanceIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "instanceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IDs of the instances.\n"
+                },
+                "instanceType": {
+                    "type": "string",
+                    "description": "Instance type.\n"
+                },
+                "lifecycle": {
+                    "type": "string",
+                    "description": "Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.\n"
+                },
+                "platform": {
+                    "type": "string",
+                    "description": "The value is `Windows` for Windows instances. Otherwise, the value is blank.\n"
+                }
             },
-            "description": "The IDs of the instances.\n"
-        },
-        "instanceType": {
-            "type": "string",
-            "description": "Instance type.\n"
-        },
-        "lifecycle": {
-            "type": "string",
-            "description": "Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.\n"
-        },
-        "platform": {
-            "type": "string",
-            "description": "The value is `Windows` for Windows instances. Otherwise, the value is blank.\n"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "instanceIds",
+                        "instanceType",
+                        "lifecycle",
+                        "platform"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "instanceIds",
-                "instanceType",
-                "lifecycle",
-                "platform"
-            ]
-        }
-    }
-}

@@ -1,142 +1,142 @@
 {
-    "properties": {
-        "aggregation": {
-            "type": "string",
-            "description": "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.\n"
-        },
-        "members": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.\n"
-        },
-        "pattern": {
-            "type": "string",
-            "description": "The criteria to use to choose the protected resources for inclusion in the group.\n"
-        },
-        "protectionGroupArn": {
-            "type": "string",
-            "description": "The ARN (Amazon Resource Name) of the protection group.\n"
-        },
-        "protectionGroupId": {
-            "type": "string",
-            "description": "The name of the protection group.\n"
-        },
-        "resourceType": {
-            "type": "string",
-            "description": "The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "aggregation",
-        "pattern",
-        "protectionGroupArn",
-        "protectionGroupId",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "aggregation": {
-            "type": "string",
-            "description": "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.\n"
-        },
-        "members": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.\n"
-        },
-        "pattern": {
-            "type": "string",
-            "description": "The criteria to use to choose the protected resources for inclusion in the group.\n"
-        },
-        "protectionGroupId": {
-            "type": "string",
-            "description": "The name of the protection group.\n",
-            "willReplaceOnChanges": true
-        },
-        "resourceType": {
-            "type": "string",
-            "description": "The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "aggregation",
-        "pattern",
-        "protectionGroupId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ProtectionGroup resources.\n",
-        "properties": {
-            "aggregation": {
-                "type": "string",
-                "description": "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.\n"
-            },
-            "members": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "description": "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.\n"
                 },
-                "description": "The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.\n"
-            },
-            "pattern": {
-                "type": "string",
-                "description": "The criteria to use to choose the protected resources for inclusion in the group.\n"
-            },
-            "protectionGroupArn": {
-                "type": "string",
-                "description": "The ARN (Amazon Resource Name) of the protection group.\n"
-            },
-            "protectionGroupId": {
-                "type": "string",
-                "description": "The name of the protection group.\n",
-                "willReplaceOnChanges": true
-            },
-            "resourceType": {
-                "type": "string",
-                "description": "The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.\n"
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "pattern": {
+                    "type": "string",
+                    "description": "The criteria to use to choose the protected resources for inclusion in the group.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "protectionGroupArn": {
+                    "type": "string",
+                    "description": "The ARN (Amazon Resource Name) of the protection group.\n"
+                },
+                "protectionGroupId": {
+                    "type": "string",
+                    "description": "The name of the protection group.\n"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "aggregation",
+                "pattern",
+                "protectionGroupArn",
+                "protectionGroupId",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "aggregation": {
+                    "type": "string",
+                    "description": "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.\n"
+                },
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.\n"
+                },
+                "pattern": {
+                    "type": "string",
+                    "description": "The criteria to use to choose the protected resources for inclusion in the group.\n"
+                },
+                "protectionGroupId": {
+                    "type": "string",
+                    "description": "The name of the protection group.\n",
+                    "willReplaceOnChanges": true
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "aggregation",
+                "pattern",
+                "protectionGroupId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ProtectionGroup resources.\n",
+                "properties": {
+                    "aggregation": {
+                        "type": "string",
+                        "description": "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.\n"
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.\n"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "The criteria to use to choose the protected resources for inclusion in the group.\n"
+                    },
+                    "protectionGroupArn": {
+                        "type": "string",
+                        "description": "The ARN (Amazon Resource Name) of the protection group.\n"
+                    },
+                    "protectionGroupId": {
+                        "type": "string",
+                        "description": "The name of the protection group.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

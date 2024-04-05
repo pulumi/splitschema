@@ -1,82 +1,82 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getQuickConnect.\n",
-        "properties": {
-            "instanceId": {
-                "type": "string",
-                "description": "Reference to the hosting Amazon Connect Instance\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Returns information on a specific Quick Connect by name\n"
-            },
-            "quickConnectId": {
-                "type": "string",
-                "description": "Returns information on a specific Quick Connect by Quick Connect id\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getQuickConnect.\n",
+                "properties": {
+                    "instanceId": {
+                        "type": "string",
+                        "description": "Reference to the hosting Amazon Connect Instance\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Returns information on a specific Quick Connect by name\n"
+                    },
+                    "quickConnectId": {
+                        "type": "string",
+                        "description": "Returns information on a specific Quick Connect by Quick Connect id\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the Quick Connect.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "instanceId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getQuickConnect.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the Quick Connect.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the Quick Connect.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "quickConnectConfigs": {
+                        "description": "A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:connect/getQuickConnectQuickConnectConfig:getQuickConnectQuickConnectConfig"
+                        },
+                        "type": "array"
+                    },
+                    "quickConnectId": {
+                        "description": "Identifier for the Quick Connect.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the Quick Connect.\n",
+                        "type": "object"
+                    }
                 },
-                "description": "Map of tags to assign to the Quick Connect.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "instanceId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getQuickConnect.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the Quick Connect.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Description of the Quick Connect.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "instanceId": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "quickConnectConfigs": {
-                "description": "A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.\n",
-                "items": {
-                    "$ref": "#/types/aws:connect/getQuickConnectQuickConnectConfig:getQuickConnectQuickConnectConfig"
-                },
-                "type": "array"
-            },
-            "quickConnectId": {
-                "description": "Identifier for the Quick Connect.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags to assign to the Quick Connect.\n",
+                "required": [
+                    "arn",
+                    "description",
+                    "instanceId",
+                    "name",
+                    "quickConnectConfigs",
+                    "quickConnectId",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "description",
-            "instanceId",
-            "name",
-            "quickConnectConfigs",
-            "quickConnectId",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

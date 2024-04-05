@@ -1,188 +1,188 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the Redshift event notification subscription\n"
-        },
-        "customerAwsId": {
-            "type": "string",
-            "description": "The AWS customer account associated with the Redshift event notification subscription\n"
-        },
-        "enabled": {
-            "type": "boolean",
-            "description": "A boolean flag to enable/disable the subscription. Defaults to `true`.\n"
-        },
-        "eventCategories": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the Redshift event subscription.\n"
-        },
-        "severity": {
-            "type": "string",
-            "description": "The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.\n"
-        },
-        "snsTopicArn": {
-            "type": "string",
-            "description": "The ARN of the SNS topic to send events to.\n"
-        },
-        "sourceIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.\n"
-        },
-        "sourceType": {
-            "type": "string",
-            "description": "The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.\n"
-        },
-        "status": {
-            "type": "string"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "customerAwsId",
-        "name",
-        "snsTopicArn",
-        "status",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "enabled": {
-            "type": "boolean",
-            "description": "A boolean flag to enable/disable the subscription. Defaults to `true`.\n"
-        },
-        "eventCategories": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the Redshift event subscription.\n",
-            "willReplaceOnChanges": true
-        },
-        "severity": {
-            "type": "string",
-            "description": "The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.\n"
-        },
-        "snsTopicArn": {
-            "type": "string",
-            "description": "The ARN of the SNS topic to send events to.\n"
-        },
-        "sourceIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.\n"
-        },
-        "sourceType": {
-            "type": "string",
-            "description": "The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "snsTopicArn"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering EventSubscription resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the Redshift event notification subscription\n"
-            },
-            "customerAwsId": {
-                "type": "string",
-                "description": "The AWS customer account associated with the Redshift event notification subscription\n"
-            },
-            "enabled": {
-                "type": "boolean",
-                "description": "A boolean flag to enable/disable the subscription. Defaults to `true`.\n"
-            },
-            "eventCategories": {
-                "type": "array",
-                "items": {
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the Redshift event notification subscription\n"
+                },
+                "customerAwsId": {
+                    "type": "string",
+                    "description": "The AWS customer account associated with the Redshift event notification subscription\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "A boolean flag to enable/disable the subscription. Defaults to `true`.\n"
+                },
+                "eventCategories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Redshift event subscription.\n"
+                },
+                "severity": {
+                    "type": "string",
+                    "description": "The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.\n"
+                },
+                "snsTopicArn": {
+                    "type": "string",
+                    "description": "The ARN of the SNS topic to send events to.\n"
+                },
+                "sourceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.\n"
+                },
+                "sourceType": {
+                    "type": "string",
+                    "description": "The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.\n"
+                },
+                "status": {
                     "type": "string"
                 },
-                "description": "A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the Redshift event subscription.\n",
-                "willReplaceOnChanges": true
-            },
-            "severity": {
-                "type": "string",
-                "description": "The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.\n"
-            },
-            "snsTopicArn": {
-                "type": "string",
-                "description": "The ARN of the SNS topic to send events to.\n"
-            },
-            "sourceIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
                 },
-                "description": "A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.\n"
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
             },
-            "sourceType": {
-                "type": "string",
-                "description": "The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.\n"
-            },
-            "status": {
-                "type": "string"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "required": [
+                "arn",
+                "customerAwsId",
+                "name",
+                "snsTopicArn",
+                "status",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "A boolean flag to enable/disable the subscription. Defaults to `true`.\n"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "eventCategories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Redshift event subscription.\n",
+                    "willReplaceOnChanges": true
+                },
+                "severity": {
+                    "type": "string",
+                    "description": "The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.\n"
+                },
+                "snsTopicArn": {
+                    "type": "string",
+                    "description": "The ARN of the SNS topic to send events to.\n"
+                },
+                "sourceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.\n"
+                },
+                "sourceType": {
+                    "type": "string",
+                    "description": "The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "snsTopicArn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EventSubscription resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the Redshift event notification subscription\n"
+                    },
+                    "customerAwsId": {
+                        "type": "string",
+                        "description": "The AWS customer account associated with the Redshift event notification subscription\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "A boolean flag to enable/disable the subscription. Defaults to `true`.\n"
+                    },
+                    "eventCategories": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Redshift event subscription.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.\n"
+                    },
+                    "snsTopicArn": {
+                        "type": "string",
+                        "description": "The ARN of the SNS topic to send events to.\n"
+                    },
+                    "sourceIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.\n"
+                    },
+                    "sourceType": {
+                        "type": "string",
+                        "description": "The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.\n"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

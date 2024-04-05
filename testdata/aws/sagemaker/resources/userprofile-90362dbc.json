@@ -1,146 +1,146 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The user profile Amazon Resource Name (ARN).\n"
-        },
-        "domainId": {
-            "type": "string",
-            "description": "The ID of the associated Domain.\n"
-        },
-        "homeEfsFileSystemUid": {
-            "type": "string",
-            "description": "The ID of the user's profile in the Amazon Elastic File System (EFS) volume.\n"
-        },
-        "singleSignOnUserIdentifier": {
-            "type": "string",
-            "description": "A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.\n"
-        },
-        "singleSignOnUserValue": {
-            "type": "string",
-            "description": "The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "userProfileName": {
-            "type": "string",
-            "description": "The name for the User Profile.\n"
-        },
-        "userSettings": {
-            "$ref": "#/types/aws:sagemaker/UserProfileUserSettings:UserProfileUserSettings",
-            "description": "The user settings. See User Settings below.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "domainId",
-        "homeEfsFileSystemUid",
-        "tagsAll",
-        "userProfileName"
-    ],
-    "inputProperties": {
-        "domainId": {
-            "type": "string",
-            "description": "The ID of the associated Domain.\n",
-            "willReplaceOnChanges": true
-        },
-        "singleSignOnUserIdentifier": {
-            "type": "string",
-            "description": "A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.\n",
-            "willReplaceOnChanges": true
-        },
-        "singleSignOnUserValue": {
-            "type": "string",
-            "description": "The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "userProfileName": {
-            "type": "string",
-            "description": "The name for the User Profile.\n",
-            "willReplaceOnChanges": true
-        },
-        "userSettings": {
-            "$ref": "#/types/aws:sagemaker/UserProfileUserSettings:UserProfileUserSettings",
-            "description": "The user settings. See User Settings below.\n"
-        }
-    },
-    "requiredInputs": [
-        "domainId",
-        "userProfileName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering UserProfile resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The user profile Amazon Resource Name (ARN).\n"
-            },
-            "domainId": {
-                "type": "string",
-                "description": "The ID of the associated Domain.\n",
-                "willReplaceOnChanges": true
-            },
-            "homeEfsFileSystemUid": {
-                "type": "string",
-                "description": "The ID of the user's profile in the Amazon Elastic File System (EFS) volume.\n"
-            },
-            "singleSignOnUserIdentifier": {
-                "type": "string",
-                "description": "A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.\n",
-                "willReplaceOnChanges": true
-            },
-            "singleSignOnUserValue": {
-                "type": "string",
-                "description": "The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The user profile Amazon Resource Name (ARN).\n"
                 },
-                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "domainId": {
+                    "type": "string",
+                    "description": "The ID of the associated Domain.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "homeEfsFileSystemUid": {
+                    "type": "string",
+                    "description": "The ID of the user's profile in the Amazon Elastic File System (EFS) volume.\n"
+                },
+                "singleSignOnUserIdentifier": {
+                    "type": "string",
+                    "description": "A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.\n"
+                },
+                "singleSignOnUserValue": {
+                    "type": "string",
+                    "description": "The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "userProfileName": {
+                    "type": "string",
+                    "description": "The name for the User Profile.\n"
+                },
+                "userSettings": {
+                    "$ref": "#/types/aws:sagemaker/UserProfileUserSettings:UserProfileUserSettings",
+                    "description": "The user settings. See User Settings below.\n"
+                }
             },
-            "userProfileName": {
-                "type": "string",
-                "description": "The name for the User Profile.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "domainId",
+                "homeEfsFileSystemUid",
+                "tagsAll",
+                "userProfileName"
+            ],
+            "inputProperties": {
+                "domainId": {
+                    "type": "string",
+                    "description": "The ID of the associated Domain.\n",
+                    "willReplaceOnChanges": true
+                },
+                "singleSignOnUserIdentifier": {
+                    "type": "string",
+                    "description": "A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.\n",
+                    "willReplaceOnChanges": true
+                },
+                "singleSignOnUserValue": {
+                    "type": "string",
+                    "description": "The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "userProfileName": {
+                    "type": "string",
+                    "description": "The name for the User Profile.\n",
+                    "willReplaceOnChanges": true
+                },
+                "userSettings": {
+                    "$ref": "#/types/aws:sagemaker/UserProfileUserSettings:UserProfileUserSettings",
+                    "description": "The user settings. See User Settings below.\n"
+                }
             },
-            "userSettings": {
-                "$ref": "#/types/aws:sagemaker/UserProfileUserSettings:UserProfileUserSettings",
-                "description": "The user settings. See User Settings below.\n"
+            "requiredInputs": [
+                "domainId",
+                "userProfileName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UserProfile resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The user profile Amazon Resource Name (ARN).\n"
+                    },
+                    "domainId": {
+                        "type": "string",
+                        "description": "The ID of the associated Domain.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "homeEfsFileSystemUid": {
+                        "type": "string",
+                        "description": "The ID of the user's profile in the Amazon Elastic File System (EFS) volume.\n"
+                    },
+                    "singleSignOnUserIdentifier": {
+                        "type": "string",
+                        "description": "A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "singleSignOnUserValue": {
+                        "type": "string",
+                        "description": "The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "userProfileName": {
+                        "type": "string",
+                        "description": "The name for the User Profile.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "userSettings": {
+                        "$ref": "#/types/aws:sagemaker/UserProfileUserSettings:UserProfileUserSettings",
+                        "description": "The user settings. See User Settings below.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

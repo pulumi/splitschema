@@ -1,20 +1,20 @@
 {
-    "properties": {
-        "crossRegionCopies": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsActionCrossRegionCopy:LifecyclePolicyPolicyDetailsActionCrossRegionCopy"
+            "properties": {
+                "crossRegionCopies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:dlm/LifecyclePolicyPolicyDetailsActionCrossRegionCopy:LifecyclePolicyPolicyDetailsActionCrossRegionCopy"
+                    },
+                    "description": "The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A descriptive name for the action.\n"
+                }
             },
-            "description": "The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "A descriptive name for the action.\n"
+            "type": "object",
+            "required": [
+                "crossRegionCopies",
+                "name"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "crossRegionCopies",
-        "name"
-    ]
-}

@@ -1,41 +1,41 @@
 {
-    "properties": {
-        "cookies": {
-            "$ref": "#/types/aws:cloudfront/DistributionOrderedCacheBehaviorForwardedValuesCookies:DistributionOrderedCacheBehaviorForwardedValuesCookies",
-            "description": "The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).\n"
-        },
-        "headers": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "cookies": {
+                    "$ref": "#/types/aws:cloudfront/DistributionOrderedCacheBehaviorForwardedValuesCookies:DistributionOrderedCacheBehaviorForwardedValuesCookies",
+                    "description": "The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).\n"
+                },
+                "headers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.\n"
+                },
+                "queryString": {
+                    "type": "boolean",
+                    "description": "Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.\n"
+                },
+                "queryStringCacheKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.\n"
+                }
             },
-            "description": "Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.\n"
-        },
-        "queryString": {
-            "type": "boolean",
-            "description": "Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.\n"
-        },
-        "queryStringCacheKeys": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.\n"
-        }
-    },
-    "type": "object",
-    "required": [
-        "cookies",
-        "queryString"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
+            "type": "object",
+            "required": [
                 "cookies",
-                "headers",
-                "queryString",
-                "queryStringCacheKeys"
-            ]
+                "queryString"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "cookies",
+                        "headers",
+                        "queryString",
+                        "queryStringCacheKeys"
+                    ]
+                }
+            }
         }
-    }
-}

@@ -1,26 +1,26 @@
 {
-    "properties": {
-        "inputCompressionType": {
-            "type": "string",
-            "description": "Type of compression to be used on the input coming from the imported table.\nValid values are `GZIP`, `ZSTD` and `NONE`.\n"
-        },
-        "inputFormat": {
-            "type": "string",
-            "description": "The format of the source data.\nValid values are `CSV`, `DYNAMODB_JSON`, and `ION`.\n"
-        },
-        "inputFormatOptions": {
-            "$ref": "#/types/aws:dynamodb/TableImportTableInputFormatOptions:TableImportTableInputFormatOptions",
-            "description": "Describe the format options for the data that was imported into the target table.\nThere is one value, `csv`.\nSee below.\n"
-        },
-        "s3BucketSource": {
-            "$ref": "#/types/aws:dynamodb/TableImportTableS3BucketSource:TableImportTableS3BucketSource",
-            "description": "Values for the S3 bucket the source file is imported from.\nSee below.\n",
-            "willReplaceOnChanges": true
+            "properties": {
+                "inputCompressionType": {
+                    "type": "string",
+                    "description": "Type of compression to be used on the input coming from the imported table.\nValid values are `GZIP`, `ZSTD` and `NONE`.\n"
+                },
+                "inputFormat": {
+                    "type": "string",
+                    "description": "The format of the source data.\nValid values are `CSV`, `DYNAMODB_JSON`, and `ION`.\n"
+                },
+                "inputFormatOptions": {
+                    "$ref": "#/types/aws:dynamodb/TableImportTableInputFormatOptions:TableImportTableInputFormatOptions",
+                    "description": "Describe the format options for the data that was imported into the target table.\nThere is one value, `csv`.\nSee below.\n"
+                },
+                "s3BucketSource": {
+                    "$ref": "#/types/aws:dynamodb/TableImportTableS3BucketSource:TableImportTableS3BucketSource",
+                    "description": "Values for the S3 bucket the source file is imported from.\nSee below.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "inputFormat",
+                "s3BucketSource"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "inputFormat",
-        "s3BucketSource"
-    ]
-}

@@ -1,363 +1,363 @@
 {
-    "properties": {
-        "applyImmediately": {
-            "type": "boolean",
-            "description": "When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the Lightsail instance (matches `id`).\n"
-        },
-        "availabilityZone": {
-            "type": "string",
-            "description": "The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.\n"
-        },
-        "backupRetentionEnabled": {
-            "type": "boolean",
-            "description": "When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.\n"
-        },
-        "blueprintId": {
-            "type": "string",
-            "description": "The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`\n"
-        },
-        "bundleId": {
-            "type": "string",
-            "description": "The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.\n"
-        },
-        "caCertificateIdentifier": {
-            "type": "string",
-            "description": "The certificate associated with the database.\n"
-        },
-        "cpuCount": {
-            "type": "integer",
-            "description": "The number of vCPUs for the database.\n"
-        },
-        "createdAt": {
-            "type": "string",
-            "description": "The timestamp when the instance was created.\n"
-        },
-        "diskSize": {
-            "type": "number",
-            "description": "The size of the disk for the database.\n"
-        },
-        "engine": {
-            "type": "string",
-            "description": "The database software (for example, MySQL).\n"
-        },
-        "engineVersion": {
-            "type": "string",
-            "description": "The database engine version (for example, 5.7.23).\n"
-        },
-        "finalSnapshotName": {
-            "type": "string",
-            "description": "The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.\n"
-        },
-        "masterDatabaseName": {
-            "type": "string",
-            "description": "The name of the master database created when the Lightsail database resource is created.\n"
-        },
-        "masterEndpointAddress": {
-            "type": "string",
-            "description": "The master endpoint fqdn for the database.\n"
-        },
-        "masterEndpointPort": {
-            "type": "integer",
-            "description": "The master endpoint network port for the database.\n"
-        },
-        "masterPassword": {
-            "type": "string",
-            "description": "The password for the master user of your new database. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".\n",
-            "secret": true
-        },
-        "masterUsername": {
-            "type": "string",
-            "description": "The master user name for your new database.\n"
-        },
-        "preferredBackupWindow": {
-            "type": "string",
-            "description": "The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).\n"
-        },
-        "preferredMaintenanceWindow": {
-            "type": "string",
-            "description": "The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`\n"
-        },
-        "publiclyAccessible": {
-            "type": "boolean",
-            "description": "Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.\n"
-        },
-        "ramSize": {
-            "type": "number",
-            "description": "The amount of RAM in GB for the database.\n"
-        },
-        "relationalDatabaseName": {
-            "type": "string",
-            "description": "The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.\n"
-        },
-        "secondaryAvailabilityZone": {
-            "type": "string",
-            "description": "Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.\n"
-        },
-        "skipFinalSnapshot": {
-            "type": "boolean",
-            "description": "Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.\n"
-        },
-        "supportCode": {
-            "type": "string",
-            "description": "The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "applyImmediately",
-        "arn",
-        "availabilityZone",
-        "blueprintId",
-        "bundleId",
-        "caCertificateIdentifier",
-        "cpuCount",
-        "createdAt",
-        "diskSize",
-        "engine",
-        "engineVersion",
-        "masterDatabaseName",
-        "masterEndpointAddress",
-        "masterEndpointPort",
-        "masterPassword",
-        "masterUsername",
-        "preferredBackupWindow",
-        "preferredMaintenanceWindow",
-        "ramSize",
-        "relationalDatabaseName",
-        "secondaryAvailabilityZone",
-        "supportCode",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "applyImmediately": {
-            "type": "boolean",
-            "description": "When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.\n"
-        },
-        "availabilityZone": {
-            "type": "string",
-            "description": "The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.\n",
-            "willReplaceOnChanges": true
-        },
-        "backupRetentionEnabled": {
-            "type": "boolean",
-            "description": "When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.\n"
-        },
-        "blueprintId": {
-            "type": "string",
-            "description": "The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`\n",
-            "willReplaceOnChanges": true
-        },
-        "bundleId": {
-            "type": "string",
-            "description": "The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.\n",
-            "willReplaceOnChanges": true
-        },
-        "finalSnapshotName": {
-            "type": "string",
-            "description": "The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.\n"
-        },
-        "masterDatabaseName": {
-            "type": "string",
-            "description": "The name of the master database created when the Lightsail database resource is created.\n",
-            "willReplaceOnChanges": true
-        },
-        "masterPassword": {
-            "type": "string",
-            "description": "The password for the master user of your new database. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".\n",
-            "secret": true
-        },
-        "masterUsername": {
-            "type": "string",
-            "description": "The master user name for your new database.\n",
-            "willReplaceOnChanges": true
-        },
-        "preferredBackupWindow": {
-            "type": "string",
-            "description": "The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).\n"
-        },
-        "preferredMaintenanceWindow": {
-            "type": "string",
-            "description": "The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`\n"
-        },
-        "publiclyAccessible": {
-            "type": "boolean",
-            "description": "Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.\n"
-        },
-        "relationalDatabaseName": {
-            "type": "string",
-            "description": "The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.\n",
-            "willReplaceOnChanges": true
-        },
-        "skipFinalSnapshot": {
-            "type": "boolean",
-            "description": "Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.\n"
-        }
-    },
-    "requiredInputs": [
-        "blueprintId",
-        "bundleId",
-        "masterDatabaseName",
-        "masterPassword",
-        "masterUsername",
-        "relationalDatabaseName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Database resources.\n",
-        "properties": {
-            "applyImmediately": {
-                "type": "boolean",
-                "description": "When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the Lightsail instance (matches `id`).\n"
-            },
-            "availabilityZone": {
-                "type": "string",
-                "description": "The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.\n",
-                "willReplaceOnChanges": true
-            },
-            "backupRetentionEnabled": {
-                "type": "boolean",
-                "description": "When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.\n"
-            },
-            "blueprintId": {
-                "type": "string",
-                "description": "The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`\n",
-                "willReplaceOnChanges": true
-            },
-            "bundleId": {
-                "type": "string",
-                "description": "The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.\n",
-                "willReplaceOnChanges": true
-            },
-            "caCertificateIdentifier": {
-                "type": "string",
-                "description": "The certificate associated with the database.\n"
-            },
-            "cpuCount": {
-                "type": "integer",
-                "description": "The number of vCPUs for the database.\n"
-            },
-            "createdAt": {
-                "type": "string",
-                "description": "The timestamp when the instance was created.\n"
-            },
-            "diskSize": {
-                "type": "number",
-                "description": "The size of the disk for the database.\n"
-            },
-            "engine": {
-                "type": "string",
-                "description": "The database software (for example, MySQL).\n"
-            },
-            "engineVersion": {
-                "type": "string",
-                "description": "The database engine version (for example, 5.7.23).\n"
-            },
-            "finalSnapshotName": {
-                "type": "string",
-                "description": "The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.\n"
-            },
-            "masterDatabaseName": {
-                "type": "string",
-                "description": "The name of the master database created when the Lightsail database resource is created.\n",
-                "willReplaceOnChanges": true
-            },
-            "masterEndpointAddress": {
-                "type": "string",
-                "description": "The master endpoint fqdn for the database.\n"
-            },
-            "masterEndpointPort": {
-                "type": "integer",
-                "description": "The master endpoint network port for the database.\n"
-            },
-            "masterPassword": {
-                "type": "string",
-                "description": "The password for the master user of your new database. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".\n",
-                "secret": true
-            },
-            "masterUsername": {
-                "type": "string",
-                "description": "The master user name for your new database.\n",
-                "willReplaceOnChanges": true
-            },
-            "preferredBackupWindow": {
-                "type": "string",
-                "description": "The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).\n"
-            },
-            "preferredMaintenanceWindow": {
-                "type": "string",
-                "description": "The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`\n"
-            },
-            "publiclyAccessible": {
-                "type": "boolean",
-                "description": "Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.\n"
-            },
-            "ramSize": {
-                "type": "number",
-                "description": "The amount of RAM in GB for the database.\n"
-            },
-            "relationalDatabaseName": {
-                "type": "string",
-                "description": "The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.\n",
-                "willReplaceOnChanges": true
-            },
-            "secondaryAvailabilityZone": {
-                "type": "string",
-                "description": "Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.\n"
-            },
-            "skipFinalSnapshot": {
-                "type": "boolean",
-                "description": "Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.\n"
-            },
-            "supportCode": {
-                "type": "string",
-                "description": "The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "applyImmediately": {
+                    "type": "boolean",
+                    "description": "When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.\n"
                 },
-                "description": "A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the Lightsail instance (matches `id`).\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.\n"
+                },
+                "backupRetentionEnabled": {
+                    "type": "boolean",
+                    "description": "When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.\n"
+                },
+                "blueprintId": {
+                    "type": "string",
+                    "description": "The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`\n"
+                },
+                "bundleId": {
+                    "type": "string",
+                    "description": "The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.\n"
+                },
+                "caCertificateIdentifier": {
+                    "type": "string",
+                    "description": "The certificate associated with the database.\n"
+                },
+                "cpuCount": {
+                    "type": "integer",
+                    "description": "The number of vCPUs for the database.\n"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "The timestamp when the instance was created.\n"
+                },
+                "diskSize": {
+                    "type": "number",
+                    "description": "The size of the disk for the database.\n"
+                },
+                "engine": {
+                    "type": "string",
+                    "description": "The database software (for example, MySQL).\n"
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "The database engine version (for example, 5.7.23).\n"
+                },
+                "finalSnapshotName": {
+                    "type": "string",
+                    "description": "The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.\n"
+                },
+                "masterDatabaseName": {
+                    "type": "string",
+                    "description": "The name of the master database created when the Lightsail database resource is created.\n"
+                },
+                "masterEndpointAddress": {
+                    "type": "string",
+                    "description": "The master endpoint fqdn for the database.\n"
+                },
+                "masterEndpointPort": {
+                    "type": "integer",
+                    "description": "The master endpoint network port for the database.\n"
+                },
+                "masterPassword": {
+                    "type": "string",
+                    "description": "The password for the master user of your new database. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".\n",
+                    "secret": true
+                },
+                "masterUsername": {
+                    "type": "string",
+                    "description": "The master user name for your new database.\n"
+                },
+                "preferredBackupWindow": {
+                    "type": "string",
+                    "description": "The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).\n"
+                },
+                "preferredMaintenanceWindow": {
+                    "type": "string",
+                    "description": "The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`\n"
+                },
+                "publiclyAccessible": {
+                    "type": "boolean",
+                    "description": "Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.\n"
+                },
+                "ramSize": {
+                    "type": "number",
+                    "description": "The amount of RAM in GB for the database.\n"
+                },
+                "relationalDatabaseName": {
+                    "type": "string",
+                    "description": "The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.\n"
+                },
+                "secondaryAvailabilityZone": {
+                    "type": "string",
+                    "description": "Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.\n"
+                },
+                "skipFinalSnapshot": {
+                    "type": "boolean",
+                    "description": "Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.\n"
+                },
+                "supportCode": {
+                    "type": "string",
+                    "description": "The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "applyImmediately",
+                "arn",
+                "availabilityZone",
+                "blueprintId",
+                "bundleId",
+                "caCertificateIdentifier",
+                "cpuCount",
+                "createdAt",
+                "diskSize",
+                "engine",
+                "engineVersion",
+                "masterDatabaseName",
+                "masterEndpointAddress",
+                "masterEndpointPort",
+                "masterPassword",
+                "masterUsername",
+                "preferredBackupWindow",
+                "preferredMaintenanceWindow",
+                "ramSize",
+                "relationalDatabaseName",
+                "secondaryAvailabilityZone",
+                "supportCode",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "applyImmediately": {
+                    "type": "boolean",
+                    "description": "When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.\n"
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.\n",
+                    "willReplaceOnChanges": true
+                },
+                "backupRetentionEnabled": {
+                    "type": "boolean",
+                    "description": "When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.\n"
+                },
+                "blueprintId": {
+                    "type": "string",
+                    "description": "The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`\n",
+                    "willReplaceOnChanges": true
+                },
+                "bundleId": {
+                    "type": "string",
+                    "description": "The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "finalSnapshotName": {
+                    "type": "string",
+                    "description": "The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.\n"
+                },
+                "masterDatabaseName": {
+                    "type": "string",
+                    "description": "The name of the master database created when the Lightsail database resource is created.\n",
+                    "willReplaceOnChanges": true
+                },
+                "masterPassword": {
+                    "type": "string",
+                    "description": "The password for the master user of your new database. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".\n",
+                    "secret": true
+                },
+                "masterUsername": {
+                    "type": "string",
+                    "description": "The master user name for your new database.\n",
+                    "willReplaceOnChanges": true
+                },
+                "preferredBackupWindow": {
+                    "type": "string",
+                    "description": "The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).\n"
+                },
+                "preferredMaintenanceWindow": {
+                    "type": "string",
+                    "description": "The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`\n"
+                },
+                "publiclyAccessible": {
+                    "type": "boolean",
+                    "description": "Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.\n"
+                },
+                "relationalDatabaseName": {
+                    "type": "string",
+                    "description": "The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.\n",
+                    "willReplaceOnChanges": true
+                },
+                "skipFinalSnapshot": {
+                    "type": "boolean",
+                    "description": "Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.\n"
+                }
+            },
+            "requiredInputs": [
+                "blueprintId",
+                "bundleId",
+                "masterDatabaseName",
+                "masterPassword",
+                "masterUsername",
+                "relationalDatabaseName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Database resources.\n",
+                "properties": {
+                    "applyImmediately": {
+                        "type": "boolean",
+                        "description": "When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the Lightsail instance (matches `id`).\n"
+                    },
+                    "availabilityZone": {
+                        "type": "string",
+                        "description": "The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "backupRetentionEnabled": {
+                        "type": "boolean",
+                        "description": "When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.\n"
+                    },
+                    "blueprintId": {
+                        "type": "string",
+                        "description": "The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "bundleId": {
+                        "type": "string",
+                        "description": "The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "caCertificateIdentifier": {
+                        "type": "string",
+                        "description": "The certificate associated with the database.\n"
+                    },
+                    "cpuCount": {
+                        "type": "integer",
+                        "description": "The number of vCPUs for the database.\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The timestamp when the instance was created.\n"
+                    },
+                    "diskSize": {
+                        "type": "number",
+                        "description": "The size of the disk for the database.\n"
+                    },
+                    "engine": {
+                        "type": "string",
+                        "description": "The database software (for example, MySQL).\n"
+                    },
+                    "engineVersion": {
+                        "type": "string",
+                        "description": "The database engine version (for example, 5.7.23).\n"
+                    },
+                    "finalSnapshotName": {
+                        "type": "string",
+                        "description": "The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.\n"
+                    },
+                    "masterDatabaseName": {
+                        "type": "string",
+                        "description": "The name of the master database created when the Lightsail database resource is created.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "masterEndpointAddress": {
+                        "type": "string",
+                        "description": "The master endpoint fqdn for the database.\n"
+                    },
+                    "masterEndpointPort": {
+                        "type": "integer",
+                        "description": "The master endpoint network port for the database.\n"
+                    },
+                    "masterPassword": {
+                        "type": "string",
+                        "description": "The password for the master user of your new database. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".\n",
+                        "secret": true
+                    },
+                    "masterUsername": {
+                        "type": "string",
+                        "description": "The master user name for your new database.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "preferredBackupWindow": {
+                        "type": "string",
+                        "description": "The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).\n"
+                    },
+                    "preferredMaintenanceWindow": {
+                        "type": "string",
+                        "description": "The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`\n"
+                    },
+                    "publiclyAccessible": {
+                        "type": "boolean",
+                        "description": "Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.\n"
+                    },
+                    "ramSize": {
+                        "type": "number",
+                        "description": "The amount of RAM in GB for the database.\n"
+                    },
+                    "relationalDatabaseName": {
+                        "type": "string",
+                        "description": "The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "secondaryAvailabilityZone": {
+                        "type": "string",
+                        "description": "Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.\n"
+                    },
+                    "skipFinalSnapshot": {
+                        "type": "boolean",
+                        "description": "Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.\n"
+                    },
+                    "supportCode": {
+                        "type": "string",
+                        "description": "The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

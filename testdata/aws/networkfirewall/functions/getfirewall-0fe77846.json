@@ -1,112 +1,112 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getFirewall.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the firewall.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Descriptive name of the firewall.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getFirewall.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the firewall.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Descriptive name of the firewall.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    }
                 },
-                "description": "Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getFirewall.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the firewall.\n",
-                "type": "string"
-            },
-            "deleteProtection": {
-                "description": "Boolean flag indicating whether it is possible to delete the firewall.\n",
-                "type": "boolean"
-            },
-            "description": {
-                "description": "Description of the firewall.\n",
-                "type": "string"
-            },
-            "encryptionConfigurations": {
-                "description": "AWS Key Management Service (AWS KMS) encryption settings for the firewall.\n",
-                "items": {
-                    "$ref": "#/types/aws:networkfirewall/getFirewallEncryptionConfiguration:getFirewallEncryptionConfiguration"
-                },
-                "type": "array"
-            },
-            "firewallPolicyArn": {
-                "description": "ARN of the VPC Firewall policy.\n",
-                "type": "string"
-            },
-            "firewallPolicyChangeProtection": {
-                "description": "A boolean flag indicating whether it is possible to change the associated firewall policy.\n",
-                "type": "boolean"
-            },
-            "firewallStatuses": {
-                "description": "Nested list of information about the current status of the firewall.\n",
-                "items": {
-                    "$ref": "#/types/aws:networkfirewall/getFirewallFirewallStatus:getFirewallFirewallStatus"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "description": "Descriptive name of the firewall.\n",
-                "type": "string"
-            },
-            "subnetChangeProtection": {
-                "description": "A boolean flag indicating whether it is possible to change the associated subnet(s).\n",
-                "type": "boolean"
-            },
-            "subnetMappings": {
-                "description": "Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.\n",
-                "items": {
-                    "$ref": "#/types/aws:networkfirewall/getFirewallSubnetMapping:getFirewallSubnetMapping"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n",
                 "type": "object"
             },
-            "updateToken": {
-                "description": "String token used when updating a firewall.\n",
-                "type": "string"
-            },
-            "vpcId": {
-                "description": "Unique identifier of the VPC where AWS Network Firewall should create the firewall.\n",
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getFirewall.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the firewall.\n",
+                        "type": "string"
+                    },
+                    "deleteProtection": {
+                        "description": "Boolean flag indicating whether it is possible to delete the firewall.\n",
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "description": "Description of the firewall.\n",
+                        "type": "string"
+                    },
+                    "encryptionConfigurations": {
+                        "description": "AWS Key Management Service (AWS KMS) encryption settings for the firewall.\n",
+                        "items": {
+                            "$ref": "#/types/aws:networkfirewall/getFirewallEncryptionConfiguration:getFirewallEncryptionConfiguration"
+                        },
+                        "type": "array"
+                    },
+                    "firewallPolicyArn": {
+                        "description": "ARN of the VPC Firewall policy.\n",
+                        "type": "string"
+                    },
+                    "firewallPolicyChangeProtection": {
+                        "description": "A boolean flag indicating whether it is possible to change the associated firewall policy.\n",
+                        "type": "boolean"
+                    },
+                    "firewallStatuses": {
+                        "description": "Nested list of information about the current status of the firewall.\n",
+                        "items": {
+                            "$ref": "#/types/aws:networkfirewall/getFirewallFirewallStatus:getFirewallFirewallStatus"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Descriptive name of the firewall.\n",
+                        "type": "string"
+                    },
+                    "subnetChangeProtection": {
+                        "description": "A boolean flag indicating whether it is possible to change the associated subnet(s).\n",
+                        "type": "boolean"
+                    },
+                    "subnetMappings": {
+                        "description": "Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.\n",
+                        "items": {
+                            "$ref": "#/types/aws:networkfirewall/getFirewallSubnetMapping:getFirewallSubnetMapping"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n",
+                        "type": "object"
+                    },
+                    "updateToken": {
+                        "description": "String token used when updating a firewall.\n",
+                        "type": "string"
+                    },
+                    "vpcId": {
+                        "description": "Unique identifier of the VPC where AWS Network Firewall should create the firewall.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "deleteProtection",
+                    "description",
+                    "encryptionConfigurations",
+                    "firewallPolicyArn",
+                    "firewallPolicyChangeProtection",
+                    "firewallStatuses",
+                    "name",
+                    "subnetChangeProtection",
+                    "subnetMappings",
+                    "updateToken",
+                    "vpcId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "deleteProtection",
-            "description",
-            "encryptionConfigurations",
-            "firewallPolicyArn",
-            "firewallPolicyChangeProtection",
-            "firewallStatuses",
-            "name",
-            "subnetChangeProtection",
-            "subnetMappings",
-            "updateToken",
-            "vpcId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

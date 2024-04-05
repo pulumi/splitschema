@@ -1,106 +1,106 @@
 {
-    "properties": {
-        "branchFilter": {
-            "type": "string",
-            "description": "A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.\n"
-        },
-        "buildType": {
-            "type": "string",
-            "description": "The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.\n"
-        },
-        "filterGroups": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:codebuild/WebhookFilterGroup:WebhookFilterGroup"
-            },
-            "description": "Information about the webhook's trigger. Filter group blocks are documented below.\n"
-        },
-        "payloadUrl": {
-            "type": "string",
-            "description": "The CodeBuild endpoint where webhook events are sent.\n"
-        },
-        "projectName": {
-            "type": "string",
-            "description": "The name of the build project.\n"
-        },
-        "secret": {
-            "type": "string",
-            "description": "The secret token of the associated repository. Not returned by the CodeBuild API for all source types.\n",
-            "secret": true
-        },
-        "url": {
-            "type": "string",
-            "description": "The URL to the webhook.\n"
-        }
-    },
-    "required": [
-        "payloadUrl",
-        "projectName",
-        "secret",
-        "url"
-    ],
-    "inputProperties": {
-        "branchFilter": {
-            "type": "string",
-            "description": "A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.\n"
-        },
-        "buildType": {
-            "type": "string",
-            "description": "The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.\n"
-        },
-        "filterGroups": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:codebuild/WebhookFilterGroup:WebhookFilterGroup"
-            },
-            "description": "Information about the webhook's trigger. Filter group blocks are documented below.\n"
-        },
-        "projectName": {
-            "type": "string",
-            "description": "The name of the build project.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "projectName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Webhook resources.\n",
-        "properties": {
-            "branchFilter": {
-                "type": "string",
-                "description": "A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.\n"
-            },
-            "buildType": {
-                "type": "string",
-                "description": "The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.\n"
-            },
-            "filterGroups": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:codebuild/WebhookFilterGroup:WebhookFilterGroup"
+            "properties": {
+                "branchFilter": {
+                    "type": "string",
+                    "description": "A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.\n"
                 },
-                "description": "Information about the webhook's trigger. Filter group blocks are documented below.\n"
+                "buildType": {
+                    "type": "string",
+                    "description": "The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.\n"
+                },
+                "filterGroups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:codebuild/WebhookFilterGroup:WebhookFilterGroup"
+                    },
+                    "description": "Information about the webhook's trigger. Filter group blocks are documented below.\n"
+                },
+                "payloadUrl": {
+                    "type": "string",
+                    "description": "The CodeBuild endpoint where webhook events are sent.\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "The name of the build project.\n"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The secret token of the associated repository. Not returned by the CodeBuild API for all source types.\n",
+                    "secret": true
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The URL to the webhook.\n"
+                }
             },
-            "payloadUrl": {
-                "type": "string",
-                "description": "The CodeBuild endpoint where webhook events are sent.\n"
+            "required": [
+                "payloadUrl",
+                "projectName",
+                "secret",
+                "url"
+            ],
+            "inputProperties": {
+                "branchFilter": {
+                    "type": "string",
+                    "description": "A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.\n"
+                },
+                "buildType": {
+                    "type": "string",
+                    "description": "The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.\n"
+                },
+                "filterGroups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:codebuild/WebhookFilterGroup:WebhookFilterGroup"
+                    },
+                    "description": "Information about the webhook's trigger. Filter group blocks are documented below.\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "The name of the build project.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "projectName": {
-                "type": "string",
-                "description": "The name of the build project.\n",
-                "willReplaceOnChanges": true
-            },
-            "secret": {
-                "type": "string",
-                "description": "The secret token of the associated repository. Not returned by the CodeBuild API for all source types.\n",
-                "secret": true
-            },
-            "url": {
-                "type": "string",
-                "description": "The URL to the webhook.\n"
+            "requiredInputs": [
+                "projectName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Webhook resources.\n",
+                "properties": {
+                    "branchFilter": {
+                        "type": "string",
+                        "description": "A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.\n"
+                    },
+                    "buildType": {
+                        "type": "string",
+                        "description": "The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.\n"
+                    },
+                    "filterGroups": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:codebuild/WebhookFilterGroup:WebhookFilterGroup"
+                        },
+                        "description": "Information about the webhook's trigger. Filter group blocks are documented below.\n"
+                    },
+                    "payloadUrl": {
+                        "type": "string",
+                        "description": "The CodeBuild endpoint where webhook events are sent.\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "The name of the build project.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "secret": {
+                        "type": "string",
+                        "description": "The secret token of the associated repository. Not returned by the CodeBuild API for all source types.\n",
+                        "secret": true
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL to the webhook.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

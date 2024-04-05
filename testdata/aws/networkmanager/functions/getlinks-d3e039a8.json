@@ -1,74 +1,74 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getLinks.\n",
-        "properties": {
-            "globalNetworkId": {
-                "type": "string",
-                "description": "ID of the Global Network of the links to retrieve.\n"
-            },
-            "providerName": {
-                "type": "string",
-                "description": "Link provider to retrieve.\n"
-            },
-            "siteId": {
-                "type": "string",
-                "description": "ID of the site of the links to retrieve.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLinks.\n",
+                "properties": {
+                    "globalNetworkId": {
+                        "type": "string",
+                        "description": "ID of the Global Network of the links to retrieve.\n"
+                    },
+                    "providerName": {
+                        "type": "string",
+                        "description": "Link provider to retrieve.\n"
+                    },
+                    "siteId": {
+                        "type": "string",
+                        "description": "ID of the site of the links to retrieve.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Restricts the list to the links with these tags.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Link type to retrieve.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "globalNetworkId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLinks.\n",
+                "properties": {
+                    "globalNetworkId": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "IDs of the links.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "providerName": {
+                        "type": "string"
+                    },
+                    "siteId": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
                 },
-                "description": "Restricts the list to the links with these tags.\n"
-            },
-            "type": {
-                "type": "string",
-                "description": "Link type to retrieve.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "globalNetworkId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getLinks.\n",
-        "properties": {
-            "globalNetworkId": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "ids": {
-                "description": "IDs of the links.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "providerName": {
-                "type": "string"
-            },
-            "siteId": {
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
+                "required": [
+                    "globalNetworkId",
+                    "ids",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "type": {
-                "type": "string"
             }
-        },
-        "required": [
-            "globalNetworkId",
-            "ids",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

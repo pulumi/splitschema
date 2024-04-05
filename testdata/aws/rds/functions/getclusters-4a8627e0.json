@@ -1,50 +1,50 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getClusters.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:rds/getClustersFilter:getClustersFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getClusters.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:rds/getClustersFilter:getClustersFilter"
+                        },
+                        "description": "Configuration block(s) for filtering. Detailed below.\n"
+                    }
                 },
-                "description": "Configuration block(s) for filtering. Detailed below.\n"
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getClusters.\n",
+                "properties": {
+                    "clusterArns": {
+                        "description": "Set of cluster ARNs of the matched RDS clusters.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "clusterIdentifiers": {
+                        "description": "Set of ARNs of cluster identifiers of the matched RDS clusters.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:rds/getClustersFilter:getClustersFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "clusterArns",
+                    "clusterIdentifiers",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getClusters.\n",
-        "properties": {
-            "clusterArns": {
-                "description": "Set of cluster ARNs of the matched RDS clusters.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "clusterIdentifiers": {
-                "description": "Set of ARNs of cluster identifiers of the matched RDS clusters.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:rds/getClustersFilter:getClustersFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "clusterArns",
-            "clusterIdentifiers",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

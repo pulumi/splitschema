@@ -1,308 +1,308 @@
 {
-    "properties": {
-        "accountAccessType": {
-            "type": "string",
-            "description": "The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the Grafana workspace.\n"
-        },
-        "authenticationProviders": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.\n"
-        },
-        "configuration": {
-            "type": "string",
-            "description": "The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).\n"
-        },
-        "dataSources": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "The workspace description.\n"
-        },
-        "endpoint": {
-            "type": "string",
-            "description": "The endpoint of the Grafana workspace.\n"
-        },
-        "grafanaVersion": {
-            "type": "string",
-            "description": "Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The Grafana workspace name.\n"
-        },
-        "networkAccessControl": {
-            "$ref": "#/types/aws:grafana/WorkspaceNetworkAccessControl:WorkspaceNetworkAccessControl",
-            "description": "Configuration for network access to your workspace.See Network Access Control below.\n"
-        },
-        "notificationDestinations": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.\n"
-        },
-        "organizationRoleName": {
-            "type": "string",
-            "description": "The role name that the workspace uses to access resources through Amazon Organizations.\n"
-        },
-        "organizationalUnits": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The Amazon Organizations organizational units that the workspace is authorized to use data sources from.\n"
-        },
-        "permissionType": {
-            "type": "string",
-            "description": "The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.\n\nThe following arguments are optional:\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The IAM role ARN that the workspace assumes.\n"
-        },
-        "samlConfigurationStatus": {
-            "type": "string"
-        },
-        "stackSetName": {
-            "type": "string",
-            "description": "The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "vpcConfiguration": {
-            "$ref": "#/types/aws:grafana/WorkspaceVpcConfiguration:WorkspaceVpcConfiguration",
-            "description": "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.\n"
-        }
-    },
-    "required": [
-        "accountAccessType",
-        "arn",
-        "authenticationProviders",
-        "configuration",
-        "endpoint",
-        "grafanaVersion",
-        "name",
-        "permissionType",
-        "samlConfigurationStatus",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "accountAccessType": {
-            "type": "string",
-            "description": "The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.\n"
-        },
-        "authenticationProviders": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.\n",
-            "willReplaceOnChanges": true
-        },
-        "configuration": {
-            "type": "string",
-            "description": "The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).\n"
-        },
-        "dataSources": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "The workspace description.\n"
-        },
-        "grafanaVersion": {
-            "type": "string",
-            "description": "Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The Grafana workspace name.\n"
-        },
-        "networkAccessControl": {
-            "$ref": "#/types/aws:grafana/WorkspaceNetworkAccessControl:WorkspaceNetworkAccessControl",
-            "description": "Configuration for network access to your workspace.See Network Access Control below.\n"
-        },
-        "notificationDestinations": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.\n"
-        },
-        "organizationRoleName": {
-            "type": "string",
-            "description": "The role name that the workspace uses to access resources through Amazon Organizations.\n"
-        },
-        "organizationalUnits": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The Amazon Organizations organizational units that the workspace is authorized to use data sources from.\n"
-        },
-        "permissionType": {
-            "type": "string",
-            "description": "The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.\n\nThe following arguments are optional:\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The IAM role ARN that the workspace assumes.\n"
-        },
-        "stackSetName": {
-            "type": "string",
-            "description": "The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
-        },
-        "vpcConfiguration": {
-            "$ref": "#/types/aws:grafana/WorkspaceVpcConfiguration:WorkspaceVpcConfiguration",
-            "description": "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.\n"
-        }
-    },
-    "requiredInputs": [
-        "accountAccessType",
-        "authenticationProviders",
-        "permissionType"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Workspace resources.\n",
-        "properties": {
-            "accountAccessType": {
-                "type": "string",
-                "description": "The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the Grafana workspace.\n"
-            },
-            "authenticationProviders": {
-                "type": "array",
-                "items": {
+            "properties": {
+                "accountAccessType": {
+                    "type": "string",
+                    "description": "The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.\n"
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Grafana workspace.\n"
+                },
+                "authenticationProviders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.\n"
+                },
+                "configuration": {
+                    "type": "string",
+                    "description": "The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).\n"
+                },
+                "dataSources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The workspace description.\n"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "The endpoint of the Grafana workspace.\n"
+                },
+                "grafanaVersion": {
+                    "type": "string",
+                    "description": "Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The Grafana workspace name.\n"
+                },
+                "networkAccessControl": {
+                    "$ref": "#/types/aws:grafana/WorkspaceNetworkAccessControl:WorkspaceNetworkAccessControl",
+                    "description": "Configuration for network access to your workspace.See Network Access Control below.\n"
+                },
+                "notificationDestinations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.\n"
+                },
+                "organizationRoleName": {
+                    "type": "string",
+                    "description": "The role name that the workspace uses to access resources through Amazon Organizations.\n"
+                },
+                "organizationalUnits": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The Amazon Organizations organizational units that the workspace is authorized to use data sources from.\n"
+                },
+                "permissionType": {
+                    "type": "string",
+                    "description": "The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.\n\nThe following arguments are optional:\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The IAM role ARN that the workspace assumes.\n"
+                },
+                "samlConfigurationStatus": {
                     "type": "string"
                 },
-                "description": "The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.\n",
-                "willReplaceOnChanges": true
-            },
-            "configuration": {
-                "type": "string",
-                "description": "The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).\n"
-            },
-            "dataSources": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "stackSetName": {
+                    "type": "string",
+                    "description": "The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.\n"
                 },
-                "description": "The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "The workspace description.\n"
-            },
-            "endpoint": {
-                "type": "string",
-                "description": "The endpoint of the Grafana workspace.\n"
-            },
-            "grafanaVersion": {
-                "type": "string",
-                "description": "Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The Grafana workspace name.\n"
-            },
-            "networkAccessControl": {
-                "$ref": "#/types/aws:grafana/WorkspaceNetworkAccessControl:WorkspaceNetworkAccessControl",
-                "description": "Configuration for network access to your workspace.See Network Access Control below.\n"
-            },
-            "notificationDestinations": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
                 },
-                "description": "The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.\n"
-            },
-            "organizationRoleName": {
-                "type": "string",
-                "description": "The role name that the workspace uses to access resources through Amazon Organizations.\n"
-            },
-            "organizationalUnits": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
                 },
-                "description": "The Amazon Organizations organizational units that the workspace is authorized to use data sources from.\n"
+                "vpcConfiguration": {
+                    "$ref": "#/types/aws:grafana/WorkspaceVpcConfiguration:WorkspaceVpcConfiguration",
+                    "description": "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.\n"
+                }
             },
-            "permissionType": {
-                "type": "string",
-                "description": "The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.\n\nThe following arguments are optional:\n"
-            },
-            "roleArn": {
-                "type": "string",
-                "description": "The IAM role ARN that the workspace assumes.\n"
-            },
-            "samlConfigurationStatus": {
-                "type": "string"
-            },
-            "stackSetName": {
-                "type": "string",
-                "description": "The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "required": [
+                "accountAccessType",
+                "arn",
+                "authenticationProviders",
+                "configuration",
+                "endpoint",
+                "grafanaVersion",
+                "name",
+                "permissionType",
+                "samlConfigurationStatus",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "accountAccessType": {
+                    "type": "string",
+                    "description": "The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.\n"
                 },
-                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "authenticationProviders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.\n",
+                    "willReplaceOnChanges": true
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "configuration": {
+                    "type": "string",
+                    "description": "The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).\n"
+                },
+                "dataSources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The workspace description.\n"
+                },
+                "grafanaVersion": {
+                    "type": "string",
+                    "description": "Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The Grafana workspace name.\n"
+                },
+                "networkAccessControl": {
+                    "$ref": "#/types/aws:grafana/WorkspaceNetworkAccessControl:WorkspaceNetworkAccessControl",
+                    "description": "Configuration for network access to your workspace.See Network Access Control below.\n"
+                },
+                "notificationDestinations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.\n"
+                },
+                "organizationRoleName": {
+                    "type": "string",
+                    "description": "The role name that the workspace uses to access resources through Amazon Organizations.\n"
+                },
+                "organizationalUnits": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The Amazon Organizations organizational units that the workspace is authorized to use data sources from.\n"
+                },
+                "permissionType": {
+                    "type": "string",
+                    "description": "The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.\n\nThe following arguments are optional:\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The IAM role ARN that the workspace assumes.\n"
+                },
+                "stackSetName": {
+                    "type": "string",
+                    "description": "The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+                },
+                "vpcConfiguration": {
+                    "$ref": "#/types/aws:grafana/WorkspaceVpcConfiguration:WorkspaceVpcConfiguration",
+                    "description": "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.\n"
+                }
             },
-            "vpcConfiguration": {
-                "$ref": "#/types/aws:grafana/WorkspaceVpcConfiguration:WorkspaceVpcConfiguration",
-                "description": "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.\n"
+            "requiredInputs": [
+                "accountAccessType",
+                "authenticationProviders",
+                "permissionType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Workspace resources.\n",
+                "properties": {
+                    "accountAccessType": {
+                        "type": "string",
+                        "description": "The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the Grafana workspace.\n"
+                    },
+                    "authenticationProviders": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "configuration": {
+                        "type": "string",
+                        "description": "The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).\n"
+                    },
+                    "dataSources": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The workspace description.\n"
+                    },
+                    "endpoint": {
+                        "type": "string",
+                        "description": "The endpoint of the Grafana workspace.\n"
+                    },
+                    "grafanaVersion": {
+                        "type": "string",
+                        "description": "Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The Grafana workspace name.\n"
+                    },
+                    "networkAccessControl": {
+                        "$ref": "#/types/aws:grafana/WorkspaceNetworkAccessControl:WorkspaceNetworkAccessControl",
+                        "description": "Configuration for network access to your workspace.See Network Access Control below.\n"
+                    },
+                    "notificationDestinations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.\n"
+                    },
+                    "organizationRoleName": {
+                        "type": "string",
+                        "description": "The role name that the workspace uses to access resources through Amazon Organizations.\n"
+                    },
+                    "organizationalUnits": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The Amazon Organizations organizational units that the workspace is authorized to use data sources from.\n"
+                    },
+                    "permissionType": {
+                        "type": "string",
+                        "description": "The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.\n\nThe following arguments are optional:\n"
+                    },
+                    "roleArn": {
+                        "type": "string",
+                        "description": "The IAM role ARN that the workspace assumes.\n"
+                    },
+                    "samlConfigurationStatus": {
+                        "type": "string"
+                    },
+                    "stackSetName": {
+                        "type": "string",
+                        "description": "The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "vpcConfiguration": {
+                        "$ref": "#/types/aws:grafana/WorkspaceVpcConfiguration:WorkspaceVpcConfiguration",
+                        "description": "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

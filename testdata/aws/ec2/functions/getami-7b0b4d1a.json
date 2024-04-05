@@ -1,260 +1,260 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getAmi.\n",
-        "properties": {
-            "executableUsers": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getAmi.\n",
+                "properties": {
+                    "executableUsers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Limit search to users with *explicit* launch permission on\nthe image. Valid items are the numeric account ID or `self`.\n"
+                    },
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getAmiFilter:getAmiFilter"
+                        },
+                        "description": "One or more name/value pairs to filter off of. There are\nseveral valid keys, for a full reference, check out\n[describe-images in the AWS CLI reference][1].\n"
+                    },
+                    "includeDeprecated": {
+                        "type": "boolean",
+                        "description": "If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.\n"
+                    },
+                    "mostRecent": {
+                        "type": "boolean",
+                        "description": "If more than one result is returned, use the most\nrecent AMI.\n"
+                    },
+                    "nameRegex": {
+                        "type": "string",
+                        "description": "Regex string to apply to the AMI list returned\nby AWS. This allows more advanced filtering not supported from the AWS API. This\nfiltering is done locally on what AWS returns, and could have a performance\nimpact if the result is large. Combine this with other\noptions to narrow down the list AWS returns.\n\n\u003e **NOTE:** If more or less than a single match is returned by the search,\nthis call will fail. Ensure that your search is specific enough to return\na single AMI ID only, or use `most_recent` to choose the most recent one. If\nyou want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.\n"
+                    },
+                    "owners": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Any tags assigned to the image.\n* `tags.#.key` - Key name of the tag.\n* `tags.#.value` - Value of the tag.\n"
+                    }
                 },
-                "description": "Limit search to users with *explicit* launch permission on\nthe image. Valid items are the numeric account ID or `self`.\n"
-            },
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getAmiFilter:getAmiFilter"
-                },
-                "description": "One or more name/value pairs to filter off of. There are\nseveral valid keys, for a full reference, check out\n[describe-images in the AWS CLI reference][1].\n"
-            },
-            "includeDeprecated": {
-                "type": "boolean",
-                "description": "If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.\n"
-            },
-            "mostRecent": {
-                "type": "boolean",
-                "description": "If more than one result is returned, use the most\nrecent AMI.\n"
-            },
-            "nameRegex": {
-                "type": "string",
-                "description": "Regex string to apply to the AMI list returned\nby AWS. This allows more advanced filtering not supported from the AWS API. This\nfiltering is done locally on what AWS returns, and could have a performance\nimpact if the result is large. Combine this with other\noptions to narrow down the list AWS returns.\n\n\u003e **NOTE:** If more or less than a single match is returned by the search,\nthis call will fail. Ensure that your search is specific enough to return\na single AMI ID only, or use `most_recent` to choose the most recent one. If\nyou want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.\n"
-            },
-            "owners": {
-                "type": "array",
-                "items": {
-                    "type": "string"
-                },
-                "description": "List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Any tags assigned to the image.\n* `tags.#.key` - Key name of the tag.\n* `tags.#.value` - Value of the tag.\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getAmi.\n",
-        "properties": {
-            "architecture": {
-                "description": "OS architecture of the AMI (ie: `i386` or `x86_64`).\n",
-                "type": "string"
-            },
-            "arn": {
-                "description": "ARN of the AMI.\n",
-                "type": "string"
-            },
-            "blockDeviceMappings": {
-                "description": "Set of objects with block device mappings of the AMI.\n",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getAmiBlockDeviceMapping:getAmiBlockDeviceMapping"
-                },
-                "type": "array"
-            },
-            "bootMode": {
-                "description": "Boot mode of the image.\n",
-                "type": "string"
-            },
-            "creationDate": {
-                "description": "Date and time the image was created.\n",
-                "type": "string"
-            },
-            "deprecationTime": {
-                "description": "Date and time when the image will be deprecated.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Description of the AMI that was provided during image\ncreation.\n",
-                "type": "string"
-            },
-            "enaSupport": {
-                "description": "Whether enhanced networking with ENA is enabled.\n",
-                "type": "boolean"
-            },
-            "executableUsers": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getAmiFilter:getAmiFilter"
-                },
-                "type": "array"
-            },
-            "hypervisor": {
-                "description": "Hypervisor type of the image.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "imageId": {
-                "description": "ID of the AMI. Should be the same as the resource `id`.\n",
-                "type": "string"
-            },
-            "imageLocation": {
-                "description": "Location of the AMI.\n",
-                "type": "string"
-            },
-            "imageOwnerAlias": {
-                "description": "AWS account alias (for example, `amazon`, `self`) or\nthe AWS account ID of the AMI owner.\n",
-                "type": "string"
-            },
-            "imageType": {
-                "description": "Type of image.\n",
-                "type": "string"
-            },
-            "imdsSupport": {
-                "description": "Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.\n",
-                "type": "string"
-            },
-            "includeDeprecated": {
-                "type": "boolean"
-            },
-            "kernelId": {
-                "description": "Kernel associated with the image, if any. Only applicable\nfor machine images.\n",
-                "type": "string"
-            },
-            "mostRecent": {
-                "type": "boolean"
-            },
-            "name": {
-                "description": "Name of the AMI that was provided during image creation.\n",
-                "type": "string"
-            },
-            "nameRegex": {
-                "type": "string"
-            },
-            "ownerId": {
-                "description": "AWS account ID of the image owner.\n",
-                "type": "string"
-            },
-            "owners": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "platform": {
-                "description": "Value is Windows for `Windows` AMIs; otherwise blank.\n",
-                "type": "string"
-            },
-            "platformDetails": {
-                "description": "Platform details associated with the billing code of the AMI.\n",
-                "type": "string"
-            },
-            "productCodes": {
-                "description": "Any product codes associated with the AMI.\n* `product_codes.#.product_code_id` - The product code.\n* `product_codes.#.product_code_type` - The type of product code.\n",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getAmiProductCode:getAmiProductCode"
-                },
-                "type": "array"
-            },
-            "public": {
-                "description": "`true` if the image has public launch permissions.\n",
-                "type": "boolean"
-            },
-            "ramdiskId": {
-                "description": "RAM disk associated with the image, if any. Only applicable\nfor machine images.\n",
-                "type": "string"
-            },
-            "rootDeviceName": {
-                "description": "Device name of the root device.\n",
-                "type": "string"
-            },
-            "rootDeviceType": {
-                "description": "Type of root device (ie: `ebs` or `instance-store`).\n",
-                "type": "string"
-            },
-            "rootSnapshotId": {
-                "description": "Snapshot id associated with the root device, if any\n(only applies to `ebs` root devices).\n",
-                "type": "string"
-            },
-            "sriovNetSupport": {
-                "description": "Whether enhanced networking is enabled.\n",
-                "type": "string"
-            },
-            "state": {
-                "description": "Current state of the AMI. If the state is `available`, the image\nis successfully registered and can be used to launch an instance.\n",
-                "type": "string"
-            },
-            "stateReason": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Describes a state change. Fields are `UNSET` if not available.\n* `state_reason.code` - The reason code for the state change.\n* `state_reason.message` - The message for the state change.\n",
                 "type": "object"
             },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getAmi.\n",
+                "properties": {
+                    "architecture": {
+                        "description": "OS architecture of the AMI (ie: `i386` or `x86_64`).\n",
+                        "type": "string"
+                    },
+                    "arn": {
+                        "description": "ARN of the AMI.\n",
+                        "type": "string"
+                    },
+                    "blockDeviceMappings": {
+                        "description": "Set of objects with block device mappings of the AMI.\n",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getAmiBlockDeviceMapping:getAmiBlockDeviceMapping"
+                        },
+                        "type": "array"
+                    },
+                    "bootMode": {
+                        "description": "Boot mode of the image.\n",
+                        "type": "string"
+                    },
+                    "creationDate": {
+                        "description": "Date and time the image was created.\n",
+                        "type": "string"
+                    },
+                    "deprecationTime": {
+                        "description": "Date and time when the image will be deprecated.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the AMI that was provided during image\ncreation.\n",
+                        "type": "string"
+                    },
+                    "enaSupport": {
+                        "description": "Whether enhanced networking with ENA is enabled.\n",
+                        "type": "boolean"
+                    },
+                    "executableUsers": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getAmiFilter:getAmiFilter"
+                        },
+                        "type": "array"
+                    },
+                    "hypervisor": {
+                        "description": "Hypervisor type of the image.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "imageId": {
+                        "description": "ID of the AMI. Should be the same as the resource `id`.\n",
+                        "type": "string"
+                    },
+                    "imageLocation": {
+                        "description": "Location of the AMI.\n",
+                        "type": "string"
+                    },
+                    "imageOwnerAlias": {
+                        "description": "AWS account alias (for example, `amazon`, `self`) or\nthe AWS account ID of the AMI owner.\n",
+                        "type": "string"
+                    },
+                    "imageType": {
+                        "description": "Type of image.\n",
+                        "type": "string"
+                    },
+                    "imdsSupport": {
+                        "description": "Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.\n",
+                        "type": "string"
+                    },
+                    "includeDeprecated": {
+                        "type": "boolean"
+                    },
+                    "kernelId": {
+                        "description": "Kernel associated with the image, if any. Only applicable\nfor machine images.\n",
+                        "type": "string"
+                    },
+                    "mostRecent": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "Name of the AMI that was provided during image creation.\n",
+                        "type": "string"
+                    },
+                    "nameRegex": {
+                        "type": "string"
+                    },
+                    "ownerId": {
+                        "description": "AWS account ID of the image owner.\n",
+                        "type": "string"
+                    },
+                    "owners": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "platform": {
+                        "description": "Value is Windows for `Windows` AMIs; otherwise blank.\n",
+                        "type": "string"
+                    },
+                    "platformDetails": {
+                        "description": "Platform details associated with the billing code of the AMI.\n",
+                        "type": "string"
+                    },
+                    "productCodes": {
+                        "description": "Any product codes associated with the AMI.\n* `product_codes.#.product_code_id` - The product code.\n* `product_codes.#.product_code_type` - The type of product code.\n",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getAmiProductCode:getAmiProductCode"
+                        },
+                        "type": "array"
+                    },
+                    "public": {
+                        "description": "`true` if the image has public launch permissions.\n",
+                        "type": "boolean"
+                    },
+                    "ramdiskId": {
+                        "description": "RAM disk associated with the image, if any. Only applicable\nfor machine images.\n",
+                        "type": "string"
+                    },
+                    "rootDeviceName": {
+                        "description": "Device name of the root device.\n",
+                        "type": "string"
+                    },
+                    "rootDeviceType": {
+                        "description": "Type of root device (ie: `ebs` or `instance-store`).\n",
+                        "type": "string"
+                    },
+                    "rootSnapshotId": {
+                        "description": "Snapshot id associated with the root device, if any\n(only applies to `ebs` root devices).\n",
+                        "type": "string"
+                    },
+                    "sriovNetSupport": {
+                        "description": "Whether enhanced networking is enabled.\n",
+                        "type": "string"
+                    },
+                    "state": {
+                        "description": "Current state of the AMI. If the state is `available`, the image\nis successfully registered and can be used to launch an instance.\n",
+                        "type": "string"
+                    },
+                    "stateReason": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Describes a state change. Fields are `UNSET` if not available.\n* `state_reason.code` - The reason code for the state change.\n* `state_reason.message` - The message for the state change.\n",
+                        "type": "object"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Any tags assigned to the image.\n* `tags.#.key` - Key name of the tag.\n* `tags.#.value` - Value of the tag.\n",
+                        "type": "object"
+                    },
+                    "tpmSupport": {
+                        "description": "If the image is configured for NitroTPM support, the value is `v2.0`.\n",
+                        "type": "string"
+                    },
+                    "usageOperation": {
+                        "description": "Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.\n",
+                        "type": "string"
+                    },
+                    "virtualizationType": {
+                        "description": "Type of virtualization of the AMI (ie: `hvm` or\n`paravirtual`).\n",
+                        "type": "string"
+                    }
                 },
-                "description": "Any tags assigned to the image.\n* `tags.#.key` - Key name of the tag.\n* `tags.#.value` - Value of the tag.\n",
+                "required": [
+                    "architecture",
+                    "arn",
+                    "blockDeviceMappings",
+                    "bootMode",
+                    "creationDate",
+                    "deprecationTime",
+                    "description",
+                    "enaSupport",
+                    "hypervisor",
+                    "imageId",
+                    "imageLocation",
+                    "imageOwnerAlias",
+                    "imageType",
+                    "imdsSupport",
+                    "kernelId",
+                    "name",
+                    "ownerId",
+                    "platform",
+                    "platformDetails",
+                    "productCodes",
+                    "public",
+                    "ramdiskId",
+                    "rootDeviceName",
+                    "rootDeviceType",
+                    "rootSnapshotId",
+                    "sriovNetSupport",
+                    "state",
+                    "stateReason",
+                    "tags",
+                    "tpmSupport",
+                    "usageOperation",
+                    "virtualizationType",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "tpmSupport": {
-                "description": "If the image is configured for NitroTPM support, the value is `v2.0`.\n",
-                "type": "string"
-            },
-            "usageOperation": {
-                "description": "Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.\n",
-                "type": "string"
-            },
-            "virtualizationType": {
-                "description": "Type of virtualization of the AMI (ie: `hvm` or\n`paravirtual`).\n",
-                "type": "string"
             }
-        },
-        "required": [
-            "architecture",
-            "arn",
-            "blockDeviceMappings",
-            "bootMode",
-            "creationDate",
-            "deprecationTime",
-            "description",
-            "enaSupport",
-            "hypervisor",
-            "imageId",
-            "imageLocation",
-            "imageOwnerAlias",
-            "imageType",
-            "imdsSupport",
-            "kernelId",
-            "name",
-            "ownerId",
-            "platform",
-            "platformDetails",
-            "productCodes",
-            "public",
-            "ramdiskId",
-            "rootDeviceName",
-            "rootDeviceType",
-            "rootSnapshotId",
-            "sriovNetSupport",
-            "state",
-            "stateReason",
-            "tags",
-            "tpmSupport",
-            "usageOperation",
-            "virtualizationType",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

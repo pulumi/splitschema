@@ -1,117 +1,117 @@
 {
-    "properties": {
-        "desiredNumberOfDomainControllers": {
-            "type": "integer",
-            "description": "The number of domain controllers desired in the replicated directory. Minimum value of `2`.\n"
-        },
-        "directoryId": {
-            "type": "string",
-            "description": "The identifier of the directory to which you want to add Region replication.\n"
-        },
-        "regionName": {
-            "type": "string",
-            "description": "The name of the Region where you want to add domain controllers for replication.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "vpcSettings": {
-            "$ref": "#/types/aws:directoryservice/ServiceRegionVpcSettings:ServiceRegionVpcSettings",
-            "description": "VPC information in the replicated Region. Detailed below.\n"
-        }
-    },
-    "required": [
-        "desiredNumberOfDomainControllers",
-        "directoryId",
-        "regionName",
-        "tagsAll",
-        "vpcSettings"
-    ],
-    "inputProperties": {
-        "desiredNumberOfDomainControllers": {
-            "type": "integer",
-            "description": "The number of domain controllers desired in the replicated directory. Minimum value of `2`.\n"
-        },
-        "directoryId": {
-            "type": "string",
-            "description": "The identifier of the directory to which you want to add Region replication.\n",
-            "willReplaceOnChanges": true
-        },
-        "regionName": {
-            "type": "string",
-            "description": "The name of the Region where you want to add domain controllers for replication.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "vpcSettings": {
-            "$ref": "#/types/aws:directoryservice/ServiceRegionVpcSettings:ServiceRegionVpcSettings",
-            "description": "VPC information in the replicated Region. Detailed below.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "directoryId",
-        "regionName",
-        "vpcSettings"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ServiceRegion resources.\n",
-        "properties": {
-            "desiredNumberOfDomainControllers": {
-                "type": "integer",
-                "description": "The number of domain controllers desired in the replicated directory. Minimum value of `2`.\n"
-            },
-            "directoryId": {
-                "type": "string",
-                "description": "The identifier of the directory to which you want to add Region replication.\n",
-                "willReplaceOnChanges": true
-            },
-            "regionName": {
-                "type": "string",
-                "description": "The name of the Region where you want to add domain controllers for replication.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "desiredNumberOfDomainControllers": {
+                    "type": "integer",
+                    "description": "The number of domain controllers desired in the replicated directory. Minimum value of `2`.\n"
                 },
-                "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "directoryId": {
+                    "type": "string",
+                    "description": "The identifier of the directory to which you want to add Region replication.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "regionName": {
+                    "type": "string",
+                    "description": "The name of the Region where you want to add domain controllers for replication.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "vpcSettings": {
+                    "$ref": "#/types/aws:directoryservice/ServiceRegionVpcSettings:ServiceRegionVpcSettings",
+                    "description": "VPC information in the replicated Region. Detailed below.\n"
+                }
             },
-            "vpcSettings": {
-                "$ref": "#/types/aws:directoryservice/ServiceRegionVpcSettings:ServiceRegionVpcSettings",
-                "description": "VPC information in the replicated Region. Detailed below.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "desiredNumberOfDomainControllers",
+                "directoryId",
+                "regionName",
+                "tagsAll",
+                "vpcSettings"
+            ],
+            "inputProperties": {
+                "desiredNumberOfDomainControllers": {
+                    "type": "integer",
+                    "description": "The number of domain controllers desired in the replicated directory. Minimum value of `2`.\n"
+                },
+                "directoryId": {
+                    "type": "string",
+                    "description": "The identifier of the directory to which you want to add Region replication.\n",
+                    "willReplaceOnChanges": true
+                },
+                "regionName": {
+                    "type": "string",
+                    "description": "The name of the Region where you want to add domain controllers for replication.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "vpcSettings": {
+                    "$ref": "#/types/aws:directoryservice/ServiceRegionVpcSettings:ServiceRegionVpcSettings",
+                    "description": "VPC information in the replicated Region. Detailed below.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "directoryId",
+                "regionName",
+                "vpcSettings"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceRegion resources.\n",
+                "properties": {
+                    "desiredNumberOfDomainControllers": {
+                        "type": "integer",
+                        "description": "The number of domain controllers desired in the replicated directory. Minimum value of `2`.\n"
+                    },
+                    "directoryId": {
+                        "type": "string",
+                        "description": "The identifier of the directory to which you want to add Region replication.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "regionName": {
+                        "type": "string",
+                        "description": "The name of the Region where you want to add domain controllers for replication.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "vpcSettings": {
+                        "$ref": "#/types/aws:directoryservice/ServiceRegionVpcSettings:ServiceRegionVpcSettings",
+                        "description": "VPC information in the replicated Region. Detailed below.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

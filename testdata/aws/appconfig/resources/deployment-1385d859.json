@@ -1,200 +1,200 @@
 {
-    "properties": {
-        "applicationId": {
-            "type": "string",
-            "description": "Application ID. Must be between 4 and 7 characters in length.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "ARN of the AppConfig Deployment.\n"
-        },
-        "configurationProfileId": {
-            "type": "string",
-            "description": "Configuration profile ID. Must be between 4 and 7 characters in length.\n"
-        },
-        "configurationVersion": {
-            "type": "string",
-            "description": "Configuration version to deploy. Can be at most 1024 characters.\n"
-        },
-        "deploymentNumber": {
-            "type": "integer",
-            "description": "Deployment number.\n"
-        },
-        "deploymentStrategyId": {
-            "type": "string",
-            "description": "Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the deployment. Can be at most 1024 characters.\n"
-        },
-        "environmentId": {
-            "type": "string",
-            "description": "Environment ID. Must be between 4 and 7 characters in length.\n"
-        },
-        "kmsKeyArn": {
-            "type": "string",
-            "description": "ARN of the KMS key used to encrypt configuration data.\n"
-        },
-        "kmsKeyIdentifier": {
-            "type": "string",
-            "description": "The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.\n"
-        },
-        "state": {
-            "type": "string",
-            "description": "State of the deployment.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "applicationId",
-        "arn",
-        "configurationProfileId",
-        "configurationVersion",
-        "deploymentNumber",
-        "deploymentStrategyId",
-        "environmentId",
-        "kmsKeyArn",
-        "state",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "applicationId": {
-            "type": "string",
-            "description": "Application ID. Must be between 4 and 7 characters in length.\n",
-            "willReplaceOnChanges": true
-        },
-        "configurationProfileId": {
-            "type": "string",
-            "description": "Configuration profile ID. Must be between 4 and 7 characters in length.\n",
-            "willReplaceOnChanges": true
-        },
-        "configurationVersion": {
-            "type": "string",
-            "description": "Configuration version to deploy. Can be at most 1024 characters.\n",
-            "willReplaceOnChanges": true
-        },
-        "deploymentStrategyId": {
-            "type": "string",
-            "description": "Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.\n",
-            "willReplaceOnChanges": true
-        },
-        "description": {
-            "type": "string",
-            "description": "Description of the deployment. Can be at most 1024 characters.\n",
-            "willReplaceOnChanges": true
-        },
-        "environmentId": {
-            "type": "string",
-            "description": "Environment ID. Must be between 4 and 7 characters in length.\n",
-            "willReplaceOnChanges": true
-        },
-        "kmsKeyIdentifier": {
-            "type": "string",
-            "description": "The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "applicationId",
-        "configurationProfileId",
-        "configurationVersion",
-        "deploymentStrategyId",
-        "environmentId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Deployment resources.\n",
-        "properties": {
-            "applicationId": {
-                "type": "string",
-                "description": "Application ID. Must be between 4 and 7 characters in length.\n",
-                "willReplaceOnChanges": true
-            },
-            "arn": {
-                "type": "string",
-                "description": "ARN of the AppConfig Deployment.\n"
-            },
-            "configurationProfileId": {
-                "type": "string",
-                "description": "Configuration profile ID. Must be between 4 and 7 characters in length.\n",
-                "willReplaceOnChanges": true
-            },
-            "configurationVersion": {
-                "type": "string",
-                "description": "Configuration version to deploy. Can be at most 1024 characters.\n",
-                "willReplaceOnChanges": true
-            },
-            "deploymentNumber": {
-                "type": "integer",
-                "description": "Deployment number.\n"
-            },
-            "deploymentStrategyId": {
-                "type": "string",
-                "description": "Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.\n",
-                "willReplaceOnChanges": true
-            },
-            "description": {
-                "type": "string",
-                "description": "Description of the deployment. Can be at most 1024 characters.\n",
-                "willReplaceOnChanges": true
-            },
-            "environmentId": {
-                "type": "string",
-                "description": "Environment ID. Must be between 4 and 7 characters in length.\n",
-                "willReplaceOnChanges": true
-            },
-            "kmsKeyArn": {
-                "type": "string",
-                "description": "ARN of the KMS key used to encrypt configuration data.\n"
-            },
-            "kmsKeyIdentifier": {
-                "type": "string",
-                "description": "The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.\n",
-                "willReplaceOnChanges": true
-            },
-            "state": {
-                "type": "string",
-                "description": "State of the deployment.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "applicationId": {
+                    "type": "string",
+                    "description": "Application ID. Must be between 4 and 7 characters in length.\n"
                 },
-                "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the AppConfig Deployment.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "configurationProfileId": {
+                    "type": "string",
+                    "description": "Configuration profile ID. Must be between 4 and 7 characters in length.\n"
+                },
+                "configurationVersion": {
+                    "type": "string",
+                    "description": "Configuration version to deploy. Can be at most 1024 characters.\n"
+                },
+                "deploymentNumber": {
+                    "type": "integer",
+                    "description": "Deployment number.\n"
+                },
+                "deploymentStrategyId": {
+                    "type": "string",
+                    "description": "Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the deployment. Can be at most 1024 characters.\n"
+                },
+                "environmentId": {
+                    "type": "string",
+                    "description": "Environment ID. Must be between 4 and 7 characters in length.\n"
+                },
+                "kmsKeyArn": {
+                    "type": "string",
+                    "description": "ARN of the KMS key used to encrypt configuration data.\n"
+                },
+                "kmsKeyIdentifier": {
+                    "type": "string",
+                    "description": "The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.\n"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "State of the deployment.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "applicationId",
+                "arn",
+                "configurationProfileId",
+                "configurationVersion",
+                "deploymentNumber",
+                "deploymentStrategyId",
+                "environmentId",
+                "kmsKeyArn",
+                "state",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "applicationId": {
+                    "type": "string",
+                    "description": "Application ID. Must be between 4 and 7 characters in length.\n",
+                    "willReplaceOnChanges": true
+                },
+                "configurationProfileId": {
+                    "type": "string",
+                    "description": "Configuration profile ID. Must be between 4 and 7 characters in length.\n",
+                    "willReplaceOnChanges": true
+                },
+                "configurationVersion": {
+                    "type": "string",
+                    "description": "Configuration version to deploy. Can be at most 1024 characters.\n",
+                    "willReplaceOnChanges": true
+                },
+                "deploymentStrategyId": {
+                    "type": "string",
+                    "description": "Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.\n",
+                    "willReplaceOnChanges": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the deployment. Can be at most 1024 characters.\n",
+                    "willReplaceOnChanges": true
+                },
+                "environmentId": {
+                    "type": "string",
+                    "description": "Environment ID. Must be between 4 and 7 characters in length.\n",
+                    "willReplaceOnChanges": true
+                },
+                "kmsKeyIdentifier": {
+                    "type": "string",
+                    "description": "The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "applicationId",
+                "configurationProfileId",
+                "configurationVersion",
+                "deploymentStrategyId",
+                "environmentId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Deployment resources.\n",
+                "properties": {
+                    "applicationId": {
+                        "type": "string",
+                        "description": "Application ID. Must be between 4 and 7 characters in length.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the AppConfig Deployment.\n"
+                    },
+                    "configurationProfileId": {
+                        "type": "string",
+                        "description": "Configuration profile ID. Must be between 4 and 7 characters in length.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "configurationVersion": {
+                        "type": "string",
+                        "description": "Configuration version to deploy. Can be at most 1024 characters.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "deploymentNumber": {
+                        "type": "integer",
+                        "description": "Deployment number.\n"
+                    },
+                    "deploymentStrategyId": {
+                        "type": "string",
+                        "description": "Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the deployment. Can be at most 1024 characters.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "environmentId": {
+                        "type": "string",
+                        "description": "Environment ID. Must be between 4 and 7 characters in length.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kmsKeyArn": {
+                        "type": "string",
+                        "description": "ARN of the KMS key used to encrypt configuration data.\n"
+                    },
+                    "kmsKeyIdentifier": {
+                        "type": "string",
+                        "description": "The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "State of the deployment.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

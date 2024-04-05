@@ -1,161 +1,161 @@
 {
-    "properties": {
-        "agentArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of DataSync Agent ARNs with which this location will be associated.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
-        },
-        "s3BucketArn": {
-            "type": "string",
-            "$ref": "#/types/aws:index/aRN:ARN",
-            "description": "Amazon Resource Name (ARN) of the S3 Bucket.\n"
-        },
-        "s3Config": {
-            "$ref": "#/types/aws:datasync/S3LocationS3Config:S3LocationS3Config",
-            "description": "Configuration block containing information for connecting to S3.\n"
-        },
-        "s3StorageClass": {
-            "type": "string",
-            "description": "The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)\n"
-        },
-        "subdirectory": {
-            "type": "string",
-            "description": "Prefix to perform actions as source or destination.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "uri": {
-            "type": "string"
-        }
-    },
-    "required": [
-        "arn",
-        "s3BucketArn",
-        "s3Config",
-        "s3StorageClass",
-        "subdirectory",
-        "tagsAll",
-        "uri"
-    ],
-    "inputProperties": {
-        "agentArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of DataSync Agent ARNs with which this location will be associated.\n",
-            "willReplaceOnChanges": true
-        },
-        "s3BucketArn": {
-            "type": "string",
-            "$ref": "#/types/aws:index/aRN:ARN",
-            "description": "Amazon Resource Name (ARN) of the S3 Bucket.\n",
-            "willReplaceOnChanges": true
-        },
-        "s3Config": {
-            "$ref": "#/types/aws:datasync/S3LocationS3Config:S3LocationS3Config",
-            "description": "Configuration block containing information for connecting to S3.\n",
-            "willReplaceOnChanges": true
-        },
-        "s3StorageClass": {
-            "type": "string",
-            "description": "The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)\n",
-            "willReplaceOnChanges": true
-        },
-        "subdirectory": {
-            "type": "string",
-            "description": "Prefix to perform actions as source or destination.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "s3BucketArn",
-        "s3Config",
-        "subdirectory"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering S3Location resources.\n",
-        "properties": {
-            "agentArns": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "agentArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of DataSync Agent ARNs with which this location will be associated.\n"
                 },
-                "description": "A list of DataSync Agent ARNs with which this location will be associated.\n",
-                "willReplaceOnChanges": true
-            },
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
-            },
-            "s3BucketArn": {
-                "type": "string",
-                "$ref": "#/types/aws:index/aRN:ARN",
-                "description": "Amazon Resource Name (ARN) of the S3 Bucket.\n",
-                "willReplaceOnChanges": true
-            },
-            "s3Config": {
-                "$ref": "#/types/aws:datasync/S3LocationS3Config:S3LocationS3Config",
-                "description": "Configuration block containing information for connecting to S3.\n",
-                "willReplaceOnChanges": true
-            },
-            "s3StorageClass": {
-                "type": "string",
-                "description": "The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)\n",
-                "willReplaceOnChanges": true
-            },
-            "subdirectory": {
-                "type": "string",
-                "description": "Prefix to perform actions as source or destination.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
                 },
-                "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "s3BucketArn": {
+                    "type": "string",
+                    "$ref": "#/types/aws:index/aRN:ARN",
+                    "description": "Amazon Resource Name (ARN) of the S3 Bucket.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "s3Config": {
+                    "$ref": "#/types/aws:datasync/S3LocationS3Config:S3LocationS3Config",
+                    "description": "Configuration block containing information for connecting to S3.\n"
+                },
+                "s3StorageClass": {
+                    "type": "string",
+                    "description": "The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)\n"
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "Prefix to perform actions as source or destination.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "uri": {
+                    "type": "string"
+                }
             },
-            "uri": {
-                "type": "string"
+            "required": [
+                "arn",
+                "s3BucketArn",
+                "s3Config",
+                "s3StorageClass",
+                "subdirectory",
+                "tagsAll",
+                "uri"
+            ],
+            "inputProperties": {
+                "agentArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of DataSync Agent ARNs with which this location will be associated.\n",
+                    "willReplaceOnChanges": true
+                },
+                "s3BucketArn": {
+                    "type": "string",
+                    "$ref": "#/types/aws:index/aRN:ARN",
+                    "description": "Amazon Resource Name (ARN) of the S3 Bucket.\n",
+                    "willReplaceOnChanges": true
+                },
+                "s3Config": {
+                    "$ref": "#/types/aws:datasync/S3LocationS3Config:S3LocationS3Config",
+                    "description": "Configuration block containing information for connecting to S3.\n",
+                    "willReplaceOnChanges": true
+                },
+                "s3StorageClass": {
+                    "type": "string",
+                    "description": "The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)\n",
+                    "willReplaceOnChanges": true
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "Prefix to perform actions as source or destination.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "s3BucketArn",
+                "s3Config",
+                "subdirectory"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering S3Location resources.\n",
+                "properties": {
+                    "agentArns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of DataSync Agent ARNs with which this location will be associated.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
+                    },
+                    "s3BucketArn": {
+                        "type": "string",
+                        "$ref": "#/types/aws:index/aRN:ARN",
+                        "description": "Amazon Resource Name (ARN) of the S3 Bucket.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "s3Config": {
+                        "$ref": "#/types/aws:datasync/S3LocationS3Config:S3LocationS3Config",
+                        "description": "Configuration block containing information for connecting to S3.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "s3StorageClass": {
+                        "type": "string",
+                        "description": "The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "subdirectory": {
+                        "type": "string",
+                        "description": "Prefix to perform actions as source or destination.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "uri": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

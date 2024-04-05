@@ -1,44 +1,44 @@
 {
-    "properties": {
-        "dataCapturedDestinationS3Uri": {
-            "type": "string",
-            "description": "The Amazon S3 location being used to capture the data.\n",
-            "willReplaceOnChanges": true
-        },
-        "datasetFormat": {
-            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat:DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat",
-            "description": "The dataset format for your batch transform job. Fields are documented below.\n",
-            "willReplaceOnChanges": true
-        },
-        "localPath": {
-            "type": "string",
-            "description": "Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.\n",
-            "willReplaceOnChanges": true
-        },
-        "s3DataDistributionType": {
-            "type": "string",
-            "description": "Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`\n",
-            "willReplaceOnChanges": true
-        },
-        "s3InputMode": {
-            "type": "string",
-            "description": "Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "type": "object",
-    "required": [
-        "dataCapturedDestinationS3Uri",
-        "datasetFormat"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
+            "properties": {
+                "dataCapturedDestinationS3Uri": {
+                    "type": "string",
+                    "description": "The Amazon S3 location being used to capture the data.\n",
+                    "willReplaceOnChanges": true
+                },
+                "datasetFormat": {
+                    "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat:DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat",
+                    "description": "The dataset format for your batch transform job. Fields are documented below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "localPath": {
+                    "type": "string",
+                    "description": "Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "s3DataDistributionType": {
+                    "type": "string",
+                    "description": "Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`\n",
+                    "willReplaceOnChanges": true
+                },
+                "s3InputMode": {
+                    "type": "string",
+                    "description": "Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
                 "dataCapturedDestinationS3Uri",
-                "datasetFormat",
-                "s3DataDistributionType",
-                "s3InputMode"
-            ]
+                "datasetFormat"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "dataCapturedDestinationS3Uri",
+                        "datasetFormat",
+                        "s3DataDistributionType",
+                        "s3InputMode"
+                    ]
+                }
+            }
         }
-    }
-}

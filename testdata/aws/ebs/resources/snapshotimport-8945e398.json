@@ -1,239 +1,239 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the EBS Snapshot.\n"
-        },
-        "clientData": {
-            "$ref": "#/types/aws:ebs/SnapshotImportClientData:SnapshotImportClientData",
-            "description": "The client-specific data. Detailed below.\n"
-        },
-        "dataEncryptionKeyId": {
-            "type": "string",
-            "description": "The data encryption key identifier for the snapshot.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "The description string for the import snapshot task.\n"
-        },
-        "diskContainer": {
-            "$ref": "#/types/aws:ebs/SnapshotImportDiskContainer:SnapshotImportDiskContainer",
-            "description": "Information about the disk container. Detailed below.\n"
-        },
-        "encrypted": {
-            "type": "boolean",
-            "description": "Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.\n"
-        },
-        "outpostArn": {
-            "type": "string"
-        },
-        "ownerAlias": {
-            "type": "string",
-            "description": "Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.\n"
-        },
-        "ownerId": {
-            "type": "string",
-            "description": "The AWS account ID of the EBS snapshot owner.\n"
-        },
-        "permanentRestore": {
-            "type": "boolean",
-            "description": "Indicates whether to permanently restore an archived snapshot.\n"
-        },
-        "roleName": {
-            "type": "string",
-            "description": "The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`\n"
-        },
-        "storageTier": {
-            "type": "string",
-            "description": "The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the snapshot.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "temporaryRestoreDays": {
-            "type": "integer",
-            "description": "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.\n"
-        },
-        "volumeId": {
-            "type": "string"
-        },
-        "volumeSize": {
-            "type": "integer",
-            "description": "The size of the drive in GiBs.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "dataEncryptionKeyId",
-        "description",
-        "diskContainer",
-        "outpostArn",
-        "ownerAlias",
-        "ownerId",
-        "storageTier",
-        "tagsAll",
-        "volumeId",
-        "volumeSize"
-    ],
-    "inputProperties": {
-        "clientData": {
-            "$ref": "#/types/aws:ebs/SnapshotImportClientData:SnapshotImportClientData",
-            "description": "The client-specific data. Detailed below.\n",
-            "willReplaceOnChanges": true
-        },
-        "description": {
-            "type": "string",
-            "description": "The description string for the import snapshot task.\n",
-            "willReplaceOnChanges": true
-        },
-        "diskContainer": {
-            "$ref": "#/types/aws:ebs/SnapshotImportDiskContainer:SnapshotImportDiskContainer",
-            "description": "Information about the disk container. Detailed below.\n",
-            "willReplaceOnChanges": true
-        },
-        "encrypted": {
-            "type": "boolean",
-            "description": "Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.\n",
-            "willReplaceOnChanges": true
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.\n",
-            "willReplaceOnChanges": true
-        },
-        "permanentRestore": {
-            "type": "boolean",
-            "description": "Indicates whether to permanently restore an archived snapshot.\n"
-        },
-        "roleName": {
-            "type": "string",
-            "description": "The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`\n",
-            "willReplaceOnChanges": true
-        },
-        "storageTier": {
-            "type": "string",
-            "description": "The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the snapshot.\n"
-        },
-        "temporaryRestoreDays": {
-            "type": "integer",
-            "description": "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.\n"
-        }
-    },
-    "requiredInputs": [
-        "diskContainer"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering SnapshotImport resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the EBS Snapshot.\n"
-            },
-            "clientData": {
-                "$ref": "#/types/aws:ebs/SnapshotImportClientData:SnapshotImportClientData",
-                "description": "The client-specific data. Detailed below.\n",
-                "willReplaceOnChanges": true
-            },
-            "dataEncryptionKeyId": {
-                "type": "string",
-                "description": "The data encryption key identifier for the snapshot.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "The description string for the import snapshot task.\n",
-                "willReplaceOnChanges": true
-            },
-            "diskContainer": {
-                "$ref": "#/types/aws:ebs/SnapshotImportDiskContainer:SnapshotImportDiskContainer",
-                "description": "Information about the disk container. Detailed below.\n",
-                "willReplaceOnChanges": true
-            },
-            "encrypted": {
-                "type": "boolean",
-                "description": "Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.\n",
-                "willReplaceOnChanges": true
-            },
-            "kmsKeyId": {
-                "type": "string",
-                "description": "An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.\n",
-                "willReplaceOnChanges": true
-            },
-            "outpostArn": {
-                "type": "string"
-            },
-            "ownerAlias": {
-                "type": "string",
-                "description": "Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.\n"
-            },
-            "ownerId": {
-                "type": "string",
-                "description": "The AWS account ID of the EBS snapshot owner.\n"
-            },
-            "permanentRestore": {
-                "type": "boolean",
-                "description": "Indicates whether to permanently restore an archived snapshot.\n"
-            },
-            "roleName": {
-                "type": "string",
-                "description": "The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`\n",
-                "willReplaceOnChanges": true
-            },
-            "storageTier": {
-                "type": "string",
-                "description": "The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the EBS Snapshot.\n"
+                },
+                "clientData": {
+                    "$ref": "#/types/aws:ebs/SnapshotImportClientData:SnapshotImportClientData",
+                    "description": "The client-specific data. Detailed below.\n"
+                },
+                "dataEncryptionKeyId": {
+                    "type": "string",
+                    "description": "The data encryption key identifier for the snapshot.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description string for the import snapshot task.\n"
+                },
+                "diskContainer": {
+                    "$ref": "#/types/aws:ebs/SnapshotImportDiskContainer:SnapshotImportDiskContainer",
+                    "description": "Information about the disk container. Detailed below.\n"
+                },
+                "encrypted": {
+                    "type": "boolean",
+                    "description": "Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.\n"
+                },
+                "outpostArn": {
                     "type": "string"
                 },
-                "description": "A map of tags to assign to the snapshot.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
+                "ownerAlias": {
+                    "type": "string",
+                    "description": "Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.\n"
+                },
+                "ownerId": {
+                    "type": "string",
+                    "description": "The AWS account ID of the EBS snapshot owner.\n"
+                },
+                "permanentRestore": {
+                    "type": "boolean",
+                    "description": "Indicates whether to permanently restore an archived snapshot.\n"
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`\n"
+                },
+                "storageTier": {
+                    "type": "string",
+                    "description": "The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the snapshot.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "temporaryRestoreDays": {
+                    "type": "integer",
+                    "description": "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.\n"
+                },
+                "volumeId": {
                     "type": "string"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "volumeSize": {
+                    "type": "integer",
+                    "description": "The size of the drive in GiBs.\n"
+                }
             },
-            "temporaryRestoreDays": {
-                "type": "integer",
-                "description": "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.\n"
+            "required": [
+                "arn",
+                "dataEncryptionKeyId",
+                "description",
+                "diskContainer",
+                "outpostArn",
+                "ownerAlias",
+                "ownerId",
+                "storageTier",
+                "tagsAll",
+                "volumeId",
+                "volumeSize"
+            ],
+            "inputProperties": {
+                "clientData": {
+                    "$ref": "#/types/aws:ebs/SnapshotImportClientData:SnapshotImportClientData",
+                    "description": "The client-specific data. Detailed below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description string for the import snapshot task.\n",
+                    "willReplaceOnChanges": true
+                },
+                "diskContainer": {
+                    "$ref": "#/types/aws:ebs/SnapshotImportDiskContainer:SnapshotImportDiskContainer",
+                    "description": "Information about the disk container. Detailed below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "encrypted": {
+                    "type": "boolean",
+                    "description": "Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.\n",
+                    "willReplaceOnChanges": true
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.\n",
+                    "willReplaceOnChanges": true
+                },
+                "permanentRestore": {
+                    "type": "boolean",
+                    "description": "Indicates whether to permanently restore an archived snapshot.\n"
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`\n",
+                    "willReplaceOnChanges": true
+                },
+                "storageTier": {
+                    "type": "string",
+                    "description": "The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the snapshot.\n"
+                },
+                "temporaryRestoreDays": {
+                    "type": "integer",
+                    "description": "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.\n"
+                }
             },
-            "volumeId": {
-                "type": "string"
-            },
-            "volumeSize": {
-                "type": "integer",
-                "description": "The size of the drive in GiBs.\n"
+            "requiredInputs": [
+                "diskContainer"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SnapshotImport resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the EBS Snapshot.\n"
+                    },
+                    "clientData": {
+                        "$ref": "#/types/aws:ebs/SnapshotImportClientData:SnapshotImportClientData",
+                        "description": "The client-specific data. Detailed below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "dataEncryptionKeyId": {
+                        "type": "string",
+                        "description": "The data encryption key identifier for the snapshot.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description string for the import snapshot task.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "diskContainer": {
+                        "$ref": "#/types/aws:ebs/SnapshotImportDiskContainer:SnapshotImportDiskContainer",
+                        "description": "Information about the disk container. Detailed below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "encrypted": {
+                        "type": "boolean",
+                        "description": "Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "description": "An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "outpostArn": {
+                        "type": "string"
+                    },
+                    "ownerAlias": {
+                        "type": "string",
+                        "description": "Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.\n"
+                    },
+                    "ownerId": {
+                        "type": "string",
+                        "description": "The AWS account ID of the EBS snapshot owner.\n"
+                    },
+                    "permanentRestore": {
+                        "type": "boolean",
+                        "description": "Indicates whether to permanently restore an archived snapshot.\n"
+                    },
+                    "roleName": {
+                        "type": "string",
+                        "description": "The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "storageTier": {
+                        "type": "string",
+                        "description": "The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the snapshot.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "temporaryRestoreDays": {
+                        "type": "integer",
+                        "description": "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.\n"
+                    },
+                    "volumeId": {
+                        "type": "string"
+                    },
+                    "volumeSize": {
+                        "type": "integer",
+                        "description": "The size of the drive in GiBs.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

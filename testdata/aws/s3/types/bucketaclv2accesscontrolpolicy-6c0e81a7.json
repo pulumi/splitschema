@@ -1,19 +1,19 @@
 {
-    "properties": {
-        "grants": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:s3/BucketAclV2AccessControlPolicyGrant:BucketAclV2AccessControlPolicyGrant"
+            "properties": {
+                "grants": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:s3/BucketAclV2AccessControlPolicyGrant:BucketAclV2AccessControlPolicyGrant"
+                    },
+                    "description": "Set of `grant` configuration blocks. See below.\n"
+                },
+                "owner": {
+                    "$ref": "#/types/aws:s3/BucketAclV2AccessControlPolicyOwner:BucketAclV2AccessControlPolicyOwner",
+                    "description": "Configuration block of the bucket owner's display name and ID. See below.\n"
+                }
             },
-            "description": "Set of `grant` configuration blocks. See below.\n"
-        },
-        "owner": {
-            "$ref": "#/types/aws:s3/BucketAclV2AccessControlPolicyOwner:BucketAclV2AccessControlPolicyOwner",
-            "description": "Configuration block of the bucket owner's display name and ID. See below.\n"
+            "type": "object",
+            "required": [
+                "owner"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "owner"
-    ]
-}

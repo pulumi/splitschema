@@ -1,64 +1,64 @@
 {
-    "properties": {
-        "endsWiths": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "endsWiths": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.\n"
+                },
+                "equals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.\n"
+                },
+                "field": {
+                    "type": "string",
+                    "description": "Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.\n"
+                },
+                "notEndsWiths": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.\n"
+                },
+                "notEquals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.\n"
+                },
+                "notStartsWiths": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.\n"
+                },
+                "startsWiths": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.\n"
+                }
             },
-            "description": "A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.\n"
-        },
-        "equals": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.\n"
-        },
-        "field": {
-            "type": "string",
-            "description": "Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.\n"
-        },
-        "notEndsWiths": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.\n"
-        },
-        "notEquals": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.\n"
-        },
-        "notStartsWiths": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.\n"
-        },
-        "startsWiths": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.\n"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "endsWiths",
+                        "equals",
+                        "field",
+                        "notEndsWiths",
+                        "notEquals",
+                        "notStartsWiths",
+                        "startsWiths"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "endsWiths",
-                "equals",
-                "field",
-                "notEndsWiths",
-                "notEquals",
-                "notStartsWiths",
-                "startsWiths"
-            ]
-        }
-    }
-}

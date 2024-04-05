@@ -1,48 +1,48 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getUserPoolClients.\n",
-        "properties": {
-            "userPoolId": {
-                "type": "string",
-                "description": "Cognito user pool ID.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "userPoolId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getUserPoolClients.\n",
-        "properties": {
-            "clientIds": {
-                "description": "List of Cognito user pool client IDs.\n",
-                "items": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getUserPoolClients.\n",
+                "properties": {
+                    "userPoolId": {
+                        "type": "string",
+                        "description": "Cognito user pool ID.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object",
+                "required": [
+                    "userPoolId"
+                ]
             },
-            "clientNames": {
-                "description": "List of Cognito user pool client names.\n",
-                "items": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getUserPoolClients.\n",
+                "properties": {
+                    "clientIds": {
+                        "description": "List of Cognito user pool client IDs.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "clientNames": {
+                        "description": "List of Cognito user pool client names.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "userPoolId": {
+                        "type": "string"
+                    }
                 },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "userPoolId": {
-                "type": "string"
+                "required": [
+                    "clientIds",
+                    "clientNames",
+                    "userPoolId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "clientIds",
-            "clientNames",
-            "userPoolId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

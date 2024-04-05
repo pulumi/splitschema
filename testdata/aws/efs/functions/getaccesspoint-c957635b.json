@@ -1,81 +1,81 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getAccessPoint.\n",
-        "properties": {
-            "accessPointId": {
-                "type": "string",
-                "description": "ID that identifies the file system.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getAccessPoint.\n",
+                "properties": {
+                    "accessPointId": {
+                        "type": "string",
+                        "description": "ID that identifies the file system.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value mapping of resource tags.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "accessPointId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAccessPoint.\n",
+                "properties": {
+                    "accessPointId": {
+                        "type": "string"
+                    },
+                    "arn": {
+                        "description": "Amazon Resource Name of the file system.\n",
+                        "type": "string"
+                    },
+                    "fileSystemArn": {
+                        "description": "Amazon Resource Name of the file system.\n",
+                        "type": "string"
+                    },
+                    "fileSystemId": {
+                        "description": "ID of the file system for which the access point is intended.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "ownerId": {
+                        "type": "string"
+                    },
+                    "posixUsers": {
+                        "description": "Single element list containing operating system user and group applied to all file system requests made using the access point.\n",
+                        "items": {
+                            "$ref": "#/types/aws:efs/getAccessPointPosixUser:getAccessPointPosixUser"
+                        },
+                        "type": "array"
+                    },
+                    "rootDirectories": {
+                        "description": "Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.\n",
+                        "items": {
+                            "$ref": "#/types/aws:efs/getAccessPointRootDirectory:getAccessPointRootDirectory"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value mapping of resource tags.\n",
+                        "type": "object"
+                    }
                 },
-                "description": "Key-value mapping of resource tags.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "accessPointId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getAccessPoint.\n",
-        "properties": {
-            "accessPointId": {
-                "type": "string"
-            },
-            "arn": {
-                "description": "Amazon Resource Name of the file system.\n",
-                "type": "string"
-            },
-            "fileSystemArn": {
-                "description": "Amazon Resource Name of the file system.\n",
-                "type": "string"
-            },
-            "fileSystemId": {
-                "description": "ID of the file system for which the access point is intended.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "ownerId": {
-                "type": "string"
-            },
-            "posixUsers": {
-                "description": "Single element list containing operating system user and group applied to all file system requests made using the access point.\n",
-                "items": {
-                    "$ref": "#/types/aws:efs/getAccessPointPosixUser:getAccessPointPosixUser"
-                },
-                "type": "array"
-            },
-            "rootDirectories": {
-                "description": "Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.\n",
-                "items": {
-                    "$ref": "#/types/aws:efs/getAccessPointRootDirectory:getAccessPointRootDirectory"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value mapping of resource tags.\n",
+                "required": [
+                    "accessPointId",
+                    "arn",
+                    "fileSystemArn",
+                    "fileSystemId",
+                    "ownerId",
+                    "posixUsers",
+                    "rootDirectories",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "accessPointId",
-            "arn",
-            "fileSystemArn",
-            "fileSystemId",
-            "ownerId",
-            "posixUsers",
-            "rootDirectories",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

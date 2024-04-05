@@ -1,201 +1,201 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the resource.\n"
-        },
-        "awsAccountId": {
-            "type": "string",
-            "description": "AWS account ID.\n"
-        },
-        "createdTime": {
-            "type": "string",
-            "description": "The time that the template was created.\n"
-        },
-        "lastUpdatedTime": {
-            "type": "string",
-            "description": "The time that the template was last updated.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Display name for the template.\n"
-        },
-        "permissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/TemplatePermission:TemplatePermission"
-            },
-            "description": "A set of resource permissions on the template. Maximum of 64 items. See permissions.\n"
-        },
-        "sourceEntity": {
-            "$ref": "#/types/aws:quicksight/TemplateSourceEntity:TemplateSourceEntity",
-            "description": "The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.\n"
-        },
-        "sourceEntityArn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of an analysis or template that was used to create this template.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "The template creation status.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "templateId": {
-            "type": "string",
-            "description": "Identifier for the template.\n"
-        },
-        "versionDescription": {
-            "type": "string",
-            "description": "A description of the current template version being created/updated.\n\nThe following arguments are optional:\n"
-        },
-        "versionNumber": {
-            "type": "integer",
-            "description": "The version number of the template version.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "awsAccountId",
-        "createdTime",
-        "lastUpdatedTime",
-        "name",
-        "sourceEntityArn",
-        "status",
-        "tagsAll",
-        "templateId",
-        "versionDescription",
-        "versionNumber"
-    ],
-    "inputProperties": {
-        "awsAccountId": {
-            "type": "string",
-            "description": "AWS account ID.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "Display name for the template.\n"
-        },
-        "permissions": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:quicksight/TemplatePermission:TemplatePermission"
-            },
-            "description": "A set of resource permissions on the template. Maximum of 64 items. See permissions.\n"
-        },
-        "sourceEntity": {
-            "$ref": "#/types/aws:quicksight/TemplateSourceEntity:TemplateSourceEntity",
-            "description": "The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "templateId": {
-            "type": "string",
-            "description": "Identifier for the template.\n",
-            "willReplaceOnChanges": true
-        },
-        "versionDescription": {
-            "type": "string",
-            "description": "A description of the current template version being created/updated.\n\nThe following arguments are optional:\n"
-        }
-    },
-    "requiredInputs": [
-        "templateId",
-        "versionDescription"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Template resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the resource.\n"
-            },
-            "awsAccountId": {
-                "type": "string",
-                "description": "AWS account ID.\n",
-                "willReplaceOnChanges": true
-            },
-            "createdTime": {
-                "type": "string",
-                "description": "The time that the template was created.\n"
-            },
-            "lastUpdatedTime": {
-                "type": "string",
-                "description": "The time that the template was last updated.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Display name for the template.\n"
-            },
-            "permissions": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:quicksight/TemplatePermission:TemplatePermission"
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the resource.\n"
                 },
-                "description": "A set of resource permissions on the template. Maximum of 64 items. See permissions.\n"
-            },
-            "sourceEntity": {
-                "$ref": "#/types/aws:quicksight/TemplateSourceEntity:TemplateSourceEntity",
-                "description": "The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.\n"
-            },
-            "sourceEntityArn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of an analysis or template that was used to create this template.\n"
-            },
-            "status": {
-                "type": "string",
-                "description": "The template creation status.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "awsAccountId": {
+                    "type": "string",
+                    "description": "AWS account ID.\n"
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "createdTime": {
+                    "type": "string",
+                    "description": "The time that the template was created.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "lastUpdatedTime": {
+                    "type": "string",
+                    "description": "The time that the template was last updated.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Display name for the template.\n"
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/TemplatePermission:TemplatePermission"
+                    },
+                    "description": "A set of resource permissions on the template. Maximum of 64 items. See permissions.\n"
+                },
+                "sourceEntity": {
+                    "$ref": "#/types/aws:quicksight/TemplateSourceEntity:TemplateSourceEntity",
+                    "description": "The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.\n"
+                },
+                "sourceEntityArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of an analysis or template that was used to create this template.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The template creation status.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "templateId": {
+                    "type": "string",
+                    "description": "Identifier for the template.\n"
+                },
+                "versionDescription": {
+                    "type": "string",
+                    "description": "A description of the current template version being created/updated.\n\nThe following arguments are optional:\n"
+                },
+                "versionNumber": {
+                    "type": "integer",
+                    "description": "The version number of the template version.\n"
+                }
             },
-            "templateId": {
-                "type": "string",
-                "description": "Identifier for the template.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "awsAccountId",
+                "createdTime",
+                "lastUpdatedTime",
+                "name",
+                "sourceEntityArn",
+                "status",
+                "tagsAll",
+                "templateId",
+                "versionDescription",
+                "versionNumber"
+            ],
+            "inputProperties": {
+                "awsAccountId": {
+                    "type": "string",
+                    "description": "AWS account ID.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Display name for the template.\n"
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:quicksight/TemplatePermission:TemplatePermission"
+                    },
+                    "description": "A set of resource permissions on the template. Maximum of 64 items. See permissions.\n"
+                },
+                "sourceEntity": {
+                    "$ref": "#/types/aws:quicksight/TemplateSourceEntity:TemplateSourceEntity",
+                    "description": "The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "templateId": {
+                    "type": "string",
+                    "description": "Identifier for the template.\n",
+                    "willReplaceOnChanges": true
+                },
+                "versionDescription": {
+                    "type": "string",
+                    "description": "A description of the current template version being created/updated.\n\nThe following arguments are optional:\n"
+                }
             },
-            "versionDescription": {
-                "type": "string",
-                "description": "A description of the current template version being created/updated.\n\nThe following arguments are optional:\n"
-            },
-            "versionNumber": {
-                "type": "integer",
-                "description": "The version number of the template version.\n"
+            "requiredInputs": [
+                "templateId",
+                "versionDescription"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Template resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the resource.\n"
+                    },
+                    "awsAccountId": {
+                        "type": "string",
+                        "description": "AWS account ID.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "The time that the template was created.\n"
+                    },
+                    "lastUpdatedTime": {
+                        "type": "string",
+                        "description": "The time that the template was last updated.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Display name for the template.\n"
+                    },
+                    "permissions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:quicksight/TemplatePermission:TemplatePermission"
+                        },
+                        "description": "A set of resource permissions on the template. Maximum of 64 items. See permissions.\n"
+                    },
+                    "sourceEntity": {
+                        "$ref": "#/types/aws:quicksight/TemplateSourceEntity:TemplateSourceEntity",
+                        "description": "The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.\n"
+                    },
+                    "sourceEntityArn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of an analysis or template that was used to create this template.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The template creation status.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "templateId": {
+                        "type": "string",
+                        "description": "Identifier for the template.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "versionDescription": {
+                        "type": "string",
+                        "description": "A description of the current template version being created/updated.\n\nThe following arguments are optional:\n"
+                    },
+                    "versionNumber": {
+                        "type": "integer",
+                        "description": "The version number of the template version.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

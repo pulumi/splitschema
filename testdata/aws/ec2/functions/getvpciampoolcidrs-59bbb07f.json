@@ -1,54 +1,54 @@
 {
-    "deprecationMessage": "aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs",
-    "inputs": {
-        "description": "A collection of arguments for invoking getVpcIamPoolCidrs.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getVpcIamPoolCidrsFilter:getVpcIamPoolCidrsFilter"
+            "deprecationMessage": "aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs",
+            "inputs": {
+                "description": "A collection of arguments for invoking getVpcIamPoolCidrs.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getVpcIamPoolCidrsFilter:getVpcIamPoolCidrsFilter"
+                        },
+                        "description": "Custom filter block as described below.\n"
+                    },
+                    "ipamPoolId": {
+                        "type": "string",
+                        "description": "ID of the IPAM pool you would like the list of provisioned CIDRs.\n"
+                    }
                 },
-                "description": "Custom filter block as described below.\n"
+                "type": "object",
+                "required": [
+                    "ipamPoolId"
+                ]
             },
-            "ipamPoolId": {
-                "type": "string",
-                "description": "ID of the IPAM pool you would like the list of provisioned CIDRs.\n"
+            "outputs": {
+                "description": "A collection of values returned by getVpcIamPoolCidrs.\n",
+                "properties": {
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getVpcIamPoolCidrsFilter:getVpcIamPoolCidrsFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "ipamPoolCidrs": {
+                        "description": "The CIDRs provisioned into the IPAM pool, described below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:ec2/getVpcIamPoolCidrsIpamPoolCidr:getVpcIamPoolCidrsIpamPoolCidr"
+                        },
+                        "type": "array"
+                    },
+                    "ipamPoolId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ipamPoolCidrs",
+                    "ipamPoolId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "ipamPoolId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getVpcIamPoolCidrs.\n",
-        "properties": {
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2/getVpcIamPoolCidrsFilter:getVpcIamPoolCidrsFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "ipamPoolCidrs": {
-                "description": "The CIDRs provisioned into the IPAM pool, described below.\n",
-                "items": {
-                    "$ref": "#/types/aws:ec2/getVpcIamPoolCidrsIpamPoolCidr:getVpcIamPoolCidrsIpamPoolCidr"
-                },
-                "type": "array"
-            },
-            "ipamPoolId": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "ipamPoolCidrs",
-            "ipamPoolId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

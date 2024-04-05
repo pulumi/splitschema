@@ -1,92 +1,92 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getDistribution.\n",
-        "properties": {
-            "id": {
-                "type": "string",
-                "description": "Identifier for the distribution. For example: `EDFDVBD632BHDS5`.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDistribution.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Identifier for the distribution. For example: `EDFDVBD632BHDS5`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                }
-            }
-        },
-        "type": "object",
-        "required": [
-            "id"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getDistribution.\n",
-        "properties": {
-            "aliases": {
-                "description": "List that contains information about CNAMEs (alternate domain names), if any, for this distribution.\n",
-                "items": {
-                    "type": "string"
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDistribution.\n",
+                "properties": {
+                    "aliases": {
+                        "description": "List that contains information about CNAMEs (alternate domain names), if any, for this distribution.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "arn": {
+                        "description": "ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.\n",
+                        "type": "string"
+                    },
+                    "domainName": {
+                        "description": "Domain name corresponding to the distribution. For\nexample: `d604721fxaaqy9.cloudfront.net`.\n",
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "etag": {
+                        "description": "Current version of the distribution's information. For example:\n`E2QWRUHAPOMQZL`.\n",
+                        "type": "string"
+                    },
+                    "hostedZoneId": {
+                        "description": "CloudFront Route 53 zone ID that can be used to\nroute an [Alias Resource Record Set][7] to. This attribute is simply an\nalias for the zone ID `Z2FDTNDATAQYW2`.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Identifier for the distribution. For example: `EDFDVBD632BHDS5`.\n",
+                        "type": "string"
+                    },
+                    "inProgressValidationBatches": {
+                        "description": "The number of invalidation batches\ncurrently in progress.\n",
+                        "type": "integer"
+                    },
+                    "lastModifiedTime": {
+                        "description": "Date and time the distribution was last modified.\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Current status of the distribution. `Deployed` if the\ndistribution's information is fully propagated throughout the Amazon\nCloudFront system.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "webAclId": {
+                        "description": "AWS WAF web ACL associated with this distribution.\n",
+                        "type": "string"
+                    }
                 },
-                "type": "array"
-            },
-            "arn": {
-                "description": "ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.\n",
-                "type": "string"
-            },
-            "domainName": {
-                "description": "Domain name corresponding to the distribution. For\nexample: `d604721fxaaqy9.cloudfront.net`.\n",
-                "type": "string"
-            },
-            "enabled": {
-                "type": "boolean"
-            },
-            "etag": {
-                "description": "Current version of the distribution's information. For example:\n`E2QWRUHAPOMQZL`.\n",
-                "type": "string"
-            },
-            "hostedZoneId": {
-                "description": "CloudFront Route 53 zone ID that can be used to\nroute an [Alias Resource Record Set][7] to. This attribute is simply an\nalias for the zone ID `Z2FDTNDATAQYW2`.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "Identifier for the distribution. For example: `EDFDVBD632BHDS5`.\n",
-                "type": "string"
-            },
-            "inProgressValidationBatches": {
-                "description": "The number of invalidation batches\ncurrently in progress.\n",
-                "type": "integer"
-            },
-            "lastModifiedTime": {
-                "description": "Date and time the distribution was last modified.\n",
-                "type": "string"
-            },
-            "status": {
-                "description": "Current status of the distribution. `Deployed` if the\ndistribution's information is fully propagated throughout the Amazon\nCloudFront system.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
+                "required": [
+                    "aliases",
+                    "arn",
+                    "domainName",
+                    "enabled",
+                    "etag",
+                    "hostedZoneId",
+                    "id",
+                    "inProgressValidationBatches",
+                    "lastModifiedTime",
+                    "status",
+                    "webAclId"
+                ],
                 "type": "object"
-            },
-            "webAclId": {
-                "description": "AWS WAF web ACL associated with this distribution.\n",
-                "type": "string"
             }
-        },
-        "required": [
-            "aliases",
-            "arn",
-            "domainName",
-            "enabled",
-            "etag",
-            "hostedZoneId",
-            "id",
-            "inProgressValidationBatches",
-            "lastModifiedTime",
-            "status",
-            "webAclId"
-        ],
-        "type": "object"
-    }
-}
+        }

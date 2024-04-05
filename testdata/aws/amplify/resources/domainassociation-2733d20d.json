@@ -1,113 +1,113 @@
 {
-    "properties": {
-        "appId": {
-            "type": "string",
-            "description": "Unique ID for an Amplify app.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "ARN for the domain association.\n"
-        },
-        "certificateVerificationDnsRecord": {
-            "type": "string",
-            "description": "The DNS record for certificate verification.\n"
-        },
-        "domainName": {
-            "type": "string",
-            "description": "Domain name for the domain association.\n"
-        },
-        "enableAutoSubDomain": {
-            "type": "boolean",
-            "description": "Enables the automated creation of subdomains for branches.\n"
-        },
-        "subDomains": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:amplify/DomainAssociationSubDomain:DomainAssociationSubDomain"
-            },
-            "description": "Setting for the subdomain. Documented below.\n"
-        },
-        "waitForVerification": {
-            "type": "boolean",
-            "description": "If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.\n"
-        }
-    },
-    "required": [
-        "appId",
-        "arn",
-        "certificateVerificationDnsRecord",
-        "domainName",
-        "subDomains"
-    ],
-    "inputProperties": {
-        "appId": {
-            "type": "string",
-            "description": "Unique ID for an Amplify app.\n",
-            "willReplaceOnChanges": true
-        },
-        "domainName": {
-            "type": "string",
-            "description": "Domain name for the domain association.\n",
-            "willReplaceOnChanges": true
-        },
-        "enableAutoSubDomain": {
-            "type": "boolean",
-            "description": "Enables the automated creation of subdomains for branches.\n"
-        },
-        "subDomains": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:amplify/DomainAssociationSubDomain:DomainAssociationSubDomain"
-            },
-            "description": "Setting for the subdomain. Documented below.\n"
-        },
-        "waitForVerification": {
-            "type": "boolean",
-            "description": "If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.\n"
-        }
-    },
-    "requiredInputs": [
-        "appId",
-        "domainName",
-        "subDomains"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering DomainAssociation resources.\n",
-        "properties": {
-            "appId": {
-                "type": "string",
-                "description": "Unique ID for an Amplify app.\n",
-                "willReplaceOnChanges": true
-            },
-            "arn": {
-                "type": "string",
-                "description": "ARN for the domain association.\n"
-            },
-            "certificateVerificationDnsRecord": {
-                "type": "string",
-                "description": "The DNS record for certificate verification.\n"
-            },
-            "domainName": {
-                "type": "string",
-                "description": "Domain name for the domain association.\n",
-                "willReplaceOnChanges": true
-            },
-            "enableAutoSubDomain": {
-                "type": "boolean",
-                "description": "Enables the automated creation of subdomains for branches.\n"
-            },
-            "subDomains": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:amplify/DomainAssociationSubDomain:DomainAssociationSubDomain"
+            "properties": {
+                "appId": {
+                    "type": "string",
+                    "description": "Unique ID for an Amplify app.\n"
                 },
-                "description": "Setting for the subdomain. Documented below.\n"
+                "arn": {
+                    "type": "string",
+                    "description": "ARN for the domain association.\n"
+                },
+                "certificateVerificationDnsRecord": {
+                    "type": "string",
+                    "description": "The DNS record for certificate verification.\n"
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "Domain name for the domain association.\n"
+                },
+                "enableAutoSubDomain": {
+                    "type": "boolean",
+                    "description": "Enables the automated creation of subdomains for branches.\n"
+                },
+                "subDomains": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:amplify/DomainAssociationSubDomain:DomainAssociationSubDomain"
+                    },
+                    "description": "Setting for the subdomain. Documented below.\n"
+                },
+                "waitForVerification": {
+                    "type": "boolean",
+                    "description": "If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.\n"
+                }
             },
-            "waitForVerification": {
-                "type": "boolean",
-                "description": "If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.\n"
+            "required": [
+                "appId",
+                "arn",
+                "certificateVerificationDnsRecord",
+                "domainName",
+                "subDomains"
+            ],
+            "inputProperties": {
+                "appId": {
+                    "type": "string",
+                    "description": "Unique ID for an Amplify app.\n",
+                    "willReplaceOnChanges": true
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "Domain name for the domain association.\n",
+                    "willReplaceOnChanges": true
+                },
+                "enableAutoSubDomain": {
+                    "type": "boolean",
+                    "description": "Enables the automated creation of subdomains for branches.\n"
+                },
+                "subDomains": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:amplify/DomainAssociationSubDomain:DomainAssociationSubDomain"
+                    },
+                    "description": "Setting for the subdomain. Documented below.\n"
+                },
+                "waitForVerification": {
+                    "type": "boolean",
+                    "description": "If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.\n"
+                }
+            },
+            "requiredInputs": [
+                "appId",
+                "domainName",
+                "subDomains"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DomainAssociation resources.\n",
+                "properties": {
+                    "appId": {
+                        "type": "string",
+                        "description": "Unique ID for an Amplify app.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN for the domain association.\n"
+                    },
+                    "certificateVerificationDnsRecord": {
+                        "type": "string",
+                        "description": "The DNS record for certificate verification.\n"
+                    },
+                    "domainName": {
+                        "type": "string",
+                        "description": "Domain name for the domain association.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "enableAutoSubDomain": {
+                        "type": "boolean",
+                        "description": "Enables the automated creation of subdomains for branches.\n"
+                    },
+                    "subDomains": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:amplify/DomainAssociationSubDomain:DomainAssociationSubDomain"
+                        },
+                        "description": "Setting for the subdomain. Documented below.\n"
+                    },
+                    "waitForVerification": {
+                        "type": "boolean",
+                        "description": "If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

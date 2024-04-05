@@ -1,30 +1,30 @@
 {
-    "properties": {
-        "id": {
-            "type": "string",
-            "description": "The name of the container provider that is running your EMR Containers cluster\n"
-        },
-        "infos": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:emrcontainers/getVirtualClusterContainerProviderInfo:getVirtualClusterContainerProviderInfo"
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The name of the container provider that is running your EMR Containers cluster\n"
+                },
+                "infos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:emrcontainers/getVirtualClusterContainerProviderInfo:getVirtualClusterContainerProviderInfo"
+                    },
+                    "description": "Nested list containing information about the configuration of the container provider\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the container provider\n"
+                }
             },
-            "description": "Nested list containing information about the configuration of the container provider\n"
-        },
-        "type": {
-            "type": "string",
-            "description": "The type of the container provider\n"
+            "type": "object",
+            "required": [
+                "id",
+                "infos",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "id",
-        "infos",
-        "type"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

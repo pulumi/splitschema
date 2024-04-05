@@ -1,286 +1,286 @@
 {
-    "properties": {
-        "allocatedStorage": {
-            "type": "integer",
-            "description": "Specifies the allocated storage size in gigabytes (GB).\n"
-        },
-        "availabilityZone": {
-            "type": "string",
-            "description": "Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.\n"
-        },
-        "copyTags": {
-            "type": "boolean",
-            "description": "Whether to copy existing tags. Defaults to `false`.\n"
-        },
-        "dbSnapshotArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) for the DB snapshot.\n"
-        },
-        "destinationRegion": {
-            "type": "string",
-            "description": "The Destination region to place snapshot copy.\n"
-        },
-        "encrypted": {
-            "type": "boolean",
-            "description": "Specifies whether the DB snapshot is encrypted.\n"
-        },
-        "engine": {
-            "type": "string",
-            "description": "Specifies the name of the database engine.\n"
-        },
-        "engineVersion": {
-            "type": "string",
-            "description": "Specifies the version of the database engine.\n"
-        },
-        "iops": {
-            "type": "integer",
-            "description": "Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "KMS key ID.\n"
-        },
-        "licenseModel": {
-            "type": "string",
-            "description": "License model information for the restored DB instance.\n"
-        },
-        "optionGroupName": {
-            "type": "string",
-            "description": "The name of an option group to associate with the copy of the snapshot.\n"
-        },
-        "port": {
-            "type": "integer"
-        },
-        "presignedUrl": {
-            "type": "string",
-            "description": "he URL that contains a Signature Version 4 signed request.\n"
-        },
-        "snapshotType": {
-            "type": "string"
-        },
-        "sourceDbSnapshotIdentifier": {
-            "type": "string",
-            "description": "Snapshot identifier of the source snapshot.\n"
-        },
-        "sourceRegion": {
-            "type": "string",
-            "description": "The region that the DB snapshot was created in or copied from.\n"
-        },
-        "storageType": {
-            "type": "string",
-            "description": "Specifies the storage type associated with DB snapshot.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "targetCustomAvailabilityZone": {
-            "type": "string",
-            "description": "The external custom Availability Zone.\n"
-        },
-        "targetDbSnapshotIdentifier": {
-            "type": "string",
-            "description": "The Identifier for the snapshot.\n"
-        },
-        "vpcId": {
-            "type": "string",
-            "description": "Provides the VPC ID associated with the DB snapshot.\n"
-        }
-    },
-    "required": [
-        "allocatedStorage",
-        "availabilityZone",
-        "dbSnapshotArn",
-        "encrypted",
-        "engine",
-        "engineVersion",
-        "iops",
-        "licenseModel",
-        "optionGroupName",
-        "port",
-        "snapshotType",
-        "sourceDbSnapshotIdentifier",
-        "sourceRegion",
-        "storageType",
-        "tagsAll",
-        "targetDbSnapshotIdentifier",
-        "vpcId"
-    ],
-    "inputProperties": {
-        "copyTags": {
-            "type": "boolean",
-            "description": "Whether to copy existing tags. Defaults to `false`.\n",
-            "willReplaceOnChanges": true
-        },
-        "destinationRegion": {
-            "type": "string",
-            "description": "The Destination region to place snapshot copy.\n",
-            "willReplaceOnChanges": true
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "KMS key ID.\n",
-            "willReplaceOnChanges": true
-        },
-        "optionGroupName": {
-            "type": "string",
-            "description": "The name of an option group to associate with the copy of the snapshot.\n",
-            "willReplaceOnChanges": true
-        },
-        "presignedUrl": {
-            "type": "string",
-            "description": "he URL that contains a Signature Version 4 signed request.\n",
-            "willReplaceOnChanges": true
-        },
-        "sourceDbSnapshotIdentifier": {
-            "type": "string",
-            "description": "Snapshot identifier of the source snapshot.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "targetCustomAvailabilityZone": {
-            "type": "string",
-            "description": "The external custom Availability Zone.\n",
-            "willReplaceOnChanges": true
-        },
-        "targetDbSnapshotIdentifier": {
-            "type": "string",
-            "description": "The Identifier for the snapshot.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "sourceDbSnapshotIdentifier",
-        "targetDbSnapshotIdentifier"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering SnapshotCopy resources.\n",
-        "properties": {
-            "allocatedStorage": {
-                "type": "integer",
-                "description": "Specifies the allocated storage size in gigabytes (GB).\n"
-            },
-            "availabilityZone": {
-                "type": "string",
-                "description": "Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.\n"
-            },
-            "copyTags": {
-                "type": "boolean",
-                "description": "Whether to copy existing tags. Defaults to `false`.\n",
-                "willReplaceOnChanges": true
-            },
-            "dbSnapshotArn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) for the DB snapshot.\n"
-            },
-            "destinationRegion": {
-                "type": "string",
-                "description": "The Destination region to place snapshot copy.\n",
-                "willReplaceOnChanges": true
-            },
-            "encrypted": {
-                "type": "boolean",
-                "description": "Specifies whether the DB snapshot is encrypted.\n"
-            },
-            "engine": {
-                "type": "string",
-                "description": "Specifies the name of the database engine.\n"
-            },
-            "engineVersion": {
-                "type": "string",
-                "description": "Specifies the version of the database engine.\n"
-            },
-            "iops": {
-                "type": "integer",
-                "description": "Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.\n"
-            },
-            "kmsKeyId": {
-                "type": "string",
-                "description": "KMS key ID.\n",
-                "willReplaceOnChanges": true
-            },
-            "licenseModel": {
-                "type": "string",
-                "description": "License model information for the restored DB instance.\n"
-            },
-            "optionGroupName": {
-                "type": "string",
-                "description": "The name of an option group to associate with the copy of the snapshot.\n",
-                "willReplaceOnChanges": true
-            },
-            "port": {
-                "type": "integer"
-            },
-            "presignedUrl": {
-                "type": "string",
-                "description": "he URL that contains a Signature Version 4 signed request.\n",
-                "willReplaceOnChanges": true
-            },
-            "snapshotType": {
-                "type": "string"
-            },
-            "sourceDbSnapshotIdentifier": {
-                "type": "string",
-                "description": "Snapshot identifier of the source snapshot.\n",
-                "willReplaceOnChanges": true
-            },
-            "sourceRegion": {
-                "type": "string",
-                "description": "The region that the DB snapshot was created in or copied from.\n"
-            },
-            "storageType": {
-                "type": "string",
-                "description": "Specifies the storage type associated with DB snapshot.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
+            "properties": {
+                "allocatedStorage": {
+                    "type": "integer",
+                    "description": "Specifies the allocated storage size in gigabytes (GB).\n"
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.\n"
+                },
+                "copyTags": {
+                    "type": "boolean",
+                    "description": "Whether to copy existing tags. Defaults to `false`.\n"
+                },
+                "dbSnapshotArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the DB snapshot.\n"
+                },
+                "destinationRegion": {
+                    "type": "string",
+                    "description": "The Destination region to place snapshot copy.\n"
+                },
+                "encrypted": {
+                    "type": "boolean",
+                    "description": "Specifies whether the DB snapshot is encrypted.\n"
+                },
+                "engine": {
+                    "type": "string",
+                    "description": "Specifies the name of the database engine.\n"
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "Specifies the version of the database engine.\n"
+                },
+                "iops": {
+                    "type": "integer",
+                    "description": "Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "KMS key ID.\n"
+                },
+                "licenseModel": {
+                    "type": "string",
+                    "description": "License model information for the restored DB instance.\n"
+                },
+                "optionGroupName": {
+                    "type": "string",
+                    "description": "The name of an option group to associate with the copy of the snapshot.\n"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "presignedUrl": {
+                    "type": "string",
+                    "description": "he URL that contains a Signature Version 4 signed request.\n"
+                },
+                "snapshotType": {
                     "type": "string"
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "sourceDbSnapshotIdentifier": {
+                    "type": "string",
+                    "description": "Snapshot identifier of the source snapshot.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "sourceRegion": {
+                    "type": "string",
+                    "description": "The region that the DB snapshot was created in or copied from.\n"
+                },
+                "storageType": {
+                    "type": "string",
+                    "description": "Specifies the storage type associated with DB snapshot.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "targetCustomAvailabilityZone": {
+                    "type": "string",
+                    "description": "The external custom Availability Zone.\n"
+                },
+                "targetDbSnapshotIdentifier": {
+                    "type": "string",
+                    "description": "The Identifier for the snapshot.\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "Provides the VPC ID associated with the DB snapshot.\n"
+                }
             },
-            "targetCustomAvailabilityZone": {
-                "type": "string",
-                "description": "The external custom Availability Zone.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "allocatedStorage",
+                "availabilityZone",
+                "dbSnapshotArn",
+                "encrypted",
+                "engine",
+                "engineVersion",
+                "iops",
+                "licenseModel",
+                "optionGroupName",
+                "port",
+                "snapshotType",
+                "sourceDbSnapshotIdentifier",
+                "sourceRegion",
+                "storageType",
+                "tagsAll",
+                "targetDbSnapshotIdentifier",
+                "vpcId"
+            ],
+            "inputProperties": {
+                "copyTags": {
+                    "type": "boolean",
+                    "description": "Whether to copy existing tags. Defaults to `false`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "destinationRegion": {
+                    "type": "string",
+                    "description": "The Destination region to place snapshot copy.\n",
+                    "willReplaceOnChanges": true
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "KMS key ID.\n",
+                    "willReplaceOnChanges": true
+                },
+                "optionGroupName": {
+                    "type": "string",
+                    "description": "The name of an option group to associate with the copy of the snapshot.\n",
+                    "willReplaceOnChanges": true
+                },
+                "presignedUrl": {
+                    "type": "string",
+                    "description": "he URL that contains a Signature Version 4 signed request.\n",
+                    "willReplaceOnChanges": true
+                },
+                "sourceDbSnapshotIdentifier": {
+                    "type": "string",
+                    "description": "Snapshot identifier of the source snapshot.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "targetCustomAvailabilityZone": {
+                    "type": "string",
+                    "description": "The external custom Availability Zone.\n",
+                    "willReplaceOnChanges": true
+                },
+                "targetDbSnapshotIdentifier": {
+                    "type": "string",
+                    "description": "The Identifier for the snapshot.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "targetDbSnapshotIdentifier": {
-                "type": "string",
-                "description": "The Identifier for the snapshot.\n",
-                "willReplaceOnChanges": true
-            },
-            "vpcId": {
-                "type": "string",
-                "description": "Provides the VPC ID associated with the DB snapshot.\n"
+            "requiredInputs": [
+                "sourceDbSnapshotIdentifier",
+                "targetDbSnapshotIdentifier"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SnapshotCopy resources.\n",
+                "properties": {
+                    "allocatedStorage": {
+                        "type": "integer",
+                        "description": "Specifies the allocated storage size in gigabytes (GB).\n"
+                    },
+                    "availabilityZone": {
+                        "type": "string",
+                        "description": "Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.\n"
+                    },
+                    "copyTags": {
+                        "type": "boolean",
+                        "description": "Whether to copy existing tags. Defaults to `false`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "dbSnapshotArn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) for the DB snapshot.\n"
+                    },
+                    "destinationRegion": {
+                        "type": "string",
+                        "description": "The Destination region to place snapshot copy.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "encrypted": {
+                        "type": "boolean",
+                        "description": "Specifies whether the DB snapshot is encrypted.\n"
+                    },
+                    "engine": {
+                        "type": "string",
+                        "description": "Specifies the name of the database engine.\n"
+                    },
+                    "engineVersion": {
+                        "type": "string",
+                        "description": "Specifies the version of the database engine.\n"
+                    },
+                    "iops": {
+                        "type": "integer",
+                        "description": "Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.\n"
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "description": "KMS key ID.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "licenseModel": {
+                        "type": "string",
+                        "description": "License model information for the restored DB instance.\n"
+                    },
+                    "optionGroupName": {
+                        "type": "string",
+                        "description": "The name of an option group to associate with the copy of the snapshot.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "port": {
+                        "type": "integer"
+                    },
+                    "presignedUrl": {
+                        "type": "string",
+                        "description": "he URL that contains a Signature Version 4 signed request.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "snapshotType": {
+                        "type": "string"
+                    },
+                    "sourceDbSnapshotIdentifier": {
+                        "type": "string",
+                        "description": "Snapshot identifier of the source snapshot.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "sourceRegion": {
+                        "type": "string",
+                        "description": "The region that the DB snapshot was created in or copied from.\n"
+                    },
+                    "storageType": {
+                        "type": "string",
+                        "description": "Specifies the storage type associated with DB snapshot.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "targetCustomAvailabilityZone": {
+                        "type": "string",
+                        "description": "The external custom Availability Zone.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "targetDbSnapshotIdentifier": {
+                        "type": "string",
+                        "description": "The Identifier for the snapshot.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "Provides the VPC ID associated with the DB snapshot.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

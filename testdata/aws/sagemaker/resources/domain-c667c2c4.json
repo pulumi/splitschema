@@ -1,277 +1,277 @@
 {
-    "properties": {
-        "appNetworkAccessType": {
-            "type": "string",
-            "description": "Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.\n"
-        },
-        "appSecurityGroupManagement": {
-            "type": "string",
-            "description": "The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) assigned by AWS to this Domain.\n"
-        },
-        "authMode": {
-            "type": "string",
-            "description": "The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.\n"
-        },
-        "defaultSpaceSettings": {
-            "$ref": "#/types/aws:sagemaker/DomainDefaultSpaceSettings:DomainDefaultSpaceSettings",
-            "description": "The default space settings. See Default Space Settings below.\n"
-        },
-        "defaultUserSettings": {
-            "$ref": "#/types/aws:sagemaker/DomainDefaultUserSettings:DomainDefaultUserSettings",
-            "description": "The default user settings. See Default User Settings below.\n"
-        },
-        "domainName": {
-            "type": "string",
-            "description": "The domain name.\n"
-        },
-        "domainSettings": {
-            "$ref": "#/types/aws:sagemaker/DomainDomainSettings:DomainDomainSettings",
-            "description": "The domain's settings.\n"
-        },
-        "homeEfsFileSystemId": {
-            "type": "string",
-            "description": "The ID of the Amazon Elastic File System (EFS) managed by this Domain.\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.\n"
-        },
-        "retentionPolicy": {
-            "$ref": "#/types/aws:sagemaker/DomainRetentionPolicy:DomainRetentionPolicy",
-            "description": "The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.\n"
-        },
-        "securityGroupIdForDomainBoundary": {
-            "type": "string",
-            "description": "The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.\n"
-        },
-        "singleSignOnApplicationArn": {
-            "type": "string",
-            "description": "The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.\n"
-        },
-        "singleSignOnManagedApplicationInstanceId": {
-            "type": "string",
-            "description": "The SSO managed application instance ID.\n"
-        },
-        "subnetIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The VPC subnets that Studio uses for communication.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "url": {
-            "type": "string",
-            "description": "The domain's URL.\n"
-        },
-        "vpcId": {
-            "type": "string",
-            "description": "The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.\n\nThe following arguments are optional:\n"
-        }
-    },
-    "required": [
-        "arn",
-        "authMode",
-        "defaultUserSettings",
-        "domainName",
-        "homeEfsFileSystemId",
-        "securityGroupIdForDomainBoundary",
-        "singleSignOnApplicationArn",
-        "singleSignOnManagedApplicationInstanceId",
-        "subnetIds",
-        "tagsAll",
-        "url",
-        "vpcId"
-    ],
-    "inputProperties": {
-        "appNetworkAccessType": {
-            "type": "string",
-            "description": "Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.\n",
-            "willReplaceOnChanges": true
-        },
-        "appSecurityGroupManagement": {
-            "type": "string",
-            "description": "The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.\n",
-            "willReplaceOnChanges": true
-        },
-        "authMode": {
-            "type": "string",
-            "description": "The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.\n",
-            "willReplaceOnChanges": true
-        },
-        "defaultSpaceSettings": {
-            "$ref": "#/types/aws:sagemaker/DomainDefaultSpaceSettings:DomainDefaultSpaceSettings",
-            "description": "The default space settings. See Default Space Settings below.\n"
-        },
-        "defaultUserSettings": {
-            "$ref": "#/types/aws:sagemaker/DomainDefaultUserSettings:DomainDefaultUserSettings",
-            "description": "The default user settings. See Default User Settings below.\n"
-        },
-        "domainName": {
-            "type": "string",
-            "description": "The domain name.\n",
-            "willReplaceOnChanges": true
-        },
-        "domainSettings": {
-            "$ref": "#/types/aws:sagemaker/DomainDomainSettings:DomainDomainSettings",
-            "description": "The domain's settings.\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.\n",
-            "willReplaceOnChanges": true
-        },
-        "retentionPolicy": {
-            "$ref": "#/types/aws:sagemaker/DomainRetentionPolicy:DomainRetentionPolicy",
-            "description": "The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.\n",
-            "willReplaceOnChanges": true
-        },
-        "subnetIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The VPC subnets that Studio uses for communication.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "vpcId": {
-            "type": "string",
-            "description": "The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "authMode",
-        "defaultUserSettings",
-        "domainName",
-        "subnetIds",
-        "vpcId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Domain resources.\n",
-        "properties": {
-            "appNetworkAccessType": {
-                "type": "string",
-                "description": "Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.\n",
-                "willReplaceOnChanges": true
-            },
-            "appSecurityGroupManagement": {
-                "type": "string",
-                "description": "The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.\n",
-                "willReplaceOnChanges": true
-            },
-            "arn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) assigned by AWS to this Domain.\n"
-            },
-            "authMode": {
-                "type": "string",
-                "description": "The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.\n",
-                "willReplaceOnChanges": true
-            },
-            "defaultSpaceSettings": {
-                "$ref": "#/types/aws:sagemaker/DomainDefaultSpaceSettings:DomainDefaultSpaceSettings",
-                "description": "The default space settings. See Default Space Settings below.\n"
-            },
-            "defaultUserSettings": {
-                "$ref": "#/types/aws:sagemaker/DomainDefaultUserSettings:DomainDefaultUserSettings",
-                "description": "The default user settings. See Default User Settings below.\n"
-            },
-            "domainName": {
-                "type": "string",
-                "description": "The domain name.\n",
-                "willReplaceOnChanges": true
-            },
-            "domainSettings": {
-                "$ref": "#/types/aws:sagemaker/DomainDomainSettings:DomainDomainSettings",
-                "description": "The domain's settings.\n"
-            },
-            "homeEfsFileSystemId": {
-                "type": "string",
-                "description": "The ID of the Amazon Elastic File System (EFS) managed by this Domain.\n"
-            },
-            "kmsKeyId": {
-                "type": "string",
-                "description": "The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.\n",
-                "willReplaceOnChanges": true
-            },
-            "retentionPolicy": {
-                "$ref": "#/types/aws:sagemaker/DomainRetentionPolicy:DomainRetentionPolicy",
-                "description": "The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.\n",
-                "willReplaceOnChanges": true
-            },
-            "securityGroupIdForDomainBoundary": {
-                "type": "string",
-                "description": "The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.\n"
-            },
-            "singleSignOnApplicationArn": {
-                "type": "string",
-                "description": "The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.\n"
-            },
-            "singleSignOnManagedApplicationInstanceId": {
-                "type": "string",
-                "description": "The SSO managed application instance ID.\n"
-            },
-            "subnetIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "appNetworkAccessType": {
+                    "type": "string",
+                    "description": "Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.\n"
                 },
-                "description": "The VPC subnets that Studio uses for communication.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "appSecurityGroupManagement": {
+                    "type": "string",
+                    "description": "The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.\n"
                 },
-                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) assigned by AWS to this Domain.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "authMode": {
+                    "type": "string",
+                    "description": "The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.\n"
+                },
+                "defaultSpaceSettings": {
+                    "$ref": "#/types/aws:sagemaker/DomainDefaultSpaceSettings:DomainDefaultSpaceSettings",
+                    "description": "The default space settings. See Default Space Settings below.\n"
+                },
+                "defaultUserSettings": {
+                    "$ref": "#/types/aws:sagemaker/DomainDefaultUserSettings:DomainDefaultUserSettings",
+                    "description": "The default user settings. See Default User Settings below.\n"
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "The domain name.\n"
+                },
+                "domainSettings": {
+                    "$ref": "#/types/aws:sagemaker/DomainDomainSettings:DomainDomainSettings",
+                    "description": "The domain's settings.\n"
+                },
+                "homeEfsFileSystemId": {
+                    "type": "string",
+                    "description": "The ID of the Amazon Elastic File System (EFS) managed by this Domain.\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.\n"
+                },
+                "retentionPolicy": {
+                    "$ref": "#/types/aws:sagemaker/DomainRetentionPolicy:DomainRetentionPolicy",
+                    "description": "The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.\n"
+                },
+                "securityGroupIdForDomainBoundary": {
+                    "type": "string",
+                    "description": "The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.\n"
+                },
+                "singleSignOnApplicationArn": {
+                    "type": "string",
+                    "description": "The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.\n"
+                },
+                "singleSignOnManagedApplicationInstanceId": {
+                    "type": "string",
+                    "description": "The SSO managed application instance ID.\n"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The VPC subnets that Studio uses for communication.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The domain's URL.\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.\n\nThe following arguments are optional:\n"
+                }
             },
-            "url": {
-                "type": "string",
-                "description": "The domain's URL.\n"
+            "required": [
+                "arn",
+                "authMode",
+                "defaultUserSettings",
+                "domainName",
+                "homeEfsFileSystemId",
+                "securityGroupIdForDomainBoundary",
+                "singleSignOnApplicationArn",
+                "singleSignOnManagedApplicationInstanceId",
+                "subnetIds",
+                "tagsAll",
+                "url",
+                "vpcId"
+            ],
+            "inputProperties": {
+                "appNetworkAccessType": {
+                    "type": "string",
+                    "description": "Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "appSecurityGroupManagement": {
+                    "type": "string",
+                    "description": "The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "authMode": {
+                    "type": "string",
+                    "description": "The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "defaultSpaceSettings": {
+                    "$ref": "#/types/aws:sagemaker/DomainDefaultSpaceSettings:DomainDefaultSpaceSettings",
+                    "description": "The default space settings. See Default Space Settings below.\n"
+                },
+                "defaultUserSettings": {
+                    "$ref": "#/types/aws:sagemaker/DomainDefaultUserSettings:DomainDefaultUserSettings",
+                    "description": "The default user settings. See Default User Settings below.\n"
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "The domain name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "domainSettings": {
+                    "$ref": "#/types/aws:sagemaker/DomainDomainSettings:DomainDomainSettings",
+                    "description": "The domain's settings.\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.\n",
+                    "willReplaceOnChanges": true
+                },
+                "retentionPolicy": {
+                    "$ref": "#/types/aws:sagemaker/DomainRetentionPolicy:DomainRetentionPolicy",
+                    "description": "The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The VPC subnets that Studio uses for communication.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "vpcId": {
-                "type": "string",
-                "description": "The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "authMode",
+                "defaultUserSettings",
+                "domainName",
+                "subnetIds",
+                "vpcId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Domain resources.\n",
+                "properties": {
+                    "appNetworkAccessType": {
+                        "type": "string",
+                        "description": "Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "appSecurityGroupManagement": {
+                        "type": "string",
+                        "description": "The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) assigned by AWS to this Domain.\n"
+                    },
+                    "authMode": {
+                        "type": "string",
+                        "description": "The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "defaultSpaceSettings": {
+                        "$ref": "#/types/aws:sagemaker/DomainDefaultSpaceSettings:DomainDefaultSpaceSettings",
+                        "description": "The default space settings. See Default Space Settings below.\n"
+                    },
+                    "defaultUserSettings": {
+                        "$ref": "#/types/aws:sagemaker/DomainDefaultUserSettings:DomainDefaultUserSettings",
+                        "description": "The default user settings. See Default User Settings below.\n"
+                    },
+                    "domainName": {
+                        "type": "string",
+                        "description": "The domain name.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "domainSettings": {
+                        "$ref": "#/types/aws:sagemaker/DomainDomainSettings:DomainDomainSettings",
+                        "description": "The domain's settings.\n"
+                    },
+                    "homeEfsFileSystemId": {
+                        "type": "string",
+                        "description": "The ID of the Amazon Elastic File System (EFS) managed by this Domain.\n"
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "description": "The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "retentionPolicy": {
+                        "$ref": "#/types/aws:sagemaker/DomainRetentionPolicy:DomainRetentionPolicy",
+                        "description": "The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "securityGroupIdForDomainBoundary": {
+                        "type": "string",
+                        "description": "The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.\n"
+                    },
+                    "singleSignOnApplicationArn": {
+                        "type": "string",
+                        "description": "The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.\n"
+                    },
+                    "singleSignOnManagedApplicationInstanceId": {
+                        "type": "string",
+                        "description": "The SSO managed application instance ID.\n"
+                    },
+                    "subnetIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The VPC subnets that Studio uses for communication.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The domain's URL.\n"
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

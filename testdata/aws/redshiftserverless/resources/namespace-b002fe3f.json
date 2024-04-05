@@ -1,204 +1,204 @@
 {
-    "properties": {
-        "adminUserPassword": {
-            "type": "string",
-            "description": "The password of the administrator for the first database created in the namespace.\n",
-            "secret": true
-        },
-        "adminUsername": {
-            "type": "string",
-            "description": "The username of the administrator for the first database created in the namespace.\n",
-            "secret": true
-        },
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the Redshift Serverless Namespace.\n"
-        },
-        "dbName": {
-            "type": "string",
-            "description": "The name of the first database created in the namespace.\n"
-        },
-        "defaultIamRoleArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.\n"
-        },
-        "iamRoles": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of IAM roles to associate with the namespace.\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.\n"
-        },
-        "logExports": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.\n"
-        },
-        "namespaceId": {
-            "type": "string",
-            "description": "The Redshift Namespace ID.\n"
-        },
-        "namespaceName": {
-            "type": "string",
-            "description": "The name of the namespace.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "adminUsername",
-        "arn",
-        "dbName",
-        "iamRoles",
-        "kmsKeyId",
-        "namespaceId",
-        "namespaceName",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "adminUserPassword": {
-            "type": "string",
-            "description": "The password of the administrator for the first database created in the namespace.\n",
-            "secret": true
-        },
-        "adminUsername": {
-            "type": "string",
-            "description": "The username of the administrator for the first database created in the namespace.\n",
-            "secret": true
-        },
-        "dbName": {
-            "type": "string",
-            "description": "The name of the first database created in the namespace.\n",
-            "willReplaceOnChanges": true
-        },
-        "defaultIamRoleArn": {
-            "type": "string",
-            "description": "The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.\n"
-        },
-        "iamRoles": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of IAM roles to associate with the namespace.\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.\n"
-        },
-        "logExports": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.\n"
-        },
-        "namespaceName": {
-            "type": "string",
-            "description": "The name of the namespace.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "namespaceName"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Namespace resources.\n",
-        "properties": {
-            "adminUserPassword": {
-                "type": "string",
-                "description": "The password of the administrator for the first database created in the namespace.\n",
-                "secret": true
-            },
-            "adminUsername": {
-                "type": "string",
-                "description": "The username of the administrator for the first database created in the namespace.\n",
-                "secret": true
-            },
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the Redshift Serverless Namespace.\n"
-            },
-            "dbName": {
-                "type": "string",
-                "description": "The name of the first database created in the namespace.\n",
-                "willReplaceOnChanges": true
-            },
-            "defaultIamRoleArn": {
-                "type": "string",
-                "description": "The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.\n"
-            },
-            "iamRoles": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "adminUserPassword": {
+                    "type": "string",
+                    "description": "The password of the administrator for the first database created in the namespace.\n",
+                    "secret": true
                 },
-                "description": "A list of IAM roles to associate with the namespace.\n"
-            },
-            "kmsKeyId": {
-                "type": "string",
-                "description": "The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.\n"
-            },
-            "logExports": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "adminUsername": {
+                    "type": "string",
+                    "description": "The username of the administrator for the first database created in the namespace.\n",
+                    "secret": true
                 },
-                "description": "The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.\n"
-            },
-            "namespaceId": {
-                "type": "string",
-                "description": "The Redshift Namespace ID.\n"
-            },
-            "namespaceName": {
-                "type": "string",
-                "description": "The name of the namespace.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the Redshift Serverless Namespace.\n"
                 },
-                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "dbName": {
+                    "type": "string",
+                    "description": "The name of the first database created in the namespace.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "defaultIamRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.\n"
+                },
+                "iamRoles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of IAM roles to associate with the namespace.\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.\n"
+                },
+                "logExports": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.\n"
+                },
+                "namespaceId": {
+                    "type": "string",
+                    "description": "The Redshift Namespace ID.\n"
+                },
+                "namespaceName": {
+                    "type": "string",
+                    "description": "The name of the namespace.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "adminUsername",
+                "arn",
+                "dbName",
+                "iamRoles",
+                "kmsKeyId",
+                "namespaceId",
+                "namespaceName",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "adminUserPassword": {
+                    "type": "string",
+                    "description": "The password of the administrator for the first database created in the namespace.\n",
+                    "secret": true
+                },
+                "adminUsername": {
+                    "type": "string",
+                    "description": "The username of the administrator for the first database created in the namespace.\n",
+                    "secret": true
+                },
+                "dbName": {
+                    "type": "string",
+                    "description": "The name of the first database created in the namespace.\n",
+                    "willReplaceOnChanges": true
+                },
+                "defaultIamRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.\n"
+                },
+                "iamRoles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of IAM roles to associate with the namespace.\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.\n"
+                },
+                "logExports": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.\n"
+                },
+                "namespaceName": {
+                    "type": "string",
+                    "description": "The name of the namespace.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "namespaceName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Namespace resources.\n",
+                "properties": {
+                    "adminUserPassword": {
+                        "type": "string",
+                        "description": "The password of the administrator for the first database created in the namespace.\n",
+                        "secret": true
+                    },
+                    "adminUsername": {
+                        "type": "string",
+                        "description": "The username of the administrator for the first database created in the namespace.\n",
+                        "secret": true
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the Redshift Serverless Namespace.\n"
+                    },
+                    "dbName": {
+                        "type": "string",
+                        "description": "The name of the first database created in the namespace.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "defaultIamRoleArn": {
+                        "type": "string",
+                        "description": "The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.\n"
+                    },
+                    "iamRoles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of IAM roles to associate with the namespace.\n"
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "description": "The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.\n"
+                    },
+                    "logExports": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.\n"
+                    },
+                    "namespaceId": {
+                        "type": "string",
+                        "description": "The Redshift Namespace ID.\n"
+                    },
+                    "namespaceName": {
+                        "type": "string",
+                        "description": "The name of the namespace.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

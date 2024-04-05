@@ -1,79 +1,79 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getPolicyDocument.\n",
-        "properties": {
-            "overridePolicyDocuments": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getPolicyDocument.\n",
+                "properties": {
+                    "overridePolicyDocuments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.\n"
+                    },
+                    "policyId": {
+                        "type": "string",
+                        "description": "ID for the policy document.\n"
+                    },
+                    "sourcePolicyDocuments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.\n"
+                    },
+                    "statements": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:iam/getPolicyDocumentStatement:getPolicyDocumentStatement"
+                        },
+                        "description": "Configuration block for a policy statement. Detailed below.\n"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).\n"
+                    }
                 },
-                "description": "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.\n"
+                "type": "object"
             },
-            "policyId": {
-                "type": "string",
-                "description": "ID for the policy document.\n"
-            },
-            "sourcePolicyDocuments": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getPolicyDocument.\n",
+                "properties": {
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "json": {
+                        "description": "Standard JSON policy document rendered based on the arguments above.\n",
+                        "type": "string"
+                    },
+                    "overridePolicyDocuments": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "policyId": {
+                        "type": "string"
+                    },
+                    "sourcePolicyDocuments": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "statements": {
+                        "items": {
+                            "$ref": "#/types/aws:iam/getPolicyDocumentStatement:getPolicyDocumentStatement"
+                        },
+                        "type": "array"
+                    },
+                    "version": {
+                        "type": "string"
+                    }
                 },
-                "description": "List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.\n"
-            },
-            "statements": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:iam/getPolicyDocumentStatement:getPolicyDocumentStatement"
-                },
-                "description": "Configuration block for a policy statement. Detailed below.\n"
-            },
-            "version": {
-                "type": "string",
-                "description": "IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).\n"
+                "required": [
+                    "json",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getPolicyDocument.\n",
-        "properties": {
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "json": {
-                "description": "Standard JSON policy document rendered based on the arguments above.\n",
-                "type": "string"
-            },
-            "overridePolicyDocuments": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "policyId": {
-                "type": "string"
-            },
-            "sourcePolicyDocuments": {
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "statements": {
-                "items": {
-                    "$ref": "#/types/aws:iam/getPolicyDocumentStatement:getPolicyDocumentStatement"
-                },
-                "type": "array"
-            },
-            "version": {
-                "type": "string"
-            }
-        },
-        "required": [
-            "json",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

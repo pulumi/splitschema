@@ -1,54 +1,54 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getResolverFirewallRules.\n",
-        "properties": {
-            "action": {
-                "type": "string",
-                "description": "The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.\n"
-            },
-            "firewallRuleGroupId": {
-                "type": "string",
-                "description": "The unique identifier of the firewall rule group that you want to retrieve the rules for.\n"
-            },
-            "priority": {
-                "type": "integer",
-                "description": "The setting that determines the processing order of the rules in a rule group.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "firewallRuleGroupId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getResolverFirewallRules.\n",
-        "properties": {
-            "action": {
-                "type": "string"
-            },
-            "firewallRuleGroupId": {
-                "type": "string"
-            },
-            "firewallRules": {
-                "description": "List with information about the firewall rules. See details below.\n",
-                "items": {
-                    "$ref": "#/types/aws:route53/getResolverFirewallRulesFirewallRule:getResolverFirewallRulesFirewallRule"
+            "inputs": {
+                "description": "A collection of arguments for invoking getResolverFirewallRules.\n",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "description": "The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.\n"
+                    },
+                    "firewallRuleGroupId": {
+                        "type": "string",
+                        "description": "The unique identifier of the firewall rule group that you want to retrieve the rules for.\n"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "description": "The setting that determines the processing order of the rules in a rule group.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object",
+                "required": [
+                    "firewallRuleGroupId"
+                ]
             },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "priority": {
-                "type": "integer"
+            "outputs": {
+                "description": "A collection of values returned by getResolverFirewallRules.\n",
+                "properties": {
+                    "action": {
+                        "type": "string"
+                    },
+                    "firewallRuleGroupId": {
+                        "type": "string"
+                    },
+                    "firewallRules": {
+                        "description": "List with information about the firewall rules. See details below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:route53/getResolverFirewallRulesFirewallRule:getResolverFirewallRulesFirewallRule"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "firewallRuleGroupId",
+                    "firewallRules",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "firewallRuleGroupId",
-            "firewallRules",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

@@ -1,34 +1,34 @@
 {
-    "properties": {
-        "autoScalingEnabled": {
-            "type": "boolean",
-            "description": "Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.\n"
-        },
-        "configurationType": {
-            "type": "string",
-            "description": "Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `auto_scaling_enabled`, `parallelism`, or `parallelism_per_kpu` attribute values to be effective.\n"
-        },
-        "parallelism": {
-            "type": "integer",
-            "description": "Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.\n"
-        },
-        "parallelismPerKpu": {
-            "type": "integer",
-            "description": "Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.\n"
+            "properties": {
+                "autoScalingEnabled": {
+                    "type": "boolean",
+                    "description": "Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.\n"
+                },
+                "configurationType": {
+                    "type": "string",
+                    "description": "Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `auto_scaling_enabled`, `parallelism`, or `parallelism_per_kpu` attribute values to be effective.\n"
+                },
+                "parallelism": {
+                    "type": "integer",
+                    "description": "Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.\n"
+                },
+                "parallelismPerKpu": {
+                    "type": "integer",
+                    "description": "Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "configurationType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "autoScalingEnabled",
+                        "configurationType",
+                        "parallelism",
+                        "parallelismPerKpu"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "required": [
-        "configurationType"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "autoScalingEnabled",
-                "configurationType",
-                "parallelism",
-                "parallelismPerKpu"
-            ]
-        }
-    }
-}

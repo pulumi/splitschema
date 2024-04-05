@@ -1,42 +1,42 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getGateway.\n",
-        "properties": {
-            "name": {
-                "type": "string",
-                "description": "Name of the gateway to retrieve.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getGateway.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the gateway to retrieve.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getGateway.\n",
+                "properties": {
+                    "amazonSideAsn": {
+                        "description": "ASN on the Amazon side of the connection.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "ownerAccountId": {
+                        "description": "AWS Account ID of the gateway.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "amazonSideAsn",
+                    "name",
+                    "ownerAccountId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "name"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getGateway.\n",
-        "properties": {
-            "amazonSideAsn": {
-                "description": "ASN on the Amazon side of the connection.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "ownerAccountId": {
-                "description": "AWS Account ID of the gateway.\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "amazonSideAsn",
-            "name",
-            "ownerAccountId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

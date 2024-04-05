@@ -1,244 +1,244 @@
 {
-    "properties": {
-        "approvalRules": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ssm/PatchBaselineApprovalRule:PatchBaselineApprovalRule"
-            },
-            "description": "A set of rules used to include patches in the baseline.\nUp to 10 approval rules can be specified.\nSee `approval_rule` below.\n"
-        },
-        "approvedPatches": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of explicitly approved patches for the baseline.\nCannot be specified with `approval_rule`.\n"
-        },
-        "approvedPatchesComplianceLevel": {
-            "type": "string",
-            "description": "The compliance level for approved patches.\nThis means that if an approved patch is reported as missing, this is the severity of the compliance violation.\nValid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.\nThe default value is `UNSPECIFIED`.\n"
-        },
-        "approvedPatchesEnableNonSecurity": {
-            "type": "boolean",
-            "description": "Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.\nApplies to Linux instances only.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the patch baseline.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "The description of the patch baseline.\n"
-        },
-        "globalFilters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ssm/PatchBaselineGlobalFilter:PatchBaselineGlobalFilter"
-            },
-            "description": "A set of global filters used to exclude patches from the baseline.\nUp to 4 global filters can be specified using Key/Value pairs.\nValid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the patch baseline.\n"
-        },
-        "operatingSystem": {
-            "type": "string",
-            "description": "The operating system the patch baseline applies to.\nValid values are\n`ALMA_LINUX`,\n`AMAZON_LINUX`,\n`AMAZON_LINUX_2`,\n`AMAZON_LINUX_2022`,\n`AMAZON_LINUX_2023`,\n`CENTOS`,\n`DEBIAN`,\n`MACOS`,\n`ORACLE_LINUX`,\n`RASPBIAN`,\n`REDHAT_ENTERPRISE_LINUX`,\n`ROCKY_LINUX`,\n`SUSE`,\n`UBUNTU`, and\n`WINDOWS`.\nThe default value is `WINDOWS`.\n"
-        },
-        "rejectedPatches": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of rejected patches.\n"
-        },
-        "rejectedPatchesAction": {
-            "type": "string",
-            "description": "The action for Patch Manager to take on patches included in the `rejected_patches` list.\nValid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.\n"
-        },
-        "sources": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ssm/PatchBaselineSource:PatchBaselineSource"
-            },
-            "description": "Configuration block with alternate sources for patches.\nApplies to Linux instances only.\nSee `source` below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        }
-    },
-    "required": [
-        "arn",
-        "name",
-        "rejectedPatchesAction",
-        "tagsAll"
-    ],
-    "inputProperties": {
-        "approvalRules": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ssm/PatchBaselineApprovalRule:PatchBaselineApprovalRule"
-            },
-            "description": "A set of rules used to include patches in the baseline.\nUp to 10 approval rules can be specified.\nSee `approval_rule` below.\n"
-        },
-        "approvedPatches": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of explicitly approved patches for the baseline.\nCannot be specified with `approval_rule`.\n"
-        },
-        "approvedPatchesComplianceLevel": {
-            "type": "string",
-            "description": "The compliance level for approved patches.\nThis means that if an approved patch is reported as missing, this is the severity of the compliance violation.\nValid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.\nThe default value is `UNSPECIFIED`.\n"
-        },
-        "approvedPatchesEnableNonSecurity": {
-            "type": "boolean",
-            "description": "Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.\nApplies to Linux instances only.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "The description of the patch baseline.\n"
-        },
-        "globalFilters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ssm/PatchBaselineGlobalFilter:PatchBaselineGlobalFilter"
-            },
-            "description": "A set of global filters used to exclude patches from the baseline.\nUp to 4 global filters can be specified using Key/Value pairs.\nValid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the patch baseline.\n"
-        },
-        "operatingSystem": {
-            "type": "string",
-            "description": "The operating system the patch baseline applies to.\nValid values are\n`ALMA_LINUX`,\n`AMAZON_LINUX`,\n`AMAZON_LINUX_2`,\n`AMAZON_LINUX_2022`,\n`AMAZON_LINUX_2023`,\n`CENTOS`,\n`DEBIAN`,\n`MACOS`,\n`ORACLE_LINUX`,\n`RASPBIAN`,\n`REDHAT_ENTERPRISE_LINUX`,\n`ROCKY_LINUX`,\n`SUSE`,\n`UBUNTU`, and\n`WINDOWS`.\nThe default value is `WINDOWS`.\n",
-            "willReplaceOnChanges": true
-        },
-        "rejectedPatches": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of rejected patches.\n"
-        },
-        "rejectedPatchesAction": {
-            "type": "string",
-            "description": "The action for Patch Manager to take on patches included in the `rejected_patches` list.\nValid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.\n"
-        },
-        "sources": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:ssm/PatchBaselineSource:PatchBaselineSource"
-            },
-            "description": "Configuration block with alternate sources for patches.\nApplies to Linux instances only.\nSee `source` below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering PatchBaseline resources.\n",
-        "properties": {
-            "approvalRules": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ssm/PatchBaselineApprovalRule:PatchBaselineApprovalRule"
+            "properties": {
+                "approvalRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ssm/PatchBaselineApprovalRule:PatchBaselineApprovalRule"
+                    },
+                    "description": "A set of rules used to include patches in the baseline.\nUp to 10 approval rules can be specified.\nSee `approval_rule` below.\n"
                 },
-                "description": "A set of rules used to include patches in the baseline.\nUp to 10 approval rules can be specified.\nSee `approval_rule` below.\n"
-            },
-            "approvedPatches": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "approvedPatches": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of explicitly approved patches for the baseline.\nCannot be specified with `approval_rule`.\n"
                 },
-                "description": "A list of explicitly approved patches for the baseline.\nCannot be specified with `approval_rule`.\n"
-            },
-            "approvedPatchesComplianceLevel": {
-                "type": "string",
-                "description": "The compliance level for approved patches.\nThis means that if an approved patch is reported as missing, this is the severity of the compliance violation.\nValid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.\nThe default value is `UNSPECIFIED`.\n"
-            },
-            "approvedPatchesEnableNonSecurity": {
-                "type": "boolean",
-                "description": "Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.\nApplies to Linux instances only.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the patch baseline.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "The description of the patch baseline.\n"
-            },
-            "globalFilters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ssm/PatchBaselineGlobalFilter:PatchBaselineGlobalFilter"
+                "approvedPatchesComplianceLevel": {
+                    "type": "string",
+                    "description": "The compliance level for approved patches.\nThis means that if an approved patch is reported as missing, this is the severity of the compliance violation.\nValid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.\nThe default value is `UNSPECIFIED`.\n"
                 },
-                "description": "A set of global filters used to exclude patches from the baseline.\nUp to 4 global filters can be specified using Key/Value pairs.\nValid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the patch baseline.\n"
-            },
-            "operatingSystem": {
-                "type": "string",
-                "description": "The operating system the patch baseline applies to.\nValid values are\n`ALMA_LINUX`,\n`AMAZON_LINUX`,\n`AMAZON_LINUX_2`,\n`AMAZON_LINUX_2022`,\n`AMAZON_LINUX_2023`,\n`CENTOS`,\n`DEBIAN`,\n`MACOS`,\n`ORACLE_LINUX`,\n`RASPBIAN`,\n`REDHAT_ENTERPRISE_LINUX`,\n`ROCKY_LINUX`,\n`SUSE`,\n`UBUNTU`, and\n`WINDOWS`.\nThe default value is `WINDOWS`.\n",
-                "willReplaceOnChanges": true
-            },
-            "rejectedPatches": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "approvedPatchesEnableNonSecurity": {
+                    "type": "boolean",
+                    "description": "Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.\nApplies to Linux instances only.\n"
                 },
-                "description": "A list of rejected patches.\n"
-            },
-            "rejectedPatchesAction": {
-                "type": "string",
-                "description": "The action for Patch Manager to take on patches included in the `rejected_patches` list.\nValid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.\n"
-            },
-            "sources": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ssm/PatchBaselineSource:PatchBaselineSource"
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the patch baseline.\n"
                 },
-                "description": "Configuration block with alternate sources for patches.\nApplies to Linux instances only.\nSee `source` below.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "description": {
+                    "type": "string",
+                    "description": "The description of the patch baseline.\n"
                 },
-                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "globalFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ssm/PatchBaselineGlobalFilter:PatchBaselineGlobalFilter"
+                    },
+                    "description": "A set of global filters used to exclude patches from the baseline.\nUp to 4 global filters can be specified using Key/Value pairs.\nValid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "name": {
+                    "type": "string",
+                    "description": "The name of the patch baseline.\n"
+                },
+                "operatingSystem": {
+                    "type": "string",
+                    "description": "The operating system the patch baseline applies to.\nValid values are\n`ALMA_LINUX`,\n`AMAZON_LINUX`,\n`AMAZON_LINUX_2`,\n`AMAZON_LINUX_2022`,\n`AMAZON_LINUX_2023`,\n`CENTOS`,\n`DEBIAN`,\n`MACOS`,\n`ORACLE_LINUX`,\n`RASPBIAN`,\n`REDHAT_ENTERPRISE_LINUX`,\n`ROCKY_LINUX`,\n`SUSE`,\n`UBUNTU`, and\n`WINDOWS`.\nThe default value is `WINDOWS`.\n"
+                },
+                "rejectedPatches": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of rejected patches.\n"
+                },
+                "rejectedPatchesAction": {
+                    "type": "string",
+                    "description": "The action for Patch Manager to take on patches included in the `rejected_patches` list.\nValid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.\n"
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ssm/PatchBaselineSource:PatchBaselineSource"
+                    },
+                    "description": "Configuration block with alternate sources for patches.\nApplies to Linux instances only.\nSee `source` below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                }
+            },
+            "required": [
+                "arn",
+                "name",
+                "rejectedPatchesAction",
+                "tagsAll"
+            ],
+            "inputProperties": {
+                "approvalRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ssm/PatchBaselineApprovalRule:PatchBaselineApprovalRule"
+                    },
+                    "description": "A set of rules used to include patches in the baseline.\nUp to 10 approval rules can be specified.\nSee `approval_rule` below.\n"
+                },
+                "approvedPatches": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of explicitly approved patches for the baseline.\nCannot be specified with `approval_rule`.\n"
+                },
+                "approvedPatchesComplianceLevel": {
+                    "type": "string",
+                    "description": "The compliance level for approved patches.\nThis means that if an approved patch is reported as missing, this is the severity of the compliance violation.\nValid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.\nThe default value is `UNSPECIFIED`.\n"
+                },
+                "approvedPatchesEnableNonSecurity": {
+                    "type": "boolean",
+                    "description": "Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.\nApplies to Linux instances only.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the patch baseline.\n"
+                },
+                "globalFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ssm/PatchBaselineGlobalFilter:PatchBaselineGlobalFilter"
+                    },
+                    "description": "A set of global filters used to exclude patches from the baseline.\nUp to 4 global filters can be specified using Key/Value pairs.\nValid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the patch baseline.\n"
+                },
+                "operatingSystem": {
+                    "type": "string",
+                    "description": "The operating system the patch baseline applies to.\nValid values are\n`ALMA_LINUX`,\n`AMAZON_LINUX`,\n`AMAZON_LINUX_2`,\n`AMAZON_LINUX_2022`,\n`AMAZON_LINUX_2023`,\n`CENTOS`,\n`DEBIAN`,\n`MACOS`,\n`ORACLE_LINUX`,\n`RASPBIAN`,\n`REDHAT_ENTERPRISE_LINUX`,\n`ROCKY_LINUX`,\n`SUSE`,\n`UBUNTU`, and\n`WINDOWS`.\nThe default value is `WINDOWS`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "rejectedPatches": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of rejected patches.\n"
+                },
+                "rejectedPatchesAction": {
+                    "type": "string",
+                    "description": "The action for Patch Manager to take on patches included in the `rejected_patches` list.\nValid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.\n"
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:ssm/PatchBaselineSource:PatchBaselineSource"
+                    },
+                    "description": "Configuration block with alternate sources for patches.\nApplies to Linux instances only.\nSee `source` below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PatchBaseline resources.\n",
+                "properties": {
+                    "approvalRules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ssm/PatchBaselineApprovalRule:PatchBaselineApprovalRule"
+                        },
+                        "description": "A set of rules used to include patches in the baseline.\nUp to 10 approval rules can be specified.\nSee `approval_rule` below.\n"
+                    },
+                    "approvedPatches": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of explicitly approved patches for the baseline.\nCannot be specified with `approval_rule`.\n"
+                    },
+                    "approvedPatchesComplianceLevel": {
+                        "type": "string",
+                        "description": "The compliance level for approved patches.\nThis means that if an approved patch is reported as missing, this is the severity of the compliance violation.\nValid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.\nThe default value is `UNSPECIFIED`.\n"
+                    },
+                    "approvedPatchesEnableNonSecurity": {
+                        "type": "boolean",
+                        "description": "Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.\nApplies to Linux instances only.\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the patch baseline.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the patch baseline.\n"
+                    },
+                    "globalFilters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ssm/PatchBaselineGlobalFilter:PatchBaselineGlobalFilter"
+                        },
+                        "description": "A set of global filters used to exclude patches from the baseline.\nUp to 4 global filters can be specified using Key/Value pairs.\nValid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the patch baseline.\n"
+                    },
+                    "operatingSystem": {
+                        "type": "string",
+                        "description": "The operating system the patch baseline applies to.\nValid values are\n`ALMA_LINUX`,\n`AMAZON_LINUX`,\n`AMAZON_LINUX_2`,\n`AMAZON_LINUX_2022`,\n`AMAZON_LINUX_2023`,\n`CENTOS`,\n`DEBIAN`,\n`MACOS`,\n`ORACLE_LINUX`,\n`RASPBIAN`,\n`REDHAT_ENTERPRISE_LINUX`,\n`ROCKY_LINUX`,\n`SUSE`,\n`UBUNTU`, and\n`WINDOWS`.\nThe default value is `WINDOWS`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "rejectedPatches": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of rejected patches.\n"
+                    },
+                    "rejectedPatchesAction": {
+                        "type": "string",
+                        "description": "The action for Patch Manager to take on patches included in the `rejected_patches` list.\nValid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.\n"
+                    },
+                    "sources": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ssm/PatchBaselineSource:PatchBaselineSource"
+                        },
+                        "description": "Configuration block with alternate sources for patches.\nApplies to Linux instances only.\nSee `source` below.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

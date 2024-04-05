@@ -1,145 +1,145 @@
 {
-    "properties": {
-        "apiPassthrough": {
-            "type": "string",
-            "description": "Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "ARN of the certificate.\n"
-        },
-        "certificate": {
-            "type": "string",
-            "description": "PEM-encoded certificate value.\n",
-            "language": {
-                "csharp": {
-                    "name": "CertificateDetails"
-                }
-            }
-        },
-        "certificateAuthorityArn": {
-            "type": "string",
-            "description": "ARN of the certificate authority.\n"
-        },
-        "certificateChain": {
-            "type": "string",
-            "description": "PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.\n"
-        },
-        "certificateSigningRequest": {
-            "type": "string",
-            "description": "Certificate Signing Request in PEM format.\n"
-        },
-        "signingAlgorithm": {
-            "type": "string",
-            "description": "Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.\n"
-        },
-        "templateArn": {
-            "type": "string",
-            "description": "Template to use when issuing a certificate.\nSee [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.\n"
-        },
-        "validity": {
-            "$ref": "#/types/aws:acmpca/CertificateValidity:CertificateValidity",
-            "description": "Configures end of the validity period for the certificate. See validity block below.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "certificate",
-        "certificateAuthorityArn",
-        "certificateChain",
-        "certificateSigningRequest",
-        "signingAlgorithm",
-        "validity"
-    ],
-    "inputProperties": {
-        "apiPassthrough": {
-            "type": "string",
-            "description": "Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates\n",
-            "willReplaceOnChanges": true
-        },
-        "certificateAuthorityArn": {
-            "type": "string",
-            "description": "ARN of the certificate authority.\n",
-            "willReplaceOnChanges": true
-        },
-        "certificateSigningRequest": {
-            "type": "string",
-            "description": "Certificate Signing Request in PEM format.\n",
-            "willReplaceOnChanges": true
-        },
-        "signingAlgorithm": {
-            "type": "string",
-            "description": "Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.\n",
-            "willReplaceOnChanges": true
-        },
-        "templateArn": {
-            "type": "string",
-            "description": "Template to use when issuing a certificate.\nSee [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.\n",
-            "willReplaceOnChanges": true
-        },
-        "validity": {
-            "$ref": "#/types/aws:acmpca/CertificateValidity:CertificateValidity",
-            "description": "Configures end of the validity period for the certificate. See validity block below.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "certificateAuthorityArn",
-        "certificateSigningRequest",
-        "signingAlgorithm",
-        "validity"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering Certificate resources.\n",
-        "properties": {
-            "apiPassthrough": {
-                "type": "string",
-                "description": "Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates\n",
-                "willReplaceOnChanges": true
-            },
-            "arn": {
-                "type": "string",
-                "description": "ARN of the certificate.\n"
-            },
-            "certificate": {
-                "type": "string",
-                "description": "PEM-encoded certificate value.\n",
-                "language": {
-                    "csharp": {
-                        "name": "CertificateDetails"
+            "properties": {
+                "apiPassthrough": {
+                    "type": "string",
+                    "description": "Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates\n"
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the certificate.\n"
+                },
+                "certificate": {
+                    "type": "string",
+                    "description": "PEM-encoded certificate value.\n",
+                    "language": {
+                        "csharp": {
+                            "name": "CertificateDetails"
+                        }
                     }
+                },
+                "certificateAuthorityArn": {
+                    "type": "string",
+                    "description": "ARN of the certificate authority.\n"
+                },
+                "certificateChain": {
+                    "type": "string",
+                    "description": "PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.\n"
+                },
+                "certificateSigningRequest": {
+                    "type": "string",
+                    "description": "Certificate Signing Request in PEM format.\n"
+                },
+                "signingAlgorithm": {
+                    "type": "string",
+                    "description": "Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.\n"
+                },
+                "templateArn": {
+                    "type": "string",
+                    "description": "Template to use when issuing a certificate.\nSee [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.\n"
+                },
+                "validity": {
+                    "$ref": "#/types/aws:acmpca/CertificateValidity:CertificateValidity",
+                    "description": "Configures end of the validity period for the certificate. See validity block below.\n"
                 }
             },
-            "certificateAuthorityArn": {
-                "type": "string",
-                "description": "ARN of the certificate authority.\n",
-                "willReplaceOnChanges": true
+            "required": [
+                "arn",
+                "certificate",
+                "certificateAuthorityArn",
+                "certificateChain",
+                "certificateSigningRequest",
+                "signingAlgorithm",
+                "validity"
+            ],
+            "inputProperties": {
+                "apiPassthrough": {
+                    "type": "string",
+                    "description": "Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates\n",
+                    "willReplaceOnChanges": true
+                },
+                "certificateAuthorityArn": {
+                    "type": "string",
+                    "description": "ARN of the certificate authority.\n",
+                    "willReplaceOnChanges": true
+                },
+                "certificateSigningRequest": {
+                    "type": "string",
+                    "description": "Certificate Signing Request in PEM format.\n",
+                    "willReplaceOnChanges": true
+                },
+                "signingAlgorithm": {
+                    "type": "string",
+                    "description": "Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "templateArn": {
+                    "type": "string",
+                    "description": "Template to use when issuing a certificate.\nSee [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.\n",
+                    "willReplaceOnChanges": true
+                },
+                "validity": {
+                    "$ref": "#/types/aws:acmpca/CertificateValidity:CertificateValidity",
+                    "description": "Configures end of the validity period for the certificate. See validity block below.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "certificateChain": {
-                "type": "string",
-                "description": "PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.\n"
-            },
-            "certificateSigningRequest": {
-                "type": "string",
-                "description": "Certificate Signing Request in PEM format.\n",
-                "willReplaceOnChanges": true
-            },
-            "signingAlgorithm": {
-                "type": "string",
-                "description": "Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.\n",
-                "willReplaceOnChanges": true
-            },
-            "templateArn": {
-                "type": "string",
-                "description": "Template to use when issuing a certificate.\nSee [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.\n",
-                "willReplaceOnChanges": true
-            },
-            "validity": {
-                "$ref": "#/types/aws:acmpca/CertificateValidity:CertificateValidity",
-                "description": "Configures end of the validity period for the certificate. See validity block below.\n",
-                "willReplaceOnChanges": true
+            "requiredInputs": [
+                "certificateAuthorityArn",
+                "certificateSigningRequest",
+                "signingAlgorithm",
+                "validity"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Certificate resources.\n",
+                "properties": {
+                    "apiPassthrough": {
+                        "type": "string",
+                        "description": "Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the certificate.\n"
+                    },
+                    "certificate": {
+                        "type": "string",
+                        "description": "PEM-encoded certificate value.\n",
+                        "language": {
+                            "csharp": {
+                                "name": "CertificateDetails"
+                            }
+                        }
+                    },
+                    "certificateAuthorityArn": {
+                        "type": "string",
+                        "description": "ARN of the certificate authority.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "certificateChain": {
+                        "type": "string",
+                        "description": "PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.\n"
+                    },
+                    "certificateSigningRequest": {
+                        "type": "string",
+                        "description": "Certificate Signing Request in PEM format.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "signingAlgorithm": {
+                        "type": "string",
+                        "description": "Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "templateArn": {
+                        "type": "string",
+                        "description": "Template to use when issuing a certificate.\nSee [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "validity": {
+                        "$ref": "#/types/aws:acmpca/CertificateValidity:CertificateValidity",
+                        "description": "Configures end of the validity period for the certificate. See validity block below.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

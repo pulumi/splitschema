@@ -1,130 +1,130 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getContainerRecipe.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "ARN of the container recipe.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getContainerRecipe.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the container recipe.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the container recipe.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "arn"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getContainerRecipe.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string"
+                    },
+                    "components": {
+                        "description": "List of objects with components for the container recipe.\n",
+                        "items": {
+                            "$ref": "#/types/aws:imagebuilder/getContainerRecipeComponent:getContainerRecipeComponent"
+                        },
+                        "type": "array"
+                    },
+                    "containerType": {
+                        "description": "Type of the container.\n",
+                        "type": "string"
+                    },
+                    "dateCreated": {
+                        "description": "Date the container recipe was created.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the container recipe.\n",
+                        "type": "string"
+                    },
+                    "dockerfileTemplateData": {
+                        "description": "Dockerfile template used to build the image.\n",
+                        "type": "string"
+                    },
+                    "encrypted": {
+                        "description": "Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.\n",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "instanceConfigurations": {
+                        "description": "List of objects with instance configurations for building and testing container images.\n",
+                        "items": {
+                            "$ref": "#/types/aws:imagebuilder/getContainerRecipeInstanceConfiguration:getContainerRecipeInstanceConfiguration"
+                        },
+                        "type": "array"
+                    },
+                    "kmsKeyId": {
+                        "description": "KMS key used to encrypt the container image.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the container recipe.\n",
+                        "type": "string"
+                    },
+                    "owner": {
+                        "description": "Owner of the container recipe.\n",
+                        "type": "string"
+                    },
+                    "parentImage": {
+                        "description": "Base image for the container recipe.\n",
+                        "type": "string"
+                    },
+                    "platform": {
+                        "description": "Platform of the container recipe.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the container recipe.\n",
+                        "type": "object"
+                    },
+                    "targetRepositories": {
+                        "description": "Destination repository for the container image.\n",
+                        "items": {
+                            "$ref": "#/types/aws:imagebuilder/getContainerRecipeTargetRepository:getContainerRecipeTargetRepository"
+                        },
+                        "type": "array"
+                    },
+                    "version": {
+                        "description": "Version of the container recipe.\n",
+                        "type": "string"
+                    },
+                    "workingDirectory": {
+                        "description": "Working directory used during build and test workflows.\n",
+                        "type": "string"
+                    }
                 },
-                "description": "Key-value map of resource tags for the container recipe.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "arn"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getContainerRecipe.\n",
-        "properties": {
-            "arn": {
-                "type": "string"
-            },
-            "components": {
-                "description": "List of objects with components for the container recipe.\n",
-                "items": {
-                    "$ref": "#/types/aws:imagebuilder/getContainerRecipeComponent:getContainerRecipeComponent"
-                },
-                "type": "array"
-            },
-            "containerType": {
-                "description": "Type of the container.\n",
-                "type": "string"
-            },
-            "dateCreated": {
-                "description": "Date the container recipe was created.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Description of the container recipe.\n",
-                "type": "string"
-            },
-            "dockerfileTemplateData": {
-                "description": "Dockerfile template used to build the image.\n",
-                "type": "string"
-            },
-            "encrypted": {
-                "description": "Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.\n",
-                "type": "boolean"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "instanceConfigurations": {
-                "description": "List of objects with instance configurations for building and testing container images.\n",
-                "items": {
-                    "$ref": "#/types/aws:imagebuilder/getContainerRecipeInstanceConfiguration:getContainerRecipeInstanceConfiguration"
-                },
-                "type": "array"
-            },
-            "kmsKeyId": {
-                "description": "KMS key used to encrypt the container image.\n",
-                "type": "string"
-            },
-            "name": {
-                "description": "Name of the container recipe.\n",
-                "type": "string"
-            },
-            "owner": {
-                "description": "Owner of the container recipe.\n",
-                "type": "string"
-            },
-            "parentImage": {
-                "description": "Base image for the container recipe.\n",
-                "type": "string"
-            },
-            "platform": {
-                "description": "Platform of the container recipe.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value map of resource tags for the container recipe.\n",
+                "required": [
+                    "arn",
+                    "components",
+                    "containerType",
+                    "dateCreated",
+                    "description",
+                    "dockerfileTemplateData",
+                    "encrypted",
+                    "instanceConfigurations",
+                    "kmsKeyId",
+                    "name",
+                    "owner",
+                    "parentImage",
+                    "platform",
+                    "targetRepositories",
+                    "version",
+                    "workingDirectory",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "targetRepositories": {
-                "description": "Destination repository for the container image.\n",
-                "items": {
-                    "$ref": "#/types/aws:imagebuilder/getContainerRecipeTargetRepository:getContainerRecipeTargetRepository"
-                },
-                "type": "array"
-            },
-            "version": {
-                "description": "Version of the container recipe.\n",
-                "type": "string"
-            },
-            "workingDirectory": {
-                "description": "Working directory used during build and test workflows.\n",
-                "type": "string"
             }
-        },
-        "required": [
-            "arn",
-            "components",
-            "containerType",
-            "dateCreated",
-            "description",
-            "dockerfileTemplateData",
-            "encrypted",
-            "instanceConfigurations",
-            "kmsKeyId",
-            "name",
-            "owner",
-            "parentImage",
-            "platform",
-            "targetRepositories",
-            "version",
-            "workingDirectory",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

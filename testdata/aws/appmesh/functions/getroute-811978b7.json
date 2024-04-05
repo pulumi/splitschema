@@ -1,101 +1,101 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getRoute.\n",
-        "properties": {
-            "meshName": {
-                "type": "string",
-                "description": "Name of the service mesh in which the virtual router exists.\n"
-            },
-            "meshOwner": {
-                "type": "string",
-                "description": "AWS account ID of the service mesh's owner.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "Name of the route.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getRoute.\n",
+                "properties": {
+                    "meshName": {
+                        "type": "string",
+                        "description": "Name of the service mesh in which the virtual router exists.\n"
+                    },
+                    "meshOwner": {
+                        "type": "string",
+                        "description": "AWS account ID of the service mesh's owner.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the route.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags.\n"
+                    },
+                    "virtualRouterName": {
+                        "type": "string",
+                        "description": "Name of the virtual router in which the route exists.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "meshName",
+                    "name",
+                    "virtualRouterName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRoute.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the route.\n",
+                        "type": "string"
+                    },
+                    "createdDate": {
+                        "description": "Creation date of the route.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "lastUpdatedDate": {
+                        "description": "Last update date of the route.\n",
+                        "type": "string"
+                    },
+                    "meshName": {
+                        "type": "string"
+                    },
+                    "meshOwner": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "resourceOwner": {
+                        "description": "Resource owner's AWS account ID.\n",
+                        "type": "string"
+                    },
+                    "specs": {
+                        "description": "Route specification. See the `aws.appmesh.Route` resource for details.\n",
+                        "items": {
+                            "$ref": "#/types/aws:appmesh/getRouteSpec:getRouteSpec"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags.\n",
+                        "type": "object"
+                    },
+                    "virtualRouterName": {
+                        "type": "string"
+                    }
                 },
-                "description": "Map of tags.\n"
-            },
-            "virtualRouterName": {
-                "type": "string",
-                "description": "Name of the virtual router in which the route exists.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "meshName",
-            "name",
-            "virtualRouterName"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getRoute.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the route.\n",
-                "type": "string"
-            },
-            "createdDate": {
-                "description": "Creation date of the route.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "lastUpdatedDate": {
-                "description": "Last update date of the route.\n",
-                "type": "string"
-            },
-            "meshName": {
-                "type": "string"
-            },
-            "meshOwner": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "resourceOwner": {
-                "description": "Resource owner's AWS account ID.\n",
-                "type": "string"
-            },
-            "specs": {
-                "description": "Route specification. See the `aws.appmesh.Route` resource for details.\n",
-                "items": {
-                    "$ref": "#/types/aws:appmesh/getRouteSpec:getRouteSpec"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Map of tags.\n",
+                "required": [
+                    "arn",
+                    "createdDate",
+                    "lastUpdatedDate",
+                    "meshName",
+                    "meshOwner",
+                    "name",
+                    "resourceOwner",
+                    "specs",
+                    "tags",
+                    "virtualRouterName",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "virtualRouterName": {
-                "type": "string"
             }
-        },
-        "required": [
-            "arn",
-            "createdDate",
-            "lastUpdatedDate",
-            "meshName",
-            "meshOwner",
-            "name",
-            "resourceOwner",
-            "specs",
-            "tags",
-            "virtualRouterName",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

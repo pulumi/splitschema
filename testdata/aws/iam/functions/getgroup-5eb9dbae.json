@@ -1,55 +1,55 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getGroup.\n",
-        "properties": {
-            "groupName": {
-                "type": "string",
-                "description": "Friendly IAM group name to match.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "groupName"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getGroup.\n",
-        "properties": {
-            "arn": {
-                "description": "User ARN.\n",
-                "type": "string"
-            },
-            "groupId": {
-                "description": "Stable and unique string identifying the group.\n",
-                "type": "string"
-            },
-            "groupName": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "path": {
-                "description": "Path to the IAM user.\n",
-                "type": "string"
-            },
-            "users": {
-                "description": "List of objects containing group member information. See below.\n",
-                "items": {
-                    "$ref": "#/types/aws:iam/getGroupUser:getGroupUser"
+            "inputs": {
+                "description": "A collection of arguments for invoking getGroup.\n",
+                "properties": {
+                    "groupName": {
+                        "type": "string",
+                        "description": "Friendly IAM group name to match.\n"
+                    }
                 },
-                "type": "array"
+                "type": "object",
+                "required": [
+                    "groupName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getGroup.\n",
+                "properties": {
+                    "arn": {
+                        "description": "User ARN.\n",
+                        "type": "string"
+                    },
+                    "groupId": {
+                        "description": "Stable and unique string identifying the group.\n",
+                        "type": "string"
+                    },
+                    "groupName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "path": {
+                        "description": "Path to the IAM user.\n",
+                        "type": "string"
+                    },
+                    "users": {
+                        "description": "List of objects containing group member information. See below.\n",
+                        "items": {
+                            "$ref": "#/types/aws:iam/getGroupUser:getGroupUser"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "arn",
+                    "groupId",
+                    "groupName",
+                    "path",
+                    "users",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "groupId",
-            "groupName",
-            "path",
-            "users",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

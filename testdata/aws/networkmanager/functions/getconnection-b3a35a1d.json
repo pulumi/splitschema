@@ -1,86 +1,86 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getConnection.\n",
-        "properties": {
-            "connectionId": {
-                "type": "string",
-                "description": "ID of the specific connection to retrieve.\n"
-            },
-            "globalNetworkId": {
-                "type": "string",
-                "description": "ID of the Global Network of the connection to retrieve.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getConnection.\n",
+                "properties": {
+                    "connectionId": {
+                        "type": "string",
+                        "description": "ID of the specific connection to retrieve.\n"
+                    },
+                    "globalNetworkId": {
+                        "type": "string",
+                        "description": "ID of the Global Network of the connection to retrieve.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the connection.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "connectionId",
+                    "globalNetworkId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getConnection.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the connection.\n",
+                        "type": "string"
+                    },
+                    "connectedDeviceId": {
+                        "description": "ID of the second device in the connection.\n",
+                        "type": "string"
+                    },
+                    "connectedLinkId": {
+                        "description": "ID of the link for the second device.\n",
+                        "type": "string"
+                    },
+                    "connectionId": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the connection.\n",
+                        "type": "string"
+                    },
+                    "deviceId": {
+                        "description": "ID of the first device in the connection.\n",
+                        "type": "string"
+                    },
+                    "globalNetworkId": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "linkId": {
+                        "description": "ID of the link for the first device.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the connection.\n",
+                        "type": "object"
+                    }
                 },
-                "description": "Key-value tags for the connection.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "connectionId",
-            "globalNetworkId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getConnection.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the connection.\n",
-                "type": "string"
-            },
-            "connectedDeviceId": {
-                "description": "ID of the second device in the connection.\n",
-                "type": "string"
-            },
-            "connectedLinkId": {
-                "description": "ID of the link for the second device.\n",
-                "type": "string"
-            },
-            "connectionId": {
-                "type": "string"
-            },
-            "description": {
-                "description": "Description of the connection.\n",
-                "type": "string"
-            },
-            "deviceId": {
-                "description": "ID of the first device in the connection.\n",
-                "type": "string"
-            },
-            "globalNetworkId": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "linkId": {
-                "description": "ID of the link for the first device.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value tags for the connection.\n",
+                "required": [
+                    "arn",
+                    "connectedDeviceId",
+                    "connectedLinkId",
+                    "connectionId",
+                    "description",
+                    "deviceId",
+                    "globalNetworkId",
+                    "linkId",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "connectedDeviceId",
-            "connectedLinkId",
-            "connectionId",
-            "description",
-            "deviceId",
-            "globalNetworkId",
-            "linkId",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

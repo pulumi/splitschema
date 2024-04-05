@@ -1,76 +1,76 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getGeofenceCollection.\n",
-        "properties": {
-            "collectionName": {
-                "type": "string",
-                "description": "Name of the geofence collection.\n"
-            },
-            "kmsKeyId": {
-                "type": "string",
-                "description": "Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getGeofenceCollection.\n",
+                "properties": {
+                    "collectionName": {
+                        "type": "string",
+                        "description": "Name of the geofence collection.\n"
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "description": "Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the geofence collection.\n"
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "required": [
+                    "collectionName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getGeofenceCollection.\n",
+                "properties": {
+                    "collectionArn": {
+                        "description": "ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.\n",
+                        "type": "string"
+                    },
+                    "collectionName": {
+                        "type": "string"
+                    },
+                    "createTime": {
+                        "description": "Timestamp for when the geofence collection resource was created in ISO 8601 format.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Optional description of the geofence collection resource.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "kmsKeyId": {
+                        "description": "Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags for the geofence collection.\n",
+                        "type": "object"
+                    },
+                    "updateTime": {
+                        "description": "Timestamp for when the geofence collection resource was last updated in ISO 8601 format.\n",
+                        "type": "string"
+                    }
                 },
-                "description": "Key-value map of resource tags for the geofence collection.\n"
-            }
-        },
-        "type": "object",
-        "required": [
-            "collectionName"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getGeofenceCollection.\n",
-        "properties": {
-            "collectionArn": {
-                "description": "ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.\n",
-                "type": "string"
-            },
-            "collectionName": {
-                "type": "string"
-            },
-            "createTime": {
-                "description": "Timestamp for when the geofence collection resource was created in ISO 8601 format.\n",
-                "type": "string"
-            },
-            "description": {
-                "description": "Optional description of the geofence collection resource.\n",
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "kmsKeyId": {
-                "description": "Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value map of resource tags for the geofence collection.\n",
+                "required": [
+                    "collectionArn",
+                    "collectionName",
+                    "createTime",
+                    "description",
+                    "kmsKeyId",
+                    "tags",
+                    "updateTime",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "updateTime": {
-                "description": "Timestamp for when the geofence collection resource was last updated in ISO 8601 format.\n",
-                "type": "string"
             }
-        },
-        "required": [
-            "collectionArn",
-            "collectionName",
-            "createTime",
-            "description",
-            "kmsKeyId",
-            "tags",
-            "updateTime",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

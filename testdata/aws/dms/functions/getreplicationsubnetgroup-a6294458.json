@@ -1,71 +1,71 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getReplicationSubnetGroup.\n",
-        "properties": {
-            "replicationSubnetGroupId": {
-                "type": "string",
-                "description": "Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getReplicationSubnetGroup.\n",
+                "properties": {
+                    "replicationSubnetGroupId": {
+                        "type": "string",
+                        "description": "Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                }
-            }
-        },
-        "type": "object",
-        "required": [
-            "replicationSubnetGroupId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getReplicationSubnetGroup.\n",
-        "properties": {
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
+                "required": [
+                    "replicationSubnetGroupId"
+                ]
             },
-            "replicationSubnetGroupArn": {
-                "type": "string"
-            },
-            "replicationSubnetGroupDescription": {
-                "description": "Description for the subnet group.\n",
-                "type": "string"
-            },
-            "replicationSubnetGroupId": {
-                "type": "string"
-            },
-            "subnetGroupStatus": {
-                "type": "string"
-            },
-            "subnetIds": {
-                "description": "List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.\n",
-                "items": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getReplicationSubnetGroup.\n",
+                "properties": {
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "replicationSubnetGroupArn": {
+                        "type": "string"
+                    },
+                    "replicationSubnetGroupDescription": {
+                        "description": "Description for the subnet group.\n",
+                        "type": "string"
+                    },
+                    "replicationSubnetGroupId": {
+                        "type": "string"
+                    },
+                    "subnetGroupStatus": {
+                        "type": "string"
+                    },
+                    "subnetIds": {
+                        "description": "List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    },
+                    "vpcId": {
+                        "description": "The ID of the VPC the subnet group is in.\n",
+                        "type": "string"
+                    }
                 },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
+                "required": [
+                    "replicationSubnetGroupArn",
+                    "replicationSubnetGroupDescription",
+                    "replicationSubnetGroupId",
+                    "subnetGroupStatus",
+                    "subnetIds",
+                    "tags",
+                    "vpcId",
+                    "id"
+                ],
                 "type": "object"
-            },
-            "vpcId": {
-                "description": "The ID of the VPC the subnet group is in.\n",
-                "type": "string"
             }
-        },
-        "required": [
-            "replicationSubnetGroupArn",
-            "replicationSubnetGroupDescription",
-            "replicationSubnetGroupId",
-            "subnetGroupStatus",
-            "subnetIds",
-            "tags",
-            "vpcId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

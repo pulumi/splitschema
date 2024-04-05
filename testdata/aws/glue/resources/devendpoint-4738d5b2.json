@@ -1,353 +1,353 @@
 {
-    "properties": {
-        "arguments": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of arguments used to configure the endpoint.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "The ARN of the endpoint.\n"
-        },
-        "availabilityZone": {
-            "type": "string",
-            "description": "The AWS availability zone where this endpoint is located.\n"
-        },
-        "extraJarsS3Path": {
-            "type": "string",
-            "description": "Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.\n"
-        },
-        "extraPythonLibsS3Path": {
-            "type": "string",
-            "description": "Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.\n"
-        },
-        "failureReason": {
-            "type": "string",
-            "description": "The reason for a current failure in this endpoint.\n"
-        },
-        "glueVersion": {
-            "type": "string",
-            "description": "Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of this endpoint. It must be unique in your account.\n"
-        },
-        "numberOfNodes": {
-            "type": "integer",
-            "description": "The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.\n"
-        },
-        "numberOfWorkers": {
-            "type": "integer",
-            "description": "The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.\n"
-        },
-        "privateAddress": {
-            "type": "string",
-            "description": "A private IP address to access the endpoint within a VPC, if this endpoint is created within one.\n"
-        },
-        "publicAddress": {
-            "type": "string",
-            "description": "The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.\n"
-        },
-        "publicKey": {
-            "type": "string",
-            "description": "The public key to be used by this endpoint for authentication.\n"
-        },
-        "publicKeys": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of public keys to be used by this endpoint for authentication.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The IAM role for this endpoint.\n"
-        },
-        "securityConfiguration": {
-            "type": "string",
-            "description": "The name of the Security Configuration structure to be used with this endpoint.\n"
-        },
-        "securityGroupIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Security group IDs for the security groups to be used by this endpoint.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "The current status of this endpoint.\n"
-        },
-        "subnetId": {
-            "type": "string",
-            "description": "The subnet ID for the new endpoint to use.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "vpcId": {
-            "type": "string",
-            "description": "he ID of the VPC used by this endpoint.\n"
-        },
-        "workerType": {
-            "type": "string",
-            "description": "The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.\n"
-        },
-        "yarnEndpointAddress": {
-            "type": "string",
-            "description": "The YARN endpoint address used by this endpoint.\n"
-        },
-        "zeppelinRemoteSparkInterpreterPort": {
-            "type": "integer",
-            "description": "The Apache Zeppelin port for the remote Apache Spark interpreter.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "availabilityZone",
-        "failureReason",
-        "name",
-        "privateAddress",
-        "publicAddress",
-        "roleArn",
-        "status",
-        "tagsAll",
-        "vpcId",
-        "yarnEndpointAddress",
-        "zeppelinRemoteSparkInterpreterPort"
-    ],
-    "inputProperties": {
-        "arguments": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of arguments used to configure the endpoint.\n"
-        },
-        "extraJarsS3Path": {
-            "type": "string",
-            "description": "Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.\n"
-        },
-        "extraPythonLibsS3Path": {
-            "type": "string",
-            "description": "Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.\n"
-        },
-        "glueVersion": {
-            "type": "string",
-            "description": "Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.\n",
-            "willReplaceOnChanges": true
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of this endpoint. It must be unique in your account.\n",
-            "willReplaceOnChanges": true
-        },
-        "numberOfNodes": {
-            "type": "integer",
-            "description": "The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.\n",
-            "willReplaceOnChanges": true
-        },
-        "numberOfWorkers": {
-            "type": "integer",
-            "description": "The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.\n",
-            "willReplaceOnChanges": true
-        },
-        "publicKey": {
-            "type": "string",
-            "description": "The public key to be used by this endpoint for authentication.\n"
-        },
-        "publicKeys": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "A list of public keys to be used by this endpoint for authentication.\n"
-        },
-        "roleArn": {
-            "type": "string",
-            "description": "The IAM role for this endpoint.\n",
-            "willReplaceOnChanges": true
-        },
-        "securityConfiguration": {
-            "type": "string",
-            "description": "The name of the Security Configuration structure to be used with this endpoint.\n",
-            "willReplaceOnChanges": true
-        },
-        "securityGroupIds": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Security group IDs for the security groups to be used by this endpoint.\n",
-            "willReplaceOnChanges": true
-        },
-        "subnetId": {
-            "type": "string",
-            "description": "The subnet ID for the new endpoint to use.\n",
-            "willReplaceOnChanges": true
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "workerType": {
-            "type": "string",
-            "description": "The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.\n",
-            "willReplaceOnChanges": true
-        }
-    },
-    "requiredInputs": [
-        "roleArn"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering DevEndpoint resources.\n",
-        "properties": {
-            "arguments": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "arguments": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of arguments used to configure the endpoint.\n"
                 },
-                "description": "A map of arguments used to configure the endpoint.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "The ARN of the endpoint.\n"
-            },
-            "availabilityZone": {
-                "type": "string",
-                "description": "The AWS availability zone where this endpoint is located.\n"
-            },
-            "extraJarsS3Path": {
-                "type": "string",
-                "description": "Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.\n"
-            },
-            "extraPythonLibsS3Path": {
-                "type": "string",
-                "description": "Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.\n"
-            },
-            "failureReason": {
-                "type": "string",
-                "description": "The reason for a current failure in this endpoint.\n"
-            },
-            "glueVersion": {
-                "type": "string",
-                "description": "Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.\n",
-                "willReplaceOnChanges": true
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of this endpoint. It must be unique in your account.\n",
-                "willReplaceOnChanges": true
-            },
-            "numberOfNodes": {
-                "type": "integer",
-                "description": "The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.\n",
-                "willReplaceOnChanges": true
-            },
-            "numberOfWorkers": {
-                "type": "integer",
-                "description": "The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.\n",
-                "willReplaceOnChanges": true
-            },
-            "privateAddress": {
-                "type": "string",
-                "description": "A private IP address to access the endpoint within a VPC, if this endpoint is created within one.\n"
-            },
-            "publicAddress": {
-                "type": "string",
-                "description": "The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.\n"
-            },
-            "publicKey": {
-                "type": "string",
-                "description": "The public key to be used by this endpoint for authentication.\n"
-            },
-            "publicKeys": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the endpoint.\n"
                 },
-                "description": "A list of public keys to be used by this endpoint for authentication.\n"
-            },
-            "roleArn": {
-                "type": "string",
-                "description": "The IAM role for this endpoint.\n",
-                "willReplaceOnChanges": true
-            },
-            "securityConfiguration": {
-                "type": "string",
-                "description": "The name of the Security Configuration structure to be used with this endpoint.\n",
-                "willReplaceOnChanges": true
-            },
-            "securityGroupIds": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The AWS availability zone where this endpoint is located.\n"
                 },
-                "description": "Security group IDs for the security groups to be used by this endpoint.\n",
-                "willReplaceOnChanges": true
-            },
-            "status": {
-                "type": "string",
-                "description": "The current status of this endpoint.\n"
-            },
-            "subnetId": {
-                "type": "string",
-                "description": "The subnet ID for the new endpoint to use.\n",
-                "willReplaceOnChanges": true
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "extraJarsS3Path": {
+                    "type": "string",
+                    "description": "Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.\n"
                 },
-                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "extraPythonLibsS3Path": {
+                    "type": "string",
+                    "description": "Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "failureReason": {
+                    "type": "string",
+                    "description": "The reason for a current failure in this endpoint.\n"
+                },
+                "glueVersion": {
+                    "type": "string",
+                    "description": "Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of this endpoint. It must be unique in your account.\n"
+                },
+                "numberOfNodes": {
+                    "type": "integer",
+                    "description": "The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.\n"
+                },
+                "numberOfWorkers": {
+                    "type": "integer",
+                    "description": "The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.\n"
+                },
+                "privateAddress": {
+                    "type": "string",
+                    "description": "A private IP address to access the endpoint within a VPC, if this endpoint is created within one.\n"
+                },
+                "publicAddress": {
+                    "type": "string",
+                    "description": "The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.\n"
+                },
+                "publicKey": {
+                    "type": "string",
+                    "description": "The public key to be used by this endpoint for authentication.\n"
+                },
+                "publicKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of public keys to be used by this endpoint for authentication.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The IAM role for this endpoint.\n"
+                },
+                "securityConfiguration": {
+                    "type": "string",
+                    "description": "The name of the Security Configuration structure to be used with this endpoint.\n"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Security group IDs for the security groups to be used by this endpoint.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The current status of this endpoint.\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "The subnet ID for the new endpoint to use.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "he ID of the VPC used by this endpoint.\n"
+                },
+                "workerType": {
+                    "type": "string",
+                    "description": "The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.\n"
+                },
+                "yarnEndpointAddress": {
+                    "type": "string",
+                    "description": "The YARN endpoint address used by this endpoint.\n"
+                },
+                "zeppelinRemoteSparkInterpreterPort": {
+                    "type": "integer",
+                    "description": "The Apache Zeppelin port for the remote Apache Spark interpreter.\n"
+                }
             },
-            "vpcId": {
-                "type": "string",
-                "description": "he ID of the VPC used by this endpoint.\n"
+            "required": [
+                "arn",
+                "availabilityZone",
+                "failureReason",
+                "name",
+                "privateAddress",
+                "publicAddress",
+                "roleArn",
+                "status",
+                "tagsAll",
+                "vpcId",
+                "yarnEndpointAddress",
+                "zeppelinRemoteSparkInterpreterPort"
+            ],
+            "inputProperties": {
+                "arguments": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of arguments used to configure the endpoint.\n"
+                },
+                "extraJarsS3Path": {
+                    "type": "string",
+                    "description": "Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.\n"
+                },
+                "extraPythonLibsS3Path": {
+                    "type": "string",
+                    "description": "Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.\n"
+                },
+                "glueVersion": {
+                    "type": "string",
+                    "description": "Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of this endpoint. It must be unique in your account.\n",
+                    "willReplaceOnChanges": true
+                },
+                "numberOfNodes": {
+                    "type": "integer",
+                    "description": "The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "numberOfWorkers": {
+                    "type": "integer",
+                    "description": "The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.\n",
+                    "willReplaceOnChanges": true
+                },
+                "publicKey": {
+                    "type": "string",
+                    "description": "The public key to be used by this endpoint for authentication.\n"
+                },
+                "publicKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of public keys to be used by this endpoint for authentication.\n"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The IAM role for this endpoint.\n",
+                    "willReplaceOnChanges": true
+                },
+                "securityConfiguration": {
+                    "type": "string",
+                    "description": "The name of the Security Configuration structure to be used with this endpoint.\n",
+                    "willReplaceOnChanges": true
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Security group IDs for the security groups to be used by this endpoint.\n",
+                    "willReplaceOnChanges": true
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "The subnet ID for the new endpoint to use.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "workerType": {
+                    "type": "string",
+                    "description": "The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.\n",
+                    "willReplaceOnChanges": true
+                }
             },
-            "workerType": {
-                "type": "string",
-                "description": "The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.\n",
-                "willReplaceOnChanges": true
-            },
-            "yarnEndpointAddress": {
-                "type": "string",
-                "description": "The YARN endpoint address used by this endpoint.\n"
-            },
-            "zeppelinRemoteSparkInterpreterPort": {
-                "type": "integer",
-                "description": "The Apache Zeppelin port for the remote Apache Spark interpreter.\n"
+            "requiredInputs": [
+                "roleArn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DevEndpoint resources.\n",
+                "properties": {
+                    "arguments": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of arguments used to configure the endpoint.\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "The ARN of the endpoint.\n"
+                    },
+                    "availabilityZone": {
+                        "type": "string",
+                        "description": "The AWS availability zone where this endpoint is located.\n"
+                    },
+                    "extraJarsS3Path": {
+                        "type": "string",
+                        "description": "Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.\n"
+                    },
+                    "extraPythonLibsS3Path": {
+                        "type": "string",
+                        "description": "Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.\n"
+                    },
+                    "failureReason": {
+                        "type": "string",
+                        "description": "The reason for a current failure in this endpoint.\n"
+                    },
+                    "glueVersion": {
+                        "type": "string",
+                        "description": "Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of this endpoint. It must be unique in your account.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "numberOfNodes": {
+                        "type": "integer",
+                        "description": "The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "numberOfWorkers": {
+                        "type": "integer",
+                        "description": "The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "privateAddress": {
+                        "type": "string",
+                        "description": "A private IP address to access the endpoint within a VPC, if this endpoint is created within one.\n"
+                    },
+                    "publicAddress": {
+                        "type": "string",
+                        "description": "The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.\n"
+                    },
+                    "publicKey": {
+                        "type": "string",
+                        "description": "The public key to be used by this endpoint for authentication.\n"
+                    },
+                    "publicKeys": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of public keys to be used by this endpoint for authentication.\n"
+                    },
+                    "roleArn": {
+                        "type": "string",
+                        "description": "The IAM role for this endpoint.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "securityConfiguration": {
+                        "type": "string",
+                        "description": "The name of the Security Configuration structure to be used with this endpoint.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "securityGroupIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Security group IDs for the security groups to be used by this endpoint.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The current status of this endpoint.\n"
+                    },
+                    "subnetId": {
+                        "type": "string",
+                        "description": "The subnet ID for the new endpoint to use.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "he ID of the VPC used by this endpoint.\n"
+                    },
+                    "workerType": {
+                        "type": "string",
+                        "description": "The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "yarnEndpointAddress": {
+                        "type": "string",
+                        "description": "The YARN endpoint address used by this endpoint.\n"
+                    },
+                    "zeppelinRemoteSparkInterpreterPort": {
+                        "type": "integer",
+                        "description": "The Apache Zeppelin port for the remote Apache Spark interpreter.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

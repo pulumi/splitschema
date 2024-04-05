@@ -1,29 +1,29 @@
 {
-    "properties": {
-        "networkInterfaces": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:redshift/EndpointAccessVpcEndpointNetworkInterface:EndpointAccessVpcEndpointNetworkInterface"
+            "properties": {
+                "networkInterfaces": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:redshift/EndpointAccessVpcEndpointNetworkInterface:EndpointAccessVpcEndpointNetworkInterface"
+                    },
+                    "description": "One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.\n"
+                },
+                "vpcEndpointId": {
+                    "type": "string",
+                    "description": "The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The VPC identifier that the endpoint is associated.\n"
+                }
             },
-            "description": "One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.\n"
-        },
-        "vpcEndpointId": {
-            "type": "string",
-            "description": "The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.\n"
-        },
-        "vpcId": {
-            "type": "string",
-            "description": "The VPC identifier that the endpoint is associated.\n"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "networkInterfaces",
+                        "vpcEndpointId",
+                        "vpcId"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "networkInterfaces",
-                "vpcEndpointId",
-                "vpcId"
-            ]
-        }
-    }
-}

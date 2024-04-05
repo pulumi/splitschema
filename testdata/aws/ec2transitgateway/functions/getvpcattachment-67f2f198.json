@@ -1,91 +1,91 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getVpcAttachment.\n",
-        "properties": {
-            "filters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getVpcAttachmentFilter:getVpcAttachmentFilter"
+            "inputs": {
+                "description": "A collection of arguments for invoking getVpcAttachment.\n",
+                "properties": {
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getVpcAttachmentFilter:getVpcAttachmentFilter"
+                        },
+                        "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Identifier of the EC2 Transit Gateway VPC Attachment.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the EC2 Transit Gateway VPC Attachment\n"
+                    }
                 },
-                "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
-            },
-            "id": {
-                "type": "string",
-                "description": "Identifier of the EC2 Transit Gateway VPC Attachment.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value tags for the EC2 Transit Gateway VPC Attachment\n"
-            }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getVpcAttachment.\n",
-        "properties": {
-            "applianceModeSupport": {
-                "description": "Whether Appliance Mode support is enabled.\n",
-                "type": "string"
-            },
-            "dnsSupport": {
-                "description": "Whether DNS support is enabled.\n",
-                "type": "string"
-            },
-            "filters": {
-                "items": {
-                    "$ref": "#/types/aws:ec2transitgateway/getVpcAttachmentFilter:getVpcAttachmentFilter"
-                },
-                "type": "array"
-            },
-            "id": {
-                "description": "EC2 Transit Gateway VPC Attachment identifier\n",
-                "type": "string"
-            },
-            "ipv6Support": {
-                "description": "Whether IPv6 support is enabled.\n",
-                "type": "string"
-            },
-            "subnetIds": {
-                "description": "Identifiers of EC2 Subnets.\n",
-                "items": {
-                    "type": "string"
-                },
-                "type": "array"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
-                "description": "Key-value tags for the EC2 Transit Gateway VPC Attachment\n",
                 "type": "object"
             },
-            "transitGatewayId": {
-                "description": "EC2 Transit Gateway identifier\n",
-                "type": "string"
-            },
-            "vpcId": {
-                "description": "Identifier of EC2 VPC.\n",
-                "type": "string"
-            },
-            "vpcOwnerId": {
-                "description": "Identifier of the AWS account that owns the EC2 VPC.\n",
-                "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getVpcAttachment.\n",
+                "properties": {
+                    "applianceModeSupport": {
+                        "description": "Whether Appliance Mode support is enabled.\n",
+                        "type": "string"
+                    },
+                    "dnsSupport": {
+                        "description": "Whether DNS support is enabled.\n",
+                        "type": "string"
+                    },
+                    "filters": {
+                        "items": {
+                            "$ref": "#/types/aws:ec2transitgateway/getVpcAttachmentFilter:getVpcAttachmentFilter"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "EC2 Transit Gateway VPC Attachment identifier\n",
+                        "type": "string"
+                    },
+                    "ipv6Support": {
+                        "description": "Whether IPv6 support is enabled.\n",
+                        "type": "string"
+                    },
+                    "subnetIds": {
+                        "description": "Identifiers of EC2 Subnets.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Key-value tags for the EC2 Transit Gateway VPC Attachment\n",
+                        "type": "object"
+                    },
+                    "transitGatewayId": {
+                        "description": "EC2 Transit Gateway identifier\n",
+                        "type": "string"
+                    },
+                    "vpcId": {
+                        "description": "Identifier of EC2 VPC.\n",
+                        "type": "string"
+                    },
+                    "vpcOwnerId": {
+                        "description": "Identifier of the AWS account that owns the EC2 VPC.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "applianceModeSupport",
+                    "dnsSupport",
+                    "id",
+                    "ipv6Support",
+                    "subnetIds",
+                    "tags",
+                    "transitGatewayId",
+                    "vpcId",
+                    "vpcOwnerId"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "applianceModeSupport",
-            "dnsSupport",
-            "id",
-            "ipv6Support",
-            "subnetIds",
-            "tags",
-            "transitGatewayId",
-            "vpcId",
-            "vpcOwnerId"
-        ],
-        "type": "object"
-    }
-}
+        }

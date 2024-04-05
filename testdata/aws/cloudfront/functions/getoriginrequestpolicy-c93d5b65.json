@@ -1,64 +1,64 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getOriginRequestPolicy.\n",
-        "properties": {
-            "id": {
-                "type": "string",
-                "description": "Identifier for the origin request policy.\n"
+            "inputs": {
+                "description": "A collection of arguments for invoking getOriginRequestPolicy.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Identifier for the origin request policy.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Unique name to identify the origin request policy.\n"
+                    }
+                },
+                "type": "object"
             },
-            "name": {
-                "type": "string",
-                "description": "Unique name to identify the origin request policy.\n"
+            "outputs": {
+                "description": "A collection of values returned by getOriginRequestPolicy.\n",
+                "properties": {
+                    "comment": {
+                        "description": "Comment to describe the origin request policy.\n",
+                        "type": "string"
+                    },
+                    "cookiesConfigs": {
+                        "description": "Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.\n",
+                        "items": {
+                            "$ref": "#/types/aws:cloudfront/getOriginRequestPolicyCookiesConfig:getOriginRequestPolicyCookiesConfig"
+                        },
+                        "type": "array"
+                    },
+                    "etag": {
+                        "description": "Current version of the origin request policy.\n",
+                        "type": "string"
+                    },
+                    "headersConfigs": {
+                        "description": "Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.\n",
+                        "items": {
+                            "$ref": "#/types/aws:cloudfront/getOriginRequestPolicyHeadersConfig:getOriginRequestPolicyHeadersConfig"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "queryStringsConfigs": {
+                        "description": "Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.\n",
+                        "items": {
+                            "$ref": "#/types/aws:cloudfront/getOriginRequestPolicyQueryStringsConfig:getOriginRequestPolicyQueryStringsConfig"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "comment",
+                    "cookiesConfigs",
+                    "etag",
+                    "headersConfigs",
+                    "queryStringsConfigs"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object"
-    },
-    "outputs": {
-        "description": "A collection of values returned by getOriginRequestPolicy.\n",
-        "properties": {
-            "comment": {
-                "description": "Comment to describe the origin request policy.\n",
-                "type": "string"
-            },
-            "cookiesConfigs": {
-                "description": "Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.\n",
-                "items": {
-                    "$ref": "#/types/aws:cloudfront/getOriginRequestPolicyCookiesConfig:getOriginRequestPolicyCookiesConfig"
-                },
-                "type": "array"
-            },
-            "etag": {
-                "description": "Current version of the origin request policy.\n",
-                "type": "string"
-            },
-            "headersConfigs": {
-                "description": "Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.\n",
-                "items": {
-                    "$ref": "#/types/aws:cloudfront/getOriginRequestPolicyHeadersConfig:getOriginRequestPolicyHeadersConfig"
-                },
-                "type": "array"
-            },
-            "id": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "queryStringsConfigs": {
-                "description": "Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.\n",
-                "items": {
-                    "$ref": "#/types/aws:cloudfront/getOriginRequestPolicyQueryStringsConfig:getOriginRequestPolicyQueryStringsConfig"
-                },
-                "type": "array"
-            }
-        },
-        "required": [
-            "comment",
-            "cookiesConfigs",
-            "etag",
-            "headersConfigs",
-            "queryStringsConfigs"
-        ],
-        "type": "object"
-    }
-}
+        }

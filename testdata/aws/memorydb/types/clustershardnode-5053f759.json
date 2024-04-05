@@ -1,33 +1,33 @@
 {
-    "properties": {
-        "availabilityZone": {
-            "type": "string",
-            "description": "The Availability Zone in which the node resides.\n"
-        },
-        "createTime": {
-            "type": "string",
-            "description": "The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.\n"
-        },
-        "endpoints": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:memorydb/ClusterShardNodeEndpoint:ClusterShardNodeEndpoint"
+            "properties": {
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which the node resides.\n"
+                },
+                "createTime": {
+                    "type": "string",
+                    "description": "The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.\n"
+                },
+                "endpoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:memorydb/ClusterShardNodeEndpoint:ClusterShardNodeEndpoint"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "availabilityZone",
+                        "createTime",
+                        "endpoints",
+                        "name"
+                    ]
+                }
             }
-        },
-        "name": {
-            "type": "string",
-            "description": "Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "availabilityZone",
-                "createTime",
-                "endpoints",
-                "name"
-            ]
-        }
-    }
-}

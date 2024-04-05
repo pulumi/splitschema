@@ -1,43 +1,43 @@
 {
-    "properties": {
-        "iscsis": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:fsx/getOntapStorageVirtualMachineEndpointIscsi:getOntapStorageVirtualMachineEndpointIscsi"
+            "properties": {
+                "iscsis": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:fsx/getOntapStorageVirtualMachineEndpointIscsi:getOntapStorageVirtualMachineEndpointIscsi"
+                    }
+                },
+                "managements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:fsx/getOntapStorageVirtualMachineEndpointManagement:getOntapStorageVirtualMachineEndpointManagement"
+                    },
+                    "description": "An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.\n"
+                },
+                "nfs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:fsx/getOntapStorageVirtualMachineEndpointNf:getOntapStorageVirtualMachineEndpointNf"
+                    },
+                    "description": "An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.\n"
+                },
+                "smbs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:fsx/getOntapStorageVirtualMachineEndpointSmb:getOntapStorageVirtualMachineEndpointSmb"
+                    },
+                    "description": "An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "iscsis",
+                "managements",
+                "nfs",
+                "smbs"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
             }
-        },
-        "managements": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:fsx/getOntapStorageVirtualMachineEndpointManagement:getOntapStorageVirtualMachineEndpointManagement"
-            },
-            "description": "An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.\n"
-        },
-        "nfs": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:fsx/getOntapStorageVirtualMachineEndpointNf:getOntapStorageVirtualMachineEndpointNf"
-            },
-            "description": "An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.\n"
-        },
-        "smbs": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:fsx/getOntapStorageVirtualMachineEndpointSmb:getOntapStorageVirtualMachineEndpointSmb"
-            },
-            "description": "An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.\n"
         }
-    },
-    "type": "object",
-    "required": [
-        "iscsis",
-        "managements",
-        "nfs",
-        "smbs"
-    ],
-    "language": {
-        "nodejs": {
-            "requiredInputs": []
-        }
-    }
-}

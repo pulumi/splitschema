@@ -1,46 +1,46 @@
 {
-    "properties": {
-        "action": {
-            "$ref": "#/types/aws:wafv2/WebAclRuleAction:WebAclRuleAction",
-            "description": "Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.\n"
-        },
-        "captchaConfig": {
-            "$ref": "#/types/aws:wafv2/WebAclRuleCaptchaConfig:WebAclRuleCaptchaConfig",
-            "description": "Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_\u003caccount-id\u003e_\u003cweb-acl-guid\u003e_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.\n"
-        },
-        "overrideAction": {
-            "$ref": "#/types/aws:wafv2/WebAclRuleOverrideAction:WebAclRuleOverrideAction",
-            "description": "Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.\n"
-        },
-        "priority": {
-            "type": "integer",
-            "description": "If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.\n"
-        },
-        "ruleLabels": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:wafv2/WebAclRuleRuleLabel:WebAclRuleRuleLabel"
+            "properties": {
+                "action": {
+                    "$ref": "#/types/aws:wafv2/WebAclRuleAction:WebAclRuleAction",
+                    "description": "Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.\n"
+                },
+                "captchaConfig": {
+                    "$ref": "#/types/aws:wafv2/WebAclRuleCaptchaConfig:WebAclRuleCaptchaConfig",
+                    "description": "Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_\u003caccount-id\u003e_\u003cweb-acl-guid\u003e_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.\n"
+                },
+                "overrideAction": {
+                    "$ref": "#/types/aws:wafv2/WebAclRuleOverrideAction:WebAclRuleOverrideAction",
+                    "description": "Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.\n"
+                },
+                "ruleLabels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:wafv2/WebAclRuleRuleLabel:WebAclRuleRuleLabel"
+                    },
+                    "description": "Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.\n"
+                },
+                "statement": {
+                    "$ref": "#/types/aws:wafv2/WebAclRuleStatement:WebAclRuleStatement",
+                    "description": "The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.\n"
+                },
+                "visibilityConfig": {
+                    "$ref": "#/types/aws:wafv2/WebAclRuleVisibilityConfig:WebAclRuleVisibilityConfig",
+                    "description": "Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.\n"
+                }
             },
-            "description": "Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.\n"
-        },
-        "statement": {
-            "$ref": "#/types/aws:wafv2/WebAclRuleStatement:WebAclRuleStatement",
-            "description": "The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.\n"
-        },
-        "visibilityConfig": {
-            "$ref": "#/types/aws:wafv2/WebAclRuleVisibilityConfig:WebAclRuleVisibilityConfig",
-            "description": "Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.\n"
+            "type": "object",
+            "required": [
+                "name",
+                "priority",
+                "statement",
+                "visibilityConfig"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "name",
-        "priority",
-        "statement",
-        "visibilityConfig"
-    ]
-}

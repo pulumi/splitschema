@@ -1,26 +1,26 @@
 {
-    "properties": {
-        "assignPublicIp": {
-            "type": "boolean",
-            "description": "Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.\n\nFor more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)\n"
-        },
-        "securityGroups": {
-            "type": "array",
-            "items": {
-                "type": "string"
+            "properties": {
+                "assignPublicIp": {
+                    "type": "boolean",
+                    "description": "Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.\n\nFor more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)\n"
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.\n"
+                },
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The subnets associated with the task or service.\n"
+                }
             },
-            "description": "The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.\n"
-        },
-        "subnets": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The subnets associated with the task or service.\n"
+            "type": "object",
+            "required": [
+                "subnets"
+            ]
         }
-    },
-    "type": "object",
-    "required": [
-        "subnets"
-    ]
-}

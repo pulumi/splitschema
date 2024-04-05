@@ -1,23 +1,23 @@
 {
-    "properties": {
-        "creationInfo": {
-            "$ref": "#/types/aws:efs/AccessPointRootDirectoryCreationInfo:AccessPointRootDirectoryCreationInfo",
-            "description": "POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.\n",
-            "willReplaceOnChanges": true
-        },
-        "path": {
-            "type": "string",
-            "description": "Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.\n",
-            "willReplaceOnChanges": true
+            "properties": {
+                "creationInfo": {
+                    "$ref": "#/types/aws:efs/AccessPointRootDirectoryCreationInfo:AccessPointRootDirectoryCreationInfo",
+                    "description": "POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.\n",
+                    "willReplaceOnChanges": true
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "creationInfo",
+                        "path"
+                    ]
+                }
+            }
         }
-    },
-    "type": "object",
-    "language": {
-        "nodejs": {
-            "requiredOutputs": [
-                "creationInfo",
-                "path"
-            ]
-        }
-    }
-}

@@ -1,347 +1,347 @@
 {
-    "properties": {
-        "acceptLanguage": {
-            "type": "string",
-            "description": "Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "ARN of the provisioned product.\n"
-        },
-        "cloudwatchDashboardNames": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Set of CloudWatch dashboards that were created when provisioning the product.\n"
-        },
-        "createdTime": {
-            "type": "string",
-            "description": "Time when the provisioned product was created.\n"
-        },
-        "ignoreErrors": {
-            "type": "boolean",
-            "description": "_Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.\n"
-        },
-        "lastProvisioningRecordId": {
-            "type": "string",
-            "description": "Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.\n"
-        },
-        "lastRecordId": {
-            "type": "string",
-            "description": "Record identifier of the last request performed on this provisioned product.\n"
-        },
-        "lastSuccessfulProvisioningRecordId": {
-            "type": "string",
-            "description": "Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.\n"
-        },
-        "launchRoleArn": {
-            "type": "string",
-            "description": "ARN of the launch role associated with the provisioned product.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "User-friendly name of the provisioned product.\n\nThe following arguments are optional:\n"
-        },
-        "notificationArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.\n"
-        },
-        "outputs": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:servicecatalog/ProvisionedProductOutput:ProvisionedProductOutput"
-            },
-            "description": "The set of outputs for the product created.\n"
-        },
-        "pathId": {
-            "type": "string",
-            "description": "Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.\n"
-        },
-        "pathName": {
-            "type": "string",
-            "description": "Name of the path. You must provide `path_id` or `path_name`, but not both.\n"
-        },
-        "productId": {
-            "type": "string",
-            "description": "Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.\n"
-        },
-        "productName": {
-            "type": "string",
-            "description": "Name of the product. You must provide `product_id` or `product_name`, but not both.\n"
-        },
-        "provisioningArtifactId": {
-            "type": "string",
-            "description": "Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.\n"
-        },
-        "provisioningArtifactName": {
-            "type": "string",
-            "description": "Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.\n"
-        },
-        "provisioningParameters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:servicecatalog/ProvisionedProductProvisioningParameter:ProvisionedProductProvisioningParameter"
-            },
-            "description": "Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.\n"
-        },
-        "retainPhysicalResources": {
-            "type": "boolean",
-            "description": "_Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.\n"
-        },
-        "stackSetProvisioningPreferences": {
-            "$ref": "#/types/aws:servicecatalog/ProvisionedProductStackSetProvisioningPreferences:ProvisionedProductStackSetProvisioningPreferences",
-            "description": "Configuration block with information about the provisioning preferences for a stack set. See details below.\n"
-        },
-        "status": {
-            "type": "string",
-            "description": "Current status of the provisioned product. See meanings below.\n"
-        },
-        "statusMessage": {
-            "type": "string",
-            "description": "Current status message of the provisioned product.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "type": {
-            "type": "string",
-            "description": "Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "cloudwatchDashboardNames",
-        "createdTime",
-        "lastProvisioningRecordId",
-        "lastRecordId",
-        "lastSuccessfulProvisioningRecordId",
-        "launchRoleArn",
-        "name",
-        "outputs",
-        "pathId",
-        "productId",
-        "provisioningArtifactId",
-        "status",
-        "statusMessage",
-        "tagsAll",
-        "type"
-    ],
-    "inputProperties": {
-        "acceptLanguage": {
-            "type": "string",
-            "description": "Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.\n"
-        },
-        "ignoreErrors": {
-            "type": "boolean",
-            "description": "_Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.\n"
-        },
-        "name": {
-            "type": "string",
-            "description": "User-friendly name of the provisioned product.\n\nThe following arguments are optional:\n",
-            "willReplaceOnChanges": true
-        },
-        "notificationArns": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.\n",
-            "willReplaceOnChanges": true
-        },
-        "pathId": {
-            "type": "string",
-            "description": "Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.\n"
-        },
-        "pathName": {
-            "type": "string",
-            "description": "Name of the path. You must provide `path_id` or `path_name`, but not both.\n"
-        },
-        "productId": {
-            "type": "string",
-            "description": "Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.\n"
-        },
-        "productName": {
-            "type": "string",
-            "description": "Name of the product. You must provide `product_id` or `product_name`, but not both.\n"
-        },
-        "provisioningArtifactId": {
-            "type": "string",
-            "description": "Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.\n"
-        },
-        "provisioningArtifactName": {
-            "type": "string",
-            "description": "Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.\n"
-        },
-        "provisioningParameters": {
-            "type": "array",
-            "items": {
-                "$ref": "#/types/aws:servicecatalog/ProvisionedProductProvisioningParameter:ProvisionedProductProvisioningParameter"
-            },
-            "description": "Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.\n"
-        },
-        "retainPhysicalResources": {
-            "type": "boolean",
-            "description": "_Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.\n"
-        },
-        "stackSetProvisioningPreferences": {
-            "$ref": "#/types/aws:servicecatalog/ProvisionedProductStackSetProvisioningPreferences:ProvisionedProductStackSetProvisioningPreferences",
-            "description": "Configuration block with information about the provisioning preferences for a stack set. See details below.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ProvisionedProduct resources.\n",
-        "properties": {
-            "acceptLanguage": {
-                "type": "string",
-                "description": "Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "ARN of the provisioned product.\n"
-            },
-            "cloudwatchDashboardNames": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "acceptLanguage": {
+                    "type": "string",
+                    "description": "Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.\n"
                 },
-                "description": "Set of CloudWatch dashboards that were created when provisioning the product.\n"
-            },
-            "createdTime": {
-                "type": "string",
-                "description": "Time when the provisioned product was created.\n"
-            },
-            "ignoreErrors": {
-                "type": "boolean",
-                "description": "_Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.\n"
-            },
-            "lastProvisioningRecordId": {
-                "type": "string",
-                "description": "Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.\n"
-            },
-            "lastRecordId": {
-                "type": "string",
-                "description": "Record identifier of the last request performed on this provisioned product.\n"
-            },
-            "lastSuccessfulProvisioningRecordId": {
-                "type": "string",
-                "description": "Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.\n"
-            },
-            "launchRoleArn": {
-                "type": "string",
-                "description": "ARN of the launch role associated with the provisioned product.\n"
-            },
-            "name": {
-                "type": "string",
-                "description": "User-friendly name of the provisioned product.\n\nThe following arguments are optional:\n",
-                "willReplaceOnChanges": true
-            },
-            "notificationArns": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the provisioned product.\n"
                 },
-                "description": "Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.\n",
-                "willReplaceOnChanges": true
-            },
-            "outputs": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:servicecatalog/ProvisionedProductOutput:ProvisionedProductOutput"
+                "cloudwatchDashboardNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of CloudWatch dashboards that were created when provisioning the product.\n"
                 },
-                "description": "The set of outputs for the product created.\n"
-            },
-            "pathId": {
-                "type": "string",
-                "description": "Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.\n"
-            },
-            "pathName": {
-                "type": "string",
-                "description": "Name of the path. You must provide `path_id` or `path_name`, but not both.\n"
-            },
-            "productId": {
-                "type": "string",
-                "description": "Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.\n"
-            },
-            "productName": {
-                "type": "string",
-                "description": "Name of the product. You must provide `product_id` or `product_name`, but not both.\n"
-            },
-            "provisioningArtifactId": {
-                "type": "string",
-                "description": "Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.\n"
-            },
-            "provisioningArtifactName": {
-                "type": "string",
-                "description": "Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.\n"
-            },
-            "provisioningParameters": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:servicecatalog/ProvisionedProductProvisioningParameter:ProvisionedProductProvisioningParameter"
+                "createdTime": {
+                    "type": "string",
+                    "description": "Time when the provisioned product was created.\n"
                 },
-                "description": "Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.\n"
-            },
-            "retainPhysicalResources": {
-                "type": "boolean",
-                "description": "_Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.\n"
-            },
-            "stackSetProvisioningPreferences": {
-                "$ref": "#/types/aws:servicecatalog/ProvisionedProductStackSetProvisioningPreferences:ProvisionedProductStackSetProvisioningPreferences",
-                "description": "Configuration block with information about the provisioning preferences for a stack set. See details below.\n"
-            },
-            "status": {
-                "type": "string",
-                "description": "Current status of the provisioned product. See meanings below.\n"
-            },
-            "statusMessage": {
-                "type": "string",
-                "description": "Current status message of the provisioned product.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "ignoreErrors": {
+                    "type": "boolean",
+                    "description": "_Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.\n"
                 },
-                "description": "Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "lastProvisioningRecordId": {
+                    "type": "string",
+                    "description": "Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.\n"
                 },
-                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "lastRecordId": {
+                    "type": "string",
+                    "description": "Record identifier of the last request performed on this provisioned product.\n"
+                },
+                "lastSuccessfulProvisioningRecordId": {
+                    "type": "string",
+                    "description": "Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.\n"
+                },
+                "launchRoleArn": {
+                    "type": "string",
+                    "description": "ARN of the launch role associated with the provisioned product.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "User-friendly name of the provisioned product.\n\nThe following arguments are optional:\n"
+                },
+                "notificationArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.\n"
+                },
+                "outputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:servicecatalog/ProvisionedProductOutput:ProvisionedProductOutput"
+                    },
+                    "description": "The set of outputs for the product created.\n"
+                },
+                "pathId": {
+                    "type": "string",
+                    "description": "Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.\n"
+                },
+                "pathName": {
+                    "type": "string",
+                    "description": "Name of the path. You must provide `path_id` or `path_name`, but not both.\n"
+                },
+                "productId": {
+                    "type": "string",
+                    "description": "Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.\n"
+                },
+                "productName": {
+                    "type": "string",
+                    "description": "Name of the product. You must provide `product_id` or `product_name`, but not both.\n"
+                },
+                "provisioningArtifactId": {
+                    "type": "string",
+                    "description": "Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.\n"
+                },
+                "provisioningArtifactName": {
+                    "type": "string",
+                    "description": "Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.\n"
+                },
+                "provisioningParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:servicecatalog/ProvisionedProductProvisioningParameter:ProvisionedProductProvisioningParameter"
+                    },
+                    "description": "Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.\n"
+                },
+                "retainPhysicalResources": {
+                    "type": "boolean",
+                    "description": "_Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.\n"
+                },
+                "stackSetProvisioningPreferences": {
+                    "$ref": "#/types/aws:servicecatalog/ProvisionedProductStackSetProvisioningPreferences:ProvisionedProductStackSetProvisioningPreferences",
+                    "description": "Configuration block with information about the provisioning preferences for a stack set. See details below.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Current status of the provisioned product. See meanings below.\n"
+                },
+                "statusMessage": {
+                    "type": "string",
+                    "description": "Current status message of the provisioned product.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.\n"
+                }
             },
-            "type": {
-                "type": "string",
-                "description": "Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.\n"
+            "required": [
+                "arn",
+                "cloudwatchDashboardNames",
+                "createdTime",
+                "lastProvisioningRecordId",
+                "lastRecordId",
+                "lastSuccessfulProvisioningRecordId",
+                "launchRoleArn",
+                "name",
+                "outputs",
+                "pathId",
+                "productId",
+                "provisioningArtifactId",
+                "status",
+                "statusMessage",
+                "tagsAll",
+                "type"
+            ],
+            "inputProperties": {
+                "acceptLanguage": {
+                    "type": "string",
+                    "description": "Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.\n"
+                },
+                "ignoreErrors": {
+                    "type": "boolean",
+                    "description": "_Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "User-friendly name of the provisioned product.\n\nThe following arguments are optional:\n",
+                    "willReplaceOnChanges": true
+                },
+                "notificationArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.\n",
+                    "willReplaceOnChanges": true
+                },
+                "pathId": {
+                    "type": "string",
+                    "description": "Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.\n"
+                },
+                "pathName": {
+                    "type": "string",
+                    "description": "Name of the path. You must provide `path_id` or `path_name`, but not both.\n"
+                },
+                "productId": {
+                    "type": "string",
+                    "description": "Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.\n"
+                },
+                "productName": {
+                    "type": "string",
+                    "description": "Name of the product. You must provide `product_id` or `product_name`, but not both.\n"
+                },
+                "provisioningArtifactId": {
+                    "type": "string",
+                    "description": "Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.\n"
+                },
+                "provisioningArtifactName": {
+                    "type": "string",
+                    "description": "Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.\n"
+                },
+                "provisioningParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws:servicecatalog/ProvisionedProductProvisioningParameter:ProvisionedProductProvisioningParameter"
+                    },
+                    "description": "Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.\n"
+                },
+                "retainPhysicalResources": {
+                    "type": "boolean",
+                    "description": "_Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.\n"
+                },
+                "stackSetProvisioningPreferences": {
+                    "$ref": "#/types/aws:servicecatalog/ProvisionedProductStackSetProvisioningPreferences:ProvisionedProductStackSetProvisioningPreferences",
+                    "description": "Configuration block with information about the provisioning preferences for a stack set. See details below.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ProvisionedProduct resources.\n",
+                "properties": {
+                    "acceptLanguage": {
+                        "type": "string",
+                        "description": "Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "ARN of the provisioned product.\n"
+                    },
+                    "cloudwatchDashboardNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of CloudWatch dashboards that were created when provisioning the product.\n"
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "Time when the provisioned product was created.\n"
+                    },
+                    "ignoreErrors": {
+                        "type": "boolean",
+                        "description": "_Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.\n"
+                    },
+                    "lastProvisioningRecordId": {
+                        "type": "string",
+                        "description": "Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.\n"
+                    },
+                    "lastRecordId": {
+                        "type": "string",
+                        "description": "Record identifier of the last request performed on this provisioned product.\n"
+                    },
+                    "lastSuccessfulProvisioningRecordId": {
+                        "type": "string",
+                        "description": "Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.\n"
+                    },
+                    "launchRoleArn": {
+                        "type": "string",
+                        "description": "ARN of the launch role associated with the provisioned product.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "User-friendly name of the provisioned product.\n\nThe following arguments are optional:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "notificationArns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "outputs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:servicecatalog/ProvisionedProductOutput:ProvisionedProductOutput"
+                        },
+                        "description": "The set of outputs for the product created.\n"
+                    },
+                    "pathId": {
+                        "type": "string",
+                        "description": "Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.\n"
+                    },
+                    "pathName": {
+                        "type": "string",
+                        "description": "Name of the path. You must provide `path_id` or `path_name`, but not both.\n"
+                    },
+                    "productId": {
+                        "type": "string",
+                        "description": "Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.\n"
+                    },
+                    "productName": {
+                        "type": "string",
+                        "description": "Name of the product. You must provide `product_id` or `product_name`, but not both.\n"
+                    },
+                    "provisioningArtifactId": {
+                        "type": "string",
+                        "description": "Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.\n"
+                    },
+                    "provisioningArtifactName": {
+                        "type": "string",
+                        "description": "Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.\n"
+                    },
+                    "provisioningParameters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:servicecatalog/ProvisionedProductProvisioningParameter:ProvisionedProductProvisioningParameter"
+                        },
+                        "description": "Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.\n"
+                    },
+                    "retainPhysicalResources": {
+                        "type": "boolean",
+                        "description": "_Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.\n"
+                    },
+                    "stackSetProvisioningPreferences": {
+                        "$ref": "#/types/aws:servicecatalog/ProvisionedProductStackSetProvisioningPreferences:ProvisionedProductStackSetProvisioningPreferences",
+                        "description": "Configuration block with information about the provisioning preferences for a stack set. See details below.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Current status of the provisioned product. See meanings below.\n"
+                    },
+                    "statusMessage": {
+                        "type": "string",
+                        "description": "Current status message of the provisioned product.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

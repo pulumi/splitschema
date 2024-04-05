@@ -1,341 +1,341 @@
 {
-    "properties": {
-        "applyImmediately": {
-            "type": "boolean",
-            "description": "Specifies whether any database modifications\nare applied immediately, or during the next maintenance window. Default is`false`.\n"
-        },
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of cluster instance\n"
-        },
-        "autoMinorVersionUpgrade": {
-            "type": "boolean",
-            "description": "This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.\n"
-        },
-        "availabilityZone": {
-            "type": "string",
-            "description": "The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.\n"
-        },
-        "caCertIdentifier": {
-            "type": "string",
-            "description": "(Optional) The identifier of the CA certificate for the DB instance.\n"
-        },
-        "clusterIdentifier": {
-            "type": "string",
-            "description": "The identifier of the `aws.docdb.Cluster` in which to launch this instance.\n"
-        },
-        "copyTagsToSnapshot": {
-            "type": "boolean",
-            "description": "Copy all DB instance `tags` to snapshots. Default is `false`.\n"
-        },
-        "dbSubnetGroupName": {
-            "type": "string",
-            "description": "The DB subnet group to associate with this DB instance.\n"
-        },
-        "dbiResourceId": {
-            "type": "string",
-            "description": "The region-unique, immutable identifier for the DB instance.\n"
-        },
-        "enablePerformanceInsights": {
-            "type": "boolean",
-            "description": "A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.\n"
-        },
-        "endpoint": {
-            "type": "string",
-            "description": "The DNS address for this instance. May not be writable\n"
-        },
-        "engine": {
-            "type": "string",
-            "description": "The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.\n"
-        },
-        "engineVersion": {
-            "type": "string",
-            "description": "The database engine version\n"
-        },
-        "identifier": {
-            "type": "string",
-            "description": "The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.\n"
-        },
-        "identifierPrefix": {
-            "type": "string",
-            "description": "Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.\n"
-        },
-        "instanceClass": {
-            "type": "string",
-            "description": "The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).\nDocumentDB currently supports the below instance classes.\nPlease see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.\n- db.r6g.large\n- db.r6g.xlarge\n- db.r6g.2xlarge\n- db.r6g.4xlarge\n- db.r6g.8xlarge\n- db.r6g.12xlarge\n- db.r6g.16xlarge\n- db.r5.large\n- db.r5.xlarge\n- db.r5.2xlarge\n- db.r5.4xlarge\n- db.r5.12xlarge\n- db.r5.24xlarge\n- db.r4.large\n- db.r4.xlarge\n- db.r4.2xlarge\n- db.r4.4xlarge\n- db.r4.8xlarge\n- db.r4.16xlarge\n- db.t4g.medium\n- db.t3.medium\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "The ARN for the KMS encryption key if one is set to the cluster.\n"
-        },
-        "performanceInsightsKmsKeyId": {
-            "type": "string",
-            "description": "The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.\n"
-        },
-        "port": {
-            "type": "integer",
-            "description": "The database port\n"
-        },
-        "preferredBackupWindow": {
-            "type": "string",
-            "description": "The daily time range during which automated backups are created if automated backups are enabled.\n"
-        },
-        "preferredMaintenanceWindow": {
-            "type": "string",
-            "description": "The window to perform maintenance in.\nSyntax: \"ddd:hh24:mi-ddd:hh24:mi\". Eg: \"Mon:00:00-Mon:03:00\".\n"
-        },
-        "promotionTier": {
-            "type": "integer",
-            "description": "Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.\n"
-        },
-        "publiclyAccessible": {
-            "type": "boolean"
-        },
-        "storageEncrypted": {
-            "type": "boolean",
-            "description": "Specifies whether the DB cluster is encrypted.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "writer": {
-            "type": "boolean",
-            "description": "Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "availabilityZone",
-        "caCertIdentifier",
-        "clusterIdentifier",
-        "dbSubnetGroupName",
-        "dbiResourceId",
-        "endpoint",
-        "engineVersion",
-        "identifier",
-        "identifierPrefix",
-        "instanceClass",
-        "kmsKeyId",
-        "performanceInsightsKmsKeyId",
-        "port",
-        "preferredBackupWindow",
-        "preferredMaintenanceWindow",
-        "publiclyAccessible",
-        "storageEncrypted",
-        "tagsAll",
-        "writer"
-    ],
-    "inputProperties": {
-        "applyImmediately": {
-            "type": "boolean",
-            "description": "Specifies whether any database modifications\nare applied immediately, or during the next maintenance window. Default is`false`.\n"
-        },
-        "autoMinorVersionUpgrade": {
-            "type": "boolean",
-            "description": "This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.\n"
-        },
-        "availabilityZone": {
-            "type": "string",
-            "description": "The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.\n",
-            "willReplaceOnChanges": true
-        },
-        "caCertIdentifier": {
-            "type": "string",
-            "description": "(Optional) The identifier of the CA certificate for the DB instance.\n"
-        },
-        "clusterIdentifier": {
-            "type": "string",
-            "description": "The identifier of the `aws.docdb.Cluster` in which to launch this instance.\n",
-            "willReplaceOnChanges": true
-        },
-        "copyTagsToSnapshot": {
-            "type": "boolean",
-            "description": "Copy all DB instance `tags` to snapshots. Default is `false`.\n"
-        },
-        "enablePerformanceInsights": {
-            "type": "boolean",
-            "description": "A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.\n"
-        },
-        "engine": {
-            "type": "string",
-            "description": "The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.\n",
-            "willReplaceOnChanges": true
-        },
-        "identifier": {
-            "type": "string",
-            "description": "The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.\n",
-            "willReplaceOnChanges": true
-        },
-        "identifierPrefix": {
-            "type": "string",
-            "description": "Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.\n",
-            "willReplaceOnChanges": true
-        },
-        "instanceClass": {
-            "type": "string",
-            "description": "The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).\nDocumentDB currently supports the below instance classes.\nPlease see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.\n- db.r6g.large\n- db.r6g.xlarge\n- db.r6g.2xlarge\n- db.r6g.4xlarge\n- db.r6g.8xlarge\n- db.r6g.12xlarge\n- db.r6g.16xlarge\n- db.r5.large\n- db.r5.xlarge\n- db.r5.2xlarge\n- db.r5.4xlarge\n- db.r5.12xlarge\n- db.r5.24xlarge\n- db.r4.large\n- db.r4.xlarge\n- db.r4.2xlarge\n- db.r4.4xlarge\n- db.r4.8xlarge\n- db.r4.16xlarge\n- db.t4g.medium\n- db.t3.medium\n"
-        },
-        "performanceInsightsKmsKeyId": {
-            "type": "string",
-            "description": "The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.\n"
-        },
-        "preferredMaintenanceWindow": {
-            "type": "string",
-            "description": "The window to perform maintenance in.\nSyntax: \"ddd:hh24:mi-ddd:hh24:mi\". Eg: \"Mon:00:00-Mon:03:00\".\n"
-        },
-        "promotionTier": {
-            "type": "integer",
-            "description": "Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-        }
-    },
-    "requiredInputs": [
-        "clusterIdentifier",
-        "instanceClass"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering ClusterInstance resources.\n",
-        "properties": {
-            "applyImmediately": {
-                "type": "boolean",
-                "description": "Specifies whether any database modifications\nare applied immediately, or during the next maintenance window. Default is`false`.\n"
-            },
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of cluster instance\n"
-            },
-            "autoMinorVersionUpgrade": {
-                "type": "boolean",
-                "description": "This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.\n"
-            },
-            "availabilityZone": {
-                "type": "string",
-                "description": "The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.\n",
-                "willReplaceOnChanges": true
-            },
-            "caCertIdentifier": {
-                "type": "string",
-                "description": "(Optional) The identifier of the CA certificate for the DB instance.\n"
-            },
-            "clusterIdentifier": {
-                "type": "string",
-                "description": "The identifier of the `aws.docdb.Cluster` in which to launch this instance.\n",
-                "willReplaceOnChanges": true
-            },
-            "copyTagsToSnapshot": {
-                "type": "boolean",
-                "description": "Copy all DB instance `tags` to snapshots. Default is `false`.\n"
-            },
-            "dbSubnetGroupName": {
-                "type": "string",
-                "description": "The DB subnet group to associate with this DB instance.\n"
-            },
-            "dbiResourceId": {
-                "type": "string",
-                "description": "The region-unique, immutable identifier for the DB instance.\n"
-            },
-            "enablePerformanceInsights": {
-                "type": "boolean",
-                "description": "A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.\n"
-            },
-            "endpoint": {
-                "type": "string",
-                "description": "The DNS address for this instance. May not be writable\n"
-            },
-            "engine": {
-                "type": "string",
-                "description": "The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.\n",
-                "willReplaceOnChanges": true
-            },
-            "engineVersion": {
-                "type": "string",
-                "description": "The database engine version\n"
-            },
-            "identifier": {
-                "type": "string",
-                "description": "The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.\n",
-                "willReplaceOnChanges": true
-            },
-            "identifierPrefix": {
-                "type": "string",
-                "description": "Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.\n",
-                "willReplaceOnChanges": true
-            },
-            "instanceClass": {
-                "type": "string",
-                "description": "The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).\nDocumentDB currently supports the below instance classes.\nPlease see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.\n- db.r6g.large\n- db.r6g.xlarge\n- db.r6g.2xlarge\n- db.r6g.4xlarge\n- db.r6g.8xlarge\n- db.r6g.12xlarge\n- db.r6g.16xlarge\n- db.r5.large\n- db.r5.xlarge\n- db.r5.2xlarge\n- db.r5.4xlarge\n- db.r5.12xlarge\n- db.r5.24xlarge\n- db.r4.large\n- db.r4.xlarge\n- db.r4.2xlarge\n- db.r4.4xlarge\n- db.r4.8xlarge\n- db.r4.16xlarge\n- db.t4g.medium\n- db.t3.medium\n"
-            },
-            "kmsKeyId": {
-                "type": "string",
-                "description": "The ARN for the KMS encryption key if one is set to the cluster.\n"
-            },
-            "performanceInsightsKmsKeyId": {
-                "type": "string",
-                "description": "The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.\n"
-            },
-            "port": {
-                "type": "integer",
-                "description": "The database port\n"
-            },
-            "preferredBackupWindow": {
-                "type": "string",
-                "description": "The daily time range during which automated backups are created if automated backups are enabled.\n"
-            },
-            "preferredMaintenanceWindow": {
-                "type": "string",
-                "description": "The window to perform maintenance in.\nSyntax: \"ddd:hh24:mi-ddd:hh24:mi\". Eg: \"Mon:00:00-Mon:03:00\".\n"
-            },
-            "promotionTier": {
-                "type": "integer",
-                "description": "Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.\n"
-            },
-            "publiclyAccessible": {
-                "type": "boolean"
-            },
-            "storageEncrypted": {
-                "type": "boolean",
-                "description": "Specifies whether the DB cluster is encrypted.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+            "properties": {
+                "applyImmediately": {
+                    "type": "boolean",
+                    "description": "Specifies whether any database modifications\nare applied immediately, or during the next maintenance window. Default is`false`.\n"
                 },
-                "description": "A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
-                    "type": "string"
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of cluster instance\n"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "autoMinorVersionUpgrade": {
+                    "type": "boolean",
+                    "description": "This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.\n"
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.\n"
+                },
+                "caCertIdentifier": {
+                    "type": "string",
+                    "description": "(Optional) The identifier of the CA certificate for the DB instance.\n"
+                },
+                "clusterIdentifier": {
+                    "type": "string",
+                    "description": "The identifier of the `aws.docdb.Cluster` in which to launch this instance.\n"
+                },
+                "copyTagsToSnapshot": {
+                    "type": "boolean",
+                    "description": "Copy all DB instance `tags` to snapshots. Default is `false`.\n"
+                },
+                "dbSubnetGroupName": {
+                    "type": "string",
+                    "description": "The DB subnet group to associate with this DB instance.\n"
+                },
+                "dbiResourceId": {
+                    "type": "string",
+                    "description": "The region-unique, immutable identifier for the DB instance.\n"
+                },
+                "enablePerformanceInsights": {
+                    "type": "boolean",
+                    "description": "A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.\n"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "The DNS address for this instance. May not be writable\n"
+                },
+                "engine": {
+                    "type": "string",
+                    "description": "The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.\n"
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "The database engine version\n"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.\n"
+                },
+                "identifierPrefix": {
+                    "type": "string",
+                    "description": "Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.\n"
+                },
+                "instanceClass": {
+                    "type": "string",
+                    "description": "The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).\nDocumentDB currently supports the below instance classes.\nPlease see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.\n- db.r6g.large\n- db.r6g.xlarge\n- db.r6g.2xlarge\n- db.r6g.4xlarge\n- db.r6g.8xlarge\n- db.r6g.12xlarge\n- db.r6g.16xlarge\n- db.r5.large\n- db.r5.xlarge\n- db.r5.2xlarge\n- db.r5.4xlarge\n- db.r5.12xlarge\n- db.r5.24xlarge\n- db.r4.large\n- db.r4.xlarge\n- db.r4.2xlarge\n- db.r4.4xlarge\n- db.r4.8xlarge\n- db.r4.16xlarge\n- db.t4g.medium\n- db.t3.medium\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ARN for the KMS encryption key if one is set to the cluster.\n"
+                },
+                "performanceInsightsKmsKeyId": {
+                    "type": "string",
+                    "description": "The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The database port\n"
+                },
+                "preferredBackupWindow": {
+                    "type": "string",
+                    "description": "The daily time range during which automated backups are created if automated backups are enabled.\n"
+                },
+                "preferredMaintenanceWindow": {
+                    "type": "string",
+                    "description": "The window to perform maintenance in.\nSyntax: \"ddd:hh24:mi-ddd:hh24:mi\". Eg: \"Mon:00:00-Mon:03:00\".\n"
+                },
+                "promotionTier": {
+                    "type": "integer",
+                    "description": "Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.\n"
+                },
+                "publiclyAccessible": {
+                    "type": "boolean"
+                },
+                "storageEncrypted": {
+                    "type": "boolean",
+                    "description": "Specifies whether the DB cluster is encrypted.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "writer": {
+                    "type": "boolean",
+                    "description": "Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.\n"
+                }
             },
-            "writer": {
-                "type": "boolean",
-                "description": "Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.\n"
+            "required": [
+                "arn",
+                "availabilityZone",
+                "caCertIdentifier",
+                "clusterIdentifier",
+                "dbSubnetGroupName",
+                "dbiResourceId",
+                "endpoint",
+                "engineVersion",
+                "identifier",
+                "identifierPrefix",
+                "instanceClass",
+                "kmsKeyId",
+                "performanceInsightsKmsKeyId",
+                "port",
+                "preferredBackupWindow",
+                "preferredMaintenanceWindow",
+                "publiclyAccessible",
+                "storageEncrypted",
+                "tagsAll",
+                "writer"
+            ],
+            "inputProperties": {
+                "applyImmediately": {
+                    "type": "boolean",
+                    "description": "Specifies whether any database modifications\nare applied immediately, or during the next maintenance window. Default is`false`.\n"
+                },
+                "autoMinorVersionUpgrade": {
+                    "type": "boolean",
+                    "description": "This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.\n"
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.\n",
+                    "willReplaceOnChanges": true
+                },
+                "caCertIdentifier": {
+                    "type": "string",
+                    "description": "(Optional) The identifier of the CA certificate for the DB instance.\n"
+                },
+                "clusterIdentifier": {
+                    "type": "string",
+                    "description": "The identifier of the `aws.docdb.Cluster` in which to launch this instance.\n",
+                    "willReplaceOnChanges": true
+                },
+                "copyTagsToSnapshot": {
+                    "type": "boolean",
+                    "description": "Copy all DB instance `tags` to snapshots. Default is `false`.\n"
+                },
+                "enablePerformanceInsights": {
+                    "type": "boolean",
+                    "description": "A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.\n"
+                },
+                "engine": {
+                    "type": "string",
+                    "description": "The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.\n",
+                    "willReplaceOnChanges": true
+                },
+                "identifierPrefix": {
+                    "type": "string",
+                    "description": "Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "instanceClass": {
+                    "type": "string",
+                    "description": "The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).\nDocumentDB currently supports the below instance classes.\nPlease see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.\n- db.r6g.large\n- db.r6g.xlarge\n- db.r6g.2xlarge\n- db.r6g.4xlarge\n- db.r6g.8xlarge\n- db.r6g.12xlarge\n- db.r6g.16xlarge\n- db.r5.large\n- db.r5.xlarge\n- db.r5.2xlarge\n- db.r5.4xlarge\n- db.r5.12xlarge\n- db.r5.24xlarge\n- db.r4.large\n- db.r4.xlarge\n- db.r4.2xlarge\n- db.r4.4xlarge\n- db.r4.8xlarge\n- db.r4.16xlarge\n- db.t4g.medium\n- db.t3.medium\n"
+                },
+                "performanceInsightsKmsKeyId": {
+                    "type": "string",
+                    "description": "The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.\n"
+                },
+                "preferredMaintenanceWindow": {
+                    "type": "string",
+                    "description": "The window to perform maintenance in.\nSyntax: \"ddd:hh24:mi-ddd:hh24:mi\". Eg: \"Mon:00:00-Mon:03:00\".\n"
+                },
+                "promotionTier": {
+                    "type": "integer",
+                    "description": "Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                }
+            },
+            "requiredInputs": [
+                "clusterIdentifier",
+                "instanceClass"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ClusterInstance resources.\n",
+                "properties": {
+                    "applyImmediately": {
+                        "type": "boolean",
+                        "description": "Specifies whether any database modifications\nare applied immediately, or during the next maintenance window. Default is`false`.\n"
+                    },
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of cluster instance\n"
+                    },
+                    "autoMinorVersionUpgrade": {
+                        "type": "boolean",
+                        "description": "This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.\n"
+                    },
+                    "availabilityZone": {
+                        "type": "string",
+                        "description": "The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "caCertIdentifier": {
+                        "type": "string",
+                        "description": "(Optional) The identifier of the CA certificate for the DB instance.\n"
+                    },
+                    "clusterIdentifier": {
+                        "type": "string",
+                        "description": "The identifier of the `aws.docdb.Cluster` in which to launch this instance.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "copyTagsToSnapshot": {
+                        "type": "boolean",
+                        "description": "Copy all DB instance `tags` to snapshots. Default is `false`.\n"
+                    },
+                    "dbSubnetGroupName": {
+                        "type": "string",
+                        "description": "The DB subnet group to associate with this DB instance.\n"
+                    },
+                    "dbiResourceId": {
+                        "type": "string",
+                        "description": "The region-unique, immutable identifier for the DB instance.\n"
+                    },
+                    "enablePerformanceInsights": {
+                        "type": "boolean",
+                        "description": "A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.\n"
+                    },
+                    "endpoint": {
+                        "type": "string",
+                        "description": "The DNS address for this instance. May not be writable\n"
+                    },
+                    "engine": {
+                        "type": "string",
+                        "description": "The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "engineVersion": {
+                        "type": "string",
+                        "description": "The database engine version\n"
+                    },
+                    "identifier": {
+                        "type": "string",
+                        "description": "The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "identifierPrefix": {
+                        "type": "string",
+                        "description": "Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "instanceClass": {
+                        "type": "string",
+                        "description": "The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).\nDocumentDB currently supports the below instance classes.\nPlease see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.\n- db.r6g.large\n- db.r6g.xlarge\n- db.r6g.2xlarge\n- db.r6g.4xlarge\n- db.r6g.8xlarge\n- db.r6g.12xlarge\n- db.r6g.16xlarge\n- db.r5.large\n- db.r5.xlarge\n- db.r5.2xlarge\n- db.r5.4xlarge\n- db.r5.12xlarge\n- db.r5.24xlarge\n- db.r4.large\n- db.r4.xlarge\n- db.r4.2xlarge\n- db.r4.4xlarge\n- db.r4.8xlarge\n- db.r4.16xlarge\n- db.t4g.medium\n- db.t3.medium\n"
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "description": "The ARN for the KMS encryption key if one is set to the cluster.\n"
+                    },
+                    "performanceInsightsKmsKeyId": {
+                        "type": "string",
+                        "description": "The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.\n"
+                    },
+                    "port": {
+                        "type": "integer",
+                        "description": "The database port\n"
+                    },
+                    "preferredBackupWindow": {
+                        "type": "string",
+                        "description": "The daily time range during which automated backups are created if automated backups are enabled.\n"
+                    },
+                    "preferredMaintenanceWindow": {
+                        "type": "string",
+                        "description": "The window to perform maintenance in.\nSyntax: \"ddd:hh24:mi-ddd:hh24:mi\". Eg: \"Mon:00:00-Mon:03:00\".\n"
+                    },
+                    "promotionTier": {
+                        "type": "integer",
+                        "description": "Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.\n"
+                    },
+                    "publiclyAccessible": {
+                        "type": "boolean"
+                    },
+                    "storageEncrypted": {
+                        "type": "boolean",
+                        "description": "Specifies whether the DB cluster is encrypted.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "writer": {
+                        "type": "boolean",
+                        "description": "Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

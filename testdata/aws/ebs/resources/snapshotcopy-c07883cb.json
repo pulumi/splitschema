@@ -1,226 +1,226 @@
 {
-    "properties": {
-        "arn": {
-            "type": "string",
-            "description": "Amazon Resource Name (ARN) of the EBS Snapshot.\n"
-        },
-        "dataEncryptionKeyId": {
-            "type": "string",
-            "description": "The data encryption key identifier for the snapshot.\n"
-        },
-        "description": {
-            "type": "string",
-            "description": "A description of what the snapshot is.\n"
-        },
-        "encrypted": {
-            "type": "boolean",
-            "description": "Whether the snapshot is encrypted.\n"
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "The ARN for the KMS encryption key.\n"
-        },
-        "outpostArn": {
-            "type": "string"
-        },
-        "ownerAlias": {
-            "type": "string",
-            "description": "Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.\n"
-        },
-        "ownerId": {
-            "type": "string",
-            "description": "The AWS account ID of the snapshot owner.\n"
-        },
-        "permanentRestore": {
-            "type": "boolean",
-            "description": "Indicates whether to permanently restore an archived snapshot.\n"
-        },
-        "sourceRegion": {
-            "type": "string",
-            "description": "The region of the source snapshot.\n"
-        },
-        "sourceSnapshotId": {
-            "type": "string",
-            "description": "The ARN for the snapshot to be copied.\n"
-        },
-        "storageTier": {
-            "type": "string",
-            "description": "The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags for the snapshot.\n"
-        },
-        "tagsAll": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-            "deprecationMessage": "Please use `tags` instead.",
-            "secret": true
-        },
-        "temporaryRestoreDays": {
-            "type": "integer",
-            "description": "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.\n"
-        },
-        "volumeId": {
-            "type": "string"
-        },
-        "volumeSize": {
-            "type": "integer",
-            "description": "The size of the drive in GiBs.\n"
-        }
-    },
-    "required": [
-        "arn",
-        "dataEncryptionKeyId",
-        "outpostArn",
-        "ownerAlias",
-        "ownerId",
-        "sourceRegion",
-        "sourceSnapshotId",
-        "storageTier",
-        "tagsAll",
-        "volumeId",
-        "volumeSize"
-    ],
-    "inputProperties": {
-        "description": {
-            "type": "string",
-            "description": "A description of what the snapshot is.\n",
-            "willReplaceOnChanges": true
-        },
-        "encrypted": {
-            "type": "boolean",
-            "description": "Whether the snapshot is encrypted.\n",
-            "willReplaceOnChanges": true
-        },
-        "kmsKeyId": {
-            "type": "string",
-            "description": "The ARN for the KMS encryption key.\n",
-            "willReplaceOnChanges": true
-        },
-        "permanentRestore": {
-            "type": "boolean",
-            "description": "Indicates whether to permanently restore an archived snapshot.\n"
-        },
-        "sourceRegion": {
-            "type": "string",
-            "description": "The region of the source snapshot.\n",
-            "willReplaceOnChanges": true
-        },
-        "sourceSnapshotId": {
-            "type": "string",
-            "description": "The ARN for the snapshot to be copied.\n",
-            "willReplaceOnChanges": true
-        },
-        "storageTier": {
-            "type": "string",
-            "description": "The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.\n"
-        },
-        "tags": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            },
-            "description": "A map of tags for the snapshot.\n"
-        },
-        "temporaryRestoreDays": {
-            "type": "integer",
-            "description": "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.\n"
-        }
-    },
-    "requiredInputs": [
-        "sourceRegion",
-        "sourceSnapshotId"
-    ],
-    "stateInputs": {
-        "description": "Input properties used for looking up and filtering SnapshotCopy resources.\n",
-        "properties": {
-            "arn": {
-                "type": "string",
-                "description": "Amazon Resource Name (ARN) of the EBS Snapshot.\n"
-            },
-            "dataEncryptionKeyId": {
-                "type": "string",
-                "description": "The data encryption key identifier for the snapshot.\n"
-            },
-            "description": {
-                "type": "string",
-                "description": "A description of what the snapshot is.\n",
-                "willReplaceOnChanges": true
-            },
-            "encrypted": {
-                "type": "boolean",
-                "description": "Whether the snapshot is encrypted.\n",
-                "willReplaceOnChanges": true
-            },
-            "kmsKeyId": {
-                "type": "string",
-                "description": "The ARN for the KMS encryption key.\n",
-                "willReplaceOnChanges": true
-            },
-            "outpostArn": {
-                "type": "string"
-            },
-            "ownerAlias": {
-                "type": "string",
-                "description": "Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.\n"
-            },
-            "ownerId": {
-                "type": "string",
-                "description": "The AWS account ID of the snapshot owner.\n"
-            },
-            "permanentRestore": {
-                "type": "boolean",
-                "description": "Indicates whether to permanently restore an archived snapshot.\n"
-            },
-            "sourceRegion": {
-                "type": "string",
-                "description": "The region of the source snapshot.\n",
-                "willReplaceOnChanges": true
-            },
-            "sourceSnapshotId": {
-                "type": "string",
-                "description": "The ARN for the snapshot to be copied.\n",
-                "willReplaceOnChanges": true
-            },
-            "storageTier": {
-                "type": "string",
-                "description": "The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.\n"
-            },
-            "tags": {
-                "type": "object",
-                "additionalProperties": {
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) of the EBS Snapshot.\n"
+                },
+                "dataEncryptionKeyId": {
+                    "type": "string",
+                    "description": "The data encryption key identifier for the snapshot.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of what the snapshot is.\n"
+                },
+                "encrypted": {
+                    "type": "boolean",
+                    "description": "Whether the snapshot is encrypted.\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ARN for the KMS encryption key.\n"
+                },
+                "outpostArn": {
                     "type": "string"
                 },
-                "description": "A map of tags for the snapshot.\n"
-            },
-            "tagsAll": {
-                "type": "object",
-                "additionalProperties": {
+                "ownerAlias": {
+                    "type": "string",
+                    "description": "Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.\n"
+                },
+                "ownerId": {
+                    "type": "string",
+                    "description": "The AWS account ID of the snapshot owner.\n"
+                },
+                "permanentRestore": {
+                    "type": "boolean",
+                    "description": "Indicates whether to permanently restore an archived snapshot.\n"
+                },
+                "sourceRegion": {
+                    "type": "string",
+                    "description": "The region of the source snapshot.\n"
+                },
+                "sourceSnapshotId": {
+                    "type": "string",
+                    "description": "The ARN for the snapshot to be copied.\n"
+                },
+                "storageTier": {
+                    "type": "string",
+                    "description": "The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags for the snapshot.\n"
+                },
+                "tagsAll": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                    "deprecationMessage": "Please use `tags` instead.",
+                    "secret": true
+                },
+                "temporaryRestoreDays": {
+                    "type": "integer",
+                    "description": "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.\n"
+                },
+                "volumeId": {
                     "type": "string"
                 },
-                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
-                "deprecationMessage": "Please use `tags` instead.",
-                "secret": true
+                "volumeSize": {
+                    "type": "integer",
+                    "description": "The size of the drive in GiBs.\n"
+                }
             },
-            "temporaryRestoreDays": {
-                "type": "integer",
-                "description": "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.\n"
+            "required": [
+                "arn",
+                "dataEncryptionKeyId",
+                "outpostArn",
+                "ownerAlias",
+                "ownerId",
+                "sourceRegion",
+                "sourceSnapshotId",
+                "storageTier",
+                "tagsAll",
+                "volumeId",
+                "volumeSize"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description of what the snapshot is.\n",
+                    "willReplaceOnChanges": true
+                },
+                "encrypted": {
+                    "type": "boolean",
+                    "description": "Whether the snapshot is encrypted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ARN for the KMS encryption key.\n",
+                    "willReplaceOnChanges": true
+                },
+                "permanentRestore": {
+                    "type": "boolean",
+                    "description": "Indicates whether to permanently restore an archived snapshot.\n"
+                },
+                "sourceRegion": {
+                    "type": "string",
+                    "description": "The region of the source snapshot.\n",
+                    "willReplaceOnChanges": true
+                },
+                "sourceSnapshotId": {
+                    "type": "string",
+                    "description": "The ARN for the snapshot to be copied.\n",
+                    "willReplaceOnChanges": true
+                },
+                "storageTier": {
+                    "type": "string",
+                    "description": "The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.\n"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of tags for the snapshot.\n"
+                },
+                "temporaryRestoreDays": {
+                    "type": "integer",
+                    "description": "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.\n"
+                }
             },
-            "volumeId": {
-                "type": "string"
-            },
-            "volumeSize": {
-                "type": "integer",
-                "description": "The size of the drive in GiBs.\n"
+            "requiredInputs": [
+                "sourceRegion",
+                "sourceSnapshotId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SnapshotCopy resources.\n",
+                "properties": {
+                    "arn": {
+                        "type": "string",
+                        "description": "Amazon Resource Name (ARN) of the EBS Snapshot.\n"
+                    },
+                    "dataEncryptionKeyId": {
+                        "type": "string",
+                        "description": "The data encryption key identifier for the snapshot.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of what the snapshot is.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "encrypted": {
+                        "type": "boolean",
+                        "description": "Whether the snapshot is encrypted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "description": "The ARN for the KMS encryption key.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "outpostArn": {
+                        "type": "string"
+                    },
+                    "ownerAlias": {
+                        "type": "string",
+                        "description": "Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.\n"
+                    },
+                    "ownerId": {
+                        "type": "string",
+                        "description": "The AWS account ID of the snapshot owner.\n"
+                    },
+                    "permanentRestore": {
+                        "type": "boolean",
+                        "description": "Indicates whether to permanently restore an archived snapshot.\n"
+                    },
+                    "sourceRegion": {
+                        "type": "string",
+                        "description": "The region of the source snapshot.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "sourceSnapshotId": {
+                        "type": "string",
+                        "description": "The ARN for the snapshot to be copied.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "storageTier": {
+                        "type": "string",
+                        "description": "The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags for the snapshot.\n"
+                    },
+                    "tagsAll": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                        "deprecationMessage": "Please use `tags` instead.",
+                        "secret": true
+                    },
+                    "temporaryRestoreDays": {
+                        "type": "integer",
+                        "description": "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.\n"
+                    },
+                    "volumeId": {
+                        "type": "string"
+                    },
+                    "volumeSize": {
+                        "type": "integer",
+                        "description": "The size of the drive in GiBs.\n"
+                    }
+                },
+                "type": "object"
             }
-        },
-        "type": "object"
-    }
-}
+        }

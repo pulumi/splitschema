@@ -1,78 +1,78 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getLink.\n",
-        "properties": {
-            "linkIdentifier": {
-                "type": "string",
-                "description": "ARN of the link.\n"
-            },
-            "tags": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLink.\n",
+                "properties": {
+                    "linkIdentifier": {
+                        "type": "string",
+                        "description": "ARN of the link.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    }
+                },
                 "type": "object",
-                "additionalProperties": {
-                    "type": "string"
-                }
-            }
-        },
-        "type": "object",
-        "required": [
-            "linkIdentifier"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getLink.\n",
-        "properties": {
-            "arn": {
-                "description": "ARN of the link.\n",
-                "type": "string"
+                "required": [
+                    "linkIdentifier"
+                ]
             },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "label": {
-                "description": "Label that is assigned to this link.\n",
-                "type": "string"
-            },
-            "labelTemplate": {
-                "description": "Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.\n",
-                "type": "string"
-            },
-            "linkId": {
-                "description": "ID string that AWS generated as part of the link ARN.\n",
-                "type": "string"
-            },
-            "linkIdentifier": {
-                "type": "string"
-            },
-            "resourceTypes": {
-                "description": "Types of data that the source account shares with the monitoring account.\n",
-                "items": {
-                    "type": "string"
+            "outputs": {
+                "description": "A collection of values returned by getLink.\n",
+                "properties": {
+                    "arn": {
+                        "description": "ARN of the link.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "label": {
+                        "description": "Label that is assigned to this link.\n",
+                        "type": "string"
+                    },
+                    "labelTemplate": {
+                        "description": "Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.\n",
+                        "type": "string"
+                    },
+                    "linkId": {
+                        "description": "ID string that AWS generated as part of the link ARN.\n",
+                        "type": "string"
+                    },
+                    "linkIdentifier": {
+                        "type": "string"
+                    },
+                    "resourceTypes": {
+                        "description": "Types of data that the source account shares with the monitoring account.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "sinkArn": {
+                        "description": "ARN of the sink that is used for this link.\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "type": "object"
+                    }
                 },
-                "type": "array"
-            },
-            "sinkArn": {
-                "description": "ARN of the sink that is used for this link.\n",
-                "type": "string"
-            },
-            "tags": {
-                "additionalProperties": {
-                    "type": "string"
-                },
+                "required": [
+                    "arn",
+                    "label",
+                    "labelTemplate",
+                    "linkId",
+                    "linkIdentifier",
+                    "resourceTypes",
+                    "sinkArn",
+                    "tags",
+                    "id"
+                ],
                 "type": "object"
             }
-        },
-        "required": [
-            "arn",
-            "label",
-            "labelTemplate",
-            "linkId",
-            "linkIdentifier",
-            "resourceTypes",
-            "sinkArn",
-            "tags",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

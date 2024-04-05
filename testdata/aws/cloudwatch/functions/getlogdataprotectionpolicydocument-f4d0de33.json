@@ -1,64 +1,64 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getLogDataProtectionPolicyDocument.\n",
-        "properties": {
-            "description": {
-                "type": "string"
-            },
-            "name": {
-                "type": "string",
-                "description": "The name of the data protection policy document.\n"
-            },
-            "statements": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:cloudwatch/getLogDataProtectionPolicyDocumentStatement:getLogDataProtectionPolicyDocumentStatement"
+            "inputs": {
+                "description": "A collection of arguments for invoking getLogDataProtectionPolicyDocument.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the data protection policy document.\n"
+                    },
+                    "statements": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:cloudwatch/getLogDataProtectionPolicyDocumentStatement:getLogDataProtectionPolicyDocumentStatement"
+                        },
+                        "description": "Configures the data protection policy.\n\n\u003e There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.\n\nThe following arguments are optional:\n"
+                    },
+                    "version": {
+                        "type": "string"
+                    }
                 },
-                "description": "Configures the data protection policy.\n\n\u003e There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.\n\nThe following arguments are optional:\n"
+                "type": "object",
+                "required": [
+                    "name",
+                    "statements"
+                ]
             },
-            "version": {
-                "type": "string"
-            }
-        },
-        "type": "object",
-        "required": [
-            "name",
-            "statements"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getLogDataProtectionPolicyDocument.\n",
-        "properties": {
-            "description": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "json": {
-                "description": "Standard JSON policy document rendered based on the arguments above.\n",
-                "type": "string"
-            },
-            "name": {
-                "type": "string"
-            },
-            "statements": {
-                "items": {
-                    "$ref": "#/types/aws:cloudwatch/getLogDataProtectionPolicyDocumentStatement:getLogDataProtectionPolicyDocumentStatement"
+            "outputs": {
+                "description": "A collection of values returned by getLogDataProtectionPolicyDocument.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "json": {
+                        "description": "Standard JSON policy document rendered based on the arguments above.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "statements": {
+                        "items": {
+                            "$ref": "#/types/aws:cloudwatch/getLogDataProtectionPolicyDocumentStatement:getLogDataProtectionPolicyDocumentStatement"
+                        },
+                        "type": "array"
+                    },
+                    "version": {
+                        "type": "string"
+                    }
                 },
-                "type": "array"
-            },
-            "version": {
-                "type": "string"
+                "required": [
+                    "json",
+                    "name",
+                    "statements",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "required": [
-            "json",
-            "name",
-            "statements",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }

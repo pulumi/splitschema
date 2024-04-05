@@ -1,87 +1,87 @@
 {
-    "inputs": {
-        "description": "A collection of arguments for invoking getUser.\n",
-        "properties": {
-            "accessString": {
-                "type": "string",
-                "description": "String for what access a user possesses within the associated ElastiCache replication groups or clusters.\n"
-            },
-            "authenticationModes": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/types/aws:elasticache/getUserAuthenticationMode:getUserAuthenticationMode"
-                }
-            },
-            "engine": {
-                "type": "string"
-            },
-            "noPasswordRequired": {
-                "type": "boolean"
-            },
-            "passwords": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "inputs": {
+                "description": "A collection of arguments for invoking getUser.\n",
+                "properties": {
+                    "accessString": {
+                        "type": "string",
+                        "description": "String for what access a user possesses within the associated ElastiCache replication groups or clusters.\n"
+                    },
+                    "authenticationModes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/aws:elasticache/getUserAuthenticationMode:getUserAuthenticationMode"
+                        }
+                    },
+                    "engine": {
+                        "type": "string"
+                    },
+                    "noPasswordRequired": {
+                        "type": "boolean"
+                    },
+                    "passwords": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "secret": true
+                    },
+                    "userId": {
+                        "type": "string",
+                        "description": "Identifier for the user.\n"
+                    },
+                    "userName": {
+                        "type": "string",
+                        "description": "User name of the user.\n"
+                    }
                 },
-                "secret": true
+                "type": "object",
+                "required": [
+                    "userId"
+                ]
             },
-            "userId": {
-                "type": "string",
-                "description": "Identifier for the user.\n"
-            },
-            "userName": {
-                "type": "string",
-                "description": "User name of the user.\n"
+            "outputs": {
+                "description": "A collection of values returned by getUser.\n",
+                "properties": {
+                    "accessString": {
+                        "description": "String for what access a user possesses within the associated ElastiCache replication groups or clusters.\n",
+                        "type": "string"
+                    },
+                    "authenticationModes": {
+                        "items": {
+                            "$ref": "#/types/aws:elasticache/getUserAuthenticationMode:getUserAuthenticationMode"
+                        },
+                        "type": "array"
+                    },
+                    "engine": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "noPasswordRequired": {
+                        "type": "boolean"
+                    },
+                    "passwords": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "secret": true,
+                        "type": "array"
+                    },
+                    "userId": {
+                        "description": "Identifier for the user.\n",
+                        "type": "string"
+                    },
+                    "userName": {
+                        "description": "User name of the user.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "userId",
+                    "id"
+                ],
+                "type": "object"
             }
-        },
-        "type": "object",
-        "required": [
-            "userId"
-        ]
-    },
-    "outputs": {
-        "description": "A collection of values returned by getUser.\n",
-        "properties": {
-            "accessString": {
-                "description": "String for what access a user possesses within the associated ElastiCache replication groups or clusters.\n",
-                "type": "string"
-            },
-            "authenticationModes": {
-                "items": {
-                    "$ref": "#/types/aws:elasticache/getUserAuthenticationMode:getUserAuthenticationMode"
-                },
-                "type": "array"
-            },
-            "engine": {
-                "type": "string"
-            },
-            "id": {
-                "description": "The provider-assigned unique ID for this managed resource.\n",
-                "type": "string"
-            },
-            "noPasswordRequired": {
-                "type": "boolean"
-            },
-            "passwords": {
-                "items": {
-                    "type": "string"
-                },
-                "secret": true,
-                "type": "array"
-            },
-            "userId": {
-                "description": "Identifier for the user.\n",
-                "type": "string"
-            },
-            "userName": {
-                "description": "User name of the user.\n",
-                "type": "string"
-            }
-        },
-        "required": [
-            "userId",
-            "id"
-        ],
-        "type": "object"
-    }
-}
+        }
