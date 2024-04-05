@@ -76,11 +76,11 @@ Prior art: [github.com/pulumi/pulumi-schema-explode](https://github.com/pulumi/p
 
 ## Performance
 
-|Reading | Time |
+| Reading | Time |
 | -- | -- |
 | AWS Embedded Monolith - Schema | 290ms |
 | AWS Embedded Split - Schema | 62ms |
-| AWS Embedded Split - Single resource | 1.9ms |
+| AWS Embedded Split - Single resource | 0.4ms |
 
 ## Developing Locally
 

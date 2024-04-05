@@ -160,13 +160,9 @@ func (p *partialPackage) GetResource(token string) (*schema.ResourceSpec, error)
 	if spec, ok := p.resources.Get(token); ok {
 		return spec, nil
 	}
-	mappings, err := p.getResourceTokenMappings()
+	path, err := getPath(token, "resources")
 	if err != nil {
 		return nil, err
-	}
-	path, ok := mappings.mapping[token]
-	if !ok {
-		return nil, nil
 	}
 	var spec schema.ResourceSpec
 	description, err := p.reader.readSpec(path, &spec)
@@ -226,13 +222,9 @@ func (p *partialPackage) GetFunction(token string) (*schema.FunctionSpec, error)
 	if spec, ok := p.functions.Get(token); ok {
 		return spec, nil
 	}
-	mappings, err := p.getFunctionTokenMappings()
+	path, err := getPath(token, "functions")
 	if err != nil {
 		return nil, err
-	}
-	path, ok := mappings.mapping[token]
-	if !ok {
-		return nil, nil
 	}
 	var spec schema.FunctionSpec
 	description, err := p.reader.readSpec(path, &spec)
@@ -291,13 +283,9 @@ func (p *partialPackage) GetType(token string) (*schema.ComplexTypeSpec, error) 
 	if spec, ok := p.types.Get(token); ok {
 		return spec, nil
 	}
-	mappings, err := p.getTypeTokenMappings()
+	path, err := getPath(token, "types")
 	if err != nil {
 		return nil, err
-	}
-	path, ok := mappings.mapping[token]
-	if !ok {
-		return nil, nil
 	}
 	var spec schema.ComplexTypeSpec
 	description, err := p.reader.readSpec(path, &spec)

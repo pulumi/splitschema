@@ -27,6 +27,16 @@ func TestEmbedded(t *testing.T) {
 	assert.NotEmpty(t, resources)
 }
 
+func BenchmarkGetResource(b *testing.B) {
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		pkg := NewPartialPackage(awsEmbeddedSplit, "testdata/aws")
+		_, err := pkg.GetResource("aws:ec2/instance:Instance")
+		require.NoError(b, err)
+		b.Log(i, b.Elapsed())
+	}
+}
+
 func BenchmarkReadResourcesEmbedded(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		pkg := NewPartialPackage(awsEmbeddedSplit, "testdata/aws")
