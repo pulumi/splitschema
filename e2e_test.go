@@ -167,3 +167,35 @@ func readPackage(path string) (*schema.PackageSpec, error) {
 	}
 	return &pkg, nil
 }
+
+func TestMetadataRoundTrip(t *testing.T) {
+	token := "test:index:resource"
+	pkg := schema.PackageSpec{
+		Name: "test",
+		Resources: map[string]schema.ResourceSpec{
+			token: {
+				InputProperties: map[string]schema.PropertySpec{
+					"foo": {
+						TypeSpec: schema.TypeSpec{
+							Type: "string",
+						},
+					},
+				},
+			},
+		},
+	}
+	metadata := TypedPackageMetadata[map[string]any, any, any]{
+		Resources: map[string]map[string]any{
+			token: map[string]interface{}{
+				"metaKey": "metaValue",
+			},
+		},
+	}
+	dir := t.TempDir()
+	require.NoError(t, WritePackageSpecWithTypedMetadata(dir, &pkg, &metadata))
+
+	readSpec := NewLocalPartialPackageWithMetadata[map[string]interface{}, any, any](dir)
+	actual, err := readSpec.GetResourceMeta(token)
+	require.NoError(t, err)
+	assert.Equal(t, metadata.Resources[token], *actual)
+}

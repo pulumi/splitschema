@@ -13,6 +13,14 @@ import (
 )
 
 func WritePackageSpec(path string, pkg *schema.PackageSpec) error {
+	return WritePackageSpecWithMetadata(path, pkg, nil)
+}
+
+func WritePackageSpecWithMetadata(path string, pkg *schema.PackageSpec, metadata *PackageMetadata) error {
+	return WritePackageSpecWithTypedMetadata(path, pkg, metadata)
+}
+
+func WritePackageSpecWithTypedMetadata[Resource, Function, Type any](path string, pkg *schema.PackageSpec, metadata *TypedPackageMetadata[Resource, Function, Type]) error {
 	pkgCopy := *pkg
 	functions := pkg.Functions
 	pkgCopy.Functions = nil
@@ -26,18 +34,6 @@ func WritePackageSpec(path string, pkg *schema.PackageSpec) error {
 		return err
 	}
 
-	typeTokens := make(map[string]string, len(types))
-	for token, typ := range types {
-		path, err := writer.WriteType(token, typ)
-		if err != nil {
-			return err
-		}
-		typeTokens[token] = path
-	}
-	if err := writer.WriteData("types", typeTokens, ""); err != nil {
-		return err
-	}
-
 	resourceTokens := make(map[string]string, len(resources))
 	for token, resource := range resources {
 		path, err := writer.WriteResource(token, resource)
@@ -45,6 +41,15 @@ func WritePackageSpec(path string, pkg *schema.PackageSpec) error {
 			return err
 		}
 		resourceTokens[token] = path
+	}
+	if metadata != nil {
+		for token, resourceMetadata := range metadata.Resources {
+			path, err := writer.WriteMetadata(token, "resources", resourceMetadata)
+			if err != nil {
+				return err
+			}
+			resourceTokens[token] = path
+		}
 	}
 	if err := writer.WriteData("resources", resourceTokens, ""); err != nil {
 		return err
@@ -58,11 +63,49 @@ func WritePackageSpec(path string, pkg *schema.PackageSpec) error {
 		}
 		functionTokens[token] = path
 	}
+	if metadata != nil {
+		for token, functionMetadata := range metadata.Functions {
+			path, err := writer.WriteSpec(token, "functions", functionMetadata, "")
+			if err != nil {
+				return err
+			}
+			functionTokens[token] = path
+		}
+	}
 	if err := writer.WriteData("functions", functionTokens, ""); err != nil {
 		return err
 	}
 
+	typeTokens := make(map[string]string, len(types))
+	for token, typ := range types {
+		path, err := writer.WriteType(token, typ)
+		if err != nil {
+			return err
+		}
+		typeTokens[token] = path
+	}
+	if metadata != nil {
+		for token, typeMetadata := range metadata.Types {
+			path, err := writer.WriteSpec(token, "types", typeMetadata, "")
+			if err != nil {
+				return err
+			}
+			typeTokens[token] = path
+		}
+	}
+	if err := writer.WriteData("types", typeTokens, ""); err != nil {
+		return err
+	}
+
 	return nil
+}
+
+type PackageMetadata = TypedPackageMetadata[any, any, any]
+
+type TypedPackageMetadata[Resource, Function, Type any] struct {
+	Resources map[string]Resource
+	Functions map[string]Function
+	Types     map[string]Type
 }
 
 type writer struct {
@@ -115,6 +158,19 @@ func (w *writer) WriteSpec(token string, kind string, data any, markdown string)
 	}
 
 	if err := w.WriteData(path, data, "        "); err != nil {
+		return "", err
+	}
+	return path, nil
+}
+
+func (w *writer) WriteMetadata(token string, kind string, data any) (string, error) {
+	// Handle module names which include type name after "/"
+	path, err := getPath(token, kind)
+	if err != nil {
+		return "", err
+	}
+
+	if err := w.WriteData(path+".meta", data, ""); err != nil {
 		return "", err
 	}
 	return path, nil
