@@ -116,43 +116,38 @@ func (p *partialPackage) ReadPackageSpec() (*schema.PackageSpec, error) {
 	if err != nil {
 		return nil, err
 	}
-	resourceTokens, err := p.GetResourceTokens()
-	if err != nil {
-		return nil, err
-	}
-	core.Resources = make(map[string]schema.ResourceSpec, len(resourceTokens))
-	for _, v := range resourceTokens {
-		res, err := p.GetResource(v)
-		if err != nil {
-			return nil, err
-		}
-		core.Resources[v] = *res
-	}
 
-	functionTokens, err := p.GetFunctionTokens()
-	if err != nil {
-		return nil, err
-	}
-	core.Functions = make(map[string]schema.FunctionSpec, len(functionTokens))
-	for _, v := range functionTokens {
-		fn, err := p.GetFunction(v)
-		if err != nil {
-			return nil, err
-		}
-		core.Functions[v] = *fn
-	}
+	var waitGroup sync.WaitGroup
+	var resourceLoadErr, functionLoadErr, typesLoadErr error
 
-	typeTokens, err := p.GetTypeTokens()
-	if err != nil {
-		return nil, err
+	waitGroup.Add(1)
+	go func() {
+		core.Resources, resourceLoadErr = p.GetResources()
+		waitGroup.Done()
+	}()
+
+	waitGroup.Add(1)
+	go func() {
+		core.Functions, functionLoadErr = p.GetFunctions()
+		waitGroup.Done()
+	}()
+
+	waitGroup.Add(1)
+	go func() {
+		core.Types, typesLoadErr = p.GetTypes()
+		waitGroup.Done()
+	}()
+
+	waitGroup.Wait()
+
+	if resourceLoadErr != nil {
+		return nil, resourceLoadErr
 	}
-	core.Types = make(map[string]schema.ComplexTypeSpec, len(typeTokens))
-	for _, v := range typeTokens {
-		typ, err := p.GetType(v)
-		if err != nil {
-			return nil, err
-		}
-		core.Types[v] = *typ
+	if functionLoadErr != nil {
+		return nil, functionLoadErr
+	}
+	if typesLoadErr != nil {
+		return nil, typesLoadErr
 	}
 	return core, nil
 }
@@ -167,6 +162,37 @@ func (p *partialPackage) getCore() (*schema.PackageSpec, error) {
 	}
 	p.core = &core
 	return p.core, nil
+}
+
+func (p *partialPackage) GetResources() (map[string]schema.ResourceSpec, error) {
+	resourceTokens, err := p.GetResourceTokens()
+	if err != nil {
+		return nil, err
+	}
+	var lastErr error
+	resources := make([]*schema.ResourceSpec, len(resourceTokens))
+	var waitGroup sync.WaitGroup
+	for i, v := range resourceTokens {
+		waitGroup.Add(1)
+		go func(index int, token string) {
+			res, err := p.GetResource(token)
+			if err != nil {
+				lastErr = err
+			}
+			resources[index] = res
+			waitGroup.Done()
+		}(i, v)
+	}
+	waitGroup.Wait()
+	if lastErr != nil {
+		return nil, lastErr
+	}
+
+	resourceMap := make(map[string]schema.ResourceSpec, len(resourceTokens))
+	for i, v := range resourceTokens {
+		resourceMap[v] = *resources[i]
+	}
+	return resourceMap, nil
 }
 
 func (p *partialPackage) GetResource(token string) (*schema.ResourceSpec, error) {
@@ -204,6 +230,37 @@ func (p *partialPackage) GetResourceTokens() ([]string, error) {
 	return tokens, err
 }
 
+func (p *partialPackage) GetFunctions() (map[string]schema.FunctionSpec, error) {
+	functionTokens, err := p.GetFunctionTokens()
+	if err != nil {
+		return nil, err
+	}
+	var lastErr error
+	functions := make([]*schema.FunctionSpec, len(functionTokens))
+	var waitGroup sync.WaitGroup
+	for i, v := range functionTokens {
+		waitGroup.Add(1)
+		go func(index int, token string) {
+			fn, err := p.GetFunction(token)
+			if err != nil {
+				lastErr = err
+			}
+			functions[index] = fn
+			waitGroup.Done()
+		}(i, v)
+	}
+	waitGroup.Wait()
+	if lastErr != nil {
+		return nil, lastErr
+	}
+
+	functionMap := make(map[string]schema.FunctionSpec, len(functionTokens))
+	for i, v := range functionTokens {
+		functionMap[v] = *functions[i]
+	}
+	return functionMap, nil
+}
+
 func (p *partialPackage) GetFunction(token string) (*schema.FunctionSpec, error) {
 	if spec, ok := p.functions.Get(token); ok {
 		return spec, nil
@@ -236,6 +293,37 @@ func (p *partialPackage) GetFunction(token string) (*schema.FunctionSpec, error)
 func (p *partialPackage) GetFunctionTokens() ([]string, error) {
 	_, tokens, err := p.getFunctionTokenMappings()
 	return tokens, err
+}
+
+func (p *partialPackage) GetTypes() (map[string]schema.ComplexTypeSpec, error) {
+	typeTokens, err := p.GetTypeTokens()
+	if err != nil {
+		return nil, err
+	}
+	var lastErr error
+	types := make([]*schema.ComplexTypeSpec, len(typeTokens))
+	var waitGroup sync.WaitGroup
+	for i, v := range typeTokens {
+		waitGroup.Add(1)
+		go func(index int, token string) {
+			typ, err := p.GetType(token)
+			if err != nil {
+				lastErr = err
+			}
+			types[index] = typ
+			waitGroup.Done()
+		}(i, v)
+	}
+	waitGroup.Wait()
+	if lastErr != nil {
+		return nil, lastErr
+	}
+
+	typeMap := make(map[string]schema.ComplexTypeSpec, len(typeTokens))
+	for i, v := range typeTokens {
+		typeMap[v] = *types[i]
+	}
+	return typeMap, nil
 }
 
 func (p *partialPackage) GetType(token string) (*schema.ComplexTypeSpec, error) {

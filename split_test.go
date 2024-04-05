@@ -13,10 +13,13 @@ import (
 )
 
 //go:embed testdata/aws/*
-var content embed.FS
+var awsEmbeddedSplit embed.FS
+
+//go:embed testdata/aws.json
+var awsEmbedded []byte
 
 func TestEmbedded(t *testing.T) {
-	pkg := NewPartialPackage(content, "testdata/aws")
+	pkg := NewPartialPackage(awsEmbeddedSplit, "testdata/aws")
 	resources, err := pkg.GetResourceTokens()
 	require.NoError(t, err)
 	assert.NotEmpty(t, resources)
@@ -24,11 +27,20 @@ func TestEmbedded(t *testing.T) {
 
 func BenchmarkReadResourcesEmbedded(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		pkg := NewPartialPackage(content, "testdata/aws")
+		pkg := NewPartialPackage(awsEmbeddedSplit, "testdata/aws")
 		_, err := pkg.ReadPackageSpec()
 		if err != nil {
 			b.Fatal(err)
 		}
+		b.Log(i, b.Elapsed())
+	}
+}
+
+func BenchmarkOldEmbedded(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		var pkg schema.PackageSpec
+		err := json.Unmarshal(awsEmbedded, &pkg)
+		require.NoError(b, err)
 		b.Log(i, b.Elapsed())
 	}
 }
@@ -128,27 +140,4 @@ func readPackage(path string) (*schema.PackageSpec, error) {
 		return nil, err
 	}
 	return &pkg, nil
-}
-
-func getPackage() schema.PackageSpec {
-	pkg := schema.PackageSpec{
-		Name: "test",
-		Resources: map[string]schema.ResourceSpec{
-			"pkg:myMod:test": {
-				ObjectTypeSpec: schema.ObjectTypeSpec{
-					Description: "test",
-					Type:        "object",
-					Properties: map[string]schema.PropertySpec{
-						"test": {
-							Description: "test",
-							TypeSpec: schema.TypeSpec{
-								Type: "string",
-							},
-						},
-					},
-				},
-			},
-		},
-	}
-	return pkg
 }
