@@ -78,3 +78,8 @@ Prior art: [github.com/pulumi/pulumi-schema-explode](https://github.com/pulumi/p
 | AWS Embedded Monolith - Schema | 290ms |
 | AWS Embedded Split - Schema | 62ms |
 | AWS Embedded Split - Single resource | 1.9ms |
+
+## Developing Locally
+
+1. Run `go generate` to populate the `./testdata/` folder so embedding will work.
+2. Run `go test -bench .` to run tests including benchmarks.
