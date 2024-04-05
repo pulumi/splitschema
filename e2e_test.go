@@ -156,11 +156,11 @@ func TestAwsRoundTrip(t *testing.T) {
 }
 
 func readPackage(path string) (*schema.PackageSpec, error) {
-	var pkg schema.PackageSpec
 	bytes, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
+	var pkg schema.PackageSpec
 	err = json.Unmarshal(bytes, &pkg)
 	if err != nil {
 		return nil, err

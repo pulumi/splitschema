@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"slices"
 	"sync"
+	"sync/atomic"
 
 	ccmap "github.com/orcaman/concurrent-map/v2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -22,24 +23,20 @@ func ReadPackageSpec(path string) (*schema.PackageSpec, error) {
 type partialPackage struct {
 	core *schema.PackageSpec
 
-	reader                reader
-	resourceTokenMappings map[string]string
-	resourceTokensList    []string
-	resourceTokensRead    bool
-	resourceTokensLock    sync.Mutex
-	resources             ccmap.ConcurrentMap[string, *schema.ResourceSpec]
+	reader         reader
+	resourceTokens atomic.Pointer[tokenMappings]
+	resources      ccmap.ConcurrentMap[string, *schema.ResourceSpec]
 
-	functionTokenMappings map[string]string
-	functionTokensList    []string
-	functionTokensRead    bool
-	functionTokensLock    sync.Mutex
-	functions             ccmap.ConcurrentMap[string, *schema.FunctionSpec]
+	functionTokens atomic.Pointer[tokenMappings]
+	functions      ccmap.ConcurrentMap[string, *schema.FunctionSpec]
 
-	typeTokenMappings map[string]string
-	typeTokensList    []string
-	typeTokensRead    bool
-	typeTokenLock     sync.Mutex
-	types             ccmap.ConcurrentMap[string, *schema.ComplexTypeSpec]
+	typeTokens atomic.Pointer[tokenMappings]
+	types      ccmap.ConcurrentMap[string, *schema.ComplexTypeSpec]
+}
+
+type tokenMappings struct {
+	mapping map[string]string
+	list    []string
 }
 
 func NewPartialFsPackage(basePath string) partialPackage {
@@ -143,11 +140,11 @@ func (p *partialPackage) GetResource(token string) (*schema.ResourceSpec, error)
 	if spec, ok := p.resources.Get(token); ok {
 		return spec, nil
 	}
-	tokens, _, err := p.getResourceTokenMappings()
+	mappings, err := p.getResourceTokenMappings()
 	if err != nil {
 		return nil, err
 	}
-	path, ok := tokens[token]
+	path, ok := mappings.mapping[token]
 	if !ok {
 		return nil, nil
 	}
@@ -170,8 +167,8 @@ func (p *partialPackage) GetResource(token string) (*schema.ResourceSpec, error)
 
 // GetResourceTokens returns the resource tokens for the package sorted alphabetically.
 func (p *partialPackage) GetResourceTokens() ([]string, error) {
-	_, tokens, err := p.getResourceTokenMappings()
-	return tokens, err
+	mappings, err := p.getResourceTokenMappings()
+	return mappings.list, err
 }
 
 func (p *partialPackage) GetFunctions() (map[string]schema.FunctionSpec, error) {
@@ -209,11 +206,11 @@ func (p *partialPackage) GetFunction(token string) (*schema.FunctionSpec, error)
 	if spec, ok := p.functions.Get(token); ok {
 		return spec, nil
 	}
-	tokens, _, err := p.getFunctionTokenMappings()
+	mappings, err := p.getFunctionTokenMappings()
 	if err != nil {
 		return nil, err
 	}
-	path, ok := tokens[token]
+	path, ok := mappings.mapping[token]
 	if !ok {
 		return nil, nil
 	}
@@ -235,8 +232,8 @@ func (p *partialPackage) GetFunction(token string) (*schema.FunctionSpec, error)
 }
 
 func (p *partialPackage) GetFunctionTokens() ([]string, error) {
-	_, tokens, err := p.getFunctionTokenMappings()
-	return tokens, err
+	mappings, err := p.getFunctionTokenMappings()
+	return mappings.list, err
 }
 
 func (p *partialPackage) GetTypes() (map[string]schema.ComplexTypeSpec, error) {
@@ -274,11 +271,11 @@ func (p *partialPackage) GetType(token string) (*schema.ComplexTypeSpec, error) 
 	if spec, ok := p.types.Get(token); ok {
 		return spec, nil
 	}
-	tokens, _, err := p.getTypeTokenMappings()
+	mappings, err := p.getTypeTokenMappings()
 	if err != nil {
 		return nil, err
 	}
-	path, ok := tokens[token]
+	path, ok := mappings.mapping[token]
 	if !ok {
 		return nil, nil
 	}
@@ -300,89 +297,44 @@ func (p *partialPackage) GetType(token string) (*schema.ComplexTypeSpec, error) 
 }
 
 func (p *partialPackage) GetTypeTokens() ([]string, error) {
-	_, tokens, err := p.getTypeTokenMappings()
-	return tokens, err
+	mappings, err := p.getTypeTokenMappings()
+	return mappings.list, err
 }
 
 // getResourceTokenMappings returns the resource token mappings and a sorted list of resource tokens.
-func (p *partialPackage) getResourceTokenMappings() (map[string]string, []string, error) {
-	if p.resourceTokensRead {
-		return p.resourceTokenMappings, p.resourceTokensList, nil
-	}
-
-	p.resourceTokensLock.Lock()
-	defer p.resourceTokensLock.Unlock()
-	if p.resourceTokensRead {
-		return p.resourceTokenMappings, p.resourceTokensList, nil
-	}
-
-	var resourceTokenMappings map[string]string
-	if err := p.reader.ReadData("resources", &resourceTokenMappings); err != nil {
-		return nil, nil, err
-	}
-	resourceTokensList := make([]string, 0, len(resourceTokenMappings))
-	for token := range resourceTokenMappings {
-		resourceTokensList = append(resourceTokensList, token)
-	}
-	slices.Sort(resourceTokensList)
-
-	p.resourceTokenMappings = resourceTokenMappings
-	p.resourceTokensList = resourceTokensList
-	p.resourceTokensRead = true
-	return p.resourceTokenMappings, p.resourceTokensList, nil
+func (p *partialPackage) getResourceTokenMappings() (*tokenMappings, error) {
+	return p.getTokenMappings(&p.resourceTokens, "resources")
 }
 
-func (p *partialPackage) getTypeTokenMappings() (map[string]string, []string, error) {
-	if p.typeTokensRead {
-		return p.typeTokenMappings, p.typeTokensList, nil
+func (p *partialPackage) getTokenMappings(tokenMappingsPtr *atomic.Pointer[tokenMappings], pathExExt string) (*tokenMappings, error) {
+	if mappings := tokenMappingsPtr.Load(); mappings != nil {
+		return mappings, nil
 	}
 
-	p.typeTokenLock.Lock()
-	defer p.typeTokenLock.Unlock()
-	if p.typeTokensRead {
-		return p.typeTokenMappings, p.typeTokensList, nil
+	mappings := tokenMappings{}
+
+	if err := p.reader.ReadData(pathExExt, &mappings.mapping); err != nil {
+		return nil, err
+	}
+	mappings.list = make([]string, 0, len(mappings.mapping))
+	for token := range mappings.mapping {
+		mappings.list = append(mappings.list, token)
+	}
+	slices.Sort(mappings.list)
+
+	if !tokenMappingsPtr.CompareAndSwap(nil, &mappings) {
+		return tokenMappingsPtr.Load(), nil
 	}
 
-	var typeTokenMappings map[string]string
-	if err := p.reader.ReadData("types", &typeTokenMappings); err != nil {
-		return nil, nil, err
-	}
-	typeTokensList := make([]string, 0, len(typeTokenMappings))
-	for token := range typeTokenMappings {
-		typeTokensList = append(typeTokensList, token)
-	}
-	slices.Sort(typeTokensList)
-
-	p.typeTokenMappings = typeTokenMappings
-	p.typeTokensList = typeTokensList
-	p.typeTokensRead = true
-	return p.typeTokenMappings, p.typeTokensList, nil
+	return &mappings, nil
 }
 
-func (p *partialPackage) getFunctionTokenMappings() (map[string]string, []string, error) {
-	if p.functionTokensRead {
-		return p.functionTokenMappings, p.functionTokensList, nil
-	}
+func (p *partialPackage) getTypeTokenMappings() (*tokenMappings, error) {
+	return p.getTokenMappings(&p.typeTokens, "types")
+}
 
-	p.functionTokensLock.Lock()
-	defer p.functionTokensLock.Unlock()
-	if p.functionTokensRead {
-		return p.functionTokenMappings, p.functionTokensList, nil
-	}
-
-	var functionTokenMappings map[string]string
-	if err := p.reader.ReadData("functions", &functionTokenMappings); err != nil {
-		return nil, nil, err
-	}
-	functionTokensList := make([]string, 0, len(functionTokenMappings))
-	for token := range functionTokenMappings {
-		functionTokensList = append(functionTokensList, token)
-	}
-	slices.Sort(functionTokensList)
-	p.functionTokenMappings = functionTokenMappings
-	p.functionTokensList = functionTokensList
-	p.functionTokensRead = true
-	return p.functionTokenMappings, p.functionTokensList, nil
+func (p *partialPackage) getFunctionTokenMappings() (*tokenMappings, error) {
+	return p.getTokenMappings(&p.functionTokens, "functions")
 }
 
 type reader struct {
