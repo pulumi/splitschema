@@ -1,0 +1,93 @@
+{
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.\n"
+        },
+        "s3BucketName": {
+            "type": "string",
+            "description": "The name of the S3 bucket used to store the configuration history.\n"
+        },
+        "s3KeyPrefix": {
+            "type": "string",
+            "description": "The prefix for the specified S3 bucket.\n"
+        },
+        "s3KmsKeyArn": {
+            "type": "string",
+            "description": "The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.\n"
+        },
+        "snapshotDeliveryProperties": {
+            "$ref": "#/types/aws:cfg/DeliveryChannelSnapshotDeliveryProperties:DeliveryChannelSnapshotDeliveryProperties",
+            "description": "Options for how AWS Config delivers configuration snapshots. See below\n"
+        },
+        "snsTopicArn": {
+            "type": "string",
+            "description": "The ARN of the SNS topic that AWS Config delivers notifications to.\n"
+        }
+    },
+    "required": [
+        "name",
+        "s3BucketName"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.\n",
+            "willReplaceOnChanges": true
+        },
+        "s3BucketName": {
+            "type": "string",
+            "description": "The name of the S3 bucket used to store the configuration history.\n"
+        },
+        "s3KeyPrefix": {
+            "type": "string",
+            "description": "The prefix for the specified S3 bucket.\n"
+        },
+        "s3KmsKeyArn": {
+            "type": "string",
+            "description": "The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.\n"
+        },
+        "snapshotDeliveryProperties": {
+            "$ref": "#/types/aws:cfg/DeliveryChannelSnapshotDeliveryProperties:DeliveryChannelSnapshotDeliveryProperties",
+            "description": "Options for how AWS Config delivers configuration snapshots. See below\n"
+        },
+        "snsTopicArn": {
+            "type": "string",
+            "description": "The ARN of the SNS topic that AWS Config delivers notifications to.\n"
+        }
+    },
+    "requiredInputs": [
+        "s3BucketName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering DeliveryChannel resources.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.\n",
+                "willReplaceOnChanges": true
+            },
+            "s3BucketName": {
+                "type": "string",
+                "description": "The name of the S3 bucket used to store the configuration history.\n"
+            },
+            "s3KeyPrefix": {
+                "type": "string",
+                "description": "The prefix for the specified S3 bucket.\n"
+            },
+            "s3KmsKeyArn": {
+                "type": "string",
+                "description": "The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.\n"
+            },
+            "snapshotDeliveryProperties": {
+                "$ref": "#/types/aws:cfg/DeliveryChannelSnapshotDeliveryProperties:DeliveryChannelSnapshotDeliveryProperties",
+                "description": "Options for how AWS Config delivers configuration snapshots. See below\n"
+            },
+            "snsTopicArn": {
+                "type": "string",
+                "description": "The ARN of the SNS topic that AWS Config delivers notifications to.\n"
+            }
+        },
+        "type": "object"
+    }
+}

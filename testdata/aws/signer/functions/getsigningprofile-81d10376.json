@@ -1,0 +1,93 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getSigningProfile.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name of the target signing profile.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "List of tags associated with the signing profile.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "name"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getSigningProfile.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN for the signing profile.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "platformDisplayName": {
+                "description": "A human-readable name for the signing platform associated with the signing profile.\n",
+                "type": "string"
+            },
+            "platformId": {
+                "description": "ID of the platform that is used by the target signing profile.\n",
+                "type": "string"
+            },
+            "revocationRecords": {
+                "description": "Revocation information for a signing profile.\n",
+                "items": {
+                    "$ref": "#/types/aws:signer/getSigningProfileRevocationRecord:getSigningProfileRevocationRecord"
+                },
+                "type": "array"
+            },
+            "signatureValidityPeriods": {
+                "description": "The validity period for a signing job.\n",
+                "items": {
+                    "$ref": "#/types/aws:signer/getSigningProfileSignatureValidityPeriod:getSigningProfileSignatureValidityPeriod"
+                },
+                "type": "array"
+            },
+            "status": {
+                "description": "Status of the target signing profile.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "List of tags associated with the signing profile.\n",
+                "type": "object"
+            },
+            "version": {
+                "description": "Current version of the signing profile.\n",
+                "type": "string"
+            },
+            "versionArn": {
+                "description": "Signing profile ARN, including the profile version.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "name",
+            "platformDisplayName",
+            "platformId",
+            "revocationRecords",
+            "signatureValidityPeriods",
+            "status",
+            "tags",
+            "version",
+            "versionArn",
+            "id"
+        ],
+        "type": "object"
+    }
+}

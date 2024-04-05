@@ -1,0 +1,200 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the App Runner service.\n"
+        },
+        "autoScalingConfigurationArn": {
+            "type": "string",
+            "description": "ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.\n"
+        },
+        "encryptionConfiguration": {
+            "$ref": "#/types/aws:apprunner/ServiceEncryptionConfiguration:ServiceEncryptionConfiguration",
+            "description": "An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.\n"
+        },
+        "healthCheckConfiguration": {
+            "$ref": "#/types/aws:apprunner/ServiceHealthCheckConfiguration:ServiceHealthCheckConfiguration",
+            "description": "Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.\n"
+        },
+        "instanceConfiguration": {
+            "$ref": "#/types/aws:apprunner/ServiceInstanceConfiguration:ServiceInstanceConfiguration",
+            "description": "The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.\n"
+        },
+        "networkConfiguration": {
+            "$ref": "#/types/aws:apprunner/ServiceNetworkConfiguration:ServiceNetworkConfiguration",
+            "description": "Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.\n"
+        },
+        "observabilityConfiguration": {
+            "$ref": "#/types/aws:apprunner/ServiceObservabilityConfiguration:ServiceObservabilityConfiguration",
+            "description": "The observability configuration of your service. See Observability Configuration below for more details.\n"
+        },
+        "serviceId": {
+            "type": "string",
+            "description": "An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.\n"
+        },
+        "serviceName": {
+            "type": "string",
+            "description": "Name of the service.\n"
+        },
+        "serviceUrl": {
+            "type": "string",
+            "description": "Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.\n"
+        },
+        "sourceConfiguration": {
+            "$ref": "#/types/aws:apprunner/ServiceSourceConfiguration:ServiceSourceConfiguration",
+            "description": "The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.\n\nThe following arguments are optional:\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Current state of the App Runner service.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "autoScalingConfigurationArn",
+        "healthCheckConfiguration",
+        "instanceConfiguration",
+        "networkConfiguration",
+        "serviceId",
+        "serviceName",
+        "serviceUrl",
+        "sourceConfiguration",
+        "status",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "autoScalingConfigurationArn": {
+            "type": "string",
+            "description": "ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.\n"
+        },
+        "encryptionConfiguration": {
+            "$ref": "#/types/aws:apprunner/ServiceEncryptionConfiguration:ServiceEncryptionConfiguration",
+            "description": "An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.\n",
+            "willReplaceOnChanges": true
+        },
+        "healthCheckConfiguration": {
+            "$ref": "#/types/aws:apprunner/ServiceHealthCheckConfiguration:ServiceHealthCheckConfiguration",
+            "description": "Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.\n"
+        },
+        "instanceConfiguration": {
+            "$ref": "#/types/aws:apprunner/ServiceInstanceConfiguration:ServiceInstanceConfiguration",
+            "description": "The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.\n"
+        },
+        "networkConfiguration": {
+            "$ref": "#/types/aws:apprunner/ServiceNetworkConfiguration:ServiceNetworkConfiguration",
+            "description": "Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.\n"
+        },
+        "observabilityConfiguration": {
+            "$ref": "#/types/aws:apprunner/ServiceObservabilityConfiguration:ServiceObservabilityConfiguration",
+            "description": "The observability configuration of your service. See Observability Configuration below for more details.\n"
+        },
+        "serviceName": {
+            "type": "string",
+            "description": "Name of the service.\n",
+            "willReplaceOnChanges": true
+        },
+        "sourceConfiguration": {
+            "$ref": "#/types/aws:apprunner/ServiceSourceConfiguration:ServiceSourceConfiguration",
+            "description": "The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.\n\nThe following arguments are optional:\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "serviceName",
+        "sourceConfiguration"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Service resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the App Runner service.\n"
+            },
+            "autoScalingConfigurationArn": {
+                "type": "string",
+                "description": "ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.\n"
+            },
+            "encryptionConfiguration": {
+                "$ref": "#/types/aws:apprunner/ServiceEncryptionConfiguration:ServiceEncryptionConfiguration",
+                "description": "An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.\n",
+                "willReplaceOnChanges": true
+            },
+            "healthCheckConfiguration": {
+                "$ref": "#/types/aws:apprunner/ServiceHealthCheckConfiguration:ServiceHealthCheckConfiguration",
+                "description": "Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.\n"
+            },
+            "instanceConfiguration": {
+                "$ref": "#/types/aws:apprunner/ServiceInstanceConfiguration:ServiceInstanceConfiguration",
+                "description": "The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.\n"
+            },
+            "networkConfiguration": {
+                "$ref": "#/types/aws:apprunner/ServiceNetworkConfiguration:ServiceNetworkConfiguration",
+                "description": "Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.\n"
+            },
+            "observabilityConfiguration": {
+                "$ref": "#/types/aws:apprunner/ServiceObservabilityConfiguration:ServiceObservabilityConfiguration",
+                "description": "The observability configuration of your service. See Observability Configuration below for more details.\n"
+            },
+            "serviceId": {
+                "type": "string",
+                "description": "An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.\n"
+            },
+            "serviceName": {
+                "type": "string",
+                "description": "Name of the service.\n",
+                "willReplaceOnChanges": true
+            },
+            "serviceUrl": {
+                "type": "string",
+                "description": "Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.\n"
+            },
+            "sourceConfiguration": {
+                "$ref": "#/types/aws:apprunner/ServiceSourceConfiguration:ServiceSourceConfiguration",
+                "description": "The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.\n\nThe following arguments are optional:\n"
+            },
+            "status": {
+                "type": "string",
+                "description": "Current state of the App Runner service.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

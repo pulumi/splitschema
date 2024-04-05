@@ -1,0 +1,147 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Link Amazon Resource Name (ARN).\n"
+        },
+        "bandwidth": {
+            "$ref": "#/types/aws:networkmanager/LinkBandwidth:LinkBandwidth",
+            "description": "The upload speed and download speed in Mbps. Documented below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description of the link.\n"
+        },
+        "globalNetworkId": {
+            "type": "string",
+            "description": "The ID of the global network.\n"
+        },
+        "providerName": {
+            "type": "string",
+            "description": "The provider of the link.\n"
+        },
+        "siteId": {
+            "type": "string",
+            "description": "The ID of the site.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "type": {
+            "type": "string",
+            "description": "The type of the link.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "bandwidth",
+        "globalNetworkId",
+        "siteId",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "bandwidth": {
+            "$ref": "#/types/aws:networkmanager/LinkBandwidth:LinkBandwidth",
+            "description": "The upload speed and download speed in Mbps. Documented below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description of the link.\n"
+        },
+        "globalNetworkId": {
+            "type": "string",
+            "description": "The ID of the global network.\n",
+            "willReplaceOnChanges": true
+        },
+        "providerName": {
+            "type": "string",
+            "description": "The provider of the link.\n"
+        },
+        "siteId": {
+            "type": "string",
+            "description": "The ID of the site.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "The type of the link.\n"
+        }
+    },
+    "requiredInputs": [
+        "bandwidth",
+        "globalNetworkId",
+        "siteId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Link resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Link Amazon Resource Name (ARN).\n"
+            },
+            "bandwidth": {
+                "$ref": "#/types/aws:networkmanager/LinkBandwidth:LinkBandwidth",
+                "description": "The upload speed and download speed in Mbps. Documented below.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A description of the link.\n"
+            },
+            "globalNetworkId": {
+                "type": "string",
+                "description": "The ID of the global network.\n",
+                "willReplaceOnChanges": true
+            },
+            "providerName": {
+                "type": "string",
+                "description": "The provider of the link.\n"
+            },
+            "siteId": {
+                "type": "string",
+                "description": "The ID of the site.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "type": {
+                "type": "string",
+                "description": "The type of the link.\n"
+            }
+        },
+        "type": "object"
+    }
+}

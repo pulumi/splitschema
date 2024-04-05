@@ -1,0 +1,134 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getDevEnvironment.\n",
+        "properties": {
+            "alias": {
+                "type": "string",
+                "description": "The user-specified alias for the Dev Environment.\n"
+            },
+            "creatorId": {
+                "type": "string",
+                "description": "The system-generated unique ID of the user who created the Dev Environment.\n"
+            },
+            "envId": {
+                "type": "string",
+                "description": "- (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).\n"
+            },
+            "projectName": {
+                "type": "string",
+                "description": "The name of the project in the space.\n"
+            },
+            "repositories": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:codecatalyst/getDevEnvironmentRepository:getDevEnvironmentRepository"
+                },
+                "description": "The source repository that contains the branch to clone into the Dev Environment.\n"
+            },
+            "spaceName": {
+                "type": "string",
+                "description": "The name of the space.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                }
+            }
+        },
+        "type": "object",
+        "required": [
+            "envId",
+            "projectName",
+            "spaceName"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getDevEnvironment.\n",
+        "properties": {
+            "alias": {
+                "description": "The user-specified alias for the Dev Environment.\n",
+                "type": "string"
+            },
+            "creatorId": {
+                "description": "The system-generated unique ID of the user who created the Dev Environment.\n",
+                "type": "string"
+            },
+            "envId": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "ides": {
+                "description": "Information about the integrated development environment (IDE) configured for a Dev Environment.\n",
+                "items": {
+                    "$ref": "#/types/aws:codecatalyst/getDevEnvironmentIde:getDevEnvironmentIde"
+                },
+                "type": "array"
+            },
+            "inactivityTimeoutMinutes": {
+                "description": "The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.\n",
+                "type": "integer"
+            },
+            "instanceType": {
+                "description": "The Amazon EC2 instace type to use for the Dev Environment.\n",
+                "type": "string"
+            },
+            "lastUpdatedTime": {
+                "description": "The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).\n",
+                "type": "string"
+            },
+            "persistentStorages": {
+                "description": "Information about the amount of storage allocated to the Dev Environment.\n",
+                "items": {
+                    "$ref": "#/types/aws:codecatalyst/getDevEnvironmentPersistentStorage:getDevEnvironmentPersistentStorage"
+                },
+                "type": "array"
+            },
+            "projectName": {
+                "type": "string"
+            },
+            "repositories": {
+                "description": "The source repository that contains the branch to clone into the Dev Environment.\n",
+                "items": {
+                    "$ref": "#/types/aws:codecatalyst/getDevEnvironmentRepository:getDevEnvironmentRepository"
+                },
+                "type": "array"
+            },
+            "spaceName": {
+                "type": "string"
+            },
+            "status": {
+                "description": "The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.\n",
+                "type": "string"
+            },
+            "statusReason": {
+                "description": "The reason for the status.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            }
+        },
+        "required": [
+            "envId",
+            "ides",
+            "inactivityTimeoutMinutes",
+            "instanceType",
+            "lastUpdatedTime",
+            "persistentStorages",
+            "projectName",
+            "spaceName",
+            "status",
+            "statusReason",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

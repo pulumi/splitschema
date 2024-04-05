@@ -1,0 +1,118 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getPatchBaseline.\n",
+        "properties": {
+            "defaultBaseline": {
+                "type": "boolean",
+                "description": "Filters the results against the baselines default_baseline field.\n"
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Filter results by the baseline name prefix.\n"
+            },
+            "operatingSystem": {
+                "type": "string",
+                "description": "Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.\n"
+            },
+            "owner": {
+                "type": "string",
+                "description": "Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "owner"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getPatchBaseline.\n",
+        "properties": {
+            "approvalRules": {
+                "description": "List of rules used to include patches in the baseline.\n",
+                "items": {
+                    "$ref": "#/types/aws:ssm/getPatchBaselineApprovalRule:getPatchBaselineApprovalRule"
+                },
+                "type": "array"
+            },
+            "approvedPatches": {
+                "description": "List of explicitly approved patches for the baseline.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "approvedPatchesComplianceLevel": {
+                "description": "The compliance level for approved patches.\n",
+                "type": "string"
+            },
+            "approvedPatchesEnableNonSecurity": {
+                "description": "Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.\n",
+                "type": "boolean"
+            },
+            "defaultBaseline": {
+                "type": "boolean"
+            },
+            "description": {
+                "description": "Description of the baseline.\n",
+                "type": "string"
+            },
+            "globalFilters": {
+                "description": "Set of global filters used to exclude patches from the baseline.\n",
+                "items": {
+                    "$ref": "#/types/aws:ssm/getPatchBaselineGlobalFilter:getPatchBaselineGlobalFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "name": {
+                "description": "The name specified to identify the patch source.\n",
+                "type": "string"
+            },
+            "namePrefix": {
+                "type": "string"
+            },
+            "operatingSystem": {
+                "type": "string"
+            },
+            "owner": {
+                "type": "string"
+            },
+            "rejectedPatches": {
+                "description": "List of rejected patches.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "rejectedPatchesAction": {
+                "description": "The action specified to take on patches included in the `rejected_patches` list.\n",
+                "type": "string"
+            },
+            "sources": {
+                "description": "Information about the patches to use to update the managed nodes, including target operating systems and source repositories.\n",
+                "items": {
+                    "$ref": "#/types/aws:ssm/getPatchBaselineSource:getPatchBaselineSource"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "approvalRules",
+            "approvedPatches",
+            "approvedPatchesComplianceLevel",
+            "approvedPatchesEnableNonSecurity",
+            "description",
+            "globalFilters",
+            "name",
+            "owner",
+            "rejectedPatches",
+            "rejectedPatchesAction",
+            "sources",
+            "id"
+        ],
+        "type": "object"
+    }
+}

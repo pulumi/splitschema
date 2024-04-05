@@ -1,0 +1,36 @@
+{
+    "properties": {
+        "catalogId": {
+            "type": "string",
+            "description": "Identifier for the Data Catalog. By default, it is the account ID of the caller.\n",
+            "willReplaceOnChanges": true
+        },
+        "key": {
+            "type": "string",
+            "description": "The key-name for the tag.\n",
+            "willReplaceOnChanges": true
+        },
+        "values": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of possible values an attribute can take.\n\nThe following argument is optional:\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "key",
+        "values"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "catalogId",
+                "key",
+                "values"
+            ]
+        }
+    }
+}

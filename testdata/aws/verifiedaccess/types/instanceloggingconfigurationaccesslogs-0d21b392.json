@@ -1,0 +1,33 @@
+{
+    "properties": {
+        "cloudwatchLogs": {
+            "$ref": "#/types/aws:verifiedaccess/InstanceLoggingConfigurationAccessLogsCloudwatchLogs:InstanceLoggingConfigurationAccessLogsCloudwatchLogs",
+            "description": "A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.\n"
+        },
+        "includeTrustContext": {
+            "type": "boolean",
+            "description": "Include trust data sent by trust providers into the logs.\n"
+        },
+        "kinesisDataFirehose": {
+            "$ref": "#/types/aws:verifiedaccess/InstanceLoggingConfigurationAccessLogsKinesisDataFirehose:InstanceLoggingConfigurationAccessLogsKinesisDataFirehose",
+            "description": "A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.\n"
+        },
+        "logVersion": {
+            "type": "string",
+            "description": "The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.\n"
+        },
+        "s3": {
+            "$ref": "#/types/aws:verifiedaccess/InstanceLoggingConfigurationAccessLogsS3:InstanceLoggingConfigurationAccessLogsS3",
+            "description": "A block that specifies configures sending Verified Access logs to S3. Detailed below.\n"
+        }
+    },
+    "type": "object",
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "includeTrustContext",
+                "logVersion"
+            ]
+        }
+    }
+}

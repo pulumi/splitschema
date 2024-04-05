@@ -1,0 +1,85 @@
+{
+    "properties": {
+        "destination": {
+            "type": "string",
+            "description": "The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.\n"
+        },
+        "metric": {
+            "type": "string",
+            "description": "The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.\n"
+        },
+        "period": {
+            "type": "string",
+            "description": "The data aggregation time for the subscription.\n"
+        },
+        "source": {
+            "type": "string",
+            "description": "The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.\n"
+        },
+        "statistic": {
+            "type": "string",
+            "description": "The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.\n"
+        }
+    },
+    "required": [
+        "destination",
+        "period",
+        "source"
+    ],
+    "inputProperties": {
+        "destination": {
+            "type": "string",
+            "description": "The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.\n",
+            "willReplaceOnChanges": true
+        },
+        "metric": {
+            "type": "string",
+            "description": "The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.\n",
+            "willReplaceOnChanges": true
+        },
+        "source": {
+            "type": "string",
+            "description": "The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.\n",
+            "willReplaceOnChanges": true
+        },
+        "statistic": {
+            "type": "string",
+            "description": "The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "destination",
+        "source"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering VpcNetworkPerformanceMetricSubscription resources.\n",
+        "properties": {
+            "destination": {
+                "type": "string",
+                "description": "The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.\n",
+                "willReplaceOnChanges": true
+            },
+            "metric": {
+                "type": "string",
+                "description": "The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.\n",
+                "willReplaceOnChanges": true
+            },
+            "period": {
+                "type": "string",
+                "description": "The data aggregation time for the subscription.\n"
+            },
+            "source": {
+                "type": "string",
+                "description": "The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.\n",
+                "willReplaceOnChanges": true
+            },
+            "statistic": {
+                "type": "string",
+                "description": "The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

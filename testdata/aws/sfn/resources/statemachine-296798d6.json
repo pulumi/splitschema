@@ -1,0 +1,221 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the state machine.\n"
+        },
+        "creationDate": {
+            "type": "string",
+            "description": "The date the state machine was created.\n"
+        },
+        "definition": {
+            "type": "string",
+            "description": "The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.\n"
+        },
+        "description": {
+            "type": "string"
+        },
+        "loggingConfiguration": {
+            "$ref": "#/types/aws:sfn/StateMachineLoggingConfiguration:StateMachineLoggingConfiguration",
+            "description": "Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+        },
+        "publish": {
+            "type": "boolean",
+            "description": "Set to true to publish a version of the state machine during creation. Default: false.\n"
+        },
+        "revisionId": {
+            "type": "string"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the IAM role to use for this state machine.\n"
+        },
+        "stateMachineVersionArn": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string",
+            "description": "The current status of the state machine. Either `ACTIVE` or `DELETING`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "tracingConfiguration": {
+            "$ref": "#/types/aws:sfn/StateMachineTracingConfiguration:StateMachineTracingConfiguration",
+            "description": "Selects whether AWS X-Ray tracing is enabled.\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.\n"
+        },
+        "versionDescription": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "arn",
+        "creationDate",
+        "definition",
+        "description",
+        "loggingConfiguration",
+        "name",
+        "namePrefix",
+        "revisionId",
+        "roleArn",
+        "stateMachineVersionArn",
+        "status",
+        "tagsAll",
+        "tracingConfiguration",
+        "versionDescription"
+    ],
+    "inputProperties": {
+        "definition": {
+            "type": "string",
+            "description": "The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.\n"
+        },
+        "loggingConfiguration": {
+            "$ref": "#/types/aws:sfn/StateMachineLoggingConfiguration:StateMachineLoggingConfiguration",
+            "description": "Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+            "willReplaceOnChanges": true
+        },
+        "publish": {
+            "type": "boolean",
+            "description": "Set to true to publish a version of the state machine during creation. Default: false.\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the IAM role to use for this state machine.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tracingConfiguration": {
+            "$ref": "#/types/aws:sfn/StateMachineTracingConfiguration:StateMachineTracingConfiguration",
+            "description": "Selects whether AWS X-Ray tracing is enabled.\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "definition",
+        "roleArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering StateMachine resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the state machine.\n"
+            },
+            "creationDate": {
+                "type": "string",
+                "description": "The date the state machine was created.\n"
+            },
+            "definition": {
+                "type": "string",
+                "description": "The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.\n"
+            },
+            "description": {
+                "type": "string"
+            },
+            "loggingConfiguration": {
+                "$ref": "#/types/aws:sfn/StateMachineLoggingConfiguration:StateMachineLoggingConfiguration",
+                "description": "Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                "willReplaceOnChanges": true
+            },
+            "publish": {
+                "type": "boolean",
+                "description": "Set to true to publish a version of the state machine during creation. Default: false.\n"
+            },
+            "revisionId": {
+                "type": "string"
+            },
+            "roleArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the IAM role to use for this state machine.\n"
+            },
+            "stateMachineVersionArn": {
+                "type": "string"
+            },
+            "status": {
+                "type": "string",
+                "description": "The current status of the state machine. Either `ACTIVE` or `DELETING`.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "tracingConfiguration": {
+                "$ref": "#/types/aws:sfn/StateMachineTracingConfiguration:StateMachineTracingConfiguration",
+                "description": "Selects whether AWS X-Ray tracing is enabled.\n"
+            },
+            "type": {
+                "type": "string",
+                "description": "Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.\n",
+                "willReplaceOnChanges": true
+            },
+            "versionDescription": {
+                "type": "string"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,96 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN (Amazon Resource Name) of the rule group.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "A name that lets you identify the rule group, to manage and use it.\n"
+        },
+        "ownerId": {
+            "type": "string",
+            "description": "The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.\n"
+        },
+        "shareStatus": {
+            "type": "string",
+            "description": "Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "ownerId",
+        "shareStatus",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "A name that lets you identify the rule group, to manage and use it.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ResolverFirewallRuleGroup resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN (Amazon Resource Name) of the rule group.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "A name that lets you identify the rule group, to manage and use it.\n",
+                "willReplaceOnChanges": true
+            },
+            "ownerId": {
+                "type": "string",
+                "description": "The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.\n"
+            },
+            "shareStatus": {
+                "type": "string",
+                "description": "Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

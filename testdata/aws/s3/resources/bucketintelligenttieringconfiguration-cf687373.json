@@ -1,0 +1,94 @@
+{
+    "properties": {
+        "bucket": {
+            "type": "string",
+            "description": "Name of the bucket this intelligent tiering configuration is associated with.\n"
+        },
+        "filter": {
+            "$ref": "#/types/aws:s3/BucketIntelligentTieringConfigurationFilter:BucketIntelligentTieringConfigurationFilter",
+            "description": "Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.\n"
+        },
+        "tierings": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:s3/BucketIntelligentTieringConfigurationTiering:BucketIntelligentTieringConfigurationTiering"
+            },
+            "description": "S3 Intelligent-Tiering storage class tiers of the configuration (documented below).\n"
+        }
+    },
+    "required": [
+        "bucket",
+        "name",
+        "tierings"
+    ],
+    "inputProperties": {
+        "bucket": {
+            "type": "string",
+            "description": "Name of the bucket this intelligent tiering configuration is associated with.\n",
+            "willReplaceOnChanges": true
+        },
+        "filter": {
+            "$ref": "#/types/aws:s3/BucketIntelligentTieringConfigurationFilter:BucketIntelligentTieringConfigurationFilter",
+            "description": "Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.\n",
+            "willReplaceOnChanges": true
+        },
+        "status": {
+            "type": "string",
+            "description": "Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.\n"
+        },
+        "tierings": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:s3/BucketIntelligentTieringConfigurationTiering:BucketIntelligentTieringConfigurationTiering"
+            },
+            "description": "S3 Intelligent-Tiering storage class tiers of the configuration (documented below).\n"
+        }
+    },
+    "requiredInputs": [
+        "bucket",
+        "tierings"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering BucketIntelligentTieringConfiguration resources.\n",
+        "properties": {
+            "bucket": {
+                "type": "string",
+                "description": "Name of the bucket this intelligent tiering configuration is associated with.\n",
+                "willReplaceOnChanges": true
+            },
+            "filter": {
+                "$ref": "#/types/aws:s3/BucketIntelligentTieringConfigurationFilter:BucketIntelligentTieringConfigurationFilter",
+                "description": "Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.\n",
+                "willReplaceOnChanges": true
+            },
+            "status": {
+                "type": "string",
+                "description": "Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.\n"
+            },
+            "tierings": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:s3/BucketIntelligentTieringConfigurationTiering:BucketIntelligentTieringConfigurationTiering"
+                },
+                "description": "S3 Intelligent-Tiering storage class tiers of the configuration (documented below).\n"
+            }
+        },
+        "type": "object"
+    }
+}

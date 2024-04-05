@@ -1,0 +1,50 @@
+{
+    "properties": {
+        "healthCheck": {
+            "$ref": "#/types/aws:vpclattice/TargetGroupConfigHealthCheck:TargetGroupConfigHealthCheck",
+            "description": "The health check configuration.\n"
+        },
+        "ipAddressType": {
+            "type": "string",
+            "description": "The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.\n",
+            "willReplaceOnChanges": true
+        },
+        "lambdaEventStructureVersion": {
+            "type": "string",
+            "description": "The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.\n",
+            "willReplaceOnChanges": true
+        },
+        "port": {
+            "type": "integer",
+            "description": "The port on which the targets are listening.\n",
+            "willReplaceOnChanges": true
+        },
+        "protocol": {
+            "type": "string",
+            "description": "The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.\n",
+            "willReplaceOnChanges": true
+        },
+        "protocolVersion": {
+            "type": "string",
+            "description": "The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.\n",
+            "willReplaceOnChanges": true
+        },
+        "vpcIdentifier": {
+            "type": "string",
+            "description": "The ID of the VPC.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "ipAddressType",
+                "lambdaEventStructureVersion",
+                "port",
+                "protocol",
+                "protocolVersion"
+            ]
+        }
+    }
+}

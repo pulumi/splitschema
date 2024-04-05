@@ -1,0 +1,65 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the stream consumer.\n"
+        },
+        "creationTimestamp": {
+            "type": "string",
+            "description": "Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the stream consumer.\n"
+        },
+        "streamArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the data stream the consumer is registered with.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "creationTimestamp",
+        "name",
+        "streamArn"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "Name of the stream consumer.\n",
+            "willReplaceOnChanges": true
+        },
+        "streamArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the data stream the consumer is registered with.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "streamArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering StreamConsumer resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the stream consumer.\n"
+            },
+            "creationTimestamp": {
+                "type": "string",
+                "description": "Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the stream consumer.\n",
+                "willReplaceOnChanges": true
+            },
+            "streamArn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the data stream the consumer is registered with.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

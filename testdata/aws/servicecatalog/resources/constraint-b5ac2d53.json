@@ -1,0 +1,119 @@
+{
+    "properties": {
+        "acceptLanguage": {
+            "type": "string",
+            "description": "Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the constraint.\n"
+        },
+        "owner": {
+            "type": "string",
+            "description": "Owner of the constraint.\n"
+        },
+        "parameters": {
+            "type": "string",
+            "description": "Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.\n"
+        },
+        "portfolioId": {
+            "type": "string",
+            "description": "Portfolio identifier.\n"
+        },
+        "productId": {
+            "type": "string",
+            "description": "Product identifier.\n"
+        },
+        "status": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string",
+            "description": "Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.\n\nThe following arguments are optional:\n"
+        }
+    },
+    "required": [
+        "description",
+        "owner",
+        "parameters",
+        "portfolioId",
+        "productId",
+        "status",
+        "type"
+    ],
+    "inputProperties": {
+        "acceptLanguage": {
+            "type": "string",
+            "description": "Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the constraint.\n"
+        },
+        "parameters": {
+            "type": "string",
+            "description": "Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.\n"
+        },
+        "portfolioId": {
+            "type": "string",
+            "description": "Portfolio identifier.\n",
+            "willReplaceOnChanges": true
+        },
+        "productId": {
+            "type": "string",
+            "description": "Product identifier.\n",
+            "willReplaceOnChanges": true
+        },
+        "type": {
+            "type": "string",
+            "description": "Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "parameters",
+        "portfolioId",
+        "productId",
+        "type"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Constraint resources.\n",
+        "properties": {
+            "acceptLanguage": {
+                "type": "string",
+                "description": "Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the constraint.\n"
+            },
+            "owner": {
+                "type": "string",
+                "description": "Owner of the constraint.\n"
+            },
+            "parameters": {
+                "type": "string",
+                "description": "Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.\n"
+            },
+            "portfolioId": {
+                "type": "string",
+                "description": "Portfolio identifier.\n",
+                "willReplaceOnChanges": true
+            },
+            "productId": {
+                "type": "string",
+                "description": "Product identifier.\n",
+                "willReplaceOnChanges": true
+            },
+            "status": {
+                "type": "string"
+            },
+            "type": {
+                "type": "string",
+                "description": "Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

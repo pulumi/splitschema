@@ -1,0 +1,36 @@
+{
+    "properties": {
+        "bucketName": {
+            "type": "string",
+            "description": "The bucket name where your backup is stored\n",
+            "willReplaceOnChanges": true
+        },
+        "bucketPrefix": {
+            "type": "string",
+            "description": "Can be blank, but is the path to your backup\n",
+            "willReplaceOnChanges": true
+        },
+        "ingestionRole": {
+            "type": "string",
+            "description": "Role applied to load the data.\n",
+            "willReplaceOnChanges": true
+        },
+        "sourceEngine": {
+            "type": "string",
+            "description": "Source engine for the backup\n",
+            "willReplaceOnChanges": true
+        },
+        "sourceEngineVersion": {
+            "type": "string",
+            "description": "Version of the source engine used to make the backup\n\nThis will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "bucketName",
+        "ingestionRole",
+        "sourceEngine",
+        "sourceEngineVersion"
+    ]
+}

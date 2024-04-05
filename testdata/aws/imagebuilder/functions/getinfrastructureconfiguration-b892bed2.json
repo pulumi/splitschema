@@ -1,0 +1,138 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getInfrastructureConfiguration.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the infrastructure configuration.\n"
+            },
+            "resourceTags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags for the infrastructure created by the infrastructure configuration.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags for the infrastructure configuration.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "arn"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getInfrastructureConfiguration.\n",
+        "properties": {
+            "arn": {
+                "type": "string"
+            },
+            "dateCreated": {
+                "description": "Date the infrastructure configuration was updated.\n",
+                "type": "string"
+            },
+            "dateUpdated": {
+                "type": "string"
+            },
+            "description": {
+                "description": "Description of the infrastructure configuration.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "instanceMetadataOptions": {
+                "description": "Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.\n",
+                "items": {
+                    "$ref": "#/types/aws:imagebuilder/getInfrastructureConfigurationInstanceMetadataOption:getInfrastructureConfigurationInstanceMetadataOption"
+                },
+                "type": "array"
+            },
+            "instanceProfileName": {
+                "description": "Name of the IAM Instance Profile associated with the configuration.\n",
+                "type": "string"
+            },
+            "instanceTypes": {
+                "description": "Set of EC2 Instance Types associated with the configuration.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "keyPair": {
+                "description": "Name of the EC2 Key Pair associated with the configuration.\n",
+                "type": "string"
+            },
+            "loggings": {
+                "description": "Nested list of logging settings.\n",
+                "items": {
+                    "$ref": "#/types/aws:imagebuilder/getInfrastructureConfigurationLogging:getInfrastructureConfigurationLogging"
+                },
+                "type": "array"
+            },
+            "name": {
+                "description": "Name of the infrastructure configuration.\n",
+                "type": "string"
+            },
+            "resourceTags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags for the infrastructure created by the infrastructure configuration.\n",
+                "type": "object"
+            },
+            "securityGroupIds": {
+                "description": "Set of EC2 Security Group identifiers associated with the configuration.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "snsTopicArn": {
+                "description": "ARN of the SNS Topic associated with the configuration.\n",
+                "type": "string"
+            },
+            "subnetId": {
+                "description": "Identifier of the EC2 Subnet associated with the configuration.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags for the infrastructure configuration.\n",
+                "type": "object"
+            },
+            "terminateInstanceOnFailure": {
+                "description": "Whether instances are terminated on failure.\n",
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "arn",
+            "dateCreated",
+            "dateUpdated",
+            "description",
+            "instanceMetadataOptions",
+            "instanceProfileName",
+            "instanceTypes",
+            "keyPair",
+            "loggings",
+            "name",
+            "resourceTags",
+            "securityGroupIds",
+            "snsTopicArn",
+            "subnetId",
+            "tags",
+            "terminateInstanceOnFailure",
+            "id"
+        ],
+        "type": "object"
+    }
+}

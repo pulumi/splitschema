@@ -1,0 +1,39 @@
+{
+    "properties": {
+        "documentName": {
+            "type": "string",
+            "description": "The automation document's name.\n"
+        },
+        "documentVersion": {
+            "type": "string",
+            "description": "The version of the automation document to use at runtime.\n"
+        },
+        "dynamicParameters": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.\n"
+        },
+        "parameters": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ssmincidents/ResponsePlanActionSsmAutomationParameter:ResponsePlanActionSsmAutomationParameter"
+            },
+            "description": "The key-value pair parameters to use when the automation document runs. The following values are supported:\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.\n"
+        },
+        "targetAccount": {
+            "type": "string",
+            "description": "The account that the automation document runs in. This can be in either the management account or an application account.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "documentName",
+        "roleArn"
+    ]
+}

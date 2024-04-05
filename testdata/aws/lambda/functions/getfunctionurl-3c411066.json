@@ -1,0 +1,82 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getFunctionUrl.\n",
+        "properties": {
+            "functionName": {
+                "type": "string",
+                "description": "The name (or ARN) of the Lambda function.\n"
+            },
+            "qualifier": {
+                "type": "string",
+                "description": "Alias name or `\"$LATEST\"`.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "functionName"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getFunctionUrl.\n",
+        "properties": {
+            "authorizationType": {
+                "description": "Type of authentication that the function URL uses.\n",
+                "type": "string"
+            },
+            "cors": {
+                "description": "The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.\n",
+                "items": {
+                    "$ref": "#/types/aws:lambda/getFunctionUrlCor:getFunctionUrlCor"
+                },
+                "type": "array"
+            },
+            "creationTime": {
+                "description": "When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).\n",
+                "type": "string"
+            },
+            "functionArn": {
+                "description": "ARN of the function.\n",
+                "type": "string"
+            },
+            "functionName": {
+                "type": "string"
+            },
+            "functionUrl": {
+                "description": "HTTP URL endpoint for the function in the format `https://\u003curl_id\u003e.lambda-url.\u003cregion\u003e.on.aws`.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "invokeMode": {
+                "description": "Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.\n",
+                "type": "string"
+            },
+            "lastModifiedTime": {
+                "description": "When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).\n",
+                "type": "string"
+            },
+            "qualifier": {
+                "type": "string"
+            },
+            "urlId": {
+                "description": "Generated ID for the endpoint.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "authorizationType",
+            "cors",
+            "creationTime",
+            "functionArn",
+            "functionName",
+            "functionUrl",
+            "invokeMode",
+            "lastModifiedTime",
+            "urlId",
+            "id"
+        ],
+        "type": "object"
+    }
+}

@@ -1,0 +1,122 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the endpoint that was created.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description of the global endpoint.\n"
+        },
+        "endpointUrl": {
+            "type": "string",
+            "description": "The URL of the endpoint that was created.\n"
+        },
+        "eventBuses": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudwatch/EventEndpointEventBus:EventEndpointEventBus"
+            },
+            "description": "The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the global endpoint.\n"
+        },
+        "replicationConfig": {
+            "$ref": "#/types/aws:cloudwatch/EventEndpointReplicationConfig:EventEndpointReplicationConfig",
+            "description": "Parameters used for replication. Documented below.\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The ARN of the IAM role used for replication between event buses.\n"
+        },
+        "routingConfig": {
+            "$ref": "#/types/aws:cloudwatch/EventEndpointRoutingConfig:EventEndpointRoutingConfig",
+            "description": "Parameters used for routing, including the health check and secondary Region. Documented below.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "endpointUrl",
+        "eventBuses",
+        "name",
+        "routingConfig"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "A description of the global endpoint.\n"
+        },
+        "eventBuses": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudwatch/EventEndpointEventBus:EventEndpointEventBus"
+            },
+            "description": "The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the global endpoint.\n",
+            "willReplaceOnChanges": true
+        },
+        "replicationConfig": {
+            "$ref": "#/types/aws:cloudwatch/EventEndpointReplicationConfig:EventEndpointReplicationConfig",
+            "description": "Parameters used for replication. Documented below.\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The ARN of the IAM role used for replication between event buses.\n"
+        },
+        "routingConfig": {
+            "$ref": "#/types/aws:cloudwatch/EventEndpointRoutingConfig:EventEndpointRoutingConfig",
+            "description": "Parameters used for routing, including the health check and secondary Region. Documented below.\n"
+        }
+    },
+    "requiredInputs": [
+        "eventBuses",
+        "routingConfig"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering EventEndpoint resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the endpoint that was created.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A description of the global endpoint.\n"
+            },
+            "endpointUrl": {
+                "type": "string",
+                "description": "The URL of the endpoint that was created.\n"
+            },
+            "eventBuses": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:cloudwatch/EventEndpointEventBus:EventEndpointEventBus"
+                },
+                "description": "The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the global endpoint.\n",
+                "willReplaceOnChanges": true
+            },
+            "replicationConfig": {
+                "$ref": "#/types/aws:cloudwatch/EventEndpointReplicationConfig:EventEndpointReplicationConfig",
+                "description": "Parameters used for replication. Documented below.\n"
+            },
+            "roleArn": {
+                "type": "string",
+                "description": "The ARN of the IAM role used for replication between event buses.\n"
+            },
+            "routingConfig": {
+                "$ref": "#/types/aws:cloudwatch/EventEndpointRoutingConfig:EventEndpointRoutingConfig",
+                "description": "Parameters used for routing, including the health check and secondary Region. Documented below.\n"
+            }
+        },
+        "type": "object"
+    }
+}

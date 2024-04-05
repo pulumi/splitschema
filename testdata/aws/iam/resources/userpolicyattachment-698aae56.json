@@ -1,0 +1,69 @@
+{
+    "properties": {
+        "policyArn": {
+            "type": "string",
+            "$ref": "#/types/aws:index/aRN:ARN",
+            "description": "The ARN of the policy you want to apply\n"
+        },
+        "user": {
+            "type": "string",
+            "description": "The user the policy should be applied to\n"
+        }
+    },
+    "required": [
+        "policyArn",
+        "user"
+    ],
+    "inputProperties": {
+        "policyArn": {
+            "type": "string",
+            "$ref": "#/types/aws:index/aRN:ARN",
+            "description": "The ARN of the policy you want to apply\n",
+            "willReplaceOnChanges": true
+        },
+        "user": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:iam/user:User"
+                }
+            ],
+            "description": "The user the policy should be applied to\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "policyArn",
+        "user"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering UserPolicyAttachment resources.\n",
+        "properties": {
+            "policyArn": {
+                "type": "string",
+                "$ref": "#/types/aws:index/aRN:ARN",
+                "description": "The ARN of the policy you want to apply\n",
+                "willReplaceOnChanges": true
+            },
+            "user": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:iam/user:User"
+                    }
+                ],
+                "description": "The user the policy should be applied to\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

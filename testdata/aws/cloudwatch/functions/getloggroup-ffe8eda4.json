@@ -1,0 +1,72 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getLogGroup.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name of the Cloudwatch log group\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the resource.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "name"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getLogGroup.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.\n",
+                "type": "string"
+            },
+            "creationTime": {
+                "description": "Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.\n",
+                "type": "integer"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "kmsKeyId": {
+                "description": "ARN of the KMS Key to use when encrypting log data.\n",
+                "type": "string"
+            },
+            "logGroupClass": {
+                "description": "The log class of the log group.\n",
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "retentionInDays": {
+                "description": "Number of days log events retained in the specified log group.\n",
+                "type": "integer"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the resource.\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "creationTime",
+            "kmsKeyId",
+            "logGroupClass",
+            "name",
+            "retentionInDays",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

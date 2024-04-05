@@ -1,0 +1,145 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the Security Profile.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Specifies the description of the Security Profile.\n"
+        },
+        "instanceId": {
+            "type": "string",
+            "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Specifies the name of the Security Profile.\n"
+        },
+        "organizationResourceId": {
+            "type": "string",
+            "description": "The organization resource identifier for the security profile.\n"
+        },
+        "permissions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Specifies a list of permissions assigned to the security profile.\n"
+        },
+        "securityProfileId": {
+            "type": "string",
+            "description": "The identifier for the Security Profile.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Tags to apply to the Security Profile. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "instanceId",
+        "name",
+        "organizationResourceId",
+        "securityProfileId",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "Specifies the description of the Security Profile.\n"
+        },
+        "instanceId": {
+            "type": "string",
+            "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Specifies the name of the Security Profile.\n",
+            "willReplaceOnChanges": true
+        },
+        "permissions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Specifies a list of permissions assigned to the security profile.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Tags to apply to the Security Profile. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "instanceId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering SecurityProfile resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the Security Profile.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Specifies the description of the Security Profile.\n"
+            },
+            "instanceId": {
+                "type": "string",
+                "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Specifies the name of the Security Profile.\n",
+                "willReplaceOnChanges": true
+            },
+            "organizationResourceId": {
+                "type": "string",
+                "description": "The organization resource identifier for the security profile.\n"
+            },
+            "permissions": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Specifies a list of permissions assigned to the security profile.\n"
+            },
+            "securityProfileId": {
+                "type": "string",
+                "description": "The identifier for the Security Profile.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags to apply to the Security Profile. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

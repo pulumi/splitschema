@@ -1,0 +1,55 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getEbsVolumes.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ebs/getEbsVolumesFilter:getEbsVolumesFilter"
+                },
+                "description": "Custom filter block as described below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags, each pair of which must exactly match\na pair on the desired volumes.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getEbsVolumes.\n",
+        "properties": {
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ebs/getEbsVolumesFilter:getEbsVolumesFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "ids": {
+                "description": "Set of all the EBS Volume IDs found. This data source will fail if\nno volumes match the provided criteria.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            }
+        },
+        "required": [
+            "ids",
+            "id"
+        ],
+        "type": "object"
+    }
+}

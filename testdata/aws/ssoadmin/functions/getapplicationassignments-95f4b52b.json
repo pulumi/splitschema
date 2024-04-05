@@ -1,0 +1,46 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getApplicationAssignments.\n",
+        "properties": {
+            "applicationArn": {
+                "type": "string",
+                "description": "ARN of the application.\n"
+            },
+            "applicationAssignments": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ssoadmin/getApplicationAssignmentsApplicationAssignment:getApplicationAssignmentsApplicationAssignment"
+                },
+                "description": "List of principals assigned to the application. See the `application_assignments` attribute reference below.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "applicationArn"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getApplicationAssignments.\n",
+        "properties": {
+            "applicationArn": {
+                "description": "ARN of the application.\n",
+                "type": "string"
+            },
+            "applicationAssignments": {
+                "description": "List of principals assigned to the application. See the `application_assignments` attribute reference below.\n",
+                "items": {
+                    "$ref": "#/types/aws:ssoadmin/getApplicationAssignmentsApplicationAssignment:getApplicationAssignmentsApplicationAssignment"
+                },
+                "type": "array"
+            },
+            "id": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "applicationArn",
+            "id"
+        ],
+        "type": "object"
+    }
+}

@@ -1,0 +1,96 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN that identifies the capacity provider.\n"
+        },
+        "autoScalingGroupProvider": {
+            "$ref": "#/types/aws:ecs/CapacityProviderAutoScalingGroupProvider:CapacityProviderAutoScalingGroupProvider",
+            "description": "Configuration block for the provider for the ECS auto scaling group. Detailed below.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the capacity provider.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "autoScalingGroupProvider",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "autoScalingGroupProvider": {
+            "$ref": "#/types/aws:ecs/CapacityProviderAutoScalingGroupProvider:CapacityProviderAutoScalingGroupProvider",
+            "description": "Configuration block for the provider for the ECS auto scaling group. Detailed below.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the capacity provider.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "autoScalingGroupProvider"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering CapacityProvider resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN that identifies the capacity provider.\n"
+            },
+            "autoScalingGroupProvider": {
+                "$ref": "#/types/aws:ecs/CapacityProviderAutoScalingGroupProvider:CapacityProviderAutoScalingGroupProvider",
+                "description": "Configuration block for the provider for the ECS auto scaling group. Detailed below.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the capacity provider.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

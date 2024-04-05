@@ -1,0 +1,94 @@
+{
+    "properties": {
+        "cak": {
+            "type": "string",
+            "description": "The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.\n"
+        },
+        "ckn": {
+            "type": "string",
+            "description": "The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.\n"
+        },
+        "connectionId": {
+            "type": "string",
+            "description": "The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.\n"
+        },
+        "secretArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.\n\n\u003e **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.\n"
+        },
+        "startOn": {
+            "type": "string",
+            "description": "The date in UTC format that the MAC Security (MACsec) secret key takes effect.\n"
+        },
+        "state": {
+            "type": "string",
+            "description": "The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.\n"
+        }
+    },
+    "required": [
+        "ckn",
+        "connectionId",
+        "secretArn",
+        "startOn",
+        "state"
+    ],
+    "inputProperties": {
+        "cak": {
+            "type": "string",
+            "description": "The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.\n",
+            "willReplaceOnChanges": true
+        },
+        "ckn": {
+            "type": "string",
+            "description": "The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.\n",
+            "willReplaceOnChanges": true
+        },
+        "connectionId": {
+            "type": "string",
+            "description": "The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.\n",
+            "willReplaceOnChanges": true
+        },
+        "secretArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.\n\n\u003e **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "connectionId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering MacsecKeyAssociation resources.\n",
+        "properties": {
+            "cak": {
+                "type": "string",
+                "description": "The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.\n",
+                "willReplaceOnChanges": true
+            },
+            "ckn": {
+                "type": "string",
+                "description": "The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.\n",
+                "willReplaceOnChanges": true
+            },
+            "connectionId": {
+                "type": "string",
+                "description": "The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.\n",
+                "willReplaceOnChanges": true
+            },
+            "secretArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.\n\n\u003e **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.\n",
+                "willReplaceOnChanges": true
+            },
+            "startOn": {
+                "type": "string",
+                "description": "The date in UTC format that the MAC Security (MACsec) secret key takes effect.\n"
+            },
+            "state": {
+                "type": "string",
+                "description": "The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.\n"
+            }
+        },
+        "type": "object"
+    }
+}

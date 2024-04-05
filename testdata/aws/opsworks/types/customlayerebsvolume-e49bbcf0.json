@@ -1,0 +1,38 @@
+{
+    "properties": {
+        "encrypted": {
+            "type": "boolean",
+            "description": "Encrypt the volume.\n"
+        },
+        "iops": {
+            "type": "integer",
+            "description": "For PIOPS volumes, the IOPS per disk.\n"
+        },
+        "mountPoint": {
+            "type": "string",
+            "description": "The path to mount the EBS volume on the layer's instances.\n"
+        },
+        "numberOfDisks": {
+            "type": "integer",
+            "description": "The number of disks to use for the EBS volume.\n"
+        },
+        "raidLevel": {
+            "type": "string",
+            "description": "The RAID level to use for the volume.\n"
+        },
+        "size": {
+            "type": "integer",
+            "description": "The size of the volume in gigabytes.\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "mountPoint",
+        "numberOfDisks",
+        "size"
+    ]
+}

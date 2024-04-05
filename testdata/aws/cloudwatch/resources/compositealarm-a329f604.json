@@ -1,0 +1,196 @@
+{
+    "properties": {
+        "actionsEnabled": {
+            "type": "boolean",
+            "description": "Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.\n"
+        },
+        "actionsSuppressor": {
+            "$ref": "#/types/aws:cloudwatch/CompositeAlarmActionsSuppressor:CompositeAlarmActionsSuppressor",
+            "description": "Actions will be suppressed if the suppressor alarm is in the ALARM state.\n"
+        },
+        "alarmActions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.\n"
+        },
+        "alarmDescription": {
+            "type": "string",
+            "description": "The description for the composite alarm.\n"
+        },
+        "alarmName": {
+            "type": "string",
+            "description": "The name for the composite alarm. This name must be unique within the region.\n"
+        },
+        "alarmRule": {
+            "type": "string",
+            "description": "An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the composite alarm.\n"
+        },
+        "insufficientDataActions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.\n"
+        },
+        "okActions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "alarmName",
+        "alarmRule",
+        "arn",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "actionsEnabled": {
+            "type": "boolean",
+            "description": "Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.\n",
+            "willReplaceOnChanges": true
+        },
+        "actionsSuppressor": {
+            "$ref": "#/types/aws:cloudwatch/CompositeAlarmActionsSuppressor:CompositeAlarmActionsSuppressor",
+            "description": "Actions will be suppressed if the suppressor alarm is in the ALARM state.\n"
+        },
+        "alarmActions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.\n"
+        },
+        "alarmDescription": {
+            "type": "string",
+            "description": "The description for the composite alarm.\n"
+        },
+        "alarmName": {
+            "type": "string",
+            "description": "The name for the composite alarm. This name must be unique within the region.\n",
+            "willReplaceOnChanges": true
+        },
+        "alarmRule": {
+            "type": "string",
+            "description": "An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.\n"
+        },
+        "insufficientDataActions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.\n"
+        },
+        "okActions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "alarmName",
+        "alarmRule"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering CompositeAlarm resources.\n",
+        "properties": {
+            "actionsEnabled": {
+                "type": "boolean",
+                "description": "Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.\n",
+                "willReplaceOnChanges": true
+            },
+            "actionsSuppressor": {
+                "$ref": "#/types/aws:cloudwatch/CompositeAlarmActionsSuppressor:CompositeAlarmActionsSuppressor",
+                "description": "Actions will be suppressed if the suppressor alarm is in the ALARM state.\n"
+            },
+            "alarmActions": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.\n"
+            },
+            "alarmDescription": {
+                "type": "string",
+                "description": "The description for the composite alarm.\n"
+            },
+            "alarmName": {
+                "type": "string",
+                "description": "The name for the composite alarm. This name must be unique within the region.\n",
+                "willReplaceOnChanges": true
+            },
+            "alarmRule": {
+                "type": "string",
+                "description": "An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the composite alarm.\n"
+            },
+            "insufficientDataActions": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.\n"
+            },
+            "okActions": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

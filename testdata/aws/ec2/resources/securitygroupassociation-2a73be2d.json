@@ -1,0 +1,62 @@
+{
+    "properties": {
+        "replaceDefaultAssociation": {
+            "type": "boolean",
+            "description": "Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.\n"
+        },
+        "securityGroupId": {
+            "type": "string",
+            "description": "The ID of the security group to be associated with the VPC endpoint.\n"
+        },
+        "vpcEndpointId": {
+            "type": "string",
+            "description": "The ID of the VPC endpoint with which the security group will be associated.\n"
+        }
+    },
+    "required": [
+        "securityGroupId",
+        "vpcEndpointId"
+    ],
+    "inputProperties": {
+        "replaceDefaultAssociation": {
+            "type": "boolean",
+            "description": "Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.\n",
+            "willReplaceOnChanges": true
+        },
+        "securityGroupId": {
+            "type": "string",
+            "description": "The ID of the security group to be associated with the VPC endpoint.\n",
+            "willReplaceOnChanges": true
+        },
+        "vpcEndpointId": {
+            "type": "string",
+            "description": "The ID of the VPC endpoint with which the security group will be associated.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "securityGroupId",
+        "vpcEndpointId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering SecurityGroupAssociation resources.\n",
+        "properties": {
+            "replaceDefaultAssociation": {
+                "type": "boolean",
+                "description": "Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.\n",
+                "willReplaceOnChanges": true
+            },
+            "securityGroupId": {
+                "type": "string",
+                "description": "The ID of the security group to be associated with the VPC endpoint.\n",
+                "willReplaceOnChanges": true
+            },
+            "vpcEndpointId": {
+                "type": "string",
+                "description": "The ID of the VPC endpoint with which the security group will be associated.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

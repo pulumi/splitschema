@@ -1,0 +1,72 @@
+{
+    "properties": {
+        "bucket": {
+            "type": "string",
+            "description": "Name of the S3 bucket.\n"
+        },
+        "expectedBucketOwner": {
+            "type": "string",
+            "description": "Account ID of the expected bucket owner.\n"
+        },
+        "mfa": {
+            "type": "string",
+            "description": "Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.\n"
+        },
+        "versioningConfiguration": {
+            "$ref": "#/types/aws:s3/BucketVersioningV2VersioningConfiguration:BucketVersioningV2VersioningConfiguration",
+            "description": "Configuration block for the versioning parameters. See below.\n"
+        }
+    },
+    "required": [
+        "bucket",
+        "versioningConfiguration"
+    ],
+    "inputProperties": {
+        "bucket": {
+            "type": "string",
+            "description": "Name of the S3 bucket.\n",
+            "willReplaceOnChanges": true
+        },
+        "expectedBucketOwner": {
+            "type": "string",
+            "description": "Account ID of the expected bucket owner.\n",
+            "willReplaceOnChanges": true
+        },
+        "mfa": {
+            "type": "string",
+            "description": "Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.\n"
+        },
+        "versioningConfiguration": {
+            "$ref": "#/types/aws:s3/BucketVersioningV2VersioningConfiguration:BucketVersioningV2VersioningConfiguration",
+            "description": "Configuration block for the versioning parameters. See below.\n"
+        }
+    },
+    "requiredInputs": [
+        "bucket",
+        "versioningConfiguration"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering BucketVersioningV2 resources.\n",
+        "properties": {
+            "bucket": {
+                "type": "string",
+                "description": "Name of the S3 bucket.\n",
+                "willReplaceOnChanges": true
+            },
+            "expectedBucketOwner": {
+                "type": "string",
+                "description": "Account ID of the expected bucket owner.\n",
+                "willReplaceOnChanges": true
+            },
+            "mfa": {
+                "type": "string",
+                "description": "Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.\n"
+            },
+            "versioningConfiguration": {
+                "$ref": "#/types/aws:s3/BucketVersioningV2VersioningConfiguration:BucketVersioningV2VersioningConfiguration",
+                "description": "Configuration block for the versioning parameters. See below.\n"
+            }
+        },
+        "type": "object"
+    }
+}

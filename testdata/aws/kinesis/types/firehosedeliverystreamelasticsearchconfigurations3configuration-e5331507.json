@@ -1,0 +1,54 @@
+{
+    "properties": {
+        "bucketArn": {
+            "type": "string",
+            "description": "The ARN of the S3 bucket\n"
+        },
+        "bufferingInterval": {
+            "type": "integer",
+            "description": "Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.\n"
+        },
+        "bufferingSize": {
+            "type": "integer",
+            "description": "Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.\n"
+        },
+        "cloudwatchLoggingOptions": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions:FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions",
+            "description": "The CloudWatch Logging Options for the delivery stream. More details are given below\n"
+        },
+        "compressionFormat": {
+            "type": "string",
+            "description": "The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, \u0026 `HADOOP_SNAPPY`.\n"
+        },
+        "errorOutputPrefix": {
+            "type": "string",
+            "description": "Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).\n"
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will\nbe used.\n"
+        },
+        "prefix": {
+            "type": "string",
+            "description": "The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The ARN of the role used to access the Amazon MSK cluster.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "bucketArn",
+        "roleArn"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "bucketArn",
+                "cloudwatchLoggingOptions",
+                "roleArn"
+            ]
+        }
+    }
+}

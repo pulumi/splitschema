@@ -1,0 +1,36 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getDelegatedAdministrators.\n",
+        "properties": {
+            "servicePrincipal": {
+                "type": "string",
+                "description": "Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don't specify a service principal, the operation lists all delegated administrators for all services in your organization.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getDelegatedAdministrators.\n",
+        "properties": {
+            "delegatedAdministrators": {
+                "description": "The list of delegated administrators in your organization, which have the following attributes:\n",
+                "items": {
+                    "$ref": "#/types/aws:organizations/getDelegatedAdministratorsDelegatedAdministrator:getDelegatedAdministratorsDelegatedAdministrator"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "servicePrincipal": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "delegatedAdministrators",
+            "id"
+        ],
+        "type": "object"
+    }
+}

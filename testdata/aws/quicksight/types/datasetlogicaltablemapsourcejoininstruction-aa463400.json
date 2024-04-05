@@ -1,0 +1,47 @@
+{
+    "properties": {
+        "leftJoinKeyProperties": {
+            "$ref": "#/types/aws:quicksight/DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties:DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties",
+            "description": "Join key properties of the left operand. See left_join_key_properties.\n"
+        },
+        "leftOperand": {
+            "type": "string",
+            "description": "Operand on the left side of a join.\n"
+        },
+        "onClause": {
+            "type": "string",
+            "description": "Join instructions provided in the ON clause of a join.\n"
+        },
+        "rightJoinKeyProperties": {
+            "$ref": "#/types/aws:quicksight/DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties:DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties",
+            "description": "Join key properties of the right operand. See right_join_key_properties.\n"
+        },
+        "rightOperand": {
+            "type": "string",
+            "description": "Operand on the right side of a join.\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "leftOperand",
+        "onClause",
+        "rightOperand",
+        "type"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "leftJoinKeyProperties",
+                "leftOperand",
+                "onClause",
+                "rightJoinKeyProperties",
+                "rightOperand",
+                "type"
+            ]
+        }
+    }
+}

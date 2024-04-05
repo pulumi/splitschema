@@ -1,0 +1,44 @@
+{
+    "properties": {
+        "roleArn": {
+            "type": "string",
+            "description": "The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)\n",
+            "willReplaceOnChanges": true
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of security group IDs to associate with Kinesis Firehose.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of subnet IDs to associate with Kinesis Firehose.\n",
+            "willReplaceOnChanges": true
+        },
+        "vpcId": {
+            "type": "string"
+        }
+    },
+    "type": "object",
+    "required": [
+        "roleArn",
+        "securityGroupIds",
+        "subnetIds"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "roleArn",
+                "securityGroupIds",
+                "subnetIds",
+                "vpcId"
+            ]
+        }
+    }
+}

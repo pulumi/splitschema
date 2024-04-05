@@ -1,0 +1,102 @@
+{
+    "properties": {
+        "accountAggregationSource": {
+            "$ref": "#/types/aws:cfg/ConfigurationAggregatorAccountAggregationSource:ConfigurationAggregatorAccountAggregationSource",
+            "description": "The account(s) to aggregate config data from as documented below.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the aggregator\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the configuration aggregator.\n"
+        },
+        "organizationAggregationSource": {
+            "$ref": "#/types/aws:cfg/ConfigurationAggregatorOrganizationAggregationSource:ConfigurationAggregatorOrganizationAggregationSource",
+            "description": "The organization to aggregate config data from as documented below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\nEither `account_aggregation_source` or `organization_aggregation_source` must be specified.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "accountAggregationSource": {
+            "$ref": "#/types/aws:cfg/ConfigurationAggregatorAccountAggregationSource:ConfigurationAggregatorAccountAggregationSource",
+            "description": "The account(s) to aggregate config data from as documented below.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the configuration aggregator.\n",
+            "willReplaceOnChanges": true
+        },
+        "organizationAggregationSource": {
+            "$ref": "#/types/aws:cfg/ConfigurationAggregatorOrganizationAggregationSource:ConfigurationAggregatorOrganizationAggregationSource",
+            "description": "The organization to aggregate config data from as documented below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\nEither `account_aggregation_source` or `organization_aggregation_source` must be specified.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ConfigurationAggregator resources.\n",
+        "properties": {
+            "accountAggregationSource": {
+                "$ref": "#/types/aws:cfg/ConfigurationAggregatorAccountAggregationSource:ConfigurationAggregatorAccountAggregationSource",
+                "description": "The account(s) to aggregate config data from as documented below.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the aggregator\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the configuration aggregator.\n",
+                "willReplaceOnChanges": true
+            },
+            "organizationAggregationSource": {
+                "$ref": "#/types/aws:cfg/ConfigurationAggregatorOrganizationAggregationSource:ConfigurationAggregatorOrganizationAggregationSource",
+                "description": "The organization to aggregate config data from as documented below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\nEither `account_aggregation_source` or `organization_aggregation_source` must be specified.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

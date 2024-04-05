@@ -1,0 +1,58 @@
+{
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "The name of the recorder. Defaults to `default`. Changing it recreates the resource.\n"
+        },
+        "recordingGroup": {
+            "$ref": "#/types/aws:cfg/RecorderRecordingGroup:RecorderRecordingGroup",
+            "description": "Recording group - see below.\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.\n"
+        }
+    },
+    "required": [
+        "name",
+        "recordingGroup",
+        "roleArn"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "The name of the recorder. Defaults to `default`. Changing it recreates the resource.\n",
+            "willReplaceOnChanges": true
+        },
+        "recordingGroup": {
+            "$ref": "#/types/aws:cfg/RecorderRecordingGroup:RecorderRecordingGroup",
+            "description": "Recording group - see below.\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.\n"
+        }
+    },
+    "requiredInputs": [
+        "roleArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Recorder resources.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "The name of the recorder. Defaults to `default`. Changing it recreates the resource.\n",
+                "willReplaceOnChanges": true
+            },
+            "recordingGroup": {
+                "$ref": "#/types/aws:cfg/RecorderRecordingGroup:RecorderRecordingGroup",
+                "description": "Recording group - see below.\n"
+            },
+            "roleArn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.\n"
+            }
+        },
+        "type": "object"
+    }
+}

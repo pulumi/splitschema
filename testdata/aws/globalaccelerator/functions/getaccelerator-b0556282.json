@@ -1,0 +1,80 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getAccelerator.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Full ARN of the Global Accelerator.\n"
+            },
+            "id": {
+                "type": "string"
+            },
+            "name": {
+                "type": "string",
+                "description": "Unique name of the Global Accelerator.\n\n\u003e **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getAccelerator.\n",
+        "properties": {
+            "arn": {
+                "type": "string"
+            },
+            "attributes": {
+                "items": {
+                    "$ref": "#/types/aws:globalaccelerator/getAcceleratorAttribute:getAcceleratorAttribute"
+                },
+                "type": "array"
+            },
+            "dnsName": {
+                "type": "string"
+            },
+            "dualStackDnsName": {
+                "type": "string"
+            },
+            "enabled": {
+                "type": "boolean"
+            },
+            "hostedZoneId": {
+                "type": "string"
+            },
+            "id": {
+                "type": "string"
+            },
+            "ipAddressType": {
+                "type": "string"
+            },
+            "ipSets": {
+                "items": {
+                    "$ref": "#/types/aws:globalaccelerator/getAcceleratorIpSet:getAcceleratorIpSet"
+                },
+                "type": "array"
+            },
+            "name": {
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "attributes",
+            "dnsName",
+            "dualStackDnsName",
+            "enabled",
+            "hostedZoneId",
+            "id",
+            "ipAddressType",
+            "ipSets",
+            "name",
+            "tags"
+        ],
+        "type": "object"
+    }
+}

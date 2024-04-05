@@ -1,0 +1,27 @@
+{
+    "properties": {
+        "executionRole": {
+            "type": "string",
+            "description": "The execution role for the space.\n"
+        },
+        "jupyterServerAppSettings": {
+            "$ref": "#/types/aws:sagemaker/DomainDefaultSpaceSettingsJupyterServerAppSettings:DomainDefaultSpaceSettingsJupyterServerAppSettings",
+            "description": "The Jupyter server's app settings. See Jupyter Server App Settings below.\n"
+        },
+        "kernelGatewayAppSettings": {
+            "$ref": "#/types/aws:sagemaker/DomainDefaultSpaceSettingsKernelGatewayAppSettings:DomainDefaultSpaceSettingsKernelGatewayAppSettings",
+            "description": "The kernel gateway app settings. See Kernel Gateway App Settings below.\n"
+        },
+        "securityGroups": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The security groups for the Amazon Virtual Private Cloud that the space uses for communication.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "executionRole"
+    ]
+}

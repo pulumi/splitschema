@@ -1,0 +1,93 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Rule Set ARN.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the matchmaking rule set.\n"
+        },
+        "ruleSetBody": {
+            "type": "string",
+            "description": "JSON encoded string containing rule set data.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "ruleSetBody",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "Name of the matchmaking rule set.\n",
+            "willReplaceOnChanges": true
+        },
+        "ruleSetBody": {
+            "type": "string",
+            "description": "JSON encoded string containing rule set data.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        }
+    },
+    "requiredInputs": [
+        "ruleSetBody"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering MatchmakingRuleSet resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Rule Set ARN.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the matchmaking rule set.\n",
+                "willReplaceOnChanges": true
+            },
+            "ruleSetBody": {
+                "type": "string",
+                "description": "JSON encoded string containing rule set data.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                }
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "properties": {
+        "buildStatusConfig": {
+            "$ref": "#/types/aws:codebuild/ProjectSourceBuildStatusConfig:ProjectSourceBuildStatusConfig",
+            "description": "Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.\n"
+        },
+        "buildspec": {
+            "type": "string",
+            "description": "Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.\n"
+        },
+        "gitCloneDepth": {
+            "type": "integer",
+            "description": "Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.\n"
+        },
+        "gitSubmodulesConfig": {
+            "$ref": "#/types/aws:codebuild/ProjectSourceGitSubmodulesConfig:ProjectSourceGitSubmodulesConfig",
+            "description": "Configuration block. Detailed below.\n"
+        },
+        "insecureSsl": {
+            "type": "boolean",
+            "description": "Ignore SSL warnings when connecting to source control.\n"
+        },
+        "location": {
+            "type": "string",
+            "description": "Location of the source code from git or s3.\n"
+        },
+        "reportBuildStatus": {
+            "type": "boolean",
+            "description": "Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "type"
+    ]
+}

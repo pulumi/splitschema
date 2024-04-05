@@ -1,0 +1,72 @@
+{
+    "properties": {
+        "enabled": {
+            "type": "boolean",
+            "description": "Whether this continuous deployment policy is enabled.\n"
+        },
+        "etag": {
+            "type": "string",
+            "description": "Current version of the continuous distribution policy.\n"
+        },
+        "lastModifiedTime": {
+            "type": "string",
+            "description": "Date and time the continuous deployment policy was last modified.\n"
+        },
+        "stagingDistributionDnsNames": {
+            "$ref": "#/types/aws:cloudfront/ContinuousDeploymentPolicyStagingDistributionDnsNames:ContinuousDeploymentPolicyStagingDistributionDnsNames",
+            "description": "CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.\n"
+        },
+        "trafficConfig": {
+            "$ref": "#/types/aws:cloudfront/ContinuousDeploymentPolicyTrafficConfig:ContinuousDeploymentPolicyTrafficConfig",
+            "description": "Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.\n"
+        }
+    },
+    "required": [
+        "enabled",
+        "etag",
+        "lastModifiedTime"
+    ],
+    "inputProperties": {
+        "enabled": {
+            "type": "boolean",
+            "description": "Whether this continuous deployment policy is enabled.\n"
+        },
+        "stagingDistributionDnsNames": {
+            "$ref": "#/types/aws:cloudfront/ContinuousDeploymentPolicyStagingDistributionDnsNames:ContinuousDeploymentPolicyStagingDistributionDnsNames",
+            "description": "CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.\n"
+        },
+        "trafficConfig": {
+            "$ref": "#/types/aws:cloudfront/ContinuousDeploymentPolicyTrafficConfig:ContinuousDeploymentPolicyTrafficConfig",
+            "description": "Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.\n"
+        }
+    },
+    "requiredInputs": [
+        "enabled"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ContinuousDeploymentPolicy resources.\n",
+        "properties": {
+            "enabled": {
+                "type": "boolean",
+                "description": "Whether this continuous deployment policy is enabled.\n"
+            },
+            "etag": {
+                "type": "string",
+                "description": "Current version of the continuous distribution policy.\n"
+            },
+            "lastModifiedTime": {
+                "type": "string",
+                "description": "Date and time the continuous deployment policy was last modified.\n"
+            },
+            "stagingDistributionDnsNames": {
+                "$ref": "#/types/aws:cloudfront/ContinuousDeploymentPolicyStagingDistributionDnsNames:ContinuousDeploymentPolicyStagingDistributionDnsNames",
+                "description": "CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.\n"
+            },
+            "trafficConfig": {
+                "$ref": "#/types/aws:cloudfront/ContinuousDeploymentPolicyTrafficConfig:ContinuousDeploymentPolicyTrafficConfig",
+                "description": "Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.\n"
+            }
+        },
+        "type": "object"
+    }
+}

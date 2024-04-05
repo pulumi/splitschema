@@ -1,0 +1,56 @@
+{
+    "properties": {
+        "clusterSecurityGroupId": {
+            "type": "string",
+            "description": "The cluster security group that was created by Amazon EKS for the cluster.\n"
+        },
+        "endpointPrivateAccess": {
+            "type": "boolean",
+            "description": "Indicates whether or not the Amazon EKS private API server endpoint is enabled.\n"
+        },
+        "endpointPublicAccess": {
+            "type": "boolean",
+            "description": "Indicates whether or not the Amazon EKS public API server endpoint is enabled.\n"
+        },
+        "publicAccessCidrs": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.\n"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of security group IDs\n"
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of subnet IDs\n"
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "The VPC associated with your cluster.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "clusterSecurityGroupId",
+        "endpointPrivateAccess",
+        "endpointPublicAccess",
+        "publicAccessCidrs",
+        "securityGroupIds",
+        "subnetIds",
+        "vpcId"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredInputs": []
+        }
+    }
+}

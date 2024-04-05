@@ -1,0 +1,76 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getCoipPool.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getCoipPoolFilter:getCoipPoolFilter"
+                }
+            },
+            "localGatewayRouteTableId": {
+                "type": "string",
+                "description": "Local Gateway Route Table Id assigned to desired COIP Pool\n"
+            },
+            "poolId": {
+                "type": "string",
+                "description": "ID of the specific COIP Pool to retrieve.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Mapping of tags, each pair of which must exactly match\na pair on the desired COIP Pool.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getCoipPool.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the COIP pool\n",
+                "type": "string"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2/getCoipPoolFilter:getCoipPoolFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "localGatewayRouteTableId": {
+                "type": "string"
+            },
+            "poolCidrs": {
+                "description": "Set of CIDR blocks in pool\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "poolId": {
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "localGatewayRouteTableId",
+            "poolCidrs",
+            "poolId",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

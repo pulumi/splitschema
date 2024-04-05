@@ -1,0 +1,62 @@
+{
+    "properties": {
+        "configurationSetName": {
+            "type": "string",
+            "description": "The name of the configuration set.\n"
+        },
+        "eventDestination": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetEventDestinationEventDestination:ConfigurationSetEventDestinationEventDestination",
+            "description": "A name that identifies the event destination within the configuration set.\n"
+        },
+        "eventDestinationName": {
+            "type": "string",
+            "description": "An object that defines the event destination. See event_destination below.\n"
+        }
+    },
+    "required": [
+        "configurationSetName",
+        "eventDestination",
+        "eventDestinationName"
+    ],
+    "inputProperties": {
+        "configurationSetName": {
+            "type": "string",
+            "description": "The name of the configuration set.\n",
+            "willReplaceOnChanges": true
+        },
+        "eventDestination": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetEventDestinationEventDestination:ConfigurationSetEventDestinationEventDestination",
+            "description": "A name that identifies the event destination within the configuration set.\n"
+        },
+        "eventDestinationName": {
+            "type": "string",
+            "description": "An object that defines the event destination. See event_destination below.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "configurationSetName",
+        "eventDestination",
+        "eventDestinationName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ConfigurationSetEventDestination resources.\n",
+        "properties": {
+            "configurationSetName": {
+                "type": "string",
+                "description": "The name of the configuration set.\n",
+                "willReplaceOnChanges": true
+            },
+            "eventDestination": {
+                "$ref": "#/types/aws:sesv2/ConfigurationSetEventDestinationEventDestination:ConfigurationSetEventDestinationEventDestination",
+                "description": "A name that identifies the event destination within the configuration set.\n"
+            },
+            "eventDestinationName": {
+                "type": "string",
+                "description": "An object that defines the event destination. See event_destination below.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

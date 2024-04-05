@@ -1,0 +1,174 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the Glue Connection.\n"
+        },
+        "catalogId": {
+            "type": "string",
+            "description": "The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.\n"
+        },
+        "connectionProperties": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of key-value pairs used as parameters for this connection.\n",
+            "secret": true
+        },
+        "connectionType": {
+            "type": "string",
+            "description": "The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the connection.\n"
+        },
+        "matchCriterias": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of criteria that can be used in selecting this connection.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the connection.\n"
+        },
+        "physicalConnectionRequirements": {
+            "$ref": "#/types/aws:glue/ConnectionPhysicalConnectionRequirements:ConnectionPhysicalConnectionRequirements",
+            "description": "A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "catalogId",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "catalogId": {
+            "type": "string",
+            "description": "The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.\n",
+            "willReplaceOnChanges": true
+        },
+        "connectionProperties": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of key-value pairs used as parameters for this connection.\n",
+            "secret": true
+        },
+        "connectionType": {
+            "type": "string",
+            "description": "The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the connection.\n"
+        },
+        "matchCriterias": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of criteria that can be used in selecting this connection.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the connection.\n",
+            "willReplaceOnChanges": true
+        },
+        "physicalConnectionRequirements": {
+            "$ref": "#/types/aws:glue/ConnectionPhysicalConnectionRequirements:ConnectionPhysicalConnectionRequirements",
+            "description": "A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Connection resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the Glue Connection.\n"
+            },
+            "catalogId": {
+                "type": "string",
+                "description": "The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.\n",
+                "willReplaceOnChanges": true
+            },
+            "connectionProperties": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of key-value pairs used as parameters for this connection.\n",
+                "secret": true
+            },
+            "connectionType": {
+                "type": "string",
+                "description": "The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the connection.\n"
+            },
+            "matchCriterias": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of criteria that can be used in selecting this connection.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the connection.\n",
+                "willReplaceOnChanges": true
+            },
+            "physicalConnectionRequirements": {
+                "$ref": "#/types/aws:glue/ConnectionPhysicalConnectionRequirements:ConnectionPhysicalConnectionRequirements",
+                "description": "A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

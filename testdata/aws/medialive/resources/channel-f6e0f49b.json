@@ -1,0 +1,251 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the Channel.\n"
+        },
+        "cdiInputSpecification": {
+            "$ref": "#/types/aws:medialive/ChannelCdiInputSpecification:ChannelCdiInputSpecification",
+            "description": "Specification of CDI inputs for this channel. See CDI Input Specification for more details.\n"
+        },
+        "channelClass": {
+            "type": "string",
+            "description": "Concise argument description.\n"
+        },
+        "channelId": {
+            "type": "string",
+            "description": "ID of the channel in MediaPackage that is the destination for this output group.\n"
+        },
+        "destinations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:medialive/ChannelDestination:ChannelDestination"
+            },
+            "description": "Destinations for channel. See Destinations for more details.\n"
+        },
+        "encoderSettings": {
+            "$ref": "#/types/aws:medialive/ChannelEncoderSettings:ChannelEncoderSettings",
+            "description": "Encoder settings. See Encoder Settings for more details.\n"
+        },
+        "inputAttachments": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:medialive/ChannelInputAttachment:ChannelInputAttachment"
+            },
+            "description": "Input attachments for the channel. See Input Attachments for more details.\n"
+        },
+        "inputSpecification": {
+            "$ref": "#/types/aws:medialive/ChannelInputSpecification:ChannelInputSpecification",
+            "description": "Specification of network and file inputs for the channel.\n"
+        },
+        "logLevel": {
+            "type": "string",
+            "description": "The log level to write to Cloudwatch logs.\n"
+        },
+        "maintenance": {
+            "$ref": "#/types/aws:medialive/ChannelMaintenance:ChannelMaintenance",
+            "description": "Maintenance settings for this channel. See Maintenance for more details.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the Channel.\n\nThe following arguments are optional:\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "Concise argument description.\n"
+        },
+        "startChannel": {
+            "type": "boolean",
+            "description": "Whether to start/stop channel. Default: `false`\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "vpc": {
+            "$ref": "#/types/aws:medialive/ChannelVpc:ChannelVpc",
+            "description": "Settings for the VPC outputs. See VPC for more details.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "channelClass",
+        "channelId",
+        "destinations",
+        "encoderSettings",
+        "inputAttachments",
+        "inputSpecification",
+        "logLevel",
+        "maintenance",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "cdiInputSpecification": {
+            "$ref": "#/types/aws:medialive/ChannelCdiInputSpecification:ChannelCdiInputSpecification",
+            "description": "Specification of CDI inputs for this channel. See CDI Input Specification for more details.\n"
+        },
+        "channelClass": {
+            "type": "string",
+            "description": "Concise argument description.\n",
+            "willReplaceOnChanges": true
+        },
+        "destinations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:medialive/ChannelDestination:ChannelDestination"
+            },
+            "description": "Destinations for channel. See Destinations for more details.\n"
+        },
+        "encoderSettings": {
+            "$ref": "#/types/aws:medialive/ChannelEncoderSettings:ChannelEncoderSettings",
+            "description": "Encoder settings. See Encoder Settings for more details.\n"
+        },
+        "inputAttachments": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:medialive/ChannelInputAttachment:ChannelInputAttachment"
+            },
+            "description": "Input attachments for the channel. See Input Attachments for more details.\n"
+        },
+        "inputSpecification": {
+            "$ref": "#/types/aws:medialive/ChannelInputSpecification:ChannelInputSpecification",
+            "description": "Specification of network and file inputs for the channel.\n"
+        },
+        "logLevel": {
+            "type": "string",
+            "description": "The log level to write to Cloudwatch logs.\n"
+        },
+        "maintenance": {
+            "$ref": "#/types/aws:medialive/ChannelMaintenance:ChannelMaintenance",
+            "description": "Maintenance settings for this channel. See Maintenance for more details.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the Channel.\n\nThe following arguments are optional:\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "Concise argument description.\n"
+        },
+        "startChannel": {
+            "type": "boolean",
+            "description": "Whether to start/stop channel. Default: `false`\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "vpc": {
+            "$ref": "#/types/aws:medialive/ChannelVpc:ChannelVpc",
+            "description": "Settings for the VPC outputs. See VPC for more details.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "channelClass",
+        "destinations",
+        "encoderSettings",
+        "inputAttachments",
+        "inputSpecification"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Channel resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the Channel.\n"
+            },
+            "cdiInputSpecification": {
+                "$ref": "#/types/aws:medialive/ChannelCdiInputSpecification:ChannelCdiInputSpecification",
+                "description": "Specification of CDI inputs for this channel. See CDI Input Specification for more details.\n"
+            },
+            "channelClass": {
+                "type": "string",
+                "description": "Concise argument description.\n",
+                "willReplaceOnChanges": true
+            },
+            "channelId": {
+                "type": "string",
+                "description": "ID of the channel in MediaPackage that is the destination for this output group.\n"
+            },
+            "destinations": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:medialive/ChannelDestination:ChannelDestination"
+                },
+                "description": "Destinations for channel. See Destinations for more details.\n"
+            },
+            "encoderSettings": {
+                "$ref": "#/types/aws:medialive/ChannelEncoderSettings:ChannelEncoderSettings",
+                "description": "Encoder settings. See Encoder Settings for more details.\n"
+            },
+            "inputAttachments": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:medialive/ChannelInputAttachment:ChannelInputAttachment"
+                },
+                "description": "Input attachments for the channel. See Input Attachments for more details.\n"
+            },
+            "inputSpecification": {
+                "$ref": "#/types/aws:medialive/ChannelInputSpecification:ChannelInputSpecification",
+                "description": "Specification of network and file inputs for the channel.\n"
+            },
+            "logLevel": {
+                "type": "string",
+                "description": "The log level to write to Cloudwatch logs.\n"
+            },
+            "maintenance": {
+                "$ref": "#/types/aws:medialive/ChannelMaintenance:ChannelMaintenance",
+                "description": "Maintenance settings for this channel. See Maintenance for more details.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the Channel.\n\nThe following arguments are optional:\n"
+            },
+            "roleArn": {
+                "type": "string",
+                "description": "Concise argument description.\n"
+            },
+            "startChannel": {
+                "type": "boolean",
+                "description": "Whether to start/stop channel. Default: `false`\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "vpc": {
+                "$ref": "#/types/aws:medialive/ChannelVpc:ChannelVpc",
+                "description": "Settings for the VPC outputs. See VPC for more details.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "properties": {
+        "enableInterContainerTrafficEncryption": {
+            "type": "boolean",
+            "description": "Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.\n",
+            "willReplaceOnChanges": true
+        },
+        "enableNetworkIsolation": {
+            "type": "boolean",
+            "description": "Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.\n",
+            "willReplaceOnChanges": true
+        },
+        "vpcConfig": {
+            "$ref": "#/types/aws:sagemaker/DataQualityJobDefinitionNetworkConfigVpcConfig:DataQualityJobDefinitionNetworkConfigVpcConfig",
+            "description": "Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object"
+}

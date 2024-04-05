@@ -1,0 +1,29 @@
+{
+    "properties": {
+        "iops": {
+            "type": "integer",
+            "description": "The number of I/O operations per second (IOPS) that the volume supports\n",
+            "willReplaceOnChanges": true
+        },
+        "size": {
+            "type": "integer",
+            "description": "The volume size, in gibibytes (GiB).\n",
+            "willReplaceOnChanges": true
+        },
+        "type": {
+            "type": "string",
+            "description": "The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).\n",
+            "willReplaceOnChanges": true
+        },
+        "volumesPerInstance": {
+            "type": "integer",
+            "description": "The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "size",
+        "type"
+    ]
+}

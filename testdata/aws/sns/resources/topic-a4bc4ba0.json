@@ -1,0 +1,406 @@
+{
+    "properties": {
+        "applicationFailureFeedbackRoleArn": {
+            "type": "string",
+            "description": "IAM role for failure feedback\n"
+        },
+        "applicationSuccessFeedbackRoleArn": {
+            "type": "string",
+            "description": "The IAM role permitted to receive success feedback for this topic\n"
+        },
+        "applicationSuccessFeedbackSampleRate": {
+            "type": "integer",
+            "description": "Percentage of success to sample\n"
+        },
+        "archivePolicy": {
+            "type": "string",
+            "description": "The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).\n"
+        },
+        "arn": {
+            "type": "string",
+            "$ref": "#/types/aws:index/aRN:ARN",
+            "description": "The ARN of the SNS topic, as a more obvious property (clone of id)\n"
+        },
+        "beginningArchiveTime": {
+            "type": "string",
+            "description": "The oldest timestamp at which a FIFO topic subscriber can start a replay.\n"
+        },
+        "contentBasedDeduplication": {
+            "type": "boolean",
+            "description": "Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)\n"
+        },
+        "deliveryPolicy": {
+            "type": "string",
+            "description": "The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).\n"
+        },
+        "displayName": {
+            "type": "string",
+            "description": "The display name for the topic\n"
+        },
+        "fifoTopic": {
+            "type": "boolean",
+            "description": "Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).\n"
+        },
+        "firehoseFailureFeedbackRoleArn": {
+            "type": "string",
+            "description": "IAM role for failure feedback\n"
+        },
+        "firehoseSuccessFeedbackRoleArn": {
+            "type": "string",
+            "description": "The IAM role permitted to receive success feedback for this topic\n"
+        },
+        "firehoseSuccessFeedbackSampleRate": {
+            "type": "integer",
+            "description": "Percentage of success to sample\n"
+        },
+        "httpFailureFeedbackRoleArn": {
+            "type": "string",
+            "description": "IAM role for failure feedback\n"
+        },
+        "httpSuccessFeedbackRoleArn": {
+            "type": "string",
+            "description": "The IAM role permitted to receive success feedback for this topic\n"
+        },
+        "httpSuccessFeedbackSampleRate": {
+            "type": "integer",
+            "description": "Percentage of success to sample\n"
+        },
+        "kmsMasterKeyId": {
+            "type": "string",
+            "description": "The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)\n"
+        },
+        "lambdaFailureFeedbackRoleArn": {
+            "type": "string",
+            "description": "IAM role for failure feedback\n"
+        },
+        "lambdaSuccessFeedbackRoleArn": {
+            "type": "string",
+            "description": "The IAM role permitted to receive success feedback for this topic\n"
+        },
+        "lambdaSuccessFeedbackSampleRate": {
+            "type": "integer",
+            "description": "Percentage of success to sample\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`\n"
+        },
+        "owner": {
+            "type": "string",
+            "description": "The AWS Account ID of the SNS topic owner\n"
+        },
+        "policy": {
+            "type": "string",
+            "description": "The fully-formed AWS policy as JSON.\n"
+        },
+        "signatureVersion": {
+            "type": "integer",
+            "description": "If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.\n"
+        },
+        "sqsFailureFeedbackRoleArn": {
+            "type": "string",
+            "description": "IAM role for failure feedback\n"
+        },
+        "sqsSuccessFeedbackRoleArn": {
+            "type": "string",
+            "description": "The IAM role permitted to receive success feedback for this topic\n"
+        },
+        "sqsSuccessFeedbackSampleRate": {
+            "type": "integer",
+            "description": "Percentage of success to sample\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "tracingConfig": {
+            "type": "string",
+            "description": "Tracing mode of an Amazon SNS topic. Valid values: `\"PassThrough\"`, `\"Active\"`.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "beginningArchiveTime",
+        "name",
+        "namePrefix",
+        "owner",
+        "policy",
+        "signatureVersion",
+        "tagsAll",
+        "tracingConfig"
+    ],
+    "inputProperties": {
+        "applicationFailureFeedbackRoleArn": {
+            "type": "string",
+            "description": "IAM role for failure feedback\n"
+        },
+        "applicationSuccessFeedbackRoleArn": {
+            "type": "string",
+            "description": "The IAM role permitted to receive success feedback for this topic\n"
+        },
+        "applicationSuccessFeedbackSampleRate": {
+            "type": "integer",
+            "description": "Percentage of success to sample\n"
+        },
+        "archivePolicy": {
+            "type": "string",
+            "description": "The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).\n"
+        },
+        "contentBasedDeduplication": {
+            "type": "boolean",
+            "description": "Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)\n"
+        },
+        "deliveryPolicy": {
+            "type": "string",
+            "description": "The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).\n"
+        },
+        "displayName": {
+            "type": "string",
+            "description": "The display name for the topic\n"
+        },
+        "fifoTopic": {
+            "type": "boolean",
+            "description": "Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).\n",
+            "willReplaceOnChanges": true
+        },
+        "firehoseFailureFeedbackRoleArn": {
+            "type": "string",
+            "description": "IAM role for failure feedback\n"
+        },
+        "firehoseSuccessFeedbackRoleArn": {
+            "type": "string",
+            "description": "The IAM role permitted to receive success feedback for this topic\n"
+        },
+        "firehoseSuccessFeedbackSampleRate": {
+            "type": "integer",
+            "description": "Percentage of success to sample\n"
+        },
+        "httpFailureFeedbackRoleArn": {
+            "type": "string",
+            "description": "IAM role for failure feedback\n"
+        },
+        "httpSuccessFeedbackRoleArn": {
+            "type": "string",
+            "description": "The IAM role permitted to receive success feedback for this topic\n"
+        },
+        "httpSuccessFeedbackSampleRate": {
+            "type": "integer",
+            "description": "Percentage of success to sample\n"
+        },
+        "kmsMasterKeyId": {
+            "type": "string",
+            "description": "The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)\n"
+        },
+        "lambdaFailureFeedbackRoleArn": {
+            "type": "string",
+            "description": "IAM role for failure feedback\n"
+        },
+        "lambdaSuccessFeedbackRoleArn": {
+            "type": "string",
+            "description": "The IAM role permitted to receive success feedback for this topic\n"
+        },
+        "lambdaSuccessFeedbackSampleRate": {
+            "type": "integer",
+            "description": "Percentage of success to sample\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`\n",
+            "willReplaceOnChanges": true
+        },
+        "policy": {
+            "type": "string",
+            "description": "The fully-formed AWS policy as JSON.\n"
+        },
+        "signatureVersion": {
+            "type": "integer",
+            "description": "If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.\n"
+        },
+        "sqsFailureFeedbackRoleArn": {
+            "type": "string",
+            "description": "IAM role for failure feedback\n"
+        },
+        "sqsSuccessFeedbackRoleArn": {
+            "type": "string",
+            "description": "The IAM role permitted to receive success feedback for this topic\n"
+        },
+        "sqsSuccessFeedbackSampleRate": {
+            "type": "integer",
+            "description": "Percentage of success to sample\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tracingConfig": {
+            "type": "string",
+            "description": "Tracing mode of an Amazon SNS topic. Valid values: `\"PassThrough\"`, `\"Active\"`.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Topic resources.\n",
+        "properties": {
+            "applicationFailureFeedbackRoleArn": {
+                "type": "string",
+                "description": "IAM role for failure feedback\n"
+            },
+            "applicationSuccessFeedbackRoleArn": {
+                "type": "string",
+                "description": "The IAM role permitted to receive success feedback for this topic\n"
+            },
+            "applicationSuccessFeedbackSampleRate": {
+                "type": "integer",
+                "description": "Percentage of success to sample\n"
+            },
+            "archivePolicy": {
+                "type": "string",
+                "description": "The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).\n"
+            },
+            "arn": {
+                "type": "string",
+                "$ref": "#/types/aws:index/aRN:ARN",
+                "description": "The ARN of the SNS topic, as a more obvious property (clone of id)\n"
+            },
+            "beginningArchiveTime": {
+                "type": "string",
+                "description": "The oldest timestamp at which a FIFO topic subscriber can start a replay.\n"
+            },
+            "contentBasedDeduplication": {
+                "type": "boolean",
+                "description": "Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)\n"
+            },
+            "deliveryPolicy": {
+                "type": "string",
+                "description": "The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).\n"
+            },
+            "displayName": {
+                "type": "string",
+                "description": "The display name for the topic\n"
+            },
+            "fifoTopic": {
+                "type": "boolean",
+                "description": "Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).\n",
+                "willReplaceOnChanges": true
+            },
+            "firehoseFailureFeedbackRoleArn": {
+                "type": "string",
+                "description": "IAM role for failure feedback\n"
+            },
+            "firehoseSuccessFeedbackRoleArn": {
+                "type": "string",
+                "description": "The IAM role permitted to receive success feedback for this topic\n"
+            },
+            "firehoseSuccessFeedbackSampleRate": {
+                "type": "integer",
+                "description": "Percentage of success to sample\n"
+            },
+            "httpFailureFeedbackRoleArn": {
+                "type": "string",
+                "description": "IAM role for failure feedback\n"
+            },
+            "httpSuccessFeedbackRoleArn": {
+                "type": "string",
+                "description": "The IAM role permitted to receive success feedback for this topic\n"
+            },
+            "httpSuccessFeedbackSampleRate": {
+                "type": "integer",
+                "description": "Percentage of success to sample\n"
+            },
+            "kmsMasterKeyId": {
+                "type": "string",
+                "description": "The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)\n"
+            },
+            "lambdaFailureFeedbackRoleArn": {
+                "type": "string",
+                "description": "IAM role for failure feedback\n"
+            },
+            "lambdaSuccessFeedbackRoleArn": {
+                "type": "string",
+                "description": "The IAM role permitted to receive success feedback for this topic\n"
+            },
+            "lambdaSuccessFeedbackSampleRate": {
+                "type": "integer",
+                "description": "Percentage of success to sample\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`\n",
+                "willReplaceOnChanges": true
+            },
+            "owner": {
+                "type": "string",
+                "description": "The AWS Account ID of the SNS topic owner\n"
+            },
+            "policy": {
+                "type": "string",
+                "description": "The fully-formed AWS policy as JSON.\n"
+            },
+            "signatureVersion": {
+                "type": "integer",
+                "description": "If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.\n"
+            },
+            "sqsFailureFeedbackRoleArn": {
+                "type": "string",
+                "description": "IAM role for failure feedback\n"
+            },
+            "sqsSuccessFeedbackRoleArn": {
+                "type": "string",
+                "description": "The IAM role permitted to receive success feedback for this topic\n"
+            },
+            "sqsSuccessFeedbackSampleRate": {
+                "type": "integer",
+                "description": "Percentage of success to sample\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "tracingConfig": {
+                "type": "string",
+                "description": "Tracing mode of an Amazon SNS topic. Valid values: `\"PassThrough\"`, `\"Active\"`.\n"
+            }
+        },
+        "type": "object"
+    }
+}

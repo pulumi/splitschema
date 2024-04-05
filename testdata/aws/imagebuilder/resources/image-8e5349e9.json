@@ -1,0 +1,225 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the image.\n"
+        },
+        "containerRecipeArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the container recipe.\n"
+        },
+        "dateCreated": {
+            "type": "string",
+            "description": "Date the image was created.\n"
+        },
+        "distributionConfigurationArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.\n"
+        },
+        "enhancedImageMetadataEnabled": {
+            "type": "boolean",
+            "description": "Whether additional information about the image being created is collected. Defaults to `true`.\n"
+        },
+        "imageRecipeArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the image recipe.\n"
+        },
+        "imageScanningConfiguration": {
+            "$ref": "#/types/aws:imagebuilder/ImageImageScanningConfiguration:ImageImageScanningConfiguration",
+            "description": "Configuration block with image scanning configuration. Detailed below.\n"
+        },
+        "imageTestsConfiguration": {
+            "$ref": "#/types/aws:imagebuilder/ImageImageTestsConfiguration:ImageImageTestsConfiguration",
+            "description": "Configuration block with image tests configuration. Detailed below.\n"
+        },
+        "infrastructureConfigurationArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.\n\nThe following arguments are optional:\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the AMI.\n"
+        },
+        "osVersion": {
+            "type": "string",
+            "description": "Operating System version of the image.\n"
+        },
+        "outputResources": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:imagebuilder/ImageOutputResource:ImageOutputResource"
+            },
+            "description": "List of objects with resources created by the image.\n"
+        },
+        "platform": {
+            "type": "string",
+            "description": "Platform of the image.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "version": {
+            "type": "string",
+            "description": "Version of the image.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "dateCreated",
+        "imageScanningConfiguration",
+        "imageTestsConfiguration",
+        "infrastructureConfigurationArn",
+        "name",
+        "osVersion",
+        "outputResources",
+        "platform",
+        "tagsAll",
+        "version"
+    ],
+    "inputProperties": {
+        "containerRecipeArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the container recipe.\n",
+            "willReplaceOnChanges": true
+        },
+        "distributionConfigurationArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.\n",
+            "willReplaceOnChanges": true
+        },
+        "enhancedImageMetadataEnabled": {
+            "type": "boolean",
+            "description": "Whether additional information about the image being created is collected. Defaults to `true`.\n",
+            "willReplaceOnChanges": true
+        },
+        "imageRecipeArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the image recipe.\n",
+            "willReplaceOnChanges": true
+        },
+        "imageScanningConfiguration": {
+            "$ref": "#/types/aws:imagebuilder/ImageImageScanningConfiguration:ImageImageScanningConfiguration",
+            "description": "Configuration block with image scanning configuration. Detailed below.\n"
+        },
+        "imageTestsConfiguration": {
+            "$ref": "#/types/aws:imagebuilder/ImageImageTestsConfiguration:ImageImageTestsConfiguration",
+            "description": "Configuration block with image tests configuration. Detailed below.\n",
+            "willReplaceOnChanges": true
+        },
+        "infrastructureConfigurationArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "infrastructureConfigurationArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Image resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the image.\n"
+            },
+            "containerRecipeArn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the container recipe.\n",
+                "willReplaceOnChanges": true
+            },
+            "dateCreated": {
+                "type": "string",
+                "description": "Date the image was created.\n"
+            },
+            "distributionConfigurationArn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.\n",
+                "willReplaceOnChanges": true
+            },
+            "enhancedImageMetadataEnabled": {
+                "type": "boolean",
+                "description": "Whether additional information about the image being created is collected. Defaults to `true`.\n",
+                "willReplaceOnChanges": true
+            },
+            "imageRecipeArn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the image recipe.\n",
+                "willReplaceOnChanges": true
+            },
+            "imageScanningConfiguration": {
+                "$ref": "#/types/aws:imagebuilder/ImageImageScanningConfiguration:ImageImageScanningConfiguration",
+                "description": "Configuration block with image scanning configuration. Detailed below.\n"
+            },
+            "imageTestsConfiguration": {
+                "$ref": "#/types/aws:imagebuilder/ImageImageTestsConfiguration:ImageImageTestsConfiguration",
+                "description": "Configuration block with image tests configuration. Detailed below.\n",
+                "willReplaceOnChanges": true
+            },
+            "infrastructureConfigurationArn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the AMI.\n"
+            },
+            "osVersion": {
+                "type": "string",
+                "description": "Operating System version of the image.\n"
+            },
+            "outputResources": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:imagebuilder/ImageOutputResource:ImageOutputResource"
+                },
+                "description": "List of objects with resources created by the image.\n"
+            },
+            "platform": {
+                "type": "string",
+                "description": "Platform of the image.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "version": {
+                "type": "string",
+                "description": "Version of the image.\n"
+            }
+        },
+        "type": "object"
+    }
+}

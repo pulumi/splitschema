@@ -1,0 +1,245 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "(Required) Amazon Resource Name (ARN) of the image recipe.\n"
+        },
+        "blockDeviceMappings": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:imagebuilder/ImageRecipeBlockDeviceMapping:ImageRecipeBlockDeviceMapping"
+            },
+            "description": "Configuration block(s) with block device mappings for the image recipe. Detailed below.\n"
+        },
+        "components": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:imagebuilder/ImageRecipeComponent:ImageRecipeComponent"
+            },
+            "description": "Ordered configuration block(s) with components for the image recipe. Detailed below.\n"
+        },
+        "dateCreated": {
+            "type": "string",
+            "description": "Date the image recipe was created.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the image recipe.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the image recipe.\n"
+        },
+        "owner": {
+            "type": "string",
+            "description": "Owner of the image recipe.\n"
+        },
+        "parentImage": {
+            "type": "string",
+            "description": "The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.\n"
+        },
+        "platform": {
+            "type": "string",
+            "description": "Platform of the image recipe.\n"
+        },
+        "systemsManagerAgent": {
+            "$ref": "#/types/aws:imagebuilder/ImageRecipeSystemsManagerAgent:ImageRecipeSystemsManagerAgent",
+            "description": "Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "userDataBase64": {
+            "type": "string",
+            "description": "Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.\n"
+        },
+        "version": {
+            "type": "string",
+            "description": "The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.\n\nThe following attributes are optional:\n"
+        },
+        "workingDirectory": {
+            "type": "string",
+            "description": "The working directory to be used during build and test workflows.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "components",
+        "dateCreated",
+        "name",
+        "owner",
+        "parentImage",
+        "platform",
+        "systemsManagerAgent",
+        "tagsAll",
+        "userDataBase64",
+        "version"
+    ],
+    "inputProperties": {
+        "blockDeviceMappings": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:imagebuilder/ImageRecipeBlockDeviceMapping:ImageRecipeBlockDeviceMapping"
+            },
+            "description": "Configuration block(s) with block device mappings for the image recipe. Detailed below.\n",
+            "willReplaceOnChanges": true
+        },
+        "components": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:imagebuilder/ImageRecipeComponent:ImageRecipeComponent"
+            },
+            "description": "Ordered configuration block(s) with components for the image recipe. Detailed below.\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the image recipe.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the image recipe.\n",
+            "willReplaceOnChanges": true
+        },
+        "parentImage": {
+            "type": "string",
+            "description": "The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.\n",
+            "willReplaceOnChanges": true
+        },
+        "systemsManagerAgent": {
+            "$ref": "#/types/aws:imagebuilder/ImageRecipeSystemsManagerAgent:ImageRecipeSystemsManagerAgent",
+            "description": "Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "userDataBase64": {
+            "type": "string",
+            "description": "Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.\n",
+            "willReplaceOnChanges": true
+        },
+        "version": {
+            "type": "string",
+            "description": "The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.\n\nThe following attributes are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "workingDirectory": {
+            "type": "string",
+            "description": "The working directory to be used during build and test workflows.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "components",
+        "parentImage",
+        "version"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ImageRecipe resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "(Required) Amazon Resource Name (ARN) of the image recipe.\n"
+            },
+            "blockDeviceMappings": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:imagebuilder/ImageRecipeBlockDeviceMapping:ImageRecipeBlockDeviceMapping"
+                },
+                "description": "Configuration block(s) with block device mappings for the image recipe. Detailed below.\n",
+                "willReplaceOnChanges": true
+            },
+            "components": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:imagebuilder/ImageRecipeComponent:ImageRecipeComponent"
+                },
+                "description": "Ordered configuration block(s) with components for the image recipe. Detailed below.\n",
+                "willReplaceOnChanges": true
+            },
+            "dateCreated": {
+                "type": "string",
+                "description": "Date the image recipe was created.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the image recipe.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the image recipe.\n",
+                "willReplaceOnChanges": true
+            },
+            "owner": {
+                "type": "string",
+                "description": "Owner of the image recipe.\n"
+            },
+            "parentImage": {
+                "type": "string",
+                "description": "The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.\n",
+                "willReplaceOnChanges": true
+            },
+            "platform": {
+                "type": "string",
+                "description": "Platform of the image recipe.\n"
+            },
+            "systemsManagerAgent": {
+                "$ref": "#/types/aws:imagebuilder/ImageRecipeSystemsManagerAgent:ImageRecipeSystemsManagerAgent",
+                "description": "Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "userDataBase64": {
+                "type": "string",
+                "description": "Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.\n",
+                "willReplaceOnChanges": true
+            },
+            "version": {
+                "type": "string",
+                "description": "The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.\n\nThe following attributes are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "workingDirectory": {
+                "type": "string",
+                "description": "The working directory to be used during build and test workflows.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

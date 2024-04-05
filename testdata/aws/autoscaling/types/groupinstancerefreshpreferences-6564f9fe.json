@@ -1,0 +1,40 @@
+{
+    "properties": {
+        "autoRollback": {
+            "type": "boolean",
+            "description": "Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.\n"
+        },
+        "checkpointDelay": {
+            "type": "string",
+            "description": "Number of seconds to wait after a checkpoint. Defaults to `3600`.\n"
+        },
+        "checkpointPercentages": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            },
+            "description": "List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.\n"
+        },
+        "instanceWarmup": {
+            "type": "string",
+            "description": "Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.\n"
+        },
+        "minHealthyPercentage": {
+            "type": "integer",
+            "description": "Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.\n"
+        },
+        "scaleInProtectedInstances": {
+            "type": "string",
+            "description": "Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.\n"
+        },
+        "skipMatching": {
+            "type": "boolean",
+            "description": "Replace instances that already have your desired configuration. Defaults to `false`.\n"
+        },
+        "standbyInstances": {
+            "type": "string",
+            "description": "Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.\n"
+        }
+    },
+    "type": "object"
+}

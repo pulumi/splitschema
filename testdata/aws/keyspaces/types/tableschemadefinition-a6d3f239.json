@@ -1,0 +1,40 @@
+{
+    "properties": {
+        "clusteringKeys": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:keyspaces/TableSchemaDefinitionClusteringKey:TableSchemaDefinitionClusteringKey"
+            },
+            "description": "The columns that are part of the clustering key of the table.\n",
+            "willReplaceOnChanges": true
+        },
+        "columns": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:keyspaces/TableSchemaDefinitionColumn:TableSchemaDefinitionColumn"
+            },
+            "description": "The regular columns of the table.\n"
+        },
+        "partitionKeys": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:keyspaces/TableSchemaDefinitionPartitionKey:TableSchemaDefinitionPartitionKey"
+            },
+            "description": "The columns that are part of the partition key of the table .\n",
+            "willReplaceOnChanges": true
+        },
+        "staticColumns": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:keyspaces/TableSchemaDefinitionStaticColumn:TableSchemaDefinitionStaticColumn"
+            },
+            "description": "The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "columns",
+        "partitionKeys"
+    ]
+}

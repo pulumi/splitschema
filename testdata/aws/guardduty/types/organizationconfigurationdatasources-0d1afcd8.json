@@ -1,0 +1,26 @@
+{
+    "properties": {
+        "kubernetes": {
+            "$ref": "#/types/aws:guardduty/OrganizationConfigurationDatasourcesKubernetes:OrganizationConfigurationDatasourcesKubernetes",
+            "description": "Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.\n"
+        },
+        "malwareProtection": {
+            "$ref": "#/types/aws:guardduty/OrganizationConfigurationDatasourcesMalwareProtection:OrganizationConfigurationDatasourcesMalwareProtection",
+            "description": "Enable Malware Protection automatically for new member accounts.\n"
+        },
+        "s3Logs": {
+            "$ref": "#/types/aws:guardduty/OrganizationConfigurationDatasourcesS3Logs:OrganizationConfigurationDatasourcesS3Logs",
+            "description": "Enable S3 Protection automatically for new member accounts.\n"
+        }
+    },
+    "type": "object",
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "kubernetes",
+                "malwareProtection",
+                "s3Logs"
+            ]
+        }
+    }
+}

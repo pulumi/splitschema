@@ -1,0 +1,207 @@
+{
+    "properties": {
+        "architecture": {
+            "type": "string",
+            "description": "The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN of the cluster.\n"
+        },
+        "autoStartConfiguration": {
+            "$ref": "#/types/aws:emrserverless/ApplicationAutoStartConfiguration:ApplicationAutoStartConfiguration",
+            "description": "The configuration for an application to automatically start on job submission.\n"
+        },
+        "autoStopConfiguration": {
+            "$ref": "#/types/aws:emrserverless/ApplicationAutoStopConfiguration:ApplicationAutoStopConfiguration",
+            "description": "The configuration for an application to automatically stop after a certain amount of time being idle.\n"
+        },
+        "imageConfiguration": {
+            "$ref": "#/types/aws:emrserverless/ApplicationImageConfiguration:ApplicationImageConfiguration",
+            "description": "The image configuration applied to all worker types.\n"
+        },
+        "initialCapacities": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:emrserverless/ApplicationInitialCapacity:ApplicationInitialCapacity"
+            },
+            "description": "The capacity to initialize when the application is created.\n"
+        },
+        "maximumCapacity": {
+            "$ref": "#/types/aws:emrserverless/ApplicationMaximumCapacity:ApplicationMaximumCapacity",
+            "description": "The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the application.\n"
+        },
+        "networkConfiguration": {
+            "$ref": "#/types/aws:emrserverless/ApplicationNetworkConfiguration:ApplicationNetworkConfiguration",
+            "description": "The network configuration for customer VPC connectivity.\n"
+        },
+        "releaseLabel": {
+            "type": "string",
+            "description": "The EMR release version associated with the application.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "type": {
+            "type": "string",
+            "description": "The type of application you want to start, such as `spark` or `hive`.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "autoStartConfiguration",
+        "autoStopConfiguration",
+        "imageConfiguration",
+        "maximumCapacity",
+        "name",
+        "releaseLabel",
+        "tagsAll",
+        "type"
+    ],
+    "inputProperties": {
+        "architecture": {
+            "type": "string",
+            "description": "The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.\n"
+        },
+        "autoStartConfiguration": {
+            "$ref": "#/types/aws:emrserverless/ApplicationAutoStartConfiguration:ApplicationAutoStartConfiguration",
+            "description": "The configuration for an application to automatically start on job submission.\n"
+        },
+        "autoStopConfiguration": {
+            "$ref": "#/types/aws:emrserverless/ApplicationAutoStopConfiguration:ApplicationAutoStopConfiguration",
+            "description": "The configuration for an application to automatically stop after a certain amount of time being idle.\n"
+        },
+        "imageConfiguration": {
+            "$ref": "#/types/aws:emrserverless/ApplicationImageConfiguration:ApplicationImageConfiguration",
+            "description": "The image configuration applied to all worker types.\n"
+        },
+        "initialCapacities": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:emrserverless/ApplicationInitialCapacity:ApplicationInitialCapacity"
+            },
+            "description": "The capacity to initialize when the application is created.\n"
+        },
+        "maximumCapacity": {
+            "$ref": "#/types/aws:emrserverless/ApplicationMaximumCapacity:ApplicationMaximumCapacity",
+            "description": "The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the application.\n",
+            "willReplaceOnChanges": true
+        },
+        "networkConfiguration": {
+            "$ref": "#/types/aws:emrserverless/ApplicationNetworkConfiguration:ApplicationNetworkConfiguration",
+            "description": "The network configuration for customer VPC connectivity.\n"
+        },
+        "releaseLabel": {
+            "type": "string",
+            "description": "The EMR release version associated with the application.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "The type of application you want to start, such as `spark` or `hive`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "releaseLabel",
+        "type"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Application resources.\n",
+        "properties": {
+            "architecture": {
+                "type": "string",
+                "description": "The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN of the cluster.\n"
+            },
+            "autoStartConfiguration": {
+                "$ref": "#/types/aws:emrserverless/ApplicationAutoStartConfiguration:ApplicationAutoStartConfiguration",
+                "description": "The configuration for an application to automatically start on job submission.\n"
+            },
+            "autoStopConfiguration": {
+                "$ref": "#/types/aws:emrserverless/ApplicationAutoStopConfiguration:ApplicationAutoStopConfiguration",
+                "description": "The configuration for an application to automatically stop after a certain amount of time being idle.\n"
+            },
+            "imageConfiguration": {
+                "$ref": "#/types/aws:emrserverless/ApplicationImageConfiguration:ApplicationImageConfiguration",
+                "description": "The image configuration applied to all worker types.\n"
+            },
+            "initialCapacities": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:emrserverless/ApplicationInitialCapacity:ApplicationInitialCapacity"
+                },
+                "description": "The capacity to initialize when the application is created.\n"
+            },
+            "maximumCapacity": {
+                "$ref": "#/types/aws:emrserverless/ApplicationMaximumCapacity:ApplicationMaximumCapacity",
+                "description": "The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the application.\n",
+                "willReplaceOnChanges": true
+            },
+            "networkConfiguration": {
+                "$ref": "#/types/aws:emrserverless/ApplicationNetworkConfiguration:ApplicationNetworkConfiguration",
+                "description": "The network configuration for customer VPC connectivity.\n"
+            },
+            "releaseLabel": {
+                "type": "string",
+                "description": "The EMR release version associated with the application.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "type": {
+                "type": "string",
+                "description": "The type of application you want to start, such as `spark` or `hive`.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

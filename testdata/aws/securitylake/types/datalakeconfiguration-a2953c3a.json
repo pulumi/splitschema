@@ -1,0 +1,38 @@
+{
+    "properties": {
+        "encryptionConfigurations": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": {
+                    "$ref": "pulumi.json#/Any"
+                }
+            },
+            "description": "Provides encryption details of Amazon Security Lake object.\n"
+        },
+        "lifecycleConfiguration": {
+            "$ref": "#/types/aws:securitylake/DataLakeConfigurationLifecycleConfiguration:DataLakeConfigurationLifecycleConfiguration",
+            "description": "Provides lifecycle details of Amazon Security Lake object.\n"
+        },
+        "region": {
+            "type": "string",
+            "description": "The AWS Regions where Security Lake is automatically enabled.\n"
+        },
+        "replicationConfiguration": {
+            "$ref": "#/types/aws:securitylake/DataLakeConfigurationReplicationConfiguration:DataLakeConfigurationReplicationConfiguration",
+            "description": "Provides replication details of Amazon Security Lake object.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "region"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "encryptionConfigurations",
+                "region"
+            ]
+        }
+    }
+}

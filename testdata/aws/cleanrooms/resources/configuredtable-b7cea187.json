@@ -1,0 +1,161 @@
+{
+    "properties": {
+        "allowedColumns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The columns of the references table which will be included in the configured table.\n"
+        },
+        "analysisMethod": {
+            "type": "string",
+            "description": "The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the configured table.\n"
+        },
+        "createTime": {
+            "type": "string",
+            "description": "The date and time the configured table was created.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description for the configured table.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the configured table.\n"
+        },
+        "tableReference": {
+            "$ref": "#/types/aws:cleanrooms/ConfiguredTableTableReference:ConfiguredTableTableReference",
+            "description": "A reference to the AWS Glue table which will be used to create the configured table.\n* `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.\n* `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key value pairs which tag the configured table.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "updateTime": {
+            "type": "string",
+            "description": "The date and time the configured table was last updated.\n"
+        }
+    },
+    "required": [
+        "allowedColumns",
+        "analysisMethod",
+        "arn",
+        "createTime",
+        "name",
+        "tableReference",
+        "tagsAll",
+        "updateTime"
+    ],
+    "inputProperties": {
+        "allowedColumns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The columns of the references table which will be included in the configured table.\n",
+            "willReplaceOnChanges": true
+        },
+        "analysisMethod": {
+            "type": "string",
+            "description": "The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description for the configured table.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the configured table.\n"
+        },
+        "tableReference": {
+            "$ref": "#/types/aws:cleanrooms/ConfiguredTableTableReference:ConfiguredTableTableReference",
+            "description": "A reference to the AWS Glue table which will be used to create the configured table.\n* `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.\n* `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key value pairs which tag the configured table.\n"
+        }
+    },
+    "requiredInputs": [
+        "allowedColumns",
+        "analysisMethod",
+        "tableReference"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ConfiguredTable resources.\n",
+        "properties": {
+            "allowedColumns": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "The columns of the references table which will be included in the configured table.\n",
+                "willReplaceOnChanges": true
+            },
+            "analysisMethod": {
+                "type": "string",
+                "description": "The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the configured table.\n"
+            },
+            "createTime": {
+                "type": "string",
+                "description": "The date and time the configured table was created.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A description for the configured table.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the configured table.\n"
+            },
+            "tableReference": {
+                "$ref": "#/types/aws:cleanrooms/ConfiguredTableTableReference:ConfiguredTableTableReference",
+                "description": "A reference to the AWS Glue table which will be used to create the configured table.\n* `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.\n* `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key value pairs which tag the configured table.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "updateTime": {
+                "type": "string",
+                "description": "The date and time the configured table was last updated.\n"
+            }
+        },
+        "type": "object"
+    }
+}

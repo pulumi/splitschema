@@ -1,0 +1,83 @@
+{
+    "properties": {
+        "backupVaultArn": {
+            "type": "string",
+            "description": "The ARN of the vault.\n"
+        },
+        "backupVaultName": {
+            "type": "string",
+            "description": "Name of the backup vault to add a lock configuration for.\n"
+        },
+        "changeableForDays": {
+            "type": "integer",
+            "description": "The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.\n"
+        },
+        "maxRetentionDays": {
+            "type": "integer",
+            "description": "The maximum retention period that the vault retains its recovery points.\n"
+        },
+        "minRetentionDays": {
+            "type": "integer",
+            "description": "The minimum retention period that the vault retains its recovery points.\n"
+        }
+    },
+    "required": [
+        "backupVaultArn",
+        "backupVaultName"
+    ],
+    "inputProperties": {
+        "backupVaultName": {
+            "type": "string",
+            "description": "Name of the backup vault to add a lock configuration for.\n",
+            "willReplaceOnChanges": true
+        },
+        "changeableForDays": {
+            "type": "integer",
+            "description": "The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.\n",
+            "willReplaceOnChanges": true
+        },
+        "maxRetentionDays": {
+            "type": "integer",
+            "description": "The maximum retention period that the vault retains its recovery points.\n",
+            "willReplaceOnChanges": true
+        },
+        "minRetentionDays": {
+            "type": "integer",
+            "description": "The minimum retention period that the vault retains its recovery points.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "backupVaultName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering VaultLockConfiguration resources.\n",
+        "properties": {
+            "backupVaultArn": {
+                "type": "string",
+                "description": "The ARN of the vault.\n"
+            },
+            "backupVaultName": {
+                "type": "string",
+                "description": "Name of the backup vault to add a lock configuration for.\n",
+                "willReplaceOnChanges": true
+            },
+            "changeableForDays": {
+                "type": "integer",
+                "description": "The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.\n",
+                "willReplaceOnChanges": true
+            },
+            "maxRetentionDays": {
+                "type": "integer",
+                "description": "The maximum retention period that the vault retains its recovery points.\n",
+                "willReplaceOnChanges": true
+            },
+            "minRetentionDays": {
+                "type": "integer",
+                "description": "The minimum retention period that the vault retains its recovery points.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

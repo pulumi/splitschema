@@ -1,0 +1,26 @@
+{
+    "properties": {
+        "instanceRole": {
+            "type": "string",
+            "description": "Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.\n",
+            "willReplaceOnChanges": true
+        },
+        "placementStrategy": {
+            "type": "string",
+            "description": "EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "instanceRole"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "instanceRole",
+                "placementStrategy"
+            ]
+        }
+    }
+}

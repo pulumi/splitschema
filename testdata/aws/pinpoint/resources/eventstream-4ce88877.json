@@ -1,0 +1,60 @@
+{
+    "properties": {
+        "applicationId": {
+            "type": "string",
+            "description": "The application ID.\n"
+        },
+        "destinationStreamArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.\n"
+        }
+    },
+    "required": [
+        "applicationId",
+        "destinationStreamArn",
+        "roleArn"
+    ],
+    "inputProperties": {
+        "applicationId": {
+            "type": "string",
+            "description": "The application ID.\n",
+            "willReplaceOnChanges": true
+        },
+        "destinationStreamArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.\n"
+        }
+    },
+    "requiredInputs": [
+        "applicationId",
+        "destinationStreamArn",
+        "roleArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering EventStream resources.\n",
+        "properties": {
+            "applicationId": {
+                "type": "string",
+                "description": "The application ID.\n",
+                "willReplaceOnChanges": true
+            },
+            "destinationStreamArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.\n"
+            },
+            "roleArn": {
+                "type": "string",
+                "description": "The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.\n"
+            }
+        },
+        "type": "object"
+    }
+}

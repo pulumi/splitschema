@@ -1,0 +1,340 @@
+{
+    "properties": {
+        "accessPolicies": {
+            "type": "string",
+            "description": "IAM policy document specifying the access policies for the domain.\n"
+        },
+        "advancedOptions": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.\n"
+        },
+        "advancedSecurityOptions": {
+            "$ref": "#/types/aws:opensearch/DomainAdvancedSecurityOptions:DomainAdvancedSecurityOptions",
+            "description": "Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN of the domain.\n"
+        },
+        "autoTuneOptions": {
+            "$ref": "#/types/aws:opensearch/DomainAutoTuneOptions:DomainAutoTuneOptions",
+            "description": "Configuration block for the Auto-Tune options of the domain. Detailed below.\n"
+        },
+        "clusterConfig": {
+            "$ref": "#/types/aws:opensearch/DomainClusterConfig:DomainClusterConfig",
+            "description": "Configuration block for the cluster of the domain. Detailed below.\n"
+        },
+        "cognitoOptions": {
+            "$ref": "#/types/aws:opensearch/DomainCognitoOptions:DomainCognitoOptions",
+            "description": "Configuration block for authenticating dashboard with Cognito. Detailed below.\n"
+        },
+        "dashboardEndpoint": {
+            "type": "string",
+            "description": "Domain-specific endpoint for Dashboard without https scheme.\n"
+        },
+        "domainEndpointOptions": {
+            "$ref": "#/types/aws:opensearch/DomainDomainEndpointOptions:DomainDomainEndpointOptions",
+            "description": "Configuration block for domain endpoint HTTP(S) related options. Detailed below.\n"
+        },
+        "domainId": {
+            "type": "string",
+            "description": "Unique identifier for the domain.\n"
+        },
+        "domainName": {
+            "type": "string",
+            "description": "Name of the domain.\n\nThe following arguments are optional:\n"
+        },
+        "ebsOptions": {
+            "$ref": "#/types/aws:opensearch/DomainEbsOptions:DomainEbsOptions",
+            "description": "Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.\n"
+        },
+        "encryptAtRest": {
+            "$ref": "#/types/aws:opensearch/DomainEncryptAtRest:DomainEncryptAtRest",
+            "description": "Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.\n"
+        },
+        "endpoint": {
+            "type": "string",
+            "description": "Domain-specific endpoint used to submit index, search, and data upload requests.\n"
+        },
+        "engineVersion": {
+            "type": "string",
+            "description": "Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.\nSee [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).\nDefaults to the lastest version of OpenSearch.\n"
+        },
+        "kibanaEndpoint": {
+            "type": "string",
+            "description": "(**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.\n",
+            "deprecationMessage": "use 'dashboard_endpoint' attribute instead"
+        },
+        "logPublishingOptions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:opensearch/DomainLogPublishingOption:DomainLogPublishingOption"
+            },
+            "description": "Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.\n"
+        },
+        "nodeToNodeEncryption": {
+            "$ref": "#/types/aws:opensearch/DomainNodeToNodeEncryption:DomainNodeToNodeEncryption",
+            "description": "Configuration block for node-to-node encryption options. Detailed below.\n"
+        },
+        "offPeakWindowOptions": {
+            "$ref": "#/types/aws:opensearch/DomainOffPeakWindowOptions:DomainOffPeakWindowOptions",
+            "description": "Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.\n"
+        },
+        "snapshotOptions": {
+            "$ref": "#/types/aws:opensearch/DomainSnapshotOptions:DomainSnapshotOptions",
+            "description": "Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.\n"
+        },
+        "softwareUpdateOptions": {
+            "$ref": "#/types/aws:opensearch/DomainSoftwareUpdateOptions:DomainSoftwareUpdateOptions",
+            "description": "Software update options for the domain. Detailed below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n* `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.\n* `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "vpcOptions": {
+            "$ref": "#/types/aws:opensearch/DomainVpcOptions:DomainVpcOptions",
+            "description": "Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.\n"
+        }
+    },
+    "required": [
+        "accessPolicies",
+        "advancedOptions",
+        "advancedSecurityOptions",
+        "arn",
+        "autoTuneOptions",
+        "clusterConfig",
+        "dashboardEndpoint",
+        "domainEndpointOptions",
+        "domainId",
+        "domainName",
+        "ebsOptions",
+        "encryptAtRest",
+        "endpoint",
+        "engineVersion",
+        "kibanaEndpoint",
+        "nodeToNodeEncryption",
+        "offPeakWindowOptions",
+        "softwareUpdateOptions",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "accessPolicies": {
+            "type": "string",
+            "description": "IAM policy document specifying the access policies for the domain.\n"
+        },
+        "advancedOptions": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.\n"
+        },
+        "advancedSecurityOptions": {
+            "$ref": "#/types/aws:opensearch/DomainAdvancedSecurityOptions:DomainAdvancedSecurityOptions",
+            "description": "Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.\n"
+        },
+        "autoTuneOptions": {
+            "$ref": "#/types/aws:opensearch/DomainAutoTuneOptions:DomainAutoTuneOptions",
+            "description": "Configuration block for the Auto-Tune options of the domain. Detailed below.\n"
+        },
+        "clusterConfig": {
+            "$ref": "#/types/aws:opensearch/DomainClusterConfig:DomainClusterConfig",
+            "description": "Configuration block for the cluster of the domain. Detailed below.\n"
+        },
+        "cognitoOptions": {
+            "$ref": "#/types/aws:opensearch/DomainCognitoOptions:DomainCognitoOptions",
+            "description": "Configuration block for authenticating dashboard with Cognito. Detailed below.\n"
+        },
+        "domainEndpointOptions": {
+            "$ref": "#/types/aws:opensearch/DomainDomainEndpointOptions:DomainDomainEndpointOptions",
+            "description": "Configuration block for domain endpoint HTTP(S) related options. Detailed below.\n"
+        },
+        "domainName": {
+            "type": "string",
+            "description": "Name of the domain.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "ebsOptions": {
+            "$ref": "#/types/aws:opensearch/DomainEbsOptions:DomainEbsOptions",
+            "description": "Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.\n"
+        },
+        "encryptAtRest": {
+            "$ref": "#/types/aws:opensearch/DomainEncryptAtRest:DomainEncryptAtRest",
+            "description": "Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.\n"
+        },
+        "engineVersion": {
+            "type": "string",
+            "description": "Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.\nSee [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).\nDefaults to the lastest version of OpenSearch.\n"
+        },
+        "logPublishingOptions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:opensearch/DomainLogPublishingOption:DomainLogPublishingOption"
+            },
+            "description": "Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.\n"
+        },
+        "nodeToNodeEncryption": {
+            "$ref": "#/types/aws:opensearch/DomainNodeToNodeEncryption:DomainNodeToNodeEncryption",
+            "description": "Configuration block for node-to-node encryption options. Detailed below.\n"
+        },
+        "offPeakWindowOptions": {
+            "$ref": "#/types/aws:opensearch/DomainOffPeakWindowOptions:DomainOffPeakWindowOptions",
+            "description": "Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.\n"
+        },
+        "snapshotOptions": {
+            "$ref": "#/types/aws:opensearch/DomainSnapshotOptions:DomainSnapshotOptions",
+            "description": "Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.\n"
+        },
+        "softwareUpdateOptions": {
+            "$ref": "#/types/aws:opensearch/DomainSoftwareUpdateOptions:DomainSoftwareUpdateOptions",
+            "description": "Software update options for the domain. Detailed below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "vpcOptions": {
+            "$ref": "#/types/aws:opensearch/DomainVpcOptions:DomainVpcOptions",
+            "description": "Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Domain resources.\n",
+        "properties": {
+            "accessPolicies": {
+                "type": "string",
+                "description": "IAM policy document specifying the access policies for the domain.\n"
+            },
+            "advancedOptions": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.\n"
+            },
+            "advancedSecurityOptions": {
+                "$ref": "#/types/aws:opensearch/DomainAdvancedSecurityOptions:DomainAdvancedSecurityOptions",
+                "description": "Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN of the domain.\n"
+            },
+            "autoTuneOptions": {
+                "$ref": "#/types/aws:opensearch/DomainAutoTuneOptions:DomainAutoTuneOptions",
+                "description": "Configuration block for the Auto-Tune options of the domain. Detailed below.\n"
+            },
+            "clusterConfig": {
+                "$ref": "#/types/aws:opensearch/DomainClusterConfig:DomainClusterConfig",
+                "description": "Configuration block for the cluster of the domain. Detailed below.\n"
+            },
+            "cognitoOptions": {
+                "$ref": "#/types/aws:opensearch/DomainCognitoOptions:DomainCognitoOptions",
+                "description": "Configuration block for authenticating dashboard with Cognito. Detailed below.\n"
+            },
+            "dashboardEndpoint": {
+                "type": "string",
+                "description": "Domain-specific endpoint for Dashboard without https scheme.\n"
+            },
+            "domainEndpointOptions": {
+                "$ref": "#/types/aws:opensearch/DomainDomainEndpointOptions:DomainDomainEndpointOptions",
+                "description": "Configuration block for domain endpoint HTTP(S) related options. Detailed below.\n"
+            },
+            "domainId": {
+                "type": "string",
+                "description": "Unique identifier for the domain.\n"
+            },
+            "domainName": {
+                "type": "string",
+                "description": "Name of the domain.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "ebsOptions": {
+                "$ref": "#/types/aws:opensearch/DomainEbsOptions:DomainEbsOptions",
+                "description": "Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.\n"
+            },
+            "encryptAtRest": {
+                "$ref": "#/types/aws:opensearch/DomainEncryptAtRest:DomainEncryptAtRest",
+                "description": "Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.\n"
+            },
+            "endpoint": {
+                "type": "string",
+                "description": "Domain-specific endpoint used to submit index, search, and data upload requests.\n"
+            },
+            "engineVersion": {
+                "type": "string",
+                "description": "Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.\nSee [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).\nDefaults to the lastest version of OpenSearch.\n"
+            },
+            "kibanaEndpoint": {
+                "type": "string",
+                "description": "(**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.\n",
+                "deprecationMessage": "use 'dashboard_endpoint' attribute instead"
+            },
+            "logPublishingOptions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:opensearch/DomainLogPublishingOption:DomainLogPublishingOption"
+                },
+                "description": "Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.\n"
+            },
+            "nodeToNodeEncryption": {
+                "$ref": "#/types/aws:opensearch/DomainNodeToNodeEncryption:DomainNodeToNodeEncryption",
+                "description": "Configuration block for node-to-node encryption options. Detailed below.\n"
+            },
+            "offPeakWindowOptions": {
+                "$ref": "#/types/aws:opensearch/DomainOffPeakWindowOptions:DomainOffPeakWindowOptions",
+                "description": "Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.\n"
+            },
+            "snapshotOptions": {
+                "$ref": "#/types/aws:opensearch/DomainSnapshotOptions:DomainSnapshotOptions",
+                "description": "Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.\n"
+            },
+            "softwareUpdateOptions": {
+                "$ref": "#/types/aws:opensearch/DomainSoftwareUpdateOptions:DomainSoftwareUpdateOptions",
+                "description": "Software update options for the domain. Detailed below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n* `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.\n* `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "vpcOptions": {
+                "$ref": "#/types/aws:opensearch/DomainVpcOptions:DomainVpcOptions",
+                "description": "Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

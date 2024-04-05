@@ -1,0 +1,76 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getApplication.\n",
+        "properties": {
+            "applicationArn": {
+                "type": "string",
+                "description": "ARN of the application.\n"
+            },
+            "portalOptions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ssoadmin/getApplicationPortalOption:getApplicationPortalOption"
+                },
+                "description": "Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "applicationArn"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getApplication.\n",
+        "properties": {
+            "applicationAccount": {
+                "description": "AWS account ID.\n",
+                "type": "string"
+            },
+            "applicationArn": {
+                "type": "string"
+            },
+            "applicationProviderArn": {
+                "description": "ARN of the application provider.\n",
+                "type": "string"
+            },
+            "description": {
+                "description": "Description of the application.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "ARN of the application.\n",
+                "type": "string"
+            },
+            "instanceArn": {
+                "description": "ARN of the instance of IAM Identity Center.\n",
+                "type": "string"
+            },
+            "name": {
+                "description": "Name of the application.\n",
+                "type": "string"
+            },
+            "portalOptions": {
+                "description": "Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.\n",
+                "items": {
+                    "$ref": "#/types/aws:ssoadmin/getApplicationPortalOption:getApplicationPortalOption"
+                },
+                "type": "array"
+            },
+            "status": {
+                "description": "Status of the application.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "applicationAccount",
+            "applicationArn",
+            "applicationProviderArn",
+            "description",
+            "id",
+            "instanceArn",
+            "name",
+            "status"
+        ],
+        "type": "object"
+    }
+}

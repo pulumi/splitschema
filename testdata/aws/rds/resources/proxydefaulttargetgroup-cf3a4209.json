@@ -1,0 +1,63 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) representing the target group.\n"
+        },
+        "connectionPoolConfig": {
+            "$ref": "#/types/aws:rds/ProxyDefaultTargetGroupConnectionPoolConfig:ProxyDefaultTargetGroupConnectionPoolConfig",
+            "description": "The settings that determine the size and behavior of the connection pool for the target group.\n"
+        },
+        "dbProxyName": {
+            "type": "string",
+            "description": "Name of the RDS DB Proxy.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the default target group.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "connectionPoolConfig",
+        "dbProxyName",
+        "name"
+    ],
+    "inputProperties": {
+        "connectionPoolConfig": {
+            "$ref": "#/types/aws:rds/ProxyDefaultTargetGroupConnectionPoolConfig:ProxyDefaultTargetGroupConnectionPoolConfig",
+            "description": "The settings that determine the size and behavior of the connection pool for the target group.\n"
+        },
+        "dbProxyName": {
+            "type": "string",
+            "description": "Name of the RDS DB Proxy.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "dbProxyName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ProxyDefaultTargetGroup resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) representing the target group.\n"
+            },
+            "connectionPoolConfig": {
+                "$ref": "#/types/aws:rds/ProxyDefaultTargetGroupConnectionPoolConfig:ProxyDefaultTargetGroupConnectionPoolConfig",
+                "description": "The settings that determine the size and behavior of the connection pool for the target group.\n"
+            },
+            "dbProxyName": {
+                "type": "string",
+                "description": "Name of the RDS DB Proxy.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the default target group.\n"
+            }
+        },
+        "type": "object"
+    }
+}

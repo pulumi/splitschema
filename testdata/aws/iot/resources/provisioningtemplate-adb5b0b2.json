@@ -1,0 +1,168 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN that identifies the provisioning template.\n"
+        },
+        "defaultVersionId": {
+            "type": "integer",
+            "description": "The default version of the fleet provisioning template.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the fleet provisioning template.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "True to enable the fleet provisioning template, otherwise false.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the fleet provisioning template.\n"
+        },
+        "preProvisioningHook": {
+            "$ref": "#/types/aws:iot/ProvisioningTemplatePreProvisioningHook:ProvisioningTemplatePreProvisioningHook",
+            "description": "Creates a pre-provisioning hook template. Details below.\n"
+        },
+        "provisioningRoleArn": {
+            "type": "string",
+            "description": "The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "templateBody": {
+            "type": "string",
+            "description": "The JSON formatted contents of the fleet provisioning template.\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "The type you define in a provisioning template.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "defaultVersionId",
+        "name",
+        "provisioningRoleArn",
+        "tagsAll",
+        "templateBody",
+        "type"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "The description of the fleet provisioning template.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "True to enable the fleet provisioning template, otherwise false.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the fleet provisioning template.\n",
+            "willReplaceOnChanges": true
+        },
+        "preProvisioningHook": {
+            "$ref": "#/types/aws:iot/ProvisioningTemplatePreProvisioningHook:ProvisioningTemplatePreProvisioningHook",
+            "description": "Creates a pre-provisioning hook template. Details below.\n"
+        },
+        "provisioningRoleArn": {
+            "type": "string",
+            "description": "The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "templateBody": {
+            "type": "string",
+            "description": "The JSON formatted contents of the fleet provisioning template.\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "The type you define in a provisioning template.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "provisioningRoleArn",
+        "templateBody"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ProvisioningTemplate resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN that identifies the provisioning template.\n"
+            },
+            "defaultVersionId": {
+                "type": "integer",
+                "description": "The default version of the fleet provisioning template.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "The description of the fleet provisioning template.\n"
+            },
+            "enabled": {
+                "type": "boolean",
+                "description": "True to enable the fleet provisioning template, otherwise false.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the fleet provisioning template.\n",
+                "willReplaceOnChanges": true
+            },
+            "preProvisioningHook": {
+                "$ref": "#/types/aws:iot/ProvisioningTemplatePreProvisioningHook:ProvisioningTemplatePreProvisioningHook",
+                "description": "Creates a pre-provisioning hook template. Details below.\n"
+            },
+            "provisioningRoleArn": {
+                "type": "string",
+                "description": "The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "templateBody": {
+                "type": "string",
+                "description": "The JSON formatted contents of the fleet provisioning template.\n"
+            },
+            "type": {
+                "type": "string",
+                "description": "The type you define in a provisioning template.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

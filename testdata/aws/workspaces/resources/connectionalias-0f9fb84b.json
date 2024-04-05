@@ -1,0 +1,97 @@
+{
+    "properties": {
+        "connectionString": {
+            "type": "string",
+            "description": "The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.\n"
+        },
+        "ownerAccountId": {
+            "type": "string",
+            "description": "The identifier of the Amazon Web Services account that owns the connection alias.\n"
+        },
+        "state": {
+            "type": "string",
+            "description": "The current state of the connection alias.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "timeouts": {
+            "$ref": "#/types/aws:workspaces/ConnectionAliasTimeouts:ConnectionAliasTimeouts"
+        }
+    },
+    "required": [
+        "connectionString",
+        "ownerAccountId",
+        "state",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "connectionString": {
+            "type": "string",
+            "description": "The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "timeouts": {
+            "$ref": "#/types/aws:workspaces/ConnectionAliasTimeouts:ConnectionAliasTimeouts"
+        }
+    },
+    "requiredInputs": [
+        "connectionString"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ConnectionAlias resources.\n",
+        "properties": {
+            "connectionString": {
+                "type": "string",
+                "description": "The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.\n"
+            },
+            "ownerAccountId": {
+                "type": "string",
+                "description": "The identifier of the Amazon Web Services account that owns the connection alias.\n"
+            },
+            "state": {
+                "type": "string",
+                "description": "The current state of the connection alias.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "timeouts": {
+                "$ref": "#/types/aws:workspaces/ConnectionAliasTimeouts:ConnectionAliasTimeouts"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,89 @@
+{
+    "properties": {
+        "key": {
+            "type": "string",
+            "description": "The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.\n",
+            "secret": true
+        },
+        "keyName": {
+            "type": "string",
+            "description": "Specifies the name of the API key. Key names must be unique to the workspace.\n"
+        },
+        "keyRole": {
+            "type": "string",
+            "description": "Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.\n"
+        },
+        "secondsToLive": {
+            "type": "integer",
+            "description": "Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.\n"
+        },
+        "workspaceId": {
+            "type": "string",
+            "description": "The ID of the workspace that the API key is valid for.\n"
+        }
+    },
+    "required": [
+        "key",
+        "keyName",
+        "keyRole",
+        "secondsToLive",
+        "workspaceId"
+    ],
+    "inputProperties": {
+        "keyName": {
+            "type": "string",
+            "description": "Specifies the name of the API key. Key names must be unique to the workspace.\n",
+            "willReplaceOnChanges": true
+        },
+        "keyRole": {
+            "type": "string",
+            "description": "Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.\n",
+            "willReplaceOnChanges": true
+        },
+        "secondsToLive": {
+            "type": "integer",
+            "description": "Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.\n"
+        },
+        "workspaceId": {
+            "type": "string",
+            "description": "The ID of the workspace that the API key is valid for.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "keyName",
+        "keyRole",
+        "secondsToLive",
+        "workspaceId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering WorkspaceApiKey resources.\n",
+        "properties": {
+            "key": {
+                "type": "string",
+                "description": "The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.\n",
+                "secret": true
+            },
+            "keyName": {
+                "type": "string",
+                "description": "Specifies the name of the API key. Key names must be unique to the workspace.\n",
+                "willReplaceOnChanges": true
+            },
+            "keyRole": {
+                "type": "string",
+                "description": "Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.\n",
+                "willReplaceOnChanges": true
+            },
+            "secondsToLive": {
+                "type": "integer",
+                "description": "Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.\n"
+            },
+            "workspaceId": {
+                "type": "string",
+                "description": "The ID of the workspace that the API key is valid for.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

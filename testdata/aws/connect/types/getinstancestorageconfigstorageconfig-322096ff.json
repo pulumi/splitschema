@@ -1,0 +1,49 @@
+{
+    "properties": {
+        "kinesisFirehoseConfigs": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:connect/getInstanceStorageConfigStorageConfigKinesisFirehoseConfig:getInstanceStorageConfigStorageConfigKinesisFirehoseConfig"
+            },
+            "description": "A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.\n"
+        },
+        "kinesisStreamConfigs": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:connect/getInstanceStorageConfigStorageConfigKinesisStreamConfig:getInstanceStorageConfigStorageConfigKinesisStreamConfig"
+            },
+            "description": "A block that specifies the configuration of the Kinesis data stream. Documented below.\n"
+        },
+        "kinesisVideoStreamConfigs": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:connect/getInstanceStorageConfigStorageConfigKinesisVideoStreamConfig:getInstanceStorageConfigStorageConfigKinesisVideoStreamConfig"
+            },
+            "description": "A block that specifies the configuration of the Kinesis video stream. Documented below.\n"
+        },
+        "s3Configs": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:connect/getInstanceStorageConfigStorageConfigS3Config:getInstanceStorageConfigStorageConfigS3Config"
+            },
+            "description": "A block that specifies the configuration of S3 Bucket. Documented below.\n"
+        },
+        "storageType": {
+            "type": "string",
+            "description": "A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "kinesisFirehoseConfigs",
+        "kinesisStreamConfigs",
+        "kinesisVideoStreamConfigs",
+        "s3Configs",
+        "storageType"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredInputs": []
+        }
+    }
+}

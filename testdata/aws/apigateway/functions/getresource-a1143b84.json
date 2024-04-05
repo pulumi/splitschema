@@ -1,0 +1,51 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getResource.\n",
+        "properties": {
+            "path": {
+                "type": "string",
+                "description": "Full path of the resource.  If no path is found, an error will be returned.\n"
+            },
+            "restApiId": {
+                "type": "string",
+                "description": "REST API id that owns the resource. If no REST API is found, an error will be returned.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "path",
+            "restApiId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getResource.\n",
+        "properties": {
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "parentId": {
+                "description": "Set to the ID of the parent Resource.\n",
+                "type": "string"
+            },
+            "path": {
+                "type": "string"
+            },
+            "pathPart": {
+                "description": "Set to the path relative to the parent Resource.\n",
+                "type": "string"
+            },
+            "restApiId": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "parentId",
+            "path",
+            "pathPart",
+            "restApiId",
+            "id"
+        ],
+        "type": "object"
+    }
+}

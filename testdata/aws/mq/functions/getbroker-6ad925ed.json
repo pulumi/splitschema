@@ -1,0 +1,140 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getBroker.\n",
+        "properties": {
+            "brokerId": {
+                "type": "string",
+                "description": "Unique id of the mq broker.\n"
+            },
+            "brokerName": {
+                "type": "string",
+                "description": "Unique name of the mq broker.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                }
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getBroker.\n",
+        "properties": {
+            "arn": {
+                "type": "string"
+            },
+            "authenticationStrategy": {
+                "type": "string"
+            },
+            "autoMinorVersionUpgrade": {
+                "type": "boolean"
+            },
+            "brokerId": {
+                "type": "string"
+            },
+            "brokerName": {
+                "type": "string"
+            },
+            "configuration": {
+                "$ref": "#/types/aws:mq/getBrokerConfiguration:getBrokerConfiguration"
+            },
+            "deploymentMode": {
+                "type": "string"
+            },
+            "encryptionOptions": {
+                "items": {
+                    "$ref": "#/types/aws:mq/getBrokerEncryptionOption:getBrokerEncryptionOption"
+                },
+                "type": "array"
+            },
+            "engineType": {
+                "type": "string"
+            },
+            "engineVersion": {
+                "type": "string"
+            },
+            "hostInstanceType": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "instances": {
+                "items": {
+                    "$ref": "#/types/aws:mq/getBrokerInstance:getBrokerInstance"
+                },
+                "type": "array"
+            },
+            "ldapServerMetadatas": {
+                "items": {
+                    "$ref": "#/types/aws:mq/getBrokerLdapServerMetadata:getBrokerLdapServerMetadata"
+                },
+                "type": "array"
+            },
+            "logs": {
+                "$ref": "#/types/aws:mq/getBrokerLogs:getBrokerLogs"
+            },
+            "maintenanceWindowStartTime": {
+                "$ref": "#/types/aws:mq/getBrokerMaintenanceWindowStartTime:getBrokerMaintenanceWindowStartTime"
+            },
+            "publiclyAccessible": {
+                "type": "boolean"
+            },
+            "securityGroups": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "storageType": {
+                "type": "string"
+            },
+            "subnetIds": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            },
+            "users": {
+                "items": {
+                    "$ref": "#/types/aws:mq/getBrokerUser:getBrokerUser"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "arn",
+            "authenticationStrategy",
+            "autoMinorVersionUpgrade",
+            "brokerId",
+            "brokerName",
+            "configuration",
+            "deploymentMode",
+            "encryptionOptions",
+            "engineType",
+            "engineVersion",
+            "hostInstanceType",
+            "instances",
+            "ldapServerMetadatas",
+            "logs",
+            "maintenanceWindowStartTime",
+            "publiclyAccessible",
+            "securityGroups",
+            "storageType",
+            "subnetIds",
+            "tags",
+            "users",
+            "id"
+        ],
+        "type": "object"
+    }
+}

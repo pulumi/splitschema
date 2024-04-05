@@ -1,0 +1,150 @@
+{
+    "properties": {
+        "appMonitorConfiguration": {
+            "$ref": "#/types/aws:rum/AppMonitorAppMonitorConfiguration:AppMonitorAppMonitorConfiguration",
+            "description": "configuration data for the app monitor. See app_monitor_configuration below.\n"
+        },
+        "appMonitorId": {
+            "type": "string",
+            "description": "The unique ID of the app monitor. Useful for JS templates.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) specifying the app monitor.\n"
+        },
+        "customEvents": {
+            "$ref": "#/types/aws:rum/AppMonitorCustomEvents:AppMonitorCustomEvents",
+            "description": "Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.\n"
+        },
+        "cwLogEnabled": {
+            "type": "boolean",
+            "description": "Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.\n"
+        },
+        "cwLogGroup": {
+            "type": "string",
+            "description": "The name of the log group where the copies are stored.\n"
+        },
+        "domain": {
+            "type": "string",
+            "description": "The top-level internet domain name for which your application has administrative authority.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the log stream.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "appMonitorConfiguration",
+        "appMonitorId",
+        "arn",
+        "customEvents",
+        "cwLogGroup",
+        "domain",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "appMonitorConfiguration": {
+            "$ref": "#/types/aws:rum/AppMonitorAppMonitorConfiguration:AppMonitorAppMonitorConfiguration",
+            "description": "configuration data for the app monitor. See app_monitor_configuration below.\n"
+        },
+        "customEvents": {
+            "$ref": "#/types/aws:rum/AppMonitorCustomEvents:AppMonitorCustomEvents",
+            "description": "Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.\n"
+        },
+        "cwLogEnabled": {
+            "type": "boolean",
+            "description": "Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.\n"
+        },
+        "domain": {
+            "type": "string",
+            "description": "The top-level internet domain name for which your application has administrative authority.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the log stream.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "domain"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering AppMonitor resources.\n",
+        "properties": {
+            "appMonitorConfiguration": {
+                "$ref": "#/types/aws:rum/AppMonitorAppMonitorConfiguration:AppMonitorAppMonitorConfiguration",
+                "description": "configuration data for the app monitor. See app_monitor_configuration below.\n"
+            },
+            "appMonitorId": {
+                "type": "string",
+                "description": "The unique ID of the app monitor. Useful for JS templates.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) specifying the app monitor.\n"
+            },
+            "customEvents": {
+                "$ref": "#/types/aws:rum/AppMonitorCustomEvents:AppMonitorCustomEvents",
+                "description": "Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.\n"
+            },
+            "cwLogEnabled": {
+                "type": "boolean",
+                "description": "Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.\n"
+            },
+            "cwLogGroup": {
+                "type": "string",
+                "description": "The name of the log group where the copies are stored.\n"
+            },
+            "domain": {
+                "type": "string",
+                "description": "The top-level internet domain name for which your application has administrative authority.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the log stream.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

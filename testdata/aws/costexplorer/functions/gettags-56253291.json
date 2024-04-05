@@ -1,0 +1,74 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getTags.\n",
+        "properties": {
+            "filter": {
+                "$ref": "#/types/aws:costexplorer/getTagsFilter:getTagsFilter",
+                "description": "Configuration block for the `Expression` object used to categorize costs. See below.\n"
+            },
+            "searchString": {
+                "type": "string",
+                "description": "Value that you want to search for.\n"
+            },
+            "sortBies": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:costexplorer/getTagsSortBy:getTagsSortBy"
+                },
+                "description": "Configuration block for the value by which you want to sort the data. See below.\n"
+            },
+            "tagKey": {
+                "type": "string",
+                "description": "Key of the tag that you want to return values for.\n"
+            },
+            "timePeriod": {
+                "$ref": "#/types/aws:costexplorer/getTagsTimePeriod:getTagsTimePeriod",
+                "description": "Configuration block for the start and end dates for retrieving the dimension values.\n\nThe following arguments are optional:\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "timePeriod"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getTags.\n",
+        "properties": {
+            "filter": {
+                "$ref": "#/types/aws:costexplorer/getTagsFilter:getTagsFilter"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "searchString": {
+                "type": "string"
+            },
+            "sortBies": {
+                "items": {
+                    "$ref": "#/types/aws:costexplorer/getTagsSortBy:getTagsSortBy"
+                },
+                "type": "array"
+            },
+            "tagKey": {
+                "type": "string"
+            },
+            "tags": {
+                "description": "Tags that match your request.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "timePeriod": {
+                "$ref": "#/types/aws:costexplorer/getTagsTimePeriod:getTagsTimePeriod"
+            }
+        },
+        "required": [
+            "tags",
+            "timePeriod",
+            "id"
+        ],
+        "type": "object"
+    }
+}

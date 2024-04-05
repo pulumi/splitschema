@@ -1,0 +1,28 @@
+{
+    "properties": {
+        "cloudwatchLogGroup": {
+            "type": "string",
+            "description": "The name of the CloudWatch Logs log group.\n"
+        },
+        "cloudwatchLogStream": {
+            "type": "string",
+            "description": "The name of the CloudWatch Logs log stream to which the connection data is published.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "Indicates whether connection logging is enabled.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "enabled"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "cloudwatchLogStream",
+                "enabled"
+            ]
+        }
+    }
+}

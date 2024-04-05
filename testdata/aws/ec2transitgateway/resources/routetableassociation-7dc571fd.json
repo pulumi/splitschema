@@ -1,0 +1,78 @@
+{
+    "properties": {
+        "replaceExistingAssociation": {
+            "type": "boolean",
+            "description": "Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.\n"
+        },
+        "resourceId": {
+            "type": "string",
+            "description": "Identifier of the resource\n"
+        },
+        "resourceType": {
+            "type": "string",
+            "description": "Type of the resource\n"
+        },
+        "transitGatewayAttachmentId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway Attachment.\n"
+        },
+        "transitGatewayRouteTableId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway Route Table.\n"
+        }
+    },
+    "required": [
+        "resourceId",
+        "resourceType",
+        "transitGatewayAttachmentId",
+        "transitGatewayRouteTableId"
+    ],
+    "inputProperties": {
+        "replaceExistingAssociation": {
+            "type": "boolean",
+            "description": "Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.\n"
+        },
+        "transitGatewayAttachmentId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway Attachment.\n",
+            "willReplaceOnChanges": true
+        },
+        "transitGatewayRouteTableId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway Route Table.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "transitGatewayAttachmentId",
+        "transitGatewayRouteTableId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering RouteTableAssociation resources.\n",
+        "properties": {
+            "replaceExistingAssociation": {
+                "type": "boolean",
+                "description": "Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.\n"
+            },
+            "resourceId": {
+                "type": "string",
+                "description": "Identifier of the resource\n"
+            },
+            "resourceType": {
+                "type": "string",
+                "description": "Type of the resource\n"
+            },
+            "transitGatewayAttachmentId": {
+                "type": "string",
+                "description": "Identifier of EC2 Transit Gateway Attachment.\n",
+                "willReplaceOnChanges": true
+            },
+            "transitGatewayRouteTableId": {
+                "type": "string",
+                "description": "Identifier of EC2 Transit Gateway Route Table.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

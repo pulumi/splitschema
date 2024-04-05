@@ -1,0 +1,209 @@
+{
+    "properties": {
+        "applicationConfiguration": {
+            "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfiguration:ApplicationApplicationConfiguration",
+            "description": "The application's configuration\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the application.\n"
+        },
+        "cloudwatchLoggingOptions": {
+            "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationCloudwatchLoggingOptions:ApplicationCloudwatchLoggingOptions",
+            "description": "A CloudWatch log stream to monitor application configuration errors.\n"
+        },
+        "createTimestamp": {
+            "type": "string",
+            "description": "The current timestamp when the application was created.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A summary description of the application.\n"
+        },
+        "forceStop": {
+            "type": "boolean",
+            "description": "Whether to force stop an unresponsive Flink-based application.\n"
+        },
+        "lastUpdateTimestamp": {
+            "type": "string",
+            "description": "The current timestamp when the application was last updated.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the application.\n"
+        },
+        "runtimeEnvironment": {
+            "type": "string",
+            "description": "The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`.\n"
+        },
+        "serviceExecutionRole": {
+            "type": "string",
+            "description": "The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.\n"
+        },
+        "startApplication": {
+            "type": "boolean",
+            "description": "Whether to start or stop the application.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "The status of the application.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "versionId": {
+            "type": "integer",
+            "description": "The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.\n"
+        }
+    },
+    "required": [
+        "applicationConfiguration",
+        "arn",
+        "createTimestamp",
+        "lastUpdateTimestamp",
+        "name",
+        "runtimeEnvironment",
+        "serviceExecutionRole",
+        "status",
+        "tagsAll",
+        "versionId"
+    ],
+    "inputProperties": {
+        "applicationConfiguration": {
+            "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfiguration:ApplicationApplicationConfiguration",
+            "description": "The application's configuration\n"
+        },
+        "cloudwatchLoggingOptions": {
+            "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationCloudwatchLoggingOptions:ApplicationCloudwatchLoggingOptions",
+            "description": "A CloudWatch log stream to monitor application configuration errors.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A summary description of the application.\n",
+            "willReplaceOnChanges": true
+        },
+        "forceStop": {
+            "type": "boolean",
+            "description": "Whether to force stop an unresponsive Flink-based application.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the application.\n",
+            "willReplaceOnChanges": true
+        },
+        "runtimeEnvironment": {
+            "type": "string",
+            "description": "The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`.\n",
+            "willReplaceOnChanges": true
+        },
+        "serviceExecutionRole": {
+            "type": "string",
+            "description": "The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.\n"
+        },
+        "startApplication": {
+            "type": "boolean",
+            "description": "Whether to start or stop the application.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+        }
+    },
+    "requiredInputs": [
+        "runtimeEnvironment",
+        "serviceExecutionRole"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Application resources.\n",
+        "properties": {
+            "applicationConfiguration": {
+                "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfiguration:ApplicationApplicationConfiguration",
+                "description": "The application's configuration\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the application.\n"
+            },
+            "cloudwatchLoggingOptions": {
+                "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationCloudwatchLoggingOptions:ApplicationCloudwatchLoggingOptions",
+                "description": "A CloudWatch log stream to monitor application configuration errors.\n"
+            },
+            "createTimestamp": {
+                "type": "string",
+                "description": "The current timestamp when the application was created.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A summary description of the application.\n",
+                "willReplaceOnChanges": true
+            },
+            "forceStop": {
+                "type": "boolean",
+                "description": "Whether to force stop an unresponsive Flink-based application.\n"
+            },
+            "lastUpdateTimestamp": {
+                "type": "string",
+                "description": "The current timestamp when the application was last updated.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the application.\n",
+                "willReplaceOnChanges": true
+            },
+            "runtimeEnvironment": {
+                "type": "string",
+                "description": "The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`.\n",
+                "willReplaceOnChanges": true
+            },
+            "serviceExecutionRole": {
+                "type": "string",
+                "description": "The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.\n"
+            },
+            "startApplication": {
+                "type": "boolean",
+                "description": "Whether to start or stop the application.\n"
+            },
+            "status": {
+                "type": "string",
+                "description": "The status of the application.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "versionId": {
+                "type": "integer",
+                "description": "The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.\n"
+            }
+        },
+        "type": "object"
+    }
+}

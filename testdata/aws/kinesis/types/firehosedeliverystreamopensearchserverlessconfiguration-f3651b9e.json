@@ -1,0 +1,68 @@
+{
+    "properties": {
+        "bufferingInterval": {
+            "type": "integer",
+            "description": "Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.\n"
+        },
+        "bufferingSize": {
+            "type": "integer",
+            "description": "Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.\n"
+        },
+        "cloudwatchLoggingOptions": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions:FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions",
+            "description": "The CloudWatch Logging Options for the delivery stream. More details are given below\n"
+        },
+        "collectionEndpoint": {
+            "type": "string",
+            "description": "The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.\n"
+        },
+        "indexName": {
+            "type": "string",
+            "description": "The Serverless offering for Amazon OpenSearch Service index name.\n"
+        },
+        "processingConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration:FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration",
+            "description": "The data processing configuration.  More details are given below.\n"
+        },
+        "retryDuration": {
+            "type": "integer",
+            "description": "After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.\n"
+        },
+        "s3BackupMode": {
+            "type": "string",
+            "description": "Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.\n",
+            "willReplaceOnChanges": true
+        },
+        "s3Configuration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration:FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration",
+            "description": "The S3 Configuration. See s3_configuration for more details.\n"
+        },
+        "vpcConfig": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig:FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig",
+            "description": "The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "collectionEndpoint",
+        "indexName",
+        "roleArn",
+        "s3Configuration"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "cloudwatchLoggingOptions",
+                "collectionEndpoint",
+                "indexName",
+                "roleArn",
+                "s3Configuration"
+            ]
+        }
+    }
+}

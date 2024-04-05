@@ -1,0 +1,116 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getVolume.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ebs/getVolumeFilter:getVolumeFilter"
+                },
+                "description": "One or more name/value pairs to filter off of. There are\nseveral valid keys, for a full reference, check out\n[describe-volumes in the AWS CLI reference][1].\n"
+            },
+            "mostRecent": {
+                "type": "boolean",
+                "description": "If more than one result is returned, use the most\nrecent Volume.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags for the resource.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getVolume.\n",
+        "properties": {
+            "arn": {
+                "description": "Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).\n",
+                "type": "string"
+            },
+            "availabilityZone": {
+                "description": "AZ where the EBS volume exists.\n",
+                "type": "string"
+            },
+            "encrypted": {
+                "description": "Whether the disk is encrypted.\n",
+                "type": "boolean"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ebs/getVolumeFilter:getVolumeFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "iops": {
+                "description": "Amount of IOPS for the disk.\n",
+                "type": "integer"
+            },
+            "kmsKeyId": {
+                "description": "ARN for the KMS encryption key.\n",
+                "type": "string"
+            },
+            "mostRecent": {
+                "type": "boolean"
+            },
+            "multiAttachEnabled": {
+                "description": "(Optional) Specifies whether Amazon EBS Multi-Attach is enabled.\n",
+                "type": "boolean"
+            },
+            "outpostArn": {
+                "description": "ARN of the Outpost.\n",
+                "type": "string"
+            },
+            "size": {
+                "description": "Size of the drive in GiBs.\n",
+                "type": "integer"
+            },
+            "snapshotId": {
+                "description": "Snapshot_id the EBS volume is based off.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags for the resource.\n",
+                "type": "object"
+            },
+            "throughput": {
+                "description": "Throughput that the volume supports, in MiB/s.\n",
+                "type": "integer"
+            },
+            "volumeId": {
+                "description": "Volume ID (e.g., vol-59fcb34e).\n",
+                "type": "string"
+            },
+            "volumeType": {
+                "description": "Type of EBS volume.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "availabilityZone",
+            "encrypted",
+            "iops",
+            "kmsKeyId",
+            "multiAttachEnabled",
+            "outpostArn",
+            "size",
+            "snapshotId",
+            "tags",
+            "throughput",
+            "volumeId",
+            "volumeType",
+            "id"
+        ],
+        "type": "object"
+    }
+}

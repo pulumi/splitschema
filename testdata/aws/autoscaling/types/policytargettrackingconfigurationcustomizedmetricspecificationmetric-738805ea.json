@@ -1,0 +1,28 @@
+{
+    "properties": {
+        "expression": {
+            "type": "string",
+            "description": "Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.\n"
+        },
+        "id": {
+            "type": "string",
+            "description": "Short name for the metric used in target tracking scaling policy.\n"
+        },
+        "label": {
+            "type": "string",
+            "description": "Human-readable label for this metric or expression.\n"
+        },
+        "metricStat": {
+            "$ref": "#/types/aws:autoscaling/PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat:PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat",
+            "description": "Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.\n"
+        },
+        "returnData": {
+            "type": "boolean",
+            "description": "Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "id"
+    ]
+}

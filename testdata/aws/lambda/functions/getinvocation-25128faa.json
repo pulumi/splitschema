@@ -1,0 +1,53 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getInvocation.\n",
+        "properties": {
+            "functionName": {
+                "type": "string",
+                "description": "Name of the lambda function.\n"
+            },
+            "input": {
+                "type": "string",
+                "description": "String in JSON format that is passed as payload to the lambda function.\n"
+            },
+            "qualifier": {
+                "type": "string",
+                "description": "Qualifier (a.k.a version) of the lambda function. Defaults\nto `$LATEST`.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "functionName",
+            "input"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getInvocation.\n",
+        "properties": {
+            "functionName": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "input": {
+                "type": "string"
+            },
+            "qualifier": {
+                "type": "string"
+            },
+            "result": {
+                "description": "String result of the lambda function invocation.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "functionName",
+            "input",
+            "result",
+            "id"
+        ],
+        "type": "object"
+    }
+}

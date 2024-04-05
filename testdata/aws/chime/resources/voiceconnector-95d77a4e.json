@@ -1,0 +1,116 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.\n"
+        },
+        "awsRegion": {
+            "type": "string",
+            "description": "The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the Amazon Chime Voice Connector.\n"
+        },
+        "outboundHostName": {
+            "type": "string",
+            "description": "The outbound host name for the Amazon Chime Voice Connector.\n"
+        },
+        "requireEncryption": {
+            "type": "boolean",
+            "description": "When enabled, requires encryption for the Amazon Chime Voice Connector.\n\nThe following arguments are optional:\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "awsRegion",
+        "name",
+        "outboundHostName",
+        "requireEncryption",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "awsRegion": {
+            "type": "string",
+            "description": "The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the Amazon Chime Voice Connector.\n"
+        },
+        "requireEncryption": {
+            "type": "boolean",
+            "description": "When enabled, requires encryption for the Amazon Chime Voice Connector.\n\nThe following arguments are optional:\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "requireEncryption"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering VoiceConnector resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.\n"
+            },
+            "awsRegion": {
+                "type": "string",
+                "description": "The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the Amazon Chime Voice Connector.\n"
+            },
+            "outboundHostName": {
+                "type": "string",
+                "description": "The outbound host name for the Amazon Chime Voice Connector.\n"
+            },
+            "requireEncryption": {
+                "type": "boolean",
+                "description": "When enabled, requires encryption for the Amazon Chime Voice Connector.\n\nThe following arguments are optional:\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

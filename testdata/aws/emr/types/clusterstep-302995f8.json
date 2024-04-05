@@ -1,0 +1,25 @@
+{
+    "properties": {
+        "actionOnFailure": {
+            "type": "string",
+            "description": "Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`\n",
+            "willReplaceOnChanges": true
+        },
+        "hadoopJarStep": {
+            "$ref": "#/types/aws:emr/ClusterStepHadoopJarStep:ClusterStepHadoopJarStep",
+            "description": "JAR file used for the step. See below.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the step.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "actionOnFailure",
+        "hadoopJarStep",
+        "name"
+    ]
+}

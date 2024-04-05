@@ -1,0 +1,162 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the safety rule.\n"
+        },
+        "assertedControls": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.\n"
+        },
+        "controlPanelArn": {
+            "type": "string",
+            "description": "ARN of the control panel in which this safety rule will reside.\n"
+        },
+        "gatingControls": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name describing the safety rule.\n"
+        },
+        "ruleConfig": {
+            "$ref": "#/types/aws:route53recoverycontrol/SafetyRuleRuleConfig:SafetyRuleRuleConfig",
+            "description": "Configuration block for safety rule criteria. See below.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.\n"
+        },
+        "targetControls": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.\n"
+        },
+        "waitPeriodMs": {
+            "type": "integer",
+            "description": "Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.\n\nThe following arguments are optional:\n"
+        }
+    },
+    "required": [
+        "arn",
+        "controlPanelArn",
+        "name",
+        "ruleConfig",
+        "status",
+        "waitPeriodMs"
+    ],
+    "inputProperties": {
+        "assertedControls": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.\n",
+            "willReplaceOnChanges": true
+        },
+        "controlPanelArn": {
+            "type": "string",
+            "description": "ARN of the control panel in which this safety rule will reside.\n",
+            "willReplaceOnChanges": true
+        },
+        "gatingControls": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Name describing the safety rule.\n"
+        },
+        "ruleConfig": {
+            "$ref": "#/types/aws:route53recoverycontrol/SafetyRuleRuleConfig:SafetyRuleRuleConfig",
+            "description": "Configuration block for safety rule criteria. See below.\n",
+            "willReplaceOnChanges": true
+        },
+        "targetControls": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.\n",
+            "willReplaceOnChanges": true
+        },
+        "waitPeriodMs": {
+            "type": "integer",
+            "description": "Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.\n\nThe following arguments are optional:\n"
+        }
+    },
+    "requiredInputs": [
+        "controlPanelArn",
+        "ruleConfig",
+        "waitPeriodMs"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering SafetyRule resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the safety rule.\n"
+            },
+            "assertedControls": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.\n",
+                "willReplaceOnChanges": true
+            },
+            "controlPanelArn": {
+                "type": "string",
+                "description": "ARN of the control panel in which this safety rule will reside.\n",
+                "willReplaceOnChanges": true
+            },
+            "gatingControls": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "Name describing the safety rule.\n"
+            },
+            "ruleConfig": {
+                "$ref": "#/types/aws:route53recoverycontrol/SafetyRuleRuleConfig:SafetyRuleRuleConfig",
+                "description": "Configuration block for safety rule criteria. See below.\n",
+                "willReplaceOnChanges": true
+            },
+            "status": {
+                "type": "string",
+                "description": "Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.\n"
+            },
+            "targetControls": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.\n",
+                "willReplaceOnChanges": true
+            },
+            "waitPeriodMs": {
+                "type": "integer",
+                "description": "Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.\n\nThe following arguments are optional:\n"
+            }
+        },
+        "type": "object"
+    }
+}

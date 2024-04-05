@@ -1,0 +1,52 @@
+{
+    "properties": {
+        "connectionAttempts": {
+            "type": "integer",
+            "description": "Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.\n"
+        },
+        "connectionTimeout": {
+            "type": "integer",
+            "description": "Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.\n"
+        },
+        "customHeaders": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudfront/DistributionOriginCustomHeader:DistributionOriginCustomHeader"
+            },
+            "description": "One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).\n"
+        },
+        "customOriginConfig": {
+            "$ref": "#/types/aws:cloudfront/DistributionOriginCustomOriginConfig:DistributionOriginCustomOriginConfig",
+            "description": "The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.\n"
+        },
+        "domainName": {
+            "type": "string",
+            "description": "DNS domain name of either the S3 bucket, or web site of your custom origin.\n"
+        },
+        "originAccessControlId": {
+            "type": "string",
+            "description": "Unique identifier of a [CloudFront origin access control][8] for this origin.\n"
+        },
+        "originId": {
+            "type": "string",
+            "description": "Unique identifier of the member origin.\n"
+        },
+        "originPath": {
+            "type": "string",
+            "description": "Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.\n"
+        },
+        "originShield": {
+            "$ref": "#/types/aws:cloudfront/DistributionOriginOriginShield:DistributionOriginOriginShield",
+            "description": "CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.\n"
+        },
+        "s3OriginConfig": {
+            "$ref": "#/types/aws:cloudfront/DistributionOriginS3OriginConfig:DistributionOriginS3OriginConfig",
+            "description": "CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "domainName",
+        "originId"
+    ]
+}

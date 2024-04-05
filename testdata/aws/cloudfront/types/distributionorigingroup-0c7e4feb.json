@@ -1,0 +1,25 @@
+{
+    "properties": {
+        "failoverCriteria": {
+            "$ref": "#/types/aws:cloudfront/DistributionOriginGroupFailoverCriteria:DistributionOriginGroupFailoverCriteria",
+            "description": "The failover criteria for when to failover to the secondary origin.\n"
+        },
+        "members": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudfront/DistributionOriginGroupMember:DistributionOriginGroupMember"
+            },
+            "description": "Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.\n"
+        },
+        "originId": {
+            "type": "string",
+            "description": "Unique identifier of the member origin.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "failoverCriteria",
+        "members",
+        "originId"
+    ]
+}

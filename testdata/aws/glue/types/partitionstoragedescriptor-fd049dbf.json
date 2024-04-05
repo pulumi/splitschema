@@ -1,0 +1,65 @@
+{
+    "properties": {
+        "bucketColumns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of reducer grouping columns, clustering columns, and bucketing columns in the table.\n"
+        },
+        "columns": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/PartitionStorageDescriptorColumn:PartitionStorageDescriptorColumn"
+            },
+            "description": "A list of the Columns in the table.\n"
+        },
+        "compressed": {
+            "type": "boolean",
+            "description": "True if the data in the table is compressed, or False if not.\n"
+        },
+        "inputFormat": {
+            "type": "string",
+            "description": "The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.\n"
+        },
+        "location": {
+            "type": "string",
+            "description": "The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.\n"
+        },
+        "numberOfBuckets": {
+            "type": "integer",
+            "description": "Must be specified if the table contains any dimension columns.\n"
+        },
+        "outputFormat": {
+            "type": "string",
+            "description": "The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.\n"
+        },
+        "parameters": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "User-supplied properties in key-value form.\n"
+        },
+        "serDeInfo": {
+            "$ref": "#/types/aws:glue/PartitionStorageDescriptorSerDeInfo:PartitionStorageDescriptorSerDeInfo",
+            "description": "Serialization/deserialization (SerDe) information.\n"
+        },
+        "skewedInfo": {
+            "$ref": "#/types/aws:glue/PartitionStorageDescriptorSkewedInfo:PartitionStorageDescriptorSkewedInfo",
+            "description": "Information about values that appear very frequently in a column (skewed values).\n"
+        },
+        "sortColumns": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/PartitionStorageDescriptorSortColumn:PartitionStorageDescriptorSortColumn"
+            },
+            "description": "A list of Order objects specifying the sort order of each bucket in the table.\n"
+        },
+        "storedAsSubDirectories": {
+            "type": "boolean",
+            "description": "True if the table data is stored in subdirectories, or False if not.\n"
+        }
+    },
+    "type": "object"
+}

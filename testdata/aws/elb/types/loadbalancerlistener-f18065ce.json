@@ -1,0 +1,31 @@
+{
+    "properties": {
+        "instancePort": {
+            "type": "integer",
+            "description": "The port on the instance to route to\n"
+        },
+        "instanceProtocol": {
+            "type": "string",
+            "description": "The protocol to use to the instance. Valid\nvalues are `HTTP`, `HTTPS`, `TCP`, or `SSL`\n"
+        },
+        "lbPort": {
+            "type": "integer",
+            "description": "The port to listen on for the load balancer\n"
+        },
+        "lbProtocol": {
+            "type": "string",
+            "description": "The protocol to listen on. Valid values are `HTTP`,\n`HTTPS`, `TCP`, or `SSL`\n"
+        },
+        "sslCertificateId": {
+            "type": "string",
+            "description": "The ARN of an SSL certificate you have\nuploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "instancePort",
+        "instanceProtocol",
+        "lbPort",
+        "lbProtocol"
+    ]
+}

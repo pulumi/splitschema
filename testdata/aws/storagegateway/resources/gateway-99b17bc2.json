@@ -1,0 +1,331 @@
+{
+    "properties": {
+        "activationKey": {
+            "type": "string",
+            "description": "Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the gateway.\n"
+        },
+        "averageDownloadRateLimitInBitsPerSec": {
+            "type": "integer",
+            "description": "The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.\n"
+        },
+        "averageUploadRateLimitInBitsPerSec": {
+            "type": "integer",
+            "description": "The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.\n"
+        },
+        "cloudwatchLogGroupArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.\n"
+        },
+        "ec2InstanceId": {
+            "type": "string",
+            "description": "The ID of the Amazon EC2 instance that was used to launch the gateway.\n"
+        },
+        "endpointType": {
+            "type": "string",
+            "description": "The type of endpoint for your gateway.\n"
+        },
+        "gatewayId": {
+            "type": "string",
+            "description": "Identifier of the gateway.\n"
+        },
+        "gatewayIpAddress": {
+            "type": "string",
+            "description": "Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).\n"
+        },
+        "gatewayName": {
+            "type": "string",
+            "description": "Name of the gateway.\n"
+        },
+        "gatewayNetworkInterfaces": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:storagegateway/GatewayGatewayNetworkInterface:GatewayGatewayNetworkInterface"
+            },
+            "description": "An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.\n"
+        },
+        "gatewayTimezone": {
+            "type": "string",
+            "description": "Time zone for the gateway. The time zone is of the format \"GMT\", \"GMT-hr:mm\", or \"GMT+hr:mm\". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.\n"
+        },
+        "gatewayType": {
+            "type": "string",
+            "description": "Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.\n"
+        },
+        "gatewayVpcEndpoint": {
+            "type": "string",
+            "description": "VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).\n"
+        },
+        "hostEnvironment": {
+            "type": "string",
+            "description": "The type of hypervisor environment used by the host.\n"
+        },
+        "maintenanceStartTime": {
+            "$ref": "#/types/aws:storagegateway/GatewayMaintenanceStartTime:GatewayMaintenanceStartTime",
+            "description": "The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.\n"
+        },
+        "mediumChangerType": {
+            "type": "string",
+            "description": "Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.\n"
+        },
+        "smbActiveDirectorySettings": {
+            "$ref": "#/types/aws:storagegateway/GatewaySmbActiveDirectorySettings:GatewaySmbActiveDirectorySettings",
+            "description": "Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.\n"
+        },
+        "smbFileShareVisibility": {
+            "type": "boolean",
+            "description": "Specifies whether the shares on this gateway appear when listing shares.\n"
+        },
+        "smbGuestPassword": {
+            "type": "string",
+            "description": "Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.\n",
+            "secret": true
+        },
+        "smbSecurityStrategy": {
+            "type": "string",
+            "description": "Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "tapeDriveType": {
+            "type": "string",
+            "description": "Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.\n"
+        }
+    },
+    "required": [
+        "activationKey",
+        "arn",
+        "ec2InstanceId",
+        "endpointType",
+        "gatewayId",
+        "gatewayIpAddress",
+        "gatewayName",
+        "gatewayNetworkInterfaces",
+        "gatewayTimezone",
+        "hostEnvironment",
+        "maintenanceStartTime",
+        "smbSecurityStrategy",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "activationKey": {
+            "type": "string",
+            "description": "Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).\n",
+            "willReplaceOnChanges": true
+        },
+        "averageDownloadRateLimitInBitsPerSec": {
+            "type": "integer",
+            "description": "The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.\n"
+        },
+        "averageUploadRateLimitInBitsPerSec": {
+            "type": "integer",
+            "description": "The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.\n"
+        },
+        "cloudwatchLogGroupArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.\n"
+        },
+        "gatewayIpAddress": {
+            "type": "string",
+            "description": "Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).\n",
+            "willReplaceOnChanges": true
+        },
+        "gatewayName": {
+            "type": "string",
+            "description": "Name of the gateway.\n"
+        },
+        "gatewayTimezone": {
+            "type": "string",
+            "description": "Time zone for the gateway. The time zone is of the format \"GMT\", \"GMT-hr:mm\", or \"GMT+hr:mm\". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.\n"
+        },
+        "gatewayType": {
+            "type": "string",
+            "description": "Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.\n",
+            "willReplaceOnChanges": true
+        },
+        "gatewayVpcEndpoint": {
+            "type": "string",
+            "description": "VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).\n",
+            "willReplaceOnChanges": true
+        },
+        "maintenanceStartTime": {
+            "$ref": "#/types/aws:storagegateway/GatewayMaintenanceStartTime:GatewayMaintenanceStartTime",
+            "description": "The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.\n"
+        },
+        "mediumChangerType": {
+            "type": "string",
+            "description": "Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.\n",
+            "willReplaceOnChanges": true
+        },
+        "smbActiveDirectorySettings": {
+            "$ref": "#/types/aws:storagegateway/GatewaySmbActiveDirectorySettings:GatewaySmbActiveDirectorySettings",
+            "description": "Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.\n"
+        },
+        "smbFileShareVisibility": {
+            "type": "boolean",
+            "description": "Specifies whether the shares on this gateway appear when listing shares.\n"
+        },
+        "smbGuestPassword": {
+            "type": "string",
+            "description": "Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.\n",
+            "secret": true
+        },
+        "smbSecurityStrategy": {
+            "type": "string",
+            "description": "Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tapeDriveType": {
+            "type": "string",
+            "description": "Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "gatewayName",
+        "gatewayTimezone"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Gateway resources.\n",
+        "properties": {
+            "activationKey": {
+                "type": "string",
+                "description": "Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).\n",
+                "willReplaceOnChanges": true
+            },
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the gateway.\n"
+            },
+            "averageDownloadRateLimitInBitsPerSec": {
+                "type": "integer",
+                "description": "The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.\n"
+            },
+            "averageUploadRateLimitInBitsPerSec": {
+                "type": "integer",
+                "description": "The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.\n"
+            },
+            "cloudwatchLogGroupArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.\n"
+            },
+            "ec2InstanceId": {
+                "type": "string",
+                "description": "The ID of the Amazon EC2 instance that was used to launch the gateway.\n"
+            },
+            "endpointType": {
+                "type": "string",
+                "description": "The type of endpoint for your gateway.\n"
+            },
+            "gatewayId": {
+                "type": "string",
+                "description": "Identifier of the gateway.\n"
+            },
+            "gatewayIpAddress": {
+                "type": "string",
+                "description": "Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).\n",
+                "willReplaceOnChanges": true
+            },
+            "gatewayName": {
+                "type": "string",
+                "description": "Name of the gateway.\n"
+            },
+            "gatewayNetworkInterfaces": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:storagegateway/GatewayGatewayNetworkInterface:GatewayGatewayNetworkInterface"
+                },
+                "description": "An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.\n"
+            },
+            "gatewayTimezone": {
+                "type": "string",
+                "description": "Time zone for the gateway. The time zone is of the format \"GMT\", \"GMT-hr:mm\", or \"GMT+hr:mm\". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.\n"
+            },
+            "gatewayType": {
+                "type": "string",
+                "description": "Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.\n",
+                "willReplaceOnChanges": true
+            },
+            "gatewayVpcEndpoint": {
+                "type": "string",
+                "description": "VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).\n",
+                "willReplaceOnChanges": true
+            },
+            "hostEnvironment": {
+                "type": "string",
+                "description": "The type of hypervisor environment used by the host.\n"
+            },
+            "maintenanceStartTime": {
+                "$ref": "#/types/aws:storagegateway/GatewayMaintenanceStartTime:GatewayMaintenanceStartTime",
+                "description": "The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.\n"
+            },
+            "mediumChangerType": {
+                "type": "string",
+                "description": "Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.\n",
+                "willReplaceOnChanges": true
+            },
+            "smbActiveDirectorySettings": {
+                "$ref": "#/types/aws:storagegateway/GatewaySmbActiveDirectorySettings:GatewaySmbActiveDirectorySettings",
+                "description": "Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.\n"
+            },
+            "smbFileShareVisibility": {
+                "type": "boolean",
+                "description": "Specifies whether the shares on this gateway appear when listing shares.\n"
+            },
+            "smbGuestPassword": {
+                "type": "string",
+                "description": "Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.\n",
+                "secret": true
+            },
+            "smbSecurityStrategy": {
+                "type": "string",
+                "description": "Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "tapeDriveType": {
+                "type": "string",
+                "description": "Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

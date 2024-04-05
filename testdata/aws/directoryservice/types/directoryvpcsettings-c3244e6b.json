@@ -1,0 +1,37 @@
+{
+    "properties": {
+        "availabilityZones": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).\n",
+            "willReplaceOnChanges": true
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "The identifier of the VPC that the directory is in.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "subnetIds",
+        "vpcId"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "availabilityZones",
+                "subnetIds",
+                "vpcId"
+            ]
+        }
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "properties": {
+        "actions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of actions that this statement either allows or denies. For example, `[\"ec2:RunInstances\", \"s3:*\"]`.\n"
+        },
+        "conditions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:iam/getPolicyDocumentStatementCondition:getPolicyDocumentStatementCondition"
+            },
+            "description": "Configuration block for a condition. Detailed below.\n"
+        },
+        "effect": {
+            "type": "string",
+            "description": "Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.\n"
+        },
+        "notActions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.\n"
+        },
+        "notPrincipals": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:iam/getPolicyDocumentStatementNotPrincipal:getPolicyDocumentStatementNotPrincipal"
+            },
+            "description": "Like `principals` except these are principals that the statement does *not* apply to.\n"
+        },
+        "notResources": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.\n"
+        },
+        "principals": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:iam/getPolicyDocumentStatementPrincipal:getPolicyDocumentStatementPrincipal"
+            },
+            "description": "Configuration block for principals. Detailed below.\n"
+        },
+        "resources": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.\n"
+        },
+        "sid": {
+            "type": "string",
+            "description": "Sid (statement ID) is an identifier for a policy statement.\n"
+        }
+    },
+    "type": "object"
+}

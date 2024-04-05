@@ -1,0 +1,70 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getScript.\n",
+        "properties": {
+            "dagEdges": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:glue/getScriptDagEdge:getScriptDagEdge"
+                },
+                "description": "List of the edges in the DAG. Defined below.\n"
+            },
+            "dagNodes": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:glue/getScriptDagNode:getScriptDagNode"
+                },
+                "description": "List of the nodes in the DAG. Defined below.\n"
+            },
+            "language": {
+                "type": "string",
+                "description": "Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "dagEdges",
+            "dagNodes"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getScript.\n",
+        "properties": {
+            "dagEdges": {
+                "items": {
+                    "$ref": "#/types/aws:glue/getScriptDagEdge:getScriptDagEdge"
+                },
+                "type": "array"
+            },
+            "dagNodes": {
+                "items": {
+                    "$ref": "#/types/aws:glue/getScriptDagNode:getScriptDagNode"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "language": {
+                "type": "string"
+            },
+            "pythonScript": {
+                "description": "Python script generated from the DAG when the `language` argument is set to `PYTHON`.\n",
+                "type": "string"
+            },
+            "scalaCode": {
+                "description": "Scala code generated from the DAG when the `language` argument is set to `SCALA`.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "dagEdges",
+            "dagNodes",
+            "pythonScript",
+            "scalaCode",
+            "id"
+        ],
+        "type": "object"
+    }
+}

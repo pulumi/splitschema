@@ -1,0 +1,264 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) for the custom engine version.\n"
+        },
+        "createTime": {
+            "type": "string",
+            "description": "The date and time that the CEV was created.\n"
+        },
+        "databaseInstallationFilesS3BucketName": {
+            "type": "string",
+            "description": "The name of the Amazon S3 bucket that contains the database installation files.\n"
+        },
+        "databaseInstallationFilesS3Prefix": {
+            "type": "string",
+            "description": "The prefix for the Amazon S3 bucket that contains the database installation files.\n"
+        },
+        "dbParameterGroupFamily": {
+            "type": "string",
+            "description": "The name of the DB parameter group family for the CEV.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the CEV.\n"
+        },
+        "engine": {
+            "type": "string",
+            "description": "The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.\n"
+        },
+        "engineVersion": {
+            "type": "string",
+            "description": "The version of the database engine.\n"
+        },
+        "filename": {
+            "type": "string",
+            "description": "The name of the manifest file within the local filesystem. Conflicts with `manifest`.\n"
+        },
+        "imageId": {
+            "type": "string",
+            "description": "The ID of the AMI that was created with the CEV.\n"
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.\n"
+        },
+        "majorEngineVersion": {
+            "type": "string",
+            "description": "The major version of the database engine.\n"
+        },
+        "manifest": {
+            "type": "string",
+            "description": "The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.\n"
+        },
+        "manifestComputed": {
+            "type": "string",
+            "description": "The returned manifest file, in JSON format, service generated and often different from input `manifest`.\n"
+        },
+        "manifestHash": {
+            "type": "string",
+            "description": "Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(\"manifest.json\") where \"manifest.json\" is the local filename of the manifest source.\n"
+        },
+        "sourceImageId": {
+            "type": "string",
+            "description": "The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "createTime",
+        "dbParameterGroupFamily",
+        "engine",
+        "engineVersion",
+        "imageId",
+        "kmsKeyId",
+        "majorEngineVersion",
+        "manifestComputed",
+        "status",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "databaseInstallationFilesS3BucketName": {
+            "type": "string",
+            "description": "The name of the Amazon S3 bucket that contains the database installation files.\n",
+            "willReplaceOnChanges": true
+        },
+        "databaseInstallationFilesS3Prefix": {
+            "type": "string",
+            "description": "The prefix for the Amazon S3 bucket that contains the database installation files.\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the CEV.\n"
+        },
+        "engine": {
+            "type": "string",
+            "description": "The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.\n",
+            "willReplaceOnChanges": true
+        },
+        "engineVersion": {
+            "type": "string",
+            "description": "The version of the database engine.\n",
+            "willReplaceOnChanges": true
+        },
+        "filename": {
+            "type": "string",
+            "description": "The name of the manifest file within the local filesystem. Conflicts with `manifest`.\n",
+            "willReplaceOnChanges": true
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.\n",
+            "willReplaceOnChanges": true
+        },
+        "manifest": {
+            "type": "string",
+            "description": "The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.\n",
+            "willReplaceOnChanges": true
+        },
+        "manifestHash": {
+            "type": "string",
+            "description": "Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(\"manifest.json\") where \"manifest.json\" is the local filename of the manifest source.\n"
+        },
+        "sourceImageId": {
+            "type": "string",
+            "description": "The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.\n",
+            "willReplaceOnChanges": true
+        },
+        "status": {
+            "type": "string",
+            "description": "The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "engine",
+        "engineVersion"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering CustomDbEngineVersion resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) for the custom engine version.\n"
+            },
+            "createTime": {
+                "type": "string",
+                "description": "The date and time that the CEV was created.\n"
+            },
+            "databaseInstallationFilesS3BucketName": {
+                "type": "string",
+                "description": "The name of the Amazon S3 bucket that contains the database installation files.\n",
+                "willReplaceOnChanges": true
+            },
+            "databaseInstallationFilesS3Prefix": {
+                "type": "string",
+                "description": "The prefix for the Amazon S3 bucket that contains the database installation files.\n",
+                "willReplaceOnChanges": true
+            },
+            "dbParameterGroupFamily": {
+                "type": "string",
+                "description": "The name of the DB parameter group family for the CEV.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "The description of the CEV.\n"
+            },
+            "engine": {
+                "type": "string",
+                "description": "The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.\n",
+                "willReplaceOnChanges": true
+            },
+            "engineVersion": {
+                "type": "string",
+                "description": "The version of the database engine.\n",
+                "willReplaceOnChanges": true
+            },
+            "filename": {
+                "type": "string",
+                "description": "The name of the manifest file within the local filesystem. Conflicts with `manifest`.\n",
+                "willReplaceOnChanges": true
+            },
+            "imageId": {
+                "type": "string",
+                "description": "The ID of the AMI that was created with the CEV.\n"
+            },
+            "kmsKeyId": {
+                "type": "string",
+                "description": "The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.\n",
+                "willReplaceOnChanges": true
+            },
+            "majorEngineVersion": {
+                "type": "string",
+                "description": "The major version of the database engine.\n"
+            },
+            "manifest": {
+                "type": "string",
+                "description": "The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.\n",
+                "willReplaceOnChanges": true
+            },
+            "manifestComputed": {
+                "type": "string",
+                "description": "The returned manifest file, in JSON format, service generated and often different from input `manifest`.\n"
+            },
+            "manifestHash": {
+                "type": "string",
+                "description": "Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(\"manifest.json\") where \"manifest.json\" is the local filename of the manifest source.\n"
+            },
+            "sourceImageId": {
+                "type": "string",
+                "description": "The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.\n",
+                "willReplaceOnChanges": true
+            },
+            "status": {
+                "type": "string",
+                "description": "The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

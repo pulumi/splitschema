@@ -1,0 +1,88 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getLocalGatewayVirtualInterface.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getLocalGatewayVirtualInterfaceFilter:getLocalGatewayVirtualInterfaceFilter"
+                },
+                "description": "One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.\n"
+            },
+            "id": {
+                "type": "string",
+                "description": "Identifier of EC2 Local Gateway Virtual Interface.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getLocalGatewayVirtualInterface.\n",
+        "properties": {
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2/getLocalGatewayVirtualInterfaceFilter:getLocalGatewayVirtualInterfaceFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "type": "string"
+            },
+            "localAddress": {
+                "description": "Local address.\n",
+                "type": "string"
+            },
+            "localBgpAsn": {
+                "description": "Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.\n",
+                "type": "integer"
+            },
+            "localGatewayId": {
+                "description": "Identifier of the EC2 Local Gateway.\n",
+                "type": "string"
+            },
+            "localGatewayVirtualInterfaceIds": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "peerAddress": {
+                "description": "Peer address.\n",
+                "type": "string"
+            },
+            "peerBgpAsn": {
+                "description": "Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.\n",
+                "type": "integer"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            },
+            "vlan": {
+                "description": "Virtual Local Area Network.\n",
+                "type": "integer"
+            }
+        },
+        "required": [
+            "id",
+            "localAddress",
+            "localBgpAsn",
+            "localGatewayId",
+            "localGatewayVirtualInterfaceIds",
+            "peerAddress",
+            "peerBgpAsn",
+            "tags",
+            "vlan"
+        ],
+        "type": "object"
+    }
+}

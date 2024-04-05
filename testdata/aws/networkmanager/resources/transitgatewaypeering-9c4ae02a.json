@@ -1,0 +1,151 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Peering Amazon Resource Name (ARN).\n"
+        },
+        "coreNetworkArn": {
+            "type": "string",
+            "description": "The ARN of the core network.\n"
+        },
+        "coreNetworkId": {
+            "type": "string",
+            "description": "The ID of a core network.\n"
+        },
+        "edgeLocation": {
+            "type": "string",
+            "description": "The edge location for the peer.\n"
+        },
+        "ownerAccountId": {
+            "type": "string",
+            "description": "The ID of the account owner.\n"
+        },
+        "peeringType": {
+            "type": "string",
+            "description": "The type of peering. This will be `TRANSIT_GATEWAY`.\n"
+        },
+        "resourceArn": {
+            "type": "string",
+            "description": "The resource ARN of the peer.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "transitGatewayArn": {
+            "type": "string",
+            "description": "The ARN of the transit gateway for the peering request.\n"
+        },
+        "transitGatewayPeeringAttachmentId": {
+            "type": "string",
+            "description": "The ID of the transit gateway peering attachment.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "coreNetworkArn",
+        "coreNetworkId",
+        "edgeLocation",
+        "ownerAccountId",
+        "peeringType",
+        "resourceArn",
+        "tagsAll",
+        "transitGatewayArn",
+        "transitGatewayPeeringAttachmentId"
+    ],
+    "inputProperties": {
+        "coreNetworkId": {
+            "type": "string",
+            "description": "The ID of a core network.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "transitGatewayArn": {
+            "type": "string",
+            "description": "The ARN of the transit gateway for the peering request.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "coreNetworkId",
+        "transitGatewayArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering TransitGatewayPeering resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Peering Amazon Resource Name (ARN).\n"
+            },
+            "coreNetworkArn": {
+                "type": "string",
+                "description": "The ARN of the core network.\n"
+            },
+            "coreNetworkId": {
+                "type": "string",
+                "description": "The ID of a core network.\n",
+                "willReplaceOnChanges": true
+            },
+            "edgeLocation": {
+                "type": "string",
+                "description": "The edge location for the peer.\n"
+            },
+            "ownerAccountId": {
+                "type": "string",
+                "description": "The ID of the account owner.\n"
+            },
+            "peeringType": {
+                "type": "string",
+                "description": "The type of peering. This will be `TRANSIT_GATEWAY`.\n"
+            },
+            "resourceArn": {
+                "type": "string",
+                "description": "The resource ARN of the peer.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "transitGatewayArn": {
+                "type": "string",
+                "description": "The ARN of the transit gateway for the peering request.\n",
+                "willReplaceOnChanges": true
+            },
+            "transitGatewayPeeringAttachmentId": {
+                "type": "string",
+                "description": "The ID of the transit gateway peering attachment.\n"
+            }
+        },
+        "type": "object"
+    }
+}

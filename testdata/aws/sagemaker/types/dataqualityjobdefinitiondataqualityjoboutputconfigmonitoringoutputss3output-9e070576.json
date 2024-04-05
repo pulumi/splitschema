@@ -1,0 +1,31 @@
+{
+    "properties": {
+        "localPath": {
+            "type": "string",
+            "description": "Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.\n",
+            "willReplaceOnChanges": true
+        },
+        "s3UploadMode": {
+            "type": "string",
+            "description": "Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`\n",
+            "willReplaceOnChanges": true
+        },
+        "s3Uri": {
+            "type": "string",
+            "description": "The Amazon S3 URI for the constraints resource.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "s3Uri"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "s3UploadMode",
+                "s3Uri"
+            ]
+        }
+    }
+}

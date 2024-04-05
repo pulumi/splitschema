@@ -1,0 +1,94 @@
+{
+    "properties": {
+        "group": {
+            "type": "string",
+            "description": "The IAM group to attach to the policy.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the policy. If omitted, the provider will\nassign a random, unique name.\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified\nprefix. Conflicts with `name`.\n"
+        },
+        "policy": {
+            "type": "string",
+            "description": "The policy document. This is a JSON formatted string.\n"
+        }
+    },
+    "required": [
+        "group",
+        "name",
+        "namePrefix",
+        "policy"
+    ],
+    "inputProperties": {
+        "group": {
+            "type": "string",
+            "description": "The IAM group to attach to the policy.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the policy. If omitted, the provider will\nassign a random, unique name.\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified\nprefix. Conflicts with `name`.\n",
+            "willReplaceOnChanges": true
+        },
+        "policy": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:iam/documents:PolicyDocument"
+                }
+            ],
+            "description": "The policy document. This is a JSON formatted string.\n"
+        }
+    },
+    "requiredInputs": [
+        "group",
+        "policy"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering GroupPolicy resources.\n",
+        "properties": {
+            "group": {
+                "type": "string",
+                "description": "The IAM group to attach to the policy.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the policy. If omitted, the provider will\nassign a random, unique name.\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique name beginning with the specified\nprefix. Conflicts with `name`.\n",
+                "willReplaceOnChanges": true
+            },
+            "policy": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:iam/documents:PolicyDocument"
+                    }
+                ],
+                "description": "The policy document. This is a JSON formatted string.\n"
+            }
+        },
+        "type": "object"
+    }
+}

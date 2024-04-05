@@ -1,0 +1,56 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) specifying the log stream.\n"
+        },
+        "logGroupName": {
+            "type": "string",
+            "description": "The name of the log group under which the log stream is to be created.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the log stream. Must not be longer than 512 characters and must not contain `:`\n"
+        }
+    },
+    "required": [
+        "arn",
+        "logGroupName",
+        "name"
+    ],
+    "inputProperties": {
+        "logGroupName": {
+            "type": "string",
+            "description": "The name of the log group under which the log stream is to be created.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the log stream. Must not be longer than 512 characters and must not contain `:`\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "logGroupName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering LogStream resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) specifying the log stream.\n"
+            },
+            "logGroupName": {
+                "type": "string",
+                "description": "The name of the log group under which the log stream is to be created.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the log stream. Must not be longer than 512 characters and must not contain `:`\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

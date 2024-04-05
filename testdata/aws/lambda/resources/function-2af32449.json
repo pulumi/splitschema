@@ -1,0 +1,574 @@
+{
+    "properties": {
+        "architectures": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Instruction set architecture for your Lambda function. Valid values are `[\"x86_64\"]` and `[\"arm64\"]`. Default is `[\"x86_64\"]`. Removing this attribute, function's architecture stay the same.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.\n"
+        },
+        "code": {
+            "$ref": "pulumi.json#/Archive",
+            "description": "Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.\n"
+        },
+        "codeSigningConfigArn": {
+            "type": "string",
+            "description": "To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.\n"
+        },
+        "deadLetterConfig": {
+            "$ref": "#/types/aws:lambda/FunctionDeadLetterConfig:FunctionDeadLetterConfig",
+            "description": "Configuration block. Detailed below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of what your Lambda Function does.\n"
+        },
+        "environment": {
+            "$ref": "#/types/aws:lambda/FunctionEnvironment:FunctionEnvironment",
+            "description": "Configuration block. Detailed below.\n"
+        },
+        "ephemeralStorage": {
+            "$ref": "#/types/aws:lambda/FunctionEphemeralStorage:FunctionEphemeralStorage",
+            "description": "The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.\n"
+        },
+        "fileSystemConfig": {
+            "$ref": "#/types/aws:lambda/FunctionFileSystemConfig:FunctionFileSystemConfig",
+            "description": "Configuration block. Detailed below.\n"
+        },
+        "handler": {
+            "type": "string",
+            "description": "Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.\n"
+        },
+        "imageConfig": {
+            "$ref": "#/types/aws:lambda/FunctionImageConfig:FunctionImageConfig",
+            "description": "Configuration block. Detailed below.\n"
+        },
+        "imageUri": {
+            "type": "string",
+            "description": "ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.\n"
+        },
+        "invokeArn": {
+            "type": "string",
+            "description": "ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.\n"
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.\n"
+        },
+        "lastModified": {
+            "type": "string",
+            "description": "Date this resource was last modified.\n"
+        },
+        "layers": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)\n"
+        },
+        "memorySize": {
+            "type": "integer",
+            "description": "Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Unique name for your Lambda Function.\n"
+        },
+        "packageType": {
+            "type": "string",
+            "description": "Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.\n"
+        },
+        "publish": {
+            "type": "boolean",
+            "description": "Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.\n"
+        },
+        "qualifiedArn": {
+            "type": "string",
+            "description": "ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).\n"
+        },
+        "qualifiedInvokeArn": {
+            "type": "string",
+            "description": "Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.\n"
+        },
+        "replaceSecurityGroupsOnDestroy": {
+            "type": "boolean",
+            "description": "**AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.\n",
+            "deprecationMessage": "AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version."
+        },
+        "replacementSecurityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.\n",
+            "deprecationMessage": "AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version."
+        },
+        "reservedConcurrentExecutions": {
+            "type": "integer",
+            "description": "Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)\n"
+        },
+        "role": {
+            "type": "string",
+            "$ref": "#/types/aws:index/aRN:ARN",
+            "description": "Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.\n\nThe following arguments are optional:\n"
+        },
+        "runtime": {
+            "type": "string",
+            "description": "Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.\n"
+        },
+        "s3Bucket": {
+            "type": "string",
+            "description": "S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.\n"
+        },
+        "s3Key": {
+            "type": "string",
+            "description": "S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.\n"
+        },
+        "s3ObjectVersion": {
+            "type": "string",
+            "description": "Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.\n"
+        },
+        "signingJobArn": {
+            "type": "string",
+            "description": "ARN of the signing job.\n"
+        },
+        "signingProfileVersionArn": {
+            "type": "string",
+            "description": "ARN of the signing profile version.\n* `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.\n"
+        },
+        "skipDestroy": {
+            "type": "boolean",
+            "description": "Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.\n"
+        },
+        "snapStart": {
+            "$ref": "#/types/aws:lambda/FunctionSnapStart:FunctionSnapStart",
+            "description": "Snap start settings block. Detailed below.\n"
+        },
+        "sourceCodeHash": {
+            "type": "string",
+            "description": "Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.\n"
+        },
+        "sourceCodeSize": {
+            "type": "integer",
+            "description": "Size in bytes of the function .zip file.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "timeout": {
+            "type": "integer",
+            "description": "Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).\n"
+        },
+        "tracingConfig": {
+            "$ref": "#/types/aws:lambda/FunctionTracingConfig:FunctionTracingConfig",
+            "description": "Configuration block. Detailed below.\n"
+        },
+        "version": {
+            "type": "string",
+            "description": "Latest published version of your Lambda Function.\n* `vpc_config.vpc_id` - ID of the VPC.\n"
+        },
+        "vpcConfig": {
+            "$ref": "#/types/aws:lambda/FunctionVpcConfig:FunctionVpcConfig",
+            "description": "Configuration block. Detailed below.\n"
+        }
+    },
+    "required": [
+        "architectures",
+        "arn",
+        "ephemeralStorage",
+        "name",
+        "invokeArn",
+        "lastModified",
+        "qualifiedArn",
+        "qualifiedInvokeArn",
+        "role",
+        "signingJobArn",
+        "signingProfileVersionArn",
+        "sourceCodeHash",
+        "sourceCodeSize",
+        "tagsAll",
+        "tracingConfig",
+        "version"
+    ],
+    "inputProperties": {
+        "architectures": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Instruction set architecture for your Lambda function. Valid values are `[\"x86_64\"]` and `[\"arm64\"]`. Default is `[\"x86_64\"]`. Removing this attribute, function's architecture stay the same.\n"
+        },
+        "code": {
+            "$ref": "pulumi.json#/Archive",
+            "description": "Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.\n"
+        },
+        "codeSigningConfigArn": {
+            "type": "string",
+            "description": "To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.\n"
+        },
+        "deadLetterConfig": {
+            "$ref": "#/types/aws:lambda/FunctionDeadLetterConfig:FunctionDeadLetterConfig",
+            "description": "Configuration block. Detailed below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of what your Lambda Function does.\n"
+        },
+        "environment": {
+            "$ref": "#/types/aws:lambda/FunctionEnvironment:FunctionEnvironment",
+            "description": "Configuration block. Detailed below.\n"
+        },
+        "ephemeralStorage": {
+            "$ref": "#/types/aws:lambda/FunctionEphemeralStorage:FunctionEphemeralStorage",
+            "description": "The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.\n"
+        },
+        "fileSystemConfig": {
+            "$ref": "#/types/aws:lambda/FunctionFileSystemConfig:FunctionFileSystemConfig",
+            "description": "Configuration block. Detailed below.\n"
+        },
+        "handler": {
+            "type": "string",
+            "description": "Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.\n"
+        },
+        "imageConfig": {
+            "$ref": "#/types/aws:lambda/FunctionImageConfig:FunctionImageConfig",
+            "description": "Configuration block. Detailed below.\n"
+        },
+        "imageUri": {
+            "type": "string",
+            "description": "ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.\n"
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.\n"
+        },
+        "layers": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)\n"
+        },
+        "memorySize": {
+            "type": "integer",
+            "description": "Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Unique name for your Lambda Function.\n",
+            "willReplaceOnChanges": true
+        },
+        "packageType": {
+            "type": "string",
+            "description": "Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.\n",
+            "willReplaceOnChanges": true
+        },
+        "publish": {
+            "type": "boolean",
+            "description": "Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.\n"
+        },
+        "replaceSecurityGroupsOnDestroy": {
+            "type": "boolean",
+            "description": "**AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.\n",
+            "deprecationMessage": "AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version."
+        },
+        "replacementSecurityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.\n",
+            "deprecationMessage": "AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version."
+        },
+        "reservedConcurrentExecutions": {
+            "type": "integer",
+            "description": "Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)\n"
+        },
+        "role": {
+            "type": "string",
+            "$ref": "#/types/aws:index/aRN:ARN",
+            "description": "Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.\n\nThe following arguments are optional:\n"
+        },
+        "runtime": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:lambda/Runtime:Runtime"
+                }
+            ],
+            "description": "Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.\n"
+        },
+        "s3Bucket": {
+            "type": "string",
+            "description": "S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.\n"
+        },
+        "s3Key": {
+            "type": "string",
+            "description": "S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.\n"
+        },
+        "s3ObjectVersion": {
+            "type": "string",
+            "description": "Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.\n"
+        },
+        "skipDestroy": {
+            "type": "boolean",
+            "description": "Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.\n"
+        },
+        "snapStart": {
+            "$ref": "#/types/aws:lambda/FunctionSnapStart:FunctionSnapStart",
+            "description": "Snap start settings block. Detailed below.\n"
+        },
+        "sourceCodeHash": {
+            "type": "string",
+            "description": "Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "timeout": {
+            "type": "integer",
+            "description": "Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).\n"
+        },
+        "tracingConfig": {
+            "$ref": "#/types/aws:lambda/FunctionTracingConfig:FunctionTracingConfig",
+            "description": "Configuration block. Detailed below.\n"
+        },
+        "vpcConfig": {
+            "$ref": "#/types/aws:lambda/FunctionVpcConfig:FunctionVpcConfig",
+            "description": "Configuration block. Detailed below.\n"
+        }
+    },
+    "requiredInputs": [
+        "role"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Function resources.\n",
+        "properties": {
+            "architectures": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Instruction set architecture for your Lambda function. Valid values are `[\"x86_64\"]` and `[\"arm64\"]`. Default is `[\"x86_64\"]`. Removing this attribute, function's architecture stay the same.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.\n"
+            },
+            "code": {
+                "$ref": "pulumi.json#/Archive",
+                "description": "Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.\n"
+            },
+            "codeSigningConfigArn": {
+                "type": "string",
+                "description": "To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.\n"
+            },
+            "deadLetterConfig": {
+                "$ref": "#/types/aws:lambda/FunctionDeadLetterConfig:FunctionDeadLetterConfig",
+                "description": "Configuration block. Detailed below.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of what your Lambda Function does.\n"
+            },
+            "environment": {
+                "$ref": "#/types/aws:lambda/FunctionEnvironment:FunctionEnvironment",
+                "description": "Configuration block. Detailed below.\n"
+            },
+            "ephemeralStorage": {
+                "$ref": "#/types/aws:lambda/FunctionEphemeralStorage:FunctionEphemeralStorage",
+                "description": "The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.\n"
+            },
+            "fileSystemConfig": {
+                "$ref": "#/types/aws:lambda/FunctionFileSystemConfig:FunctionFileSystemConfig",
+                "description": "Configuration block. Detailed below.\n"
+            },
+            "handler": {
+                "type": "string",
+                "description": "Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.\n"
+            },
+            "imageConfig": {
+                "$ref": "#/types/aws:lambda/FunctionImageConfig:FunctionImageConfig",
+                "description": "Configuration block. Detailed below.\n"
+            },
+            "imageUri": {
+                "type": "string",
+                "description": "ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.\n"
+            },
+            "invokeArn": {
+                "type": "string",
+                "description": "ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.\n"
+            },
+            "kmsKeyArn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.\n"
+            },
+            "lastModified": {
+                "type": "string",
+                "description": "Date this resource was last modified.\n"
+            },
+            "layers": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)\n"
+            },
+            "memorySize": {
+                "type": "integer",
+                "description": "Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Unique name for your Lambda Function.\n",
+                "willReplaceOnChanges": true
+            },
+            "packageType": {
+                "type": "string",
+                "description": "Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.\n",
+                "willReplaceOnChanges": true
+            },
+            "publish": {
+                "type": "boolean",
+                "description": "Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.\n"
+            },
+            "qualifiedArn": {
+                "type": "string",
+                "description": "ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).\n"
+            },
+            "qualifiedInvokeArn": {
+                "type": "string",
+                "description": "Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.\n"
+            },
+            "replaceSecurityGroupsOnDestroy": {
+                "type": "boolean",
+                "description": "**AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.\n",
+                "deprecationMessage": "AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version."
+            },
+            "replacementSecurityGroupIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.\n",
+                "deprecationMessage": "AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version."
+            },
+            "reservedConcurrentExecutions": {
+                "type": "integer",
+                "description": "Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)\n"
+            },
+            "role": {
+                "type": "string",
+                "$ref": "#/types/aws:index/aRN:ARN",
+                "description": "Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.\n\nThe following arguments are optional:\n"
+            },
+            "runtime": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:lambda/Runtime:Runtime"
+                    }
+                ],
+                "description": "Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.\n"
+            },
+            "s3Bucket": {
+                "type": "string",
+                "description": "S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.\n"
+            },
+            "s3Key": {
+                "type": "string",
+                "description": "S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.\n"
+            },
+            "s3ObjectVersion": {
+                "type": "string",
+                "description": "Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.\n"
+            },
+            "signingJobArn": {
+                "type": "string",
+                "description": "ARN of the signing job.\n"
+            },
+            "signingProfileVersionArn": {
+                "type": "string",
+                "description": "ARN of the signing profile version.\n* `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.\n"
+            },
+            "skipDestroy": {
+                "type": "boolean",
+                "description": "Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.\n"
+            },
+            "snapStart": {
+                "$ref": "#/types/aws:lambda/FunctionSnapStart:FunctionSnapStart",
+                "description": "Snap start settings block. Detailed below.\n"
+            },
+            "sourceCodeHash": {
+                "type": "string",
+                "description": "Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.\n"
+            },
+            "sourceCodeSize": {
+                "type": "integer",
+                "description": "Size in bytes of the function .zip file.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "timeout": {
+                "type": "integer",
+                "description": "Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).\n"
+            },
+            "tracingConfig": {
+                "$ref": "#/types/aws:lambda/FunctionTracingConfig:FunctionTracingConfig",
+                "description": "Configuration block. Detailed below.\n"
+            },
+            "version": {
+                "type": "string",
+                "description": "Latest published version of your Lambda Function.\n* `vpc_config.vpc_id` - ID of the VPC.\n"
+            },
+            "vpcConfig": {
+                "$ref": "#/types/aws:lambda/FunctionVpcConfig:FunctionVpcConfig",
+                "description": "Configuration block. Detailed below.\n"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,84 @@
+{
+    "properties": {
+        "cookieName": {
+            "type": "string",
+            "description": "Application cookie whose lifetime the ELB's cookie should follow.\n"
+        },
+        "lbPort": {
+            "type": "integer",
+            "description": "Load balancer port to which the policy\nshould be applied. This must be an active listener on the load\nbalancer.\n"
+        },
+        "loadBalancer": {
+            "type": "string",
+            "description": "Name of load balancer to which the policy\nshould be attached.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the stickiness policy.\n"
+        }
+    },
+    "required": [
+        "cookieName",
+        "lbPort",
+        "loadBalancer",
+        "name"
+    ],
+    "inputProperties": {
+        "cookieName": {
+            "type": "string",
+            "description": "Application cookie whose lifetime the ELB's cookie should follow.\n",
+            "willReplaceOnChanges": true
+        },
+        "lbPort": {
+            "type": "integer",
+            "description": "Load balancer port to which the policy\nshould be applied. This must be an active listener on the load\nbalancer.\n",
+            "willReplaceOnChanges": true
+        },
+        "loadBalancer": {
+            "type": "string",
+            "description": "Name of load balancer to which the policy\nshould be attached.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the stickiness policy.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "cookieName",
+        "lbPort",
+        "loadBalancer"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering AppCookieStickinessPolicy resources.\n",
+        "properties": {
+            "cookieName": {
+                "type": "string",
+                "description": "Application cookie whose lifetime the ELB's cookie should follow.\n",
+                "willReplaceOnChanges": true
+            },
+            "lbPort": {
+                "type": "integer",
+                "description": "Load balancer port to which the policy\nshould be applied. This must be an active listener on the load\nbalancer.\n",
+                "willReplaceOnChanges": true
+            },
+            "loadBalancer": {
+                "type": "string",
+                "description": "Name of load balancer to which the policy\nshould be attached.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the stickiness policy.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    },
+    "aliases": [
+        {
+            "type": "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy"
+        }
+    ]
+}

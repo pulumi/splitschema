@@ -1,0 +1,273 @@
+{
+    "properties": {
+        "addHeaderActions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleAddHeaderAction:ReceiptRuleAddHeaderAction"
+            },
+            "description": "A list of Add Header Action blocks. Documented below.\n"
+        },
+        "after": {
+            "type": "string",
+            "description": "The name of the rule to place this rule after\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The SES receipt rule ARN.\n"
+        },
+        "bounceActions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleBounceAction:ReceiptRuleBounceAction"
+            },
+            "description": "A list of Bounce Action blocks. Documented below.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "If true, the rule will be enabled\n"
+        },
+        "lambdaActions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleLambdaAction:ReceiptRuleLambdaAction"
+            },
+            "description": "A list of Lambda Action blocks. Documented below.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the rule\n"
+        },
+        "recipients": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of email addresses\n"
+        },
+        "ruleSetName": {
+            "type": "string",
+            "description": "The name of the rule set\n"
+        },
+        "s3Actions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleS3Action:ReceiptRuleS3Action"
+            },
+            "description": "A list of S3 Action blocks. Documented below.\n"
+        },
+        "scanEnabled": {
+            "type": "boolean",
+            "description": "If true, incoming emails will be scanned for spam and viruses\n"
+        },
+        "snsActions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleSnsAction:ReceiptRuleSnsAction"
+            },
+            "description": "A list of SNS Action blocks. Documented below.\n"
+        },
+        "stopActions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleStopAction:ReceiptRuleStopAction"
+            },
+            "description": "A list of Stop Action blocks. Documented below.\n"
+        },
+        "tlsPolicy": {
+            "type": "string",
+            "description": "`Require` or `Optional`\n"
+        },
+        "workmailActions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleWorkmailAction:ReceiptRuleWorkmailAction"
+            },
+            "description": "A list of WorkMail Action blocks. Documented below.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "ruleSetName",
+        "tlsPolicy"
+    ],
+    "inputProperties": {
+        "addHeaderActions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleAddHeaderAction:ReceiptRuleAddHeaderAction"
+            },
+            "description": "A list of Add Header Action blocks. Documented below.\n"
+        },
+        "after": {
+            "type": "string",
+            "description": "The name of the rule to place this rule after\n"
+        },
+        "bounceActions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleBounceAction:ReceiptRuleBounceAction"
+            },
+            "description": "A list of Bounce Action blocks. Documented below.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "If true, the rule will be enabled\n"
+        },
+        "lambdaActions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleLambdaAction:ReceiptRuleLambdaAction"
+            },
+            "description": "A list of Lambda Action blocks. Documented below.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the rule\n",
+            "willReplaceOnChanges": true
+        },
+        "recipients": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of email addresses\n"
+        },
+        "ruleSetName": {
+            "type": "string",
+            "description": "The name of the rule set\n",
+            "willReplaceOnChanges": true
+        },
+        "s3Actions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleS3Action:ReceiptRuleS3Action"
+            },
+            "description": "A list of S3 Action blocks. Documented below.\n"
+        },
+        "scanEnabled": {
+            "type": "boolean",
+            "description": "If true, incoming emails will be scanned for spam and viruses\n"
+        },
+        "snsActions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleSnsAction:ReceiptRuleSnsAction"
+            },
+            "description": "A list of SNS Action blocks. Documented below.\n"
+        },
+        "stopActions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleStopAction:ReceiptRuleStopAction"
+            },
+            "description": "A list of Stop Action blocks. Documented below.\n"
+        },
+        "tlsPolicy": {
+            "type": "string",
+            "description": "`Require` or `Optional`\n"
+        },
+        "workmailActions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ses/ReceiptRuleWorkmailAction:ReceiptRuleWorkmailAction"
+            },
+            "description": "A list of WorkMail Action blocks. Documented below.\n"
+        }
+    },
+    "requiredInputs": [
+        "ruleSetName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ReceiptRule resources.\n",
+        "properties": {
+            "addHeaderActions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ses/ReceiptRuleAddHeaderAction:ReceiptRuleAddHeaderAction"
+                },
+                "description": "A list of Add Header Action blocks. Documented below.\n"
+            },
+            "after": {
+                "type": "string",
+                "description": "The name of the rule to place this rule after\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The SES receipt rule ARN.\n"
+            },
+            "bounceActions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ses/ReceiptRuleBounceAction:ReceiptRuleBounceAction"
+                },
+                "description": "A list of Bounce Action blocks. Documented below.\n"
+            },
+            "enabled": {
+                "type": "boolean",
+                "description": "If true, the rule will be enabled\n"
+            },
+            "lambdaActions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ses/ReceiptRuleLambdaAction:ReceiptRuleLambdaAction"
+                },
+                "description": "A list of Lambda Action blocks. Documented below.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the rule\n",
+                "willReplaceOnChanges": true
+            },
+            "recipients": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of email addresses\n"
+            },
+            "ruleSetName": {
+                "type": "string",
+                "description": "The name of the rule set\n",
+                "willReplaceOnChanges": true
+            },
+            "s3Actions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ses/ReceiptRuleS3Action:ReceiptRuleS3Action"
+                },
+                "description": "A list of S3 Action blocks. Documented below.\n"
+            },
+            "scanEnabled": {
+                "type": "boolean",
+                "description": "If true, incoming emails will be scanned for spam and viruses\n"
+            },
+            "snsActions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ses/ReceiptRuleSnsAction:ReceiptRuleSnsAction"
+                },
+                "description": "A list of SNS Action blocks. Documented below.\n"
+            },
+            "stopActions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ses/ReceiptRuleStopAction:ReceiptRuleStopAction"
+                },
+                "description": "A list of Stop Action blocks. Documented below.\n"
+            },
+            "tlsPolicy": {
+                "type": "string",
+                "description": "`Require` or `Optional`\n"
+            },
+            "workmailActions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ses/ReceiptRuleWorkmailAction:ReceiptRuleWorkmailAction"
+                },
+                "description": "A list of WorkMail Action blocks. Documented below.\n"
+            }
+        },
+        "type": "object"
+    }
+}

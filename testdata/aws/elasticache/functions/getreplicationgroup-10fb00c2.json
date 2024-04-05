@@ -1,0 +1,123 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getReplicationGroup.\n",
+        "properties": {
+            "replicationGroupId": {
+                "type": "string",
+                "description": "Identifier for the replication group.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "replicationGroupId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getReplicationGroup.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the created ElastiCache Replication Group.\n",
+                "type": "string"
+            },
+            "authTokenEnabled": {
+                "description": "Whether an AuthToken (password) is enabled.\n",
+                "type": "boolean"
+            },
+            "automaticFailoverEnabled": {
+                "description": "A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.\n",
+                "type": "boolean"
+            },
+            "configurationEndpointAddress": {
+                "description": "The configuration endpoint address to allow host discovery.\n",
+                "type": "string"
+            },
+            "description": {
+                "description": "Description of the replication group.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "logDeliveryConfigurations": {
+                "description": "Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.\n",
+                "items": {
+                    "$ref": "#/types/aws:elasticache/getReplicationGroupLogDeliveryConfiguration:getReplicationGroupLogDeliveryConfiguration"
+                },
+                "type": "array"
+            },
+            "memberClusters": {
+                "description": "Identifiers of all the nodes that are part of this replication group.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "multiAzEnabled": {
+                "description": "Whether Multi-AZ Support is enabled for the replication group.\n",
+                "type": "boolean"
+            },
+            "nodeType": {
+                "description": "The cluster node type.\n",
+                "type": "string"
+            },
+            "numCacheClusters": {
+                "description": "The number of cache clusters that the replication group has.\n",
+                "type": "integer"
+            },
+            "numNodeGroups": {
+                "description": "Number of node groups (shards) for the replication group.\n",
+                "type": "integer"
+            },
+            "port": {
+                "description": "The port number on which the configuration endpoint will accept connections.\n",
+                "type": "integer"
+            },
+            "primaryEndpointAddress": {
+                "description": "The endpoint of the primary node in this node group (shard).\n",
+                "type": "string"
+            },
+            "readerEndpointAddress": {
+                "description": "The endpoint of the reader node in this node group (shard).\n",
+                "type": "string"
+            },
+            "replicasPerNodeGroup": {
+                "description": "Number of replica nodes in each node group.\n",
+                "type": "integer"
+            },
+            "replicationGroupId": {
+                "type": "string"
+            },
+            "snapshotRetentionLimit": {
+                "description": "The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.\n",
+                "type": "integer"
+            },
+            "snapshotWindow": {
+                "description": "Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "authTokenEnabled",
+            "automaticFailoverEnabled",
+            "configurationEndpointAddress",
+            "description",
+            "logDeliveryConfigurations",
+            "memberClusters",
+            "multiAzEnabled",
+            "nodeType",
+            "numCacheClusters",
+            "numNodeGroups",
+            "port",
+            "primaryEndpointAddress",
+            "readerEndpointAddress",
+            "replicasPerNodeGroup",
+            "replicationGroupId",
+            "snapshotRetentionLimit",
+            "snapshotWindow",
+            "id"
+        ],
+        "type": "object"
+    }
+}

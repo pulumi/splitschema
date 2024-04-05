@@ -1,0 +1,58 @@
+{
+    "properties": {
+        "behaviorOnMxFailure": {
+            "type": "string",
+            "description": "The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.\n"
+        },
+        "domain": {
+            "type": "string",
+            "description": "Verified domain name or email identity to generate DKIM tokens for.\n"
+        },
+        "mailFromDomain": {
+            "type": "string",
+            "description": "Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)\n\nThe following arguments are optional:\n"
+        }
+    },
+    "required": [
+        "domain",
+        "mailFromDomain"
+    ],
+    "inputProperties": {
+        "behaviorOnMxFailure": {
+            "type": "string",
+            "description": "The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.\n"
+        },
+        "domain": {
+            "type": "string",
+            "description": "Verified domain name or email identity to generate DKIM tokens for.\n",
+            "willReplaceOnChanges": true
+        },
+        "mailFromDomain": {
+            "type": "string",
+            "description": "Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)\n\nThe following arguments are optional:\n"
+        }
+    },
+    "requiredInputs": [
+        "domain",
+        "mailFromDomain"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering MailFrom resources.\n",
+        "properties": {
+            "behaviorOnMxFailure": {
+                "type": "string",
+                "description": "The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.\n"
+            },
+            "domain": {
+                "type": "string",
+                "description": "Verified domain name or email identity to generate DKIM tokens for.\n",
+                "willReplaceOnChanges": true
+            },
+            "mailFromDomain": {
+                "type": "string",
+                "description": "Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)\n\nThe following arguments are optional:\n"
+            }
+        },
+        "type": "object"
+    }
+}

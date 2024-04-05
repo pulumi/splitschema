@@ -1,0 +1,59 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getInstanceTypeOffering.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getInstanceTypeOfferingFilter:getInstanceTypeOfferingFilter"
+                },
+                "description": "One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.\n"
+            },
+            "locationType": {
+                "type": "string",
+                "description": "Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.\n"
+            },
+            "preferredInstanceTypes": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getInstanceTypeOffering.\n",
+        "properties": {
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2/getInstanceTypeOfferingFilter:getInstanceTypeOfferingFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "instanceType": {
+                "description": "EC2 Instance Type.\n",
+                "type": "string"
+            },
+            "locationType": {
+                "type": "string"
+            },
+            "preferredInstanceTypes": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "instanceType",
+            "id"
+        ],
+        "type": "object"
+    }
+}

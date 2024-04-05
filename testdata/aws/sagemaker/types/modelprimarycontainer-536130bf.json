@@ -1,0 +1,53 @@
+{
+    "properties": {
+        "containerHostname": {
+            "type": "string",
+            "description": "The DNS host name for the container.\n",
+            "willReplaceOnChanges": true
+        },
+        "environment": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Environment variables for the Docker container.\nA list of key value pairs.\n",
+            "willReplaceOnChanges": true
+        },
+        "image": {
+            "type": "string",
+            "description": "The registry path where the inference code image is stored in Amazon ECR.\n",
+            "willReplaceOnChanges": true
+        },
+        "imageConfig": {
+            "$ref": "#/types/aws:sagemaker/ModelPrimaryContainerImageConfig:ModelPrimaryContainerImageConfig",
+            "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.\n"
+        },
+        "mode": {
+            "type": "string",
+            "description": "The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.\n",
+            "willReplaceOnChanges": true
+        },
+        "modelDataSource": {
+            "$ref": "#/types/aws:sagemaker/ModelPrimaryContainerModelDataSource:ModelPrimaryContainerModelDataSource",
+            "description": "The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.\n"
+        },
+        "modelDataUrl": {
+            "type": "string",
+            "description": "The URL for the S3 location where model artifacts are stored.\n",
+            "willReplaceOnChanges": true
+        },
+        "modelPackageName": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the model package to use to create the model.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "modelDataSource"
+            ]
+        }
+    }
+}

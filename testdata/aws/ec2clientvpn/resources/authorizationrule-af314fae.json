@@ -1,0 +1,90 @@
+{
+    "properties": {
+        "accessGroupId": {
+            "type": "string",
+            "description": "The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.\n"
+        },
+        "authorizeAllGroups": {
+            "type": "boolean",
+            "description": "Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.\n"
+        },
+        "clientVpnEndpointId": {
+            "type": "string",
+            "description": "The ID of the Client VPN endpoint.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A brief description of the authorization rule.\n"
+        },
+        "targetNetworkCidr": {
+            "type": "string",
+            "description": "The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.\n"
+        }
+    },
+    "required": [
+        "clientVpnEndpointId",
+        "targetNetworkCidr"
+    ],
+    "inputProperties": {
+        "accessGroupId": {
+            "type": "string",
+            "description": "The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.\n",
+            "willReplaceOnChanges": true
+        },
+        "authorizeAllGroups": {
+            "type": "boolean",
+            "description": "Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.\n",
+            "willReplaceOnChanges": true
+        },
+        "clientVpnEndpointId": {
+            "type": "string",
+            "description": "The ID of the Client VPN endpoint.\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "A brief description of the authorization rule.\n",
+            "willReplaceOnChanges": true
+        },
+        "targetNetworkCidr": {
+            "type": "string",
+            "description": "The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "clientVpnEndpointId",
+        "targetNetworkCidr"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering AuthorizationRule resources.\n",
+        "properties": {
+            "accessGroupId": {
+                "type": "string",
+                "description": "The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.\n",
+                "willReplaceOnChanges": true
+            },
+            "authorizeAllGroups": {
+                "type": "boolean",
+                "description": "Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.\n",
+                "willReplaceOnChanges": true
+            },
+            "clientVpnEndpointId": {
+                "type": "string",
+                "description": "The ID of the Client VPN endpoint.\n",
+                "willReplaceOnChanges": true
+            },
+            "description": {
+                "type": "string",
+                "description": "A brief description of the authorization rule.\n",
+                "willReplaceOnChanges": true
+            },
+            "targetNetworkCidr": {
+                "type": "string",
+                "description": "The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

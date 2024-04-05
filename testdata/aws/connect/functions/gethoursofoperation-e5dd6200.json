@@ -1,0 +1,89 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getHoursOfOperation.\n",
+        "properties": {
+            "hoursOfOperationId": {
+                "type": "string",
+                "description": "Returns information on a specific Hours of Operation by hours of operation id\n"
+            },
+            "instanceId": {
+                "type": "string",
+                "description": "Reference to the hosting Amazon Connect Instance\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Returns information on a specific Hours of Operation by name\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the Hours of Operation.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "instanceId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getHoursOfOperation.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the Hours of Operation.\n",
+                "type": "string"
+            },
+            "configs": {
+                "description": "Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:connect/getHoursOfOperationConfig:getHoursOfOperationConfig"
+                },
+                "type": "array"
+            },
+            "description": {
+                "description": "Description of the Hours of Operation.\n",
+                "type": "string"
+            },
+            "hoursOfOperationId": {
+                "description": "The identifier for the hours of operation.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "instanceId": {
+                "description": "Identifier of the hosting Amazon Connect Instance.\n",
+                "type": "string"
+            },
+            "name": {
+                "description": "Name of the Hours of Operation.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the Hours of Operation.\n",
+                "type": "object"
+            },
+            "timeZone": {
+                "description": "Time zone of the Hours of Operation.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "configs",
+            "description",
+            "hoursOfOperationId",
+            "instanceId",
+            "name",
+            "tags",
+            "timeZone",
+            "id"
+        ],
+        "type": "object"
+    }
+}

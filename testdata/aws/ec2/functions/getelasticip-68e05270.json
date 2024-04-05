@@ -1,0 +1,122 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getElasticIp.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getElasticIpFilter:getElasticIpFilter"
+                },
+                "description": "One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).\n"
+            },
+            "id": {
+                "type": "string",
+                "description": "Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`\n"
+            },
+            "publicIp": {
+                "type": "string",
+                "description": "Public IP of the specific EIP to retrieve.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags, each pair of which must exactly match a pair on the desired Elastic IP\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getElasticIp.\n",
+        "properties": {
+            "associationId": {
+                "description": "ID representing the association of the address with an instance in a VPC.\n",
+                "type": "string"
+            },
+            "carrierIp": {
+                "description": "Carrier IP address.\n",
+                "type": "string"
+            },
+            "customerOwnedIp": {
+                "description": "Customer Owned IP.\n",
+                "type": "string"
+            },
+            "customerOwnedIpv4Pool": {
+                "description": "The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)\n",
+                "type": "string"
+            },
+            "domain": {
+                "description": "Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).\n",
+                "type": "string"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2/getElasticIpFilter:getElasticIpFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.\n",
+                "type": "string"
+            },
+            "instanceId": {
+                "description": "ID of the instance that the address is associated with (if any).\n",
+                "type": "string"
+            },
+            "networkInterfaceId": {
+                "description": "The ID of the network interface.\n",
+                "type": "string"
+            },
+            "networkInterfaceOwnerId": {
+                "description": "The ID of the AWS account that owns the network interface.\n",
+                "type": "string"
+            },
+            "privateDns": {
+                "description": "Private DNS associated with the Elastic IP address.\n",
+                "type": "string"
+            },
+            "privateIp": {
+                "description": "Private IP address associated with the Elastic IP address.\n",
+                "type": "string"
+            },
+            "publicDns": {
+                "description": "Public DNS associated with the Elastic IP address.\n",
+                "type": "string"
+            },
+            "publicIp": {
+                "description": "Public IP address of Elastic IP.\n",
+                "type": "string"
+            },
+            "publicIpv4Pool": {
+                "description": "ID of an address pool.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of tags associated with Elastic IP.\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "associationId",
+            "carrierIp",
+            "customerOwnedIp",
+            "customerOwnedIpv4Pool",
+            "domain",
+            "id",
+            "instanceId",
+            "networkInterfaceId",
+            "networkInterfaceOwnerId",
+            "privateDns",
+            "privateIp",
+            "publicDns",
+            "publicIp",
+            "publicIpv4Pool",
+            "tags"
+        ],
+        "type": "object"
+    }
+}

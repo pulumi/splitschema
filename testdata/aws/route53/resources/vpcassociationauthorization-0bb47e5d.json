@@ -1,0 +1,63 @@
+{
+    "properties": {
+        "vpcId": {
+            "type": "string",
+            "description": "The VPC to authorize for association with the private hosted zone.\n"
+        },
+        "vpcRegion": {
+            "type": "string",
+            "description": "The VPC's region. Defaults to the region of the AWS provider.\n"
+        },
+        "zoneId": {
+            "type": "string",
+            "description": "The ID of the private hosted zone that you want to authorize associating a VPC with.\n"
+        }
+    },
+    "required": [
+        "vpcId",
+        "vpcRegion",
+        "zoneId"
+    ],
+    "inputProperties": {
+        "vpcId": {
+            "type": "string",
+            "description": "The VPC to authorize for association with the private hosted zone.\n",
+            "willReplaceOnChanges": true
+        },
+        "vpcRegion": {
+            "type": "string",
+            "description": "The VPC's region. Defaults to the region of the AWS provider.\n",
+            "willReplaceOnChanges": true
+        },
+        "zoneId": {
+            "type": "string",
+            "description": "The ID of the private hosted zone that you want to authorize associating a VPC with.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "vpcId",
+        "zoneId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering VpcAssociationAuthorization resources.\n",
+        "properties": {
+            "vpcId": {
+                "type": "string",
+                "description": "The VPC to authorize for association with the private hosted zone.\n",
+                "willReplaceOnChanges": true
+            },
+            "vpcRegion": {
+                "type": "string",
+                "description": "The VPC's region. Defaults to the region of the AWS provider.\n",
+                "willReplaceOnChanges": true
+            },
+            "zoneId": {
+                "type": "string",
+                "description": "The ID of the private hosted zone that you want to authorize associating a VPC with.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

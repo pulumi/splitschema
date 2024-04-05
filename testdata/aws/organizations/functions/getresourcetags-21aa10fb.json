@@ -1,0 +1,47 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getResourceTags.\n",
+        "properties": {
+            "resourceId": {
+                "type": "string",
+                "description": "ID of the resource with the tags to list. See details below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of key=value pairs for each tag set on the resource.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "resourceId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getResourceTags.\n",
+        "properties": {
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "resourceId": {
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of key=value pairs for each tag set on the resource.\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "resourceId",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

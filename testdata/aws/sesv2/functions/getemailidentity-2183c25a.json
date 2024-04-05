@@ -1,0 +1,74 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getEmailIdentity.\n",
+        "properties": {
+            "emailIdentity": {
+                "type": "string",
+                "description": "The name of the email identity.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "emailIdentity"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getEmailIdentity.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the Email Identity.\n",
+                "type": "string"
+            },
+            "configurationSetName": {
+                "type": "string"
+            },
+            "dkimSigningAttributes": {
+                "description": "A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.\n",
+                "items": {
+                    "$ref": "#/types/aws:sesv2/getEmailIdentityDkimSigningAttribute:getEmailIdentityDkimSigningAttribute"
+                },
+                "type": "array"
+            },
+            "emailIdentity": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "identityType": {
+                "description": "The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags.\n",
+                "type": "object"
+            },
+            "verifiedForSendingStatus": {
+                "description": "Specifies whether or not the identity is verified.\n",
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "arn",
+            "configurationSetName",
+            "dkimSigningAttributes",
+            "emailIdentity",
+            "identityType",
+            "tags",
+            "verifiedForSendingStatus",
+            "id"
+        ],
+        "type": "object"
+    }
+}

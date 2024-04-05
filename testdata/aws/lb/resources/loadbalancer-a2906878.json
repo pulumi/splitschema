@@ -1,0 +1,435 @@
+{
+    "properties": {
+        "accessLogs": {
+            "$ref": "#/types/aws:lb/LoadBalancerAccessLogs:LoadBalancerAccessLogs",
+            "description": "An Access Logs block. Access Logs documented below.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the load balancer (matches `id`).\n"
+        },
+        "arnSuffix": {
+            "type": "string",
+            "description": "The ARN suffix for use with CloudWatch Metrics.\n"
+        },
+        "connectionLogs": {
+            "$ref": "#/types/aws:lb/LoadBalancerConnectionLogs:LoadBalancerConnectionLogs",
+            "description": "A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.\n"
+        },
+        "customerOwnedIpv4Pool": {
+            "type": "string",
+            "description": "The ID of the customer owned ipv4 pool to use for this load balancer.\n"
+        },
+        "desyncMitigationMode": {
+            "type": "string",
+            "description": "Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.\n"
+        },
+        "dnsName": {
+            "type": "string",
+            "description": "The DNS name of the load balancer.\n"
+        },
+        "dnsRecordClientRoutingPolicy": {
+            "type": "string",
+            "description": "Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.\n"
+        },
+        "dropInvalidHeaderFields": {
+            "type": "boolean",
+            "description": "Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.\n"
+        },
+        "enableCrossZoneLoadBalancing": {
+            "type": "boolean",
+            "description": "If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.\n"
+        },
+        "enableDeletionProtection": {
+            "type": "boolean",
+            "description": "If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.\n"
+        },
+        "enableHttp2": {
+            "type": "boolean",
+            "description": "Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.\n"
+        },
+        "enableTlsVersionAndCipherSuiteHeaders": {
+            "type": "boolean",
+            "description": "Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`\n"
+        },
+        "enableWafFailOpen": {
+            "type": "boolean",
+            "description": "Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.\n"
+        },
+        "enableXffClientPort": {
+            "type": "boolean",
+            "description": "Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.\n"
+        },
+        "enforceSecurityGroupInboundRulesOnPrivateLinkTraffic": {
+            "type": "string",
+            "description": "Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.\n"
+        },
+        "idleTimeout": {
+            "type": "integer",
+            "description": "The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.\n"
+        },
+        "internal": {
+            "type": "boolean",
+            "description": "If true, the LB will be internal. Defaults to `false`.\n"
+        },
+        "ipAddressType": {
+            "type": "string",
+            "description": "The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.\n"
+        },
+        "loadBalancerType": {
+            "type": "string",
+            "description": "The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,\nmust contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,\nthis provider will autogenerate a name beginning with `tf-lb`.\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+        },
+        "preserveHostHeader": {
+            "type": "boolean",
+            "description": "Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.\n"
+        },
+        "securityGroups": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.\n"
+        },
+        "subnetMappings": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:lb/LoadBalancerSubnetMapping:LoadBalancerSubnetMapping"
+            },
+            "description": "A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.\n"
+        },
+        "subnets": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "vpcId": {
+            "type": "string"
+        },
+        "xffHeaderProcessingMode": {
+            "type": "string",
+            "description": "Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.\n"
+        },
+        "zoneId": {
+            "type": "string",
+            "description": "The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).\n"
+        }
+    },
+    "required": [
+        "arn",
+        "arnSuffix",
+        "dnsName",
+        "enforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
+        "internal",
+        "ipAddressType",
+        "name",
+        "namePrefix",
+        "securityGroups",
+        "subnetMappings",
+        "subnets",
+        "tagsAll",
+        "vpcId",
+        "zoneId"
+    ],
+    "inputProperties": {
+        "accessLogs": {
+            "$ref": "#/types/aws:lb/LoadBalancerAccessLogs:LoadBalancerAccessLogs",
+            "description": "An Access Logs block. Access Logs documented below.\n"
+        },
+        "connectionLogs": {
+            "$ref": "#/types/aws:lb/LoadBalancerConnectionLogs:LoadBalancerConnectionLogs",
+            "description": "A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.\n"
+        },
+        "customerOwnedIpv4Pool": {
+            "type": "string",
+            "description": "The ID of the customer owned ipv4 pool to use for this load balancer.\n",
+            "willReplaceOnChanges": true
+        },
+        "desyncMitigationMode": {
+            "type": "string",
+            "description": "Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.\n"
+        },
+        "dnsRecordClientRoutingPolicy": {
+            "type": "string",
+            "description": "Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.\n"
+        },
+        "dropInvalidHeaderFields": {
+            "type": "boolean",
+            "description": "Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.\n"
+        },
+        "enableCrossZoneLoadBalancing": {
+            "type": "boolean",
+            "description": "If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.\n"
+        },
+        "enableDeletionProtection": {
+            "type": "boolean",
+            "description": "If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.\n"
+        },
+        "enableHttp2": {
+            "type": "boolean",
+            "description": "Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.\n"
+        },
+        "enableTlsVersionAndCipherSuiteHeaders": {
+            "type": "boolean",
+            "description": "Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`\n"
+        },
+        "enableWafFailOpen": {
+            "type": "boolean",
+            "description": "Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.\n"
+        },
+        "enableXffClientPort": {
+            "type": "boolean",
+            "description": "Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.\n"
+        },
+        "enforceSecurityGroupInboundRulesOnPrivateLinkTraffic": {
+            "type": "string",
+            "description": "Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.\n"
+        },
+        "idleTimeout": {
+            "type": "integer",
+            "description": "The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.\n"
+        },
+        "internal": {
+            "type": "boolean",
+            "description": "If true, the LB will be internal. Defaults to `false`.\n",
+            "willReplaceOnChanges": true
+        },
+        "ipAddressType": {
+            "type": "string",
+            "description": "The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.\n"
+        },
+        "loadBalancerType": {
+            "type": "string",
+            "description": "The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,\nmust contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,\nthis provider will autogenerate a name beginning with `tf-lb`.\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+            "willReplaceOnChanges": true
+        },
+        "preserveHostHeader": {
+            "type": "boolean",
+            "description": "Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.\n"
+        },
+        "securityGroups": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.\n"
+        },
+        "subnetMappings": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:lb/LoadBalancerSubnetMapping:LoadBalancerSubnetMapping"
+            },
+            "description": "A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.\n"
+        },
+        "subnets": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "xffHeaderProcessingMode": {
+            "type": "string",
+            "description": "Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering LoadBalancer resources.\n",
+        "properties": {
+            "accessLogs": {
+                "$ref": "#/types/aws:lb/LoadBalancerAccessLogs:LoadBalancerAccessLogs",
+                "description": "An Access Logs block. Access Logs documented below.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the load balancer (matches `id`).\n"
+            },
+            "arnSuffix": {
+                "type": "string",
+                "description": "The ARN suffix for use with CloudWatch Metrics.\n"
+            },
+            "connectionLogs": {
+                "$ref": "#/types/aws:lb/LoadBalancerConnectionLogs:LoadBalancerConnectionLogs",
+                "description": "A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.\n"
+            },
+            "customerOwnedIpv4Pool": {
+                "type": "string",
+                "description": "The ID of the customer owned ipv4 pool to use for this load balancer.\n",
+                "willReplaceOnChanges": true
+            },
+            "desyncMitigationMode": {
+                "type": "string",
+                "description": "Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.\n"
+            },
+            "dnsName": {
+                "type": "string",
+                "description": "The DNS name of the load balancer.\n"
+            },
+            "dnsRecordClientRoutingPolicy": {
+                "type": "string",
+                "description": "Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.\n"
+            },
+            "dropInvalidHeaderFields": {
+                "type": "boolean",
+                "description": "Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.\n"
+            },
+            "enableCrossZoneLoadBalancing": {
+                "type": "boolean",
+                "description": "If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.\n"
+            },
+            "enableDeletionProtection": {
+                "type": "boolean",
+                "description": "If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.\n"
+            },
+            "enableHttp2": {
+                "type": "boolean",
+                "description": "Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.\n"
+            },
+            "enableTlsVersionAndCipherSuiteHeaders": {
+                "type": "boolean",
+                "description": "Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`\n"
+            },
+            "enableWafFailOpen": {
+                "type": "boolean",
+                "description": "Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.\n"
+            },
+            "enableXffClientPort": {
+                "type": "boolean",
+                "description": "Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.\n"
+            },
+            "enforceSecurityGroupInboundRulesOnPrivateLinkTraffic": {
+                "type": "string",
+                "description": "Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.\n"
+            },
+            "idleTimeout": {
+                "type": "integer",
+                "description": "The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.\n"
+            },
+            "internal": {
+                "type": "boolean",
+                "description": "If true, the LB will be internal. Defaults to `false`.\n",
+                "willReplaceOnChanges": true
+            },
+            "ipAddressType": {
+                "type": "string",
+                "description": "The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.\n"
+            },
+            "loadBalancerType": {
+                "type": "string",
+                "description": "The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,\nmust contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,\nthis provider will autogenerate a name beginning with `tf-lb`.\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                "willReplaceOnChanges": true
+            },
+            "preserveHostHeader": {
+                "type": "boolean",
+                "description": "Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.\n"
+            },
+            "securityGroups": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.\n"
+            },
+            "subnetMappings": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:lb/LoadBalancerSubnetMapping:LoadBalancerSubnetMapping"
+                },
+                "description": "A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.\n"
+            },
+            "subnets": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "vpcId": {
+                "type": "string"
+            },
+            "xffHeaderProcessingMode": {
+                "type": "string",
+                "description": "Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.\n"
+            },
+            "zoneId": {
+                "type": "string",
+                "description": "The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).\n"
+            }
+        },
+        "type": "object"
+    },
+    "aliases": [
+        {
+            "type": "aws:elasticloadbalancingv2/loadBalancer:LoadBalancer"
+        }
+    ]
+}

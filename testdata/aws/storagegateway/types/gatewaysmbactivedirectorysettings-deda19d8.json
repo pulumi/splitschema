@@ -1,0 +1,51 @@
+{
+    "properties": {
+        "activeDirectoryStatus": {
+            "type": "string"
+        },
+        "domainControllers": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of IPv4 addresses, NetBIOS names, or host names of your domain server.\nIf you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.\n"
+        },
+        "domainName": {
+            "type": "string",
+            "description": "The name of the domain that you want the gateway to join.\n"
+        },
+        "organizationalUnit": {
+            "type": "string",
+            "description": "The organizational unit (OU) is a container in an Active Directory that can hold users, groups,\ncomputers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.\n"
+        },
+        "password": {
+            "type": "string",
+            "description": "The password of the user who has permission to add the gateway to the Active Directory domain.\n",
+            "secret": true
+        },
+        "timeoutInSeconds": {
+            "type": "integer",
+            "description": "Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.\n"
+        },
+        "username": {
+            "type": "string",
+            "description": "The user name of user who has permission to add the gateway to the Active Directory domain.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "domainName",
+        "password",
+        "username"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "activeDirectoryStatus",
+                "domainName",
+                "password",
+                "username"
+            ]
+        }
+    }
+}

@@ -1,0 +1,88 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getCluster.\n",
+        "properties": {
+            "clusterName": {
+                "type": "string",
+                "description": "Name of the ECS Cluster\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "clusterName"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getCluster.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the ECS Cluster\n",
+                "type": "string"
+            },
+            "clusterName": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "pendingTasksCount": {
+                "description": "Number of pending tasks for the ECS Cluster\n",
+                "type": "integer"
+            },
+            "registeredContainerInstancesCount": {
+                "description": "The number of registered container instances for the ECS Cluster\n",
+                "type": "integer"
+            },
+            "runningTasksCount": {
+                "description": "Number of running tasks for the ECS Cluster\n",
+                "type": "integer"
+            },
+            "serviceConnectDefaults": {
+                "description": "The default Service Connect namespace\n",
+                "items": {
+                    "$ref": "#/types/aws:ecs/getClusterServiceConnectDefault:getClusterServiceConnectDefault"
+                },
+                "type": "array"
+            },
+            "settings": {
+                "description": "Settings associated with the ECS Cluster\n",
+                "items": {
+                    "$ref": "#/types/aws:ecs/getClusterSetting:getClusterSetting"
+                },
+                "type": "array"
+            },
+            "status": {
+                "description": "Status of the ECS Cluster\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "clusterName",
+            "pendingTasksCount",
+            "registeredContainerInstancesCount",
+            "runningTasksCount",
+            "serviceConnectDefaults",
+            "settings",
+            "status",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

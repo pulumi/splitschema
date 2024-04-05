@@ -1,0 +1,120 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getReceivedLicense.\n",
+        "properties": {
+            "licenseArn": {
+                "type": "string",
+                "description": "The ARN of the received license you want data for.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "licenseArn"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getReceivedLicense.\n",
+        "properties": {
+            "beneficiary": {
+                "description": "Granted license beneficiary. This is in the form of the ARN of the root user of the account.\n",
+                "type": "string"
+            },
+            "consumptionConfigurations": {
+                "description": "Configuration for consumption of the license. Detailed below\n",
+                "items": {
+                    "$ref": "#/types/aws:licensemanager/getReceivedLicenseConsumptionConfiguration:getReceivedLicenseConsumptionConfiguration"
+                },
+                "type": "array"
+            },
+            "createTime": {
+                "description": "Creation time of the granted license in RFC 3339 format.\n",
+                "type": "string"
+            },
+            "entitlements": {
+                "description": "License entitlements. Detailed below\n",
+                "items": {
+                    "$ref": "#/types/aws:licensemanager/getReceivedLicenseEntitlement:getReceivedLicenseEntitlement"
+                },
+                "type": "array"
+            },
+            "homeRegion": {
+                "description": "Home Region of the granted license.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "issuers": {
+                "description": "Granted license issuer. Detailed below\n",
+                "items": {
+                    "$ref": "#/types/aws:licensemanager/getReceivedLicenseIssuer:getReceivedLicenseIssuer"
+                },
+                "type": "array"
+            },
+            "licenseArn": {
+                "description": "Amazon Resource Name (ARN) of the license.\n",
+                "type": "string"
+            },
+            "licenseMetadatas": {
+                "description": "Granted license metadata. This is in the form of a set of all meta data. Detailed below\n",
+                "items": {
+                    "$ref": "#/types/aws:licensemanager/getReceivedLicenseLicenseMetadata:getReceivedLicenseLicenseMetadata"
+                },
+                "type": "array"
+            },
+            "licenseName": {
+                "description": "License name.\n",
+                "type": "string"
+            },
+            "productName": {
+                "description": "Product name.\n* `product_sku ` - Product SKU.\n",
+                "type": "string"
+            },
+            "productSku": {
+                "type": "string"
+            },
+            "receivedMetadatas": {
+                "description": "Granted license received metadata. Detailed below\n",
+                "items": {
+                    "$ref": "#/types/aws:licensemanager/getReceivedLicenseReceivedMetadata:getReceivedLicenseReceivedMetadata"
+                },
+                "type": "array"
+            },
+            "status": {
+                "description": "Granted license status.\n",
+                "type": "string"
+            },
+            "validities": {
+                "description": "Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below\n",
+                "items": {
+                    "$ref": "#/types/aws:licensemanager/getReceivedLicenseValidity:getReceivedLicenseValidity"
+                },
+                "type": "array"
+            },
+            "version": {
+                "description": "Version of the granted license.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "beneficiary",
+            "consumptionConfigurations",
+            "createTime",
+            "entitlements",
+            "homeRegion",
+            "issuers",
+            "licenseArn",
+            "licenseMetadatas",
+            "licenseName",
+            "productName",
+            "productSku",
+            "receivedMetadatas",
+            "status",
+            "validities",
+            "version",
+            "id"
+        ],
+        "type": "object"
+    }
+}

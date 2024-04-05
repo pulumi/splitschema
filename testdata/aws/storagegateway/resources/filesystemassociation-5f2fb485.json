@@ -1,0 +1,152 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the newly created file system association.\n"
+        },
+        "auditDestinationArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the storage used for the audit logs.\n"
+        },
+        "cacheAttributes": {
+            "$ref": "#/types/aws:storagegateway/FileSystemAssociationCacheAttributes:FileSystemAssociationCacheAttributes",
+            "description": "Refresh cache information. see Cache Attributes for more details.\n"
+        },
+        "gatewayArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the gateway.\n"
+        },
+        "locationArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.\n"
+        },
+        "password": {
+            "type": "string",
+            "description": "The password of the user credential.\n",
+            "secret": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "username": {
+            "type": "string",
+            "description": "The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "gatewayArn",
+        "locationArn",
+        "password",
+        "tagsAll",
+        "username"
+    ],
+    "inputProperties": {
+        "auditDestinationArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the storage used for the audit logs.\n"
+        },
+        "cacheAttributes": {
+            "$ref": "#/types/aws:storagegateway/FileSystemAssociationCacheAttributes:FileSystemAssociationCacheAttributes",
+            "description": "Refresh cache information. see Cache Attributes for more details.\n"
+        },
+        "gatewayArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the gateway.\n",
+            "willReplaceOnChanges": true
+        },
+        "locationArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.\n",
+            "willReplaceOnChanges": true
+        },
+        "password": {
+            "type": "string",
+            "description": "The password of the user credential.\n",
+            "secret": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "username": {
+            "type": "string",
+            "description": "The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.\n"
+        }
+    },
+    "requiredInputs": [
+        "gatewayArn",
+        "locationArn",
+        "password",
+        "username"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering FileSystemAssociation resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the newly created file system association.\n"
+            },
+            "auditDestinationArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the storage used for the audit logs.\n"
+            },
+            "cacheAttributes": {
+                "$ref": "#/types/aws:storagegateway/FileSystemAssociationCacheAttributes:FileSystemAssociationCacheAttributes",
+                "description": "Refresh cache information. see Cache Attributes for more details.\n"
+            },
+            "gatewayArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the gateway.\n",
+                "willReplaceOnChanges": true
+            },
+            "locationArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.\n",
+                "willReplaceOnChanges": true
+            },
+            "password": {
+                "type": "string",
+                "description": "The password of the user credential.\n",
+                "secret": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "username": {
+                "type": "string",
+                "description": "The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.\n"
+            }
+        },
+        "type": "object"
+    }
+}

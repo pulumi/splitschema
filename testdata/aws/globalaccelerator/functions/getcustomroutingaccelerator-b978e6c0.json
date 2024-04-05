@@ -1,0 +1,80 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getCustomRoutingAccelerator.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Full ARN of the custom routing accelerator.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Unique name of the custom routing accelerator.\n\n\u003e **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                }
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getCustomRoutingAccelerator.\n",
+        "properties": {
+            "arn": {
+                "type": "string"
+            },
+            "attributes": {
+                "items": {
+                    "$ref": "#/types/aws:globalaccelerator/getCustomRoutingAcceleratorAttribute:getCustomRoutingAcceleratorAttribute"
+                },
+                "type": "array"
+            },
+            "dnsName": {
+                "type": "string"
+            },
+            "enabled": {
+                "type": "boolean"
+            },
+            "hostedZoneId": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "ipAddressType": {
+                "type": "string"
+            },
+            "ipSets": {
+                "items": {
+                    "$ref": "#/types/aws:globalaccelerator/getCustomRoutingAcceleratorIpSet:getCustomRoutingAcceleratorIpSet"
+                },
+                "type": "array"
+            },
+            "name": {
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "attributes",
+            "dnsName",
+            "enabled",
+            "hostedZoneId",
+            "ipAddressType",
+            "ipSets",
+            "name",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

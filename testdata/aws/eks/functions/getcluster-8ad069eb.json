@@ -1,0 +1,132 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getCluster.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "name"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getCluster.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the cluster.\n",
+                "type": "string"
+            },
+            "certificateAuthorities": {
+                "description": "Nested attribute containing `certificate-authority-data` for your cluster.\n",
+                "items": {
+                    "$ref": "#/types/aws:eks/getClusterCertificateAuthority:getClusterCertificateAuthority"
+                },
+                "type": "array"
+            },
+            "clusterId": {
+                "description": "The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.\n",
+                "type": "string"
+            },
+            "createdAt": {
+                "description": "Unix epoch time stamp in seconds for when the cluster was created.\n",
+                "type": "string"
+            },
+            "enabledClusterLogTypes": {
+                "description": "The enabled control plane logs.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "endpoint": {
+                "description": "Endpoint for your Kubernetes API server.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "identities": {
+                "description": "Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `aws.eks.Cluster` resource documentation.\n",
+                "items": {
+                    "$ref": "#/types/aws:eks/getClusterIdentity:getClusterIdentity"
+                },
+                "type": "array"
+            },
+            "kubernetesNetworkConfigs": {
+                "description": "Nested list containing Kubernetes Network Configuration.\n",
+                "items": {
+                    "$ref": "#/types/aws:eks/getClusterKubernetesNetworkConfig:getClusterKubernetesNetworkConfig"
+                },
+                "type": "array"
+            },
+            "name": {
+                "type": "string"
+            },
+            "outpostConfigs": {
+                "description": "Contains Outpost Configuration.\n",
+                "items": {
+                    "$ref": "#/types/aws:eks/getClusterOutpostConfig:getClusterOutpostConfig"
+                },
+                "type": "array"
+            },
+            "platformVersion": {
+                "description": "Platform version for the cluster.\n",
+                "type": "string"
+            },
+            "roleArn": {
+                "description": "ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.\n",
+                "type": "string"
+            },
+            "status": {
+                "description": "Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags.\n",
+                "type": "object"
+            },
+            "version": {
+                "description": "Kubernetes server version for the cluster.\n",
+                "type": "string"
+            },
+            "vpcConfig": {
+                "$ref": "#/types/aws:eks/getClusterVpcConfig:getClusterVpcConfig",
+                "description": "Nested list containing VPC configuration for the cluster.\n"
+            }
+        },
+        "required": [
+            "arn",
+            "certificateAuthorities",
+            "clusterId",
+            "createdAt",
+            "enabledClusterLogTypes",
+            "endpoint",
+            "identities",
+            "kubernetesNetworkConfigs",
+            "name",
+            "outpostConfigs",
+            "platformVersion",
+            "roleArn",
+            "status",
+            "tags",
+            "version",
+            "vpcConfig",
+            "id"
+        ],
+        "type": "object"
+    }
+}

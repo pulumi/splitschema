@@ -1,6 +1,7 @@
 package bschema
 
 import (
+	"embed"
 	"encoding/json"
 	"os"
 	"path/filepath"
@@ -11,10 +12,32 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+//go:embed testdata/aws/*
+var content embed.FS
+
+func TestEmbedded(t *testing.T) {
+	pkg := NewPartialPackage(content, "testdata/aws")
+	resources, err := pkg.GetResourceTokens()
+	require.NoError(t, err)
+	assert.NotEmpty(t, resources)
+}
+
+func BenchmarkReadResourcesEmbedded(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		pkg := NewPartialPackage(content, "testdata/aws")
+		_, err := pkg.ReadPackageSpec()
+		if err != nil {
+			b.Fatal(err)
+		}
+		b.Log(i, b.Elapsed())
+	}
+}
+
 func TestWriteTo(t *testing.T) {
-	pkg := getPackage()
+	pkg, err := readPackage(filepath.Join("testdata", "aws.json"))
+	require.NoError(t, err)
 	dir := t.TempDir()
-	err := WritePackageSpec(dir, &pkg)
+	err = WritePackageSpec(dir, pkg)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -25,6 +48,47 @@ func TestWriteTo(t *testing.T) {
 	// }
 
 	// assert.Equal(t, pkg, actual)
+}
+
+func BenchmarkWriteTo(b *testing.B) {
+	pkg, err := readPackage(filepath.Join("testdata", "aws.json"))
+	require.NoError(b, err)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		dir := b.TempDir()
+		err := WritePackageSpec(dir, pkg)
+		if err != nil {
+			b.Fatal(err)
+		}
+		b.Log(b.Elapsed())
+	}
+}
+
+func BenchmarkReadFrom(b *testing.B) {
+	pkg, err := readPackage(filepath.Join("testdata", "aws.json"))
+	require.NoError(b, err)
+	b.Log("combined read", b.Elapsed())
+	dir := b.TempDir()
+	err = WritePackageSpec(dir, pkg)
+	require.NoError(b, err)
+
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_, err := ReadPackageSpec(dir)
+		if err != nil {
+			b.Fatal(err)
+		}
+		b.Log("distributed read", b.Elapsed())
+	}
+}
+
+func TestAwsWrite(t *testing.T) {
+	awsPath := filepath.Join("testdata", "aws")
+	pkg, err := readPackage(filepath.Join("testdata", "aws.json"))
+	require.NoError(t, err)
+	assert.NotNil(t, pkg)
+	err = WritePackageSpec(awsPath, pkg)
+	require.NoError(t, err)
 }
 
 func TestAws(t *testing.T) {
@@ -42,6 +106,15 @@ func TestAws(t *testing.T) {
 	assert.Equal(t, len(pkg.Types), len(readSpec.Types))
 	assert.Equal(t, len(pkg.Functions), len(readSpec.Functions))
 	assert.Equal(t, pkg.Provider, readSpec.Provider)
+
+	pp := NewPartialFsPackage(awsPath)
+	resourceTokens, err := pp.GetResourceTokens()
+	require.NoError(t, err)
+	for _, tok := range resourceTokens {
+		res, err := pp.GetResource(tok)
+		require.NoError(t, err)
+		assert.Equal(t, pkg.Resources[tok], *res, "resource %s", tok)
+	}
 }
 
 func readPackage(path string) (*schema.PackageSpec, error) {

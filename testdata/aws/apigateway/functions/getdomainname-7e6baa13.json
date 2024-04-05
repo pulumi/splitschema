@@ -1,0 +1,109 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getDomainName.\n",
+        "properties": {
+            "domainName": {
+                "type": "string",
+                "description": "Fully-qualified domain name to look up. If no domain name is found, an error will be returned.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of tags for the resource.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "domainName"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getDomainName.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the found custom domain name.\n",
+                "type": "string"
+            },
+            "certificateArn": {
+                "description": "ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.\n",
+                "type": "string"
+            },
+            "certificateName": {
+                "description": "Name of the certificate that is used by edge-optimized endpoint for this domain name.\n",
+                "type": "string"
+            },
+            "certificateUploadDate": {
+                "description": "Upload date associated with the domain certificate.\n",
+                "type": "string"
+            },
+            "cloudfrontDomainName": {
+                "description": "Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.\n",
+                "type": "string"
+            },
+            "cloudfrontZoneId": {
+                "description": "For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.\n",
+                "type": "string"
+            },
+            "domainName": {
+                "type": "string"
+            },
+            "endpointConfigurations": {
+                "description": "List of objects with the endpoint configuration of this domain name.\n",
+                "items": {
+                    "$ref": "#/types/aws:apigateway/getDomainNameEndpointConfiguration:getDomainNameEndpointConfiguration"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "regionalCertificateArn": {
+                "description": "ARN for an AWS-managed certificate that is used for validating the regional domain name.\n",
+                "type": "string"
+            },
+            "regionalCertificateName": {
+                "description": "User-friendly name of the certificate that is used by regional endpoint for this domain name.\n",
+                "type": "string"
+            },
+            "regionalDomainName": {
+                "description": "Hostname for the custom domain's regional endpoint.\n",
+                "type": "string"
+            },
+            "regionalZoneId": {
+                "description": "Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.\n",
+                "type": "string"
+            },
+            "securityPolicy": {
+                "description": "Security policy for the domain name.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of tags for the resource.\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "certificateArn",
+            "certificateName",
+            "certificateUploadDate",
+            "cloudfrontDomainName",
+            "cloudfrontZoneId",
+            "domainName",
+            "endpointConfigurations",
+            "regionalCertificateArn",
+            "regionalCertificateName",
+            "regionalDomainName",
+            "regionalZoneId",
+            "securityPolicy",
+            "id"
+        ],
+        "type": "object"
+    }
+}

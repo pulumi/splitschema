@@ -1,0 +1,128 @@
+{
+    "properties": {
+        "controlId": {
+            "type": "string",
+            "description": "The identifier of the security standard control.\n"
+        },
+        "controlStatus": {
+            "type": "string",
+            "description": "The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.\n"
+        },
+        "controlStatusUpdatedAt": {
+            "type": "string",
+            "description": "The date and time that the status of the security standard control was most recently updated.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The standard control longer description. Provides information about what the control is checking for.\n"
+        },
+        "disabledReason": {
+            "type": "string",
+            "description": "A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.\n"
+        },
+        "relatedRequirements": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The list of requirements that are related to this control.\n"
+        },
+        "remediationUrl": {
+            "type": "string",
+            "description": "A link to remediation information for the control in the Security Hub user documentation.\n"
+        },
+        "severityRating": {
+            "type": "string",
+            "description": "The severity of findings generated from this security standard control.\n"
+        },
+        "standardsControlArn": {
+            "type": "string",
+            "description": "The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).\n"
+        },
+        "title": {
+            "type": "string",
+            "description": "The standard control title.\n"
+        }
+    },
+    "required": [
+        "controlId",
+        "controlStatus",
+        "controlStatusUpdatedAt",
+        "description",
+        "disabledReason",
+        "relatedRequirements",
+        "remediationUrl",
+        "severityRating",
+        "standardsControlArn",
+        "title"
+    ],
+    "inputProperties": {
+        "controlStatus": {
+            "type": "string",
+            "description": "The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.\n"
+        },
+        "disabledReason": {
+            "type": "string",
+            "description": "A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.\n"
+        },
+        "standardsControlArn": {
+            "type": "string",
+            "description": "The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "controlStatus",
+        "standardsControlArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering StandardsControl resources.\n",
+        "properties": {
+            "controlId": {
+                "type": "string",
+                "description": "The identifier of the security standard control.\n"
+            },
+            "controlStatus": {
+                "type": "string",
+                "description": "The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.\n"
+            },
+            "controlStatusUpdatedAt": {
+                "type": "string",
+                "description": "The date and time that the status of the security standard control was most recently updated.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "The standard control longer description. Provides information about what the control is checking for.\n"
+            },
+            "disabledReason": {
+                "type": "string",
+                "description": "A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.\n"
+            },
+            "relatedRequirements": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "The list of requirements that are related to this control.\n"
+            },
+            "remediationUrl": {
+                "type": "string",
+                "description": "A link to remediation information for the control in the Security Hub user documentation.\n"
+            },
+            "severityRating": {
+                "type": "string",
+                "description": "The severity of findings generated from this security standard control.\n"
+            },
+            "standardsControlArn": {
+                "type": "string",
+                "description": "The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).\n",
+                "willReplaceOnChanges": true
+            },
+            "title": {
+                "type": "string",
+                "description": "The standard control title.\n"
+            }
+        },
+        "type": "object"
+    }
+}

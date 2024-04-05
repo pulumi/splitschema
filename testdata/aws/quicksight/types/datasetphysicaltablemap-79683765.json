@@ -1,0 +1,32 @@
+{
+    "properties": {
+        "customSql": {
+            "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMapCustomSql:DataSetPhysicalTableMapCustomSql",
+            "description": "A physical table type built from the results of the custom SQL query. See custom_sql.\n"
+        },
+        "physicalTableMapId": {
+            "type": "string",
+            "description": "Key of the physical table map.\n"
+        },
+        "relationalTable": {
+            "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMapRelationalTable:DataSetPhysicalTableMapRelationalTable",
+            "description": "A physical table type for relational data sources. See relational_table.\n"
+        },
+        "s3Source": {
+            "$ref": "#/types/aws:quicksight/DataSetPhysicalTableMapS3Source:DataSetPhysicalTableMapS3Source",
+            "description": "A physical table type for as S3 data source. See s3_source.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "physicalTableMapId"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "physicalTableMapId",
+                "s3Source"
+            ]
+        }
+    }
+}

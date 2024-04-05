@@ -1,0 +1,28 @@
+{
+    "properties": {
+        "connectionPasswordEncryptions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/getDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption:getDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption"
+            },
+            "description": "When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.\n"
+        },
+        "encryptionAtRests": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/getDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest:getDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest"
+            },
+            "description": "Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "connectionPasswordEncryptions",
+        "encryptionAtRests"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredInputs": []
+        }
+    }
+}

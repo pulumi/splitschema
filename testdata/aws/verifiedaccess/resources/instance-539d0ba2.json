@@ -1,0 +1,111 @@
+{
+    "properties": {
+        "creationTime": {
+            "type": "string",
+            "description": "The time that the Verified Access Instance was created.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description for the AWS Verified Access Instance.\n"
+        },
+        "fipsEnabled": {
+            "type": "boolean",
+            "description": "Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.\n"
+        },
+        "lastUpdatedTime": {
+            "type": "string",
+            "description": "The time that the Verified Access Instance was last updated.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "verifiedAccessTrustProviders": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:verifiedaccess/InstanceVerifiedAccessTrustProvider:InstanceVerifiedAccessTrustProvider"
+            },
+            "description": "One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks\n"
+        }
+    },
+    "required": [
+        "creationTime",
+        "lastUpdatedTime",
+        "tagsAll",
+        "verifiedAccessTrustProviders"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "A description for the AWS Verified Access Instance.\n"
+        },
+        "fipsEnabled": {
+            "type": "boolean",
+            "description": "Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Instance resources.\n",
+        "properties": {
+            "creationTime": {
+                "type": "string",
+                "description": "The time that the Verified Access Instance was created.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A description for the AWS Verified Access Instance.\n"
+            },
+            "fipsEnabled": {
+                "type": "boolean",
+                "description": "Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.\n",
+                "willReplaceOnChanges": true
+            },
+            "lastUpdatedTime": {
+                "type": "string",
+                "description": "The time that the Verified Access Instance was last updated.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "verifiedAccessTrustProviders": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:verifiedaccess/InstanceVerifiedAccessTrustProvider:InstanceVerifiedAccessTrustProvider"
+                },
+                "description": "One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks\n"
+            }
+        },
+        "type": "object"
+    }
+}

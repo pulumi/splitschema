@@ -1,0 +1,104 @@
+{
+    "properties": {
+        "allowedPrefixes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.\n"
+        },
+        "associatedGatewayId": {
+            "type": "string",
+            "description": "The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.\n"
+        },
+        "associatedGatewayOwnerAccountId": {
+            "type": "string",
+            "description": "The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.\n"
+        },
+        "associatedGatewayType": {
+            "type": "string",
+            "description": "The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.\n"
+        },
+        "dxGatewayId": {
+            "type": "string",
+            "description": "Direct Connect Gateway identifier.\n"
+        },
+        "dxGatewayOwnerAccountId": {
+            "type": "string",
+            "description": "AWS Account identifier of the Direct Connect Gateway's owner.\n"
+        }
+    },
+    "required": [
+        "allowedPrefixes",
+        "associatedGatewayId",
+        "associatedGatewayOwnerAccountId",
+        "associatedGatewayType",
+        "dxGatewayId",
+        "dxGatewayOwnerAccountId"
+    ],
+    "inputProperties": {
+        "allowedPrefixes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.\n"
+        },
+        "associatedGatewayId": {
+            "type": "string",
+            "description": "The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.\n",
+            "willReplaceOnChanges": true
+        },
+        "dxGatewayId": {
+            "type": "string",
+            "description": "Direct Connect Gateway identifier.\n",
+            "willReplaceOnChanges": true
+        },
+        "dxGatewayOwnerAccountId": {
+            "type": "string",
+            "description": "AWS Account identifier of the Direct Connect Gateway's owner.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "associatedGatewayId",
+        "dxGatewayId",
+        "dxGatewayOwnerAccountId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering GatewayAssociationProposal resources.\n",
+        "properties": {
+            "allowedPrefixes": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.\n"
+            },
+            "associatedGatewayId": {
+                "type": "string",
+                "description": "The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.\n",
+                "willReplaceOnChanges": true
+            },
+            "associatedGatewayOwnerAccountId": {
+                "type": "string",
+                "description": "The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.\n"
+            },
+            "associatedGatewayType": {
+                "type": "string",
+                "description": "The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.\n"
+            },
+            "dxGatewayId": {
+                "type": "string",
+                "description": "Direct Connect Gateway identifier.\n",
+                "willReplaceOnChanges": true
+            },
+            "dxGatewayOwnerAccountId": {
+                "type": "string",
+                "description": "AWS Account identifier of the Direct Connect Gateway's owner.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

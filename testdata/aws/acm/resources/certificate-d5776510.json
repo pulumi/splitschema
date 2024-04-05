@@ -1,0 +1,332 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the certificate\n"
+        },
+        "certificateAuthorityArn": {
+            "type": "string",
+            "description": "ARN of an ACM PCA\n"
+        },
+        "certificateBody": {
+            "type": "string",
+            "description": "Certificate's PEM-formatted public key\n"
+        },
+        "certificateChain": {
+            "type": "string",
+            "description": "Certificate's PEM-formatted chain\n* Creating a private CA issued certificate\n"
+        },
+        "domainName": {
+            "type": "string",
+            "description": "Fully qualified domain name (FQDN) in the certificate.\n"
+        },
+        "domainValidationOptions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:acm/CertificateDomainValidationOption:CertificateDomainValidationOption"
+            },
+            "description": "Set of domain validation objects which can be used to complete certificate validation.\nCan have more than one element, e.g., if SANs are defined.\nOnly set if `DNS`-validation was used.\n"
+        },
+        "earlyRenewalDuration": {
+            "type": "string",
+            "description": "Amount of time to start automatic renewal process before expiration.\nHas no effect if less than 60 days.\nRepresented by either\na subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),\nor a string such as `2160h`.\n"
+        },
+        "keyAlgorithm": {
+            "type": "string",
+            "description": "Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.\n"
+        },
+        "notAfter": {
+            "type": "string",
+            "description": "Expiration date and time of the certificate.\n"
+        },
+        "notBefore": {
+            "type": "string",
+            "description": "Start of the validity period of the certificate.\n"
+        },
+        "options": {
+            "$ref": "#/types/aws:acm/CertificateOptions:CertificateOptions",
+            "description": "Configuration block used to set certificate options. Detailed below.\n"
+        },
+        "pendingRenewal": {
+            "type": "boolean",
+            "description": "`true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.\n"
+        },
+        "privateKey": {
+            "type": "string",
+            "description": "Certificate's PEM-formatted private key\n",
+            "secret": true
+        },
+        "renewalEligibility": {
+            "type": "string",
+            "description": "Whether the certificate is eligible for managed renewal.\n"
+        },
+        "renewalSummaries": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:acm/CertificateRenewalSummary:CertificateRenewalSummary"
+            },
+            "description": "Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Status of the certificate.\n"
+        },
+        "subjectAlternativeNames": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of domains that should be SANs in the issued certificate.\nTo remove all elements of a previously configured list, set this value equal to an empty list (`[]`)\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "type": {
+            "type": "string",
+            "description": "Source of the certificate.\n"
+        },
+        "validationEmails": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of addresses that received a validation email. Only set if `EMAIL` validation was used.\n"
+        },
+        "validationMethod": {
+            "type": "string",
+            "description": "Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.\n"
+        },
+        "validationOptions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:acm/CertificateValidationOption:CertificateValidationOption"
+            },
+            "description": "Configuration block used to specify information about the initial validation of each domain name. Detailed below.\n* Importing an existing certificate\n"
+        }
+    },
+    "required": [
+        "arn",
+        "domainName",
+        "domainValidationOptions",
+        "keyAlgorithm",
+        "notAfter",
+        "notBefore",
+        "options",
+        "pendingRenewal",
+        "renewalEligibility",
+        "renewalSummaries",
+        "status",
+        "subjectAlternativeNames",
+        "tagsAll",
+        "type",
+        "validationEmails",
+        "validationMethod"
+    ],
+    "inputProperties": {
+        "certificateAuthorityArn": {
+            "type": "string",
+            "description": "ARN of an ACM PCA\n",
+            "willReplaceOnChanges": true
+        },
+        "certificateBody": {
+            "type": "string",
+            "description": "Certificate's PEM-formatted public key\n"
+        },
+        "certificateChain": {
+            "type": "string",
+            "description": "Certificate's PEM-formatted chain\n* Creating a private CA issued certificate\n"
+        },
+        "domainName": {
+            "type": "string",
+            "description": "Fully qualified domain name (FQDN) in the certificate.\n",
+            "willReplaceOnChanges": true
+        },
+        "earlyRenewalDuration": {
+            "type": "string",
+            "description": "Amount of time to start automatic renewal process before expiration.\nHas no effect if less than 60 days.\nRepresented by either\na subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),\nor a string such as `2160h`.\n"
+        },
+        "keyAlgorithm": {
+            "type": "string",
+            "description": "Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.\n",
+            "willReplaceOnChanges": true
+        },
+        "options": {
+            "$ref": "#/types/aws:acm/CertificateOptions:CertificateOptions",
+            "description": "Configuration block used to set certificate options. Detailed below.\n"
+        },
+        "privateKey": {
+            "type": "string",
+            "description": "Certificate's PEM-formatted private key\n",
+            "secret": true
+        },
+        "subjectAlternativeNames": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of domains that should be SANs in the issued certificate.\nTo remove all elements of a previously configured list, set this value equal to an empty list (`[]`)\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "validationMethod": {
+            "type": "string",
+            "description": "Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.\n",
+            "willReplaceOnChanges": true
+        },
+        "validationOptions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:acm/CertificateValidationOption:CertificateValidationOption"
+            },
+            "description": "Configuration block used to specify information about the initial validation of each domain name. Detailed below.\n* Importing an existing certificate\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Certificate resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the certificate\n"
+            },
+            "certificateAuthorityArn": {
+                "type": "string",
+                "description": "ARN of an ACM PCA\n",
+                "willReplaceOnChanges": true
+            },
+            "certificateBody": {
+                "type": "string",
+                "description": "Certificate's PEM-formatted public key\n"
+            },
+            "certificateChain": {
+                "type": "string",
+                "description": "Certificate's PEM-formatted chain\n* Creating a private CA issued certificate\n"
+            },
+            "domainName": {
+                "type": "string",
+                "description": "Fully qualified domain name (FQDN) in the certificate.\n",
+                "willReplaceOnChanges": true
+            },
+            "domainValidationOptions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:acm/CertificateDomainValidationOption:CertificateDomainValidationOption"
+                },
+                "description": "Set of domain validation objects which can be used to complete certificate validation.\nCan have more than one element, e.g., if SANs are defined.\nOnly set if `DNS`-validation was used.\n"
+            },
+            "earlyRenewalDuration": {
+                "type": "string",
+                "description": "Amount of time to start automatic renewal process before expiration.\nHas no effect if less than 60 days.\nRepresented by either\na subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),\nor a string such as `2160h`.\n"
+            },
+            "keyAlgorithm": {
+                "type": "string",
+                "description": "Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.\n",
+                "willReplaceOnChanges": true
+            },
+            "notAfter": {
+                "type": "string",
+                "description": "Expiration date and time of the certificate.\n"
+            },
+            "notBefore": {
+                "type": "string",
+                "description": "Start of the validity period of the certificate.\n"
+            },
+            "options": {
+                "$ref": "#/types/aws:acm/CertificateOptions:CertificateOptions",
+                "description": "Configuration block used to set certificate options. Detailed below.\n"
+            },
+            "pendingRenewal": {
+                "type": "boolean",
+                "description": "`true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.\n"
+            },
+            "privateKey": {
+                "type": "string",
+                "description": "Certificate's PEM-formatted private key\n",
+                "secret": true
+            },
+            "renewalEligibility": {
+                "type": "string",
+                "description": "Whether the certificate is eligible for managed renewal.\n"
+            },
+            "renewalSummaries": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:acm/CertificateRenewalSummary:CertificateRenewalSummary"
+                },
+                "description": "Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.\n"
+            },
+            "status": {
+                "type": "string",
+                "description": "Status of the certificate.\n"
+            },
+            "subjectAlternativeNames": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Set of domains that should be SANs in the issued certificate.\nTo remove all elements of a previously configured list, set this value equal to an empty list (`[]`)\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "type": {
+                "type": "string",
+                "description": "Source of the certificate.\n"
+            },
+            "validationEmails": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of addresses that received a validation email. Only set if `EMAIL` validation was used.\n"
+            },
+            "validationMethod": {
+                "type": "string",
+                "description": "Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.\n",
+                "willReplaceOnChanges": true
+            },
+            "validationOptions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:acm/CertificateValidationOption:CertificateValidationOption"
+                },
+                "description": "Configuration block used to specify information about the initial validation of each domain name. Detailed below.\n* Importing an existing certificate\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

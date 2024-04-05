@@ -1,0 +1,34 @@
+{
+    "properties": {
+        "logDriver": {
+            "type": "string",
+            "description": "The log driver to use for the container.\n"
+        },
+        "options": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "The configuration options to send to the log driver.\n"
+        },
+        "secretOptions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ecs/ServiceServiceConnectConfigurationLogConfigurationSecretOption:ServiceServiceConnectConfigurationLogConfigurationSecretOption"
+            },
+            "description": "The secrets to pass to the log configuration. See below.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "logDriver"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "logDriver",
+                "options"
+            ]
+        }
+    }
+}

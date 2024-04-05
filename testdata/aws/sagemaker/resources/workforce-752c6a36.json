@@ -1,0 +1,101 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) assigned by AWS to this Workforce.\n"
+        },
+        "cognitoConfig": {
+            "$ref": "#/types/aws:sagemaker/WorkforceCognitoConfig:WorkforceCognitoConfig",
+            "description": "Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.\n"
+        },
+        "oidcConfig": {
+            "$ref": "#/types/aws:sagemaker/WorkforceOidcConfig:WorkforceOidcConfig",
+            "description": "Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.\n"
+        },
+        "sourceIpConfig": {
+            "$ref": "#/types/aws:sagemaker/WorkforceSourceIpConfig:WorkforceSourceIpConfig",
+            "description": "A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.\n"
+        },
+        "subdomain": {
+            "type": "string",
+            "description": "The subdomain for your OIDC Identity Provider.\n* `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.\n"
+        },
+        "workforceName": {
+            "type": "string",
+            "description": "The name of the Workforce (must be unique).\n"
+        },
+        "workforceVpcConfig": {
+            "$ref": "#/types/aws:sagemaker/WorkforceWorkforceVpcConfig:WorkforceWorkforceVpcConfig",
+            "description": "configure a workforce using VPC. see Workforce VPC Config details below.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "sourceIpConfig",
+        "subdomain",
+        "workforceName"
+    ],
+    "inputProperties": {
+        "cognitoConfig": {
+            "$ref": "#/types/aws:sagemaker/WorkforceCognitoConfig:WorkforceCognitoConfig",
+            "description": "Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.\n",
+            "willReplaceOnChanges": true
+        },
+        "oidcConfig": {
+            "$ref": "#/types/aws:sagemaker/WorkforceOidcConfig:WorkforceOidcConfig",
+            "description": "Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.\n"
+        },
+        "sourceIpConfig": {
+            "$ref": "#/types/aws:sagemaker/WorkforceSourceIpConfig:WorkforceSourceIpConfig",
+            "description": "A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.\n"
+        },
+        "workforceName": {
+            "type": "string",
+            "description": "The name of the Workforce (must be unique).\n",
+            "willReplaceOnChanges": true
+        },
+        "workforceVpcConfig": {
+            "$ref": "#/types/aws:sagemaker/WorkforceWorkforceVpcConfig:WorkforceWorkforceVpcConfig",
+            "description": "configure a workforce using VPC. see Workforce VPC Config details below.\n"
+        }
+    },
+    "requiredInputs": [
+        "workforceName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Workforce resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) assigned by AWS to this Workforce.\n"
+            },
+            "cognitoConfig": {
+                "$ref": "#/types/aws:sagemaker/WorkforceCognitoConfig:WorkforceCognitoConfig",
+                "description": "Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.\n",
+                "willReplaceOnChanges": true
+            },
+            "oidcConfig": {
+                "$ref": "#/types/aws:sagemaker/WorkforceOidcConfig:WorkforceOidcConfig",
+                "description": "Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.\n"
+            },
+            "sourceIpConfig": {
+                "$ref": "#/types/aws:sagemaker/WorkforceSourceIpConfig:WorkforceSourceIpConfig",
+                "description": "A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.\n"
+            },
+            "subdomain": {
+                "type": "string",
+                "description": "The subdomain for your OIDC Identity Provider.\n* `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.\n"
+            },
+            "workforceName": {
+                "type": "string",
+                "description": "The name of the Workforce (must be unique).\n",
+                "willReplaceOnChanges": true
+            },
+            "workforceVpcConfig": {
+                "$ref": "#/types/aws:sagemaker/WorkforceWorkforceVpcConfig:WorkforceWorkforceVpcConfig",
+                "description": "configure a workforce using VPC. see Workforce VPC Config details below.\n"
+            }
+        },
+        "type": "object"
+    }
+}

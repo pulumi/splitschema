@@ -1,0 +1,84 @@
+{
+    "properties": {
+        "additionalConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:guardduty/OrganizationConfigurationFeatureAdditionalConfiguration:OrganizationConfigurationFeatureAdditionalConfiguration"
+            },
+            "description": "The additional information that will be configured for the organization See below.\n"
+        },
+        "autoEnable": {
+            "type": "string",
+            "description": "The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.\n"
+        },
+        "detectorId": {
+            "type": "string",
+            "description": "The ID of the detector that configures the delegated administrator.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.\n"
+        }
+    },
+    "required": [
+        "autoEnable",
+        "detectorId",
+        "name"
+    ],
+    "inputProperties": {
+        "additionalConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:guardduty/OrganizationConfigurationFeatureAdditionalConfiguration:OrganizationConfigurationFeatureAdditionalConfiguration"
+            },
+            "description": "The additional information that will be configured for the organization See below.\n",
+            "willReplaceOnChanges": true
+        },
+        "autoEnable": {
+            "type": "string",
+            "description": "The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.\n"
+        },
+        "detectorId": {
+            "type": "string",
+            "description": "The ID of the detector that configures the delegated administrator.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "autoEnable",
+        "detectorId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering OrganizationConfigurationFeature resources.\n",
+        "properties": {
+            "additionalConfigurations": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:guardduty/OrganizationConfigurationFeatureAdditionalConfiguration:OrganizationConfigurationFeatureAdditionalConfiguration"
+                },
+                "description": "The additional information that will be configured for the organization See below.\n",
+                "willReplaceOnChanges": true
+            },
+            "autoEnable": {
+                "type": "string",
+                "description": "The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.\n"
+            },
+            "detectorId": {
+                "type": "string",
+                "description": "The ID of the detector that configures the delegated administrator.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

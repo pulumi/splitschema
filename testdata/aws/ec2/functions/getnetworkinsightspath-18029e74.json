@@ -1,0 +1,102 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getNetworkInsightsPath.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getNetworkInsightsPathFilter:getNetworkInsightsPathFilter"
+                },
+                "description": "Configuration block(s) for filtering. Detailed below.\n"
+            },
+            "networkInsightsPathId": {
+                "type": "string",
+                "description": "ID of the Network Insights Path to select.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getNetworkInsightsPath.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the selected Network Insights Path.\n",
+                "type": "string"
+            },
+            "destination": {
+                "description": "AWS resource that is the destination of the path.\n",
+                "type": "string"
+            },
+            "destinationArn": {
+                "description": "ARN of the destination.\n",
+                "type": "string"
+            },
+            "destinationIp": {
+                "description": "IP address of the AWS resource that is the destination of the path.\n",
+                "type": "string"
+            },
+            "destinationPort": {
+                "description": "Destination port.\n",
+                "type": "integer"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2/getNetworkInsightsPathFilter:getNetworkInsightsPathFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "networkInsightsPathId": {
+                "type": "string"
+            },
+            "protocol": {
+                "description": "Protocol.\n",
+                "type": "string"
+            },
+            "source": {
+                "description": "AWS resource that is the source of the path.\n",
+                "type": "string"
+            },
+            "sourceArn": {
+                "description": "ARN of the source.\n",
+                "type": "string"
+            },
+            "sourceIp": {
+                "description": "IP address of the AWS resource that is the source of the path.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource.\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "destination",
+            "destinationArn",
+            "destinationIp",
+            "destinationPort",
+            "networkInsightsPathId",
+            "protocol",
+            "source",
+            "sourceArn",
+            "sourceIp",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

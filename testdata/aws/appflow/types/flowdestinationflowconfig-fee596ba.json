@@ -1,0 +1,25 @@
+{
+    "properties": {
+        "apiVersion": {
+            "type": "string",
+            "description": "API version that the destination connector uses.\n"
+        },
+        "connectorProfileName": {
+            "type": "string",
+            "description": "Name of the connector profile. This name must be unique for each connector profile in the AWS account.\n"
+        },
+        "connectorType": {
+            "type": "string",
+            "description": "Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.\n"
+        },
+        "destinationConnectorProperties": {
+            "$ref": "#/types/aws:appflow/FlowDestinationFlowConfigDestinationConnectorProperties:FlowDestinationFlowConfigDestinationConnectorProperties",
+            "description": "This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "connectorType",
+        "destinationConnectorProperties"
+    ]
+}

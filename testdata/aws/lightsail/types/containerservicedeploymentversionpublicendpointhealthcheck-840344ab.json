@@ -1,0 +1,35 @@
+{
+    "properties": {
+        "healthyThreshold": {
+            "type": "integer",
+            "description": "The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.\n",
+            "willReplaceOnChanges": true
+        },
+        "intervalSeconds": {
+            "type": "integer",
+            "description": "The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.\n",
+            "willReplaceOnChanges": true
+        },
+        "path": {
+            "type": "string",
+            "description": "The path on the container on which to perform the health check. Defaults to \"/\".\n",
+            "willReplaceOnChanges": true
+        },
+        "successCodes": {
+            "type": "string",
+            "description": "The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to \"200-499\".\n",
+            "willReplaceOnChanges": true
+        },
+        "timeoutSeconds": {
+            "type": "integer",
+            "description": "The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.\n",
+            "willReplaceOnChanges": true
+        },
+        "unhealthyThreshold": {
+            "type": "integer",
+            "description": "The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object"
+}

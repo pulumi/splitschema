@@ -1,0 +1,53 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getRouteTableAssociations.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2transitgateway/getRouteTableAssociationsFilter:getRouteTableAssociationsFilter"
+                },
+                "description": "Custom filter block as described below.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
+            },
+            "transitGatewayRouteTableId": {
+                "type": "string",
+                "description": "Identifier of EC2 Transit Gateway Route Table.\n\nThe following arguments are optional:\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "transitGatewayRouteTableId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getRouteTableAssociations.\n",
+        "properties": {
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2transitgateway/getRouteTableAssociationsFilter:getRouteTableAssociationsFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "ids": {
+                "description": "Set of Transit Gateway Route Table Association identifiers.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "transitGatewayRouteTableId": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "ids",
+            "transitGatewayRouteTableId",
+            "id"
+        ],
+        "type": "object"
+    }
+}

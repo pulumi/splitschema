@@ -1,0 +1,62 @@
+{
+    "properties": {
+        "accountIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of account IDs.\nCan contain one of: the Organization's Administrator Account, or one or more Member Accounts.\n"
+        },
+        "resourceTypes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Type of resources to scan.\nValid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.\nAt least one item is required.\n"
+        }
+    },
+    "required": [
+        "accountIds",
+        "resourceTypes"
+    ],
+    "inputProperties": {
+        "accountIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of account IDs.\nCan contain one of: the Organization's Administrator Account, or one or more Member Accounts.\n"
+        },
+        "resourceTypes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Type of resources to scan.\nValid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.\nAt least one item is required.\n"
+        }
+    },
+    "requiredInputs": [
+        "accountIds",
+        "resourceTypes"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Enabler resources.\n",
+        "properties": {
+            "accountIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Set of account IDs.\nCan contain one of: the Organization's Administrator Account, or one or more Member Accounts.\n"
+            },
+            "resourceTypes": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Type of resources to scan.\nValid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.\nAt least one item is required.\n"
+            }
+        },
+        "type": "object"
+    }
+}

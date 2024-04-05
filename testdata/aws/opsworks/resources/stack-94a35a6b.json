@@ -1,0 +1,349 @@
+{
+    "properties": {
+        "agentVersion": {
+            "type": "string",
+            "description": "If set to `\"LATEST\"`, OpsWorks will automatically install the latest version.\n"
+        },
+        "arn": {
+            "type": "string"
+        },
+        "berkshelfVersion": {
+            "type": "string",
+            "description": "If `manage_berkshelf` is enabled, the version of Berkshelf to use.\n"
+        },
+        "color": {
+            "type": "string",
+            "description": "Color to paint next to the stack's resources in the OpsWorks console.\n"
+        },
+        "configurationManagerName": {
+            "type": "string",
+            "description": "Name of the configuration manager to use. Defaults to \"Chef\".\n"
+        },
+        "configurationManagerVersion": {
+            "type": "string",
+            "description": "Version of the configuration manager to use. Defaults to \"11.4\".\n"
+        },
+        "customCookbooksSources": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:opsworks/StackCustomCookbooksSource:StackCustomCookbooksSource"
+            },
+            "description": "When `use_custom_cookbooks` is set, provide this sub-object as described below.\n"
+        },
+        "customJson": {
+            "type": "string",
+            "description": "Custom JSON attributes to apply to the entire stack.\n"
+        },
+        "defaultAvailabilityZone": {
+            "type": "string",
+            "description": "Name of the availability zone where instances will be created by default.\nCannot be set when `vpc_id` is set.\n"
+        },
+        "defaultInstanceProfileArn": {
+            "type": "string",
+            "description": "The ARN of an IAM Instance Profile that created instances will have by default.\n"
+        },
+        "defaultOs": {
+            "type": "string",
+            "description": "Name of OS that will be installed on instances by default.\n"
+        },
+        "defaultRootDeviceType": {
+            "type": "string",
+            "description": "Name of the type of root device instances will have by default.\n"
+        },
+        "defaultSshKeyName": {
+            "type": "string",
+            "description": "Name of the SSH keypair that instances will have by default.\n"
+        },
+        "defaultSubnetId": {
+            "type": "string",
+            "description": "ID of the subnet in which instances will be created by default.\nRequired if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.\n"
+        },
+        "hostnameTheme": {
+            "type": "string",
+            "description": "Keyword representing the naming scheme that will be used for instance hostnames within this stack.\n"
+        },
+        "manageBerkshelf": {
+            "type": "boolean",
+            "description": "Boolean value controlling whether Opsworks will run Berkshelf for this stack.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the stack.\n"
+        },
+        "region": {
+            "type": "string",
+            "description": "The name of the region where the stack will exist.\n"
+        },
+        "serviceRoleArn": {
+            "type": "string",
+            "description": "The ARN of an IAM role that the OpsWorks service will act as.\n"
+        },
+        "stackEndpoint": {
+            "type": "string"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource.\nIf configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "useCustomCookbooks": {
+            "type": "boolean",
+            "description": "Boolean value controlling whether the custom cookbook settings are enabled.\n"
+        },
+        "useOpsworksSecurityGroups": {
+            "type": "boolean",
+            "description": "Boolean value controlling whether the standard OpsWorks security groups apply to created instances.\n"
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "ID of the VPC that this stack belongs to.\nDefaults to the region's default VPC.\n"
+        }
+    },
+    "required": [
+        "agentVersion",
+        "arn",
+        "customCookbooksSources",
+        "defaultAvailabilityZone",
+        "defaultInstanceProfileArn",
+        "defaultSubnetId",
+        "name",
+        "region",
+        "serviceRoleArn",
+        "stackEndpoint",
+        "tagsAll",
+        "vpcId"
+    ],
+    "inputProperties": {
+        "agentVersion": {
+            "type": "string",
+            "description": "If set to `\"LATEST\"`, OpsWorks will automatically install the latest version.\n"
+        },
+        "berkshelfVersion": {
+            "type": "string",
+            "description": "If `manage_berkshelf` is enabled, the version of Berkshelf to use.\n"
+        },
+        "color": {
+            "type": "string",
+            "description": "Color to paint next to the stack's resources in the OpsWorks console.\n"
+        },
+        "configurationManagerName": {
+            "type": "string",
+            "description": "Name of the configuration manager to use. Defaults to \"Chef\".\n"
+        },
+        "configurationManagerVersion": {
+            "type": "string",
+            "description": "Version of the configuration manager to use. Defaults to \"11.4\".\n"
+        },
+        "customCookbooksSources": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:opsworks/StackCustomCookbooksSource:StackCustomCookbooksSource"
+            },
+            "description": "When `use_custom_cookbooks` is set, provide this sub-object as described below.\n"
+        },
+        "customJson": {
+            "type": "string",
+            "description": "Custom JSON attributes to apply to the entire stack.\n"
+        },
+        "defaultAvailabilityZone": {
+            "type": "string",
+            "description": "Name of the availability zone where instances will be created by default.\nCannot be set when `vpc_id` is set.\n"
+        },
+        "defaultInstanceProfileArn": {
+            "type": "string",
+            "description": "The ARN of an IAM Instance Profile that created instances will have by default.\n"
+        },
+        "defaultOs": {
+            "type": "string",
+            "description": "Name of OS that will be installed on instances by default.\n"
+        },
+        "defaultRootDeviceType": {
+            "type": "string",
+            "description": "Name of the type of root device instances will have by default.\n"
+        },
+        "defaultSshKeyName": {
+            "type": "string",
+            "description": "Name of the SSH keypair that instances will have by default.\n"
+        },
+        "defaultSubnetId": {
+            "type": "string",
+            "description": "ID of the subnet in which instances will be created by default.\nRequired if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.\n"
+        },
+        "hostnameTheme": {
+            "type": "string",
+            "description": "Keyword representing the naming scheme that will be used for instance hostnames within this stack.\n"
+        },
+        "manageBerkshelf": {
+            "type": "boolean",
+            "description": "Boolean value controlling whether Opsworks will run Berkshelf for this stack.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the stack.\n"
+        },
+        "region": {
+            "type": "string",
+            "description": "The name of the region where the stack will exist.\n",
+            "willReplaceOnChanges": true
+        },
+        "serviceRoleArn": {
+            "type": "string",
+            "description": "The ARN of an IAM role that the OpsWorks service will act as.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource.\nIf configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "useCustomCookbooks": {
+            "type": "boolean",
+            "description": "Boolean value controlling whether the custom cookbook settings are enabled.\n"
+        },
+        "useOpsworksSecurityGroups": {
+            "type": "boolean",
+            "description": "Boolean value controlling whether the standard OpsWorks security groups apply to created instances.\n"
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "ID of the VPC that this stack belongs to.\nDefaults to the region's default VPC.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "defaultInstanceProfileArn",
+        "region",
+        "serviceRoleArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Stack resources.\n",
+        "properties": {
+            "agentVersion": {
+                "type": "string",
+                "description": "If set to `\"LATEST\"`, OpsWorks will automatically install the latest version.\n"
+            },
+            "arn": {
+                "type": "string"
+            },
+            "berkshelfVersion": {
+                "type": "string",
+                "description": "If `manage_berkshelf` is enabled, the version of Berkshelf to use.\n"
+            },
+            "color": {
+                "type": "string",
+                "description": "Color to paint next to the stack's resources in the OpsWorks console.\n"
+            },
+            "configurationManagerName": {
+                "type": "string",
+                "description": "Name of the configuration manager to use. Defaults to \"Chef\".\n"
+            },
+            "configurationManagerVersion": {
+                "type": "string",
+                "description": "Version of the configuration manager to use. Defaults to \"11.4\".\n"
+            },
+            "customCookbooksSources": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:opsworks/StackCustomCookbooksSource:StackCustomCookbooksSource"
+                },
+                "description": "When `use_custom_cookbooks` is set, provide this sub-object as described below.\n"
+            },
+            "customJson": {
+                "type": "string",
+                "description": "Custom JSON attributes to apply to the entire stack.\n"
+            },
+            "defaultAvailabilityZone": {
+                "type": "string",
+                "description": "Name of the availability zone where instances will be created by default.\nCannot be set when `vpc_id` is set.\n"
+            },
+            "defaultInstanceProfileArn": {
+                "type": "string",
+                "description": "The ARN of an IAM Instance Profile that created instances will have by default.\n"
+            },
+            "defaultOs": {
+                "type": "string",
+                "description": "Name of OS that will be installed on instances by default.\n"
+            },
+            "defaultRootDeviceType": {
+                "type": "string",
+                "description": "Name of the type of root device instances will have by default.\n"
+            },
+            "defaultSshKeyName": {
+                "type": "string",
+                "description": "Name of the SSH keypair that instances will have by default.\n"
+            },
+            "defaultSubnetId": {
+                "type": "string",
+                "description": "ID of the subnet in which instances will be created by default.\nRequired if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.\n"
+            },
+            "hostnameTheme": {
+                "type": "string",
+                "description": "Keyword representing the naming scheme that will be used for instance hostnames within this stack.\n"
+            },
+            "manageBerkshelf": {
+                "type": "boolean",
+                "description": "Boolean value controlling whether Opsworks will run Berkshelf for this stack.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the stack.\n"
+            },
+            "region": {
+                "type": "string",
+                "description": "The name of the region where the stack will exist.\n",
+                "willReplaceOnChanges": true
+            },
+            "serviceRoleArn": {
+                "type": "string",
+                "description": "The ARN of an IAM role that the OpsWorks service will act as.\n",
+                "willReplaceOnChanges": true
+            },
+            "stackEndpoint": {
+                "type": "string"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource.\nIf configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "useCustomCookbooks": {
+                "type": "boolean",
+                "description": "Boolean value controlling whether the custom cookbook settings are enabled.\n"
+            },
+            "useOpsworksSecurityGroups": {
+                "type": "boolean",
+                "description": "Boolean value controlling whether the standard OpsWorks security groups apply to created instances.\n"
+            },
+            "vpcId": {
+                "type": "string",
+                "description": "ID of the VPC that this stack belongs to.\nDefaults to the region's default VPC.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

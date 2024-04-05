@@ -1,0 +1,29 @@
+{
+    "properties": {
+        "address": {
+            "type": "string",
+            "description": "The DNS address of the VPC endpoint.\n"
+        },
+        "port": {
+            "type": "integer",
+            "description": "The port that Amazon Redshift Serverless listens on.\n"
+        },
+        "vpcEndpoints": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:redshiftserverless/WorkgroupEndpointVpcEndpoint:WorkgroupEndpointVpcEndpoint"
+            },
+            "description": "The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.\n"
+        }
+    },
+    "type": "object",
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "address",
+                "port",
+                "vpcEndpoints"
+            ]
+        }
+    }
+}

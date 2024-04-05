@@ -1,0 +1,41 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the domain identity.\n"
+        },
+        "domain": {
+            "type": "string",
+            "description": "The domain name of the SES domain identity to verify.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "domain"
+    ],
+    "inputProperties": {
+        "domain": {
+            "type": "string",
+            "description": "The domain name of the SES domain identity to verify.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "domain"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering DomainIdentityVerification resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the domain identity.\n"
+            },
+            "domain": {
+                "type": "string",
+                "description": "The domain name of the SES domain identity to verify.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

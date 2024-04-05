@@ -1,0 +1,47 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getDetector.\n",
+        "properties": {
+            "id": {
+                "type": "string",
+                "description": "ID of the detector.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getDetector.\n",
+        "properties": {
+            "features": {
+                "description": "Current configuration of the detector features.\n",
+                "items": {
+                    "$ref": "#/types/aws:guardduty/getDetectorFeature:getDetectorFeature"
+                },
+                "type": "array"
+            },
+            "findingPublishingFrequency": {
+                "description": "The frequency of notifications sent about subsequent finding occurrences.\n",
+                "type": "string"
+            },
+            "id": {
+                "type": "string"
+            },
+            "serviceRoleArn": {
+                "description": "Service-linked role that grants GuardDuty access to the resources in the AWS account.\n",
+                "type": "string"
+            },
+            "status": {
+                "description": "Current status of the detector.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "features",
+            "findingPublishingFrequency",
+            "id",
+            "serviceRoleArn",
+            "status"
+        ],
+        "type": "object"
+    }
+}

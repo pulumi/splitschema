@@ -1,0 +1,93 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of Glue Registry.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description of the registry.\n"
+        },
+        "registryName": {
+            "type": "string",
+            "description": "The Name of the registry.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "registryName",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "A description of the registry.\n"
+        },
+        "registryName": {
+            "type": "string",
+            "description": "The Name of the registry.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "registryName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Registry resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of Glue Registry.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A description of the registry.\n"
+            },
+            "registryName": {
+                "type": "string",
+                "description": "The Name of the registry.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

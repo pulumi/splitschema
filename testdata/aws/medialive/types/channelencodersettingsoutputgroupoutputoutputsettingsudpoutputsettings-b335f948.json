@@ -1,0 +1,33 @@
+{
+    "properties": {
+        "bufferMsec": {
+            "type": "integer",
+            "description": "UDP output buffering in milliseconds.\n"
+        },
+        "containerSettings": {
+            "$ref": "#/types/aws:medialive/ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings:ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings",
+            "description": "UDP container settings. See Container Settings for more details.\n"
+        },
+        "destination": {
+            "$ref": "#/types/aws:medialive/ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination:ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination",
+            "description": "Destination address and port number for RTP or UDP packets. See Destination for more details.\n"
+        },
+        "fecOutputSettings": {
+            "$ref": "#/types/aws:medialive/ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings:ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings"
+        }
+    },
+    "type": "object",
+    "required": [
+        "containerSettings",
+        "destination"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "bufferMsec",
+                "containerSettings",
+                "destination"
+            ]
+        }
+    }
+}

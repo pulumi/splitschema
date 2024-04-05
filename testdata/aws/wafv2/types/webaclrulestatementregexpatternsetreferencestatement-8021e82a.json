@@ -1,0 +1,24 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.\n"
+        },
+        "fieldToMatch": {
+            "$ref": "#/types/aws:wafv2/WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch:WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch",
+            "description": "Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.\n"
+        },
+        "textTransformations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:wafv2/WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation:WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation"
+            },
+            "description": "Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "arn",
+        "textTransformations"
+    ]
+}

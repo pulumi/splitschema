@@ -1,0 +1,64 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getResolverRules.\n",
+        "properties": {
+            "nameRegex": {
+                "type": "string",
+                "description": "Regex string to filter resolver rule names.\nThe filtering is done locally, so could have a performance impact if the result is large.\nThis argument should be used along with other arguments to limit the number of results returned.\n"
+            },
+            "ownerId": {
+                "type": "string",
+                "description": "When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.\n"
+            },
+            "resolverEndpointId": {
+                "type": "string",
+                "description": "ID of the outbound resolver endpoint for the desired resolver rules.\n"
+            },
+            "ruleType": {
+                "type": "string",
+                "description": "Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.\n"
+            },
+            "shareStatus": {
+                "type": "string",
+                "description": "Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getResolverRules.\n",
+        "properties": {
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "nameRegex": {
+                "type": "string"
+            },
+            "ownerId": {
+                "type": "string"
+            },
+            "resolverEndpointId": {
+                "type": "string"
+            },
+            "resolverRuleIds": {
+                "description": "IDs of the matched resolver rules.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "ruleType": {
+                "type": "string"
+            },
+            "shareStatus": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "resolverRuleIds",
+            "id"
+        ],
+        "type": "object"
+    }
+}

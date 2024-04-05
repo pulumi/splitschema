@@ -1,0 +1,53 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getOutpostInstanceType.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Outpost ARN.\n\nThe following arguments are optional:\n"
+            },
+            "instanceType": {
+                "type": "string",
+                "description": "Desired instance type. Conflicts with `preferred_instance_types`.\n"
+            },
+            "preferredInstanceTypes": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "arn"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getOutpostInstanceType.\n",
+        "properties": {
+            "arn": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "instanceType": {
+                "type": "string"
+            },
+            "preferredInstanceTypes": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "arn",
+            "instanceType",
+            "id"
+        ],
+        "type": "object"
+    }
+}

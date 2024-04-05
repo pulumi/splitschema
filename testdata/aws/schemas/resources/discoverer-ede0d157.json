@@ -1,0 +1,93 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the discoverer.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the discoverer. Maximum of 256 characters.\n"
+        },
+        "sourceArn": {
+            "type": "string",
+            "description": "The ARN of the event bus to discover event schemas on.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "sourceArn",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "The description of the discoverer. Maximum of 256 characters.\n"
+        },
+        "sourceArn": {
+            "type": "string",
+            "description": "The ARN of the event bus to discover event schemas on.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "sourceArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Discoverer resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the discoverer.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "The description of the discoverer. Maximum of 256 characters.\n"
+            },
+            "sourceArn": {
+                "type": "string",
+                "description": "The ARN of the event bus to discover event schemas on.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

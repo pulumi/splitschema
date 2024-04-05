@@ -1,0 +1,456 @@
+{
+    "properties": {
+        "aliases": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Extra CNAMEs (alternate domain names), if any, for this distribution.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.\n"
+        },
+        "callerReference": {
+            "type": "string",
+            "description": "Internal value used by CloudFront to allow future updates to the distribution configuration.\n"
+        },
+        "comment": {
+            "type": "string",
+            "description": "Any comments you want to include about the distribution.\n"
+        },
+        "continuousDeploymentPolicyId": {
+            "type": "string",
+            "description": "Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.\n"
+        },
+        "customErrorResponses": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudfront/DistributionCustomErrorResponse:DistributionCustomErrorResponse"
+            },
+            "description": "One or more custom error response elements (multiples allowed).\n"
+        },
+        "defaultCacheBehavior": {
+            "$ref": "#/types/aws:cloudfront/DistributionDefaultCacheBehavior:DistributionDefaultCacheBehavior",
+            "description": "Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.\n"
+        },
+        "defaultRootObject": {
+            "type": "string",
+            "description": "Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.\n"
+        },
+        "domainName": {
+            "type": "string",
+            "description": "DNS domain name of either the S3 bucket, or web site of your custom origin.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "Whether Origin Shield is enabled.\n"
+        },
+        "etag": {
+            "type": "string",
+            "description": "Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.\n"
+        },
+        "hostedZoneId": {
+            "type": "string",
+            "description": "CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.\n"
+        },
+        "httpVersion": {
+            "type": "string",
+            "description": "Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.\n"
+        },
+        "inProgressValidationBatches": {
+            "type": "integer",
+            "description": "Number of invalidation batches currently in progress.\n"
+        },
+        "isIpv6Enabled": {
+            "type": "boolean",
+            "description": "Whether the IPv6 is enabled for the distribution.\n"
+        },
+        "lastModifiedTime": {
+            "type": "string",
+            "description": "Date and time the distribution was last modified.\n"
+        },
+        "loggingConfig": {
+            "$ref": "#/types/aws:cloudfront/DistributionLoggingConfig:DistributionLoggingConfig",
+            "description": "The logging configuration that controls how logs are written to your distribution (maximum one).\n"
+        },
+        "orderedCacheBehaviors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudfront/DistributionOrderedCacheBehavior:DistributionOrderedCacheBehavior"
+            },
+            "description": "Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.\n"
+        },
+        "originGroups": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudfront/DistributionOriginGroup:DistributionOriginGroup"
+            },
+            "description": "One or more origin_group for this distribution (multiples allowed).\n"
+        },
+        "origins": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudfront/DistributionOrigin:DistributionOrigin"
+            },
+            "description": "One or more origins for this distribution (multiples allowed).\n"
+        },
+        "priceClass": {
+            "type": "string",
+            "description": "Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.\n"
+        },
+        "restrictions": {
+            "$ref": "#/types/aws:cloudfront/DistributionRestrictions:DistributionRestrictions",
+            "description": "The restriction configuration for this distribution (maximum one).\n"
+        },
+        "retainOnDelete": {
+            "type": "boolean",
+            "description": "Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.\n"
+        },
+        "staging": {
+            "type": "boolean",
+            "description": "A Boolean that indicates whether this is a staging distribution. Defaults to `false`.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "trustedKeyGroups": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudfront/DistributionTrustedKeyGroup:DistributionTrustedKeyGroup"
+            },
+            "description": "List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.\n"
+        },
+        "trustedSigners": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudfront/DistributionTrustedSigner:DistributionTrustedSigner"
+            },
+            "description": "List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.\n"
+        },
+        "viewerCertificate": {
+            "$ref": "#/types/aws:cloudfront/DistributionViewerCertificate:DistributionViewerCertificate",
+            "description": "The SSL configuration for this distribution (maximum one).\n"
+        },
+        "waitForDeployment": {
+            "type": "boolean",
+            "description": "If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.\n"
+        },
+        "webAclId": {
+            "type": "string",
+            "description": "Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "callerReference",
+        "continuousDeploymentPolicyId",
+        "defaultCacheBehavior",
+        "domainName",
+        "enabled",
+        "etag",
+        "hostedZoneId",
+        "inProgressValidationBatches",
+        "lastModifiedTime",
+        "origins",
+        "restrictions",
+        "status",
+        "tagsAll",
+        "trustedKeyGroups",
+        "trustedSigners",
+        "viewerCertificate"
+    ],
+    "inputProperties": {
+        "aliases": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Extra CNAMEs (alternate domain names), if any, for this distribution.\n"
+        },
+        "comment": {
+            "type": "string",
+            "description": "Any comments you want to include about the distribution.\n"
+        },
+        "continuousDeploymentPolicyId": {
+            "type": "string",
+            "description": "Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.\n"
+        },
+        "customErrorResponses": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudfront/DistributionCustomErrorResponse:DistributionCustomErrorResponse"
+            },
+            "description": "One or more custom error response elements (multiples allowed).\n"
+        },
+        "defaultCacheBehavior": {
+            "$ref": "#/types/aws:cloudfront/DistributionDefaultCacheBehavior:DistributionDefaultCacheBehavior",
+            "description": "Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.\n"
+        },
+        "defaultRootObject": {
+            "type": "string",
+            "description": "Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "Whether Origin Shield is enabled.\n"
+        },
+        "httpVersion": {
+            "type": "string",
+            "description": "Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.\n"
+        },
+        "isIpv6Enabled": {
+            "type": "boolean",
+            "description": "Whether the IPv6 is enabled for the distribution.\n"
+        },
+        "loggingConfig": {
+            "$ref": "#/types/aws:cloudfront/DistributionLoggingConfig:DistributionLoggingConfig",
+            "description": "The logging configuration that controls how logs are written to your distribution (maximum one).\n"
+        },
+        "orderedCacheBehaviors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudfront/DistributionOrderedCacheBehavior:DistributionOrderedCacheBehavior"
+            },
+            "description": "Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.\n"
+        },
+        "originGroups": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudfront/DistributionOriginGroup:DistributionOriginGroup"
+            },
+            "description": "One or more origin_group for this distribution (multiples allowed).\n"
+        },
+        "origins": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudfront/DistributionOrigin:DistributionOrigin"
+            },
+            "description": "One or more origins for this distribution (multiples allowed).\n"
+        },
+        "priceClass": {
+            "type": "string",
+            "description": "Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.\n"
+        },
+        "restrictions": {
+            "$ref": "#/types/aws:cloudfront/DistributionRestrictions:DistributionRestrictions",
+            "description": "The restriction configuration for this distribution (maximum one).\n"
+        },
+        "retainOnDelete": {
+            "type": "boolean",
+            "description": "Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.\n"
+        },
+        "staging": {
+            "type": "boolean",
+            "description": "A Boolean that indicates whether this is a staging distribution. Defaults to `false`.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "viewerCertificate": {
+            "$ref": "#/types/aws:cloudfront/DistributionViewerCertificate:DistributionViewerCertificate",
+            "description": "The SSL configuration for this distribution (maximum one).\n"
+        },
+        "waitForDeployment": {
+            "type": "boolean",
+            "description": "If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.\n"
+        },
+        "webAclId": {
+            "type": "string",
+            "description": "Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.\n"
+        }
+    },
+    "requiredInputs": [
+        "defaultCacheBehavior",
+        "enabled",
+        "origins",
+        "restrictions",
+        "viewerCertificate"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Distribution resources.\n",
+        "properties": {
+            "aliases": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Extra CNAMEs (alternate domain names), if any, for this distribution.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.\n"
+            },
+            "callerReference": {
+                "type": "string",
+                "description": "Internal value used by CloudFront to allow future updates to the distribution configuration.\n"
+            },
+            "comment": {
+                "type": "string",
+                "description": "Any comments you want to include about the distribution.\n"
+            },
+            "continuousDeploymentPolicyId": {
+                "type": "string",
+                "description": "Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.\n"
+            },
+            "customErrorResponses": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:cloudfront/DistributionCustomErrorResponse:DistributionCustomErrorResponse"
+                },
+                "description": "One or more custom error response elements (multiples allowed).\n"
+            },
+            "defaultCacheBehavior": {
+                "$ref": "#/types/aws:cloudfront/DistributionDefaultCacheBehavior:DistributionDefaultCacheBehavior",
+                "description": "Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.\n"
+            },
+            "defaultRootObject": {
+                "type": "string",
+                "description": "Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.\n"
+            },
+            "domainName": {
+                "type": "string",
+                "description": "DNS domain name of either the S3 bucket, or web site of your custom origin.\n"
+            },
+            "enabled": {
+                "type": "boolean",
+                "description": "Whether Origin Shield is enabled.\n"
+            },
+            "etag": {
+                "type": "string",
+                "description": "Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.\n"
+            },
+            "hostedZoneId": {
+                "type": "string",
+                "description": "CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.\n"
+            },
+            "httpVersion": {
+                "type": "string",
+                "description": "Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.\n"
+            },
+            "inProgressValidationBatches": {
+                "type": "integer",
+                "description": "Number of invalidation batches currently in progress.\n"
+            },
+            "isIpv6Enabled": {
+                "type": "boolean",
+                "description": "Whether the IPv6 is enabled for the distribution.\n"
+            },
+            "lastModifiedTime": {
+                "type": "string",
+                "description": "Date and time the distribution was last modified.\n"
+            },
+            "loggingConfig": {
+                "$ref": "#/types/aws:cloudfront/DistributionLoggingConfig:DistributionLoggingConfig",
+                "description": "The logging configuration that controls how logs are written to your distribution (maximum one).\n"
+            },
+            "orderedCacheBehaviors": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:cloudfront/DistributionOrderedCacheBehavior:DistributionOrderedCacheBehavior"
+                },
+                "description": "Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.\n"
+            },
+            "originGroups": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:cloudfront/DistributionOriginGroup:DistributionOriginGroup"
+                },
+                "description": "One or more origin_group for this distribution (multiples allowed).\n"
+            },
+            "origins": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:cloudfront/DistributionOrigin:DistributionOrigin"
+                },
+                "description": "One or more origins for this distribution (multiples allowed).\n"
+            },
+            "priceClass": {
+                "type": "string",
+                "description": "Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.\n"
+            },
+            "restrictions": {
+                "$ref": "#/types/aws:cloudfront/DistributionRestrictions:DistributionRestrictions",
+                "description": "The restriction configuration for this distribution (maximum one).\n"
+            },
+            "retainOnDelete": {
+                "type": "boolean",
+                "description": "Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.\n"
+            },
+            "staging": {
+                "type": "boolean",
+                "description": "A Boolean that indicates whether this is a staging distribution. Defaults to `false`.\n",
+                "willReplaceOnChanges": true
+            },
+            "status": {
+                "type": "string",
+                "description": "Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "trustedKeyGroups": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:cloudfront/DistributionTrustedKeyGroup:DistributionTrustedKeyGroup"
+                },
+                "description": "List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.\n"
+            },
+            "trustedSigners": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:cloudfront/DistributionTrustedSigner:DistributionTrustedSigner"
+                },
+                "description": "List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.\n"
+            },
+            "viewerCertificate": {
+                "$ref": "#/types/aws:cloudfront/DistributionViewerCertificate:DistributionViewerCertificate",
+                "description": "The SSL configuration for this distribution (maximum one).\n"
+            },
+            "waitForDeployment": {
+                "type": "boolean",
+                "description": "If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.\n"
+            },
+            "webAclId": {
+                "type": "string",
+                "description": "Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.\n"
+            }
+        },
+        "type": "object"
+    }
+}

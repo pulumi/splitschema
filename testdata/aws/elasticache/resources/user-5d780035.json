@@ -1,0 +1,174 @@
+{
+    "properties": {
+        "accessString": {
+            "type": "string",
+            "description": "Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the created ElastiCache User.\n"
+        },
+        "authenticationMode": {
+            "$ref": "#/types/aws:elasticache/UserAuthenticationMode:UserAuthenticationMode",
+            "description": "Denotes the user's authentication properties. Detailed below.\n"
+        },
+        "engine": {
+            "type": "string",
+            "description": "The current supported value is `REDIS`.\n"
+        },
+        "noPasswordRequired": {
+            "type": "boolean",
+            "description": "Indicates a password is not required for this user.\n"
+        },
+        "passwords": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Passwords used for this user. You can create up to two passwords for each user.\n",
+            "secret": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A list of tags to be added to this resource. A tag is a key-value pair.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "userId": {
+            "type": "string",
+            "description": "The ID of the user.\n"
+        },
+        "userName": {
+            "type": "string",
+            "description": "The username of the user.\n\nThe following arguments are optional:\n"
+        }
+    },
+    "required": [
+        "accessString",
+        "arn",
+        "authenticationMode",
+        "engine",
+        "tagsAll",
+        "userId",
+        "userName"
+    ],
+    "inputProperties": {
+        "accessString": {
+            "type": "string",
+            "description": "Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.\n"
+        },
+        "authenticationMode": {
+            "$ref": "#/types/aws:elasticache/UserAuthenticationMode:UserAuthenticationMode",
+            "description": "Denotes the user's authentication properties. Detailed below.\n"
+        },
+        "engine": {
+            "type": "string",
+            "description": "The current supported value is `REDIS`.\n",
+            "willReplaceOnChanges": true
+        },
+        "noPasswordRequired": {
+            "type": "boolean",
+            "description": "Indicates a password is not required for this user.\n"
+        },
+        "passwords": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Passwords used for this user. You can create up to two passwords for each user.\n",
+            "secret": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A list of tags to be added to this resource. A tag is a key-value pair.\n"
+        },
+        "userId": {
+            "type": "string",
+            "description": "The ID of the user.\n",
+            "willReplaceOnChanges": true
+        },
+        "userName": {
+            "type": "string",
+            "description": "The username of the user.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "accessString",
+        "engine",
+        "userId",
+        "userName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering User resources.\n",
+        "properties": {
+            "accessString": {
+                "type": "string",
+                "description": "Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the created ElastiCache User.\n"
+            },
+            "authenticationMode": {
+                "$ref": "#/types/aws:elasticache/UserAuthenticationMode:UserAuthenticationMode",
+                "description": "Denotes the user's authentication properties. Detailed below.\n"
+            },
+            "engine": {
+                "type": "string",
+                "description": "The current supported value is `REDIS`.\n",
+                "willReplaceOnChanges": true
+            },
+            "noPasswordRequired": {
+                "type": "boolean",
+                "description": "Indicates a password is not required for this user.\n"
+            },
+            "passwords": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Passwords used for this user. You can create up to two passwords for each user.\n",
+                "secret": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A list of tags to be added to this resource. A tag is a key-value pair.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "userId": {
+                "type": "string",
+                "description": "The ID of the user.\n",
+                "willReplaceOnChanges": true
+            },
+            "userName": {
+                "type": "string",
+                "description": "The username of the user.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

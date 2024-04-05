@@ -1,0 +1,91 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The CodeStar Host ARN.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the host to be created. The name must be unique in the calling AWS account.\n"
+        },
+        "providerEndpoint": {
+            "type": "string",
+            "description": "The endpoint of the infrastructure to be represented by the host after it is created.\n"
+        },
+        "providerType": {
+            "type": "string",
+            "description": "The name of the external provider where your third-party code repository is configured.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.\n"
+        },
+        "vpcConfiguration": {
+            "$ref": "#/types/aws:codestarconnections/HostVpcConfiguration:HostVpcConfiguration",
+            "description": "The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "providerEndpoint",
+        "providerType",
+        "status"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "The name of the host to be created. The name must be unique in the calling AWS account.\n",
+            "willReplaceOnChanges": true
+        },
+        "providerEndpoint": {
+            "type": "string",
+            "description": "The endpoint of the infrastructure to be represented by the host after it is created.\n"
+        },
+        "providerType": {
+            "type": "string",
+            "description": "The name of the external provider where your third-party code repository is configured.\n",
+            "willReplaceOnChanges": true
+        },
+        "vpcConfiguration": {
+            "$ref": "#/types/aws:codestarconnections/HostVpcConfiguration:HostVpcConfiguration",
+            "description": "The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.\n"
+        }
+    },
+    "requiredInputs": [
+        "providerEndpoint",
+        "providerType"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Host resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The CodeStar Host ARN.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the host to be created. The name must be unique in the calling AWS account.\n",
+                "willReplaceOnChanges": true
+            },
+            "providerEndpoint": {
+                "type": "string",
+                "description": "The endpoint of the infrastructure to be represented by the host after it is created.\n"
+            },
+            "providerType": {
+                "type": "string",
+                "description": "The name of the external provider where your third-party code repository is configured.\n",
+                "willReplaceOnChanges": true
+            },
+            "status": {
+                "type": "string",
+                "description": "The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.\n"
+            },
+            "vpcConfiguration": {
+                "$ref": "#/types/aws:codestarconnections/HostVpcConfiguration:HostVpcConfiguration",
+                "description": "The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.\n"
+            }
+        },
+        "type": "object"
+    }
+}

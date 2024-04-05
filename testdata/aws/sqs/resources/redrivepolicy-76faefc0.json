@@ -1,0 +1,61 @@
+{
+    "properties": {
+        "queueUrl": {
+            "type": "string",
+            "description": "The URL of the SQS Queue to which to attach the policy\n"
+        },
+        "redrivePolicy": {
+            "type": "string",
+            "description": "The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).\n",
+            "language": {
+                "csharp": {
+                    "name": "RedrivePolicyName"
+                }
+            }
+        }
+    },
+    "required": [
+        "queueUrl",
+        "redrivePolicy"
+    ],
+    "inputProperties": {
+        "queueUrl": {
+            "type": "string",
+            "description": "The URL of the SQS Queue to which to attach the policy\n",
+            "willReplaceOnChanges": true
+        },
+        "redrivePolicy": {
+            "type": "string",
+            "description": "The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).\n",
+            "language": {
+                "csharp": {
+                    "name": "RedrivePolicyName"
+                }
+            }
+        }
+    },
+    "requiredInputs": [
+        "queueUrl",
+        "redrivePolicy"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering RedrivePolicy resources.\n",
+        "properties": {
+            "queueUrl": {
+                "type": "string",
+                "description": "The URL of the SQS Queue to which to attach the policy\n",
+                "willReplaceOnChanges": true
+            },
+            "redrivePolicy": {
+                "type": "string",
+                "description": "The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).\n",
+                "language": {
+                    "csharp": {
+                        "name": "RedrivePolicyName"
+                    }
+                }
+            }
+        },
+        "type": "object"
+    }
+}

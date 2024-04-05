@@ -1,0 +1,63 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getModels.\n",
+        "properties": {
+            "byCustomizationType": {
+                "type": "string",
+                "description": "Customization type to filter on. Valid values are `FINE_TUNING`.\n"
+            },
+            "byInferenceType": {
+                "type": "string",
+                "description": "Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.\n"
+            },
+            "byOutputModality": {
+                "type": "string",
+                "description": "Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.\n"
+            },
+            "byProvider": {
+                "type": "string",
+                "description": "Model provider to filter on.\n"
+            },
+            "modelSummaries": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:bedrockfoundation/getModelsModelSummary:getModelsModelSummary"
+                },
+                "description": "List of model summary objects. See `model_summaries`.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getModels.\n",
+        "properties": {
+            "byCustomizationType": {
+                "type": "string"
+            },
+            "byInferenceType": {
+                "type": "string"
+            },
+            "byOutputModality": {
+                "type": "string"
+            },
+            "byProvider": {
+                "type": "string"
+            },
+            "id": {
+                "description": "AWS region.\n",
+                "type": "string"
+            },
+            "modelSummaries": {
+                "description": "List of model summary objects. See `model_summaries`.\n",
+                "items": {
+                    "$ref": "#/types/aws:bedrockfoundation/getModelsModelSummary:getModelsModelSummary"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "id"
+        ],
+        "type": "object"
+    }
+}

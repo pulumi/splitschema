@@ -1,0 +1,112 @@
+{
+    "properties": {
+        "accessGrantsLocationArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the S3 Access Grants location.\n"
+        },
+        "accessGrantsLocationId": {
+            "type": "string",
+            "description": "Unique ID of the S3 Access Grants location.\n"
+        },
+        "accountId": {
+            "type": "string"
+        },
+        "iamRoleArn": {
+            "type": "string",
+            "description": "The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access\nrequests to the location.\n"
+        },
+        "locationScope": {
+            "type": "string",
+            "description": "The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "accessGrantsLocationArn",
+        "accessGrantsLocationId",
+        "accountId",
+        "iamRoleArn",
+        "locationScope",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "accountId": {
+            "type": "string"
+        },
+        "iamRoleArn": {
+            "type": "string",
+            "description": "The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access\nrequests to the location.\n"
+        },
+        "locationScope": {
+            "type": "string",
+            "description": "The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "iamRoleArn",
+        "locationScope"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering AccessGrantsLocation resources.\n",
+        "properties": {
+            "accessGrantsLocationArn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the S3 Access Grants location.\n"
+            },
+            "accessGrantsLocationId": {
+                "type": "string",
+                "description": "Unique ID of the S3 Access Grants location.\n"
+            },
+            "accountId": {
+                "type": "string"
+            },
+            "iamRoleArn": {
+                "type": "string",
+                "description": "The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access\nrequests to the location.\n"
+            },
+            "locationScope": {
+                "type": "string",
+                "description": "The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

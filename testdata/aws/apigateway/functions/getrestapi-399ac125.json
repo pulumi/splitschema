@@ -1,0 +1,98 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getRestApi.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "name"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getRestApi.\n",
+        "properties": {
+            "apiKeySource": {
+                "description": "Source of the API key for requests.\n",
+                "type": "string"
+            },
+            "arn": {
+                "description": "ARN of the REST API.\n",
+                "type": "string"
+            },
+            "binaryMediaTypes": {
+                "description": "List of binary media types supported by the REST API.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "description": {
+                "description": "Description of the REST API.\n",
+                "type": "string"
+            },
+            "endpointConfigurations": {
+                "description": "The endpoint configuration of this RestApi showing the endpoint types of the API.\n",
+                "items": {
+                    "$ref": "#/types/aws:apigateway/getRestApiEndpointConfiguration:getRestApiEndpointConfiguration"
+                },
+                "type": "array"
+            },
+            "executionArn": {
+                "description": "Execution ARN part to be used in `lambda_permission`'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "minimumCompressionSize": {
+                "description": "Minimum response size to compress for the REST API.\n",
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "policy": {
+                "description": "JSON formatted policy document that controls access to the API Gateway.\n",
+                "type": "string"
+            },
+            "rootResourceId": {
+                "description": "Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags.\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "apiKeySource",
+            "arn",
+            "binaryMediaTypes",
+            "description",
+            "endpointConfigurations",
+            "executionArn",
+            "minimumCompressionSize",
+            "name",
+            "policy",
+            "rootResourceId",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

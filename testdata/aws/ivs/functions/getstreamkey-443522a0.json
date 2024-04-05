@@ -1,0 +1,57 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getStreamKey.\n",
+        "properties": {
+            "channelArn": {
+                "type": "string",
+                "description": "ARN of the Channel.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "channelArn"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getStreamKey.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the Stream Key.\n",
+                "type": "string"
+            },
+            "channelArn": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource.\n",
+                "type": "object"
+            },
+            "value": {
+                "description": "Stream Key value.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "channelArn",
+            "tags",
+            "value",
+            "id"
+        ],
+        "type": "object"
+    }
+}

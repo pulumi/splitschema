@@ -1,0 +1,116 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The codestar connection ARN.\n"
+        },
+        "connectionStatus": {
+            "type": "string",
+            "description": "The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.\n"
+        },
+        "hostArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.\n"
+        },
+        "providerType": {
+            "type": "string",
+            "description": "The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "connectionStatus",
+        "name",
+        "providerType",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "hostArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.\n",
+            "willReplaceOnChanges": true
+        },
+        "providerType": {
+            "type": "string",
+            "description": "The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Connection resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The codestar connection ARN.\n"
+            },
+            "connectionStatus": {
+                "type": "string",
+                "description": "The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.\n"
+            },
+            "hostArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.\n",
+                "willReplaceOnChanges": true
+            },
+            "providerType": {
+                "type": "string",
+                "description": "The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

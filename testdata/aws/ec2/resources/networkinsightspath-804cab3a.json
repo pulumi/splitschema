@@ -1,0 +1,173 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the Network Insights Path.\n"
+        },
+        "destination": {
+            "type": "string",
+            "description": "ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.\n"
+        },
+        "destinationArn": {
+            "type": "string",
+            "description": "ARN of the destination.\n"
+        },
+        "destinationIp": {
+            "type": "string",
+            "description": "IP address of the destination resource.\n"
+        },
+        "destinationPort": {
+            "type": "integer",
+            "description": "Destination port to analyze access to.\n"
+        },
+        "protocol": {
+            "type": "string",
+            "description": "Protocol to use for analysis. Valid options are `tcp` or `udp`.\n\nThe following arguments are optional:\n"
+        },
+        "source": {
+            "type": "string",
+            "description": "ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.\n"
+        },
+        "sourceArn": {
+            "type": "string",
+            "description": "ARN of the source.\n"
+        },
+        "sourceIp": {
+            "type": "string",
+            "description": "IP address of the source resource.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "destination",
+        "destinationArn",
+        "protocol",
+        "source",
+        "sourceArn",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "destination": {
+            "type": "string",
+            "description": "ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.\n",
+            "willReplaceOnChanges": true
+        },
+        "destinationIp": {
+            "type": "string",
+            "description": "IP address of the destination resource.\n",
+            "willReplaceOnChanges": true
+        },
+        "destinationPort": {
+            "type": "integer",
+            "description": "Destination port to analyze access to.\n",
+            "willReplaceOnChanges": true
+        },
+        "protocol": {
+            "type": "string",
+            "description": "Protocol to use for analysis. Valid options are `tcp` or `udp`.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "source": {
+            "type": "string",
+            "description": "ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.\n",
+            "willReplaceOnChanges": true
+        },
+        "sourceIp": {
+            "type": "string",
+            "description": "IP address of the source resource.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "destination",
+        "protocol",
+        "source"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering NetworkInsightsPath resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the Network Insights Path.\n"
+            },
+            "destination": {
+                "type": "string",
+                "description": "ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.\n",
+                "willReplaceOnChanges": true
+            },
+            "destinationArn": {
+                "type": "string",
+                "description": "ARN of the destination.\n"
+            },
+            "destinationIp": {
+                "type": "string",
+                "description": "IP address of the destination resource.\n",
+                "willReplaceOnChanges": true
+            },
+            "destinationPort": {
+                "type": "integer",
+                "description": "Destination port to analyze access to.\n",
+                "willReplaceOnChanges": true
+            },
+            "protocol": {
+                "type": "string",
+                "description": "Protocol to use for analysis. Valid options are `tcp` or `udp`.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "source": {
+                "type": "string",
+                "description": "ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.\n",
+                "willReplaceOnChanges": true
+            },
+            "sourceArn": {
+                "type": "string",
+                "description": "ARN of the source.\n"
+            },
+            "sourceIp": {
+                "type": "string",
+                "description": "IP address of the source resource.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

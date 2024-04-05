@@ -1,0 +1,42 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getLicenseGrants.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:licensemanager/getLicenseGrantsFilter:getLicenseGrantsFilter"
+                },
+                "description": "Custom filter block as described below.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getLicenseGrants.\n",
+        "properties": {
+            "arns": {
+                "description": "List of all the license grant ARNs found.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:licensemanager/getLicenseGrantsFilter:getLicenseGrantsFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "arns",
+            "id"
+        ],
+        "type": "object"
+    }
+}

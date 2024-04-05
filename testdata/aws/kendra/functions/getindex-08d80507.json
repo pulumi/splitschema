@@ -1,0 +1,141 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getIndex.\n",
+        "properties": {
+            "id": {
+                "type": "string",
+                "description": "Returns information on a specific Index by id.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Metadata that helps organize the Indices you create.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "id"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getIndex.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the Index.\n",
+                "type": "string"
+            },
+            "capacityUnits": {
+                "description": "Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:kendra/getIndexCapacityUnit:getIndexCapacityUnit"
+                },
+                "type": "array"
+            },
+            "createdAt": {
+                "description": "Unix datetime that the index was created.\n",
+                "type": "string"
+            },
+            "description": {
+                "description": "Description of the Index.\n",
+                "type": "string"
+            },
+            "documentMetadataConfigurationUpdates": {
+                "description": "One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:kendra/getIndexDocumentMetadataConfigurationUpdate:getIndexDocumentMetadataConfigurationUpdate"
+                },
+                "type": "array"
+            },
+            "edition": {
+                "description": "Amazon Kendra edition for the index.\n",
+                "type": "string"
+            },
+            "errorMessage": {
+                "description": "When the Status field value is `FAILED`, this contains a message that explains why.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "Identifier of the Index.\n",
+                "type": "string"
+            },
+            "indexStatistics": {
+                "description": "Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:kendra/getIndexIndexStatistic:getIndexIndexStatistic"
+                },
+                "type": "array"
+            },
+            "name": {
+                "description": "Name of the index field. Minimum length of 1. Maximum length of 30.\n",
+                "type": "string"
+            },
+            "roleArn": {
+                "description": "An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.\n",
+                "type": "string"
+            },
+            "serverSideEncryptionConfigurations": {
+                "description": "A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:kendra/getIndexServerSideEncryptionConfiguration:getIndexServerSideEncryptionConfiguration"
+                },
+                "type": "array"
+            },
+            "status": {
+                "description": "Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Metadata that helps organize the Indices you create.\n",
+                "type": "object"
+            },
+            "updatedAt": {
+                "description": "Unix datetime that the index was last updated.\n",
+                "type": "string"
+            },
+            "userContextPolicy": {
+                "description": "User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).\n",
+                "type": "string"
+            },
+            "userGroupResolutionConfigurations": {
+                "description": "A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:kendra/getIndexUserGroupResolutionConfiguration:getIndexUserGroupResolutionConfiguration"
+                },
+                "type": "array"
+            },
+            "userTokenConfigurations": {
+                "description": "A block that specifies the user token configuration. Documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:kendra/getIndexUserTokenConfiguration:getIndexUserTokenConfiguration"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "arn",
+            "capacityUnits",
+            "createdAt",
+            "description",
+            "documentMetadataConfigurationUpdates",
+            "edition",
+            "errorMessage",
+            "id",
+            "indexStatistics",
+            "name",
+            "roleArn",
+            "serverSideEncryptionConfigurations",
+            "status",
+            "tags",
+            "updatedAt",
+            "userContextPolicy",
+            "userGroupResolutionConfigurations",
+            "userTokenConfigurations"
+        ],
+        "type": "object"
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "properties": {
+        "principal": {
+            "type": "string",
+            "$ref": "#/types/aws:index/aRN:ARN",
+            "description": "The AWS IoT Certificate ARN or Amazon Cognito Identity ID.\n"
+        },
+        "thing": {
+            "type": "string",
+            "description": "The name of the thing.\n"
+        }
+    },
+    "required": [
+        "principal",
+        "thing"
+    ],
+    "inputProperties": {
+        "principal": {
+            "type": "string",
+            "$ref": "#/types/aws:index/aRN:ARN",
+            "description": "The AWS IoT Certificate ARN or Amazon Cognito Identity ID.\n",
+            "willReplaceOnChanges": true
+        },
+        "thing": {
+            "type": "string",
+            "description": "The name of the thing.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "principal",
+        "thing"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ThingPrincipalAttachment resources.\n",
+        "properties": {
+            "principal": {
+                "type": "string",
+                "$ref": "#/types/aws:index/aRN:ARN",
+                "description": "The AWS IoT Certificate ARN or Amazon Cognito Identity ID.\n",
+                "willReplaceOnChanges": true
+            },
+            "thing": {
+                "type": "string",
+                "description": "The name of the thing.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

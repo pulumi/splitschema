@@ -1,0 +1,182 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the rule.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the rule.\n"
+        },
+        "eventBusName": {
+            "type": "string",
+            "description": "The name or ARN of the event bus to associate with this rule.\nIf you omit this, the `default` event bus is used.\n"
+        },
+        "eventPattern": {
+            "type": "string",
+            "description": "The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.\n"
+        },
+        "isEnabled": {
+            "type": "boolean",
+            "description": "Whether the rule should be enabled.\nDefaults to `true`.\nConflicts with `state`.\n",
+            "deprecationMessage": "Use \"state\" instead"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) associated with the role that is used for target invocation.\n"
+        },
+        "scheduleExpression": {
+            "type": "string",
+            "description": "The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).\n"
+        },
+        "state": {
+            "type": "string",
+            "description": "State of the rule.\nValid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.\nWhen state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.\nTo also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.\nDefaults to `ENABLED`.\nConflicts with `is_enabled`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "namePrefix",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "The description of the rule.\n"
+        },
+        "eventBusName": {
+            "type": "string",
+            "description": "The name or ARN of the event bus to associate with this rule.\nIf you omit this, the `default` event bus is used.\n",
+            "willReplaceOnChanges": true
+        },
+        "eventPattern": {
+            "type": "string",
+            "description": "The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.\n"
+        },
+        "isEnabled": {
+            "type": "boolean",
+            "description": "Whether the rule should be enabled.\nDefaults to `true`.\nConflicts with `state`.\n",
+            "deprecationMessage": "Use \"state\" instead"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.\n",
+            "willReplaceOnChanges": true
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) associated with the role that is used for target invocation.\n"
+        },
+        "scheduleExpression": {
+            "type": "string",
+            "description": "The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).\n"
+        },
+        "state": {
+            "type": "string",
+            "description": "State of the rule.\nValid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.\nWhen state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.\nTo also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.\nDefaults to `ENABLED`.\nConflicts with `is_enabled`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering EventRule resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the rule.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "The description of the rule.\n"
+            },
+            "eventBusName": {
+                "type": "string",
+                "description": "The name or ARN of the event bus to associate with this rule.\nIf you omit this, the `default` event bus is used.\n",
+                "willReplaceOnChanges": true
+            },
+            "eventPattern": {
+                "type": "string",
+                "description": "The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.\n"
+            },
+            "isEnabled": {
+                "type": "boolean",
+                "description": "Whether the rule should be enabled.\nDefaults to `true`.\nConflicts with `state`.\n",
+                "deprecationMessage": "Use \"state\" instead"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.\n",
+                "willReplaceOnChanges": true
+            },
+            "roleArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) associated with the role that is used for target invocation.\n"
+            },
+            "scheduleExpression": {
+                "type": "string",
+                "description": "The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).\n"
+            },
+            "state": {
+                "type": "string",
+                "description": "State of the rule.\nValid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.\nWhen state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.\nTo also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.\nDefaults to `ENABLED`.\nConflicts with `is_enabled`.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

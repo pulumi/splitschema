@@ -1,0 +1,156 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getVpcPeeringConnection.\n",
+        "properties": {
+            "cidrBlock": {
+                "type": "string",
+                "description": "Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.\n"
+            },
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getVpcPeeringConnectionFilter:getVpcPeeringConnectionFilter"
+                },
+                "description": "Custom filter block as described below.\n"
+            },
+            "id": {
+                "type": "string",
+                "description": "ID of the specific VPC Peering Connection to retrieve.\n"
+            },
+            "ownerId": {
+                "type": "string",
+                "description": "AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.\n"
+            },
+            "peerCidrBlock": {
+                "type": "string",
+                "description": "Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.\n"
+            },
+            "peerOwnerId": {
+                "type": "string",
+                "description": "AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.\n"
+            },
+            "peerRegion": {
+                "type": "string",
+                "description": "Region of the accepter VPC of the specific VPC Peering Connection to retrieve.\n"
+            },
+            "peerVpcId": {
+                "type": "string",
+                "description": "ID of the accepter VPC of the specific VPC Peering Connection to retrieve.\n"
+            },
+            "region": {
+                "type": "string",
+                "description": "Region of the requester VPC of the specific VPC Peering Connection to retrieve.\n"
+            },
+            "status": {
+                "type": "string",
+                "description": "Status of the specific VPC Peering Connection to retrieve.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags, each pair of which must exactly match\na pair on the desired VPC Peering Connection.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
+            },
+            "vpcId": {
+                "type": "string",
+                "description": "ID of the requester VPC of the specific VPC Peering Connection to retrieve.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getVpcPeeringConnection.\n",
+        "properties": {
+            "accepter": {
+                "additionalProperties": {
+                    "type": "boolean"
+                },
+                "description": "Configuration block that describes [VPC Peering Connection]\n(https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.\n",
+                "type": "object"
+            },
+            "cidrBlock": {
+                "description": "CIDR block associated to the VPC of the specific VPC Peering Connection.\n",
+                "type": "string"
+            },
+            "cidrBlockSets": {
+                "description": "List of objects with CIDR blocks of the requester VPC.\n",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getVpcPeeringConnectionCidrBlockSet:getVpcPeeringConnectionCidrBlockSet"
+                },
+                "type": "array"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2/getVpcPeeringConnectionFilter:getVpcPeeringConnectionFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "type": "string"
+            },
+            "ownerId": {
+                "type": "string"
+            },
+            "peerCidrBlock": {
+                "type": "string"
+            },
+            "peerCidrBlockSets": {
+                "description": "List of objects with CIDR blocks of the accepter VPC.\n",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getVpcPeeringConnectionPeerCidrBlockSet:getVpcPeeringConnectionPeerCidrBlockSet"
+                },
+                "type": "array"
+            },
+            "peerOwnerId": {
+                "type": "string"
+            },
+            "peerRegion": {
+                "type": "string"
+            },
+            "peerVpcId": {
+                "type": "string"
+            },
+            "region": {
+                "type": "string"
+            },
+            "requester": {
+                "additionalProperties": {
+                    "type": "boolean"
+                },
+                "description": "Configuration block that describes [VPC Peering Connection]\n(https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.\n",
+                "type": "object"
+            },
+            "status": {
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            },
+            "vpcId": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "accepter",
+            "cidrBlock",
+            "cidrBlockSets",
+            "id",
+            "ownerId",
+            "peerCidrBlock",
+            "peerCidrBlockSets",
+            "peerOwnerId",
+            "peerRegion",
+            "peerVpcId",
+            "region",
+            "requester",
+            "status",
+            "tags",
+            "vpcId"
+        ],
+        "type": "object"
+    }
+}

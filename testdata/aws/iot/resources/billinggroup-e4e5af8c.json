@@ -1,0 +1,110 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the Billing Group.\n"
+        },
+        "metadatas": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:iot/BillingGroupMetadata:BillingGroupMetadata"
+            }
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the Billing Group.\n"
+        },
+        "properties": {
+            "$ref": "#/types/aws:iot/BillingGroupProperties:BillingGroupProperties",
+            "description": "The Billing Group properties. Defined below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "version": {
+            "type": "integer",
+            "description": "The current version of the Billing Group record in the registry.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "metadatas",
+        "name",
+        "tagsAll",
+        "version"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "The name of the Billing Group.\n",
+            "willReplaceOnChanges": true
+        },
+        "properties": {
+            "$ref": "#/types/aws:iot/BillingGroupProperties:BillingGroupProperties",
+            "description": "The Billing Group properties. Defined below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering BillingGroup resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the Billing Group.\n"
+            },
+            "metadatas": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:iot/BillingGroupMetadata:BillingGroupMetadata"
+                }
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the Billing Group.\n",
+                "willReplaceOnChanges": true
+            },
+            "properties": {
+                "$ref": "#/types/aws:iot/BillingGroupProperties:BillingGroupProperties",
+                "description": "The Billing Group properties. Defined below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "version": {
+                "type": "integer",
+                "description": "The current version of the Billing Group record in the registry.\n"
+            }
+        },
+        "type": "object"
+    }
+}

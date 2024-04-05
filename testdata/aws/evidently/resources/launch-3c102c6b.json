@@ -1,0 +1,236 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the launch.\n"
+        },
+        "createdTime": {
+            "type": "string",
+            "description": "The date and time that the launch is created.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Specifies the description of the launch.\n"
+        },
+        "executions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:evidently/LaunchExecution:LaunchExecution"
+            },
+            "description": "A block that contains information about the start and end times of the launch. Detailed below\n"
+        },
+        "groups": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:evidently/LaunchGroup:LaunchGroup"
+            },
+            "description": "One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.\n"
+        },
+        "lastUpdatedTime": {
+            "type": "string",
+            "description": "The date and time that the launch was most recently updated.\n"
+        },
+        "metricMonitors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:evidently/LaunchMetricMonitor:LaunchMetricMonitor"
+            },
+            "description": "One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name for the new launch. Minimum length of `1`. Maximum length of `127`.\n"
+        },
+        "project": {
+            "type": "string",
+            "description": "The name or ARN of the project that is to contain the new launch.\n"
+        },
+        "randomizationSalt": {
+            "type": "string",
+            "description": "When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.\n"
+        },
+        "scheduledSplitsConfig": {
+            "$ref": "#/types/aws:evidently/LaunchScheduledSplitsConfig:LaunchScheduledSplitsConfig",
+            "description": "A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.\n"
+        },
+        "statusReason": {
+            "type": "string",
+            "description": "If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "type": {
+            "type": "string",
+            "description": "The type of launch.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "createdTime",
+        "executions",
+        "groups",
+        "lastUpdatedTime",
+        "name",
+        "project",
+        "status",
+        "statusReason",
+        "tagsAll",
+        "type"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "Specifies the description of the launch.\n"
+        },
+        "groups": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:evidently/LaunchGroup:LaunchGroup"
+            },
+            "description": "One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.\n"
+        },
+        "metricMonitors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:evidently/LaunchMetricMonitor:LaunchMetricMonitor"
+            },
+            "description": "One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name for the new launch. Minimum length of `1`. Maximum length of `127`.\n",
+            "willReplaceOnChanges": true
+        },
+        "project": {
+            "type": "string",
+            "description": "The name or ARN of the project that is to contain the new launch.\n",
+            "willReplaceOnChanges": true
+        },
+        "randomizationSalt": {
+            "type": "string",
+            "description": "When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.\n"
+        },
+        "scheduledSplitsConfig": {
+            "$ref": "#/types/aws:evidently/LaunchScheduledSplitsConfig:LaunchScheduledSplitsConfig",
+            "description": "A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "groups",
+        "project"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Launch resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the launch.\n"
+            },
+            "createdTime": {
+                "type": "string",
+                "description": "The date and time that the launch is created.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Specifies the description of the launch.\n"
+            },
+            "executions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:evidently/LaunchExecution:LaunchExecution"
+                },
+                "description": "A block that contains information about the start and end times of the launch. Detailed below\n"
+            },
+            "groups": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:evidently/LaunchGroup:LaunchGroup"
+                },
+                "description": "One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.\n"
+            },
+            "lastUpdatedTime": {
+                "type": "string",
+                "description": "The date and time that the launch was most recently updated.\n"
+            },
+            "metricMonitors": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:evidently/LaunchMetricMonitor:LaunchMetricMonitor"
+                },
+                "description": "One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name for the new launch. Minimum length of `1`. Maximum length of `127`.\n",
+                "willReplaceOnChanges": true
+            },
+            "project": {
+                "type": "string",
+                "description": "The name or ARN of the project that is to contain the new launch.\n",
+                "willReplaceOnChanges": true
+            },
+            "randomizationSalt": {
+                "type": "string",
+                "description": "When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.\n"
+            },
+            "scheduledSplitsConfig": {
+                "$ref": "#/types/aws:evidently/LaunchScheduledSplitsConfig:LaunchScheduledSplitsConfig",
+                "description": "A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.\n"
+            },
+            "status": {
+                "type": "string",
+                "description": "The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.\n"
+            },
+            "statusReason": {
+                "type": "string",
+                "description": "If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "type": {
+                "type": "string",
+                "description": "The type of launch.\n"
+            }
+        },
+        "type": "object"
+    }
+}

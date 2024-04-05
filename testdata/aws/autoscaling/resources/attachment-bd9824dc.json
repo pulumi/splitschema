@@ -1,0 +1,60 @@
+{
+    "properties": {
+        "autoscalingGroupName": {
+            "type": "string",
+            "description": "Name of ASG to associate with the ELB.\n"
+        },
+        "elb": {
+            "type": "string",
+            "description": "Name of the ELB.\n"
+        },
+        "lbTargetGroupArn": {
+            "type": "string",
+            "description": "ARN of a load balancer target group.\n"
+        }
+    },
+    "required": [
+        "autoscalingGroupName"
+    ],
+    "inputProperties": {
+        "autoscalingGroupName": {
+            "type": "string",
+            "description": "Name of ASG to associate with the ELB.\n",
+            "willReplaceOnChanges": true
+        },
+        "elb": {
+            "type": "string",
+            "description": "Name of the ELB.\n",
+            "willReplaceOnChanges": true
+        },
+        "lbTargetGroupArn": {
+            "type": "string",
+            "description": "ARN of a load balancer target group.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "autoscalingGroupName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Attachment resources.\n",
+        "properties": {
+            "autoscalingGroupName": {
+                "type": "string",
+                "description": "Name of ASG to associate with the ELB.\n",
+                "willReplaceOnChanges": true
+            },
+            "elb": {
+                "type": "string",
+                "description": "Name of the ELB.\n",
+                "willReplaceOnChanges": true
+            },
+            "lbTargetGroupArn": {
+                "type": "string",
+                "description": "ARN of a load balancer target group.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

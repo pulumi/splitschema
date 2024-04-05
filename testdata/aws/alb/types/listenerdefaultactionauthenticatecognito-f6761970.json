@@ -1,0 +1,58 @@
+{
+    "properties": {
+        "authenticationRequestExtraParams": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.\n"
+        },
+        "onUnauthenticatedRequest": {
+            "type": "string",
+            "description": "Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.\n"
+        },
+        "scope": {
+            "type": "string",
+            "description": "Set of user claims to be requested from the IdP.\n"
+        },
+        "sessionCookieName": {
+            "type": "string",
+            "description": "Name of the cookie used to maintain session information.\n"
+        },
+        "sessionTimeout": {
+            "type": "integer",
+            "description": "Maximum duration of the authentication session, in seconds.\n"
+        },
+        "userPoolArn": {
+            "type": "string",
+            "description": "ARN of the Cognito user pool.\n"
+        },
+        "userPoolClientId": {
+            "type": "string",
+            "description": "ID of the Cognito user pool client.\n"
+        },
+        "userPoolDomain": {
+            "type": "string",
+            "description": "Domain prefix or fully-qualified domain name of the Cognito user pool.\n\nThe following arguments are optional:\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "userPoolArn",
+        "userPoolClientId",
+        "userPoolDomain"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "onUnauthenticatedRequest",
+                "scope",
+                "sessionCookieName",
+                "sessionTimeout",
+                "userPoolArn",
+                "userPoolClientId",
+                "userPoolDomain"
+            ]
+        }
+    }
+}

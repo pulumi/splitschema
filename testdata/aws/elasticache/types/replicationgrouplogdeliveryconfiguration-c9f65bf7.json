@@ -1,0 +1,27 @@
+{
+    "properties": {
+        "destination": {
+            "type": "string",
+            "description": "Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.\n"
+        },
+        "destinationType": {
+            "type": "string",
+            "description": "For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.\n"
+        },
+        "logFormat": {
+            "type": "string",
+            "description": "Valid values are `json` or `text`\n"
+        },
+        "logType": {
+            "type": "string",
+            "description": "Valid values are  `slow-log` or `engine-log`. Max 1 of each.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "destination",
+        "destinationType",
+        "logFormat",
+        "logType"
+    ]
+}

@@ -1,0 +1,343 @@
+{
+    "properties": {
+        "accessToken": {
+            "type": "string",
+            "description": "Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.\n",
+            "secret": true
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN of the Amplify app.\n"
+        },
+        "autoBranchCreationConfig": {
+            "$ref": "#/types/aws:amplify/AppAutoBranchCreationConfig:AppAutoBranchCreationConfig",
+            "description": "Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.\n"
+        },
+        "autoBranchCreationPatterns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Automated branch creation glob patterns for an Amplify app.\n"
+        },
+        "basicAuthCredentials": {
+            "type": "string",
+            "description": "Credentials for basic authorization for an Amplify app.\n",
+            "secret": true
+        },
+        "buildSpec": {
+            "type": "string",
+            "description": "The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.\n"
+        },
+        "customHeaders": {
+            "type": "string",
+            "description": "The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.\n"
+        },
+        "customRules": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:amplify/AppCustomRule:AppCustomRule"
+            },
+            "description": "Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.\n"
+        },
+        "defaultDomain": {
+            "type": "string",
+            "description": "Default domain for the Amplify app.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for an Amplify app.\n"
+        },
+        "enableAutoBranchCreation": {
+            "type": "boolean",
+            "description": "Enables automated branch creation for an Amplify app.\n"
+        },
+        "enableBasicAuth": {
+            "type": "boolean",
+            "description": "Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.\n"
+        },
+        "enableBranchAutoBuild": {
+            "type": "boolean",
+            "description": "Enables auto-building of branches for the Amplify App.\n"
+        },
+        "enableBranchAutoDeletion": {
+            "type": "boolean",
+            "description": "Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.\n"
+        },
+        "environmentVariables": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Environment variables map for an Amplify app.\n"
+        },
+        "iamServiceRoleArn": {
+            "type": "string",
+            "description": "AWS Identity and Access Management (IAM) service role for an Amplify app.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name for an Amplify app.\n"
+        },
+        "oauthToken": {
+            "type": "string",
+            "description": "OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.\n",
+            "secret": true
+        },
+        "platform": {
+            "type": "string",
+            "description": "Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.\n"
+        },
+        "productionBranches": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:amplify/AppProductionBranch:AppProductionBranch"
+            },
+            "description": "Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.\n"
+        },
+        "repository": {
+            "type": "string",
+            "description": "Repository for an Amplify app.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "autoBranchCreationConfig",
+        "buildSpec",
+        "customHeaders",
+        "defaultDomain",
+        "name",
+        "productionBranches",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "accessToken": {
+            "type": "string",
+            "description": "Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.\n",
+            "secret": true
+        },
+        "autoBranchCreationConfig": {
+            "$ref": "#/types/aws:amplify/AppAutoBranchCreationConfig:AppAutoBranchCreationConfig",
+            "description": "Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.\n"
+        },
+        "autoBranchCreationPatterns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Automated branch creation glob patterns for an Amplify app.\n"
+        },
+        "basicAuthCredentials": {
+            "type": "string",
+            "description": "Credentials for basic authorization for an Amplify app.\n",
+            "secret": true
+        },
+        "buildSpec": {
+            "type": "string",
+            "description": "The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.\n"
+        },
+        "customHeaders": {
+            "type": "string",
+            "description": "The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.\n"
+        },
+        "customRules": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:amplify/AppCustomRule:AppCustomRule"
+            },
+            "description": "Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for an Amplify app.\n"
+        },
+        "enableAutoBranchCreation": {
+            "type": "boolean",
+            "description": "Enables automated branch creation for an Amplify app.\n"
+        },
+        "enableBasicAuth": {
+            "type": "boolean",
+            "description": "Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.\n"
+        },
+        "enableBranchAutoBuild": {
+            "type": "boolean",
+            "description": "Enables auto-building of branches for the Amplify App.\n"
+        },
+        "enableBranchAutoDeletion": {
+            "type": "boolean",
+            "description": "Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.\n"
+        },
+        "environmentVariables": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Environment variables map for an Amplify app.\n"
+        },
+        "iamServiceRoleArn": {
+            "type": "string",
+            "description": "AWS Identity and Access Management (IAM) service role for an Amplify app.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name for an Amplify app.\n"
+        },
+        "oauthToken": {
+            "type": "string",
+            "description": "OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.\n",
+            "secret": true
+        },
+        "platform": {
+            "type": "string",
+            "description": "Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.\n"
+        },
+        "repository": {
+            "type": "string",
+            "description": "Repository for an Amplify app.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering App resources.\n",
+        "properties": {
+            "accessToken": {
+                "type": "string",
+                "description": "Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.\n",
+                "secret": true
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN of the Amplify app.\n"
+            },
+            "autoBranchCreationConfig": {
+                "$ref": "#/types/aws:amplify/AppAutoBranchCreationConfig:AppAutoBranchCreationConfig",
+                "description": "Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.\n"
+            },
+            "autoBranchCreationPatterns": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Automated branch creation glob patterns for an Amplify app.\n"
+            },
+            "basicAuthCredentials": {
+                "type": "string",
+                "description": "Credentials for basic authorization for an Amplify app.\n",
+                "secret": true
+            },
+            "buildSpec": {
+                "type": "string",
+                "description": "The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.\n"
+            },
+            "customHeaders": {
+                "type": "string",
+                "description": "The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.\n"
+            },
+            "customRules": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:amplify/AppCustomRule:AppCustomRule"
+                },
+                "description": "Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.\n"
+            },
+            "defaultDomain": {
+                "type": "string",
+                "description": "Default domain for the Amplify app.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description for an Amplify app.\n"
+            },
+            "enableAutoBranchCreation": {
+                "type": "boolean",
+                "description": "Enables automated branch creation for an Amplify app.\n"
+            },
+            "enableBasicAuth": {
+                "type": "boolean",
+                "description": "Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.\n"
+            },
+            "enableBranchAutoBuild": {
+                "type": "boolean",
+                "description": "Enables auto-building of branches for the Amplify App.\n"
+            },
+            "enableBranchAutoDeletion": {
+                "type": "boolean",
+                "description": "Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.\n"
+            },
+            "environmentVariables": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Environment variables map for an Amplify app.\n"
+            },
+            "iamServiceRoleArn": {
+                "type": "string",
+                "description": "AWS Identity and Access Management (IAM) service role for an Amplify app.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name for an Amplify app.\n"
+            },
+            "oauthToken": {
+                "type": "string",
+                "description": "OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.\n",
+                "secret": true
+            },
+            "platform": {
+                "type": "string",
+                "description": "Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.\n"
+            },
+            "productionBranches": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:amplify/AppProductionBranch:AppProductionBranch"
+                },
+                "description": "Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.\n"
+            },
+            "repository": {
+                "type": "string",
+                "description": "Repository for an Amplify app.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

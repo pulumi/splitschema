@@ -1,0 +1,87 @@
+{
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Name of the request validator\n"
+        },
+        "restApi": {
+            "type": "string",
+            "description": "ID of the associated Rest API\n"
+        },
+        "validateRequestBody": {
+            "type": "boolean",
+            "description": "Boolean whether to validate request body. Defaults to `false`.\n"
+        },
+        "validateRequestParameters": {
+            "type": "boolean",
+            "description": "Boolean whether to validate request parameters. Defaults to `false`.\n"
+        }
+    },
+    "required": [
+        "name",
+        "restApi"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "Name of the request validator\n"
+        },
+        "restApi": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:apigateway/restApi:RestApi"
+                }
+            ],
+            "description": "ID of the associated Rest API\n",
+            "willReplaceOnChanges": true
+        },
+        "validateRequestBody": {
+            "type": "boolean",
+            "description": "Boolean whether to validate request body. Defaults to `false`.\n"
+        },
+        "validateRequestParameters": {
+            "type": "boolean",
+            "description": "Boolean whether to validate request parameters. Defaults to `false`.\n"
+        }
+    },
+    "requiredInputs": [
+        "restApi"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering RequestValidator resources.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name of the request validator\n"
+            },
+            "restApi": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:apigateway/restApi:RestApi"
+                    }
+                ],
+                "description": "ID of the associated Rest API\n",
+                "willReplaceOnChanges": true
+            },
+            "validateRequestBody": {
+                "type": "boolean",
+                "description": "Boolean whether to validate request body. Defaults to `false`.\n"
+            },
+            "validateRequestParameters": {
+                "type": "boolean",
+                "description": "Boolean whether to validate request parameters. Defaults to `false`.\n"
+            }
+        },
+        "type": "object"
+    }
+}

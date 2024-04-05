@@ -1,0 +1,103 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN that uniquely identifies this database.\n"
+        },
+        "databaseName": {
+            "type": "string",
+            "description": "The name of the Timestream database. Minimum length of 3. Maximum length of 64.\n"
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.\n"
+        },
+        "tableCount": {
+            "type": "integer",
+            "description": "The total number of tables found within the Timestream database.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "databaseName",
+        "kmsKeyId",
+        "tableCount",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "databaseName": {
+            "type": "string",
+            "description": "The name of the Timestream database. Minimum length of 3. Maximum length of 64.\n",
+            "willReplaceOnChanges": true
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "databaseName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Database resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN that uniquely identifies this database.\n"
+            },
+            "databaseName": {
+                "type": "string",
+                "description": "The name of the Timestream database. Minimum length of 3. Maximum length of 64.\n",
+                "willReplaceOnChanges": true
+            },
+            "kmsKeyId": {
+                "type": "string",
+                "description": "The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.\n"
+            },
+            "tableCount": {
+                "type": "integer",
+                "description": "The total number of tables found within the Timestream database.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

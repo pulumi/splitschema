@@ -1,0 +1,43 @@
+{
+    "properties": {
+        "captureContentTypeHeader": {
+            "$ref": "#/types/aws:sagemaker/EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader:EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader",
+            "description": "The content type headers to capture. Fields are documented below.\n",
+            "willReplaceOnChanges": true
+        },
+        "captureOptions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:sagemaker/EndpointConfigurationDataCaptureConfigCaptureOption:EndpointConfigurationDataCaptureConfigCaptureOption"
+            },
+            "description": "Specifies what data to capture. Fields are documented below.\n",
+            "willReplaceOnChanges": true
+        },
+        "destinationS3Uri": {
+            "type": "string",
+            "description": "The URL for S3 location where the captured data is stored.\n",
+            "willReplaceOnChanges": true
+        },
+        "enableCapture": {
+            "type": "boolean",
+            "description": "Flag to enable data capture. Defaults to `false`.\n",
+            "willReplaceOnChanges": true
+        },
+        "initialSamplingPercentage": {
+            "type": "integer",
+            "description": "Portion of data to capture. Should be between 0 and 100.\n",
+            "willReplaceOnChanges": true
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "captureOptions",
+        "destinationS3Uri",
+        "initialSamplingPercentage"
+    ]
+}

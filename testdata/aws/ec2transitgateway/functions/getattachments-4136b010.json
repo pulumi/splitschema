@@ -1,0 +1,55 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getAttachments.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2transitgateway/getAttachmentsFilter:getAttachmentsFilter"
+                },
+                "description": "One or more configuration blocks containing name-values filters. Detailed below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                }
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getAttachments.\n",
+        "properties": {
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2transitgateway/getAttachmentsFilter:getAttachmentsFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "ids": {
+                "description": "A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [aws.ec2transitgateway.getAttachment][2] data source, searching by identifier.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            }
+        },
+        "required": [
+            "ids",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

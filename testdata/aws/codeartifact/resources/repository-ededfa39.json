@@ -1,0 +1,181 @@
+{
+    "properties": {
+        "administratorAccount": {
+            "type": "string",
+            "description": "The account number of the AWS account that manages the repository.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the repository.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the repository.\n"
+        },
+        "domain": {
+            "type": "string",
+            "description": "The domain that contains the created repository.\n"
+        },
+        "domainOwner": {
+            "type": "string",
+            "description": "The account number of the AWS account that owns the domain.\n"
+        },
+        "externalConnections": {
+            "$ref": "#/types/aws:codeartifact/RepositoryExternalConnections:RepositoryExternalConnections",
+            "description": "An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.\n"
+        },
+        "repository": {
+            "type": "string",
+            "description": "The name of the repository to create.\n",
+            "language": {
+                "csharp": {
+                    "name": "RepositoryName"
+                }
+            }
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "upstreams": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:codeartifact/RepositoryUpstream:RepositoryUpstream"
+            },
+            "description": "A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream\n"
+        }
+    },
+    "required": [
+        "administratorAccount",
+        "arn",
+        "domain",
+        "domainOwner",
+        "repository",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "The description of the repository.\n"
+        },
+        "domain": {
+            "type": "string",
+            "description": "The domain that contains the created repository.\n",
+            "willReplaceOnChanges": true
+        },
+        "domainOwner": {
+            "type": "string",
+            "description": "The account number of the AWS account that owns the domain.\n",
+            "willReplaceOnChanges": true
+        },
+        "externalConnections": {
+            "$ref": "#/types/aws:codeartifact/RepositoryExternalConnections:RepositoryExternalConnections",
+            "description": "An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.\n"
+        },
+        "repository": {
+            "type": "string",
+            "description": "The name of the repository to create.\n",
+            "language": {
+                "csharp": {
+                    "name": "RepositoryName"
+                }
+            },
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "upstreams": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:codeartifact/RepositoryUpstream:RepositoryUpstream"
+            },
+            "description": "A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream\n"
+        }
+    },
+    "requiredInputs": [
+        "domain",
+        "repository"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Repository resources.\n",
+        "properties": {
+            "administratorAccount": {
+                "type": "string",
+                "description": "The account number of the AWS account that manages the repository.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the repository.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "The description of the repository.\n"
+            },
+            "domain": {
+                "type": "string",
+                "description": "The domain that contains the created repository.\n",
+                "willReplaceOnChanges": true
+            },
+            "domainOwner": {
+                "type": "string",
+                "description": "The account number of the AWS account that owns the domain.\n",
+                "willReplaceOnChanges": true
+            },
+            "externalConnections": {
+                "$ref": "#/types/aws:codeartifact/RepositoryExternalConnections:RepositoryExternalConnections",
+                "description": "An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.\n"
+            },
+            "repository": {
+                "type": "string",
+                "description": "The name of the repository to create.\n",
+                "language": {
+                    "csharp": {
+                        "name": "RepositoryName"
+                    }
+                },
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "upstreams": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:codeartifact/RepositoryUpstream:RepositoryUpstream"
+                },
+                "description": "A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream\n"
+            }
+        },
+        "type": "object"
+    }
+}

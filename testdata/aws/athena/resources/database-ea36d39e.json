@@ -1,0 +1,132 @@
+{
+    "properties": {
+        "aclConfiguration": {
+            "$ref": "#/types/aws:athena/DatabaseAclConfiguration:DatabaseAclConfiguration",
+            "description": "That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.\n"
+        },
+        "bucket": {
+            "type": "string",
+            "description": "Name of S3 bucket to save the results of the query execution.\n"
+        },
+        "comment": {
+            "type": "string",
+            "description": "Description of the database.\n"
+        },
+        "encryptionConfiguration": {
+            "$ref": "#/types/aws:athena/DatabaseEncryptionConfiguration:DatabaseEncryptionConfiguration",
+            "description": "Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.\n"
+        },
+        "expectedBucketOwner": {
+            "type": "string",
+            "description": "AWS account ID that you expect to be the owner of the Amazon S3 bucket.\n"
+        },
+        "forceDestroy": {
+            "type": "boolean",
+            "description": "Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the database to create.\n"
+        },
+        "properties": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of custom metadata properties for the database definition.\n"
+        }
+    },
+    "required": [
+        "name"
+    ],
+    "inputProperties": {
+        "aclConfiguration": {
+            "$ref": "#/types/aws:athena/DatabaseAclConfiguration:DatabaseAclConfiguration",
+            "description": "That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.\n",
+            "willReplaceOnChanges": true
+        },
+        "bucket": {
+            "type": "string",
+            "description": "Name of S3 bucket to save the results of the query execution.\n"
+        },
+        "comment": {
+            "type": "string",
+            "description": "Description of the database.\n",
+            "willReplaceOnChanges": true
+        },
+        "encryptionConfiguration": {
+            "$ref": "#/types/aws:athena/DatabaseEncryptionConfiguration:DatabaseEncryptionConfiguration",
+            "description": "Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.\n",
+            "willReplaceOnChanges": true
+        },
+        "expectedBucketOwner": {
+            "type": "string",
+            "description": "AWS account ID that you expect to be the owner of the Amazon S3 bucket.\n",
+            "willReplaceOnChanges": true
+        },
+        "forceDestroy": {
+            "type": "boolean",
+            "description": "Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the database to create.\n",
+            "willReplaceOnChanges": true
+        },
+        "properties": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of custom metadata properties for the database definition.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Database resources.\n",
+        "properties": {
+            "aclConfiguration": {
+                "$ref": "#/types/aws:athena/DatabaseAclConfiguration:DatabaseAclConfiguration",
+                "description": "That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.\n",
+                "willReplaceOnChanges": true
+            },
+            "bucket": {
+                "type": "string",
+                "description": "Name of S3 bucket to save the results of the query execution.\n"
+            },
+            "comment": {
+                "type": "string",
+                "description": "Description of the database.\n",
+                "willReplaceOnChanges": true
+            },
+            "encryptionConfiguration": {
+                "$ref": "#/types/aws:athena/DatabaseEncryptionConfiguration:DatabaseEncryptionConfiguration",
+                "description": "Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.\n",
+                "willReplaceOnChanges": true
+            },
+            "expectedBucketOwner": {
+                "type": "string",
+                "description": "AWS account ID that you expect to be the owner of the Amazon S3 bucket.\n",
+                "willReplaceOnChanges": true
+            },
+            "forceDestroy": {
+                "type": "boolean",
+                "description": "Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the database to create.\n",
+                "willReplaceOnChanges": true
+            },
+            "properties": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of custom metadata properties for the database definition.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

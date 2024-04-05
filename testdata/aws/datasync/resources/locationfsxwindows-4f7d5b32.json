@@ -1,0 +1,188 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
+        },
+        "creationTime": {
+            "type": "string",
+            "description": "The time that the FSx for Windows location was created.\n"
+        },
+        "domain": {
+            "type": "string",
+            "description": "The name of the Windows domain that the FSx for Windows server belongs to.\n"
+        },
+        "fsxFilesystemArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) for the FSx for Windows file system.\n"
+        },
+        "password": {
+            "type": "string",
+            "description": "The password of the user who has the permissions to access files and folders in the FSx for Windows file system.\n",
+            "secret": true
+        },
+        "securityGroupArns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.\n"
+        },
+        "subdirectory": {
+            "type": "string",
+            "description": "Subdirectory to perform actions as source or destination.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "uri": {
+            "type": "string",
+            "description": "The URL of the FSx for Windows location that was described.\n"
+        },
+        "user": {
+            "type": "string",
+            "description": "The user who has the permissions to access files and folders in the FSx for Windows file system.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "creationTime",
+        "fsxFilesystemArn",
+        "password",
+        "securityGroupArns",
+        "subdirectory",
+        "tagsAll",
+        "uri",
+        "user"
+    ],
+    "inputProperties": {
+        "domain": {
+            "type": "string",
+            "description": "The name of the Windows domain that the FSx for Windows server belongs to.\n",
+            "willReplaceOnChanges": true
+        },
+        "fsxFilesystemArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) for the FSx for Windows file system.\n",
+            "willReplaceOnChanges": true
+        },
+        "password": {
+            "type": "string",
+            "description": "The password of the user who has the permissions to access files and folders in the FSx for Windows file system.\n",
+            "secret": true,
+            "willReplaceOnChanges": true
+        },
+        "securityGroupArns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.\n",
+            "willReplaceOnChanges": true
+        },
+        "subdirectory": {
+            "type": "string",
+            "description": "Subdirectory to perform actions as source or destination.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "user": {
+            "type": "string",
+            "description": "The user who has the permissions to access files and folders in the FSx for Windows file system.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "fsxFilesystemArn",
+        "password",
+        "securityGroupArns",
+        "user"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering LocationFsxWindows resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
+            },
+            "creationTime": {
+                "type": "string",
+                "description": "The time that the FSx for Windows location was created.\n"
+            },
+            "domain": {
+                "type": "string",
+                "description": "The name of the Windows domain that the FSx for Windows server belongs to.\n",
+                "willReplaceOnChanges": true
+            },
+            "fsxFilesystemArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) for the FSx for Windows file system.\n",
+                "willReplaceOnChanges": true
+            },
+            "password": {
+                "type": "string",
+                "description": "The password of the user who has the permissions to access files and folders in the FSx for Windows file system.\n",
+                "secret": true,
+                "willReplaceOnChanges": true
+            },
+            "securityGroupArns": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.\n",
+                "willReplaceOnChanges": true
+            },
+            "subdirectory": {
+                "type": "string",
+                "description": "Subdirectory to perform actions as source or destination.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "uri": {
+                "type": "string",
+                "description": "The URL of the FSx for Windows location that was described.\n"
+            },
+            "user": {
+                "type": "string",
+                "description": "The user who has the permissions to access files and folders in the FSx for Windows file system.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

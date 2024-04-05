@@ -1,0 +1,65 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getDedicatedIpPool.\n",
+        "properties": {
+            "poolName": {
+                "type": "string",
+                "description": "Name of the dedicated IP pool.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags attached to the pool.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "poolName"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getDedicatedIpPool.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the Dedicated IP Pool.\n",
+                "type": "string"
+            },
+            "dedicatedIps": {
+                "description": "A list of objects describing the pool's dedicated IP's. See `dedicated_ips`.\n",
+                "items": {
+                    "$ref": "#/types/aws:sesv2/getDedicatedIpPoolDedicatedIp:getDedicatedIpPoolDedicatedIp"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "poolName": {
+                "type": "string"
+            },
+            "scalingMode": {
+                "description": "(Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags attached to the pool.\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "dedicatedIps",
+            "poolName",
+            "scalingMode",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

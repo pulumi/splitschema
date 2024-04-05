@@ -1,0 +1,180 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getDomain.\n",
+        "properties": {
+            "domainName": {
+                "type": "string",
+                "description": "Name of the domain.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags assigned to the domain.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "domainName"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getDomain.\n",
+        "properties": {
+            "accessPolicies": {
+                "description": "The policy document attached to the domain.\n",
+                "type": "string"
+            },
+            "advancedOptions": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value string pairs to specify advanced configuration options.\n",
+                "type": "object"
+            },
+            "advancedSecurityOptions": {
+                "description": "Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:\n",
+                "items": {
+                    "$ref": "#/types/aws:elasticsearch/getDomainAdvancedSecurityOption:getDomainAdvancedSecurityOption"
+                },
+                "type": "array"
+            },
+            "arn": {
+                "description": "The ARN of the domain.\n",
+                "type": "string"
+            },
+            "autoTuneOptions": {
+                "description": "Configuration of the Auto-Tune options of the domain.\n",
+                "items": {
+                    "$ref": "#/types/aws:elasticsearch/getDomainAutoTuneOption:getDomainAutoTuneOption"
+                },
+                "type": "array"
+            },
+            "clusterConfigs": {
+                "description": "Cluster configuration of the domain.\n",
+                "items": {
+                    "$ref": "#/types/aws:elasticsearch/getDomainClusterConfig:getDomainClusterConfig"
+                },
+                "type": "array"
+            },
+            "cognitoOptions": {
+                "description": "Domain Amazon Cognito Authentication options for Kibana.\n",
+                "items": {
+                    "$ref": "#/types/aws:elasticsearch/getDomainCognitoOption:getDomainCognitoOption"
+                },
+                "type": "array"
+            },
+            "created": {
+                "description": "Status of the creation of the domain.\n",
+                "type": "boolean"
+            },
+            "deleted": {
+                "description": "Status of the deletion of the domain.\n",
+                "type": "boolean"
+            },
+            "domainId": {
+                "description": "Unique identifier for the domain.\n",
+                "type": "string"
+            },
+            "domainName": {
+                "type": "string"
+            },
+            "ebsOptions": {
+                "description": "EBS Options for the instances in the domain.\n",
+                "items": {
+                    "$ref": "#/types/aws:elasticsearch/getDomainEbsOption:getDomainEbsOption"
+                },
+                "type": "array"
+            },
+            "elasticsearchVersion": {
+                "description": "Elasticsearch version for the domain.\n",
+                "type": "string"
+            },
+            "encryptionAtRests": {
+                "description": "Domain encryption at rest related options.\n",
+                "items": {
+                    "$ref": "#/types/aws:elasticsearch/getDomainEncryptionAtRest:getDomainEncryptionAtRest"
+                },
+                "type": "array"
+            },
+            "endpoint": {
+                "description": "Domain-specific endpoint used to submit index, search, and data upload requests.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "kibanaEndpoint": {
+                "description": "Domain-specific endpoint used to access the Kibana application.\n",
+                "type": "string"
+            },
+            "logPublishingOptions": {
+                "description": "Domain log publishing related options.\n",
+                "items": {
+                    "$ref": "#/types/aws:elasticsearch/getDomainLogPublishingOption:getDomainLogPublishingOption"
+                },
+                "type": "array"
+            },
+            "nodeToNodeEncryptions": {
+                "description": "Domain in transit encryption related options.\n",
+                "items": {
+                    "$ref": "#/types/aws:elasticsearch/getDomainNodeToNodeEncryption:getDomainNodeToNodeEncryption"
+                },
+                "type": "array"
+            },
+            "processing": {
+                "description": "Status of a configuration change in the domain.\n",
+                "type": "boolean"
+            },
+            "snapshotOptions": {
+                "description": "Domain snapshot related options.\n",
+                "items": {
+                    "$ref": "#/types/aws:elasticsearch/getDomainSnapshotOption:getDomainSnapshotOption"
+                },
+                "type": "array"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags assigned to the domain.\n",
+                "type": "object"
+            },
+            "vpcOptions": {
+                "description": "VPC Options for private Elasticsearch domains.\n",
+                "items": {
+                    "$ref": "#/types/aws:elasticsearch/getDomainVpcOption:getDomainVpcOption"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "accessPolicies",
+            "advancedOptions",
+            "advancedSecurityOptions",
+            "arn",
+            "autoTuneOptions",
+            "clusterConfigs",
+            "cognitoOptions",
+            "created",
+            "deleted",
+            "domainId",
+            "domainName",
+            "ebsOptions",
+            "elasticsearchVersion",
+            "encryptionAtRests",
+            "endpoint",
+            "kibanaEndpoint",
+            "logPublishingOptions",
+            "nodeToNodeEncryptions",
+            "processing",
+            "snapshotOptions",
+            "tags",
+            "vpcOptions",
+            "id"
+        ],
+        "type": "object"
+    }
+}

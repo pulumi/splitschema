@@ -1,0 +1,95 @@
+{
+    "properties": {
+        "analyzerName": {
+            "type": "string",
+            "description": "Name of the Analyzer.\n\nThe following arguments are optional:\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN of the Analyzer.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "type": {
+            "type": "string",
+            "description": "Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.\n"
+        }
+    },
+    "required": [
+        "analyzerName",
+        "arn",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "analyzerName": {
+            "type": "string",
+            "description": "Name of the Analyzer.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "analyzerName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Analyzer resources.\n",
+        "properties": {
+            "analyzerName": {
+                "type": "string",
+                "description": "Name of the Analyzer.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN of the Analyzer.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "type": {
+                "type": "string",
+                "description": "Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,243 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getCluster.\n",
+        "properties": {
+            "clusterIdentifier": {
+                "type": "string",
+                "description": "Cluster identifier\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags associated to the cluster\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "clusterIdentifier"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getCluster.\n",
+        "properties": {
+            "allowVersionUpgrade": {
+                "description": "Whether major version upgrades can be applied during maintenance period\n",
+                "type": "boolean"
+            },
+            "aquaConfigurationStatus": {
+                "description": "The value represents how the cluster is configured to use AQUA.\n",
+                "type": "string"
+            },
+            "arn": {
+                "description": "ARN of cluster.\n",
+                "type": "string"
+            },
+            "automatedSnapshotRetentionPeriod": {
+                "description": "The backup retention period\n",
+                "type": "integer"
+            },
+            "availabilityZone": {
+                "description": "Availability zone of the cluster\n",
+                "type": "string"
+            },
+            "availabilityZoneRelocationEnabled": {
+                "description": "Indicates whether the cluster is able to be relocated to another availability zone.\n",
+                "type": "boolean"
+            },
+            "bucketName": {
+                "description": "Name of the S3 bucket where the log files are to be stored\n",
+                "type": "string"
+            },
+            "clusterIdentifier": {
+                "description": "Cluster identifier\n",
+                "type": "string"
+            },
+            "clusterNamespaceArn": {
+                "description": "The namespace Amazon Resource Name (ARN) of the cluster\n",
+                "type": "string"
+            },
+            "clusterNodes": {
+                "description": "Nodes in the cluster. Cluster node blocks are documented below\n",
+                "items": {
+                    "$ref": "#/types/aws:redshift/getClusterClusterNode:getClusterClusterNode"
+                },
+                "type": "array"
+            },
+            "clusterParameterGroupName": {
+                "description": "The name of the parameter group to be associated with this cluster\n",
+                "type": "string"
+            },
+            "clusterPublicKey": {
+                "description": "Public key for the cluster\n",
+                "type": "string"
+            },
+            "clusterRevisionNumber": {
+                "description": "The cluster revision number\n",
+                "type": "string"
+            },
+            "clusterSubnetGroupName": {
+                "description": "The name of a cluster subnet group to be associated with this cluster\n",
+                "type": "string"
+            },
+            "clusterType": {
+                "description": "Cluster type\n",
+                "type": "string"
+            },
+            "clusterVersion": {
+                "type": "string"
+            },
+            "databaseName": {
+                "description": "Name of the default database in the cluster\n",
+                "type": "string"
+            },
+            "defaultIamRoleArn": {
+                "description": "The ARN for the IAM role that was set as default for the cluster when the cluster was created.\n",
+                "type": "string"
+            },
+            "elasticIp": {
+                "description": "Elastic IP of the cluster\n",
+                "type": "string"
+            },
+            "enableLogging": {
+                "description": "Whether cluster logging is enabled\n",
+                "type": "boolean"
+            },
+            "encrypted": {
+                "description": "Whether the cluster data is encrypted\n",
+                "type": "boolean"
+            },
+            "endpoint": {
+                "description": "Cluster endpoint\n",
+                "type": "string"
+            },
+            "enhancedVpcRouting": {
+                "description": "Whether enhanced VPC routing is enabled\n",
+                "type": "boolean"
+            },
+            "iamRoles": {
+                "description": "IAM roles associated to the cluster\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "kmsKeyId": {
+                "description": "KMS encryption key associated to the cluster\n",
+                "type": "string"
+            },
+            "logDestinationType": {
+                "description": "The log destination type.\n",
+                "type": "string"
+            },
+            "logExports": {
+                "description": "Collection of exported log types. Log types include the connection log, user log and user activity log.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "maintenanceTrackName": {
+                "description": "The name of the maintenance track for the restored cluster.\n",
+                "type": "string"
+            },
+            "manualSnapshotRetentionPeriod": {
+                "description": "(Optional)  The default number of days to retain a manual snapshot.\n",
+                "type": "integer"
+            },
+            "masterUsername": {
+                "description": "Username for the master DB user\n",
+                "type": "string"
+            },
+            "nodeType": {
+                "description": "Cluster node type\n",
+                "type": "string"
+            },
+            "numberOfNodes": {
+                "description": "Number of nodes in the cluster\n",
+                "type": "integer"
+            },
+            "port": {
+                "description": "Port the cluster responds on\n",
+                "type": "integer"
+            },
+            "preferredMaintenanceWindow": {
+                "description": "The maintenance window\n",
+                "type": "string"
+            },
+            "publiclyAccessible": {
+                "description": "Whether the cluster is publicly accessible\n",
+                "type": "boolean"
+            },
+            "s3KeyPrefix": {
+                "description": "Folder inside the S3 bucket where the log files are stored\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags associated to the cluster\n",
+                "type": "object"
+            },
+            "vpcId": {
+                "description": "VPC Id associated with the cluster\n",
+                "type": "string"
+            },
+            "vpcSecurityGroupIds": {
+                "description": "The VPC security group Ids associated with the cluster\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "allowVersionUpgrade",
+            "aquaConfigurationStatus",
+            "arn",
+            "automatedSnapshotRetentionPeriod",
+            "availabilityZone",
+            "availabilityZoneRelocationEnabled",
+            "bucketName",
+            "clusterIdentifier",
+            "clusterNamespaceArn",
+            "clusterNodes",
+            "clusterParameterGroupName",
+            "clusterPublicKey",
+            "clusterRevisionNumber",
+            "clusterSubnetGroupName",
+            "clusterType",
+            "clusterVersion",
+            "databaseName",
+            "defaultIamRoleArn",
+            "elasticIp",
+            "enableLogging",
+            "encrypted",
+            "endpoint",
+            "enhancedVpcRouting",
+            "iamRoles",
+            "kmsKeyId",
+            "logDestinationType",
+            "logExports",
+            "maintenanceTrackName",
+            "manualSnapshotRetentionPeriod",
+            "masterUsername",
+            "nodeType",
+            "numberOfNodes",
+            "port",
+            "preferredMaintenanceWindow",
+            "publiclyAccessible",
+            "s3KeyPrefix",
+            "vpcId",
+            "vpcSecurityGroupIds",
+            "id"
+        ],
+        "type": "object"
+    }
+}

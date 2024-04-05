@@ -1,0 +1,35 @@
+{
+    "properties": {
+        "cpu": {
+            "type": "number",
+            "description": "The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.\n",
+            "willReplaceOnChanges": true
+        },
+        "memoryLimit": {
+            "type": "integer",
+            "description": "An optional hard limit on the amount of memory a kdb cluster can use.\n",
+            "willReplaceOnChanges": true
+        },
+        "memoryReservation": {
+            "type": "integer",
+            "description": "A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.\n",
+            "willReplaceOnChanges": true
+        },
+        "nodeCount": {
+            "type": "integer",
+            "description": "The number of kdb cluster nodes.\n",
+            "willReplaceOnChanges": true
+        },
+        "scalingGroupName": {
+            "type": "string",
+            "description": "A unique identifier for the kdb scaling group.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "memoryReservation",
+        "nodeCount",
+        "scalingGroupName"
+    ]
+}

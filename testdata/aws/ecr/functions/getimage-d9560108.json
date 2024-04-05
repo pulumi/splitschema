@@ -1,0 +1,80 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getImage.\n",
+        "properties": {
+            "imageDigest": {
+                "type": "string",
+                "description": "Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.\n"
+            },
+            "imageTag": {
+                "type": "string",
+                "description": "Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.\n"
+            },
+            "mostRecent": {
+                "type": "boolean",
+                "description": "Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.\n"
+            },
+            "registryId": {
+                "type": "string",
+                "description": "ID of the Registry where the repository resides.\n"
+            },
+            "repositoryName": {
+                "type": "string",
+                "description": "Name of the ECR Repository.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "repositoryName"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getImage.\n",
+        "properties": {
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "imageDigest": {
+                "type": "string"
+            },
+            "imagePushedAt": {
+                "description": "Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.\n",
+                "type": "integer"
+            },
+            "imageSizeInBytes": {
+                "description": "Size, in bytes, of the image in the repository.\n",
+                "type": "integer"
+            },
+            "imageTag": {
+                "type": "string"
+            },
+            "imageTags": {
+                "description": "List of tags associated with this image.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "mostRecent": {
+                "type": "boolean"
+            },
+            "registryId": {
+                "type": "string"
+            },
+            "repositoryName": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "imageDigest",
+            "imagePushedAt",
+            "imageSizeInBytes",
+            "imageTags",
+            "registryId",
+            "repositoryName",
+            "id"
+        ],
+        "type": "object"
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "properties": {
+        "accountId": {
+            "type": "string",
+            "description": "The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.\n"
+        },
+        "details": {
+            "$ref": "#/types/aws:s3control/MultiRegionAccessPointPolicyDetails:MultiRegionAccessPointPolicyDetails",
+            "description": "A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details\n"
+        },
+        "established": {
+            "type": "string",
+            "description": "The last established policy for the Multi-Region Access Point.\n"
+        },
+        "proposed": {
+            "type": "string",
+            "description": "The proposed policy for the Multi-Region Access Point.\n"
+        }
+    },
+    "required": [
+        "accountId",
+        "details",
+        "established",
+        "proposed"
+    ],
+    "inputProperties": {
+        "accountId": {
+            "type": "string",
+            "description": "The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.\n",
+            "willReplaceOnChanges": true
+        },
+        "details": {
+            "$ref": "#/types/aws:s3control/MultiRegionAccessPointPolicyDetails:MultiRegionAccessPointPolicyDetails",
+            "description": "A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details\n"
+        }
+    },
+    "requiredInputs": [
+        "details"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering MultiRegionAccessPointPolicy resources.\n",
+        "properties": {
+            "accountId": {
+                "type": "string",
+                "description": "The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.\n",
+                "willReplaceOnChanges": true
+            },
+            "details": {
+                "$ref": "#/types/aws:s3control/MultiRegionAccessPointPolicyDetails:MultiRegionAccessPointPolicyDetails",
+                "description": "A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details\n"
+            },
+            "established": {
+                "type": "string",
+                "description": "The last established policy for the Multi-Region Access Point.\n"
+            },
+            "proposed": {
+                "type": "string",
+                "description": "The proposed policy for the Multi-Region Access Point.\n"
+            }
+        },
+        "type": "object"
+    }
+}

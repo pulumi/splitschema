@@ -1,0 +1,25 @@
+{
+    "properties": {
+        "triggerEvents": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.\n"
+        },
+        "triggerName": {
+            "type": "string",
+            "description": "The name of the notification trigger.\n"
+        },
+        "triggerTargetArn": {
+            "type": "string",
+            "description": "The ARN of the SNS topic through which notifications are sent.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "triggerEvents",
+        "triggerName",
+        "triggerTargetArn"
+    ]
+}

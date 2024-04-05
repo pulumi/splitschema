@@ -1,0 +1,28 @@
+{
+    "properties": {
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of security group IDs associated with access to the provided subnets.\n\n**identity_provider** requires the following:\n\n\u003e **NOTE:** `identity_provider` cannot be removed without force recreating.\n"
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.\n"
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "The VPC ID with connectivity to associated websites.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "securityGroupIds",
+        "subnetIds",
+        "vpcId"
+    ]
+}

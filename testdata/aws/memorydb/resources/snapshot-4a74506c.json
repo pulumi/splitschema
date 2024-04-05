@@ -1,0 +1,149 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the snapshot.\n"
+        },
+        "clusterConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:memorydb/SnapshotClusterConfiguration:SnapshotClusterConfiguration"
+            },
+            "description": "The configuration of the cluster from which the snapshot was taken.\n"
+        },
+        "clusterName": {
+            "type": "string",
+            "description": "Name of the MemoryDB cluster to take a snapshot of.\n"
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "ARN of the KMS key used to encrypt the snapshot at rest.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+        },
+        "source": {
+            "type": "string",
+            "description": "Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "clusterConfigurations",
+        "clusterName",
+        "name",
+        "namePrefix",
+        "source",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "clusterName": {
+            "type": "string",
+            "description": "Name of the MemoryDB cluster to take a snapshot of.\n",
+            "willReplaceOnChanges": true
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "ARN of the KMS key used to encrypt the snapshot at rest.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "clusterName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Snapshot resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the snapshot.\n"
+            },
+            "clusterConfigurations": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:memorydb/SnapshotClusterConfiguration:SnapshotClusterConfiguration"
+                },
+                "description": "The configuration of the cluster from which the snapshot was taken.\n"
+            },
+            "clusterName": {
+                "type": "string",
+                "description": "Name of the MemoryDB cluster to take a snapshot of.\n",
+                "willReplaceOnChanges": true
+            },
+            "kmsKeyArn": {
+                "type": "string",
+                "description": "ARN of the KMS key used to encrypt the snapshot at rest.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                "willReplaceOnChanges": true
+            },
+            "source": {
+                "type": "string",
+                "description": "Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

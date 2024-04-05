@@ -1,0 +1,82 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) assigned by AWS to this Image Version.\n"
+        },
+        "baseImage": {
+            "type": "string",
+            "description": "The registry path of the container image on which this image version is based.\n"
+        },
+        "containerImage": {
+            "type": "string",
+            "description": "The registry path of the container image that contains this image version.\n"
+        },
+        "imageArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the image the version is based on.\n"
+        },
+        "imageName": {
+            "type": "string",
+            "description": "The name of the image. Must be unique to your account.\n"
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "arn",
+        "baseImage",
+        "containerImage",
+        "imageArn",
+        "imageName",
+        "version"
+    ],
+    "inputProperties": {
+        "baseImage": {
+            "type": "string",
+            "description": "The registry path of the container image on which this image version is based.\n",
+            "willReplaceOnChanges": true
+        },
+        "imageName": {
+            "type": "string",
+            "description": "The name of the image. Must be unique to your account.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "baseImage",
+        "imageName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ImageVersion resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) assigned by AWS to this Image Version.\n"
+            },
+            "baseImage": {
+                "type": "string",
+                "description": "The registry path of the container image on which this image version is based.\n",
+                "willReplaceOnChanges": true
+            },
+            "containerImage": {
+                "type": "string",
+                "description": "The registry path of the container image that contains this image version.\n"
+            },
+            "imageArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the image the version is based on.\n"
+            },
+            "imageName": {
+                "type": "string",
+                "description": "The name of the image. Must be unique to your account.\n",
+                "willReplaceOnChanges": true
+            },
+            "version": {
+                "type": "integer"
+            }
+        },
+        "type": "object"
+    }
+}

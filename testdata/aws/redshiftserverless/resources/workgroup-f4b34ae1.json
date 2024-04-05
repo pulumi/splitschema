@@ -1,0 +1,224 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.\n"
+        },
+        "baseCapacity": {
+            "type": "integer",
+            "description": "The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).\n"
+        },
+        "configParameters": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:redshiftserverless/WorkgroupConfigParameter:WorkgroupConfigParameter"
+            },
+            "description": "An array of parameters to set for more control over a serverless database. See `Config Parameter` below.\n"
+        },
+        "endpoints": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:redshiftserverless/WorkgroupEndpoint:WorkgroupEndpoint"
+            },
+            "description": "The endpoint that is created from the workgroup. See `Endpoint` below.\n"
+        },
+        "enhancedVpcRouting": {
+            "type": "boolean",
+            "description": "The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.\n"
+        },
+        "namespaceName": {
+            "type": "string",
+            "description": "The name of the namespace.\n"
+        },
+        "publiclyAccessible": {
+            "type": "boolean",
+            "description": "A value that specifies whether the workgroup can be accessed from a public network.\n"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "An array of security group IDs to associate with the workgroup.\n"
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "workgroupId": {
+            "type": "string",
+            "description": "The Redshift Workgroup ID.\n"
+        },
+        "workgroupName": {
+            "type": "string",
+            "description": "The name of the workgroup.\n\nThe following arguments are optional:\n"
+        }
+    },
+    "required": [
+        "arn",
+        "baseCapacity",
+        "configParameters",
+        "endpoints",
+        "namespaceName",
+        "securityGroupIds",
+        "subnetIds",
+        "tagsAll",
+        "workgroupId",
+        "workgroupName"
+    ],
+    "inputProperties": {
+        "baseCapacity": {
+            "type": "integer",
+            "description": "The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).\n"
+        },
+        "configParameters": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:redshiftserverless/WorkgroupConfigParameter:WorkgroupConfigParameter"
+            },
+            "description": "An array of parameters to set for more control over a serverless database. See `Config Parameter` below.\n"
+        },
+        "enhancedVpcRouting": {
+            "type": "boolean",
+            "description": "The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.\n"
+        },
+        "namespaceName": {
+            "type": "string",
+            "description": "The name of the namespace.\n",
+            "willReplaceOnChanges": true
+        },
+        "publiclyAccessible": {
+            "type": "boolean",
+            "description": "A value that specifies whether the workgroup can be accessed from a public network.\n"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "An array of security group IDs to associate with the workgroup.\n"
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "workgroupName": {
+            "type": "string",
+            "description": "The name of the workgroup.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "namespaceName",
+        "workgroupName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Workgroup resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.\n"
+            },
+            "baseCapacity": {
+                "type": "integer",
+                "description": "The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).\n"
+            },
+            "configParameters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:redshiftserverless/WorkgroupConfigParameter:WorkgroupConfigParameter"
+                },
+                "description": "An array of parameters to set for more control over a serverless database. See `Config Parameter` below.\n"
+            },
+            "endpoints": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:redshiftserverless/WorkgroupEndpoint:WorkgroupEndpoint"
+                },
+                "description": "The endpoint that is created from the workgroup. See `Endpoint` below.\n"
+            },
+            "enhancedVpcRouting": {
+                "type": "boolean",
+                "description": "The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.\n"
+            },
+            "namespaceName": {
+                "type": "string",
+                "description": "The name of the namespace.\n",
+                "willReplaceOnChanges": true
+            },
+            "publiclyAccessible": {
+                "type": "boolean",
+                "description": "A value that specifies whether the workgroup can be accessed from a public network.\n"
+            },
+            "securityGroupIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "An array of security group IDs to associate with the workgroup.\n"
+            },
+            "subnetIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "workgroupId": {
+                "type": "string",
+                "description": "The Redshift Workgroup ID.\n"
+            },
+            "workgroupName": {
+                "type": "string",
+                "description": "The name of the workgroup.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,158 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The template assessment ARN.\n"
+        },
+        "duration": {
+            "type": "integer",
+            "description": "The duration of the inspector run.\n"
+        },
+        "eventSubscriptions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:inspector/AssessmentTemplateEventSubscription:AssessmentTemplateEventSubscription"
+            },
+            "description": "A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the assessment template.\n"
+        },
+        "rulesPackageArns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The rules to be used during the run.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "targetArn": {
+            "type": "string",
+            "description": "The assessment target ARN to attach the template to.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "duration",
+        "name",
+        "rulesPackageArns",
+        "tagsAll",
+        "targetArn"
+    ],
+    "inputProperties": {
+        "duration": {
+            "type": "integer",
+            "description": "The duration of the inspector run.\n",
+            "willReplaceOnChanges": true
+        },
+        "eventSubscriptions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:inspector/AssessmentTemplateEventSubscription:AssessmentTemplateEventSubscription"
+            },
+            "description": "A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the assessment template.\n",
+            "willReplaceOnChanges": true
+        },
+        "rulesPackageArns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The rules to be used during the run.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "targetArn": {
+            "type": "string",
+            "description": "The assessment target ARN to attach the template to.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "duration",
+        "rulesPackageArns",
+        "targetArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering AssessmentTemplate resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The template assessment ARN.\n"
+            },
+            "duration": {
+                "type": "integer",
+                "description": "The duration of the inspector run.\n",
+                "willReplaceOnChanges": true
+            },
+            "eventSubscriptions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:inspector/AssessmentTemplateEventSubscription:AssessmentTemplateEventSubscription"
+                },
+                "description": "A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the assessment template.\n",
+                "willReplaceOnChanges": true
+            },
+            "rulesPackageArns": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "The rules to be used during the run.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "targetArn": {
+                "type": "string",
+                "description": "The assessment target ARN to attach the template to.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,107 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getDevice.\n",
+        "properties": {
+            "deviceId": {
+                "type": "string",
+                "description": "ID of the device.\n"
+            },
+            "globalNetworkId": {
+                "type": "string",
+                "description": "ID of the global network.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value tags for the device.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "deviceId",
+            "globalNetworkId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getDevice.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the device.\n",
+                "type": "string"
+            },
+            "awsLocations": {
+                "description": "AWS location of the device. Documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:networkmanager/getDeviceAwsLocation:getDeviceAwsLocation"
+                },
+                "type": "array"
+            },
+            "description": {
+                "description": "Description of the device.\n",
+                "type": "string"
+            },
+            "deviceId": {
+                "type": "string"
+            },
+            "globalNetworkId": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "locations": {
+                "description": "Location of the device. Documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:networkmanager/getDeviceLocation:getDeviceLocation"
+                },
+                "type": "array"
+            },
+            "model": {
+                "description": "Model of device.\n",
+                "type": "string"
+            },
+            "serialNumber": {
+                "description": "Serial number of the device.\n",
+                "type": "string"
+            },
+            "siteId": {
+                "description": "ID of the site.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value tags for the device.\n",
+                "type": "object"
+            },
+            "type": {
+                "description": "Type of device.\n",
+                "type": "string"
+            },
+            "vendor": {
+                "description": "Vendor of the device.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "awsLocations",
+            "description",
+            "deviceId",
+            "globalNetworkId",
+            "locations",
+            "model",
+            "serialNumber",
+            "siteId",
+            "tags",
+            "type",
+            "vendor",
+            "id"
+        ],
+        "type": "object"
+    }
+}

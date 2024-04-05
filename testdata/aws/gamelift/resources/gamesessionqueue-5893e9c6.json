@@ -1,0 +1,156 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Game Session Queue ARN.\n"
+        },
+        "customEventData": {
+            "type": "string",
+            "description": "Information to be added to all events that are related to this game session queue.\n"
+        },
+        "destinations": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of fleet/alias ARNs used by session queue for placing game sessions.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the session queue.\n"
+        },
+        "notificationTarget": {
+            "type": "string",
+            "description": "An SNS topic ARN that is set up to receive game session placement notifications.\n"
+        },
+        "playerLatencyPolicies": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:gamelift/GameSessionQueuePlayerLatencyPolicy:GameSessionQueuePlayerLatencyPolicy"
+            },
+            "description": "One or more policies used to choose fleet based on player latency. See below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "timeoutInSeconds": {
+            "type": "integer",
+            "description": "Maximum time a game session request can remain in the queue.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "customEventData": {
+            "type": "string",
+            "description": "Information to be added to all events that are related to this game session queue.\n"
+        },
+        "destinations": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of fleet/alias ARNs used by session queue for placing game sessions.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the session queue.\n",
+            "willReplaceOnChanges": true
+        },
+        "notificationTarget": {
+            "type": "string",
+            "description": "An SNS topic ARN that is set up to receive game session placement notifications.\n"
+        },
+        "playerLatencyPolicies": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:gamelift/GameSessionQueuePlayerLatencyPolicy:GameSessionQueuePlayerLatencyPolicy"
+            },
+            "description": "One or more policies used to choose fleet based on player latency. See below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "timeoutInSeconds": {
+            "type": "integer",
+            "description": "Maximum time a game session request can remain in the queue.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering GameSessionQueue resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Game Session Queue ARN.\n"
+            },
+            "customEventData": {
+                "type": "string",
+                "description": "Information to be added to all events that are related to this game session queue.\n"
+            },
+            "destinations": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of fleet/alias ARNs used by session queue for placing game sessions.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the session queue.\n",
+                "willReplaceOnChanges": true
+            },
+            "notificationTarget": {
+                "type": "string",
+                "description": "An SNS topic ARN that is set up to receive game session placement notifications.\n"
+            },
+            "playerLatencyPolicies": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:gamelift/GameSessionQueuePlayerLatencyPolicy:GameSessionQueuePlayerLatencyPolicy"
+                },
+                "description": "One or more policies used to choose fleet based on player latency. See below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "timeoutInSeconds": {
+                "type": "integer",
+                "description": "Maximum time a game session request can remain in the queue.\n"
+            }
+        },
+        "type": "object"
+    }
+}

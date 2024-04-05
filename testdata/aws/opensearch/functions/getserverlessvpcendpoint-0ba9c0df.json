@@ -1,0 +1,63 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getServerlessVpcEndpoint.\n",
+        "properties": {
+            "vpcEndpointId": {
+                "type": "string",
+                "description": "The unique identifier of the endpoint.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "vpcEndpointId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getServerlessVpcEndpoint.\n",
+        "properties": {
+            "createdDate": {
+                "description": "The date the endpoint was created.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "name": {
+                "description": "The name of the endpoint.\n",
+                "type": "string"
+            },
+            "securityGroupIds": {
+                "description": "The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "subnetIds": {
+                "description": "The IDs of the subnets from which you access OpenSearch Serverless.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "vpcEndpointId": {
+                "type": "string"
+            },
+            "vpcId": {
+                "description": "The ID of the VPC from which you access OpenSearch Serverless.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "createdDate",
+            "name",
+            "securityGroupIds",
+            "subnetIds",
+            "vpcEndpointId",
+            "vpcId",
+            "id"
+        ],
+        "type": "object"
+    }
+}

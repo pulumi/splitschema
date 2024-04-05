@@ -1,0 +1,174 @@
+{
+    "properties": {
+        "apiId": {
+            "type": "string",
+            "description": "ID of the associated AppSync API.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN of the Function object.\n"
+        },
+        "code": {
+            "type": "string",
+            "description": "The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.\n"
+        },
+        "dataSource": {
+            "type": "string",
+            "description": "Function data source name.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Function description.\n"
+        },
+        "functionId": {
+            "type": "string",
+            "description": "Unique ID representing the Function object.\n"
+        },
+        "functionVersion": {
+            "type": "string",
+            "description": "Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.\n"
+        },
+        "maxBatchSize": {
+            "type": "integer",
+            "description": "Maximum batching size for a resolver. Valid values are between `0` and `2000`.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Function name. The function name does not have to be unique.\n"
+        },
+        "requestMappingTemplate": {
+            "type": "string",
+            "description": "Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.\n"
+        },
+        "responseMappingTemplate": {
+            "type": "string",
+            "description": "Function response mapping template.\n"
+        },
+        "runtime": {
+            "$ref": "#/types/aws:appsync/FunctionRuntime:FunctionRuntime",
+            "description": "Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.\n"
+        },
+        "syncConfig": {
+            "$ref": "#/types/aws:appsync/FunctionSyncConfig:FunctionSyncConfig",
+            "description": "Describes a Sync configuration for a resolver. See Sync Config.\n"
+        }
+    },
+    "required": [
+        "apiId",
+        "arn",
+        "dataSource",
+        "functionId",
+        "functionVersion",
+        "name"
+    ],
+    "inputProperties": {
+        "apiId": {
+            "type": "string",
+            "description": "ID of the associated AppSync API.\n",
+            "willReplaceOnChanges": true
+        },
+        "code": {
+            "type": "string",
+            "description": "The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.\n"
+        },
+        "dataSource": {
+            "type": "string",
+            "description": "Function data source name.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Function description.\n"
+        },
+        "functionVersion": {
+            "type": "string",
+            "description": "Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.\n"
+        },
+        "maxBatchSize": {
+            "type": "integer",
+            "description": "Maximum batching size for a resolver. Valid values are between `0` and `2000`.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Function name. The function name does not have to be unique.\n"
+        },
+        "requestMappingTemplate": {
+            "type": "string",
+            "description": "Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.\n"
+        },
+        "responseMappingTemplate": {
+            "type": "string",
+            "description": "Function response mapping template.\n"
+        },
+        "runtime": {
+            "$ref": "#/types/aws:appsync/FunctionRuntime:FunctionRuntime",
+            "description": "Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.\n"
+        },
+        "syncConfig": {
+            "$ref": "#/types/aws:appsync/FunctionSyncConfig:FunctionSyncConfig",
+            "description": "Describes a Sync configuration for a resolver. See Sync Config.\n"
+        }
+    },
+    "requiredInputs": [
+        "apiId",
+        "dataSource"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Function resources.\n",
+        "properties": {
+            "apiId": {
+                "type": "string",
+                "description": "ID of the associated AppSync API.\n",
+                "willReplaceOnChanges": true
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN of the Function object.\n"
+            },
+            "code": {
+                "type": "string",
+                "description": "The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.\n"
+            },
+            "dataSource": {
+                "type": "string",
+                "description": "Function data source name.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Function description.\n"
+            },
+            "functionId": {
+                "type": "string",
+                "description": "Unique ID representing the Function object.\n"
+            },
+            "functionVersion": {
+                "type": "string",
+                "description": "Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.\n"
+            },
+            "maxBatchSize": {
+                "type": "integer",
+                "description": "Maximum batching size for a resolver. Valid values are between `0` and `2000`.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Function name. The function name does not have to be unique.\n"
+            },
+            "requestMappingTemplate": {
+                "type": "string",
+                "description": "Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.\n"
+            },
+            "responseMappingTemplate": {
+                "type": "string",
+                "description": "Function response mapping template.\n"
+            },
+            "runtime": {
+                "$ref": "#/types/aws:appsync/FunctionRuntime:FunctionRuntime",
+                "description": "Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.\n"
+            },
+            "syncConfig": {
+                "$ref": "#/types/aws:appsync/FunctionSyncConfig:FunctionSyncConfig",
+                "description": "Describes a Sync configuration for a resolver. See Sync Config.\n"
+            }
+        },
+        "type": "object"
+    }
+}

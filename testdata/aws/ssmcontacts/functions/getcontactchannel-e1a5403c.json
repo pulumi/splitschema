@@ -1,0 +1,60 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getContactChannel.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the contact channel.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "arn"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getContactChannel.\n",
+        "properties": {
+            "activationStatus": {
+                "description": "Whether the contact channel is activated.\n",
+                "type": "string"
+            },
+            "arn": {
+                "type": "string"
+            },
+            "contactId": {
+                "description": "Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.\n",
+                "type": "string"
+            },
+            "deliveryAddresses": {
+                "description": "Details used to engage the contact channel.\n",
+                "items": {
+                    "$ref": "#/types/aws:ssmcontacts/getContactChannelDeliveryAddress:getContactChannelDeliveryAddress"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "name": {
+                "description": "Name of the contact channel.\n",
+                "type": "string"
+            },
+            "type": {
+                "description": "Type of the contact channel.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "activationStatus",
+            "arn",
+            "contactId",
+            "deliveryAddresses",
+            "name",
+            "type",
+            "id"
+        ],
+        "type": "object"
+    }
+}

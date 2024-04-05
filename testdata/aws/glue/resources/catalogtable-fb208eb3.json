@@ -1,0 +1,247 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the Glue Table.\n"
+        },
+        "catalogId": {
+            "type": "string",
+            "description": "ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.\n"
+        },
+        "databaseName": {
+            "type": "string",
+            "description": "Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.\n\nThe follow arguments are optional:\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the table.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the table. For Hive compatibility, this must be entirely lowercase.\n"
+        },
+        "openTableFormatInput": {
+            "$ref": "#/types/aws:glue/CatalogTableOpenTableFormatInput:CatalogTableOpenTableFormatInput",
+            "description": "Configuration block for open table formats. See `open_table_format_input` below.\n"
+        },
+        "owner": {
+            "type": "string",
+            "description": "Owner of the table.\n"
+        },
+        "parameters": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Properties associated with this table, as a list of key-value pairs.\n"
+        },
+        "partitionIndices": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/CatalogTablePartitionIndex:CatalogTablePartitionIndex"
+            },
+            "description": "Configuration block for a maximum of 3 partition indexes. See `partition_index` below.\n"
+        },
+        "partitionKeys": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/CatalogTablePartitionKey:CatalogTablePartitionKey"
+            },
+            "description": "Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.\n"
+        },
+        "retention": {
+            "type": "integer",
+            "description": "Retention time for this table.\n"
+        },
+        "storageDescriptor": {
+            "$ref": "#/types/aws:glue/CatalogTableStorageDescriptor:CatalogTableStorageDescriptor",
+            "description": "Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.\n"
+        },
+        "tableType": {
+            "type": "string",
+            "description": "Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.\n"
+        },
+        "targetTable": {
+            "$ref": "#/types/aws:glue/CatalogTableTargetTable:CatalogTableTargetTable",
+            "description": "Configuration block of a target table for resource linking. See `target_table` below.\n"
+        },
+        "viewExpandedText": {
+            "type": "string",
+            "description": "If the table is a view, the expanded text of the view; otherwise null.\n"
+        },
+        "viewOriginalText": {
+            "type": "string",
+            "description": "If the table is a view, the original text of the view; otherwise null.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "catalogId",
+        "databaseName",
+        "name",
+        "partitionIndices"
+    ],
+    "inputProperties": {
+        "catalogId": {
+            "type": "string",
+            "description": "ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.\n",
+            "willReplaceOnChanges": true
+        },
+        "databaseName": {
+            "type": "string",
+            "description": "Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.\n\nThe follow arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the table.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the table. For Hive compatibility, this must be entirely lowercase.\n",
+            "willReplaceOnChanges": true
+        },
+        "openTableFormatInput": {
+            "$ref": "#/types/aws:glue/CatalogTableOpenTableFormatInput:CatalogTableOpenTableFormatInput",
+            "description": "Configuration block for open table formats. See `open_table_format_input` below.\n"
+        },
+        "owner": {
+            "type": "string",
+            "description": "Owner of the table.\n"
+        },
+        "parameters": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Properties associated with this table, as a list of key-value pairs.\n"
+        },
+        "partitionIndices": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/CatalogTablePartitionIndex:CatalogTablePartitionIndex"
+            },
+            "description": "Configuration block for a maximum of 3 partition indexes. See `partition_index` below.\n",
+            "willReplaceOnChanges": true
+        },
+        "partitionKeys": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/CatalogTablePartitionKey:CatalogTablePartitionKey"
+            },
+            "description": "Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.\n"
+        },
+        "retention": {
+            "type": "integer",
+            "description": "Retention time for this table.\n"
+        },
+        "storageDescriptor": {
+            "$ref": "#/types/aws:glue/CatalogTableStorageDescriptor:CatalogTableStorageDescriptor",
+            "description": "Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.\n"
+        },
+        "tableType": {
+            "type": "string",
+            "description": "Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.\n"
+        },
+        "targetTable": {
+            "$ref": "#/types/aws:glue/CatalogTableTargetTable:CatalogTableTargetTable",
+            "description": "Configuration block of a target table for resource linking. See `target_table` below.\n",
+            "willReplaceOnChanges": true
+        },
+        "viewExpandedText": {
+            "type": "string",
+            "description": "If the table is a view, the expanded text of the view; otherwise null.\n"
+        },
+        "viewOriginalText": {
+            "type": "string",
+            "description": "If the table is a view, the original text of the view; otherwise null.\n"
+        }
+    },
+    "requiredInputs": [
+        "databaseName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering CatalogTable resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the Glue Table.\n"
+            },
+            "catalogId": {
+                "type": "string",
+                "description": "ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.\n",
+                "willReplaceOnChanges": true
+            },
+            "databaseName": {
+                "type": "string",
+                "description": "Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.\n\nThe follow arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the table.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the table. For Hive compatibility, this must be entirely lowercase.\n",
+                "willReplaceOnChanges": true
+            },
+            "openTableFormatInput": {
+                "$ref": "#/types/aws:glue/CatalogTableOpenTableFormatInput:CatalogTableOpenTableFormatInput",
+                "description": "Configuration block for open table formats. See `open_table_format_input` below.\n"
+            },
+            "owner": {
+                "type": "string",
+                "description": "Owner of the table.\n"
+            },
+            "parameters": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Properties associated with this table, as a list of key-value pairs.\n"
+            },
+            "partitionIndices": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:glue/CatalogTablePartitionIndex:CatalogTablePartitionIndex"
+                },
+                "description": "Configuration block for a maximum of 3 partition indexes. See `partition_index` below.\n",
+                "willReplaceOnChanges": true
+            },
+            "partitionKeys": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:glue/CatalogTablePartitionKey:CatalogTablePartitionKey"
+                },
+                "description": "Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.\n"
+            },
+            "retention": {
+                "type": "integer",
+                "description": "Retention time for this table.\n"
+            },
+            "storageDescriptor": {
+                "$ref": "#/types/aws:glue/CatalogTableStorageDescriptor:CatalogTableStorageDescriptor",
+                "description": "Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.\n"
+            },
+            "tableType": {
+                "type": "string",
+                "description": "Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.\n"
+            },
+            "targetTable": {
+                "$ref": "#/types/aws:glue/CatalogTableTargetTable:CatalogTableTargetTable",
+                "description": "Configuration block of a target table for resource linking. See `target_table` below.\n",
+                "willReplaceOnChanges": true
+            },
+            "viewExpandedText": {
+                "type": "string",
+                "description": "If the table is a view, the expanded text of the view; otherwise null.\n"
+            },
+            "viewOriginalText": {
+                "type": "string",
+                "description": "If the table is a view, the original text of the view; otherwise null.\n"
+            }
+        },
+        "type": "object"
+    }
+}

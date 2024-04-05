@@ -1,0 +1,96 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getResponsePlan.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the response plan.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "The tags applied to the response plan.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "arn"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getResponsePlan.\n",
+        "properties": {
+            "actions": {
+                "description": "(Optional) The actions that the response plan starts at the beginning of an incident.\n",
+                "items": {
+                    "$ref": "#/types/aws:ssmincidents/getResponsePlanAction:getResponsePlanAction"
+                },
+                "type": "array"
+            },
+            "arn": {
+                "type": "string"
+            },
+            "chatChannels": {
+                "description": "The Chatbot chat channel used for collaboration during an incident.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "displayName": {
+                "description": "The long format of the response plan name. This field can contain spaces.\n",
+                "type": "string"
+            },
+            "engagements": {
+                "description": "The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "incidentTemplates": {
+                "items": {
+                    "$ref": "#/types/aws:ssmincidents/getResponsePlanIncidentTemplate:getResponsePlanIncidentTemplate"
+                },
+                "type": "array"
+            },
+            "integrations": {
+                "description": "Information about third-party services integrated into the response plan. The following values are supported:\n",
+                "items": {
+                    "$ref": "#/types/aws:ssmincidents/getResponsePlanIntegration:getResponsePlanIntegration"
+                },
+                "type": "array"
+            },
+            "name": {
+                "description": "The name of the PagerDuty configuration.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "The tags applied to the response plan.\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "actions",
+            "arn",
+            "chatChannels",
+            "displayName",
+            "engagements",
+            "incidentTemplates",
+            "integrations",
+            "name",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

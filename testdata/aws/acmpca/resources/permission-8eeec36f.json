@@ -1,0 +1,97 @@
+{
+    "properties": {
+        "actions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.\n"
+        },
+        "certificateAuthorityArn": {
+            "type": "string",
+            "description": "ARN of the CA that grants the permissions.\n"
+        },
+        "policy": {
+            "type": "string",
+            "description": "IAM policy that is associated with the permission.\n"
+        },
+        "principal": {
+            "type": "string",
+            "description": "AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.\n"
+        },
+        "sourceAccount": {
+            "type": "string",
+            "description": "ID of the calling account\n"
+        }
+    },
+    "required": [
+        "actions",
+        "certificateAuthorityArn",
+        "policy",
+        "principal",
+        "sourceAccount"
+    ],
+    "inputProperties": {
+        "actions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.\n",
+            "willReplaceOnChanges": true
+        },
+        "certificateAuthorityArn": {
+            "type": "string",
+            "description": "ARN of the CA that grants the permissions.\n",
+            "willReplaceOnChanges": true
+        },
+        "principal": {
+            "type": "string",
+            "description": "AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.\n",
+            "willReplaceOnChanges": true
+        },
+        "sourceAccount": {
+            "type": "string",
+            "description": "ID of the calling account\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "actions",
+        "certificateAuthorityArn",
+        "principal"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Permission resources.\n",
+        "properties": {
+            "actions": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.\n",
+                "willReplaceOnChanges": true
+            },
+            "certificateAuthorityArn": {
+                "type": "string",
+                "description": "ARN of the CA that grants the permissions.\n",
+                "willReplaceOnChanges": true
+            },
+            "policy": {
+                "type": "string",
+                "description": "IAM policy that is associated with the permission.\n"
+            },
+            "principal": {
+                "type": "string",
+                "description": "AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.\n",
+                "willReplaceOnChanges": true
+            },
+            "sourceAccount": {
+                "type": "string",
+                "description": "ID of the calling account\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

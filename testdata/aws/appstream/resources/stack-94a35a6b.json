@@ -1,0 +1,249 @@
+{
+    "properties": {
+        "accessEndpoints": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:appstream/StackAccessEndpoint:StackAccessEndpoint"
+            },
+            "description": "Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.\nSee `access_endpoints` below.\n"
+        },
+        "applicationSettings": {
+            "$ref": "#/types/aws:appstream/StackApplicationSettings:StackApplicationSettings",
+            "description": "Settings for application settings persistence.\nSee `application_settings` below.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN of the appstream stack.\n"
+        },
+        "createdTime": {
+            "type": "string",
+            "description": "Date and time, in UTC and extended RFC 3339 format, when the stack was created.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the AppStream stack.\n"
+        },
+        "displayName": {
+            "type": "string",
+            "description": "Stack name to display.\n"
+        },
+        "embedHostDomains": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.\n"
+        },
+        "feedbackUrl": {
+            "type": "string",
+            "description": "URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Unique name for the AppStream stack.\n\nThe following arguments are optional:\n"
+        },
+        "redirectUrl": {
+            "type": "string",
+            "description": "URL that users are redirected to after their streaming session ends.\n"
+        },
+        "storageConnectors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:appstream/StackStorageConnector:StackStorageConnector"
+            },
+            "description": "Configuration block for the storage connectors to enable.\nSee `storage_connectors` below.\n"
+        },
+        "streamingExperienceSettings": {
+            "$ref": "#/types/aws:appstream/StackStreamingExperienceSettings:StackStreamingExperienceSettings",
+            "description": "The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.\nSee `streaming_experience_settings` below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "userSettings": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:appstream/StackUserSetting:StackUserSetting"
+            },
+            "description": "Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.\nSee `user_settings` below.\n"
+        }
+    },
+    "required": [
+        "accessEndpoints",
+        "applicationSettings",
+        "arn",
+        "createdTime",
+        "embedHostDomains",
+        "feedbackUrl",
+        "name",
+        "redirectUrl",
+        "storageConnectors",
+        "streamingExperienceSettings",
+        "tagsAll",
+        "userSettings"
+    ],
+    "inputProperties": {
+        "accessEndpoints": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:appstream/StackAccessEndpoint:StackAccessEndpoint"
+            },
+            "description": "Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.\nSee `access_endpoints` below.\n"
+        },
+        "applicationSettings": {
+            "$ref": "#/types/aws:appstream/StackApplicationSettings:StackApplicationSettings",
+            "description": "Settings for application settings persistence.\nSee `application_settings` below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the AppStream stack.\n"
+        },
+        "displayName": {
+            "type": "string",
+            "description": "Stack name to display.\n"
+        },
+        "embedHostDomains": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.\n"
+        },
+        "feedbackUrl": {
+            "type": "string",
+            "description": "URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Unique name for the AppStream stack.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "redirectUrl": {
+            "type": "string",
+            "description": "URL that users are redirected to after their streaming session ends.\n"
+        },
+        "storageConnectors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:appstream/StackStorageConnector:StackStorageConnector"
+            },
+            "description": "Configuration block for the storage connectors to enable.\nSee `storage_connectors` below.\n"
+        },
+        "streamingExperienceSettings": {
+            "$ref": "#/types/aws:appstream/StackStreamingExperienceSettings:StackStreamingExperienceSettings",
+            "description": "The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.\nSee `streaming_experience_settings` below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "userSettings": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:appstream/StackUserSetting:StackUserSetting"
+            },
+            "description": "Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.\nSee `user_settings` below.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Stack resources.\n",
+        "properties": {
+            "accessEndpoints": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:appstream/StackAccessEndpoint:StackAccessEndpoint"
+                },
+                "description": "Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.\nSee `access_endpoints` below.\n"
+            },
+            "applicationSettings": {
+                "$ref": "#/types/aws:appstream/StackApplicationSettings:StackApplicationSettings",
+                "description": "Settings for application settings persistence.\nSee `application_settings` below.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN of the appstream stack.\n"
+            },
+            "createdTime": {
+                "type": "string",
+                "description": "Date and time, in UTC and extended RFC 3339 format, when the stack was created.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description for the AppStream stack.\n"
+            },
+            "displayName": {
+                "type": "string",
+                "description": "Stack name to display.\n"
+            },
+            "embedHostDomains": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.\n"
+            },
+            "feedbackUrl": {
+                "type": "string",
+                "description": "URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Unique name for the AppStream stack.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "redirectUrl": {
+                "type": "string",
+                "description": "URL that users are redirected to after their streaming session ends.\n"
+            },
+            "storageConnectors": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:appstream/StackStorageConnector:StackStorageConnector"
+                },
+                "description": "Configuration block for the storage connectors to enable.\nSee `storage_connectors` below.\n"
+            },
+            "streamingExperienceSettings": {
+                "$ref": "#/types/aws:appstream/StackStreamingExperienceSettings:StackStreamingExperienceSettings",
+                "description": "The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.\nSee `streaming_experience_settings` below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "userSettings": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:appstream/StackUserSetting:StackUserSetting"
+                },
+                "description": "Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.\nSee `user_settings` below.\n"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "properties": {
+        "ipFamily": {
+            "type": "string",
+            "description": "`ipv4` or `ipv6`.\n"
+        },
+        "serviceIpv4Cidr": {
+            "type": "string",
+            "description": "The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.\n"
+        },
+        "serviceIpv6Cidr": {
+            "type": "string",
+            "description": "The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "ipFamily",
+        "serviceIpv4Cidr",
+        "serviceIpv6Cidr"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredInputs": []
+        }
+    }
+}

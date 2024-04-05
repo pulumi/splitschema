@@ -1,0 +1,84 @@
+{
+    "properties": {
+        "creationTime": {
+            "type": "string",
+            "description": "When the replication configuration was created.\n"
+        },
+        "destination": {
+            "$ref": "#/types/aws:efs/ReplicationConfigurationDestination:ReplicationConfigurationDestination",
+            "description": "A destination configuration block (documented below).\n"
+        },
+        "originalSourceFileSystemArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.\n"
+        },
+        "sourceFileSystemArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the current source file system in the replication configuration.\n"
+        },
+        "sourceFileSystemId": {
+            "type": "string",
+            "description": "The ID of the file system that is to be replicated.\n"
+        },
+        "sourceFileSystemRegion": {
+            "type": "string",
+            "description": "The AWS Region in which the source Amazon EFS file system is located.\n* `destination[0].file_system_id` - The fs ID of the replica.\n* `destination[0].status` - The status of the replication.\n"
+        }
+    },
+    "required": [
+        "creationTime",
+        "destination",
+        "originalSourceFileSystemArn",
+        "sourceFileSystemArn",
+        "sourceFileSystemId",
+        "sourceFileSystemRegion"
+    ],
+    "inputProperties": {
+        "destination": {
+            "$ref": "#/types/aws:efs/ReplicationConfigurationDestination:ReplicationConfigurationDestination",
+            "description": "A destination configuration block (documented below).\n",
+            "willReplaceOnChanges": true
+        },
+        "sourceFileSystemId": {
+            "type": "string",
+            "description": "The ID of the file system that is to be replicated.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "destination",
+        "sourceFileSystemId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ReplicationConfiguration resources.\n",
+        "properties": {
+            "creationTime": {
+                "type": "string",
+                "description": "When the replication configuration was created.\n"
+            },
+            "destination": {
+                "$ref": "#/types/aws:efs/ReplicationConfigurationDestination:ReplicationConfigurationDestination",
+                "description": "A destination configuration block (documented below).\n",
+                "willReplaceOnChanges": true
+            },
+            "originalSourceFileSystemArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.\n"
+            },
+            "sourceFileSystemArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the current source file system in the replication configuration.\n"
+            },
+            "sourceFileSystemId": {
+                "type": "string",
+                "description": "The ID of the file system that is to be replicated.\n",
+                "willReplaceOnChanges": true
+            },
+            "sourceFileSystemRegion": {
+                "type": "string",
+                "description": "The AWS Region in which the source Amazon EFS file system is located.\n* `destination[0].file_system_id` - The fs ID of the replica.\n* `destination[0].status` - The status of the replication.\n"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,113 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getZone.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Hosted Zone name of the desired Hosted Zone.\n"
+            },
+            "privateZone": {
+                "type": "boolean",
+                "description": "Used with `name` field to get a private Hosted Zone.\n"
+            },
+            "resourceRecordSetCount": {
+                "type": "integer",
+                "description": "The number of Record Set in the Hosted Zone.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.\n"
+            },
+            "vpcId": {
+                "type": "string",
+                "description": "Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).\n"
+            },
+            "zoneId": {
+                "type": "string",
+                "description": "Hosted Zone id of the desired Hosted Zone.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getZone.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the Hosted Zone.\n",
+                "type": "string"
+            },
+            "callerReference": {
+                "description": "Caller Reference of the Hosted Zone.\n",
+                "type": "string"
+            },
+            "comment": {
+                "description": "Comment field of the Hosted Zone.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "linkedServiceDescription": {
+                "description": "The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).\n",
+                "type": "string"
+            },
+            "linkedServicePrincipal": {
+                "description": "The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).\n",
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "nameServers": {
+                "description": "List of DNS name servers for the Hosted Zone.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "primaryNameServer": {
+                "description": "The Route 53 name server that created the SOA record.\n",
+                "type": "string"
+            },
+            "privateZone": {
+                "type": "boolean"
+            },
+            "resourceRecordSetCount": {
+                "description": "The number of Record Set in the Hosted Zone.\n",
+                "type": "integer"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            },
+            "vpcId": {
+                "type": "string"
+            },
+            "zoneId": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "callerReference",
+            "comment",
+            "linkedServiceDescription",
+            "linkedServicePrincipal",
+            "name",
+            "nameServers",
+            "primaryNameServer",
+            "resourceRecordSetCount",
+            "tags",
+            "vpcId",
+            "zoneId",
+            "id"
+        ],
+        "type": "object"
+    }
+}

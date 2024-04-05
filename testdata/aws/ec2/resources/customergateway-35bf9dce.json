@@ -1,0 +1,139 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the customer gateway.\n"
+        },
+        "bgpAsn": {
+            "type": "string",
+            "description": "The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).\n"
+        },
+        "certificateArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) for the customer gateway certificate.\n"
+        },
+        "deviceName": {
+            "type": "string",
+            "description": "A name for the customer gateway device.\n"
+        },
+        "ipAddress": {
+            "type": "string",
+            "description": "The IPv4 address for the customer gateway device's outside interface.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "type": {
+            "type": "string",
+            "description": "The type of customer gateway. The only type AWS\nsupports at this time is \"ipsec.1\".\n"
+        }
+    },
+    "required": [
+        "arn",
+        "bgpAsn",
+        "tagsAll",
+        "type"
+    ],
+    "inputProperties": {
+        "bgpAsn": {
+            "type": "string",
+            "description": "The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).\n",
+            "willReplaceOnChanges": true
+        },
+        "certificateArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) for the customer gateway certificate.\n",
+            "willReplaceOnChanges": true
+        },
+        "deviceName": {
+            "type": "string",
+            "description": "A name for the customer gateway device.\n",
+            "willReplaceOnChanges": true
+        },
+        "ipAddress": {
+            "type": "string",
+            "description": "The IPv4 address for the customer gateway device's outside interface.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "The type of customer gateway. The only type AWS\nsupports at this time is \"ipsec.1\".\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "bgpAsn",
+        "type"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering CustomerGateway resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the customer gateway.\n"
+            },
+            "bgpAsn": {
+                "type": "string",
+                "description": "The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).\n",
+                "willReplaceOnChanges": true
+            },
+            "certificateArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) for the customer gateway certificate.\n",
+                "willReplaceOnChanges": true
+            },
+            "deviceName": {
+                "type": "string",
+                "description": "A name for the customer gateway device.\n",
+                "willReplaceOnChanges": true
+            },
+            "ipAddress": {
+                "type": "string",
+                "description": "The IPv4 address for the customer gateway device's outside interface.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "type": {
+                "type": "string",
+                "description": "The type of customer gateway. The only type AWS\nsupports at this time is \"ipsec.1\".\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

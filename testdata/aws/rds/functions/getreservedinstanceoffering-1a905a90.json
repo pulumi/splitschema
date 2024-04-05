@@ -1,0 +1,83 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getReservedInstanceOffering.\n",
+        "properties": {
+            "dbInstanceClass": {
+                "type": "string",
+                "description": "DB instance class for the reserved DB instance.\n"
+            },
+            "duration": {
+                "type": "integer",
+                "description": "Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`\n"
+            },
+            "multiAz": {
+                "type": "boolean",
+                "description": "Whether the reservation applies to Multi-AZ deployments.\n"
+            },
+            "offeringType": {
+                "type": "string",
+                "description": "Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.\n"
+            },
+            "productDescription": {
+                "type": "string",
+                "description": "Description of the reserved DB instance.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "dbInstanceClass",
+            "duration",
+            "multiAz",
+            "offeringType",
+            "productDescription"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getReservedInstanceOffering.\n",
+        "properties": {
+            "currencyCode": {
+                "description": "Currency code for the reserved DB instance.\n",
+                "type": "string"
+            },
+            "dbInstanceClass": {
+                "type": "string"
+            },
+            "duration": {
+                "type": "integer"
+            },
+            "fixedPrice": {
+                "description": "Fixed price charged for this reserved DB instance.\n",
+                "type": "number"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "multiAz": {
+                "type": "boolean"
+            },
+            "offeringId": {
+                "description": "Unique identifier for the reservation.\n",
+                "type": "string"
+            },
+            "offeringType": {
+                "type": "string"
+            },
+            "productDescription": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "currencyCode",
+            "dbInstanceClass",
+            "duration",
+            "fixedPrice",
+            "multiAz",
+            "offeringId",
+            "offeringType",
+            "productDescription",
+            "id"
+        ],
+        "type": "object"
+    }
+}

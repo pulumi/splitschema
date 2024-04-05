@@ -1,0 +1,96 @@
+{
+    "properties": {
+        "methodPath": {
+            "type": "string",
+            "description": "Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, \"/\")`).\n"
+        },
+        "restApi": {
+            "type": "string",
+            "description": "ID of the REST API\n"
+        },
+        "settings": {
+            "$ref": "#/types/aws:apigateway/MethodSettingsSettings:MethodSettingsSettings",
+            "description": "Settings block, see below.\n"
+        },
+        "stageName": {
+            "type": "string",
+            "description": "Name of the stage\n"
+        }
+    },
+    "required": [
+        "methodPath",
+        "restApi",
+        "settings",
+        "stageName"
+    ],
+    "inputProperties": {
+        "methodPath": {
+            "type": "string",
+            "description": "Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, \"/\")`).\n",
+            "willReplaceOnChanges": true
+        },
+        "restApi": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:apigateway/restApi:RestApi"
+                }
+            ],
+            "description": "ID of the REST API\n",
+            "willReplaceOnChanges": true
+        },
+        "settings": {
+            "$ref": "#/types/aws:apigateway/MethodSettingsSettings:MethodSettingsSettings",
+            "description": "Settings block, see below.\n"
+        },
+        "stageName": {
+            "type": "string",
+            "description": "Name of the stage\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "methodPath",
+        "restApi",
+        "settings",
+        "stageName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering MethodSettings resources.\n",
+        "properties": {
+            "methodPath": {
+                "type": "string",
+                "description": "Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, \"/\")`).\n",
+                "willReplaceOnChanges": true
+            },
+            "restApi": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:apigateway/restApi:RestApi"
+                    }
+                ],
+                "description": "ID of the REST API\n",
+                "willReplaceOnChanges": true
+            },
+            "settings": {
+                "$ref": "#/types/aws:apigateway/MethodSettingsSettings:MethodSettingsSettings",
+                "description": "Settings block, see below.\n"
+            },
+            "stageName": {
+                "type": "string",
+                "description": "Name of the stage\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

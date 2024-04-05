@@ -1,0 +1,101 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the InputSecurityGroup.\n"
+        },
+        "inputs": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The list of inputs currently using this InputSecurityGroup.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "whitelistRules": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:medialive/InputSecurityGroupWhitelistRule:InputSecurityGroupWhitelistRule"
+            },
+            "description": "Whitelist rules. See Whitelist Rules for more details.\n\nThe following arguments are optional:\n"
+        }
+    },
+    "required": [
+        "arn",
+        "inputs",
+        "tagsAll",
+        "whitelistRules"
+    ],
+    "inputProperties": {
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "whitelistRules": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:medialive/InputSecurityGroupWhitelistRule:InputSecurityGroupWhitelistRule"
+            },
+            "description": "Whitelist rules. See Whitelist Rules for more details.\n\nThe following arguments are optional:\n"
+        }
+    },
+    "requiredInputs": [
+        "whitelistRules"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering InputSecurityGroup resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the InputSecurityGroup.\n"
+            },
+            "inputs": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "The list of inputs currently using this InputSecurityGroup.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "whitelistRules": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:medialive/InputSecurityGroupWhitelistRule:InputSecurityGroupWhitelistRule"
+                },
+                "description": "Whitelist rules. See Whitelist Rules for more details.\n\nThe following arguments are optional:\n"
+            }
+        },
+        "type": "object"
+    }
+}

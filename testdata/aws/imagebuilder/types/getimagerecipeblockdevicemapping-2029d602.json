@@ -1,0 +1,35 @@
+{
+    "properties": {
+        "deviceName": {
+            "type": "string",
+            "description": "Name of the device. For example, `/dev/sda` or `/dev/xvdb`.\n"
+        },
+        "ebs": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:imagebuilder/getImageRecipeBlockDeviceMappingEb:getImageRecipeBlockDeviceMappingEb"
+            },
+            "description": "Single list of object with Elastic Block Storage (EBS) block device mapping settings.\n"
+        },
+        "noDevice": {
+            "type": "string",
+            "description": "Whether to remove a mapping from the parent image.\n"
+        },
+        "virtualName": {
+            "type": "string",
+            "description": "Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "deviceName",
+        "ebs",
+        "noDevice",
+        "virtualName"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredInputs": []
+        }
+    }
+}

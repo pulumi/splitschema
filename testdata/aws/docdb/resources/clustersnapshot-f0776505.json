@@ -1,0 +1,149 @@
+{
+    "properties": {
+        "availabilityZones": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.\n"
+        },
+        "dbClusterIdentifier": {
+            "type": "string",
+            "description": "The DocumentDB Cluster Identifier from which to take the snapshot.\n"
+        },
+        "dbClusterSnapshotArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.\n"
+        },
+        "dbClusterSnapshotIdentifier": {
+            "type": "string",
+            "description": "The Identifier for the snapshot.\n"
+        },
+        "engine": {
+            "type": "string",
+            "description": "Specifies the name of the database engine.\n"
+        },
+        "engineVersion": {
+            "type": "string",
+            "description": "Version of the database engine for this DocumentDB cluster snapshot.\n"
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.\n"
+        },
+        "port": {
+            "type": "integer",
+            "description": "Port that the DocumentDB cluster was listening on at the time of the snapshot.\n"
+        },
+        "snapshotType": {
+            "type": "string"
+        },
+        "sourceDbClusterSnapshotArn": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string",
+            "description": "The status of this DocumentDB Cluster Snapshot.\n"
+        },
+        "storageEncrypted": {
+            "type": "boolean",
+            "description": "Specifies whether the DocumentDB cluster snapshot is encrypted.\n"
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "The VPC ID associated with the DocumentDB cluster snapshot.\n"
+        }
+    },
+    "required": [
+        "availabilityZones",
+        "dbClusterIdentifier",
+        "dbClusterSnapshotArn",
+        "dbClusterSnapshotIdentifier",
+        "engine",
+        "engineVersion",
+        "kmsKeyId",
+        "port",
+        "snapshotType",
+        "sourceDbClusterSnapshotArn",
+        "status",
+        "storageEncrypted",
+        "vpcId"
+    ],
+    "inputProperties": {
+        "dbClusterIdentifier": {
+            "type": "string",
+            "description": "The DocumentDB Cluster Identifier from which to take the snapshot.\n",
+            "willReplaceOnChanges": true
+        },
+        "dbClusterSnapshotIdentifier": {
+            "type": "string",
+            "description": "The Identifier for the snapshot.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "dbClusterIdentifier",
+        "dbClusterSnapshotIdentifier"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ClusterSnapshot resources.\n",
+        "properties": {
+            "availabilityZones": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.\n"
+            },
+            "dbClusterIdentifier": {
+                "type": "string",
+                "description": "The DocumentDB Cluster Identifier from which to take the snapshot.\n",
+                "willReplaceOnChanges": true
+            },
+            "dbClusterSnapshotArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.\n"
+            },
+            "dbClusterSnapshotIdentifier": {
+                "type": "string",
+                "description": "The Identifier for the snapshot.\n",
+                "willReplaceOnChanges": true
+            },
+            "engine": {
+                "type": "string",
+                "description": "Specifies the name of the database engine.\n"
+            },
+            "engineVersion": {
+                "type": "string",
+                "description": "Version of the database engine for this DocumentDB cluster snapshot.\n"
+            },
+            "kmsKeyId": {
+                "type": "string",
+                "description": "If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.\n"
+            },
+            "port": {
+                "type": "integer",
+                "description": "Port that the DocumentDB cluster was listening on at the time of the snapshot.\n"
+            },
+            "snapshotType": {
+                "type": "string"
+            },
+            "sourceDbClusterSnapshotArn": {
+                "type": "string"
+            },
+            "status": {
+                "type": "string",
+                "description": "The status of this DocumentDB Cluster Snapshot.\n"
+            },
+            "storageEncrypted": {
+                "type": "boolean",
+                "description": "Specifies whether the DocumentDB cluster snapshot is encrypted.\n"
+            },
+            "vpcId": {
+                "type": "string",
+                "description": "The VPC ID associated with the DocumentDB cluster snapshot.\n"
+            }
+        },
+        "type": "object"
+    }
+}

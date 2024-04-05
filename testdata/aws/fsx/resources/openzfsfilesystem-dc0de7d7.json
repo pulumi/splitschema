@@ -1,0 +1,379 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name of the file system.\n"
+        },
+        "automaticBackupRetentionDays": {
+            "type": "integer",
+            "description": "The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.\n"
+        },
+        "backupId": {
+            "type": "string",
+            "description": "The ID of the source backup to create the filesystem from.\n"
+        },
+        "copyTagsToBackups": {
+            "type": "boolean",
+            "description": "A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.\n"
+        },
+        "copyTagsToVolumes": {
+            "type": "boolean",
+            "description": "A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.\n"
+        },
+        "dailyAutomaticBackupStartTime": {
+            "type": "string",
+            "description": "A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.\n"
+        },
+        "deploymentType": {
+            "type": "string",
+            "description": "The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.\n"
+        },
+        "diskIopsConfiguration": {
+            "$ref": "#/types/aws:fsx/OpenZfsFileSystemDiskIopsConfiguration:OpenZfsFileSystemDiskIopsConfiguration",
+            "description": "The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.\n"
+        },
+        "dnsName": {
+            "type": "string",
+            "description": "DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`\n"
+        },
+        "endpointIpAddressRange": {
+            "type": "string",
+            "description": "(Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.\n"
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.\n"
+        },
+        "networkInterfaceIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.\n"
+        },
+        "ownerId": {
+            "type": "string",
+            "description": "AWS account identifier that created the file system.\n"
+        },
+        "preferredSubnetId": {
+            "type": "string",
+            "description": "(Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.\n"
+        },
+        "rootVolumeConfiguration": {
+            "$ref": "#/types/aws:fsx/OpenZfsFileSystemRootVolumeConfiguration:OpenZfsFileSystemRootVolumeConfiguration",
+            "description": "The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.\n"
+        },
+        "rootVolumeId": {
+            "type": "string",
+            "description": "Identifier of the root volume, e.g., `fsvol-12345678`\n"
+        },
+        "routeTableIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "(Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.\n"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.\n"
+        },
+        "storageCapacity": {
+            "type": "integer",
+            "description": "The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.\n"
+        },
+        "storageType": {
+            "type": "string",
+            "description": "The filesystem storage type. Only `SSD` is supported.\n"
+        },
+        "subnetIds": {
+            "type": "string",
+            "description": "A list of IDs for the subnets that the file system will be accessible from.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "throughputCapacity": {
+            "type": "integer",
+            "description": "Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.\n"
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "Identifier of the Virtual Private Cloud for the file system.\n"
+        },
+        "weeklyMaintenanceStartTime": {
+            "type": "string",
+            "description": "The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "dailyAutomaticBackupStartTime",
+        "deploymentType",
+        "diskIopsConfiguration",
+        "dnsName",
+        "endpointIpAddressRange",
+        "kmsKeyId",
+        "networkInterfaceIds",
+        "ownerId",
+        "rootVolumeConfiguration",
+        "rootVolumeId",
+        "routeTableIds",
+        "subnetIds",
+        "tagsAll",
+        "throughputCapacity",
+        "vpcId",
+        "weeklyMaintenanceStartTime"
+    ],
+    "inputProperties": {
+        "automaticBackupRetentionDays": {
+            "type": "integer",
+            "description": "The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.\n"
+        },
+        "backupId": {
+            "type": "string",
+            "description": "The ID of the source backup to create the filesystem from.\n",
+            "willReplaceOnChanges": true
+        },
+        "copyTagsToBackups": {
+            "type": "boolean",
+            "description": "A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.\n"
+        },
+        "copyTagsToVolumes": {
+            "type": "boolean",
+            "description": "A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.\n"
+        },
+        "dailyAutomaticBackupStartTime": {
+            "type": "string",
+            "description": "A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.\n"
+        },
+        "deploymentType": {
+            "type": "string",
+            "description": "The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.\n",
+            "willReplaceOnChanges": true
+        },
+        "diskIopsConfiguration": {
+            "$ref": "#/types/aws:fsx/OpenZfsFileSystemDiskIopsConfiguration:OpenZfsFileSystemDiskIopsConfiguration",
+            "description": "The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.\n"
+        },
+        "endpointIpAddressRange": {
+            "type": "string",
+            "description": "(Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.\n",
+            "willReplaceOnChanges": true
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.\n",
+            "willReplaceOnChanges": true
+        },
+        "preferredSubnetId": {
+            "type": "string",
+            "description": "(Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.\n",
+            "willReplaceOnChanges": true
+        },
+        "rootVolumeConfiguration": {
+            "$ref": "#/types/aws:fsx/OpenZfsFileSystemRootVolumeConfiguration:OpenZfsFileSystemRootVolumeConfiguration",
+            "description": "The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.\n"
+        },
+        "routeTableIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "(Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.\n"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.\n",
+            "willReplaceOnChanges": true
+        },
+        "storageCapacity": {
+            "type": "integer",
+            "description": "The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.\n"
+        },
+        "storageType": {
+            "type": "string",
+            "description": "The filesystem storage type. Only `SSD` is supported.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetIds": {
+            "type": "string",
+            "description": "A list of IDs for the subnets that the file system will be accessible from.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "throughputCapacity": {
+            "type": "integer",
+            "description": "Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.\n"
+        },
+        "weeklyMaintenanceStartTime": {
+            "type": "string",
+            "description": "The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.\n"
+        }
+    },
+    "requiredInputs": [
+        "deploymentType",
+        "subnetIds",
+        "throughputCapacity"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering OpenZfsFileSystem resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name of the file system.\n"
+            },
+            "automaticBackupRetentionDays": {
+                "type": "integer",
+                "description": "The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.\n"
+            },
+            "backupId": {
+                "type": "string",
+                "description": "The ID of the source backup to create the filesystem from.\n",
+                "willReplaceOnChanges": true
+            },
+            "copyTagsToBackups": {
+                "type": "boolean",
+                "description": "A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.\n"
+            },
+            "copyTagsToVolumes": {
+                "type": "boolean",
+                "description": "A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.\n"
+            },
+            "dailyAutomaticBackupStartTime": {
+                "type": "string",
+                "description": "A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.\n"
+            },
+            "deploymentType": {
+                "type": "string",
+                "description": "The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.\n",
+                "willReplaceOnChanges": true
+            },
+            "diskIopsConfiguration": {
+                "$ref": "#/types/aws:fsx/OpenZfsFileSystemDiskIopsConfiguration:OpenZfsFileSystemDiskIopsConfiguration",
+                "description": "The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.\n"
+            },
+            "dnsName": {
+                "type": "string",
+                "description": "DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`\n"
+            },
+            "endpointIpAddressRange": {
+                "type": "string",
+                "description": "(Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.\n",
+                "willReplaceOnChanges": true
+            },
+            "kmsKeyId": {
+                "type": "string",
+                "description": "ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.\n",
+                "willReplaceOnChanges": true
+            },
+            "networkInterfaceIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.\n"
+            },
+            "ownerId": {
+                "type": "string",
+                "description": "AWS account identifier that created the file system.\n"
+            },
+            "preferredSubnetId": {
+                "type": "string",
+                "description": "(Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.\n",
+                "willReplaceOnChanges": true
+            },
+            "rootVolumeConfiguration": {
+                "$ref": "#/types/aws:fsx/OpenZfsFileSystemRootVolumeConfiguration:OpenZfsFileSystemRootVolumeConfiguration",
+                "description": "The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.\n"
+            },
+            "rootVolumeId": {
+                "type": "string",
+                "description": "Identifier of the root volume, e.g., `fsvol-12345678`\n"
+            },
+            "routeTableIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "(Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.\n"
+            },
+            "securityGroupIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.\n",
+                "willReplaceOnChanges": true
+            },
+            "storageCapacity": {
+                "type": "integer",
+                "description": "The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.\n"
+            },
+            "storageType": {
+                "type": "string",
+                "description": "The filesystem storage type. Only `SSD` is supported.\n",
+                "willReplaceOnChanges": true
+            },
+            "subnetIds": {
+                "type": "string",
+                "description": "A list of IDs for the subnets that the file system will be accessible from.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "throughputCapacity": {
+                "type": "integer",
+                "description": "Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.\n"
+            },
+            "vpcId": {
+                "type": "string",
+                "description": "Identifier of the Virtual Private Cloud for the file system.\n"
+            },
+            "weeklyMaintenanceStartTime": {
+                "type": "string",
+                "description": "The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.\n"
+            }
+        },
+        "type": "object"
+    }
+}

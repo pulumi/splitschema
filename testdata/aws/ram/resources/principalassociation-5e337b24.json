@@ -1,0 +1,48 @@
+{
+    "properties": {
+        "principal": {
+            "type": "string",
+            "description": "The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.\n"
+        },
+        "resourceShareArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the resource share.\n"
+        }
+    },
+    "required": [
+        "principal",
+        "resourceShareArn"
+    ],
+    "inputProperties": {
+        "principal": {
+            "type": "string",
+            "description": "The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.\n",
+            "willReplaceOnChanges": true
+        },
+        "resourceShareArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the resource share.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "principal",
+        "resourceShareArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering PrincipalAssociation resources.\n",
+        "properties": {
+            "principal": {
+                "type": "string",
+                "description": "The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.\n",
+                "willReplaceOnChanges": true
+            },
+            "resourceShareArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the resource share.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

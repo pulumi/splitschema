@@ -1,0 +1,29 @@
+{
+    "properties": {
+        "applicationProviderArn": {
+            "type": "string",
+            "description": "ARN of the application provider.\n"
+        },
+        "displayDatas": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ssoadmin/getApplicationProvidersApplicationProviderDisplayData:getApplicationProvidersApplicationProviderDisplayData"
+            },
+            "description": "An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.\n"
+        },
+        "federationProtocol": {
+            "type": "string",
+            "description": "Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "applicationProviderArn",
+        "federationProtocol"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredInputs": []
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getClusterAuth.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name of the cluster\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "name"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getClusterAuth.\n",
+        "properties": {
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "token": {
+                "description": "Token to use to authenticate with the cluster.\n",
+                "secret": true,
+                "type": "string"
+            }
+        },
+        "required": [
+            "name",
+            "token",
+            "id"
+        ],
+        "type": "object"
+    }
+}

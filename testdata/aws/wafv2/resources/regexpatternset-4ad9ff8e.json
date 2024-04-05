@@ -1,0 +1,136 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) that identifies the cluster.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A friendly description of the regular expression pattern set.\n"
+        },
+        "lockToken": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string",
+            "description": "A friendly name of the regular expression pattern set.\n"
+        },
+        "regularExpressions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:wafv2/RegexPatternSetRegularExpression:RegexPatternSetRegularExpression"
+            },
+            "description": "One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.\n"
+        },
+        "scope": {
+            "type": "string",
+            "description": "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "lockToken",
+        "name",
+        "scope",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "A friendly description of the regular expression pattern set.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "A friendly name of the regular expression pattern set.\n",
+            "willReplaceOnChanges": true
+        },
+        "regularExpressions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:wafv2/RegexPatternSetRegularExpression:RegexPatternSetRegularExpression"
+            },
+            "description": "One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.\n"
+        },
+        "scope": {
+            "type": "string",
+            "description": "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "scope"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering RegexPatternSet resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) that identifies the cluster.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A friendly description of the regular expression pattern set.\n"
+            },
+            "lockToken": {
+                "type": "string"
+            },
+            "name": {
+                "type": "string",
+                "description": "A friendly name of the regular expression pattern set.\n",
+                "willReplaceOnChanges": true
+            },
+            "regularExpressions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:wafv2/RegexPatternSetRegularExpression:RegexPatternSetRegularExpression"
+                },
+                "description": "One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.\n"
+            },
+            "scope": {
+                "type": "string",
+                "description": "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

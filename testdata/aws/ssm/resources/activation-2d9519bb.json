@@ -1,0 +1,160 @@
+{
+    "properties": {
+        "activationCode": {
+            "type": "string",
+            "description": "The code the system generates when it processes the activation.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the resource that you want to register.\n"
+        },
+        "expirationDate": {
+            "type": "string",
+            "description": "UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.\n"
+        },
+        "expired": {
+            "type": "boolean",
+            "description": "If the current activation has expired.\n"
+        },
+        "iamRole": {
+            "type": "string",
+            "description": "The IAM Role to attach to the managed instance.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The default name of the registered managed instance.\n"
+        },
+        "registrationCount": {
+            "type": "integer",
+            "description": "The number of managed instances that are currently registered using this activation.\n"
+        },
+        "registrationLimit": {
+            "type": "integer",
+            "description": "The maximum number of managed instances you want to register. The default value is 1 instance.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "activationCode",
+        "expirationDate",
+        "expired",
+        "iamRole",
+        "name",
+        "registrationCount",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "The description of the resource that you want to register.\n",
+            "willReplaceOnChanges": true
+        },
+        "expirationDate": {
+            "type": "string",
+            "description": "UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.\n",
+            "willReplaceOnChanges": true
+        },
+        "iamRole": {
+            "type": "string",
+            "description": "The IAM Role to attach to the managed instance.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The default name of the registered managed instance.\n",
+            "willReplaceOnChanges": true
+        },
+        "registrationLimit": {
+            "type": "integer",
+            "description": "The maximum number of managed instances you want to register. The default value is 1 instance.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "iamRole"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Activation resources.\n",
+        "properties": {
+            "activationCode": {
+                "type": "string",
+                "description": "The code the system generates when it processes the activation.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "The description of the resource that you want to register.\n",
+                "willReplaceOnChanges": true
+            },
+            "expirationDate": {
+                "type": "string",
+                "description": "UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.\n",
+                "willReplaceOnChanges": true
+            },
+            "expired": {
+                "type": "boolean",
+                "description": "If the current activation has expired.\n"
+            },
+            "iamRole": {
+                "type": "string",
+                "description": "The IAM Role to attach to the managed instance.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The default name of the registered managed instance.\n",
+                "willReplaceOnChanges": true
+            },
+            "registrationCount": {
+                "type": "integer",
+                "description": "The number of managed instances that are currently registered using this activation.\n"
+            },
+            "registrationLimit": {
+                "type": "integer",
+                "description": "The maximum number of managed instances you want to register. The default value is 1 instance.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n",
+                "willReplaceOnChanges": true
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true,
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

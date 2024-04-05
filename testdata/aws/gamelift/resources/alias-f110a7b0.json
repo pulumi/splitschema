@@ -1,0 +1,104 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Alias ARN.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the alias.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the alias.\n"
+        },
+        "routingStrategy": {
+            "$ref": "#/types/aws:gamelift/AliasRoutingStrategy:AliasRoutingStrategy",
+            "description": "Specifies the fleet and/or routing type to use for the alias.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "routingStrategy",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "Description of the alias.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the alias.\n"
+        },
+        "routingStrategy": {
+            "$ref": "#/types/aws:gamelift/AliasRoutingStrategy:AliasRoutingStrategy",
+            "description": "Specifies the fleet and/or routing type to use for the alias.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "routingStrategy"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Alias resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Alias ARN.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the alias.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the alias.\n"
+            },
+            "routingStrategy": {
+                "$ref": "#/types/aws:gamelift/AliasRoutingStrategy:AliasRoutingStrategy",
+                "description": "Specifies the fleet and/or routing type to use for the alias.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

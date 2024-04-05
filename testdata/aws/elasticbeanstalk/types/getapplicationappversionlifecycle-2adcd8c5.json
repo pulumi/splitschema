@@ -1,0 +1,32 @@
+{
+    "properties": {
+        "deleteSourceFromS3": {
+            "type": "boolean",
+            "description": "Specifies whether delete a version's source bundle from S3 when the application version is deleted.\n"
+        },
+        "maxAgeInDays": {
+            "type": "integer",
+            "description": "Number of days to retain an application version.\n"
+        },
+        "maxCount": {
+            "type": "integer",
+            "description": "Maximum number of application versions to retain.\n"
+        },
+        "serviceRole": {
+            "type": "string",
+            "description": "ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "deleteSourceFromS3",
+        "maxAgeInDays",
+        "maxCount",
+        "serviceRole"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredInputs": []
+        }
+    }
+}

@@ -1,0 +1,128 @@
+{
+    "properties": {
+        "alias": {
+            "type": "string"
+        },
+        "ides": {
+            "$ref": "#/types/aws:codecatalyst/DevEnvironmentIdes:DevEnvironmentIdes",
+            "description": "Information about the integrated development environment (IDE) configured for a Dev Environment.\n"
+        },
+        "inactivityTimeoutMinutes": {
+            "type": "integer",
+            "description": "The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.\n"
+        },
+        "instanceType": {
+            "type": "string",
+            "description": "The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge\n\nThe following arguments are optional:\n"
+        },
+        "persistentStorage": {
+            "$ref": "#/types/aws:codecatalyst/DevEnvironmentPersistentStorage:DevEnvironmentPersistentStorage",
+            "description": "Information about the amount of storage allocated to the Dev Environment.\n"
+        },
+        "projectName": {
+            "type": "string",
+            "description": "The name of the project in the space.\n"
+        },
+        "repositories": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:codecatalyst/DevEnvironmentRepository:DevEnvironmentRepository"
+            },
+            "description": "The source repository that contains the branch to clone into the Dev Environment.\n"
+        },
+        "spaceName": {
+            "type": "string",
+            "description": "The name of the space.\n"
+        }
+    },
+    "required": [
+        "ides",
+        "instanceType",
+        "persistentStorage",
+        "projectName",
+        "spaceName"
+    ],
+    "inputProperties": {
+        "alias": {
+            "type": "string"
+        },
+        "ides": {
+            "$ref": "#/types/aws:codecatalyst/DevEnvironmentIdes:DevEnvironmentIdes",
+            "description": "Information about the integrated development environment (IDE) configured for a Dev Environment.\n"
+        },
+        "inactivityTimeoutMinutes": {
+            "type": "integer",
+            "description": "The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.\n"
+        },
+        "instanceType": {
+            "type": "string",
+            "description": "The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge\n\nThe following arguments are optional:\n"
+        },
+        "persistentStorage": {
+            "$ref": "#/types/aws:codecatalyst/DevEnvironmentPersistentStorage:DevEnvironmentPersistentStorage",
+            "description": "Information about the amount of storage allocated to the Dev Environment.\n"
+        },
+        "projectName": {
+            "type": "string",
+            "description": "The name of the project in the space.\n"
+        },
+        "repositories": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:codecatalyst/DevEnvironmentRepository:DevEnvironmentRepository"
+            },
+            "description": "The source repository that contains the branch to clone into the Dev Environment.\n"
+        },
+        "spaceName": {
+            "type": "string",
+            "description": "The name of the space.\n"
+        }
+    },
+    "requiredInputs": [
+        "ides",
+        "instanceType",
+        "persistentStorage",
+        "projectName",
+        "spaceName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering DevEnvironment resources.\n",
+        "properties": {
+            "alias": {
+                "type": "string"
+            },
+            "ides": {
+                "$ref": "#/types/aws:codecatalyst/DevEnvironmentIdes:DevEnvironmentIdes",
+                "description": "Information about the integrated development environment (IDE) configured for a Dev Environment.\n"
+            },
+            "inactivityTimeoutMinutes": {
+                "type": "integer",
+                "description": "The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.\n"
+            },
+            "instanceType": {
+                "type": "string",
+                "description": "The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge\n\nThe following arguments are optional:\n"
+            },
+            "persistentStorage": {
+                "$ref": "#/types/aws:codecatalyst/DevEnvironmentPersistentStorage:DevEnvironmentPersistentStorage",
+                "description": "Information about the amount of storage allocated to the Dev Environment.\n"
+            },
+            "projectName": {
+                "type": "string",
+                "description": "The name of the project in the space.\n"
+            },
+            "repositories": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:codecatalyst/DevEnvironmentRepository:DevEnvironmentRepository"
+                },
+                "description": "The source repository that contains the branch to clone into the Dev Environment.\n"
+            },
+            "spaceName": {
+                "type": "string",
+                "description": "The name of the space.\n"
+            }
+        },
+        "type": "object"
+    }
+}

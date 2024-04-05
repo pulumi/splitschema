@@ -1,0 +1,34 @@
+{
+    "properties": {
+        "augmentedManifests": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:comprehend/DocumentClassifierInputDataConfigAugmentedManifest:DocumentClassifierInputDataConfigAugmentedManifest"
+            },
+            "description": "List of training datasets produced by Amazon SageMaker Ground Truth.\nUsed if `data_format` is `AUGMENTED_MANIFEST`.\nSee the `augmented_manifests` Configuration Block section below.\n"
+        },
+        "dataFormat": {
+            "type": "string",
+            "description": "The format for the training data.\nOne of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.\n"
+        },
+        "labelDelimiter": {
+            "type": "string",
+            "description": "Delimiter between labels when training a multi-label classifier.\nValid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\\`, `:`, `;`, `\u003e`, `?`, `/`, `\u003cspace\u003e`, and `\u003ctab\u003e`.\nDefault is `|`.\n"
+        },
+        "s3Uri": {
+            "type": "string",
+            "description": "Location of training documents.\nUsed if `data_format` is `COMPREHEND_CSV`.\n"
+        },
+        "testS3Uri": {
+            "type": "string"
+        }
+    },
+    "type": "object",
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "labelDelimiter"
+            ]
+        }
+    }
+}

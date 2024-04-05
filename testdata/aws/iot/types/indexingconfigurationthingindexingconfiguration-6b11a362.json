@@ -1,0 +1,51 @@
+{
+    "properties": {
+        "customFields": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:iot/IndexingConfigurationThingIndexingConfigurationCustomField:IndexingConfigurationThingIndexingConfigurationCustomField"
+            },
+            "description": "Contains custom field names and their data type. See below.\n"
+        },
+        "deviceDefenderIndexingMode": {
+            "type": "string",
+            "description": "Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.\n"
+        },
+        "filter": {
+            "$ref": "#/types/aws:iot/IndexingConfigurationThingIndexingConfigurationFilter:IndexingConfigurationThingIndexingConfigurationFilter",
+            "description": "Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.\n"
+        },
+        "managedFields": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:iot/IndexingConfigurationThingIndexingConfigurationManagedField:IndexingConfigurationThingIndexingConfigurationManagedField"
+            },
+            "description": "Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.\n"
+        },
+        "namedShadowIndexingMode": {
+            "type": "string",
+            "description": "[Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.\n"
+        },
+        "thingConnectivityIndexingMode": {
+            "type": "string",
+            "description": "Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.\n"
+        },
+        "thingIndexingMode": {
+            "type": "string",
+            "description": "Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "thingIndexingMode"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "filter",
+                "managedFields",
+                "thingIndexingMode"
+            ]
+        }
+    }
+}

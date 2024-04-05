@@ -1,0 +1,131 @@
+{
+    "properties": {
+        "apiMappingSelectionExpression": {
+            "type": "string",
+            "description": "[API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN of the domain name.\n"
+        },
+        "domainName": {
+            "type": "string",
+            "description": "Domain name. Must be between 1 and 512 characters in length.\n",
+            "language": {
+                "csharp": {
+                    "name": "Domain"
+                }
+            }
+        },
+        "domainNameConfiguration": {
+            "$ref": "#/types/aws:apigatewayv2/DomainNameDomainNameConfiguration:DomainNameDomainNameConfiguration",
+            "description": "Domain name configuration. See below.\n"
+        },
+        "mutualTlsAuthentication": {
+            "$ref": "#/types/aws:apigatewayv2/DomainNameMutualTlsAuthentication:DomainNameMutualTlsAuthentication",
+            "description": "Mutual TLS authentication configuration for the domain name.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "apiMappingSelectionExpression",
+        "arn",
+        "domainName",
+        "domainNameConfiguration",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "domainName": {
+            "type": "string",
+            "description": "Domain name. Must be between 1 and 512 characters in length.\n",
+            "language": {
+                "csharp": {
+                    "name": "Domain"
+                }
+            },
+            "willReplaceOnChanges": true
+        },
+        "domainNameConfiguration": {
+            "$ref": "#/types/aws:apigatewayv2/DomainNameDomainNameConfiguration:DomainNameDomainNameConfiguration",
+            "description": "Domain name configuration. See below.\n"
+        },
+        "mutualTlsAuthentication": {
+            "$ref": "#/types/aws:apigatewayv2/DomainNameMutualTlsAuthentication:DomainNameMutualTlsAuthentication",
+            "description": "Mutual TLS authentication configuration for the domain name.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "domainName",
+        "domainNameConfiguration"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering DomainName resources.\n",
+        "properties": {
+            "apiMappingSelectionExpression": {
+                "type": "string",
+                "description": "[API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN of the domain name.\n"
+            },
+            "domainName": {
+                "type": "string",
+                "description": "Domain name. Must be between 1 and 512 characters in length.\n",
+                "language": {
+                    "csharp": {
+                        "name": "Domain"
+                    }
+                },
+                "willReplaceOnChanges": true
+            },
+            "domainNameConfiguration": {
+                "$ref": "#/types/aws:apigatewayv2/DomainNameDomainNameConfiguration:DomainNameDomainNameConfiguration",
+                "description": "Domain name configuration. See below.\n"
+            },
+            "mutualTlsAuthentication": {
+                "$ref": "#/types/aws:apigatewayv2/DomainNameMutualTlsAuthentication:DomainNameMutualTlsAuthentication",
+                "description": "Mutual TLS authentication configuration for the domain name.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

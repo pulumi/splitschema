@@ -1,0 +1,33 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getEndpoint.\n",
+        "properties": {
+            "endpointType": {
+                "type": "string",
+                "description": "Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getEndpoint.\n",
+        "properties": {
+            "endpointAddress": {
+                "description": "Endpoint based on `endpoint_type`:\n* No `endpoint_type`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)\n* `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`\n* `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`\n* `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`\n* `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`\n",
+                "type": "string"
+            },
+            "endpointType": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "endpointAddress",
+            "id"
+        ],
+        "type": "object"
+    }
+}

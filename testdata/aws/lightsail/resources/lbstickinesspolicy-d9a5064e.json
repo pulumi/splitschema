@@ -1,0 +1,60 @@
+{
+    "properties": {
+        "cookieDuration": {
+            "type": "integer",
+            "description": "The cookie duration in seconds. This determines the length of the session stickiness.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.\n"
+        },
+        "lbName": {
+            "type": "string",
+            "description": "The name of the load balancer to which you want to enable session stickiness.\n"
+        }
+    },
+    "required": [
+        "cookieDuration",
+        "enabled",
+        "lbName"
+    ],
+    "inputProperties": {
+        "cookieDuration": {
+            "type": "integer",
+            "description": "The cookie duration in seconds. This determines the length of the session stickiness.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.\n"
+        },
+        "lbName": {
+            "type": "string",
+            "description": "The name of the load balancer to which you want to enable session stickiness.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "cookieDuration",
+        "enabled",
+        "lbName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering LbStickinessPolicy resources.\n",
+        "properties": {
+            "cookieDuration": {
+                "type": "integer",
+                "description": "The cookie duration in seconds. This determines the length of the session stickiness.\n"
+            },
+            "enabled": {
+                "type": "boolean",
+                "description": "The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.\n"
+            },
+            "lbName": {
+                "type": "string",
+                "description": "The name of the load balancer to which you want to enable session stickiness.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

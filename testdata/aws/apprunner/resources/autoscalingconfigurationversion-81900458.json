@@ -1,0 +1,164 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of this auto scaling configuration version.\n"
+        },
+        "autoScalingConfigurationName": {
+            "type": "string",
+            "description": "Name of the auto scaling configuration.\n"
+        },
+        "autoScalingConfigurationRevision": {
+            "type": "integer",
+            "description": "The revision of this auto scaling configuration.\n"
+        },
+        "hasAssociatedService": {
+            "type": "boolean"
+        },
+        "isDefault": {
+            "type": "boolean"
+        },
+        "latest": {
+            "type": "boolean",
+            "description": "Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.\n"
+        },
+        "maxConcurrency": {
+            "type": "integer",
+            "description": "Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.\n"
+        },
+        "maxSize": {
+            "type": "integer",
+            "description": "Maximal number of instances that App Runner provisions for your service.\n"
+        },
+        "minSize": {
+            "type": "integer",
+            "description": "Minimal number of instances that App Runner provisions for your service.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "autoScalingConfigurationName",
+        "autoScalingConfigurationRevision",
+        "hasAssociatedService",
+        "isDefault",
+        "latest",
+        "status",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "autoScalingConfigurationName": {
+            "type": "string",
+            "description": "Name of the auto scaling configuration.\n",
+            "willReplaceOnChanges": true
+        },
+        "maxConcurrency": {
+            "type": "integer",
+            "description": "Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.\n",
+            "willReplaceOnChanges": true
+        },
+        "maxSize": {
+            "type": "integer",
+            "description": "Maximal number of instances that App Runner provisions for your service.\n",
+            "willReplaceOnChanges": true
+        },
+        "minSize": {
+            "type": "integer",
+            "description": "Minimal number of instances that App Runner provisions for your service.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "autoScalingConfigurationName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering AutoScalingConfigurationVersion resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of this auto scaling configuration version.\n"
+            },
+            "autoScalingConfigurationName": {
+                "type": "string",
+                "description": "Name of the auto scaling configuration.\n",
+                "willReplaceOnChanges": true
+            },
+            "autoScalingConfigurationRevision": {
+                "type": "integer",
+                "description": "The revision of this auto scaling configuration.\n"
+            },
+            "hasAssociatedService": {
+                "type": "boolean"
+            },
+            "isDefault": {
+                "type": "boolean"
+            },
+            "latest": {
+                "type": "boolean",
+                "description": "Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.\n"
+            },
+            "maxConcurrency": {
+                "type": "integer",
+                "description": "Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.\n",
+                "willReplaceOnChanges": true
+            },
+            "maxSize": {
+                "type": "integer",
+                "description": "Maximal number of instances that App Runner provisions for your service.\n",
+                "willReplaceOnChanges": true
+            },
+            "minSize": {
+                "type": "integer",
+                "description": "Minimal number of instances that App Runner provisions for your service.\n",
+                "willReplaceOnChanges": true
+            },
+            "status": {
+                "type": "string",
+                "description": "Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "properties": {
+        "annotations": {
+            "$ref": "#/types/aws:comprehend/EntityRecognizerInputDataConfigAnnotations:EntityRecognizerInputDataConfigAnnotations",
+            "description": "Specifies location of the document annotation data.\nSee the `annotations` Configuration Block section below.\nOne of `annotations` or `entity_list` is required.\n"
+        },
+        "augmentedManifests": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:comprehend/EntityRecognizerInputDataConfigAugmentedManifest:EntityRecognizerInputDataConfigAugmentedManifest"
+            },
+            "description": "List of training datasets produced by Amazon SageMaker Ground Truth.\nUsed if `data_format` is `AUGMENTED_MANIFEST`.\nSee the `augmented_manifests` Configuration Block section below.\n"
+        },
+        "dataFormat": {
+            "type": "string",
+            "description": "The format for the training data.\nOne of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.\n"
+        },
+        "documents": {
+            "$ref": "#/types/aws:comprehend/EntityRecognizerInputDataConfigDocuments:EntityRecognizerInputDataConfigDocuments",
+            "description": "Specifies a collection of training documents.\nUsed if `data_format` is `COMPREHEND_CSV`.\nSee the `documents` Configuration Block section below.\n"
+        },
+        "entityList": {
+            "$ref": "#/types/aws:comprehend/EntityRecognizerInputDataConfigEntityList:EntityRecognizerInputDataConfigEntityList",
+            "description": "Specifies location of the entity list data.\nSee the `entity_list` Configuration Block section below.\nOne of `entity_list` or `annotations` is required.\n"
+        },
+        "entityTypes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:comprehend/EntityRecognizerInputDataConfigEntityType:EntityRecognizerInputDataConfigEntityType"
+            },
+            "description": "Set of entity types to be recognized.\nHas a maximum of 25 items.\nSee the `entity_types` Configuration Block section below.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "entityTypes"
+    ]
+}

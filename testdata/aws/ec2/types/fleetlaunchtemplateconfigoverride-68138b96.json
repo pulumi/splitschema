@@ -1,0 +1,33 @@
+{
+    "properties": {
+        "availabilityZone": {
+            "type": "string",
+            "description": "Availability Zone in which to launch the instances.\n"
+        },
+        "instanceRequirements": {
+            "$ref": "#/types/aws:ec2/FleetLaunchTemplateConfigOverrideInstanceRequirements:FleetLaunchTemplateConfigOverrideInstanceRequirements",
+            "description": "Override the instance type in the Launch Template with instance types that satisfy the requirements.\n"
+        },
+        "instanceType": {
+            "type": "string",
+            "description": "Instance type.\n"
+        },
+        "maxPrice": {
+            "type": "string",
+            "description": "Maximum price per unit hour that you are willing to pay for a Spot Instance.\n"
+        },
+        "priority": {
+            "type": "number",
+            "description": "Priority for the launch template override. If `on_demand_options` `allocation_strategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.\n"
+        },
+        "subnetId": {
+            "type": "string",
+            "description": "ID of the subnet in which to launch the instances.\n"
+        },
+        "weightedCapacity": {
+            "type": "number",
+            "description": "Number of units provided by the specified instance type.\n"
+        }
+    },
+    "type": "object"
+}

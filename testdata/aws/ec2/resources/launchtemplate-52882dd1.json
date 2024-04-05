@@ -1,0 +1,575 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.\n"
+        },
+        "blockDeviceMappings": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateBlockDeviceMapping:LaunchTemplateBlockDeviceMapping"
+            },
+            "description": "Specify volumes to attach to the instance besides the volumes specified by the AMI.\nSee Block Devices below for details.\n"
+        },
+        "capacityReservationSpecification": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateCapacityReservationSpecification:LaunchTemplateCapacityReservationSpecification",
+            "description": "Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.\n"
+        },
+        "cpuOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateCpuOptions:LaunchTemplateCpuOptions",
+            "description": "The CPU options for the instance. See CPU Options below for more details.\n"
+        },
+        "creditSpecification": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateCreditSpecification:LaunchTemplateCreditSpecification",
+            "description": "Customize the credit specification of the instance. See Credit\nSpecification below for more details.\n"
+        },
+        "defaultVersion": {
+            "type": "integer",
+            "description": "Default Version of the launch template.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the launch template.\n"
+        },
+        "disableApiStop": {
+            "type": "boolean",
+            "description": "If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).\n"
+        },
+        "disableApiTermination": {
+            "type": "boolean",
+            "description": "If `true`, enables [EC2 Instance\nTermination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)\n"
+        },
+        "ebsOptimized": {
+            "type": "string",
+            "description": "If `true`, the launched EC2 instance will be EBS-optimized.\n"
+        },
+        "elasticGpuSpecifications": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateElasticGpuSpecification:LaunchTemplateElasticGpuSpecification"
+            },
+            "description": "The elastic GPU to attach to the instance. See Elastic GPU\nbelow for more details.\n"
+        },
+        "elasticInferenceAccelerator": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateElasticInferenceAccelerator:LaunchTemplateElasticInferenceAccelerator",
+            "description": "Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.\n"
+        },
+        "enclaveOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateEnclaveOptions:LaunchTemplateEnclaveOptions",
+            "description": "Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.\n"
+        },
+        "hibernationOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateHibernationOptions:LaunchTemplateHibernationOptions",
+            "description": "The hibernation options for the instance. See Hibernation Options below for more details.\n"
+        },
+        "iamInstanceProfile": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateIamInstanceProfile:LaunchTemplateIamInstanceProfile",
+            "description": "The IAM Instance Profile to launch the instance with. See Instance Profile\nbelow for more details.\n"
+        },
+        "imageId": {
+            "type": "string",
+            "description": "The AMI from which to launch the instance.\n"
+        },
+        "instanceInitiatedShutdownBehavior": {
+            "type": "string",
+            "description": "Shutdown behavior for the instance. Can be `stop` or `terminate`.\n(Default: `stop`).\n"
+        },
+        "instanceMarketOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateInstanceMarketOptions:LaunchTemplateInstanceMarketOptions",
+            "description": "The market (purchasing) option for the instance. See Market Options\nbelow for details.\n"
+        },
+        "instanceRequirements": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateInstanceRequirements:LaunchTemplateInstanceRequirements",
+            "description": "The attribute requirements for the type of instance. If present then `instance_type` cannot be present.\n"
+        },
+        "instanceType": {
+            "type": "string",
+            "description": "The type of the instance. If present then `instance_requirements` cannot be present.\n"
+        },
+        "kernelId": {
+            "type": "string",
+            "description": "The kernel ID.\n"
+        },
+        "keyName": {
+            "type": "string",
+            "description": "The key name to use for the instance.\n"
+        },
+        "latestVersion": {
+            "type": "integer",
+            "description": "The latest version of the launch template.\n"
+        },
+        "licenseSpecifications": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateLicenseSpecification:LaunchTemplateLicenseSpecification"
+            },
+            "description": "A list of license specifications to associate with. See License Specification below for more details.\n"
+        },
+        "maintenanceOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateMaintenanceOptions:LaunchTemplateMaintenanceOptions",
+            "description": "The maintenance options for the instance. See Maintenance Options below for more details.\n"
+        },
+        "metadataOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateMetadataOptions:LaunchTemplateMetadataOptions",
+            "description": "Customize the metadata options for the instance. See Metadata Options below for more details.\n"
+        },
+        "monitoring": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateMonitoring:LaunchTemplateMonitoring",
+            "description": "The monitoring option for the instance. See Monitoring below for more details.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+        },
+        "networkInterfaces": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateNetworkInterface:LaunchTemplateNetworkInterface"
+            },
+            "description": "Customize network interfaces to be attached at instance boot time. See Network\nInterfaces below for more details.\n"
+        },
+        "placement": {
+            "$ref": "#/types/aws:ec2/LaunchTemplatePlacement:LaunchTemplatePlacement",
+            "description": "The placement of the instance. See Placement below for more details.\n"
+        },
+        "privateDnsNameOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplatePrivateDnsNameOptions:LaunchTemplatePrivateDnsNameOptions",
+            "description": "The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.\n"
+        },
+        "ramDiskId": {
+            "type": "string",
+            "description": "The ID of the RAM disk.\n"
+        },
+        "securityGroupNames": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of security group names to associate with. If you are creating Instances in a VPC, use\n`vpc_security_group_ids` instead.\n"
+        },
+        "tagSpecifications": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateTagSpecification:LaunchTemplateTagSpecification"
+            },
+            "description": "The tags to apply to the resources during launch. See Tag Specifications below for more details.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "updateDefaultVersion": {
+            "type": "boolean",
+            "description": "Whether to update Default Version each update. Conflicts with `default_version`.\n"
+        },
+        "userData": {
+            "type": "string",
+            "description": "The base64-encoded user data to provide when launching the instance.\n"
+        },
+        "vpcSecurityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`\n"
+        }
+    },
+    "required": [
+        "arn",
+        "defaultVersion",
+        "latestVersion",
+        "metadataOptions",
+        "name",
+        "namePrefix",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "blockDeviceMappings": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateBlockDeviceMapping:LaunchTemplateBlockDeviceMapping"
+            },
+            "description": "Specify volumes to attach to the instance besides the volumes specified by the AMI.\nSee Block Devices below for details.\n"
+        },
+        "capacityReservationSpecification": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateCapacityReservationSpecification:LaunchTemplateCapacityReservationSpecification",
+            "description": "Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.\n"
+        },
+        "cpuOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateCpuOptions:LaunchTemplateCpuOptions",
+            "description": "The CPU options for the instance. See CPU Options below for more details.\n"
+        },
+        "creditSpecification": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateCreditSpecification:LaunchTemplateCreditSpecification",
+            "description": "Customize the credit specification of the instance. See Credit\nSpecification below for more details.\n"
+        },
+        "defaultVersion": {
+            "type": "integer",
+            "description": "Default Version of the launch template.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the launch template.\n"
+        },
+        "disableApiStop": {
+            "type": "boolean",
+            "description": "If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).\n"
+        },
+        "disableApiTermination": {
+            "type": "boolean",
+            "description": "If `true`, enables [EC2 Instance\nTermination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)\n"
+        },
+        "ebsOptimized": {
+            "type": "string",
+            "description": "If `true`, the launched EC2 instance will be EBS-optimized.\n"
+        },
+        "elasticGpuSpecifications": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateElasticGpuSpecification:LaunchTemplateElasticGpuSpecification"
+            },
+            "description": "The elastic GPU to attach to the instance. See Elastic GPU\nbelow for more details.\n"
+        },
+        "elasticInferenceAccelerator": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateElasticInferenceAccelerator:LaunchTemplateElasticInferenceAccelerator",
+            "description": "Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.\n"
+        },
+        "enclaveOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateEnclaveOptions:LaunchTemplateEnclaveOptions",
+            "description": "Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.\n"
+        },
+        "hibernationOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateHibernationOptions:LaunchTemplateHibernationOptions",
+            "description": "The hibernation options for the instance. See Hibernation Options below for more details.\n"
+        },
+        "iamInstanceProfile": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateIamInstanceProfile:LaunchTemplateIamInstanceProfile",
+            "description": "The IAM Instance Profile to launch the instance with. See Instance Profile\nbelow for more details.\n"
+        },
+        "imageId": {
+            "type": "string",
+            "description": "The AMI from which to launch the instance.\n"
+        },
+        "instanceInitiatedShutdownBehavior": {
+            "type": "string",
+            "description": "Shutdown behavior for the instance. Can be `stop` or `terminate`.\n(Default: `stop`).\n"
+        },
+        "instanceMarketOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateInstanceMarketOptions:LaunchTemplateInstanceMarketOptions",
+            "description": "The market (purchasing) option for the instance. See Market Options\nbelow for details.\n"
+        },
+        "instanceRequirements": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateInstanceRequirements:LaunchTemplateInstanceRequirements",
+            "description": "The attribute requirements for the type of instance. If present then `instance_type` cannot be present.\n"
+        },
+        "instanceType": {
+            "type": "string",
+            "description": "The type of the instance. If present then `instance_requirements` cannot be present.\n"
+        },
+        "kernelId": {
+            "type": "string",
+            "description": "The kernel ID.\n"
+        },
+        "keyName": {
+            "type": "string",
+            "description": "The key name to use for the instance.\n"
+        },
+        "licenseSpecifications": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateLicenseSpecification:LaunchTemplateLicenseSpecification"
+            },
+            "description": "A list of license specifications to associate with. See License Specification below for more details.\n"
+        },
+        "maintenanceOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateMaintenanceOptions:LaunchTemplateMaintenanceOptions",
+            "description": "The maintenance options for the instance. See Maintenance Options below for more details.\n"
+        },
+        "metadataOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateMetadataOptions:LaunchTemplateMetadataOptions",
+            "description": "Customize the metadata options for the instance. See Metadata Options below for more details.\n"
+        },
+        "monitoring": {
+            "$ref": "#/types/aws:ec2/LaunchTemplateMonitoring:LaunchTemplateMonitoring",
+            "description": "The monitoring option for the instance. See Monitoring below for more details.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+            "willReplaceOnChanges": true
+        },
+        "networkInterfaces": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateNetworkInterface:LaunchTemplateNetworkInterface"
+            },
+            "description": "Customize network interfaces to be attached at instance boot time. See Network\nInterfaces below for more details.\n"
+        },
+        "placement": {
+            "$ref": "#/types/aws:ec2/LaunchTemplatePlacement:LaunchTemplatePlacement",
+            "description": "The placement of the instance. See Placement below for more details.\n"
+        },
+        "privateDnsNameOptions": {
+            "$ref": "#/types/aws:ec2/LaunchTemplatePrivateDnsNameOptions:LaunchTemplatePrivateDnsNameOptions",
+            "description": "The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.\n"
+        },
+        "ramDiskId": {
+            "type": "string",
+            "description": "The ID of the RAM disk.\n"
+        },
+        "securityGroupNames": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of security group names to associate with. If you are creating Instances in a VPC, use\n`vpc_security_group_ids` instead.\n"
+        },
+        "tagSpecifications": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateTagSpecification:LaunchTemplateTagSpecification"
+            },
+            "description": "The tags to apply to the resources during launch. See Tag Specifications below for more details.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "updateDefaultVersion": {
+            "type": "boolean",
+            "description": "Whether to update Default Version each update. Conflicts with `default_version`.\n"
+        },
+        "userData": {
+            "type": "string",
+            "description": "The base64-encoded user data to provide when launching the instance.\n"
+        },
+        "vpcSecurityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering LaunchTemplate resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.\n"
+            },
+            "blockDeviceMappings": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/LaunchTemplateBlockDeviceMapping:LaunchTemplateBlockDeviceMapping"
+                },
+                "description": "Specify volumes to attach to the instance besides the volumes specified by the AMI.\nSee Block Devices below for details.\n"
+            },
+            "capacityReservationSpecification": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateCapacityReservationSpecification:LaunchTemplateCapacityReservationSpecification",
+                "description": "Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.\n"
+            },
+            "cpuOptions": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateCpuOptions:LaunchTemplateCpuOptions",
+                "description": "The CPU options for the instance. See CPU Options below for more details.\n"
+            },
+            "creditSpecification": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateCreditSpecification:LaunchTemplateCreditSpecification",
+                "description": "Customize the credit specification of the instance. See Credit\nSpecification below for more details.\n"
+            },
+            "defaultVersion": {
+                "type": "integer",
+                "description": "Default Version of the launch template.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the launch template.\n"
+            },
+            "disableApiStop": {
+                "type": "boolean",
+                "description": "If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).\n"
+            },
+            "disableApiTermination": {
+                "type": "boolean",
+                "description": "If `true`, enables [EC2 Instance\nTermination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)\n"
+            },
+            "ebsOptimized": {
+                "type": "string",
+                "description": "If `true`, the launched EC2 instance will be EBS-optimized.\n"
+            },
+            "elasticGpuSpecifications": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/LaunchTemplateElasticGpuSpecification:LaunchTemplateElasticGpuSpecification"
+                },
+                "description": "The elastic GPU to attach to the instance. See Elastic GPU\nbelow for more details.\n"
+            },
+            "elasticInferenceAccelerator": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateElasticInferenceAccelerator:LaunchTemplateElasticInferenceAccelerator",
+                "description": "Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.\n"
+            },
+            "enclaveOptions": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateEnclaveOptions:LaunchTemplateEnclaveOptions",
+                "description": "Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.\n"
+            },
+            "hibernationOptions": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateHibernationOptions:LaunchTemplateHibernationOptions",
+                "description": "The hibernation options for the instance. See Hibernation Options below for more details.\n"
+            },
+            "iamInstanceProfile": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateIamInstanceProfile:LaunchTemplateIamInstanceProfile",
+                "description": "The IAM Instance Profile to launch the instance with. See Instance Profile\nbelow for more details.\n"
+            },
+            "imageId": {
+                "type": "string",
+                "description": "The AMI from which to launch the instance.\n"
+            },
+            "instanceInitiatedShutdownBehavior": {
+                "type": "string",
+                "description": "Shutdown behavior for the instance. Can be `stop` or `terminate`.\n(Default: `stop`).\n"
+            },
+            "instanceMarketOptions": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateInstanceMarketOptions:LaunchTemplateInstanceMarketOptions",
+                "description": "The market (purchasing) option for the instance. See Market Options\nbelow for details.\n"
+            },
+            "instanceRequirements": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateInstanceRequirements:LaunchTemplateInstanceRequirements",
+                "description": "The attribute requirements for the type of instance. If present then `instance_type` cannot be present.\n"
+            },
+            "instanceType": {
+                "type": "string",
+                "description": "The type of the instance. If present then `instance_requirements` cannot be present.\n"
+            },
+            "kernelId": {
+                "type": "string",
+                "description": "The kernel ID.\n"
+            },
+            "keyName": {
+                "type": "string",
+                "description": "The key name to use for the instance.\n"
+            },
+            "latestVersion": {
+                "type": "integer",
+                "description": "The latest version of the launch template.\n"
+            },
+            "licenseSpecifications": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/LaunchTemplateLicenseSpecification:LaunchTemplateLicenseSpecification"
+                },
+                "description": "A list of license specifications to associate with. See License Specification below for more details.\n"
+            },
+            "maintenanceOptions": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateMaintenanceOptions:LaunchTemplateMaintenanceOptions",
+                "description": "The maintenance options for the instance. See Maintenance Options below for more details.\n"
+            },
+            "metadataOptions": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateMetadataOptions:LaunchTemplateMetadataOptions",
+                "description": "Customize the metadata options for the instance. See Metadata Options below for more details.\n"
+            },
+            "monitoring": {
+                "$ref": "#/types/aws:ec2/LaunchTemplateMonitoring:LaunchTemplateMonitoring",
+                "description": "The monitoring option for the instance. See Monitoring below for more details.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                "willReplaceOnChanges": true
+            },
+            "networkInterfaces": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/LaunchTemplateNetworkInterface:LaunchTemplateNetworkInterface"
+                },
+                "description": "Customize network interfaces to be attached at instance boot time. See Network\nInterfaces below for more details.\n"
+            },
+            "placement": {
+                "$ref": "#/types/aws:ec2/LaunchTemplatePlacement:LaunchTemplatePlacement",
+                "description": "The placement of the instance. See Placement below for more details.\n"
+            },
+            "privateDnsNameOptions": {
+                "$ref": "#/types/aws:ec2/LaunchTemplatePrivateDnsNameOptions:LaunchTemplatePrivateDnsNameOptions",
+                "description": "The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.\n"
+            },
+            "ramDiskId": {
+                "type": "string",
+                "description": "The ID of the RAM disk.\n"
+            },
+            "securityGroupNames": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of security group names to associate with. If you are creating Instances in a VPC, use\n`vpc_security_group_ids` instead.\n"
+            },
+            "tagSpecifications": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/LaunchTemplateTagSpecification:LaunchTemplateTagSpecification"
+                },
+                "description": "The tags to apply to the resources during launch. See Tag Specifications below for more details.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "updateDefaultVersion": {
+                "type": "boolean",
+                "description": "Whether to update Default Version each update. Conflicts with `default_version`.\n"
+            },
+            "userData": {
+                "type": "string",
+                "description": "The base64-encoded user data to provide when launching the instance.\n"
+            },
+            "vpcSecurityGroupIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`\n"
+            }
+        },
+        "type": "object"
+    }
+}

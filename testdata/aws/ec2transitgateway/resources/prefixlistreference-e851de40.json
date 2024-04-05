@@ -1,0 +1,79 @@
+{
+    "properties": {
+        "blackhole": {
+            "type": "boolean",
+            "description": "Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.\n"
+        },
+        "prefixListId": {
+            "type": "string",
+            "description": "Identifier of EC2 Prefix List.\n"
+        },
+        "prefixListOwnerId": {
+            "type": "string"
+        },
+        "transitGatewayAttachmentId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway Attachment.\n"
+        },
+        "transitGatewayRouteTableId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway Route Table.\n\nThe following arguments are optional:\n"
+        }
+    },
+    "required": [
+        "prefixListId",
+        "prefixListOwnerId",
+        "transitGatewayRouteTableId"
+    ],
+    "inputProperties": {
+        "blackhole": {
+            "type": "boolean",
+            "description": "Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.\n"
+        },
+        "prefixListId": {
+            "type": "string",
+            "description": "Identifier of EC2 Prefix List.\n",
+            "willReplaceOnChanges": true
+        },
+        "transitGatewayAttachmentId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway Attachment.\n"
+        },
+        "transitGatewayRouteTableId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway Route Table.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "prefixListId",
+        "transitGatewayRouteTableId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering PrefixListReference resources.\n",
+        "properties": {
+            "blackhole": {
+                "type": "boolean",
+                "description": "Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.\n"
+            },
+            "prefixListId": {
+                "type": "string",
+                "description": "Identifier of EC2 Prefix List.\n",
+                "willReplaceOnChanges": true
+            },
+            "prefixListOwnerId": {
+                "type": "string"
+            },
+            "transitGatewayAttachmentId": {
+                "type": "string",
+                "description": "Identifier of EC2 Transit Gateway Attachment.\n"
+            },
+            "transitGatewayRouteTableId": {
+                "type": "string",
+                "description": "Identifier of EC2 Transit Gateway Route Table.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

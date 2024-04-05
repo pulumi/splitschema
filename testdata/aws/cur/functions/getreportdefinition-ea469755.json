@@ -1,0 +1,88 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getReportDefinition.\n",
+        "properties": {
+            "reportName": {
+                "type": "string",
+                "description": "Name of the report definition to match.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "reportName"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getReportDefinition.\n",
+        "properties": {
+            "additionalArtifacts": {
+                "description": "A list of additional artifacts.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "additionalSchemaElements": {
+                "description": "A list of schema elements.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "compression": {
+                "description": "Preferred format for report.\n",
+                "type": "string"
+            },
+            "format": {
+                "description": "Preferred compression format for report.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "refreshClosedReports": {
+                "description": "If true reports are updated after they have been finalized.\n",
+                "type": "boolean"
+            },
+            "reportName": {
+                "type": "string"
+            },
+            "reportVersioning": {
+                "description": "Overwrite the previous version of each report or to deliver the report in addition to the previous versions.\n",
+                "type": "string"
+            },
+            "s3Bucket": {
+                "description": "Name of customer S3 bucket.\n",
+                "type": "string"
+            },
+            "s3Prefix": {
+                "description": "Preferred report path prefix.\n",
+                "type": "string"
+            },
+            "s3Region": {
+                "description": "Region of customer S3 bucket.\n",
+                "type": "string"
+            },
+            "timeUnit": {
+                "description": "Frequency on which report data are measured and displayed.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "additionalArtifacts",
+            "additionalSchemaElements",
+            "compression",
+            "format",
+            "refreshClosedReports",
+            "reportName",
+            "reportVersioning",
+            "s3Bucket",
+            "s3Prefix",
+            "s3Region",
+            "timeUnit",
+            "id"
+        ],
+        "type": "object"
+    }
+}

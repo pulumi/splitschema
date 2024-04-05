@@ -1,0 +1,41 @@
+{
+    "properties": {
+        "destinationSchema": {
+            "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema:ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema",
+            "description": "Describes the data format when records are written to the destination.\n"
+        },
+        "kinesisFirehoseOutput": {
+            "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput:ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput",
+            "description": "Identifies a Kinesis Data Firehose delivery stream as the destination.\n"
+        },
+        "kinesisStreamsOutput": {
+            "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput:ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput",
+            "description": "Identifies a Kinesis data stream as the destination.\n"
+        },
+        "lambdaOutput": {
+            "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput:ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput",
+            "description": "Identifies a Lambda function as the destination.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the in-application stream.\n"
+        },
+        "outputId": {
+            "type": "string"
+        }
+    },
+    "type": "object",
+    "required": [
+        "destinationSchema",
+        "name"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "destinationSchema",
+                "name",
+                "outputId"
+            ]
+        }
+    }
+}

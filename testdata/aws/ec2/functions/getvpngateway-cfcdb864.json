@@ -1,0 +1,87 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getVpnGateway.\n",
+        "properties": {
+            "amazonSideAsn": {
+                "type": "string",
+                "description": "Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.\n\nMore complex filters can be expressed using one or more `filter` sub-blocks,\nwhich take the following arguments:\n"
+            },
+            "attachedVpcId": {
+                "type": "string",
+                "description": "ID of a VPC attached to the specific VPN Gateway to retrieve.\n"
+            },
+            "availabilityZone": {
+                "type": "string",
+                "description": "Availability Zone of the specific VPN Gateway to retrieve.\n"
+            },
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getVpnGatewayFilter:getVpnGatewayFilter"
+                },
+                "description": "Custom filter block as described below.\n"
+            },
+            "id": {
+                "type": "string",
+                "description": "ID of the specific VPN Gateway to retrieve.\n"
+            },
+            "state": {
+                "type": "string",
+                "description": "State of the specific VPN Gateway to retrieve.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags, each pair of which must exactly match\na pair on the desired VPN Gateway.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getVpnGateway.\n",
+        "properties": {
+            "amazonSideAsn": {
+                "type": "string"
+            },
+            "arn": {
+                "type": "string"
+            },
+            "attachedVpcId": {
+                "type": "string"
+            },
+            "availabilityZone": {
+                "type": "string"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2/getVpnGatewayFilter:getVpnGatewayFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "type": "string"
+            },
+            "state": {
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            }
+        },
+        "required": [
+            "amazonSideAsn",
+            "arn",
+            "attachedVpcId",
+            "availabilityZone",
+            "id",
+            "state",
+            "tags"
+        ],
+        "type": "object"
+    }
+}

@@ -1,0 +1,188 @@
+{
+    "properties": {
+        "application": {
+            "type": "string",
+            "description": "Name of the Beanstalk Application the version is associated with.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN assigned by AWS for this Elastic Beanstalk Application.\n"
+        },
+        "bucket": {
+            "type": "string",
+            "description": "S3 bucket that contains the Application Version source bundle.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Short description of the Application Version.\n"
+        },
+        "forceDelete": {
+            "type": "boolean",
+            "description": "On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.\n"
+        },
+        "key": {
+            "type": "string",
+            "description": "S3 object that is the Application Version source bundle.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Unique name for the this Application Version.\n\nThe following arguments are optional:\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "application",
+        "arn",
+        "bucket",
+        "key",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "application": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:elasticbeanstalk/application:Application"
+                }
+            ],
+            "description": "Name of the Beanstalk Application the version is associated with.\n",
+            "willReplaceOnChanges": true
+        },
+        "bucket": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:s3/bucket:Bucket"
+                }
+            ],
+            "description": "S3 bucket that contains the Application Version source bundle.\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "Short description of the Application Version.\n"
+        },
+        "forceDelete": {
+            "type": "boolean",
+            "description": "On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.\n"
+        },
+        "key": {
+            "type": "string",
+            "description": "S3 object that is the Application Version source bundle.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Unique name for the this Application Version.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "application",
+        "bucket",
+        "key"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ApplicationVersion resources.\n",
+        "properties": {
+            "application": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:elasticbeanstalk/application:Application"
+                    }
+                ],
+                "description": "Name of the Beanstalk Application the version is associated with.\n",
+                "willReplaceOnChanges": true
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN assigned by AWS for this Elastic Beanstalk Application.\n"
+            },
+            "bucket": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:s3/bucket:Bucket"
+                    }
+                ],
+                "description": "S3 bucket that contains the Application Version source bundle.\n",
+                "willReplaceOnChanges": true
+            },
+            "description": {
+                "type": "string",
+                "description": "Short description of the Application Version.\n"
+            },
+            "forceDelete": {
+                "type": "boolean",
+                "description": "On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.\n"
+            },
+            "key": {
+                "type": "string",
+                "description": "S3 object that is the Application Version source bundle.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "Unique name for the this Application Version.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

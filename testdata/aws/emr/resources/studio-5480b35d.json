@@ -1,0 +1,256 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the studio.\n"
+        },
+        "authMode": {
+            "type": "string",
+            "description": "Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.\n"
+        },
+        "defaultS3Location": {
+            "type": "string",
+            "description": "The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A detailed description of the Amazon EMR Studio.\n"
+        },
+        "engineSecurityGroupId": {
+            "type": "string",
+            "description": "The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.\n"
+        },
+        "idpAuthUrl": {
+            "type": "string",
+            "description": "The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.\n"
+        },
+        "idpRelayStateParameterName": {
+            "type": "string",
+            "description": "The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "A descriptive name for the Amazon EMR Studio.\n"
+        },
+        "serviceRole": {
+            "type": "string",
+            "description": "The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.\n"
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "url": {
+            "type": "string",
+            "description": "The unique access URL of the Amazon EMR Studio.\n"
+        },
+        "userRole": {
+            "type": "string",
+            "description": "The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.\n"
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.\n"
+        },
+        "workspaceSecurityGroupId": {
+            "type": "string",
+            "description": "The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.\n\nThe following arguments are optional:\n"
+        }
+    },
+    "required": [
+        "arn",
+        "authMode",
+        "defaultS3Location",
+        "engineSecurityGroupId",
+        "name",
+        "serviceRole",
+        "subnetIds",
+        "tagsAll",
+        "url",
+        "vpcId",
+        "workspaceSecurityGroupId"
+    ],
+    "inputProperties": {
+        "authMode": {
+            "type": "string",
+            "description": "Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.\n",
+            "willReplaceOnChanges": true
+        },
+        "defaultS3Location": {
+            "type": "string",
+            "description": "The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A detailed description of the Amazon EMR Studio.\n"
+        },
+        "engineSecurityGroupId": {
+            "type": "string",
+            "description": "The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.\n",
+            "willReplaceOnChanges": true
+        },
+        "idpAuthUrl": {
+            "type": "string",
+            "description": "The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.\n",
+            "willReplaceOnChanges": true
+        },
+        "idpRelayStateParameterName": {
+            "type": "string",
+            "description": "The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "A descriptive name for the Amazon EMR Studio.\n"
+        },
+        "serviceRole": {
+            "type": "string",
+            "description": "The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "userRole": {
+            "type": "string",
+            "description": "The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.\n",
+            "willReplaceOnChanges": true
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.\n",
+            "willReplaceOnChanges": true
+        },
+        "workspaceSecurityGroupId": {
+            "type": "string",
+            "description": "The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "authMode",
+        "defaultS3Location",
+        "engineSecurityGroupId",
+        "serviceRole",
+        "subnetIds",
+        "vpcId",
+        "workspaceSecurityGroupId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Studio resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the studio.\n"
+            },
+            "authMode": {
+                "type": "string",
+                "description": "Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.\n",
+                "willReplaceOnChanges": true
+            },
+            "defaultS3Location": {
+                "type": "string",
+                "description": "The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A detailed description of the Amazon EMR Studio.\n"
+            },
+            "engineSecurityGroupId": {
+                "type": "string",
+                "description": "The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.\n",
+                "willReplaceOnChanges": true
+            },
+            "idpAuthUrl": {
+                "type": "string",
+                "description": "The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.\n",
+                "willReplaceOnChanges": true
+            },
+            "idpRelayStateParameterName": {
+                "type": "string",
+                "description": "The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "A descriptive name for the Amazon EMR Studio.\n"
+            },
+            "serviceRole": {
+                "type": "string",
+                "description": "The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.\n",
+                "willReplaceOnChanges": true
+            },
+            "subnetIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "url": {
+                "type": "string",
+                "description": "The unique access URL of the Amazon EMR Studio.\n"
+            },
+            "userRole": {
+                "type": "string",
+                "description": "The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.\n",
+                "willReplaceOnChanges": true
+            },
+            "vpcId": {
+                "type": "string",
+                "description": "The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.\n",
+                "willReplaceOnChanges": true
+            },
+            "workspaceSecurityGroupId": {
+                "type": "string",
+                "description": "The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

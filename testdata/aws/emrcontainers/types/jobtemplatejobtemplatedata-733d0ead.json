@@ -1,0 +1,38 @@
+{
+    "properties": {
+        "configurationOverrides": {
+            "$ref": "#/types/aws:emrcontainers/JobTemplateJobTemplateDataConfigurationOverrides:JobTemplateJobTemplateDataConfigurationOverrides",
+            "description": "The configuration settings that are used to override defaults configuration.\n",
+            "willReplaceOnChanges": true
+        },
+        "executionRoleArn": {
+            "type": "string",
+            "description": "The execution role ARN of the job run.\n",
+            "willReplaceOnChanges": true
+        },
+        "jobDriver": {
+            "$ref": "#/types/aws:emrcontainers/JobTemplateJobTemplateDataJobDriver:JobTemplateJobTemplateDataJobDriver",
+            "description": "Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.\n",
+            "willReplaceOnChanges": true
+        },
+        "jobTags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "The tags assigned to jobs started using the job template.\n",
+            "willReplaceOnChanges": true
+        },
+        "releaseLabel": {
+            "type": "string",
+            "description": "The release version of Amazon EMR.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "executionRoleArn",
+        "jobDriver",
+        "releaseLabel"
+    ]
+}

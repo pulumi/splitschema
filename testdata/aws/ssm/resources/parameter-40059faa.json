@@ -1,0 +1,231 @@
+{
+    "properties": {
+        "allowedPattern": {
+            "type": "string",
+            "description": "Regular expression used to validate the parameter value.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN of the parameter.\n"
+        },
+        "dataType": {
+            "type": "string",
+            "description": "Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the parameter.\n"
+        },
+        "insecureValue": {
+            "type": "string",
+            "description": "Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.\n"
+        },
+        "keyId": {
+            "type": "string",
+            "description": "KMS key ID or ARN for encrypting a SecureString.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).\n"
+        },
+        "overwrite": {
+            "type": "boolean",
+            "description": "Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).\n",
+            "deprecationMessage": "this attribute has been deprecated"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "tier": {
+            "type": "string",
+            "description": "Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.\n\nThe following arguments are optional:\n"
+        },
+        "value": {
+            "type": "string",
+            "description": "Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.\n\n\u003e **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.\n",
+            "secret": true
+        },
+        "version": {
+            "type": "integer",
+            "description": "Version of the parameter.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "dataType",
+        "insecureValue",
+        "keyId",
+        "name",
+        "tagsAll",
+        "type",
+        "value",
+        "version"
+    ],
+    "inputProperties": {
+        "allowedPattern": {
+            "type": "string",
+            "description": "Regular expression used to validate the parameter value.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN of the parameter.\n"
+        },
+        "dataType": {
+            "type": "string",
+            "description": "Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the parameter.\n"
+        },
+        "insecureValue": {
+            "type": "string",
+            "description": "Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.\n"
+        },
+        "keyId": {
+            "type": "string",
+            "description": "KMS key ID or ARN for encrypting a SecureString.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).\n",
+            "willReplaceOnChanges": true
+        },
+        "overwrite": {
+            "type": "boolean",
+            "description": "Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).\n",
+            "deprecationMessage": "this attribute has been deprecated"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tier": {
+            "type": "string",
+            "description": "Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).\n"
+        },
+        "type": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:ssm/ParameterType:ParameterType"
+                }
+            ],
+            "description": "Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.\n\nThe following arguments are optional:\n"
+        },
+        "value": {
+            "type": "string",
+            "description": "Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.\n\n\u003e **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.\n",
+            "secret": true
+        }
+    },
+    "requiredInputs": [
+        "type"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Parameter resources.\n",
+        "properties": {
+            "allowedPattern": {
+                "type": "string",
+                "description": "Regular expression used to validate the parameter value.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN of the parameter.\n"
+            },
+            "dataType": {
+                "type": "string",
+                "description": "Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the parameter.\n"
+            },
+            "insecureValue": {
+                "type": "string",
+                "description": "Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.\n"
+            },
+            "keyId": {
+                "type": "string",
+                "description": "KMS key ID or ARN for encrypting a SecureString.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).\n",
+                "willReplaceOnChanges": true
+            },
+            "overwrite": {
+                "type": "boolean",
+                "description": "Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).\n",
+                "deprecationMessage": "this attribute has been deprecated"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "tier": {
+                "type": "string",
+                "description": "Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).\n"
+            },
+            "type": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:ssm/ParameterType:ParameterType"
+                    }
+                ],
+                "description": "Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.\n\nThe following arguments are optional:\n"
+            },
+            "value": {
+                "type": "string",
+                "description": "Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.\n\n\u003e **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.\n",
+                "secret": true
+            },
+            "version": {
+                "type": "integer",
+                "description": "Version of the parameter.\n"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "properties": {
+        "blockPublicAcls": {
+            "type": "boolean",
+            "description": "Specifies whether Amazon S3 should block public access control lists (ACLs). When set to `true` causes the following behavior:\n* PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.\n* PUT Object calls fail if the request includes a public ACL.\n* PUT Bucket calls fail if the request includes a public ACL.\n"
+        },
+        "blockPublicPolicy": {
+            "type": "boolean",
+            "description": "Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:\n* Reject calls to PUT Bucket policy if the specified bucket policy allows public access.\n"
+        },
+        "ignorePublicAcls": {
+            "type": "boolean",
+            "description": "Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:\n* Ignore all public ACLs on buckets in this account and any objects that they contain.\n"
+        },
+        "restrictPublicBuckets": {
+            "type": "boolean",
+            "description": "Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:\n* Only the bucket owner and AWS Services can access buckets with public policies.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "blockPublicAcls",
+        "blockPublicPolicy",
+        "ignorePublicAcls",
+        "restrictPublicBuckets"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredInputs": []
+        }
+    }
+}

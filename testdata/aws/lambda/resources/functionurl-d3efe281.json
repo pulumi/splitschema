@@ -1,0 +1,121 @@
+{
+    "properties": {
+        "authorizationType": {
+            "type": "string",
+            "description": "The type of authentication that the function URL uses. Set to `\"AWS_IAM\"` to restrict access to authenticated IAM users only. Set to `\"NONE\"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.\n"
+        },
+        "cors": {
+            "$ref": "#/types/aws:lambda/FunctionUrlCors:FunctionUrlCors",
+            "description": "The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.\n"
+        },
+        "functionArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the function.\n"
+        },
+        "functionName": {
+            "type": "string",
+            "description": "The name (or ARN) of the Lambda function.\n"
+        },
+        "functionUrl": {
+            "type": "string",
+            "description": "The HTTP URL endpoint for the function in the format `https://\u003curl_id\u003e.lambda-url.\u003cregion\u003e.on.aws`.\n",
+            "language": {
+                "csharp": {
+                    "name": "FunctionUrlResult"
+                }
+            }
+        },
+        "invokeMode": {
+            "type": "string",
+            "description": "Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).\n"
+        },
+        "qualifier": {
+            "type": "string",
+            "description": "The alias name or `\"$LATEST\"`.\n"
+        },
+        "urlId": {
+            "type": "string",
+            "description": "A generated ID for the endpoint.\n"
+        }
+    },
+    "required": [
+        "authorizationType",
+        "functionArn",
+        "functionName",
+        "functionUrl",
+        "urlId"
+    ],
+    "inputProperties": {
+        "authorizationType": {
+            "type": "string",
+            "description": "The type of authentication that the function URL uses. Set to `\"AWS_IAM\"` to restrict access to authenticated IAM users only. Set to `\"NONE\"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.\n"
+        },
+        "cors": {
+            "$ref": "#/types/aws:lambda/FunctionUrlCors:FunctionUrlCors",
+            "description": "The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.\n"
+        },
+        "functionName": {
+            "type": "string",
+            "description": "The name (or ARN) of the Lambda function.\n",
+            "willReplaceOnChanges": true
+        },
+        "invokeMode": {
+            "type": "string",
+            "description": "Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).\n"
+        },
+        "qualifier": {
+            "type": "string",
+            "description": "The alias name or `\"$LATEST\"`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "authorizationType",
+        "functionName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering FunctionUrl resources.\n",
+        "properties": {
+            "authorizationType": {
+                "type": "string",
+                "description": "The type of authentication that the function URL uses. Set to `\"AWS_IAM\"` to restrict access to authenticated IAM users only. Set to `\"NONE\"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.\n"
+            },
+            "cors": {
+                "$ref": "#/types/aws:lambda/FunctionUrlCors:FunctionUrlCors",
+                "description": "The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.\n"
+            },
+            "functionArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the function.\n"
+            },
+            "functionName": {
+                "type": "string",
+                "description": "The name (or ARN) of the Lambda function.\n",
+                "willReplaceOnChanges": true
+            },
+            "functionUrl": {
+                "type": "string",
+                "description": "The HTTP URL endpoint for the function in the format `https://\u003curl_id\u003e.lambda-url.\u003cregion\u003e.on.aws`.\n",
+                "language": {
+                    "csharp": {
+                        "name": "FunctionUrlResult"
+                    }
+                }
+            },
+            "invokeMode": {
+                "type": "string",
+                "description": "Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).\n"
+            },
+            "qualifier": {
+                "type": "string",
+                "description": "The alias name or `\"$LATEST\"`.\n",
+                "willReplaceOnChanges": true
+            },
+            "urlId": {
+                "type": "string",
+                "description": "A generated ID for the endpoint.\n"
+            }
+        },
+        "type": "object"
+    }
+}

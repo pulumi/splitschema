@@ -1,0 +1,65 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getInstanceTypeOfferings.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getInstanceTypeOfferingsFilter:getInstanceTypeOfferingsFilter"
+                },
+                "description": "One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.\n"
+            },
+            "locationType": {
+                "type": "string",
+                "description": "Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getInstanceTypeOfferings.\n",
+        "properties": {
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2/getInstanceTypeOfferingsFilter:getInstanceTypeOfferingsFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "instanceTypes": {
+                "description": "List of EC2 Instance Types.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "locationType": {
+                "type": "string"
+            },
+            "locationTypes": {
+                "description": "List of location types.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "locations": {
+                "description": "List of locations.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "instanceTypes",
+            "locationTypes",
+            "locations",
+            "id"
+        ],
+        "type": "object"
+    }
+}

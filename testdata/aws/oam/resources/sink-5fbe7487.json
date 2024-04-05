@@ -1,0 +1,85 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the Sink.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name for the sink.\n\nThe following arguments are optional:\n"
+        },
+        "sinkId": {
+            "type": "string",
+            "description": "ID string that AWS generated as part of the sink ARN.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "sinkId",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "Name for the sink.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Sink resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the Sink.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name for the sink.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "sinkId": {
+                "type": "string",
+                "description": "ID string that AWS generated as part of the sink ARN.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,143 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) specifying the role.\n"
+        },
+        "awsServiceName": {
+            "type": "string",
+            "description": "The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).\n"
+        },
+        "createDate": {
+            "type": "string",
+            "description": "The creation date of the IAM role.\n"
+        },
+        "customSuffix": {
+            "type": "string",
+            "description": "Additional string appended to the role name. Not all AWS services support custom suffixes.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the role.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the role.\n"
+        },
+        "path": {
+            "type": "string",
+            "description": "The path of the role.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "uniqueId": {
+            "type": "string",
+            "description": "The stable and unique string identifying the role.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "awsServiceName",
+        "createDate",
+        "name",
+        "path",
+        "tagsAll",
+        "uniqueId"
+    ],
+    "inputProperties": {
+        "awsServiceName": {
+            "type": "string",
+            "description": "The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).\n",
+            "willReplaceOnChanges": true
+        },
+        "customSuffix": {
+            "type": "string",
+            "description": "Additional string appended to the role name. Not all AWS services support custom suffixes.\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the role.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "awsServiceName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ServiceLinkedRole resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) specifying the role.\n"
+            },
+            "awsServiceName": {
+                "type": "string",
+                "description": "The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).\n",
+                "willReplaceOnChanges": true
+            },
+            "createDate": {
+                "type": "string",
+                "description": "The creation date of the IAM role.\n"
+            },
+            "customSuffix": {
+                "type": "string",
+                "description": "Additional string appended to the role name. Not all AWS services support custom suffixes.\n",
+                "willReplaceOnChanges": true
+            },
+            "description": {
+                "type": "string",
+                "description": "The description of the role.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the role.\n"
+            },
+            "path": {
+                "type": "string",
+                "description": "The path of the role.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "uniqueId": {
+                "type": "string",
+                "description": "The stable and unique string identifying the role.\n"
+            }
+        },
+        "type": "object"
+    }
+}

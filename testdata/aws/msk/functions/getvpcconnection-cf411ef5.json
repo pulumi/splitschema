@@ -1,0 +1,78 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getVpcConnection.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the VPC Connection.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of key-value pairs assigned to the VPC Connection.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "arn"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getVpcConnection.\n",
+        "properties": {
+            "arn": {
+                "type": "string"
+            },
+            "authentication": {
+                "description": "The authentication type for the client VPC Connection.\n",
+                "type": "string"
+            },
+            "clientSubnets": {
+                "description": "The list of subnets in the client VPC.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "securityGroups": {
+                "description": "The security groups attached to the ENIs for the broker nodes.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of key-value pairs assigned to the VPC Connection.\n",
+                "type": "object"
+            },
+            "targetClusterArn": {
+                "description": "The Amazon Resource Name (ARN) of the cluster.\n",
+                "type": "string"
+            },
+            "vpcId": {
+                "description": "The VPC ID of the remote client.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "authentication",
+            "clientSubnets",
+            "securityGroups",
+            "tags",
+            "targetClusterArn",
+            "vpcId",
+            "id"
+        ],
+        "type": "object"
+    }
+}

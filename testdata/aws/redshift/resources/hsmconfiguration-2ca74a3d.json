@@ -1,0 +1,164 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the Hsm Client Certificate.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A text description of the HSM configuration to be created.\n"
+        },
+        "hsmConfigurationIdentifier": {
+            "type": "string",
+            "description": "The identifier to be assigned to the new Amazon Redshift HSM configuration.\n"
+        },
+        "hsmIpAddress": {
+            "type": "string",
+            "description": "The IP address that the Amazon Redshift cluster must use to access the HSM.\n"
+        },
+        "hsmPartitionName": {
+            "type": "string",
+            "description": "The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.\n"
+        },
+        "hsmPartitionPassword": {
+            "type": "string",
+            "description": "The password required to access the HSM partition.\n",
+            "secret": true
+        },
+        "hsmServerPublicCertificate": {
+            "type": "string",
+            "description": "The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "description",
+        "hsmConfigurationIdentifier",
+        "hsmIpAddress",
+        "hsmPartitionName",
+        "hsmPartitionPassword",
+        "hsmServerPublicCertificate",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "A text description of the HSM configuration to be created.\n",
+            "willReplaceOnChanges": true
+        },
+        "hsmConfigurationIdentifier": {
+            "type": "string",
+            "description": "The identifier to be assigned to the new Amazon Redshift HSM configuration.\n",
+            "willReplaceOnChanges": true
+        },
+        "hsmIpAddress": {
+            "type": "string",
+            "description": "The IP address that the Amazon Redshift cluster must use to access the HSM.\n",
+            "willReplaceOnChanges": true
+        },
+        "hsmPartitionName": {
+            "type": "string",
+            "description": "The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.\n",
+            "willReplaceOnChanges": true
+        },
+        "hsmPartitionPassword": {
+            "type": "string",
+            "description": "The password required to access the HSM partition.\n",
+            "secret": true,
+            "willReplaceOnChanges": true
+        },
+        "hsmServerPublicCertificate": {
+            "type": "string",
+            "description": "The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "description",
+        "hsmConfigurationIdentifier",
+        "hsmIpAddress",
+        "hsmPartitionName",
+        "hsmPartitionPassword",
+        "hsmServerPublicCertificate"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering HsmConfiguration resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the Hsm Client Certificate.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A text description of the HSM configuration to be created.\n",
+                "willReplaceOnChanges": true
+            },
+            "hsmConfigurationIdentifier": {
+                "type": "string",
+                "description": "The identifier to be assigned to the new Amazon Redshift HSM configuration.\n",
+                "willReplaceOnChanges": true
+            },
+            "hsmIpAddress": {
+                "type": "string",
+                "description": "The IP address that the Amazon Redshift cluster must use to access the HSM.\n",
+                "willReplaceOnChanges": true
+            },
+            "hsmPartitionName": {
+                "type": "string",
+                "description": "The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.\n",
+                "willReplaceOnChanges": true
+            },
+            "hsmPartitionPassword": {
+                "type": "string",
+                "description": "The password required to access the HSM partition.\n",
+                "secret": true,
+                "willReplaceOnChanges": true
+            },
+            "hsmServerPublicCertificate": {
+                "type": "string",
+                "description": "The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

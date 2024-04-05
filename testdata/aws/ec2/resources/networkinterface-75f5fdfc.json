@@ -1,0 +1,416 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the network interface.\n"
+        },
+        "attachments": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/NetworkInterfaceAttachment:NetworkInterfaceAttachment"
+            },
+            "description": "Configuration block to define the attachment of the ENI. See Attachment below for more details!\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the network interface.\n"
+        },
+        "interfaceType": {
+            "type": "string",
+            "description": "Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.\n"
+        },
+        "ipv4PrefixCount": {
+            "type": "integer",
+            "description": "Number of IPv4 prefixes that AWS automatically assigns to the network interface.\n"
+        },
+        "ipv4Prefixes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "One or more IPv4 prefixes assigned to the network interface.\n"
+        },
+        "ipv6AddressCount": {
+            "type": "integer",
+            "description": "Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.\n"
+        },
+        "ipv6AddressListEnabled": {
+            "type": "boolean",
+            "description": "Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.\n"
+        },
+        "ipv6AddressLists": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of private IPs to assign to the ENI in sequential order.\n"
+        },
+        "ipv6Addresses": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.\n"
+        },
+        "ipv6PrefixCount": {
+            "type": "integer",
+            "description": "Number of IPv6 prefixes that AWS automatically assigns to the network interface.\n"
+        },
+        "ipv6Prefixes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "One or more IPv6 prefixes assigned to the network interface.\n"
+        },
+        "macAddress": {
+            "type": "string",
+            "description": "MAC address of the network interface.\n"
+        },
+        "outpostArn": {
+            "type": "string"
+        },
+        "ownerId": {
+            "type": "string",
+            "description": "AWS account ID of the owner of the network interface.\n"
+        },
+        "privateDnsName": {
+            "type": "string",
+            "description": "Private DNS name of the network interface (IPv4).\n"
+        },
+        "privateIp": {
+            "type": "string"
+        },
+        "privateIpListEnabled": {
+            "type": "boolean",
+            "description": "Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.\n"
+        },
+        "privateIpLists": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.\n"
+        },
+        "privateIps": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of private IPs to assign to the ENI without regard to order.\n"
+        },
+        "privateIpsCount": {
+            "type": "integer",
+            "description": "Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.\n"
+        },
+        "securityGroups": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of security group IDs to assign to the ENI.\n"
+        },
+        "sourceDestCheck": {
+            "type": "boolean",
+            "description": "Whether to enable source destination checking for the ENI. Default true.\n"
+        },
+        "subnetId": {
+            "type": "string",
+            "description": "Subnet ID to create the ENI in.\n\nThe following arguments are optional:\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "attachments",
+        "interfaceType",
+        "ipv4PrefixCount",
+        "ipv4Prefixes",
+        "ipv6AddressCount",
+        "ipv6AddressLists",
+        "ipv6Addresses",
+        "ipv6PrefixCount",
+        "ipv6Prefixes",
+        "macAddress",
+        "outpostArn",
+        "ownerId",
+        "privateDnsName",
+        "privateIp",
+        "privateIpLists",
+        "privateIps",
+        "privateIpsCount",
+        "securityGroups",
+        "subnetId",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "attachments": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/NetworkInterfaceAttachment:NetworkInterfaceAttachment"
+            },
+            "description": "Configuration block to define the attachment of the ENI. See Attachment below for more details!\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the network interface.\n"
+        },
+        "interfaceType": {
+            "type": "string",
+            "description": "Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.\n",
+            "willReplaceOnChanges": true
+        },
+        "ipv4PrefixCount": {
+            "type": "integer",
+            "description": "Number of IPv4 prefixes that AWS automatically assigns to the network interface.\n"
+        },
+        "ipv4Prefixes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "One or more IPv4 prefixes assigned to the network interface.\n"
+        },
+        "ipv6AddressCount": {
+            "type": "integer",
+            "description": "Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.\n"
+        },
+        "ipv6AddressListEnabled": {
+            "type": "boolean",
+            "description": "Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.\n"
+        },
+        "ipv6AddressLists": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of private IPs to assign to the ENI in sequential order.\n"
+        },
+        "ipv6Addresses": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.\n"
+        },
+        "ipv6PrefixCount": {
+            "type": "integer",
+            "description": "Number of IPv6 prefixes that AWS automatically assigns to the network interface.\n"
+        },
+        "ipv6Prefixes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "One or more IPv6 prefixes assigned to the network interface.\n"
+        },
+        "privateIp": {
+            "type": "string"
+        },
+        "privateIpListEnabled": {
+            "type": "boolean",
+            "description": "Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.\n"
+        },
+        "privateIpLists": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.\n"
+        },
+        "privateIps": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of private IPs to assign to the ENI without regard to order.\n"
+        },
+        "privateIpsCount": {
+            "type": "integer",
+            "description": "Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.\n"
+        },
+        "securityGroups": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of security group IDs to assign to the ENI.\n"
+        },
+        "sourceDestCheck": {
+            "type": "boolean",
+            "description": "Whether to enable source destination checking for the ENI. Default true.\n"
+        },
+        "subnetId": {
+            "type": "string",
+            "description": "Subnet ID to create the ENI in.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "subnetId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering NetworkInterface resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the network interface.\n"
+            },
+            "attachments": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/NetworkInterfaceAttachment:NetworkInterfaceAttachment"
+                },
+                "description": "Configuration block to define the attachment of the ENI. See Attachment below for more details!\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description for the network interface.\n"
+            },
+            "interfaceType": {
+                "type": "string",
+                "description": "Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.\n",
+                "willReplaceOnChanges": true
+            },
+            "ipv4PrefixCount": {
+                "type": "integer",
+                "description": "Number of IPv4 prefixes that AWS automatically assigns to the network interface.\n"
+            },
+            "ipv4Prefixes": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "One or more IPv4 prefixes assigned to the network interface.\n"
+            },
+            "ipv6AddressCount": {
+                "type": "integer",
+                "description": "Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.\n"
+            },
+            "ipv6AddressListEnabled": {
+                "type": "boolean",
+                "description": "Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.\n"
+            },
+            "ipv6AddressLists": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of private IPs to assign to the ENI in sequential order.\n"
+            },
+            "ipv6Addresses": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.\n"
+            },
+            "ipv6PrefixCount": {
+                "type": "integer",
+                "description": "Number of IPv6 prefixes that AWS automatically assigns to the network interface.\n"
+            },
+            "ipv6Prefixes": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "One or more IPv6 prefixes assigned to the network interface.\n"
+            },
+            "macAddress": {
+                "type": "string",
+                "description": "MAC address of the network interface.\n"
+            },
+            "outpostArn": {
+                "type": "string"
+            },
+            "ownerId": {
+                "type": "string",
+                "description": "AWS account ID of the owner of the network interface.\n"
+            },
+            "privateDnsName": {
+                "type": "string",
+                "description": "Private DNS name of the network interface (IPv4).\n"
+            },
+            "privateIp": {
+                "type": "string"
+            },
+            "privateIpListEnabled": {
+                "type": "boolean",
+                "description": "Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.\n"
+            },
+            "privateIpLists": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.\n"
+            },
+            "privateIps": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of private IPs to assign to the ENI without regard to order.\n"
+            },
+            "privateIpsCount": {
+                "type": "integer",
+                "description": "Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.\n"
+            },
+            "securityGroups": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of security group IDs to assign to the ENI.\n"
+            },
+            "sourceDestCheck": {
+                "type": "boolean",
+                "description": "Whether to enable source destination checking for the ENI. Default true.\n"
+            },
+            "subnetId": {
+                "type": "string",
+                "description": "Subnet ID to create the ENI in.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

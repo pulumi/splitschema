@@ -1,0 +1,132 @@
+{
+    "properties": {
+        "cidr": {
+            "type": "string",
+            "description": "The CIDR you want to assign to the pool.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The description for the allocation.\n"
+        },
+        "disallowedCidrs": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Exclude a particular CIDR range from being returned by the pool.\n"
+        },
+        "ipamPoolAllocationId": {
+            "type": "string"
+        },
+        "ipamPoolId": {
+            "type": "string",
+            "description": "The ID of the pool to which you want to assign a CIDR.\n"
+        },
+        "netmaskLength": {
+            "type": "integer",
+            "description": "The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.\n"
+        },
+        "resourceId": {
+            "type": "string",
+            "description": "The ID of the resource.\n"
+        },
+        "resourceOwner": {
+            "type": "string",
+            "description": "The owner of the resource.\n"
+        },
+        "resourceType": {
+            "type": "string",
+            "description": "The type of the resource.\n"
+        }
+    },
+    "required": [
+        "cidr",
+        "ipamPoolAllocationId",
+        "ipamPoolId",
+        "resourceId",
+        "resourceOwner",
+        "resourceType"
+    ],
+    "inputProperties": {
+        "cidr": {
+            "type": "string",
+            "description": "The CIDR you want to assign to the pool.\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "The description for the allocation.\n",
+            "willReplaceOnChanges": true
+        },
+        "disallowedCidrs": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Exclude a particular CIDR range from being returned by the pool.\n",
+            "willReplaceOnChanges": true
+        },
+        "ipamPoolId": {
+            "type": "string",
+            "description": "The ID of the pool to which you want to assign a CIDR.\n",
+            "willReplaceOnChanges": true
+        },
+        "netmaskLength": {
+            "type": "integer",
+            "description": "The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "ipamPoolId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering VpcIpamPoolCidrAllocation resources.\n",
+        "properties": {
+            "cidr": {
+                "type": "string",
+                "description": "The CIDR you want to assign to the pool.\n",
+                "willReplaceOnChanges": true
+            },
+            "description": {
+                "type": "string",
+                "description": "The description for the allocation.\n",
+                "willReplaceOnChanges": true
+            },
+            "disallowedCidrs": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Exclude a particular CIDR range from being returned by the pool.\n",
+                "willReplaceOnChanges": true
+            },
+            "ipamPoolAllocationId": {
+                "type": "string"
+            },
+            "ipamPoolId": {
+                "type": "string",
+                "description": "The ID of the pool to which you want to assign a CIDR.\n",
+                "willReplaceOnChanges": true
+            },
+            "netmaskLength": {
+                "type": "integer",
+                "description": "The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.\n",
+                "willReplaceOnChanges": true
+            },
+            "resourceId": {
+                "type": "string",
+                "description": "The ID of the resource.\n"
+            },
+            "resourceOwner": {
+                "type": "string",
+                "description": "The owner of the resource.\n"
+            },
+            "resourceType": {
+                "type": "string",
+                "description": "The type of the resource.\n"
+            }
+        },
+        "type": "object"
+    }
+}

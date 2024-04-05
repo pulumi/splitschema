@@ -1,0 +1,49 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getPoliciesForTarget.\n",
+        "properties": {
+            "filter": {
+                "type": "string",
+                "description": "Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)\n"
+            },
+            "targetId": {
+                "type": "string",
+                "description": "The root (string that begins with \"r-\" followed by 4-32 lowercase letters or digits), account (12 digit string), or Organizational Unit (string starting with \"ou-\" followed by 4-32 lowercase letters or digits. This string is followed by a second \"-\" dash and from 8-32 additional lowercase letters or digits.)\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "filter",
+            "targetId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getPoliciesForTarget.\n",
+        "properties": {
+            "filter": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "ids": {
+                "description": "List of all the policy ids found.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "targetId": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "filter",
+            "ids",
+            "targetId",
+            "id"
+        ],
+        "type": "object"
+    }
+}

@@ -1,0 +1,148 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the collection.\n"
+        },
+        "collectionEndpoint": {
+            "type": "string",
+            "description": "Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.\n"
+        },
+        "dashboardEndpoint": {
+            "type": "string",
+            "description": "Collection-specific endpoint used to access OpenSearch Dashboards.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the collection.\n"
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "The ARN of the Amazon Web Services KMS key used to encrypt the collection.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the collection.\n\nThe following arguments are optional:\n"
+        },
+        "standbyReplicas": {
+            "type": "string",
+            "description": "Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "timeouts": {
+            "$ref": "#/types/aws:opensearch/ServerlessCollectionTimeouts:ServerlessCollectionTimeouts"
+        },
+        "type": {
+            "type": "string",
+            "description": "Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "collectionEndpoint",
+        "dashboardEndpoint",
+        "kmsKeyArn",
+        "name",
+        "standbyReplicas",
+        "tagsAll",
+        "type"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "Description of the collection.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the collection.\n\nThe following arguments are optional:\n"
+        },
+        "standbyReplicas": {
+            "type": "string",
+            "description": "Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "timeouts": {
+            "$ref": "#/types/aws:opensearch/ServerlessCollectionTimeouts:ServerlessCollectionTimeouts"
+        },
+        "type": {
+            "type": "string",
+            "description": "Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ServerlessCollection resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the collection.\n"
+            },
+            "collectionEndpoint": {
+                "type": "string",
+                "description": "Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.\n"
+            },
+            "dashboardEndpoint": {
+                "type": "string",
+                "description": "Collection-specific endpoint used to access OpenSearch Dashboards.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the collection.\n"
+            },
+            "kmsKeyArn": {
+                "type": "string",
+                "description": "The ARN of the Amazon Web Services KMS key used to encrypt the collection.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the collection.\n\nThe following arguments are optional:\n"
+            },
+            "standbyReplicas": {
+                "type": "string",
+                "description": "Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "timeouts": {
+                "$ref": "#/types/aws:opensearch/ServerlessCollectionTimeouts:ServerlessCollectionTimeouts"
+            },
+            "type": {
+                "type": "string",
+                "description": "Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.\n"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,117 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the WAF Regional Rule.\n"
+        },
+        "metricName": {
+            "type": "string",
+            "description": "The name or description for the Amazon CloudWatch metric of this rule.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name or description of the rule.\n"
+        },
+        "predicates": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:wafregional/RulePredicate:RulePredicate"
+            },
+            "description": "The objects to include in a rule (documented below).\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "metricName",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "metricName": {
+            "type": "string",
+            "description": "The name or description for the Amazon CloudWatch metric of this rule.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name or description of the rule.\n",
+            "willReplaceOnChanges": true
+        },
+        "predicates": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:wafregional/RulePredicate:RulePredicate"
+            },
+            "description": "The objects to include in a rule (documented below).\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "metricName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Rule resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the WAF Regional Rule.\n"
+            },
+            "metricName": {
+                "type": "string",
+                "description": "The name or description for the Amazon CloudWatch metric of this rule.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name or description of the rule.\n",
+                "willReplaceOnChanges": true
+            },
+            "predicates": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:wafregional/RulePredicate:RulePredicate"
+                },
+                "description": "The objects to include in a rule (documented below).\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

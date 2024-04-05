@@ -1,0 +1,248 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) specifying the role.\n"
+        },
+        "assumeRolePolicy": {
+            "type": "string",
+            "description": "Policy that grants an entity permission to assume the role.\n\n\u003e **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.\n\nThe following arguments are optional:\n"
+        },
+        "createDate": {
+            "type": "string",
+            "description": "Creation date of the IAM role.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the role.\n"
+        },
+        "forceDetachPolicies": {
+            "type": "boolean",
+            "description": "Whether to force detaching any policies the role has before destroying it. Defaults to `false`.\n"
+        },
+        "inlinePolicies": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:iam/RoleInlinePolicy:RoleInlinePolicy"
+            },
+            "description": "Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.\n"
+        },
+        "managedPolicyArns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "maxSessionDuration": {
+            "type": "integer",
+            "description": "Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.\n"
+        },
+        "path": {
+            "type": "string",
+            "description": "Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.\n"
+        },
+        "permissionsBoundary": {
+            "type": "string",
+            "description": "ARN of the policy that is used to set the permissions boundary for the role.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "uniqueId": {
+            "type": "string",
+            "description": "Stable and unique string identifying the role.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "assumeRolePolicy",
+        "createDate",
+        "inlinePolicies",
+        "managedPolicyArns",
+        "name",
+        "namePrefix",
+        "tagsAll",
+        "uniqueId"
+    ],
+    "inputProperties": {
+        "assumeRolePolicy": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:iam/documents:PolicyDocument"
+                }
+            ],
+            "description": "Policy that grants an entity permission to assume the role.\n\n\u003e **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.\n\nThe following arguments are optional:\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the role.\n"
+        },
+        "forceDetachPolicies": {
+            "type": "boolean",
+            "description": "Whether to force detaching any policies the role has before destroying it. Defaults to `false`.\n"
+        },
+        "inlinePolicies": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:iam/RoleInlinePolicy:RoleInlinePolicy"
+            },
+            "description": "Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.\n"
+        },
+        "managedPolicyArns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "maxSessionDuration": {
+            "type": "integer",
+            "description": "Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.\n",
+            "willReplaceOnChanges": true
+        },
+        "path": {
+            "type": "string",
+            "description": "Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.\n",
+            "willReplaceOnChanges": true
+        },
+        "permissionsBoundary": {
+            "type": "string",
+            "description": "ARN of the policy that is used to set the permissions boundary for the role.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "assumeRolePolicy"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Role resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) specifying the role.\n"
+            },
+            "assumeRolePolicy": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:iam/documents:PolicyDocument"
+                    }
+                ],
+                "description": "Policy that grants an entity permission to assume the role.\n\n\u003e **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.\n\nThe following arguments are optional:\n"
+            },
+            "createDate": {
+                "type": "string",
+                "description": "Creation date of the IAM role.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the role.\n"
+            },
+            "forceDetachPolicies": {
+                "type": "boolean",
+                "description": "Whether to force detaching any policies the role has before destroying it. Defaults to `false`.\n"
+            },
+            "inlinePolicies": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:iam/RoleInlinePolicy:RoleInlinePolicy"
+                },
+                "description": "Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.\n"
+            },
+            "managedPolicyArns": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "maxSessionDuration": {
+                "type": "integer",
+                "description": "Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.\n",
+                "willReplaceOnChanges": true
+            },
+            "path": {
+                "type": "string",
+                "description": "Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.\n",
+                "willReplaceOnChanges": true
+            },
+            "permissionsBoundary": {
+                "type": "string",
+                "description": "ARN of the policy that is used to set the permissions boundary for the role.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "uniqueId": {
+                "type": "string",
+                "description": "Stable and unique string identifying the role.\n"
+            }
+        },
+        "type": "object"
+    }
+}

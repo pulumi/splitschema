@@ -1,0 +1,396 @@
+{
+    "properties": {
+        "amazonManagedKafkaEventSourceConfig": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingAmazonManagedKafkaEventSourceConfig:EventSourceMappingAmazonManagedKafkaEventSourceConfig",
+            "description": "Additional configuration block for Amazon Managed Kafka sources. Incompatible with \"self_managed_event_source\" and \"self_managed_kafka_event_source_config\". Detailed below.\n"
+        },
+        "batchSize": {
+            "type": "integer",
+            "description": "The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.\n"
+        },
+        "bisectBatchOnFunctionError": {
+            "type": "boolean",
+            "description": "- (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.\n"
+        },
+        "destinationConfig": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingDestinationConfig:EventSourceMappingDestinationConfig",
+            "description": "- (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.\n"
+        },
+        "documentDbEventSourceConfig": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingDocumentDbEventSourceConfig:EventSourceMappingDocumentDbEventSourceConfig",
+            "description": "- (Optional) Configuration settings for a DocumentDB event source. Detailed below.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "Determines if the mapping will be enabled on creation. Defaults to `true`.\n"
+        },
+        "eventSourceArn": {
+            "type": "string",
+            "description": "The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.\n"
+        },
+        "filterCriteria": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingFilterCriteria:EventSourceMappingFilterCriteria",
+            "description": "The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.\n"
+        },
+        "functionArn": {
+            "type": "string",
+            "description": "The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)\n"
+        },
+        "functionName": {
+            "type": "string",
+            "description": "The name or the ARN of the Lambda function that will be subscribing to events.\n"
+        },
+        "functionResponseTypes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.\n"
+        },
+        "lastModified": {
+            "type": "string",
+            "description": "The date this resource was last modified.\n"
+        },
+        "lastProcessingResult": {
+            "type": "string",
+            "description": "The result of the last AWS Lambda invocation of your Lambda function.\n"
+        },
+        "maximumBatchingWindowInSeconds": {
+            "type": "integer",
+            "description": "The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.\n"
+        },
+        "maximumRecordAgeInSeconds": {
+            "type": "integer",
+            "description": "- (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).\n"
+        },
+        "maximumRetryAttempts": {
+            "type": "integer",
+            "description": "- (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.\n"
+        },
+        "parallelizationFactor": {
+            "type": "integer",
+            "description": "- (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.\n"
+        },
+        "queues": {
+            "type": "string",
+            "description": "The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.\n"
+        },
+        "scalingConfig": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingScalingConfig:EventSourceMappingScalingConfig",
+            "description": "Scaling configuration of the event source. Only available for SQS queues. Detailed below.\n"
+        },
+        "selfManagedEventSource": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingSelfManagedEventSource:EventSourceMappingSelfManagedEventSource",
+            "description": "- (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.\n"
+        },
+        "selfManagedKafkaEventSourceConfig": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingSelfManagedKafkaEventSourceConfig:EventSourceMappingSelfManagedKafkaEventSourceConfig",
+            "description": "Additional configuration block for Self Managed Kafka sources. Incompatible with \"event_source_arn\" and \"amazon_managed_kafka_event_source_config\". Detailed below.\n"
+        },
+        "sourceAccessConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:lambda/EventSourceMappingSourceAccessConfiguration:EventSourceMappingSourceAccessConfiguration"
+            },
+            "description": "For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.\n"
+        },
+        "startingPosition": {
+            "type": "string",
+            "description": "The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).\n"
+        },
+        "startingPositionTimestamp": {
+            "type": "string",
+            "description": "A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.\n"
+        },
+        "state": {
+            "type": "string",
+            "description": "The state of the event source mapping.\n"
+        },
+        "stateTransitionReason": {
+            "type": "string",
+            "description": "The reason the event source mapping is in its current state.\n"
+        },
+        "topics": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.\n"
+        },
+        "tumblingWindowInSeconds": {
+            "type": "integer",
+            "description": "The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).\n"
+        },
+        "uuid": {
+            "type": "string",
+            "description": "The UUID of the created event source mapping.\n"
+        }
+    },
+    "required": [
+        "amazonManagedKafkaEventSourceConfig",
+        "functionArn",
+        "functionName",
+        "lastModified",
+        "lastProcessingResult",
+        "maximumRecordAgeInSeconds",
+        "maximumRetryAttempts",
+        "parallelizationFactor",
+        "selfManagedKafkaEventSourceConfig",
+        "state",
+        "stateTransitionReason",
+        "uuid"
+    ],
+    "inputProperties": {
+        "amazonManagedKafkaEventSourceConfig": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingAmazonManagedKafkaEventSourceConfig:EventSourceMappingAmazonManagedKafkaEventSourceConfig",
+            "description": "Additional configuration block for Amazon Managed Kafka sources. Incompatible with \"self_managed_event_source\" and \"self_managed_kafka_event_source_config\". Detailed below.\n",
+            "willReplaceOnChanges": true
+        },
+        "batchSize": {
+            "type": "integer",
+            "description": "The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.\n"
+        },
+        "bisectBatchOnFunctionError": {
+            "type": "boolean",
+            "description": "- (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.\n"
+        },
+        "destinationConfig": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingDestinationConfig:EventSourceMappingDestinationConfig",
+            "description": "- (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.\n"
+        },
+        "documentDbEventSourceConfig": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingDocumentDbEventSourceConfig:EventSourceMappingDocumentDbEventSourceConfig",
+            "description": "- (Optional) Configuration settings for a DocumentDB event source. Detailed below.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "Determines if the mapping will be enabled on creation. Defaults to `true`.\n"
+        },
+        "eventSourceArn": {
+            "type": "string",
+            "description": "The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.\n",
+            "willReplaceOnChanges": true
+        },
+        "filterCriteria": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingFilterCriteria:EventSourceMappingFilterCriteria",
+            "description": "The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.\n"
+        },
+        "functionName": {
+            "type": "string",
+            "description": "The name or the ARN of the Lambda function that will be subscribing to events.\n"
+        },
+        "functionResponseTypes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.\n"
+        },
+        "maximumBatchingWindowInSeconds": {
+            "type": "integer",
+            "description": "The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.\n"
+        },
+        "maximumRecordAgeInSeconds": {
+            "type": "integer",
+            "description": "- (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).\n"
+        },
+        "maximumRetryAttempts": {
+            "type": "integer",
+            "description": "- (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.\n"
+        },
+        "parallelizationFactor": {
+            "type": "integer",
+            "description": "- (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.\n"
+        },
+        "queues": {
+            "type": "string",
+            "description": "The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.\n",
+            "willReplaceOnChanges": true
+        },
+        "scalingConfig": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingScalingConfig:EventSourceMappingScalingConfig",
+            "description": "Scaling configuration of the event source. Only available for SQS queues. Detailed below.\n"
+        },
+        "selfManagedEventSource": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingSelfManagedEventSource:EventSourceMappingSelfManagedEventSource",
+            "description": "- (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.\n",
+            "willReplaceOnChanges": true
+        },
+        "selfManagedKafkaEventSourceConfig": {
+            "$ref": "#/types/aws:lambda/EventSourceMappingSelfManagedKafkaEventSourceConfig:EventSourceMappingSelfManagedKafkaEventSourceConfig",
+            "description": "Additional configuration block for Self Managed Kafka sources. Incompatible with \"event_source_arn\" and \"amazon_managed_kafka_event_source_config\". Detailed below.\n",
+            "willReplaceOnChanges": true
+        },
+        "sourceAccessConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:lambda/EventSourceMappingSourceAccessConfiguration:EventSourceMappingSourceAccessConfiguration"
+            },
+            "description": "For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.\n"
+        },
+        "startingPosition": {
+            "type": "string",
+            "description": "The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).\n",
+            "willReplaceOnChanges": true
+        },
+        "startingPositionTimestamp": {
+            "type": "string",
+            "description": "A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.\n",
+            "willReplaceOnChanges": true
+        },
+        "topics": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.\n",
+            "willReplaceOnChanges": true
+        },
+        "tumblingWindowInSeconds": {
+            "type": "integer",
+            "description": "The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).\n"
+        }
+    },
+    "requiredInputs": [
+        "functionName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering EventSourceMapping resources.\n",
+        "properties": {
+            "amazonManagedKafkaEventSourceConfig": {
+                "$ref": "#/types/aws:lambda/EventSourceMappingAmazonManagedKafkaEventSourceConfig:EventSourceMappingAmazonManagedKafkaEventSourceConfig",
+                "description": "Additional configuration block for Amazon Managed Kafka sources. Incompatible with \"self_managed_event_source\" and \"self_managed_kafka_event_source_config\". Detailed below.\n",
+                "willReplaceOnChanges": true
+            },
+            "batchSize": {
+                "type": "integer",
+                "description": "The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.\n"
+            },
+            "bisectBatchOnFunctionError": {
+                "type": "boolean",
+                "description": "- (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.\n"
+            },
+            "destinationConfig": {
+                "$ref": "#/types/aws:lambda/EventSourceMappingDestinationConfig:EventSourceMappingDestinationConfig",
+                "description": "- (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.\n"
+            },
+            "documentDbEventSourceConfig": {
+                "$ref": "#/types/aws:lambda/EventSourceMappingDocumentDbEventSourceConfig:EventSourceMappingDocumentDbEventSourceConfig",
+                "description": "- (Optional) Configuration settings for a DocumentDB event source. Detailed below.\n"
+            },
+            "enabled": {
+                "type": "boolean",
+                "description": "Determines if the mapping will be enabled on creation. Defaults to `true`.\n"
+            },
+            "eventSourceArn": {
+                "type": "string",
+                "description": "The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.\n",
+                "willReplaceOnChanges": true
+            },
+            "filterCriteria": {
+                "$ref": "#/types/aws:lambda/EventSourceMappingFilterCriteria:EventSourceMappingFilterCriteria",
+                "description": "The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.\n"
+            },
+            "functionArn": {
+                "type": "string",
+                "description": "The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)\n"
+            },
+            "functionName": {
+                "type": "string",
+                "description": "The name or the ARN of the Lambda function that will be subscribing to events.\n"
+            },
+            "functionResponseTypes": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.\n"
+            },
+            "lastModified": {
+                "type": "string",
+                "description": "The date this resource was last modified.\n"
+            },
+            "lastProcessingResult": {
+                "type": "string",
+                "description": "The result of the last AWS Lambda invocation of your Lambda function.\n"
+            },
+            "maximumBatchingWindowInSeconds": {
+                "type": "integer",
+                "description": "The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.\n"
+            },
+            "maximumRecordAgeInSeconds": {
+                "type": "integer",
+                "description": "- (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).\n"
+            },
+            "maximumRetryAttempts": {
+                "type": "integer",
+                "description": "- (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.\n"
+            },
+            "parallelizationFactor": {
+                "type": "integer",
+                "description": "- (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.\n"
+            },
+            "queues": {
+                "type": "string",
+                "description": "The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.\n",
+                "willReplaceOnChanges": true
+            },
+            "scalingConfig": {
+                "$ref": "#/types/aws:lambda/EventSourceMappingScalingConfig:EventSourceMappingScalingConfig",
+                "description": "Scaling configuration of the event source. Only available for SQS queues. Detailed below.\n"
+            },
+            "selfManagedEventSource": {
+                "$ref": "#/types/aws:lambda/EventSourceMappingSelfManagedEventSource:EventSourceMappingSelfManagedEventSource",
+                "description": "- (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.\n",
+                "willReplaceOnChanges": true
+            },
+            "selfManagedKafkaEventSourceConfig": {
+                "$ref": "#/types/aws:lambda/EventSourceMappingSelfManagedKafkaEventSourceConfig:EventSourceMappingSelfManagedKafkaEventSourceConfig",
+                "description": "Additional configuration block for Self Managed Kafka sources. Incompatible with \"event_source_arn\" and \"amazon_managed_kafka_event_source_config\". Detailed below.\n",
+                "willReplaceOnChanges": true
+            },
+            "sourceAccessConfigurations": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:lambda/EventSourceMappingSourceAccessConfiguration:EventSourceMappingSourceAccessConfiguration"
+                },
+                "description": "For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.\n"
+            },
+            "startingPosition": {
+                "type": "string",
+                "description": "The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).\n",
+                "willReplaceOnChanges": true
+            },
+            "startingPositionTimestamp": {
+                "type": "string",
+                "description": "A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.\n",
+                "willReplaceOnChanges": true
+            },
+            "state": {
+                "type": "string",
+                "description": "The state of the event source mapping.\n"
+            },
+            "stateTransitionReason": {
+                "type": "string",
+                "description": "The reason the event source mapping is in its current state.\n"
+            },
+            "topics": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.\n",
+                "willReplaceOnChanges": true
+            },
+            "tumblingWindowInSeconds": {
+                "type": "integer",
+                "description": "The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).\n"
+            },
+            "uuid": {
+                "type": "string",
+                "description": "The UUID of the created event source mapping.\n"
+            }
+        },
+        "type": "object"
+    }
+}

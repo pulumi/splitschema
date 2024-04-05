@@ -1,0 +1,69 @@
+{
+    "properties": {
+        "group": {
+            "type": "string",
+            "description": "The group the policy should be applied to\n"
+        },
+        "policyArn": {
+            "type": "string",
+            "$ref": "#/types/aws:index/aRN:ARN",
+            "description": "The ARN of the policy you want to apply\n"
+        }
+    },
+    "required": [
+        "group",
+        "policyArn"
+    ],
+    "inputProperties": {
+        "group": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:iam/group:Group"
+                }
+            ],
+            "description": "The group the policy should be applied to\n",
+            "willReplaceOnChanges": true
+        },
+        "policyArn": {
+            "type": "string",
+            "$ref": "#/types/aws:index/aRN:ARN",
+            "description": "The ARN of the policy you want to apply\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "group",
+        "policyArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering GroupPolicyAttachment resources.\n",
+        "properties": {
+            "group": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:iam/group:Group"
+                    }
+                ],
+                "description": "The group the policy should be applied to\n",
+                "willReplaceOnChanges": true
+            },
+            "policyArn": {
+                "type": "string",
+                "$ref": "#/types/aws:index/aRN:ARN",
+                "description": "The ARN of the policy you want to apply\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

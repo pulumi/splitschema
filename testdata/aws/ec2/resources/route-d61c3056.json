@@ -1,0 +1,231 @@
+{
+    "properties": {
+        "carrierGatewayId": {
+            "type": "string",
+            "description": "Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.\n"
+        },
+        "coreNetworkArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of a core network.\n"
+        },
+        "destinationCidrBlock": {
+            "type": "string",
+            "description": "The destination CIDR block.\n"
+        },
+        "destinationIpv6CidrBlock": {
+            "type": "string",
+            "description": "The destination IPv6 CIDR block.\n"
+        },
+        "destinationPrefixListId": {
+            "type": "string",
+            "description": "The ID of a managed prefix list destination.\n\nOne of the following target arguments must be supplied:\n"
+        },
+        "egressOnlyGatewayId": {
+            "type": "string",
+            "description": "Identifier of a VPC Egress Only Internet Gateway.\n"
+        },
+        "gatewayId": {
+            "type": "string",
+            "description": "Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.\n"
+        },
+        "instanceId": {
+            "type": "string",
+            "description": "Identifier of an EC2 instance.\n"
+        },
+        "instanceOwnerId": {
+            "type": "string",
+            "description": "The AWS account ID of the owner of the EC2 instance.\n"
+        },
+        "localGatewayId": {
+            "type": "string",
+            "description": "Identifier of a Outpost local gateway.\n"
+        },
+        "natGatewayId": {
+            "type": "string",
+            "description": "Identifier of a VPC NAT gateway.\n"
+        },
+        "networkInterfaceId": {
+            "type": "string",
+            "description": "Identifier of an EC2 network interface.\n"
+        },
+        "origin": {
+            "type": "string",
+            "description": "How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.\n"
+        },
+        "routeTableId": {
+            "type": "string",
+            "description": "The ID of the routing table.\n\nOne of the following destination arguments must be supplied:\n"
+        },
+        "state": {
+            "type": "string",
+            "description": "The state of the route - `active` or `blackhole`.\n"
+        },
+        "transitGatewayId": {
+            "type": "string",
+            "description": "Identifier of an EC2 Transit Gateway.\n"
+        },
+        "vpcEndpointId": {
+            "type": "string",
+            "description": "Identifier of a VPC Endpoint.\n"
+        },
+        "vpcPeeringConnectionId": {
+            "type": "string",
+            "description": "Identifier of a VPC peering connection.\n\nNote that the default route, mapping the VPC's CIDR block to \"local\", is created implicitly and cannot be specified.\n"
+        }
+    },
+    "required": [
+        "instanceId",
+        "instanceOwnerId",
+        "networkInterfaceId",
+        "origin",
+        "routeTableId",
+        "state"
+    ],
+    "inputProperties": {
+        "carrierGatewayId": {
+            "type": "string",
+            "description": "Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.\n"
+        },
+        "coreNetworkArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of a core network.\n"
+        },
+        "destinationCidrBlock": {
+            "type": "string",
+            "description": "The destination CIDR block.\n",
+            "willReplaceOnChanges": true
+        },
+        "destinationIpv6CidrBlock": {
+            "type": "string",
+            "description": "The destination IPv6 CIDR block.\n",
+            "willReplaceOnChanges": true
+        },
+        "destinationPrefixListId": {
+            "type": "string",
+            "description": "The ID of a managed prefix list destination.\n\nOne of the following target arguments must be supplied:\n",
+            "willReplaceOnChanges": true
+        },
+        "egressOnlyGatewayId": {
+            "type": "string",
+            "description": "Identifier of a VPC Egress Only Internet Gateway.\n"
+        },
+        "gatewayId": {
+            "type": "string",
+            "description": "Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.\n"
+        },
+        "localGatewayId": {
+            "type": "string",
+            "description": "Identifier of a Outpost local gateway.\n"
+        },
+        "natGatewayId": {
+            "type": "string",
+            "description": "Identifier of a VPC NAT gateway.\n"
+        },
+        "networkInterfaceId": {
+            "type": "string",
+            "description": "Identifier of an EC2 network interface.\n"
+        },
+        "routeTableId": {
+            "type": "string",
+            "description": "The ID of the routing table.\n\nOne of the following destination arguments must be supplied:\n",
+            "willReplaceOnChanges": true
+        },
+        "transitGatewayId": {
+            "type": "string",
+            "description": "Identifier of an EC2 Transit Gateway.\n"
+        },
+        "vpcEndpointId": {
+            "type": "string",
+            "description": "Identifier of a VPC Endpoint.\n"
+        },
+        "vpcPeeringConnectionId": {
+            "type": "string",
+            "description": "Identifier of a VPC peering connection.\n\nNote that the default route, mapping the VPC's CIDR block to \"local\", is created implicitly and cannot be specified.\n"
+        }
+    },
+    "requiredInputs": [
+        "routeTableId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Route resources.\n",
+        "properties": {
+            "carrierGatewayId": {
+                "type": "string",
+                "description": "Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.\n"
+            },
+            "coreNetworkArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of a core network.\n"
+            },
+            "destinationCidrBlock": {
+                "type": "string",
+                "description": "The destination CIDR block.\n",
+                "willReplaceOnChanges": true
+            },
+            "destinationIpv6CidrBlock": {
+                "type": "string",
+                "description": "The destination IPv6 CIDR block.\n",
+                "willReplaceOnChanges": true
+            },
+            "destinationPrefixListId": {
+                "type": "string",
+                "description": "The ID of a managed prefix list destination.\n\nOne of the following target arguments must be supplied:\n",
+                "willReplaceOnChanges": true
+            },
+            "egressOnlyGatewayId": {
+                "type": "string",
+                "description": "Identifier of a VPC Egress Only Internet Gateway.\n"
+            },
+            "gatewayId": {
+                "type": "string",
+                "description": "Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.\n"
+            },
+            "instanceId": {
+                "type": "string",
+                "description": "Identifier of an EC2 instance.\n"
+            },
+            "instanceOwnerId": {
+                "type": "string",
+                "description": "The AWS account ID of the owner of the EC2 instance.\n"
+            },
+            "localGatewayId": {
+                "type": "string",
+                "description": "Identifier of a Outpost local gateway.\n"
+            },
+            "natGatewayId": {
+                "type": "string",
+                "description": "Identifier of a VPC NAT gateway.\n"
+            },
+            "networkInterfaceId": {
+                "type": "string",
+                "description": "Identifier of an EC2 network interface.\n"
+            },
+            "origin": {
+                "type": "string",
+                "description": "How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.\n"
+            },
+            "routeTableId": {
+                "type": "string",
+                "description": "The ID of the routing table.\n\nOne of the following destination arguments must be supplied:\n",
+                "willReplaceOnChanges": true
+            },
+            "state": {
+                "type": "string",
+                "description": "The state of the route - `active` or `blackhole`.\n"
+            },
+            "transitGatewayId": {
+                "type": "string",
+                "description": "Identifier of an EC2 Transit Gateway.\n"
+            },
+            "vpcEndpointId": {
+                "type": "string",
+                "description": "Identifier of a VPC Endpoint.\n"
+            },
+            "vpcPeeringConnectionId": {
+                "type": "string",
+                "description": "Identifier of a VPC peering connection.\n\nNote that the default route, mapping the VPC's CIDR block to \"local\", is created implicitly and cannot be specified.\n"
+            }
+        },
+        "type": "object"
+    }
+}

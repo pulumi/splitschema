@@ -1,0 +1,247 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) specifying the Stream\n"
+        },
+        "destination": {
+            "type": "string",
+            "description": "This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.\n"
+        },
+        "destinationId": {
+            "type": "string"
+        },
+        "elasticsearchConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamElasticsearchConfiguration:FirehoseDeliveryStreamElasticsearchConfiguration",
+            "description": "Configuration options when `destination` is `elasticsearch`. More details are given below.\n"
+        },
+        "extendedS3Configuration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamExtendedS3Configuration:FirehoseDeliveryStreamExtendedS3Configuration",
+            "description": "Enhanced configuration options for the s3 destination. More details are given below.\n"
+        },
+        "httpEndpointConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamHttpEndpointConfiguration:FirehoseDeliveryStreamHttpEndpointConfiguration",
+            "description": "Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.\n"
+        },
+        "kinesisSourceConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamKinesisSourceConfiguration:FirehoseDeliveryStreamKinesisSourceConfiguration",
+            "description": "The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.\n"
+        },
+        "mskSourceConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamMskSourceConfiguration:FirehoseDeliveryStreamMskSourceConfiguration",
+            "description": "The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.\n"
+        },
+        "opensearchConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamOpensearchConfiguration:FirehoseDeliveryStreamOpensearchConfiguration",
+            "description": "Configuration options when `destination` is `opensearch`. More details are given below.\n"
+        },
+        "opensearchserverlessConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamOpensearchserverlessConfiguration:FirehoseDeliveryStreamOpensearchserverlessConfiguration",
+            "description": "Configuration options when `destination` is `opensearchserverless`. More details are given below.\n"
+        },
+        "redshiftConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfiguration:FirehoseDeliveryStreamRedshiftConfiguration",
+            "description": "Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.\n"
+        },
+        "serverSideEncryption": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamServerSideEncryption:FirehoseDeliveryStreamServerSideEncryption",
+            "description": "Encrypt at rest options.\nServer-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.\n"
+        },
+        "splunkConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamSplunkConfiguration:FirehoseDeliveryStreamSplunkConfiguration",
+            "description": "Configuration options when `destination` is `splunk`. More details are given below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "versionId": {
+            "type": "string",
+            "description": "Specifies the table version for the output data schema. Defaults to `LATEST`.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "destination",
+        "destinationId",
+        "name",
+        "tagsAll",
+        "versionId"
+    ],
+    "inputProperties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) specifying the Stream\n"
+        },
+        "destination": {
+            "type": "string",
+            "description": "This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.\n",
+            "willReplaceOnChanges": true
+        },
+        "destinationId": {
+            "type": "string"
+        },
+        "elasticsearchConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamElasticsearchConfiguration:FirehoseDeliveryStreamElasticsearchConfiguration",
+            "description": "Configuration options when `destination` is `elasticsearch`. More details are given below.\n"
+        },
+        "extendedS3Configuration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamExtendedS3Configuration:FirehoseDeliveryStreamExtendedS3Configuration",
+            "description": "Enhanced configuration options for the s3 destination. More details are given below.\n"
+        },
+        "httpEndpointConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamHttpEndpointConfiguration:FirehoseDeliveryStreamHttpEndpointConfiguration",
+            "description": "Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.\n"
+        },
+        "kinesisSourceConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamKinesisSourceConfiguration:FirehoseDeliveryStreamKinesisSourceConfiguration",
+            "description": "The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.\n",
+            "willReplaceOnChanges": true
+        },
+        "mskSourceConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamMskSourceConfiguration:FirehoseDeliveryStreamMskSourceConfiguration",
+            "description": "The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.\n",
+            "willReplaceOnChanges": true
+        },
+        "opensearchConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamOpensearchConfiguration:FirehoseDeliveryStreamOpensearchConfiguration",
+            "description": "Configuration options when `destination` is `opensearch`. More details are given below.\n"
+        },
+        "opensearchserverlessConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamOpensearchserverlessConfiguration:FirehoseDeliveryStreamOpensearchserverlessConfiguration",
+            "description": "Configuration options when `destination` is `opensearchserverless`. More details are given below.\n"
+        },
+        "redshiftConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfiguration:FirehoseDeliveryStreamRedshiftConfiguration",
+            "description": "Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.\n"
+        },
+        "serverSideEncryption": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamServerSideEncryption:FirehoseDeliveryStreamServerSideEncryption",
+            "description": "Encrypt at rest options.\nServer-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.\n"
+        },
+        "splunkConfiguration": {
+            "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamSplunkConfiguration:FirehoseDeliveryStreamSplunkConfiguration",
+            "description": "Configuration options when `destination` is `splunk`. More details are given below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "versionId": {
+            "type": "string",
+            "description": "Specifies the table version for the output data schema. Defaults to `LATEST`.\n"
+        }
+    },
+    "requiredInputs": [
+        "destination"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering FirehoseDeliveryStream resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) specifying the Stream\n"
+            },
+            "destination": {
+                "type": "string",
+                "description": "This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.\n",
+                "willReplaceOnChanges": true
+            },
+            "destinationId": {
+                "type": "string"
+            },
+            "elasticsearchConfiguration": {
+                "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamElasticsearchConfiguration:FirehoseDeliveryStreamElasticsearchConfiguration",
+                "description": "Configuration options when `destination` is `elasticsearch`. More details are given below.\n"
+            },
+            "extendedS3Configuration": {
+                "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamExtendedS3Configuration:FirehoseDeliveryStreamExtendedS3Configuration",
+                "description": "Enhanced configuration options for the s3 destination. More details are given below.\n"
+            },
+            "httpEndpointConfiguration": {
+                "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamHttpEndpointConfiguration:FirehoseDeliveryStreamHttpEndpointConfiguration",
+                "description": "Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.\n"
+            },
+            "kinesisSourceConfiguration": {
+                "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamKinesisSourceConfiguration:FirehoseDeliveryStreamKinesisSourceConfiguration",
+                "description": "The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.\n",
+                "willReplaceOnChanges": true
+            },
+            "mskSourceConfiguration": {
+                "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamMskSourceConfiguration:FirehoseDeliveryStreamMskSourceConfiguration",
+                "description": "The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.\n",
+                "willReplaceOnChanges": true
+            },
+            "opensearchConfiguration": {
+                "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamOpensearchConfiguration:FirehoseDeliveryStreamOpensearchConfiguration",
+                "description": "Configuration options when `destination` is `opensearch`. More details are given below.\n"
+            },
+            "opensearchserverlessConfiguration": {
+                "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamOpensearchserverlessConfiguration:FirehoseDeliveryStreamOpensearchserverlessConfiguration",
+                "description": "Configuration options when `destination` is `opensearchserverless`. More details are given below.\n"
+            },
+            "redshiftConfiguration": {
+                "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamRedshiftConfiguration:FirehoseDeliveryStreamRedshiftConfiguration",
+                "description": "Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.\n"
+            },
+            "serverSideEncryption": {
+                "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamServerSideEncryption:FirehoseDeliveryStreamServerSideEncryption",
+                "description": "Encrypt at rest options.\nServer-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.\n"
+            },
+            "splunkConfiguration": {
+                "$ref": "#/types/aws:kinesis/FirehoseDeliveryStreamSplunkConfiguration:FirehoseDeliveryStreamSplunkConfiguration",
+                "description": "Configuration options when `destination` is `splunk`. More details are given below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "versionId": {
+                "type": "string",
+                "description": "Specifies the table version for the output data schema. Defaults to `LATEST`.\n"
+            }
+        },
+        "type": "object"
+    }
+}

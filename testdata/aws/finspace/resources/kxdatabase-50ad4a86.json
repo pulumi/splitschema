@@ -1,0 +1,126 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) identifier of the KX database.\n"
+        },
+        "createdTimestamp": {
+            "type": "string",
+            "description": "Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the KX database.\n"
+        },
+        "environmentId": {
+            "type": "string",
+            "description": "Unique identifier for the KX environment.\n"
+        },
+        "lastModifiedTimestamp": {
+            "type": "string",
+            "description": "Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the KX database.\n\nThe following arguments are optional:\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "createdTimestamp",
+        "environmentId",
+        "lastModifiedTimestamp",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "Description of the KX database.\n"
+        },
+        "environmentId": {
+            "type": "string",
+            "description": "Unique identifier for the KX environment.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the KX database.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "environmentId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering KxDatabase resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) identifier of the KX database.\n"
+            },
+            "createdTimestamp": {
+                "type": "string",
+                "description": "Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the KX database.\n"
+            },
+            "environmentId": {
+                "type": "string",
+                "description": "Unique identifier for the KX environment.\n",
+                "willReplaceOnChanges": true
+            },
+            "lastModifiedTimestamp": {
+                "type": "string",
+                "description": "Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the KX database.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

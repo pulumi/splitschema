@@ -1,0 +1,50 @@
+{
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "The name or description of the Regex Match Set.\n"
+        },
+        "regexMatchTuples": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:wafregional/RegexMatchSetRegexMatchTuple:RegexMatchSetRegexMatchTuple"
+            },
+            "description": "The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.\n"
+        }
+    },
+    "required": [
+        "name"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "The name or description of the Regex Match Set.\n",
+            "willReplaceOnChanges": true
+        },
+        "regexMatchTuples": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:wafregional/RegexMatchSetRegexMatchTuple:RegexMatchSetRegexMatchTuple"
+            },
+            "description": "The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering RegexMatchSet resources.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "The name or description of the Regex Match Set.\n",
+                "willReplaceOnChanges": true
+            },
+            "regexMatchTuples": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:wafregional/RegexMatchSetRegexMatchTuple:RegexMatchSetRegexMatchTuple"
+                },
+                "description": "The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.\n"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,152 @@
+{
+    "properties": {
+        "addresses": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the IP set.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A friendly description of the IP set.\n"
+        },
+        "ipAddressVersion": {
+            "type": "string",
+            "description": "Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.\n"
+        },
+        "lockToken": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string",
+            "description": "A friendly name of the IP set.\n"
+        },
+        "scope": {
+            "type": "string",
+            "description": "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "ipAddressVersion",
+        "lockToken",
+        "name",
+        "scope",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "addresses": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A friendly description of the IP set.\n"
+        },
+        "ipAddressVersion": {
+            "type": "string",
+            "description": "Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "A friendly name of the IP set.\n",
+            "willReplaceOnChanges": true
+        },
+        "scope": {
+            "type": "string",
+            "description": "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "ipAddressVersion",
+        "scope"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering IpSet resources.\n",
+        "properties": {
+            "addresses": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the IP set.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A friendly description of the IP set.\n"
+            },
+            "ipAddressVersion": {
+                "type": "string",
+                "description": "Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.\n",
+                "willReplaceOnChanges": true
+            },
+            "lockToken": {
+                "type": "string"
+            },
+            "name": {
+                "type": "string",
+                "description": "A friendly name of the IP set.\n",
+                "willReplaceOnChanges": true
+            },
+            "scope": {
+                "type": "string",
+                "description": "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

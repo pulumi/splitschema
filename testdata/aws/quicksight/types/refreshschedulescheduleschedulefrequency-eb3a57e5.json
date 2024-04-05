@@ -1,0 +1,33 @@
+{
+    "properties": {
+        "interval": {
+            "type": "string",
+            "description": "The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.\n"
+        },
+        "refreshOnDay": {
+            "$ref": "#/types/aws:quicksight/RefreshScheduleScheduleScheduleFrequencyRefreshOnDay:RefreshScheduleScheduleScheduleFrequencyRefreshOnDay",
+            "description": "The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.\n"
+        },
+        "timeOfTheDay": {
+            "type": "string",
+            "description": "The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.\n"
+        },
+        "timezone": {
+            "type": "string",
+            "description": "The timezone that you want the refresh schedule to use.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "interval"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "interval",
+                "timeOfTheDay",
+                "timezone"
+            ]
+        }
+    }
+}

@@ -1,0 +1,113 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the job template.\n"
+        },
+        "jobTemplateData": {
+            "$ref": "#/types/aws:emrcontainers/JobTemplateJobTemplateData:JobTemplateJobTemplateData",
+            "description": "The job template data which holds values of StartJobRun API request.\n"
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "The KMS key ARN used to encrypt the job template.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The specified name of the job template.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "jobTemplateData",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "jobTemplateData": {
+            "$ref": "#/types/aws:emrcontainers/JobTemplateJobTemplateData:JobTemplateJobTemplateData",
+            "description": "The job template data which holds values of StartJobRun API request.\n",
+            "willReplaceOnChanges": true
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "The KMS key ARN used to encrypt the job template.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The specified name of the job template.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "jobTemplateData"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering JobTemplate resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the job template.\n"
+            },
+            "jobTemplateData": {
+                "$ref": "#/types/aws:emrcontainers/JobTemplateJobTemplateData:JobTemplateJobTemplateData",
+                "description": "The job template data which holds values of StartJobRun API request.\n",
+                "willReplaceOnChanges": true
+            },
+            "kmsKeyArn": {
+                "type": "string",
+                "description": "The KMS key ARN used to encrypt the job template.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The specified name of the job template.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n",
+                "willReplaceOnChanges": true
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true,
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

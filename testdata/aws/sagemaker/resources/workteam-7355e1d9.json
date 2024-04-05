@@ -1,0 +1,155 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) assigned by AWS to this Workteam.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description of the work team.\n"
+        },
+        "memberDefinitions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:sagemaker/WorkteamMemberDefinition:WorkteamMemberDefinition"
+            },
+            "description": "A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.\n"
+        },
+        "notificationConfiguration": {
+            "$ref": "#/types/aws:sagemaker/WorkteamNotificationConfiguration:WorkteamNotificationConfiguration",
+            "description": "Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.\n"
+        },
+        "subdomain": {
+            "type": "string",
+            "description": "The subdomain for your OIDC Identity Provider.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "workforceName": {
+            "type": "string",
+            "description": "The name of the Workteam (must be unique).\n"
+        },
+        "workteamName": {
+            "type": "string",
+            "description": "The name of the workforce.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "description",
+        "memberDefinitions",
+        "subdomain",
+        "tagsAll",
+        "workforceName",
+        "workteamName"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "A description of the work team.\n"
+        },
+        "memberDefinitions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:sagemaker/WorkteamMemberDefinition:WorkteamMemberDefinition"
+            },
+            "description": "A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.\n"
+        },
+        "notificationConfiguration": {
+            "$ref": "#/types/aws:sagemaker/WorkteamNotificationConfiguration:WorkteamNotificationConfiguration",
+            "description": "Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "workforceName": {
+            "type": "string",
+            "description": "The name of the Workteam (must be unique).\n",
+            "willReplaceOnChanges": true
+        },
+        "workteamName": {
+            "type": "string",
+            "description": "The name of the workforce.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "description",
+        "memberDefinitions",
+        "workforceName",
+        "workteamName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Workteam resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) assigned by AWS to this Workteam.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A description of the work team.\n"
+            },
+            "memberDefinitions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:sagemaker/WorkteamMemberDefinition:WorkteamMemberDefinition"
+                },
+                "description": "A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.\n"
+            },
+            "notificationConfiguration": {
+                "$ref": "#/types/aws:sagemaker/WorkteamNotificationConfiguration:WorkteamNotificationConfiguration",
+                "description": "Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.\n"
+            },
+            "subdomain": {
+                "type": "string",
+                "description": "The subdomain for your OIDC Identity Provider.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "workforceName": {
+                "type": "string",
+                "description": "The name of the Workteam (must be unique).\n",
+                "willReplaceOnChanges": true
+            },
+            "workteamName": {
+                "type": "string",
+                "description": "The name of the workforce.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

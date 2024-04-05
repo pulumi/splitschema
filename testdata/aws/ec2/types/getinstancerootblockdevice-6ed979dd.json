@@ -1,0 +1,63 @@
+{
+    "properties": {
+        "deleteOnTermination": {
+            "type": "boolean",
+            "description": "If the root block device will be deleted on termination.\n"
+        },
+        "deviceName": {
+            "type": "string",
+            "description": "Physical name of the device.\n"
+        },
+        "encrypted": {
+            "type": "boolean",
+            "description": "If the EBS volume is encrypted.\n"
+        },
+        "iops": {
+            "type": "integer",
+            "description": "`0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.\n"
+        },
+        "kmsKeyId": {
+            "type": "string"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the Instance.\n"
+        },
+        "throughput": {
+            "type": "integer",
+            "description": "Throughput of the volume, in MiB/s.\n"
+        },
+        "volumeId": {
+            "type": "string"
+        },
+        "volumeSize": {
+            "type": "integer",
+            "description": "Size of the volume, in GiB.\n"
+        },
+        "volumeType": {
+            "type": "string",
+            "description": "Type of the volume.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "deleteOnTermination",
+        "deviceName",
+        "encrypted",
+        "iops",
+        "kmsKeyId",
+        "tags",
+        "throughput",
+        "volumeId",
+        "volumeSize",
+        "volumeType"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredInputs": []
+        }
+    }
+}

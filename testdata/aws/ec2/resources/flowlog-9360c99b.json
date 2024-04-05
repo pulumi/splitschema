@@ -1,0 +1,265 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the Flow Log.\n"
+        },
+        "deliverCrossAccountRole": {
+            "type": "string",
+            "description": "ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.\n"
+        },
+        "destinationOptions": {
+            "$ref": "#/types/aws:ec2/FlowLogDestinationOptions:FlowLogDestinationOptions",
+            "description": "Describes the destination options for a flow log. More details below.\n"
+        },
+        "eniId": {
+            "type": "string",
+            "description": "Elastic Network Interface ID to attach to\n"
+        },
+        "iamRoleArn": {
+            "type": "string",
+            "description": "The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group\n"
+        },
+        "logDestination": {
+            "type": "string",
+            "description": "The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.\n"
+        },
+        "logDestinationType": {
+            "type": "string",
+            "description": "The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.\n"
+        },
+        "logFormat": {
+            "type": "string",
+            "description": "The fields to include in the flow log record, in the order in which they should appear.\n"
+        },
+        "logGroupName": {
+            "type": "string",
+            "description": "**Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.\n",
+            "deprecationMessage": "use 'log_destination' argument instead"
+        },
+        "maxAggregationInterval": {
+            "type": "integer",
+            "description": "The maximum interval of time\nduring which a flow of packets is captured and aggregated into a flow\nlog record. Valid Values: `60` seconds (1 minute) or `600` seconds (10\nminutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).\n"
+        },
+        "subnetId": {
+            "type": "string",
+            "description": "Subnet ID to attach to\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "trafficType": {
+            "type": "string",
+            "description": "The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.\n"
+        },
+        "transitGatewayAttachmentId": {
+            "type": "string",
+            "description": "Transit Gateway Attachment ID to attach to\n"
+        },
+        "transitGatewayId": {
+            "type": "string",
+            "description": "Transit Gateway ID to attach to\n"
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "VPC ID to attach to\n"
+        }
+    },
+    "required": [
+        "arn",
+        "logDestination",
+        "logFormat",
+        "logGroupName",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "deliverCrossAccountRole": {
+            "type": "string",
+            "description": "ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.\n",
+            "willReplaceOnChanges": true
+        },
+        "destinationOptions": {
+            "$ref": "#/types/aws:ec2/FlowLogDestinationOptions:FlowLogDestinationOptions",
+            "description": "Describes the destination options for a flow log. More details below.\n",
+            "willReplaceOnChanges": true
+        },
+        "eniId": {
+            "type": "string",
+            "description": "Elastic Network Interface ID to attach to\n",
+            "willReplaceOnChanges": true
+        },
+        "iamRoleArn": {
+            "type": "string",
+            "description": "The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group\n",
+            "willReplaceOnChanges": true
+        },
+        "logDestination": {
+            "type": "string",
+            "description": "The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.\n",
+            "willReplaceOnChanges": true
+        },
+        "logDestinationType": {
+            "type": "string",
+            "description": "The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.\n",
+            "willReplaceOnChanges": true
+        },
+        "logFormat": {
+            "type": "string",
+            "description": "The fields to include in the flow log record, in the order in which they should appear.\n",
+            "willReplaceOnChanges": true
+        },
+        "logGroupName": {
+            "type": "string",
+            "description": "**Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.\n",
+            "deprecationMessage": "use 'log_destination' argument instead",
+            "willReplaceOnChanges": true
+        },
+        "maxAggregationInterval": {
+            "type": "integer",
+            "description": "The maximum interval of time\nduring which a flow of packets is captured and aggregated into a flow\nlog record. Valid Values: `60` seconds (1 minute) or `600` seconds (10\nminutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetId": {
+            "type": "string",
+            "description": "Subnet ID to attach to\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "trafficType": {
+            "type": "string",
+            "description": "The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.\n",
+            "willReplaceOnChanges": true
+        },
+        "transitGatewayAttachmentId": {
+            "type": "string",
+            "description": "Transit Gateway Attachment ID to attach to\n",
+            "willReplaceOnChanges": true
+        },
+        "transitGatewayId": {
+            "type": "string",
+            "description": "Transit Gateway ID to attach to\n",
+            "willReplaceOnChanges": true
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "VPC ID to attach to\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering FlowLog resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the Flow Log.\n"
+            },
+            "deliverCrossAccountRole": {
+                "type": "string",
+                "description": "ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.\n",
+                "willReplaceOnChanges": true
+            },
+            "destinationOptions": {
+                "$ref": "#/types/aws:ec2/FlowLogDestinationOptions:FlowLogDestinationOptions",
+                "description": "Describes the destination options for a flow log. More details below.\n",
+                "willReplaceOnChanges": true
+            },
+            "eniId": {
+                "type": "string",
+                "description": "Elastic Network Interface ID to attach to\n",
+                "willReplaceOnChanges": true
+            },
+            "iamRoleArn": {
+                "type": "string",
+                "description": "The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group\n",
+                "willReplaceOnChanges": true
+            },
+            "logDestination": {
+                "type": "string",
+                "description": "The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.\n",
+                "willReplaceOnChanges": true
+            },
+            "logDestinationType": {
+                "type": "string",
+                "description": "The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.\n",
+                "willReplaceOnChanges": true
+            },
+            "logFormat": {
+                "type": "string",
+                "description": "The fields to include in the flow log record, in the order in which they should appear.\n",
+                "willReplaceOnChanges": true
+            },
+            "logGroupName": {
+                "type": "string",
+                "description": "**Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.\n",
+                "deprecationMessage": "use 'log_destination' argument instead",
+                "willReplaceOnChanges": true
+            },
+            "maxAggregationInterval": {
+                "type": "integer",
+                "description": "The maximum interval of time\nduring which a flow of packets is captured and aggregated into a flow\nlog record. Valid Values: `60` seconds (1 minute) or `600` seconds (10\nminutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).\n",
+                "willReplaceOnChanges": true
+            },
+            "subnetId": {
+                "type": "string",
+                "description": "Subnet ID to attach to\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "trafficType": {
+                "type": "string",
+                "description": "The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.\n",
+                "willReplaceOnChanges": true
+            },
+            "transitGatewayAttachmentId": {
+                "type": "string",
+                "description": "Transit Gateway Attachment ID to attach to\n",
+                "willReplaceOnChanges": true
+            },
+            "transitGatewayId": {
+                "type": "string",
+                "description": "Transit Gateway ID to attach to\n",
+                "willReplaceOnChanges": true
+            },
+            "vpcId": {
+                "type": "string",
+                "description": "VPC ID to attach to\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

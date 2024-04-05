@@ -1,0 +1,74 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getBundle.\n",
+        "properties": {
+            "bundleId": {
+                "type": "string",
+                "description": "ID of the bundle.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the bundle. You cannot combine this parameter with `bundle_id`.\n"
+            },
+            "owner": {
+                "type": "string",
+                "description": "Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getBundle.\n",
+        "properties": {
+            "bundleId": {
+                "description": "The ID of the bundle.\n",
+                "type": "string"
+            },
+            "computeTypes": {
+                "description": "The compute type. See supported fields below.\n",
+                "items": {
+                    "$ref": "#/types/aws:workspaces/getBundleComputeType:getBundleComputeType"
+                },
+                "type": "array"
+            },
+            "description": {
+                "description": "The description of the bundle.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "name": {
+                "description": "Name of the compute type.\n",
+                "type": "string"
+            },
+            "owner": {
+                "description": "The owner of the bundle.\n",
+                "type": "string"
+            },
+            "rootStorages": {
+                "description": "The root volume. See supported fields below.\n",
+                "items": {
+                    "$ref": "#/types/aws:workspaces/getBundleRootStorage:getBundleRootStorage"
+                },
+                "type": "array"
+            },
+            "userStorages": {
+                "description": "The user storage. See supported fields below.\n",
+                "items": {
+                    "$ref": "#/types/aws:workspaces/getBundleUserStorage:getBundleUserStorage"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "computeTypes",
+            "description",
+            "rootStorages",
+            "userStorages",
+            "id"
+        ],
+        "type": "object"
+    }
+}

@@ -1,0 +1,130 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the serverless cluster.\n"
+        },
+        "clientAuthentication": {
+            "$ref": "#/types/aws:msk/ServerlessClusterClientAuthentication:ServerlessClusterClientAuthentication",
+            "description": "Specifies client authentication information for the serverless cluster. See below.\n"
+        },
+        "clusterName": {
+            "type": "string",
+            "description": "The name of the serverless cluster.\n"
+        },
+        "clusterUuid": {
+            "type": "string",
+            "description": "UUID of the serverless cluster, for use in IAM policies.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "vpcConfigs": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:msk/ServerlessClusterVpcConfig:ServerlessClusterVpcConfig"
+            },
+            "description": "VPC configuration information. See below.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "clientAuthentication",
+        "clusterName",
+        "clusterUuid",
+        "tagsAll",
+        "vpcConfigs"
+    ],
+    "inputProperties": {
+        "clientAuthentication": {
+            "$ref": "#/types/aws:msk/ServerlessClusterClientAuthentication:ServerlessClusterClientAuthentication",
+            "description": "Specifies client authentication information for the serverless cluster. See below.\n",
+            "willReplaceOnChanges": true
+        },
+        "clusterName": {
+            "type": "string",
+            "description": "The name of the serverless cluster.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "vpcConfigs": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:msk/ServerlessClusterVpcConfig:ServerlessClusterVpcConfig"
+            },
+            "description": "VPC configuration information. See below.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "clientAuthentication",
+        "vpcConfigs"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ServerlessCluster resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the serverless cluster.\n"
+            },
+            "clientAuthentication": {
+                "$ref": "#/types/aws:msk/ServerlessClusterClientAuthentication:ServerlessClusterClientAuthentication",
+                "description": "Specifies client authentication information for the serverless cluster. See below.\n",
+                "willReplaceOnChanges": true
+            },
+            "clusterName": {
+                "type": "string",
+                "description": "The name of the serverless cluster.\n",
+                "willReplaceOnChanges": true
+            },
+            "clusterUuid": {
+                "type": "string",
+                "description": "UUID of the serverless cluster, for use in IAM policies.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "vpcConfigs": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:msk/ServerlessClusterVpcConfig:ServerlessClusterVpcConfig"
+                },
+                "description": "VPC configuration information. See below.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

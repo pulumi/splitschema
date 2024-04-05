@@ -1,0 +1,76 @@
+{
+    "properties": {
+        "apiId": {
+            "type": "string",
+            "description": "API identifier.\n"
+        },
+        "autoDeployed": {
+            "type": "boolean",
+            "description": "Whether the deployment was automatically released.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the deployment resource. Must be less than or equal to 1024 characters in length.\n"
+        },
+        "triggers": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of arbitrary keys and values that, when changed, will trigger a redeployment.\n"
+        }
+    },
+    "required": [
+        "apiId",
+        "autoDeployed"
+    ],
+    "inputProperties": {
+        "apiId": {
+            "type": "string",
+            "description": "API identifier.\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the deployment resource. Must be less than or equal to 1024 characters in length.\n"
+        },
+        "triggers": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of arbitrary keys and values that, when changed, will trigger a redeployment.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "apiId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Deployment resources.\n",
+        "properties": {
+            "apiId": {
+                "type": "string",
+                "description": "API identifier.\n",
+                "willReplaceOnChanges": true
+            },
+            "autoDeployed": {
+                "type": "boolean",
+                "description": "Whether the deployment was automatically released.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description for the deployment resource. Must be less than or equal to 1024 characters in length.\n"
+            },
+            "triggers": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of arbitrary keys and values that, when changed, will trigger a redeployment.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

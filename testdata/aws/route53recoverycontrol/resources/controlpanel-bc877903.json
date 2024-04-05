@@ -1,0 +1,81 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the control panel.\n"
+        },
+        "clusterArn": {
+            "type": "string",
+            "description": "ARN of the cluster in which this control panel will reside.\n"
+        },
+        "defaultControlPanel": {
+            "type": "boolean",
+            "description": "Whether a control panel is default.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name describing the control panel.\n"
+        },
+        "routingControlCount": {
+            "type": "integer",
+            "description": "Number routing controls in a control panel.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "clusterArn",
+        "defaultControlPanel",
+        "name",
+        "routingControlCount",
+        "status"
+    ],
+    "inputProperties": {
+        "clusterArn": {
+            "type": "string",
+            "description": "ARN of the cluster in which this control panel will reside.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Name describing the control panel.\n"
+        }
+    },
+    "requiredInputs": [
+        "clusterArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ControlPanel resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the control panel.\n"
+            },
+            "clusterArn": {
+                "type": "string",
+                "description": "ARN of the cluster in which this control panel will reside.\n",
+                "willReplaceOnChanges": true
+            },
+            "defaultControlPanel": {
+                "type": "boolean",
+                "description": "Whether a control panel is default.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name describing the control panel.\n"
+            },
+            "routingControlCount": {
+                "type": "integer",
+                "description": "Number routing controls in a control panel.\n"
+            },
+            "status": {
+                "type": "string",
+                "description": "Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.\n"
+            }
+        },
+        "type": "object"
+    }
+}

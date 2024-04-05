@@ -1,0 +1,130 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the trusted token issuer.\n"
+        },
+        "clientToken": {
+            "type": "string",
+            "description": "A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.\n"
+        },
+        "instanceArn": {
+            "type": "string",
+            "description": "ARN of the instance of IAM Identity Center.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the trusted token issuer.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "trustedTokenIssuerConfiguration": {
+            "$ref": "#/types/aws:ssoadmin/TrustedTokenIssuerTrustedTokenIssuerConfiguration:TrustedTokenIssuerTrustedTokenIssuerConfiguration",
+            "description": "A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.\n"
+        },
+        "trustedTokenIssuerType": {
+            "type": "string",
+            "description": "Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`\n\nThe following arguments are optional:\n"
+        }
+    },
+    "required": [
+        "arn",
+        "instanceArn",
+        "name",
+        "tagsAll",
+        "trustedTokenIssuerType"
+    ],
+    "inputProperties": {
+        "clientToken": {
+            "type": "string",
+            "description": "A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.\n"
+        },
+        "instanceArn": {
+            "type": "string",
+            "description": "ARN of the instance of IAM Identity Center.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the trusted token issuer.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "trustedTokenIssuerConfiguration": {
+            "$ref": "#/types/aws:ssoadmin/TrustedTokenIssuerTrustedTokenIssuerConfiguration:TrustedTokenIssuerTrustedTokenIssuerConfiguration",
+            "description": "A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.\n"
+        },
+        "trustedTokenIssuerType": {
+            "type": "string",
+            "description": "Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`\n\nThe following arguments are optional:\n"
+        }
+    },
+    "requiredInputs": [
+        "instanceArn",
+        "trustedTokenIssuerType"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering TrustedTokenIssuer resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the trusted token issuer.\n"
+            },
+            "clientToken": {
+                "type": "string",
+                "description": "A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.\n"
+            },
+            "instanceArn": {
+                "type": "string",
+                "description": "ARN of the instance of IAM Identity Center.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the trusted token issuer.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "trustedTokenIssuerConfiguration": {
+                "$ref": "#/types/aws:ssoadmin/TrustedTokenIssuerTrustedTokenIssuerConfiguration:TrustedTokenIssuerTrustedTokenIssuerConfiguration",
+                "description": "A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.\n"
+            },
+            "trustedTokenIssuerType": {
+                "type": "string",
+                "description": "Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`\n\nThe following arguments are optional:\n"
+            }
+        },
+        "type": "object"
+    }
+}

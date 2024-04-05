@@ -1,0 +1,136 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getTable.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name of the DynamoDB table.\n"
+            },
+            "serverSideEncryption": {
+                "$ref": "#/types/aws:dynamodb/getTableServerSideEncryption:getTableServerSideEncryption"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                }
+            }
+        },
+        "type": "object",
+        "required": [
+            "name"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getTable.\n",
+        "properties": {
+            "arn": {
+                "type": "string"
+            },
+            "attributes": {
+                "items": {
+                    "$ref": "#/types/aws:dynamodb/getTableAttribute:getTableAttribute"
+                },
+                "type": "array"
+            },
+            "billingMode": {
+                "type": "string"
+            },
+            "deletionProtectionEnabled": {
+                "type": "boolean"
+            },
+            "globalSecondaryIndexes": {
+                "items": {
+                    "$ref": "#/types/aws:dynamodb/getTableGlobalSecondaryIndex:getTableGlobalSecondaryIndex"
+                },
+                "type": "array"
+            },
+            "hashKey": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "localSecondaryIndexes": {
+                "items": {
+                    "$ref": "#/types/aws:dynamodb/getTableLocalSecondaryIndex:getTableLocalSecondaryIndex"
+                },
+                "type": "array"
+            },
+            "name": {
+                "type": "string"
+            },
+            "pointInTimeRecovery": {
+                "$ref": "#/types/aws:dynamodb/getTablePointInTimeRecovery:getTablePointInTimeRecovery"
+            },
+            "rangeKey": {
+                "type": "string"
+            },
+            "readCapacity": {
+                "type": "integer"
+            },
+            "replicas": {
+                "items": {
+                    "$ref": "#/types/aws:dynamodb/getTableReplica:getTableReplica"
+                },
+                "type": "array"
+            },
+            "serverSideEncryption": {
+                "$ref": "#/types/aws:dynamodb/getTableServerSideEncryption:getTableServerSideEncryption"
+            },
+            "streamArn": {
+                "type": "string"
+            },
+            "streamEnabled": {
+                "type": "boolean"
+            },
+            "streamLabel": {
+                "type": "string"
+            },
+            "streamViewType": {
+                "type": "string"
+            },
+            "tableClass": {
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            },
+            "ttl": {
+                "$ref": "#/types/aws:dynamodb/getTableTtl:getTableTtl"
+            },
+            "writeCapacity": {
+                "type": "integer"
+            }
+        },
+        "required": [
+            "arn",
+            "attributes",
+            "billingMode",
+            "deletionProtectionEnabled",
+            "globalSecondaryIndexes",
+            "hashKey",
+            "localSecondaryIndexes",
+            "name",
+            "pointInTimeRecovery",
+            "rangeKey",
+            "readCapacity",
+            "replicas",
+            "serverSideEncryption",
+            "streamArn",
+            "streamEnabled",
+            "streamLabel",
+            "streamViewType",
+            "tableClass",
+            "tags",
+            "ttl",
+            "writeCapacity",
+            "id"
+        ],
+        "type": "object"
+    }
+}

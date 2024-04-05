@@ -1,0 +1,138 @@
+{
+    "properties": {
+        "httpMethod": {
+            "type": "string",
+            "description": "HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)\n"
+        },
+        "resourceId": {
+            "type": "string",
+            "description": "API resource ID\n"
+        },
+        "responseModels": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of the API models used for the response's content type\n"
+        },
+        "responseParameters": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "boolean"
+            },
+            "description": "Map of response parameters that can be sent to the caller.\nFor example: `response_parameters = { \"method.response.header.X-Some-Header\" = true }`\nwould define that the header `X-Some-Header` can be provided on the response.\n"
+        },
+        "restApi": {
+            "type": "string",
+            "description": "ID of the associated REST API\n"
+        },
+        "statusCode": {
+            "type": "string",
+            "description": "HTTP status code\n"
+        }
+    },
+    "required": [
+        "httpMethod",
+        "resourceId",
+        "restApi",
+        "statusCode"
+    ],
+    "inputProperties": {
+        "httpMethod": {
+            "type": "string",
+            "description": "HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)\n",
+            "willReplaceOnChanges": true
+        },
+        "resourceId": {
+            "type": "string",
+            "description": "API resource ID\n",
+            "willReplaceOnChanges": true
+        },
+        "responseModels": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of the API models used for the response's content type\n"
+        },
+        "responseParameters": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "boolean"
+            },
+            "description": "Map of response parameters that can be sent to the caller.\nFor example: `response_parameters = { \"method.response.header.X-Some-Header\" = true }`\nwould define that the header `X-Some-Header` can be provided on the response.\n"
+        },
+        "restApi": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:apigateway/restApi:RestApi"
+                }
+            ],
+            "description": "ID of the associated REST API\n",
+            "willReplaceOnChanges": true
+        },
+        "statusCode": {
+            "type": "string",
+            "description": "HTTP status code\n"
+        }
+    },
+    "requiredInputs": [
+        "httpMethod",
+        "resourceId",
+        "restApi",
+        "statusCode"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering MethodResponse resources.\n",
+        "properties": {
+            "httpMethod": {
+                "type": "string",
+                "description": "HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)\n",
+                "willReplaceOnChanges": true
+            },
+            "resourceId": {
+                "type": "string",
+                "description": "API resource ID\n",
+                "willReplaceOnChanges": true
+            },
+            "responseModels": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of the API models used for the response's content type\n"
+            },
+            "responseParameters": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "boolean"
+                },
+                "description": "Map of response parameters that can be sent to the caller.\nFor example: `response_parameters = { \"method.response.header.X-Some-Header\" = true }`\nwould define that the header `X-Some-Header` can be provided on the response.\n"
+            },
+            "restApi": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:apigateway/restApi:RestApi"
+                    }
+                ],
+                "description": "ID of the associated REST API\n",
+                "willReplaceOnChanges": true
+            },
+            "statusCode": {
+                "type": "string",
+                "description": "HTTP status code\n"
+            }
+        },
+        "type": "object"
+    }
+}

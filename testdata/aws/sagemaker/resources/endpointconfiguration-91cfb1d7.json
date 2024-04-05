@@ -1,0 +1,181 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.\n"
+        },
+        "asyncInferenceConfig": {
+            "$ref": "#/types/aws:sagemaker/EndpointConfigurationAsyncInferenceConfig:EndpointConfigurationAsyncInferenceConfig",
+            "description": "Specifies configuration for how an endpoint performs asynchronous inference.\n"
+        },
+        "dataCaptureConfig": {
+            "$ref": "#/types/aws:sagemaker/EndpointConfigurationDataCaptureConfig:EndpointConfigurationDataCaptureConfig",
+            "description": "Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.\n"
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.\n"
+        },
+        "productionVariants": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:sagemaker/EndpointConfigurationProductionVariant:EndpointConfigurationProductionVariant"
+            },
+            "description": "An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.\n"
+        },
+        "shadowProductionVariants": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:sagemaker/EndpointConfigurationShadowProductionVariant:EndpointConfigurationShadowProductionVariant"
+            },
+            "description": "Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "namePrefix",
+        "productionVariants",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "asyncInferenceConfig": {
+            "$ref": "#/types/aws:sagemaker/EndpointConfigurationAsyncInferenceConfig:EndpointConfigurationAsyncInferenceConfig",
+            "description": "Specifies configuration for how an endpoint performs asynchronous inference.\n",
+            "willReplaceOnChanges": true
+        },
+        "dataCaptureConfig": {
+            "$ref": "#/types/aws:sagemaker/EndpointConfigurationDataCaptureConfig:EndpointConfigurationDataCaptureConfig",
+            "description": "Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.\n",
+            "willReplaceOnChanges": true
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.\n",
+            "willReplaceOnChanges": true
+        },
+        "productionVariants": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:sagemaker/EndpointConfigurationProductionVariant:EndpointConfigurationProductionVariant"
+            },
+            "description": "An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.\n"
+        },
+        "shadowProductionVariants": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:sagemaker/EndpointConfigurationShadowProductionVariant:EndpointConfigurationShadowProductionVariant"
+            },
+            "description": "Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "productionVariants"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering EndpointConfiguration resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.\n"
+            },
+            "asyncInferenceConfig": {
+                "$ref": "#/types/aws:sagemaker/EndpointConfigurationAsyncInferenceConfig:EndpointConfigurationAsyncInferenceConfig",
+                "description": "Specifies configuration for how an endpoint performs asynchronous inference.\n",
+                "willReplaceOnChanges": true
+            },
+            "dataCaptureConfig": {
+                "$ref": "#/types/aws:sagemaker/EndpointConfigurationDataCaptureConfig:EndpointConfigurationDataCaptureConfig",
+                "description": "Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.\n",
+                "willReplaceOnChanges": true
+            },
+            "kmsKeyArn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.\n",
+                "willReplaceOnChanges": true
+            },
+            "productionVariants": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:sagemaker/EndpointConfigurationProductionVariant:EndpointConfigurationProductionVariant"
+                },
+                "description": "An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.\n"
+            },
+            "shadowProductionVariants": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:sagemaker/EndpointConfigurationShadowProductionVariant:EndpointConfigurationShadowProductionVariant"
+                },
+                "description": "Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

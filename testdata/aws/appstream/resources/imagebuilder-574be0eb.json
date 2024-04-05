@@ -1,0 +1,272 @@
+{
+    "properties": {
+        "accessEndpoints": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:appstream/ImageBuilderAccessEndpoint:ImageBuilderAccessEndpoint"
+            },
+            "description": "Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.\n"
+        },
+        "appstreamAgentVersion": {
+            "type": "string",
+            "description": "Version of the AppStream 2.0 agent to use for this image builder.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN of the appstream image builder.\n"
+        },
+        "createdTime": {
+            "type": "string",
+            "description": "Date and time, in UTC and extended RFC 3339 format, when the image builder was created.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description to display.\n"
+        },
+        "displayName": {
+            "type": "string",
+            "description": "Human-readable friendly name for the AppStream image builder.\n"
+        },
+        "domainJoinInfo": {
+            "$ref": "#/types/aws:appstream/ImageBuilderDomainJoinInfo:ImageBuilderDomainJoinInfo",
+            "description": "Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.\n"
+        },
+        "enableDefaultInternetAccess": {
+            "type": "boolean",
+            "description": "Enables or disables default internet access for the image builder.\n"
+        },
+        "iamRoleArn": {
+            "type": "string",
+            "description": "ARN of the IAM role to apply to the image builder.\n"
+        },
+        "imageArn": {
+            "type": "string",
+            "description": "ARN of the public, private, or shared image to use.\n"
+        },
+        "imageName": {
+            "type": "string",
+            "description": "Name of the image used to create the image builder.\n"
+        },
+        "instanceType": {
+            "type": "string",
+            "description": "Instance type to use when launching the image builder.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Unique name for the image builder.\n\nThe following arguments are optional:\n"
+        },
+        "state": {
+            "type": "string",
+            "description": "State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "vpcConfig": {
+            "$ref": "#/types/aws:appstream/ImageBuilderVpcConfig:ImageBuilderVpcConfig",
+            "description": "Configuration block for the VPC configuration for the image builder. See below.\n"
+        }
+    },
+    "required": [
+        "appstreamAgentVersion",
+        "arn",
+        "createdTime",
+        "description",
+        "displayName",
+        "domainJoinInfo",
+        "enableDefaultInternetAccess",
+        "iamRoleArn",
+        "imageArn",
+        "imageName",
+        "instanceType",
+        "name",
+        "state",
+        "tagsAll",
+        "vpcConfig"
+    ],
+    "inputProperties": {
+        "accessEndpoints": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:appstream/ImageBuilderAccessEndpoint:ImageBuilderAccessEndpoint"
+            },
+            "description": "Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.\n",
+            "willReplaceOnChanges": true
+        },
+        "appstreamAgentVersion": {
+            "type": "string",
+            "description": "Version of the AppStream 2.0 agent to use for this image builder.\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "Description to display.\n",
+            "willReplaceOnChanges": true
+        },
+        "displayName": {
+            "type": "string",
+            "description": "Human-readable friendly name for the AppStream image builder.\n",
+            "willReplaceOnChanges": true
+        },
+        "domainJoinInfo": {
+            "$ref": "#/types/aws:appstream/ImageBuilderDomainJoinInfo:ImageBuilderDomainJoinInfo",
+            "description": "Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.\n",
+            "willReplaceOnChanges": true
+        },
+        "enableDefaultInternetAccess": {
+            "type": "boolean",
+            "description": "Enables or disables default internet access for the image builder.\n",
+            "willReplaceOnChanges": true
+        },
+        "iamRoleArn": {
+            "type": "string",
+            "description": "ARN of the IAM role to apply to the image builder.\n",
+            "willReplaceOnChanges": true
+        },
+        "imageArn": {
+            "type": "string",
+            "description": "ARN of the public, private, or shared image to use.\n",
+            "willReplaceOnChanges": true
+        },
+        "imageName": {
+            "type": "string",
+            "description": "Name of the image used to create the image builder.\n",
+            "willReplaceOnChanges": true
+        },
+        "instanceType": {
+            "type": "string",
+            "description": "Instance type to use when launching the image builder.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Unique name for the image builder.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "vpcConfig": {
+            "$ref": "#/types/aws:appstream/ImageBuilderVpcConfig:ImageBuilderVpcConfig",
+            "description": "Configuration block for the VPC configuration for the image builder. See below.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "instanceType"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ImageBuilder resources.\n",
+        "properties": {
+            "accessEndpoints": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:appstream/ImageBuilderAccessEndpoint:ImageBuilderAccessEndpoint"
+                },
+                "description": "Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.\n",
+                "willReplaceOnChanges": true
+            },
+            "appstreamAgentVersion": {
+                "type": "string",
+                "description": "Version of the AppStream 2.0 agent to use for this image builder.\n",
+                "willReplaceOnChanges": true
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN of the appstream image builder.\n"
+            },
+            "createdTime": {
+                "type": "string",
+                "description": "Date and time, in UTC and extended RFC 3339 format, when the image builder was created.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description to display.\n",
+                "willReplaceOnChanges": true
+            },
+            "displayName": {
+                "type": "string",
+                "description": "Human-readable friendly name for the AppStream image builder.\n",
+                "willReplaceOnChanges": true
+            },
+            "domainJoinInfo": {
+                "$ref": "#/types/aws:appstream/ImageBuilderDomainJoinInfo:ImageBuilderDomainJoinInfo",
+                "description": "Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.\n",
+                "willReplaceOnChanges": true
+            },
+            "enableDefaultInternetAccess": {
+                "type": "boolean",
+                "description": "Enables or disables default internet access for the image builder.\n",
+                "willReplaceOnChanges": true
+            },
+            "iamRoleArn": {
+                "type": "string",
+                "description": "ARN of the IAM role to apply to the image builder.\n",
+                "willReplaceOnChanges": true
+            },
+            "imageArn": {
+                "type": "string",
+                "description": "ARN of the public, private, or shared image to use.\n",
+                "willReplaceOnChanges": true
+            },
+            "imageName": {
+                "type": "string",
+                "description": "Name of the image used to create the image builder.\n",
+                "willReplaceOnChanges": true
+            },
+            "instanceType": {
+                "type": "string",
+                "description": "Instance type to use when launching the image builder.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "Unique name for the image builder.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "state": {
+                "type": "string",
+                "description": "State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "vpcConfig": {
+                "$ref": "#/types/aws:appstream/ImageBuilderVpcConfig:ImageBuilderVpcConfig",
+                "description": "Configuration block for the VPC configuration for the image builder. See below.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

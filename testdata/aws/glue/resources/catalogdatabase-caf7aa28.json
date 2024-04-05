@@ -1,0 +1,175 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the Glue Catalog Database.\n"
+        },
+        "catalogId": {
+            "type": "string",
+            "description": "ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.\n"
+        },
+        "createTableDefaultPermissions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/CatalogDatabaseCreateTableDefaultPermission:CatalogDatabaseCreateTableDefaultPermission"
+            },
+            "description": "Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the database.\n"
+        },
+        "locationUri": {
+            "type": "string",
+            "description": "Location of the database (for example, an HDFS path).\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.\n"
+        },
+        "parameters": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "List of key-value pairs that define parameters and properties of the database.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "targetDatabase": {
+            "$ref": "#/types/aws:glue/CatalogDatabaseTargetDatabase:CatalogDatabaseTargetDatabase",
+            "description": "Configuration block for a target database for resource linking. See `target_database` below.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "catalogId",
+        "createTableDefaultPermissions",
+        "locationUri",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "catalogId": {
+            "type": "string",
+            "description": "ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.\n",
+            "willReplaceOnChanges": true
+        },
+        "createTableDefaultPermissions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/CatalogDatabaseCreateTableDefaultPermission:CatalogDatabaseCreateTableDefaultPermission"
+            },
+            "description": "Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the database.\n"
+        },
+        "locationUri": {
+            "type": "string",
+            "description": "Location of the database (for example, an HDFS path).\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.\n",
+            "willReplaceOnChanges": true
+        },
+        "parameters": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "List of key-value pairs that define parameters and properties of the database.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "targetDatabase": {
+            "$ref": "#/types/aws:glue/CatalogDatabaseTargetDatabase:CatalogDatabaseTargetDatabase",
+            "description": "Configuration block for a target database for resource linking. See `target_database` below.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering CatalogDatabase resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the Glue Catalog Database.\n"
+            },
+            "catalogId": {
+                "type": "string",
+                "description": "ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.\n",
+                "willReplaceOnChanges": true
+            },
+            "createTableDefaultPermissions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:glue/CatalogDatabaseCreateTableDefaultPermission:CatalogDatabaseCreateTableDefaultPermission"
+                },
+                "description": "Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the database.\n"
+            },
+            "locationUri": {
+                "type": "string",
+                "description": "Location of the database (for example, an HDFS path).\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.\n",
+                "willReplaceOnChanges": true
+            },
+            "parameters": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "List of key-value pairs that define parameters and properties of the database.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "targetDatabase": {
+                "$ref": "#/types/aws:glue/CatalogDatabaseTargetDatabase:CatalogDatabaseTargetDatabase",
+                "description": "Configuration block for a target database for resource linking. See `target_database` below.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Name for the configuration.\n"
+        },
+        "s3Destination": {
+            "$ref": "#/types/aws:ssm/ResourceDataSyncS3Destination:ResourceDataSyncS3Destination",
+            "description": "Amazon S3 configuration details for the sync.\n"
+        }
+    },
+    "required": [
+        "name",
+        "s3Destination"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "Name for the configuration.\n",
+            "willReplaceOnChanges": true
+        },
+        "s3Destination": {
+            "$ref": "#/types/aws:ssm/ResourceDataSyncS3Destination:ResourceDataSyncS3Destination",
+            "description": "Amazon S3 configuration details for the sync.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "s3Destination"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ResourceDataSync resources.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name for the configuration.\n",
+                "willReplaceOnChanges": true
+            },
+            "s3Destination": {
+                "$ref": "#/types/aws:ssm/ResourceDataSyncS3Destination:ResourceDataSyncS3Destination",
+                "description": "Amazon S3 configuration details for the sync.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

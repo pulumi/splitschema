@@ -1,0 +1,37 @@
+{
+    "outputs": {
+        "description": "A collection of values returned by getAuthorizationToken.\n",
+        "properties": {
+            "authorizationToken": {
+                "description": "Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.\n",
+                "secret": true,
+                "type": "string"
+            },
+            "expiresAt": {
+                "description": "Time in UTC RFC3339 format when the authorization token expires.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "password": {
+                "description": "Password decoded from the authorization token.\n",
+                "secret": true,
+                "type": "string"
+            },
+            "userName": {
+                "description": "User name decoded from the authorization token.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "authorizationToken",
+            "expiresAt",
+            "password",
+            "userName",
+            "id"
+        ],
+        "type": "object"
+    }
+}

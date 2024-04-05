@@ -1,0 +1,74 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getSlotType.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name of the slot type. The name is case sensitive.\n"
+            },
+            "version": {
+                "type": "string",
+                "description": "Version of the slot type.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "name"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getSlotType.\n",
+        "properties": {
+            "checksum": {
+                "description": "Checksum identifying the version of the slot type that was created. The checksum is\nnot included as an argument because the resource will add it automatically when updating the slot type.\n",
+                "type": "string"
+            },
+            "createdDate": {
+                "description": "Date when the slot type version was created.\n",
+                "type": "string"
+            },
+            "description": {
+                "description": "Description of the slot type.\n",
+                "type": "string"
+            },
+            "enumerationValues": {
+                "description": "Set of EnumerationValue objects that defines the values that\nthe slot type can take. Each value can have a set of synonyms, which are additional values that help\ntrain the machine learning model about the values that it resolves for a slot.\n",
+                "items": {
+                    "$ref": "#/types/aws:lex/getSlotTypeEnumerationValue:getSlotTypeEnumerationValue"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "lastUpdatedDate": {
+                "description": "Date when the $LATEST version of this slot type was updated.\n",
+                "type": "string"
+            },
+            "name": {
+                "description": "Name of the slot type. The name is not case sensitive.\n",
+                "type": "string"
+            },
+            "valueSelectionStrategy": {
+                "description": "Determines the slot resolution strategy that Amazon Lex\nuses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user\nvalue is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list\nif there is a resolution list for the slot, otherwise null is returned.\n",
+                "type": "string"
+            },
+            "version": {
+                "description": "Version of the slot type.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "checksum",
+            "createdDate",
+            "description",
+            "enumerationValues",
+            "lastUpdatedDate",
+            "name",
+            "valueSelectionStrategy",
+            "id"
+        ],
+        "type": "object"
+    }
+}

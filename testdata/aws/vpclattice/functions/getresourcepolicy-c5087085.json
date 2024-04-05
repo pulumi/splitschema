@@ -1,0 +1,37 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getResourcePolicy.\n",
+        "properties": {
+            "resourceArn": {
+                "type": "string",
+                "description": "Resource ARN of the resource for which a policy is retrieved.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "resourceArn"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getResourcePolicy.\n",
+        "properties": {
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "policy": {
+                "description": "JSON-encoded string representation of the applied resource policy.\n",
+                "type": "string"
+            },
+            "resourceArn": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "policy",
+            "resourceArn",
+            "id"
+        ],
+        "type": "object"
+    }
+}

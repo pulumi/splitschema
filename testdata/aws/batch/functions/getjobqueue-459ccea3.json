@@ -1,0 +1,85 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getJobQueue.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name of the job queue.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "name"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getJobQueue.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the job queue.\n",
+                "type": "string"
+            },
+            "computeEnvironmentOrders": {
+                "description": "The compute environments that are attached to the job queue and the order in\nwhich job placement is preferred. Compute environments are selected for job placement in ascending order.\n* `compute_environment_order.#.order` - The order of the compute environment.\n* `compute_environment_order.#.compute_environment` - The ARN of the compute environment.\n",
+                "items": {
+                    "$ref": "#/types/aws:batch/getJobQueueComputeEnvironmentOrder:getJobQueueComputeEnvironmentOrder"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "priority": {
+                "description": "Priority of the job queue. Job queues with a higher priority are evaluated first when\nassociated with the same compute environment.\n",
+                "type": "integer"
+            },
+            "schedulingPolicyArn": {
+                "description": "The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.\n",
+                "type": "string"
+            },
+            "state": {
+                "description": "Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).\n",
+                "type": "string"
+            },
+            "status": {
+                "description": "Current status of the job queue (for example, `CREATING` or `VALID`).\n",
+                "type": "string"
+            },
+            "statusReason": {
+                "description": "Short, human-readable string to provide additional details about the current status\nof the job queue.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "computeEnvironmentOrders",
+            "name",
+            "priority",
+            "schedulingPolicyArn",
+            "state",
+            "status",
+            "statusReason",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

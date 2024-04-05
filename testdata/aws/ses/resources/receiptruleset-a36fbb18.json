@@ -1,0 +1,41 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "SES receipt rule set ARN.\n"
+        },
+        "ruleSetName": {
+            "type": "string",
+            "description": "Name of the rule set.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "ruleSetName"
+    ],
+    "inputProperties": {
+        "ruleSetName": {
+            "type": "string",
+            "description": "Name of the rule set.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "ruleSetName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ReceiptRuleSet resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "SES receipt rule set ARN.\n"
+            },
+            "ruleSetName": {
+                "type": "string",
+                "description": "Name of the rule set.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

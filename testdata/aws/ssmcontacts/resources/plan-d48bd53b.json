@@ -1,0 +1,55 @@
+{
+    "properties": {
+        "contactId": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the contact or escalation plan.\n"
+        },
+        "stages": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ssmcontacts/PlanStage:PlanStage"
+            },
+            "description": "One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.\n"
+        }
+    },
+    "required": [
+        "contactId",
+        "stages"
+    ],
+    "inputProperties": {
+        "contactId": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the contact or escalation plan.\n",
+            "willReplaceOnChanges": true
+        },
+        "stages": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ssmcontacts/PlanStage:PlanStage"
+            },
+            "description": "One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.\n"
+        }
+    },
+    "requiredInputs": [
+        "contactId",
+        "stages"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Plan resources.\n",
+        "properties": {
+            "contactId": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the contact or escalation plan.\n",
+                "willReplaceOnChanges": true
+            },
+            "stages": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ssmcontacts/PlanStage:PlanStage"
+                },
+                "description": "One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.\n"
+            }
+        },
+        "type": "object"
+    }
+}

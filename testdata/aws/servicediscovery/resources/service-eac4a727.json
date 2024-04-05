@@ -1,0 +1,170 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the service.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the service.\n"
+        },
+        "dnsConfig": {
+            "$ref": "#/types/aws:servicediscovery/ServiceDnsConfig:ServiceDnsConfig",
+            "description": "A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.\n"
+        },
+        "forceDestroy": {
+            "type": "boolean",
+            "description": "A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.\n"
+        },
+        "healthCheckConfig": {
+            "$ref": "#/types/aws:servicediscovery/ServiceHealthCheckConfig:ServiceHealthCheckConfig",
+            "description": "A complex type that contains settings for an optional health check. Only for Public DNS namespaces.\n"
+        },
+        "healthCheckCustomConfig": {
+            "$ref": "#/types/aws:servicediscovery/ServiceHealthCheckCustomConfig:ServiceHealthCheckCustomConfig",
+            "description": "A complex type that contains settings for ECS managed health checks.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the service.\n"
+        },
+        "namespaceId": {
+            "type": "string",
+            "description": "The ID of the namespace that you want to use to create the service.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "type": {
+            "type": "string",
+            "description": "If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "namespaceId",
+        "tagsAll",
+        "type"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "The description of the service.\n"
+        },
+        "dnsConfig": {
+            "$ref": "#/types/aws:servicediscovery/ServiceDnsConfig:ServiceDnsConfig",
+            "description": "A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.\n"
+        },
+        "forceDestroy": {
+            "type": "boolean",
+            "description": "A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.\n"
+        },
+        "healthCheckConfig": {
+            "$ref": "#/types/aws:servicediscovery/ServiceHealthCheckConfig:ServiceHealthCheckConfig",
+            "description": "A complex type that contains settings for an optional health check. Only for Public DNS namespaces.\n"
+        },
+        "healthCheckCustomConfig": {
+            "$ref": "#/types/aws:servicediscovery/ServiceHealthCheckCustomConfig:ServiceHealthCheckCustomConfig",
+            "description": "A complex type that contains settings for ECS managed health checks.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the service.\n",
+            "willReplaceOnChanges": true
+        },
+        "namespaceId": {
+            "type": "string",
+            "description": "The ID of the namespace that you want to use to create the service.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "type": {
+            "type": "string",
+            "description": "If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Service resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the service.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "The description of the service.\n"
+            },
+            "dnsConfig": {
+                "$ref": "#/types/aws:servicediscovery/ServiceDnsConfig:ServiceDnsConfig",
+                "description": "A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.\n"
+            },
+            "forceDestroy": {
+                "type": "boolean",
+                "description": "A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.\n"
+            },
+            "healthCheckConfig": {
+                "$ref": "#/types/aws:servicediscovery/ServiceHealthCheckConfig:ServiceHealthCheckConfig",
+                "description": "A complex type that contains settings for an optional health check. Only for Public DNS namespaces.\n"
+            },
+            "healthCheckCustomConfig": {
+                "$ref": "#/types/aws:servicediscovery/ServiceHealthCheckCustomConfig:ServiceHealthCheckCustomConfig",
+                "description": "A complex type that contains settings for ECS managed health checks.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the service.\n",
+                "willReplaceOnChanges": true
+            },
+            "namespaceId": {
+                "type": "string",
+                "description": "The ID of the namespace that you want to use to create the service.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "type": {
+                "type": "string",
+                "description": "If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Name of the field to filter by, as defined by\n[the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).\nFor example, if matching against tag `Name`, use:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws from \"@pulumi/aws\";\n\nconst selected = aws.ec2.getSubnets({\n    filters: [{\n        name: \"tag:Name\",\n        values: [\"\"],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_aws as aws\n\nselected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(\n    name=\"tag:Name\",\n    values=[\"\"],\n)])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Aws = Pulumi.Aws;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var selected = Aws.Ec2.GetSubnets.Invoke(new()\n    {\n        Filters = new[]\n        {\n            new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs\n            {\n                Name = \"tag:Name\",\n                Values = new[]\n                {\n                    \"\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ec2.GetSubnets(ctx, \u0026ec2.GetSubnetsArgs{\n\t\t\tFilters: []ec2.GetSubnetsFilter{\n\t\t\t\t{\n\t\t\t\t\tName: \"tag:Name\",\n\t\t\t\t\tValues: []string{\n\t\t\t\t\t\t\"\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.aws.ec2.Ec2Functions;\nimport com.pulumi.aws.ec2.inputs.GetSubnetsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var selected = Ec2Functions.getSubnets(GetSubnetsArgs.builder()\n            .filters(GetSubnetsFilterArgs.builder()\n                .name(\"tag:Name\")\n                .values(\"\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  selected:\n    fn::invoke:\n      Function: aws:ec2:getSubnets\n      Arguments:\n        filters:\n          - name: tag:Name\n            values:\n              -\n```\n"
+        },
+        "values": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of values that are accepted for the given field.\nSubnet IDs will be selected if any one of the given values match.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "name",
+        "values"
+    ]
+}

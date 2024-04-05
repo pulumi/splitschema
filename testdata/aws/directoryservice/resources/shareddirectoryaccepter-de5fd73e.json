@@ -1,0 +1,68 @@
+{
+    "properties": {
+        "method": {
+            "type": "string",
+            "description": "Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).\n"
+        },
+        "notes": {
+            "type": "string",
+            "description": "Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.\n"
+        },
+        "ownerAccountId": {
+            "type": "string",
+            "description": "Account identifier of the directory owner.\n"
+        },
+        "ownerDirectoryId": {
+            "type": "string",
+            "description": "Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.\n"
+        },
+        "sharedDirectoryId": {
+            "type": "string",
+            "description": "Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.\n"
+        }
+    },
+    "required": [
+        "method",
+        "notes",
+        "ownerAccountId",
+        "ownerDirectoryId",
+        "sharedDirectoryId"
+    ],
+    "inputProperties": {
+        "sharedDirectoryId": {
+            "type": "string",
+            "description": "Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "sharedDirectoryId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering SharedDirectoryAccepter resources.\n",
+        "properties": {
+            "method": {
+                "type": "string",
+                "description": "Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).\n"
+            },
+            "notes": {
+                "type": "string",
+                "description": "Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.\n"
+            },
+            "ownerAccountId": {
+                "type": "string",
+                "description": "Account identifier of the directory owner.\n"
+            },
+            "ownerDirectoryId": {
+                "type": "string",
+                "description": "Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.\n"
+            },
+            "sharedDirectoryId": {
+                "type": "string",
+                "description": "Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

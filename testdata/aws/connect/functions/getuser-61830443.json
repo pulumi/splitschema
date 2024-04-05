@@ -1,0 +1,108 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getUser.\n",
+        "properties": {
+            "instanceId": {
+                "type": "string",
+                "description": "Reference to the hosting Amazon Connect Instance\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Returns information on a specific User by name\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the User.\n"
+            },
+            "userId": {
+                "type": "string",
+                "description": "Returns information on a specific User by User id\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "instanceId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getUser.\n",
+        "properties": {
+            "arn": {
+                "description": "The Amazon Resource Name (ARN) of the User.\n",
+                "type": "string"
+            },
+            "directoryUserId": {
+                "description": "The identifier of the user account in the directory used for identity management.\n",
+                "type": "string"
+            },
+            "hierarchyGroupId": {
+                "description": "The identifier of the hierarchy group for the user.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "identityInfos": {
+                "description": "A block that contains information about the identity of the user. Documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:connect/getUserIdentityInfo:getUserIdentityInfo"
+                },
+                "type": "array"
+            },
+            "instanceId": {
+                "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n",
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "phoneConfigs": {
+                "description": "A block that contains information about the phone settings for the user. Documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:connect/getUserPhoneConfig:getUserPhoneConfig"
+                },
+                "type": "array"
+            },
+            "routingProfileId": {
+                "description": "The identifier of the routing profile for the user.\n",
+                "type": "string"
+            },
+            "securityProfileIds": {
+                "description": "A list of identifiers for the security profiles for the user.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the User.\n",
+                "type": "object"
+            },
+            "userId": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "directoryUserId",
+            "hierarchyGroupId",
+            "identityInfos",
+            "instanceId",
+            "name",
+            "phoneConfigs",
+            "routingProfileId",
+            "securityProfileIds",
+            "tags",
+            "userId",
+            "id"
+        ],
+        "type": "object"
+    }
+}

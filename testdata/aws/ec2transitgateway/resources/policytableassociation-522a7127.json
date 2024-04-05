@@ -1,0 +1,66 @@
+{
+    "properties": {
+        "resourceId": {
+            "type": "string",
+            "description": "Identifier of the resource\n"
+        },
+        "resourceType": {
+            "type": "string",
+            "description": "Type of the resource\n"
+        },
+        "transitGatewayAttachmentId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway Attachment.\n"
+        },
+        "transitGatewayPolicyTableId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway Policy Table.\n"
+        }
+    },
+    "required": [
+        "resourceId",
+        "resourceType",
+        "transitGatewayAttachmentId",
+        "transitGatewayPolicyTableId"
+    ],
+    "inputProperties": {
+        "transitGatewayAttachmentId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway Attachment.\n",
+            "willReplaceOnChanges": true
+        },
+        "transitGatewayPolicyTableId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway Policy Table.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "transitGatewayAttachmentId",
+        "transitGatewayPolicyTableId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering PolicyTableAssociation resources.\n",
+        "properties": {
+            "resourceId": {
+                "type": "string",
+                "description": "Identifier of the resource\n"
+            },
+            "resourceType": {
+                "type": "string",
+                "description": "Type of the resource\n"
+            },
+            "transitGatewayAttachmentId": {
+                "type": "string",
+                "description": "Identifier of EC2 Transit Gateway Attachment.\n",
+                "willReplaceOnChanges": true
+            },
+            "transitGatewayPolicyTableId": {
+                "type": "string",
+                "description": "Identifier of EC2 Transit Gateway Policy Table.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,64 @@
+{
+    "properties": {
+        "destinationCidrBlock": {
+            "type": "string",
+            "description": "IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.\n"
+        },
+        "localGatewayRouteTableId": {
+            "type": "string",
+            "description": "Identifier of EC2 Local Gateway Route Table.\n"
+        },
+        "localGatewayVirtualInterfaceGroupId": {
+            "type": "string",
+            "description": "Identifier of EC2 Local Gateway Virtual Interface Group.\n"
+        }
+    },
+    "required": [
+        "destinationCidrBlock",
+        "localGatewayRouteTableId",
+        "localGatewayVirtualInterfaceGroupId"
+    ],
+    "inputProperties": {
+        "destinationCidrBlock": {
+            "type": "string",
+            "description": "IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.\n",
+            "willReplaceOnChanges": true
+        },
+        "localGatewayRouteTableId": {
+            "type": "string",
+            "description": "Identifier of EC2 Local Gateway Route Table.\n",
+            "willReplaceOnChanges": true
+        },
+        "localGatewayVirtualInterfaceGroupId": {
+            "type": "string",
+            "description": "Identifier of EC2 Local Gateway Virtual Interface Group.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "destinationCidrBlock",
+        "localGatewayRouteTableId",
+        "localGatewayVirtualInterfaceGroupId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering LocalGatewayRoute resources.\n",
+        "properties": {
+            "destinationCidrBlock": {
+                "type": "string",
+                "description": "IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.\n",
+                "willReplaceOnChanges": true
+            },
+            "localGatewayRouteTableId": {
+                "type": "string",
+                "description": "Identifier of EC2 Local Gateway Route Table.\n",
+                "willReplaceOnChanges": true
+            },
+            "localGatewayVirtualInterfaceGroupId": {
+                "type": "string",
+                "description": "Identifier of EC2 Local Gateway Virtual Interface Group.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

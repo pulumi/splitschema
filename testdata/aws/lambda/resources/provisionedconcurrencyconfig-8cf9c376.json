@@ -1,0 +1,74 @@
+{
+    "properties": {
+        "functionName": {
+            "type": "string",
+            "description": "Name or Amazon Resource Name (ARN) of the Lambda Function.\n"
+        },
+        "provisionedConcurrentExecutions": {
+            "type": "integer",
+            "description": "Amount of capacity to allocate. Must be greater than or equal to `1`.\n"
+        },
+        "qualifier": {
+            "type": "string",
+            "description": "Lambda Function version or Lambda Alias name.\n\nThe following arguments are optional:\n"
+        },
+        "skipDestroy": {
+            "type": "boolean",
+            "description": "Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.\n"
+        }
+    },
+    "required": [
+        "functionName",
+        "provisionedConcurrentExecutions",
+        "qualifier"
+    ],
+    "inputProperties": {
+        "functionName": {
+            "type": "string",
+            "description": "Name or Amazon Resource Name (ARN) of the Lambda Function.\n",
+            "willReplaceOnChanges": true
+        },
+        "provisionedConcurrentExecutions": {
+            "type": "integer",
+            "description": "Amount of capacity to allocate. Must be greater than or equal to `1`.\n"
+        },
+        "qualifier": {
+            "type": "string",
+            "description": "Lambda Function version or Lambda Alias name.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "skipDestroy": {
+            "type": "boolean",
+            "description": "Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.\n"
+        }
+    },
+    "requiredInputs": [
+        "functionName",
+        "provisionedConcurrentExecutions",
+        "qualifier"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ProvisionedConcurrencyConfig resources.\n",
+        "properties": {
+            "functionName": {
+                "type": "string",
+                "description": "Name or Amazon Resource Name (ARN) of the Lambda Function.\n",
+                "willReplaceOnChanges": true
+            },
+            "provisionedConcurrentExecutions": {
+                "type": "integer",
+                "description": "Amount of capacity to allocate. Must be greater than or equal to `1`.\n"
+            },
+            "qualifier": {
+                "type": "string",
+                "description": "Lambda Function version or Lambda Alias name.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "skipDestroy": {
+                "type": "boolean",
+                "description": "Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.\n"
+            }
+        },
+        "type": "object"
+    }
+}

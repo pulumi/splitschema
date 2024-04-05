@@ -1,0 +1,46 @@
+{
+    "properties": {
+        "bucket": {
+            "type": "string",
+            "description": "Name of the bucket that you want to associate this access point with.\n"
+        },
+        "rule": {
+            "$ref": "#/types/aws:s3/BucketOwnershipControlsRule:BucketOwnershipControlsRule",
+            "description": "Configuration block(s) with Ownership Controls rules. Detailed below.\n"
+        }
+    },
+    "required": [
+        "bucket",
+        "rule"
+    ],
+    "inputProperties": {
+        "bucket": {
+            "type": "string",
+            "description": "Name of the bucket that you want to associate this access point with.\n",
+            "willReplaceOnChanges": true
+        },
+        "rule": {
+            "$ref": "#/types/aws:s3/BucketOwnershipControlsRule:BucketOwnershipControlsRule",
+            "description": "Configuration block(s) with Ownership Controls rules. Detailed below.\n"
+        }
+    },
+    "requiredInputs": [
+        "bucket",
+        "rule"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering BucketOwnershipControls resources.\n",
+        "properties": {
+            "bucket": {
+                "type": "string",
+                "description": "Name of the bucket that you want to associate this access point with.\n",
+                "willReplaceOnChanges": true
+            },
+            "rule": {
+                "$ref": "#/types/aws:s3/BucketOwnershipControlsRule:BucketOwnershipControlsRule",
+                "description": "Configuration block(s) with Ownership Controls rules. Detailed below.\n"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,85 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the Internet Gateway.\n"
+        },
+        "ownerId": {
+            "type": "string",
+            "description": "The ID of the AWS account that owns the internet gateway.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws from \"@pulumi/aws\";\n\nconst gw = new aws.ec2.InternetGateway(\"gw\", {vpcId: aws_vpc.main.id});\n// ... other arguments ...\nconst foo = new aws.ec2.Instance(\"foo\", {}, {\n    dependsOn: [gw],\n});\n```\n```python\nimport pulumi\nimport pulumi_aws as aws\n\ngw = aws.ec2.InternetGateway(\"gw\", vpc_id=aws_vpc[\"main\"][\"id\"])\n# ... other arguments ...\nfoo = aws.ec2.Instance(\"foo\", opts=pulumi.ResourceOptions(depends_on=[gw]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Aws = Pulumi.Aws;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var gw = new Aws.Ec2.InternetGateway(\"gw\", new()\n    {\n        VpcId = aws_vpc.Main.Id,\n    });\n\n    // ... other arguments ...\n    var foo = new Aws.Ec2.Instance(\"foo\", new()\n    {\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            gw,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tgw, err := ec2.NewInternetGateway(ctx, \"gw\", \u0026ec2.InternetGatewayArgs{\n\t\t\tVpcId: pulumi.Any(aws_vpc.Main.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ec2.NewInstance(ctx, \"foo\", nil, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tgw,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.aws.ec2.InternetGateway;\nimport com.pulumi.aws.ec2.InternetGatewayArgs;\nimport com.pulumi.aws.ec2.Instance;\nimport com.pulumi.aws.ec2.InstanceArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var gw = new InternetGateway(\"gw\", InternetGatewayArgs.builder()        \n            .vpcId(aws_vpc.main().id())\n            .build());\n\n        var foo = new Instance(\"foo\", InstanceArgs.Empty, CustomResourceOptions.builder()\n            .dependsOn(gw)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  gw:\n    type: aws:ec2:InternetGateway\n    properties:\n      vpcId: ${aws_vpc.main.id}\n  foo:\n    type: aws:ec2:Instance\n    options:\n      dependson:\n        - ${gw}\n```\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "The VPC ID to create in.  See the aws.ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "ownerId",
+        "tagsAll",
+        "vpcId"
+    ],
+    "inputProperties": {
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws from \"@pulumi/aws\";\n\nconst gw = new aws.ec2.InternetGateway(\"gw\", {vpcId: aws_vpc.main.id});\n// ... other arguments ...\nconst foo = new aws.ec2.Instance(\"foo\", {}, {\n    dependsOn: [gw],\n});\n```\n```python\nimport pulumi\nimport pulumi_aws as aws\n\ngw = aws.ec2.InternetGateway(\"gw\", vpc_id=aws_vpc[\"main\"][\"id\"])\n# ... other arguments ...\nfoo = aws.ec2.Instance(\"foo\", opts=pulumi.ResourceOptions(depends_on=[gw]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Aws = Pulumi.Aws;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var gw = new Aws.Ec2.InternetGateway(\"gw\", new()\n    {\n        VpcId = aws_vpc.Main.Id,\n    });\n\n    // ... other arguments ...\n    var foo = new Aws.Ec2.Instance(\"foo\", new()\n    {\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            gw,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tgw, err := ec2.NewInternetGateway(ctx, \"gw\", \u0026ec2.InternetGatewayArgs{\n\t\t\tVpcId: pulumi.Any(aws_vpc.Main.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ec2.NewInstance(ctx, \"foo\", nil, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tgw,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.aws.ec2.InternetGateway;\nimport com.pulumi.aws.ec2.InternetGatewayArgs;\nimport com.pulumi.aws.ec2.Instance;\nimport com.pulumi.aws.ec2.InstanceArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var gw = new InternetGateway(\"gw\", InternetGatewayArgs.builder()        \n            .vpcId(aws_vpc.main().id())\n            .build());\n\n        var foo = new Instance(\"foo\", InstanceArgs.Empty, CustomResourceOptions.builder()\n            .dependsOn(gw)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  gw:\n    type: aws:ec2:InternetGateway\n    properties:\n      vpcId: ${aws_vpc.main.id}\n  foo:\n    type: aws:ec2:Instance\n    options:\n      dependson:\n        - ${gw}\n```\n"
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "The VPC ID to create in.  See the aws.ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering InternetGateway resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the Internet Gateway.\n"
+            },
+            "ownerId": {
+                "type": "string",
+                "description": "The ID of the AWS account that owns the internet gateway.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n\n\u003e **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws from \"@pulumi/aws\";\n\nconst gw = new aws.ec2.InternetGateway(\"gw\", {vpcId: aws_vpc.main.id});\n// ... other arguments ...\nconst foo = new aws.ec2.Instance(\"foo\", {}, {\n    dependsOn: [gw],\n});\n```\n```python\nimport pulumi\nimport pulumi_aws as aws\n\ngw = aws.ec2.InternetGateway(\"gw\", vpc_id=aws_vpc[\"main\"][\"id\"])\n# ... other arguments ...\nfoo = aws.ec2.Instance(\"foo\", opts=pulumi.ResourceOptions(depends_on=[gw]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Aws = Pulumi.Aws;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var gw = new Aws.Ec2.InternetGateway(\"gw\", new()\n    {\n        VpcId = aws_vpc.Main.Id,\n    });\n\n    // ... other arguments ...\n    var foo = new Aws.Ec2.Instance(\"foo\", new()\n    {\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            gw,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tgw, err := ec2.NewInternetGateway(ctx, \"gw\", \u0026ec2.InternetGatewayArgs{\n\t\t\tVpcId: pulumi.Any(aws_vpc.Main.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ec2.NewInstance(ctx, \"foo\", nil, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tgw,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.aws.ec2.InternetGateway;\nimport com.pulumi.aws.ec2.InternetGatewayArgs;\nimport com.pulumi.aws.ec2.Instance;\nimport com.pulumi.aws.ec2.InstanceArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var gw = new InternetGateway(\"gw\", InternetGatewayArgs.builder()        \n            .vpcId(aws_vpc.main().id())\n            .build());\n\n        var foo = new Instance(\"foo\", InstanceArgs.Empty, CustomResourceOptions.builder()\n            .dependsOn(gw)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  gw:\n    type: aws:ec2:InternetGateway\n    properties:\n      vpcId: ${aws_vpc.main.id}\n  foo:\n    type: aws:ec2:Instance\n    options:\n      dependson:\n        - ${gw}\n```\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "vpcId": {
+                "type": "string",
+                "description": "The VPC ID to create in.  See the aws.ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.\n"
+            }
+        },
+        "type": "object"
+    }
+}

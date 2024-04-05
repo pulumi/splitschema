@@ -1,0 +1,141 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getCatalogTable.\n",
+        "properties": {
+            "catalogId": {
+                "type": "string",
+                "description": "ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.\n"
+            },
+            "databaseName": {
+                "type": "string",
+                "description": "Name of the metadata database where the table metadata resides.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the table.\n"
+            },
+            "queryAsOfTime": {
+                "type": "string",
+                "description": "The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.\n"
+            },
+            "transactionId": {
+                "type": "integer",
+                "description": "The transaction ID at which to read the table contents.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "databaseName",
+            "name"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getCatalogTable.\n",
+        "properties": {
+            "arn": {
+                "description": "The ARN of the Glue Table.\n",
+                "type": "string"
+            },
+            "catalogId": {
+                "description": "ID of the Data Catalog in which the table resides.\n",
+                "type": "string"
+            },
+            "databaseName": {
+                "description": "Name of the catalog database that contains the target table.\n",
+                "type": "string"
+            },
+            "description": {
+                "description": "Description of the table.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "name": {
+                "description": "Name of the target table.\n",
+                "type": "string"
+            },
+            "owner": {
+                "description": "Owner of the table.\n",
+                "type": "string"
+            },
+            "parameters": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of initialization parameters for the SerDe, in key-value form.\n",
+                "type": "object"
+            },
+            "partitionIndices": {
+                "description": "Configuration block for a maximum of 3 partition indexes. See `partition_index` below.\n",
+                "items": {
+                    "$ref": "#/types/aws:glue/getCatalogTablePartitionIndex:getCatalogTablePartitionIndex"
+                },
+                "type": "array"
+            },
+            "partitionKeys": {
+                "description": "Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.\n",
+                "items": {
+                    "$ref": "#/types/aws:glue/getCatalogTablePartitionKey:getCatalogTablePartitionKey"
+                },
+                "type": "array"
+            },
+            "queryAsOfTime": {
+                "type": "string"
+            },
+            "retention": {
+                "description": "Retention time for this table.\n",
+                "type": "integer"
+            },
+            "storageDescriptors": {
+                "description": "Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.\n",
+                "items": {
+                    "$ref": "#/types/aws:glue/getCatalogTableStorageDescriptor:getCatalogTableStorageDescriptor"
+                },
+                "type": "array"
+            },
+            "tableType": {
+                "description": "Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.\n",
+                "type": "string"
+            },
+            "targetTables": {
+                "description": "Configuration block of a target table for resource linking. See `target_table` below.\n",
+                "items": {
+                    "$ref": "#/types/aws:glue/getCatalogTableTargetTable:getCatalogTableTargetTable"
+                },
+                "type": "array"
+            },
+            "transactionId": {
+                "type": "integer"
+            },
+            "viewExpandedText": {
+                "description": "If the table is a view, the expanded text of the view; otherwise null.\n",
+                "type": "string"
+            },
+            "viewOriginalText": {
+                "description": "If the table is a view, the original text of the view; otherwise null.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "catalogId",
+            "databaseName",
+            "description",
+            "name",
+            "owner",
+            "parameters",
+            "partitionIndices",
+            "partitionKeys",
+            "retention",
+            "storageDescriptors",
+            "tableType",
+            "targetTables",
+            "viewExpandedText",
+            "viewOriginalText",
+            "id"
+        ],
+        "type": "object"
+    }
+}

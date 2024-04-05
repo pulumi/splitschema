@@ -1,0 +1,69 @@
+{
+    "properties": {
+        "attributes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ssoadmin/InstanceAccessControlAttributesAttribute:InstanceAccessControlAttributesAttribute"
+            },
+            "description": "See AccessControlAttribute for more details.\n"
+        },
+        "instanceArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the SSO Instance.\n"
+        },
+        "status": {
+            "type": "string"
+        },
+        "statusReason": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "attributes",
+        "instanceArn",
+        "status",
+        "statusReason"
+    ],
+    "inputProperties": {
+        "attributes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ssoadmin/InstanceAccessControlAttributesAttribute:InstanceAccessControlAttributesAttribute"
+            },
+            "description": "See AccessControlAttribute for more details.\n"
+        },
+        "instanceArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the SSO Instance.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "attributes",
+        "instanceArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering InstanceAccessControlAttributes resources.\n",
+        "properties": {
+            "attributes": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ssoadmin/InstanceAccessControlAttributesAttribute:InstanceAccessControlAttributesAttribute"
+                },
+                "description": "See AccessControlAttribute for more details.\n"
+            },
+            "instanceArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the SSO Instance.\n",
+                "willReplaceOnChanges": true
+            },
+            "status": {
+                "type": "string"
+            },
+            "statusReason": {
+                "type": "string"
+            }
+        },
+        "type": "object"
+    }
+}

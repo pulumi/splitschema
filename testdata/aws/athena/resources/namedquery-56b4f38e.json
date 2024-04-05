@@ -1,0 +1,91 @@
+{
+    "properties": {
+        "database": {
+            "type": "string",
+            "description": "Database to which the query belongs.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Brief explanation of the query. Maximum length of 1024.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Plain language name for the query. Maximum length of 128.\n"
+        },
+        "query": {
+            "type": "string",
+            "description": "Text of the query itself. In other words, all query statements. Maximum length of 262144.\n"
+        },
+        "workgroup": {
+            "type": "string",
+            "description": "Workgroup to which the query belongs. Defaults to `primary`\n"
+        }
+    },
+    "required": [
+        "database",
+        "name",
+        "query"
+    ],
+    "inputProperties": {
+        "database": {
+            "type": "string",
+            "description": "Database to which the query belongs.\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "Brief explanation of the query. Maximum length of 1024.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Plain language name for the query. Maximum length of 128.\n",
+            "willReplaceOnChanges": true
+        },
+        "query": {
+            "type": "string",
+            "description": "Text of the query itself. In other words, all query statements. Maximum length of 262144.\n",
+            "willReplaceOnChanges": true
+        },
+        "workgroup": {
+            "type": "string",
+            "description": "Workgroup to which the query belongs. Defaults to `primary`\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "database",
+        "query"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering NamedQuery resources.\n",
+        "properties": {
+            "database": {
+                "type": "string",
+                "description": "Database to which the query belongs.\n",
+                "willReplaceOnChanges": true
+            },
+            "description": {
+                "type": "string",
+                "description": "Brief explanation of the query. Maximum length of 1024.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "Plain language name for the query. Maximum length of 128.\n",
+                "willReplaceOnChanges": true
+            },
+            "query": {
+                "type": "string",
+                "description": "Text of the query itself. In other words, all query statements. Maximum length of 262144.\n",
+                "willReplaceOnChanges": true
+            },
+            "workgroup": {
+                "type": "string",
+                "description": "Workgroup to which the query belongs. Defaults to `primary`\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

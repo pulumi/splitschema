@@ -1,0 +1,30 @@
+{
+    "properties": {
+        "availableCidrCount": {
+            "type": "integer",
+            "description": "Available number of CIDR blocks available for use by the IP set references in a firewall.\n"
+        },
+        "ipSetReferences": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:networkfirewall/getFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference:getFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReference"
+            },
+            "description": "The list of IP set references used by a firewall.\n"
+        },
+        "utilizedCidrCount": {
+            "type": "integer",
+            "description": "Number of CIDR blocks used by the IP set references in a firewall.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "availableCidrCount",
+        "ipSetReferences",
+        "utilizedCidrCount"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredInputs": []
+        }
+    }
+}

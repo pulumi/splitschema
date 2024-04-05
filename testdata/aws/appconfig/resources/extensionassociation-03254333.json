@@ -1,0 +1,87 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the AppConfig Extension Association.\n"
+        },
+        "extensionArn": {
+            "type": "string",
+            "description": "The ARN of the extension defined in the association.\n"
+        },
+        "extensionVersion": {
+            "type": "integer",
+            "description": "The version number for the extension defined in the association.\n"
+        },
+        "parameters": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "The parameter names and values defined for the association.\n"
+        },
+        "resourceArn": {
+            "type": "string",
+            "description": "The ARN of the application, configuration profile, or environment to associate with the extension.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "extensionArn",
+        "extensionVersion",
+        "resourceArn"
+    ],
+    "inputProperties": {
+        "extensionArn": {
+            "type": "string",
+            "description": "The ARN of the extension defined in the association.\n",
+            "willReplaceOnChanges": true
+        },
+        "parameters": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "The parameter names and values defined for the association.\n"
+        },
+        "resourceArn": {
+            "type": "string",
+            "description": "The ARN of the application, configuration profile, or environment to associate with the extension.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "extensionArn",
+        "resourceArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ExtensionAssociation resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the AppConfig Extension Association.\n"
+            },
+            "extensionArn": {
+                "type": "string",
+                "description": "The ARN of the extension defined in the association.\n",
+                "willReplaceOnChanges": true
+            },
+            "extensionVersion": {
+                "type": "integer",
+                "description": "The version number for the extension defined in the association.\n"
+            },
+            "parameters": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "The parameter names and values defined for the association.\n"
+            },
+            "resourceArn": {
+                "type": "string",
+                "description": "The ARN of the application, configuration profile, or environment to associate with the extension.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

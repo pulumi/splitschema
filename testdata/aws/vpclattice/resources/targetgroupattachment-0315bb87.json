@@ -1,0 +1,48 @@
+{
+    "properties": {
+        "target": {
+            "$ref": "#/types/aws:vpclattice/TargetGroupAttachmentTarget:TargetGroupAttachmentTarget",
+            "description": "The target.\n"
+        },
+        "targetGroupIdentifier": {
+            "type": "string",
+            "description": "The ID or Amazon Resource Name (ARN) of the target group.\n"
+        }
+    },
+    "required": [
+        "target",
+        "targetGroupIdentifier"
+    ],
+    "inputProperties": {
+        "target": {
+            "$ref": "#/types/aws:vpclattice/TargetGroupAttachmentTarget:TargetGroupAttachmentTarget",
+            "description": "The target.\n",
+            "willReplaceOnChanges": true
+        },
+        "targetGroupIdentifier": {
+            "type": "string",
+            "description": "The ID or Amazon Resource Name (ARN) of the target group.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "target",
+        "targetGroupIdentifier"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering TargetGroupAttachment resources.\n",
+        "properties": {
+            "target": {
+                "$ref": "#/types/aws:vpclattice/TargetGroupAttachmentTarget:TargetGroupAttachmentTarget",
+                "description": "The target.\n",
+                "willReplaceOnChanges": true
+            },
+            "targetGroupIdentifier": {
+                "type": "string",
+                "description": "The ID or Amazon Resource Name (ARN) of the target group.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

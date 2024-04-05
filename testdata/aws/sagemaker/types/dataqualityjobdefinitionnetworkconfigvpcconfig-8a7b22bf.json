@@ -1,0 +1,25 @@
+{
+    "properties": {
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the `subnets` field.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnets": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The ID of the subnets in the VPC to which you want to connect your training job or model.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "securityGroupIds",
+        "subnets"
+    ]
+}

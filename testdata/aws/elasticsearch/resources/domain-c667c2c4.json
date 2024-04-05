@@ -1,0 +1,320 @@
+{
+    "properties": {
+        "accessPolicies": {
+            "type": "string",
+            "description": "IAM policy document specifying the access policies for the domain.\n"
+        },
+        "advancedOptions": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.\n"
+        },
+        "advancedSecurityOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainAdvancedSecurityOptions:DomainAdvancedSecurityOptions",
+            "description": "Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN of the domain.\n"
+        },
+        "autoTuneOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainAutoTuneOptions:DomainAutoTuneOptions",
+            "description": "Configuration block for the Auto-Tune options of the domain. Detailed below.\n"
+        },
+        "clusterConfig": {
+            "$ref": "#/types/aws:elasticsearch/DomainClusterConfig:DomainClusterConfig",
+            "description": "Configuration block for the cluster of the domain. Detailed below.\n"
+        },
+        "cognitoOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainCognitoOptions:DomainCognitoOptions",
+            "description": "Configuration block for authenticating Kibana with Cognito. Detailed below.\n"
+        },
+        "domainEndpointOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainDomainEndpointOptions:DomainDomainEndpointOptions",
+            "description": "Configuration block for domain endpoint HTTP(S) related options. Detailed below.\n"
+        },
+        "domainId": {
+            "type": "string",
+            "description": "Unique identifier for the domain.\n"
+        },
+        "domainName": {
+            "type": "string",
+            "description": "Name of the domain.\n\nThe following arguments are optional:\n"
+        },
+        "ebsOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainEbsOptions:DomainEbsOptions",
+            "description": "Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.\n"
+        },
+        "elasticsearchVersion": {
+            "type": "string",
+            "description": "Version of Elasticsearch to deploy. Defaults to `1.5`.\n"
+        },
+        "encryptAtRest": {
+            "$ref": "#/types/aws:elasticsearch/DomainEncryptAtRest:DomainEncryptAtRest",
+            "description": "Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.\n"
+        },
+        "endpoint": {
+            "type": "string",
+            "description": "Domain-specific endpoint used to submit index, search, and data upload requests.\n"
+        },
+        "kibanaEndpoint": {
+            "type": "string",
+            "description": "Domain-specific endpoint for kibana without https scheme.\n"
+        },
+        "logPublishingOptions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:elasticsearch/DomainLogPublishingOption:DomainLogPublishingOption"
+            },
+            "description": "Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.\n"
+        },
+        "nodeToNodeEncryption": {
+            "$ref": "#/types/aws:elasticsearch/DomainNodeToNodeEncryption:DomainNodeToNodeEncryption",
+            "description": "Configuration block for node-to-node encryption options. Detailed below.\n"
+        },
+        "snapshotOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainSnapshotOptions:DomainSnapshotOptions",
+            "description": "Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n* `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.\n* `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "vpcOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainVpcOptions:DomainVpcOptions",
+            "description": "Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.\n"
+        }
+    },
+    "required": [
+        "accessPolicies",
+        "advancedOptions",
+        "advancedSecurityOptions",
+        "arn",
+        "autoTuneOptions",
+        "clusterConfig",
+        "domainEndpointOptions",
+        "domainId",
+        "domainName",
+        "ebsOptions",
+        "encryptAtRest",
+        "endpoint",
+        "kibanaEndpoint",
+        "nodeToNodeEncryption",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "accessPolicies": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:iam/documents:PolicyDocument"
+                }
+            ],
+            "description": "IAM policy document specifying the access policies for the domain.\n"
+        },
+        "advancedOptions": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.\n"
+        },
+        "advancedSecurityOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainAdvancedSecurityOptions:DomainAdvancedSecurityOptions",
+            "description": "Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.\n"
+        },
+        "autoTuneOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainAutoTuneOptions:DomainAutoTuneOptions",
+            "description": "Configuration block for the Auto-Tune options of the domain. Detailed below.\n"
+        },
+        "clusterConfig": {
+            "$ref": "#/types/aws:elasticsearch/DomainClusterConfig:DomainClusterConfig",
+            "description": "Configuration block for the cluster of the domain. Detailed below.\n"
+        },
+        "cognitoOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainCognitoOptions:DomainCognitoOptions",
+            "description": "Configuration block for authenticating Kibana with Cognito. Detailed below.\n"
+        },
+        "domainEndpointOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainDomainEndpointOptions:DomainDomainEndpointOptions",
+            "description": "Configuration block for domain endpoint HTTP(S) related options. Detailed below.\n"
+        },
+        "domainName": {
+            "type": "string",
+            "description": "Name of the domain.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "ebsOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainEbsOptions:DomainEbsOptions",
+            "description": "Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.\n"
+        },
+        "elasticsearchVersion": {
+            "type": "string",
+            "description": "Version of Elasticsearch to deploy. Defaults to `1.5`.\n"
+        },
+        "encryptAtRest": {
+            "$ref": "#/types/aws:elasticsearch/DomainEncryptAtRest:DomainEncryptAtRest",
+            "description": "Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.\n"
+        },
+        "logPublishingOptions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:elasticsearch/DomainLogPublishingOption:DomainLogPublishingOption"
+            },
+            "description": "Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.\n"
+        },
+        "nodeToNodeEncryption": {
+            "$ref": "#/types/aws:elasticsearch/DomainNodeToNodeEncryption:DomainNodeToNodeEncryption",
+            "description": "Configuration block for node-to-node encryption options. Detailed below.\n"
+        },
+        "snapshotOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainSnapshotOptions:DomainSnapshotOptions",
+            "description": "Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "vpcOptions": {
+            "$ref": "#/types/aws:elasticsearch/DomainVpcOptions:DomainVpcOptions",
+            "description": "Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Domain resources.\n",
+        "properties": {
+            "accessPolicies": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:iam/documents:PolicyDocument"
+                    }
+                ],
+                "description": "IAM policy document specifying the access policies for the domain.\n"
+            },
+            "advancedOptions": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.\n"
+            },
+            "advancedSecurityOptions": {
+                "$ref": "#/types/aws:elasticsearch/DomainAdvancedSecurityOptions:DomainAdvancedSecurityOptions",
+                "description": "Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN of the domain.\n"
+            },
+            "autoTuneOptions": {
+                "$ref": "#/types/aws:elasticsearch/DomainAutoTuneOptions:DomainAutoTuneOptions",
+                "description": "Configuration block for the Auto-Tune options of the domain. Detailed below.\n"
+            },
+            "clusterConfig": {
+                "$ref": "#/types/aws:elasticsearch/DomainClusterConfig:DomainClusterConfig",
+                "description": "Configuration block for the cluster of the domain. Detailed below.\n"
+            },
+            "cognitoOptions": {
+                "$ref": "#/types/aws:elasticsearch/DomainCognitoOptions:DomainCognitoOptions",
+                "description": "Configuration block for authenticating Kibana with Cognito. Detailed below.\n"
+            },
+            "domainEndpointOptions": {
+                "$ref": "#/types/aws:elasticsearch/DomainDomainEndpointOptions:DomainDomainEndpointOptions",
+                "description": "Configuration block for domain endpoint HTTP(S) related options. Detailed below.\n"
+            },
+            "domainId": {
+                "type": "string",
+                "description": "Unique identifier for the domain.\n"
+            },
+            "domainName": {
+                "type": "string",
+                "description": "Name of the domain.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "ebsOptions": {
+                "$ref": "#/types/aws:elasticsearch/DomainEbsOptions:DomainEbsOptions",
+                "description": "Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.\n"
+            },
+            "elasticsearchVersion": {
+                "type": "string",
+                "description": "Version of Elasticsearch to deploy. Defaults to `1.5`.\n"
+            },
+            "encryptAtRest": {
+                "$ref": "#/types/aws:elasticsearch/DomainEncryptAtRest:DomainEncryptAtRest",
+                "description": "Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.\n"
+            },
+            "endpoint": {
+                "type": "string",
+                "description": "Domain-specific endpoint used to submit index, search, and data upload requests.\n"
+            },
+            "kibanaEndpoint": {
+                "type": "string",
+                "description": "Domain-specific endpoint for kibana without https scheme.\n"
+            },
+            "logPublishingOptions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:elasticsearch/DomainLogPublishingOption:DomainLogPublishingOption"
+                },
+                "description": "Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.\n"
+            },
+            "nodeToNodeEncryption": {
+                "$ref": "#/types/aws:elasticsearch/DomainNodeToNodeEncryption:DomainNodeToNodeEncryption",
+                "description": "Configuration block for node-to-node encryption options. Detailed below.\n"
+            },
+            "snapshotOptions": {
+                "$ref": "#/types/aws:elasticsearch/DomainSnapshotOptions:DomainSnapshotOptions",
+                "description": "Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n* `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.\n* `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "vpcOptions": {
+                "$ref": "#/types/aws:elasticsearch/DomainVpcOptions:DomainVpcOptions",
+                "description": "Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

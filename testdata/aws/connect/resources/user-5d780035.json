@@ -1,0 +1,208 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the user.\n"
+        },
+        "directoryUserId": {
+            "type": "string",
+            "description": "The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.\n"
+        },
+        "hierarchyGroupId": {
+            "type": "string",
+            "description": "The identifier of the hierarchy group for the user.\n"
+        },
+        "identityInfo": {
+            "$ref": "#/types/aws:connect/UserIdentityInfo:UserIdentityInfo",
+            "description": "A block that contains information about the identity of the user. Documented below.\n"
+        },
+        "instanceId": {
+            "type": "string",
+            "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.\n"
+        },
+        "password": {
+            "type": "string",
+            "description": "The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.\n",
+            "secret": true
+        },
+        "phoneConfig": {
+            "$ref": "#/types/aws:connect/UserPhoneConfig:UserPhoneConfig",
+            "description": "A block that contains information about the phone settings for the user. Documented below.\n"
+        },
+        "routingProfileId": {
+            "type": "string",
+            "description": "The identifier of the routing profile for the user.\n"
+        },
+        "securityProfileIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Tags to apply to the user. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "userId": {
+            "type": "string",
+            "description": "The identifier for the user.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "directoryUserId",
+        "instanceId",
+        "name",
+        "phoneConfig",
+        "routingProfileId",
+        "securityProfileIds",
+        "tagsAll",
+        "userId"
+    ],
+    "inputProperties": {
+        "directoryUserId": {
+            "type": "string",
+            "description": "The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.\n"
+        },
+        "hierarchyGroupId": {
+            "type": "string",
+            "description": "The identifier of the hierarchy group for the user.\n"
+        },
+        "identityInfo": {
+            "$ref": "#/types/aws:connect/UserIdentityInfo:UserIdentityInfo",
+            "description": "A block that contains information about the identity of the user. Documented below.\n"
+        },
+        "instanceId": {
+            "type": "string",
+            "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.\n",
+            "willReplaceOnChanges": true
+        },
+        "password": {
+            "type": "string",
+            "description": "The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.\n",
+            "secret": true
+        },
+        "phoneConfig": {
+            "$ref": "#/types/aws:connect/UserPhoneConfig:UserPhoneConfig",
+            "description": "A block that contains information about the phone settings for the user. Documented below.\n"
+        },
+        "routingProfileId": {
+            "type": "string",
+            "description": "The identifier of the routing profile for the user.\n"
+        },
+        "securityProfileIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Tags to apply to the user. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "instanceId",
+        "phoneConfig",
+        "routingProfileId",
+        "securityProfileIds"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering User resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the user.\n"
+            },
+            "directoryUserId": {
+                "type": "string",
+                "description": "The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.\n"
+            },
+            "hierarchyGroupId": {
+                "type": "string",
+                "description": "The identifier of the hierarchy group for the user.\n"
+            },
+            "identityInfo": {
+                "$ref": "#/types/aws:connect/UserIdentityInfo:UserIdentityInfo",
+                "description": "A block that contains information about the identity of the user. Documented below.\n"
+            },
+            "instanceId": {
+                "type": "string",
+                "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.\n",
+                "willReplaceOnChanges": true
+            },
+            "password": {
+                "type": "string",
+                "description": "The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.\n",
+                "secret": true
+            },
+            "phoneConfig": {
+                "$ref": "#/types/aws:connect/UserPhoneConfig:UserPhoneConfig",
+                "description": "A block that contains information about the phone settings for the user. Documented below.\n"
+            },
+            "routingProfileId": {
+                "type": "string",
+                "description": "The identifier of the routing profile for the user.\n"
+            },
+            "securityProfileIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags to apply to the user. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "userId": {
+                "type": "string",
+                "description": "The identifier for the user.\n"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,120 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the anomaly monitor.\n"
+        },
+        "monitorDimension": {
+            "type": "string",
+            "description": "The dimensions to evaluate. Valid values: `SERVICE`.\n"
+        },
+        "monitorSpecification": {
+            "type": "string",
+            "description": "A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.\n"
+        },
+        "monitorType": {
+            "type": "string",
+            "description": "The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the monitor.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "monitorType",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "monitorDimension": {
+            "type": "string",
+            "description": "The dimensions to evaluate. Valid values: `SERVICE`.\n"
+        },
+        "monitorSpecification": {
+            "type": "string",
+            "description": "A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.\n",
+            "willReplaceOnChanges": true
+        },
+        "monitorType": {
+            "type": "string",
+            "description": "The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the monitor.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "monitorType"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering AnomalyMonitor resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the anomaly monitor.\n"
+            },
+            "monitorDimension": {
+                "type": "string",
+                "description": "The dimensions to evaluate. Valid values: `SERVICE`.\n"
+            },
+            "monitorSpecification": {
+                "type": "string",
+                "description": "A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.\n",
+                "willReplaceOnChanges": true
+            },
+            "monitorType": {
+                "type": "string",
+                "description": "The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the monitor.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

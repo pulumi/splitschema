@@ -1,0 +1,110 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getPermissions.\n",
+        "properties": {
+            "catalogId": {
+                "type": "string",
+                "description": "Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.\n"
+            },
+            "catalogResource": {
+                "type": "boolean",
+                "description": "Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.\n"
+            },
+            "dataLocation": {
+                "$ref": "#/types/aws:lakeformation/getPermissionsDataLocation:getPermissionsDataLocation",
+                "description": "Configuration block for a data location resource. Detailed below.\n"
+            },
+            "database": {
+                "$ref": "#/types/aws:lakeformation/getPermissionsDatabase:getPermissionsDatabase",
+                "description": "Configuration block for a database resource. Detailed below.\n"
+            },
+            "lfTag": {
+                "$ref": "#/types/aws:lakeformation/getPermissionsLfTag:getPermissionsLfTag",
+                "description": "Configuration block for an LF-tag resource. Detailed below.\n"
+            },
+            "lfTagPolicy": {
+                "$ref": "#/types/aws:lakeformation/getPermissionsLfTagPolicy:getPermissionsLfTagPolicy",
+                "description": "Configuration block for an LF-tag policy resource. Detailed below.\n"
+            },
+            "principal": {
+                "type": "string",
+                "description": "Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.\n\nOne of the following is required:\n"
+            },
+            "table": {
+                "$ref": "#/types/aws:lakeformation/getPermissionsTable:getPermissionsTable",
+                "description": "Configuration block for a table resource. Detailed below.\n"
+            },
+            "tableWithColumns": {
+                "$ref": "#/types/aws:lakeformation/getPermissionsTableWithColumns:getPermissionsTableWithColumns",
+                "description": "Configuration block for a table with columns resource. Detailed below.\n\nThe following arguments are optional:\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "principal"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getPermissions.\n",
+        "properties": {
+            "catalogId": {
+                "type": "string"
+            },
+            "catalogResource": {
+                "type": "boolean"
+            },
+            "dataLocation": {
+                "$ref": "#/types/aws:lakeformation/getPermissionsDataLocation:getPermissionsDataLocation"
+            },
+            "database": {
+                "$ref": "#/types/aws:lakeformation/getPermissionsDatabase:getPermissionsDatabase"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "lfTag": {
+                "$ref": "#/types/aws:lakeformation/getPermissionsLfTag:getPermissionsLfTag"
+            },
+            "lfTagPolicy": {
+                "$ref": "#/types/aws:lakeformation/getPermissionsLfTagPolicy:getPermissionsLfTagPolicy"
+            },
+            "permissions": {
+                "description": "List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "permissionsWithGrantOptions": {
+                "description": "Subset of `permissions` which the principal can pass.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "principal": {
+                "type": "string"
+            },
+            "table": {
+                "$ref": "#/types/aws:lakeformation/getPermissionsTable:getPermissionsTable"
+            },
+            "tableWithColumns": {
+                "$ref": "#/types/aws:lakeformation/getPermissionsTableWithColumns:getPermissionsTableWithColumns"
+            }
+        },
+        "required": [
+            "dataLocation",
+            "database",
+            "lfTag",
+            "lfTagPolicy",
+            "permissions",
+            "permissionsWithGrantOptions",
+            "principal",
+            "table",
+            "tableWithColumns",
+            "id"
+        ],
+        "type": "object"
+    }
+}

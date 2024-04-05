@@ -1,0 +1,429 @@
+{
+    "properties": {
+        "aclName": {
+            "type": "string",
+            "description": "The name of the Access Control List to associate with the cluster.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the cluster.\n"
+        },
+        "autoMinorVersionUpgrade": {
+            "type": "boolean",
+            "description": "When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.\n"
+        },
+        "clusterEndpoints": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:memorydb/ClusterClusterEndpoint:ClusterClusterEndpoint"
+            }
+        },
+        "dataTiering": {
+            "type": "boolean",
+            "description": "Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the cluster.\n"
+        },
+        "enginePatchVersion": {
+            "type": "string",
+            "description": "Patch version number of the Redis engine used by the cluster.\n"
+        },
+        "engineVersion": {
+            "type": "string",
+            "description": "Version number of the Redis engine to be used for the cluster. Downgrades are not supported.\n"
+        },
+        "finalSnapshotName": {
+            "type": "string",
+            "description": "Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.\n"
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "ARN of the KMS key used to encrypt the cluster at rest.\n"
+        },
+        "maintenanceWindow": {
+            "type": "string",
+            "description": "Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+        },
+        "nodeType": {
+            "type": "string",
+            "description": "The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).\n\nThe following arguments are optional:\n"
+        },
+        "numReplicasPerShard": {
+            "type": "integer",
+            "description": "The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).\n"
+        },
+        "numShards": {
+            "type": "integer",
+            "description": "The number of shards in the cluster. Defaults to `1`.\n"
+        },
+        "parameterGroupName": {
+            "type": "string",
+            "description": "The name of the parameter group associated with the cluster.\n"
+        },
+        "port": {
+            "type": "integer",
+            "description": "The port number on which each of the nodes accepts connections. Defaults to `6379`.\n"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of VPC Security Group ID-s to associate with this cluster.\n"
+        },
+        "shards": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:memorydb/ClusterShard:ClusterShard"
+            },
+            "description": "Set of shards in this cluster.\n"
+        },
+        "snapshotArns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.\n"
+        },
+        "snapshotName": {
+            "type": "string",
+            "description": "The name of a snapshot from which to restore data into the new cluster.\n"
+        },
+        "snapshotRetentionLimit": {
+            "type": "integer",
+            "description": "The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.\n"
+        },
+        "snapshotWindow": {
+            "type": "string",
+            "description": "The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.\n"
+        },
+        "snsTopicArn": {
+            "type": "string",
+            "description": "ARN of the SNS topic to which cluster notifications are sent.\n"
+        },
+        "subnetGroupName": {
+            "type": "string",
+            "description": "The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "tlsEnabled": {
+            "type": "boolean",
+            "description": "A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.\n"
+        }
+    },
+    "required": [
+        "aclName",
+        "arn",
+        "clusterEndpoints",
+        "enginePatchVersion",
+        "engineVersion",
+        "maintenanceWindow",
+        "name",
+        "namePrefix",
+        "nodeType",
+        "parameterGroupName",
+        "port",
+        "shards",
+        "snapshotRetentionLimit",
+        "snapshotWindow",
+        "subnetGroupName",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "aclName": {
+            "type": "string",
+            "description": "The name of the Access Control List to associate with the cluster.\n"
+        },
+        "autoMinorVersionUpgrade": {
+            "type": "boolean",
+            "description": "When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.\n",
+            "willReplaceOnChanges": true
+        },
+        "dataTiering": {
+            "type": "boolean",
+            "description": "Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the cluster.\n"
+        },
+        "engineVersion": {
+            "type": "string",
+            "description": "Version number of the Redis engine to be used for the cluster. Downgrades are not supported.\n"
+        },
+        "finalSnapshotName": {
+            "type": "string",
+            "description": "Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.\n"
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "ARN of the KMS key used to encrypt the cluster at rest.\n",
+            "willReplaceOnChanges": true
+        },
+        "maintenanceWindow": {
+            "type": "string",
+            "description": "Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+            "willReplaceOnChanges": true
+        },
+        "nodeType": {
+            "type": "string",
+            "description": "The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).\n\nThe following arguments are optional:\n"
+        },
+        "numReplicasPerShard": {
+            "type": "integer",
+            "description": "The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).\n"
+        },
+        "numShards": {
+            "type": "integer",
+            "description": "The number of shards in the cluster. Defaults to `1`.\n"
+        },
+        "parameterGroupName": {
+            "type": "string",
+            "description": "The name of the parameter group associated with the cluster.\n"
+        },
+        "port": {
+            "type": "integer",
+            "description": "The port number on which each of the nodes accepts connections. Defaults to `6379`.\n",
+            "willReplaceOnChanges": true
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of VPC Security Group ID-s to associate with this cluster.\n"
+        },
+        "snapshotArns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.\n",
+            "willReplaceOnChanges": true
+        },
+        "snapshotName": {
+            "type": "string",
+            "description": "The name of a snapshot from which to restore data into the new cluster.\n",
+            "willReplaceOnChanges": true
+        },
+        "snapshotRetentionLimit": {
+            "type": "integer",
+            "description": "The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.\n"
+        },
+        "snapshotWindow": {
+            "type": "string",
+            "description": "The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.\n"
+        },
+        "snsTopicArn": {
+            "type": "string",
+            "description": "ARN of the SNS topic to which cluster notifications are sent.\n"
+        },
+        "subnetGroupName": {
+            "type": "string",
+            "description": "The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tlsEnabled": {
+            "type": "boolean",
+            "description": "A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "aclName",
+        "nodeType"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Cluster resources.\n",
+        "properties": {
+            "aclName": {
+                "type": "string",
+                "description": "The name of the Access Control List to associate with the cluster.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the cluster.\n"
+            },
+            "autoMinorVersionUpgrade": {
+                "type": "boolean",
+                "description": "When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.\n",
+                "willReplaceOnChanges": true
+            },
+            "clusterEndpoints": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:memorydb/ClusterClusterEndpoint:ClusterClusterEndpoint"
+                }
+            },
+            "dataTiering": {
+                "type": "boolean",
+                "description": "Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).\n",
+                "willReplaceOnChanges": true
+            },
+            "description": {
+                "type": "string",
+                "description": "Description for the cluster.\n"
+            },
+            "enginePatchVersion": {
+                "type": "string",
+                "description": "Patch version number of the Redis engine used by the cluster.\n"
+            },
+            "engineVersion": {
+                "type": "string",
+                "description": "Version number of the Redis engine to be used for the cluster. Downgrades are not supported.\n"
+            },
+            "finalSnapshotName": {
+                "type": "string",
+                "description": "Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.\n"
+            },
+            "kmsKeyArn": {
+                "type": "string",
+                "description": "ARN of the KMS key used to encrypt the cluster at rest.\n",
+                "willReplaceOnChanges": true
+            },
+            "maintenanceWindow": {
+                "type": "string",
+                "description": "Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                "willReplaceOnChanges": true
+            },
+            "nodeType": {
+                "type": "string",
+                "description": "The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).\n\nThe following arguments are optional:\n"
+            },
+            "numReplicasPerShard": {
+                "type": "integer",
+                "description": "The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).\n"
+            },
+            "numShards": {
+                "type": "integer",
+                "description": "The number of shards in the cluster. Defaults to `1`.\n"
+            },
+            "parameterGroupName": {
+                "type": "string",
+                "description": "The name of the parameter group associated with the cluster.\n"
+            },
+            "port": {
+                "type": "integer",
+                "description": "The port number on which each of the nodes accepts connections. Defaults to `6379`.\n",
+                "willReplaceOnChanges": true
+            },
+            "securityGroupIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Set of VPC Security Group ID-s to associate with this cluster.\n"
+            },
+            "shards": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:memorydb/ClusterShard:ClusterShard"
+                },
+                "description": "Set of shards in this cluster.\n"
+            },
+            "snapshotArns": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.\n",
+                "willReplaceOnChanges": true
+            },
+            "snapshotName": {
+                "type": "string",
+                "description": "The name of a snapshot from which to restore data into the new cluster.\n",
+                "willReplaceOnChanges": true
+            },
+            "snapshotRetentionLimit": {
+                "type": "integer",
+                "description": "The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.\n"
+            },
+            "snapshotWindow": {
+                "type": "string",
+                "description": "The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.\n"
+            },
+            "snsTopicArn": {
+                "type": "string",
+                "description": "ARN of the SNS topic to which cluster notifications are sent.\n"
+            },
+            "subnetGroupName": {
+                "type": "string",
+                "description": "The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "tlsEnabled": {
+                "type": "boolean",
+                "description": "A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

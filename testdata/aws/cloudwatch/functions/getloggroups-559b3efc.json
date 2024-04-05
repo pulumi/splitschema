@@ -1,0 +1,44 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getLogGroups.\n",
+        "properties": {
+            "logGroupNamePrefix": {
+                "type": "string",
+                "description": "Group prefix of the Cloudwatch log groups to list\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getLogGroups.\n",
+        "properties": {
+            "arns": {
+                "description": "Set of ARNs of the Cloudwatch log groups\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "logGroupNamePrefix": {
+                "type": "string"
+            },
+            "logGroupNames": {
+                "description": "Set of names of the Cloudwatch log groups\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "arns",
+            "logGroupNames",
+            "id"
+        ],
+        "type": "object"
+    }
+}

@@ -1,0 +1,140 @@
+{
+    "properties": {
+        "createTime": {
+            "type": "string",
+            "description": "The timestamp for when the place index resource was created in ISO 8601 format.\n"
+        },
+        "dataSource": {
+            "type": "string",
+            "description": "Specifies the geospatial data provider for the new place index.\n"
+        },
+        "dataSourceConfiguration": {
+            "$ref": "#/types/aws:location/PlaceIndexDataSourceConfiguration:PlaceIndexDataSourceConfiguration",
+            "description": "Configuration block with the data storage option chosen for requesting Places. Detailed below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The optional description for the place index resource.\n"
+        },
+        "indexArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.\n"
+        },
+        "indexName": {
+            "type": "string",
+            "description": "The name of the place index resource.\n\nThe following arguments are optional:\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "updateTime": {
+            "type": "string",
+            "description": "The timestamp for when the place index resource was last update in ISO 8601.\n"
+        }
+    },
+    "required": [
+        "createTime",
+        "dataSource",
+        "dataSourceConfiguration",
+        "indexArn",
+        "indexName",
+        "tagsAll",
+        "updateTime"
+    ],
+    "inputProperties": {
+        "dataSource": {
+            "type": "string",
+            "description": "Specifies the geospatial data provider for the new place index.\n",
+            "willReplaceOnChanges": true
+        },
+        "dataSourceConfiguration": {
+            "$ref": "#/types/aws:location/PlaceIndexDataSourceConfiguration:PlaceIndexDataSourceConfiguration",
+            "description": "Configuration block with the data storage option chosen for requesting Places. Detailed below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The optional description for the place index resource.\n"
+        },
+        "indexName": {
+            "type": "string",
+            "description": "The name of the place index resource.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "dataSource",
+        "indexName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering PlaceIndex resources.\n",
+        "properties": {
+            "createTime": {
+                "type": "string",
+                "description": "The timestamp for when the place index resource was created in ISO 8601 format.\n"
+            },
+            "dataSource": {
+                "type": "string",
+                "description": "Specifies the geospatial data provider for the new place index.\n",
+                "willReplaceOnChanges": true
+            },
+            "dataSourceConfiguration": {
+                "$ref": "#/types/aws:location/PlaceIndexDataSourceConfiguration:PlaceIndexDataSourceConfiguration",
+                "description": "Configuration block with the data storage option chosen for requesting Places. Detailed below.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "The optional description for the place index resource.\n"
+            },
+            "indexArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.\n"
+            },
+            "indexName": {
+                "type": "string",
+                "description": "The name of the place index resource.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "updateTime": {
+                "type": "string",
+                "description": "The timestamp for when the place index resource was last update in ISO 8601.\n"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "properties": {
+        "accountId": {
+            "type": "string",
+            "description": "An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner\n"
+        },
+        "snapshotId": {
+            "type": "string",
+            "description": "A snapshot ID\n"
+        }
+    },
+    "required": [
+        "accountId",
+        "snapshotId"
+    ],
+    "inputProperties": {
+        "accountId": {
+            "type": "string",
+            "description": "An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner\n",
+            "willReplaceOnChanges": true
+        },
+        "snapshotId": {
+            "type": "string",
+            "description": "A snapshot ID\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "accountId",
+        "snapshotId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering SnapshotCreateVolumePermission resources.\n",
+        "properties": {
+            "accountId": {
+                "type": "string",
+                "description": "An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner\n",
+                "willReplaceOnChanges": true
+            },
+            "snapshotId": {
+                "type": "string",
+                "description": "A snapshot ID\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

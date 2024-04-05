@@ -1,0 +1,91 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getConnection.\n",
+        "properties": {
+            "id": {
+                "type": "string",
+                "description": "Concatenation of the catalog ID and connection name. For example, if your account ID is\n`123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags assigned to the resource\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "id"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getConnection.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the Glue Connection.\n",
+                "type": "string"
+            },
+            "catalogId": {
+                "description": "Catalog ID of the Glue Connection.\n",
+                "type": "string"
+            },
+            "connectionProperties": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "secret": true,
+                "type": "object"
+            },
+            "connectionType": {
+                "description": "Type of Glue Connection.\n",
+                "type": "string"
+            },
+            "description": {
+                "description": "Description of the connection.\n",
+                "type": "string"
+            },
+            "id": {
+                "type": "string"
+            },
+            "matchCriterias": {
+                "description": "A list of criteria that can be used in selecting this connection.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "name": {
+                "description": "Name of the Glue Connection.\n",
+                "type": "string"
+            },
+            "physicalConnectionRequirements": {
+                "description": "A map of physical connection requirements, such as VPC and SecurityGroup.\n",
+                "items": {
+                    "$ref": "#/types/aws:glue/getConnectionPhysicalConnectionRequirement:getConnectionPhysicalConnectionRequirement"
+                },
+                "type": "array"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags assigned to the resource\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "catalogId",
+            "connectionProperties",
+            "connectionType",
+            "description",
+            "id",
+            "matchCriterias",
+            "name",
+            "physicalConnectionRequirements",
+            "tags"
+        ],
+        "type": "object"
+    }
+}

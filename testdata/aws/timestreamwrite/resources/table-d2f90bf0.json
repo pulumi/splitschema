@@ -1,0 +1,138 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN that uniquely identifies this table.\n"
+        },
+        "databaseName": {
+            "type": "string",
+            "description": "The name of the Timestream database.\n"
+        },
+        "magneticStoreWriteProperties": {
+            "$ref": "#/types/aws:timestreamwrite/TableMagneticStoreWriteProperties:TableMagneticStoreWriteProperties",
+            "description": "Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.\n"
+        },
+        "retentionProperties": {
+            "$ref": "#/types/aws:timestreamwrite/TableRetentionProperties:TableRetentionProperties",
+            "description": "The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.\n"
+        },
+        "schema": {
+            "$ref": "#/types/aws:timestreamwrite/TableSchema:TableSchema",
+            "description": "The schema of the table. See Schema below for more details.\n"
+        },
+        "tableName": {
+            "type": "string",
+            "description": "The name of the Timestream table.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "databaseName",
+        "magneticStoreWriteProperties",
+        "retentionProperties",
+        "schema",
+        "tableName",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "databaseName": {
+            "type": "string",
+            "description": "The name of the Timestream database.\n",
+            "willReplaceOnChanges": true
+        },
+        "magneticStoreWriteProperties": {
+            "$ref": "#/types/aws:timestreamwrite/TableMagneticStoreWriteProperties:TableMagneticStoreWriteProperties",
+            "description": "Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.\n"
+        },
+        "retentionProperties": {
+            "$ref": "#/types/aws:timestreamwrite/TableRetentionProperties:TableRetentionProperties",
+            "description": "The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.\n"
+        },
+        "schema": {
+            "$ref": "#/types/aws:timestreamwrite/TableSchema:TableSchema",
+            "description": "The schema of the table. See Schema below for more details.\n",
+            "willReplaceOnChanges": true
+        },
+        "tableName": {
+            "type": "string",
+            "description": "The name of the Timestream table.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "databaseName",
+        "tableName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Table resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN that uniquely identifies this table.\n"
+            },
+            "databaseName": {
+                "type": "string",
+                "description": "The name of the Timestream database.\n",
+                "willReplaceOnChanges": true
+            },
+            "magneticStoreWriteProperties": {
+                "$ref": "#/types/aws:timestreamwrite/TableMagneticStoreWriteProperties:TableMagneticStoreWriteProperties",
+                "description": "Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.\n"
+            },
+            "retentionProperties": {
+                "$ref": "#/types/aws:timestreamwrite/TableRetentionProperties:TableRetentionProperties",
+                "description": "The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.\n"
+            },
+            "schema": {
+                "$ref": "#/types/aws:timestreamwrite/TableSchema:TableSchema",
+                "description": "The schema of the table. See Schema below for more details.\n",
+                "willReplaceOnChanges": true
+            },
+            "tableName": {
+                "type": "string",
+                "description": "The name of the Timestream table.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

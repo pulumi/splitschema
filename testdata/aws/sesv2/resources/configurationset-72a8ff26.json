@@ -1,0 +1,153 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the Configuration Set.\n"
+        },
+        "configurationSetName": {
+            "type": "string",
+            "description": "The name of the configuration set.\n"
+        },
+        "deliveryOptions": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetDeliveryOptions:ConfigurationSetDeliveryOptions",
+            "description": "An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.\n"
+        },
+        "reputationOptions": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetReputationOptions:ConfigurationSetReputationOptions",
+            "description": "An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.\n"
+        },
+        "sendingOptions": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetSendingOptions:ConfigurationSetSendingOptions",
+            "description": "An object that defines whether or not Amazon SES can send email that you send using the configuration set.\n"
+        },
+        "suppressionOptions": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetSuppressionOptions:ConfigurationSetSuppressionOptions",
+            "description": "An object that contains information about the suppression list preferences for your account.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "trackingOptions": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetTrackingOptions:ConfigurationSetTrackingOptions",
+            "description": "An object that defines the open and click tracking options for emails that you send using the configuration set.\n"
+        },
+        "vdmOptions": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetVdmOptions:ConfigurationSetVdmOptions",
+            "description": "An object that defines the VDM settings that apply to emails that you send using the configuration set.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "configurationSetName",
+        "reputationOptions",
+        "sendingOptions",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "configurationSetName": {
+            "type": "string",
+            "description": "The name of the configuration set.\n",
+            "willReplaceOnChanges": true
+        },
+        "deliveryOptions": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetDeliveryOptions:ConfigurationSetDeliveryOptions",
+            "description": "An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.\n"
+        },
+        "reputationOptions": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetReputationOptions:ConfigurationSetReputationOptions",
+            "description": "An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.\n"
+        },
+        "sendingOptions": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetSendingOptions:ConfigurationSetSendingOptions",
+            "description": "An object that defines whether or not Amazon SES can send email that you send using the configuration set.\n"
+        },
+        "suppressionOptions": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetSuppressionOptions:ConfigurationSetSuppressionOptions",
+            "description": "An object that contains information about the suppression list preferences for your account.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "trackingOptions": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetTrackingOptions:ConfigurationSetTrackingOptions",
+            "description": "An object that defines the open and click tracking options for emails that you send using the configuration set.\n"
+        },
+        "vdmOptions": {
+            "$ref": "#/types/aws:sesv2/ConfigurationSetVdmOptions:ConfigurationSetVdmOptions",
+            "description": "An object that defines the VDM settings that apply to emails that you send using the configuration set.\n"
+        }
+    },
+    "requiredInputs": [
+        "configurationSetName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ConfigurationSet resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the Configuration Set.\n"
+            },
+            "configurationSetName": {
+                "type": "string",
+                "description": "The name of the configuration set.\n",
+                "willReplaceOnChanges": true
+            },
+            "deliveryOptions": {
+                "$ref": "#/types/aws:sesv2/ConfigurationSetDeliveryOptions:ConfigurationSetDeliveryOptions",
+                "description": "An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.\n"
+            },
+            "reputationOptions": {
+                "$ref": "#/types/aws:sesv2/ConfigurationSetReputationOptions:ConfigurationSetReputationOptions",
+                "description": "An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.\n"
+            },
+            "sendingOptions": {
+                "$ref": "#/types/aws:sesv2/ConfigurationSetSendingOptions:ConfigurationSetSendingOptions",
+                "description": "An object that defines whether or not Amazon SES can send email that you send using the configuration set.\n"
+            },
+            "suppressionOptions": {
+                "$ref": "#/types/aws:sesv2/ConfigurationSetSuppressionOptions:ConfigurationSetSuppressionOptions",
+                "description": "An object that contains information about the suppression list preferences for your account.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "trackingOptions": {
+                "$ref": "#/types/aws:sesv2/ConfigurationSetTrackingOptions:ConfigurationSetTrackingOptions",
+                "description": "An object that defines the open and click tracking options for emails that you send using the configuration set.\n"
+            },
+            "vdmOptions": {
+                "$ref": "#/types/aws:sesv2/ConfigurationSetVdmOptions:ConfigurationSetVdmOptions",
+                "description": "An object that defines the VDM settings that apply to emails that you send using the configuration set.\n"
+            }
+        },
+        "type": "object"
+    }
+}

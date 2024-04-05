@@ -1,0 +1,139 @@
+{
+    "properties": {
+        "alarmArns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of CloudWatch alarm ARNs associated with the scaling policy.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "ARN assigned by AWS to the scaling policy.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the policy. Must be between 1 and 255 characters in length.\n"
+        },
+        "policyType": {
+            "type": "string",
+            "description": "Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.\n"
+        },
+        "resourceId": {
+            "type": "string",
+            "description": "Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)\n"
+        },
+        "scalableDimension": {
+            "type": "string",
+            "description": "Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)\n"
+        },
+        "serviceNamespace": {
+            "type": "string",
+            "description": "AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)\n"
+        },
+        "stepScalingPolicyConfiguration": {
+            "$ref": "#/types/aws:appautoscaling/PolicyStepScalingPolicyConfiguration:PolicyStepScalingPolicyConfiguration",
+            "description": "Step scaling policy configuration, requires `policy_type = \"StepScaling\"` (default). See supported fields below.\n"
+        },
+        "targetTrackingScalingPolicyConfiguration": {
+            "$ref": "#/types/aws:appautoscaling/PolicyTargetTrackingScalingPolicyConfiguration:PolicyTargetTrackingScalingPolicyConfiguration",
+            "description": "Target tracking policy, requires `policy_type = \"TargetTrackingScaling\"`. See supported fields below.\n"
+        }
+    },
+    "required": [
+        "alarmArns",
+        "arn",
+        "name",
+        "resourceId",
+        "scalableDimension",
+        "serviceNamespace"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "Name of the policy. Must be between 1 and 255 characters in length.\n",
+            "willReplaceOnChanges": true
+        },
+        "policyType": {
+            "type": "string",
+            "description": "Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.\n"
+        },
+        "resourceId": {
+            "type": "string",
+            "description": "Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)\n",
+            "willReplaceOnChanges": true
+        },
+        "scalableDimension": {
+            "type": "string",
+            "description": "Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)\n",
+            "willReplaceOnChanges": true
+        },
+        "serviceNamespace": {
+            "type": "string",
+            "description": "AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)\n",
+            "willReplaceOnChanges": true
+        },
+        "stepScalingPolicyConfiguration": {
+            "$ref": "#/types/aws:appautoscaling/PolicyStepScalingPolicyConfiguration:PolicyStepScalingPolicyConfiguration",
+            "description": "Step scaling policy configuration, requires `policy_type = \"StepScaling\"` (default). See supported fields below.\n"
+        },
+        "targetTrackingScalingPolicyConfiguration": {
+            "$ref": "#/types/aws:appautoscaling/PolicyTargetTrackingScalingPolicyConfiguration:PolicyTargetTrackingScalingPolicyConfiguration",
+            "description": "Target tracking policy, requires `policy_type = \"TargetTrackingScaling\"`. See supported fields below.\n"
+        }
+    },
+    "requiredInputs": [
+        "resourceId",
+        "scalableDimension",
+        "serviceNamespace"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Policy resources.\n",
+        "properties": {
+            "alarmArns": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of CloudWatch alarm ARNs associated with the scaling policy.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "ARN assigned by AWS to the scaling policy.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the policy. Must be between 1 and 255 characters in length.\n",
+                "willReplaceOnChanges": true
+            },
+            "policyType": {
+                "type": "string",
+                "description": "Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.\n"
+            },
+            "resourceId": {
+                "type": "string",
+                "description": "Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)\n",
+                "willReplaceOnChanges": true
+            },
+            "scalableDimension": {
+                "type": "string",
+                "description": "Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)\n",
+                "willReplaceOnChanges": true
+            },
+            "serviceNamespace": {
+                "type": "string",
+                "description": "AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)\n",
+                "willReplaceOnChanges": true
+            },
+            "stepScalingPolicyConfiguration": {
+                "$ref": "#/types/aws:appautoscaling/PolicyStepScalingPolicyConfiguration:PolicyStepScalingPolicyConfiguration",
+                "description": "Step scaling policy configuration, requires `policy_type = \"StepScaling\"` (default). See supported fields below.\n"
+            },
+            "targetTrackingScalingPolicyConfiguration": {
+                "$ref": "#/types/aws:appautoscaling/PolicyTargetTrackingScalingPolicyConfiguration:PolicyTargetTrackingScalingPolicyConfiguration",
+                "description": "Target tracking policy, requires `policy_type = \"TargetTrackingScaling\"`. See supported fields below.\n"
+            }
+        },
+        "type": "object"
+    }
+}

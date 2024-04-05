@@ -1,0 +1,59 @@
+{
+    "properties": {
+        "audioSelectors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:medialive/ChannelInputAttachmentInputSettingsAudioSelector:ChannelInputAttachmentInputSettingsAudioSelector"
+            }
+        },
+        "captionSelectors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:medialive/ChannelInputAttachmentInputSettingsCaptionSelector:ChannelInputAttachmentInputSettingsCaptionSelector"
+            }
+        },
+        "deblockFilter": {
+            "type": "string",
+            "description": "Enable or disable the deblock filter when filtering.\n"
+        },
+        "denoiseFilter": {
+            "type": "string",
+            "description": "Enable or disable the denoise filter when filtering.\n"
+        },
+        "filterStrength": {
+            "type": "integer",
+            "description": "Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).\n"
+        },
+        "inputFilter": {
+            "type": "string",
+            "description": "Turns on the filter for the input.\n"
+        },
+        "networkInputSettings": {
+            "$ref": "#/types/aws:medialive/ChannelInputAttachmentInputSettingsNetworkInputSettings:ChannelInputAttachmentInputSettingsNetworkInputSettings",
+            "description": "Input settings. See Network Input Settings for more details.\n"
+        },
+        "scte35Pid": {
+            "type": "integer",
+            "description": "PID from which to read SCTE-35 messages.\n"
+        },
+        "smpte2038DataPreference": {
+            "type": "string",
+            "description": "Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.\n"
+        },
+        "sourceEndBehavior": {
+            "type": "string",
+            "description": "Loop input if it is a file.\n"
+        },
+        "videoSelector": {
+            "$ref": "#/types/aws:medialive/ChannelInputAttachmentInputSettingsVideoSelector:ChannelInputAttachmentInputSettingsVideoSelector"
+        }
+    },
+    "type": "object",
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "inputFilter"
+            ]
+        }
+    }
+}

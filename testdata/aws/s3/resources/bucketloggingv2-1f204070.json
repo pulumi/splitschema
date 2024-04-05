@@ -1,0 +1,107 @@
+{
+    "properties": {
+        "bucket": {
+            "type": "string",
+            "description": "Name of the bucket.\n"
+        },
+        "expectedBucketOwner": {
+            "type": "string",
+            "description": "Account ID of the expected bucket owner.\n"
+        },
+        "targetBucket": {
+            "type": "string",
+            "description": "Name of the bucket where you want Amazon S3 to store server access logs.\n"
+        },
+        "targetGrants": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:s3/BucketLoggingV2TargetGrant:BucketLoggingV2TargetGrant"
+            },
+            "description": "Set of configuration blocks with information for granting permissions. See below.\n"
+        },
+        "targetObjectKeyFormat": {
+            "$ref": "#/types/aws:s3/BucketLoggingV2TargetObjectKeyFormat:BucketLoggingV2TargetObjectKeyFormat",
+            "description": "Amazon S3 key format for log objects. See below.\n"
+        },
+        "targetPrefix": {
+            "type": "string",
+            "description": "Prefix for all log object keys.\n"
+        }
+    },
+    "required": [
+        "bucket",
+        "targetBucket",
+        "targetPrefix"
+    ],
+    "inputProperties": {
+        "bucket": {
+            "type": "string",
+            "description": "Name of the bucket.\n",
+            "willReplaceOnChanges": true
+        },
+        "expectedBucketOwner": {
+            "type": "string",
+            "description": "Account ID of the expected bucket owner.\n",
+            "willReplaceOnChanges": true
+        },
+        "targetBucket": {
+            "type": "string",
+            "description": "Name of the bucket where you want Amazon S3 to store server access logs.\n"
+        },
+        "targetGrants": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:s3/BucketLoggingV2TargetGrant:BucketLoggingV2TargetGrant"
+            },
+            "description": "Set of configuration blocks with information for granting permissions. See below.\n"
+        },
+        "targetObjectKeyFormat": {
+            "$ref": "#/types/aws:s3/BucketLoggingV2TargetObjectKeyFormat:BucketLoggingV2TargetObjectKeyFormat",
+            "description": "Amazon S3 key format for log objects. See below.\n"
+        },
+        "targetPrefix": {
+            "type": "string",
+            "description": "Prefix for all log object keys.\n"
+        }
+    },
+    "requiredInputs": [
+        "bucket",
+        "targetBucket",
+        "targetPrefix"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering BucketLoggingV2 resources.\n",
+        "properties": {
+            "bucket": {
+                "type": "string",
+                "description": "Name of the bucket.\n",
+                "willReplaceOnChanges": true
+            },
+            "expectedBucketOwner": {
+                "type": "string",
+                "description": "Account ID of the expected bucket owner.\n",
+                "willReplaceOnChanges": true
+            },
+            "targetBucket": {
+                "type": "string",
+                "description": "Name of the bucket where you want Amazon S3 to store server access logs.\n"
+            },
+            "targetGrants": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:s3/BucketLoggingV2TargetGrant:BucketLoggingV2TargetGrant"
+                },
+                "description": "Set of configuration blocks with information for granting permissions. See below.\n"
+            },
+            "targetObjectKeyFormat": {
+                "$ref": "#/types/aws:s3/BucketLoggingV2TargetObjectKeyFormat:BucketLoggingV2TargetObjectKeyFormat",
+                "description": "Amazon S3 key format for log objects. See below.\n"
+            },
+            "targetPrefix": {
+                "type": "string",
+                "description": "Prefix for all log object keys.\n"
+            }
+        },
+        "type": "object"
+    }
+}

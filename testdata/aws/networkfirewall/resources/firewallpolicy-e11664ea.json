@@ -1,0 +1,142 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) that identifies the firewall policy.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A friendly description of the firewall policy.\n"
+        },
+        "encryptionConfiguration": {
+            "$ref": "#/types/aws:networkfirewall/FirewallPolicyEncryptionConfiguration:FirewallPolicyEncryptionConfiguration",
+            "description": "KMS encryption configuration settings. See Encryption Configuration below for details.\n"
+        },
+        "firewallPolicy": {
+            "$ref": "#/types/aws:networkfirewall/FirewallPolicyFirewallPolicy:FirewallPolicyFirewallPolicy",
+            "description": "A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.\n",
+            "language": {
+                "csharp": {
+                    "name": "FirewallPolicyConfiguration"
+                }
+            }
+        },
+        "name": {
+            "type": "string",
+            "description": "A friendly name of the firewall policy.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "updateToken": {
+            "type": "string",
+            "description": "A string token used when updating a firewall policy.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "firewallPolicy",
+        "name",
+        "tagsAll",
+        "updateToken"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "A friendly description of the firewall policy.\n"
+        },
+        "encryptionConfiguration": {
+            "$ref": "#/types/aws:networkfirewall/FirewallPolicyEncryptionConfiguration:FirewallPolicyEncryptionConfiguration",
+            "description": "KMS encryption configuration settings. See Encryption Configuration below for details.\n"
+        },
+        "firewallPolicy": {
+            "$ref": "#/types/aws:networkfirewall/FirewallPolicyFirewallPolicy:FirewallPolicyFirewallPolicy",
+            "description": "A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.\n",
+            "language": {
+                "csharp": {
+                    "name": "FirewallPolicyConfiguration"
+                }
+            }
+        },
+        "name": {
+            "type": "string",
+            "description": "A friendly name of the firewall policy.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "firewallPolicy"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering FirewallPolicy resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) that identifies the firewall policy.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A friendly description of the firewall policy.\n"
+            },
+            "encryptionConfiguration": {
+                "$ref": "#/types/aws:networkfirewall/FirewallPolicyEncryptionConfiguration:FirewallPolicyEncryptionConfiguration",
+                "description": "KMS encryption configuration settings. See Encryption Configuration below for details.\n"
+            },
+            "firewallPolicy": {
+                "$ref": "#/types/aws:networkfirewall/FirewallPolicyFirewallPolicy:FirewallPolicyFirewallPolicy",
+                "description": "A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.\n",
+                "language": {
+                    "csharp": {
+                        "name": "FirewallPolicyConfiguration"
+                    }
+                }
+            },
+            "name": {
+                "type": "string",
+                "description": "A friendly name of the firewall policy.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "updateToken": {
+                "type": "string",
+                "description": "A string token used when updating a firewall policy.\n"
+            }
+        },
+        "type": "object"
+    }
+}

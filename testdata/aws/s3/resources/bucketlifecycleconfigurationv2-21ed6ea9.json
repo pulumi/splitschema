@@ -1,0 +1,69 @@
+{
+    "properties": {
+        "bucket": {
+            "type": "string",
+            "description": "Name of the source S3 bucket you want Amazon S3 to monitor.\n"
+        },
+        "expectedBucketOwner": {
+            "type": "string",
+            "description": "Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n"
+        },
+        "rules": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:s3/BucketLifecycleConfigurationV2Rule:BucketLifecycleConfigurationV2Rule"
+            },
+            "description": "List of configuration blocks describing the rules managing the replication. See below.\n"
+        }
+    },
+    "required": [
+        "bucket",
+        "rules"
+    ],
+    "inputProperties": {
+        "bucket": {
+            "type": "string",
+            "description": "Name of the source S3 bucket you want Amazon S3 to monitor.\n",
+            "willReplaceOnChanges": true
+        },
+        "expectedBucketOwner": {
+            "type": "string",
+            "description": "Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n",
+            "willReplaceOnChanges": true
+        },
+        "rules": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:s3/BucketLifecycleConfigurationV2Rule:BucketLifecycleConfigurationV2Rule"
+            },
+            "description": "List of configuration blocks describing the rules managing the replication. See below.\n"
+        }
+    },
+    "requiredInputs": [
+        "bucket",
+        "rules"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering BucketLifecycleConfigurationV2 resources.\n",
+        "properties": {
+            "bucket": {
+                "type": "string",
+                "description": "Name of the source S3 bucket you want Amazon S3 to monitor.\n",
+                "willReplaceOnChanges": true
+            },
+            "expectedBucketOwner": {
+                "type": "string",
+                "description": "Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.\n",
+                "willReplaceOnChanges": true
+            },
+            "rules": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:s3/BucketLifecycleConfigurationV2Rule:BucketLifecycleConfigurationV2Rule"
+                },
+                "description": "List of configuration blocks describing the rules managing the replication. See below.\n"
+            }
+        },
+        "type": "object"
+    }
+}

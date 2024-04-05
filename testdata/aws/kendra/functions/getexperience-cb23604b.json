@@ -1,0 +1,97 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getExperience.\n",
+        "properties": {
+            "experienceId": {
+                "type": "string",
+                "description": "Identifier of the Experience.\n"
+            },
+            "indexId": {
+                "type": "string",
+                "description": "Identifier of the index that contains the Experience.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "experienceId",
+            "indexId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getExperience.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the Experience.\n",
+                "type": "string"
+            },
+            "configurations": {
+                "description": "Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:kendra/getExperienceConfiguration:getExperienceConfiguration"
+                },
+                "type": "array"
+            },
+            "createdAt": {
+                "description": "Unix datetime that the Experience was created.\n",
+                "type": "string"
+            },
+            "description": {
+                "description": "Description of the Experience.\n",
+                "type": "string"
+            },
+            "endpoints": {
+                "description": "Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:kendra/getExperienceEndpoint:getExperienceEndpoint"
+                },
+                "type": "array"
+            },
+            "errorMessage": {
+                "description": "Reason your Amazon Kendra Experience could not properly process.\n",
+                "type": "string"
+            },
+            "experienceId": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "indexId": {
+                "type": "string"
+            },
+            "name": {
+                "description": "Name of the Experience.\n",
+                "type": "string"
+            },
+            "roleArn": {
+                "description": "Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.\n",
+                "type": "string"
+            },
+            "status": {
+                "description": "Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.\n",
+                "type": "string"
+            },
+            "updatedAt": {
+                "description": "Date and time that the Experience was last updated.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "configurations",
+            "createdAt",
+            "description",
+            "endpoints",
+            "errorMessage",
+            "experienceId",
+            "indexId",
+            "name",
+            "roleArn",
+            "status",
+            "updatedAt",
+            "id"
+        ],
+        "type": "object"
+    }
+}

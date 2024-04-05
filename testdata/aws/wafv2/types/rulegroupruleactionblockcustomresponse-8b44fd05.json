@@ -1,0 +1,23 @@
+{
+    "properties": {
+        "customResponseBodyKey": {
+            "type": "string",
+            "description": "References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.\n"
+        },
+        "responseCode": {
+            "type": "integer",
+            "description": "The HTTP status code to return to the client.\n"
+        },
+        "responseHeaders": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:wafv2/RuleGroupRuleActionBlockCustomResponseResponseHeader:RuleGroupRuleActionBlockCustomResponseResponseHeader"
+            },
+            "description": "The `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "responseCode"
+    ]
+}

@@ -1,0 +1,102 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getVpcDhcpOptions.\n",
+        "properties": {
+            "dhcpOptionsId": {
+                "type": "string",
+                "description": "EC2 DHCP Options ID.\n"
+            },
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getVpcDhcpOptionsFilter:getVpcDhcpOptionsFilter"
+                },
+                "description": "List of custom filters as described below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getVpcDhcpOptions.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the DHCP Options Set.\n",
+                "type": "string"
+            },
+            "dhcpOptionsId": {
+                "description": "EC2 DHCP Options ID\n",
+                "type": "string"
+            },
+            "domainName": {
+                "description": "Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.\n",
+                "type": "string"
+            },
+            "domainNameServers": {
+                "description": "List of name servers.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2/getVpcDhcpOptionsFilter:getVpcDhcpOptionsFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "netbiosNameServers": {
+                "description": "List of NETBIOS name servers.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "netbiosNodeType": {
+                "description": "NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).\n",
+                "type": "string"
+            },
+            "ntpServers": {
+                "description": "List of NTP servers.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "ownerId": {
+                "description": "ID of the AWS account that owns the DHCP options set.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource.\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "dhcpOptionsId",
+            "domainName",
+            "domainNameServers",
+            "netbiosNameServers",
+            "netbiosNodeType",
+            "ntpServers",
+            "ownerId",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

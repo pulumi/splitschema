@@ -1,0 +1,62 @@
+{
+    "properties": {
+        "diskId": {
+            "type": "string",
+            "description": "Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.\n"
+        },
+        "diskPath": {
+            "type": "string",
+            "description": "Local disk path. For example, `/dev/nvme1n1`.\n"
+        },
+        "gatewayArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the gateway.\n"
+        }
+    },
+    "required": [
+        "diskId",
+        "diskPath",
+        "gatewayArn"
+    ],
+    "inputProperties": {
+        "diskId": {
+            "type": "string",
+            "description": "Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.\n",
+            "willReplaceOnChanges": true
+        },
+        "diskPath": {
+            "type": "string",
+            "description": "Local disk path. For example, `/dev/nvme1n1`.\n",
+            "willReplaceOnChanges": true
+        },
+        "gatewayArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the gateway.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "gatewayArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering UploadBuffer resources.\n",
+        "properties": {
+            "diskId": {
+                "type": "string",
+                "description": "Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.\n",
+                "willReplaceOnChanges": true
+            },
+            "diskPath": {
+                "type": "string",
+                "description": "Local disk path. For example, `/dev/nvme1n1`.\n",
+                "willReplaceOnChanges": true
+            },
+            "gatewayArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the gateway.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

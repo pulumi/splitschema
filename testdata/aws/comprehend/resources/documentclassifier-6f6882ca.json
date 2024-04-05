@@ -1,0 +1,207 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the Document Classifier version.\n"
+        },
+        "dataAccessRoleArn": {
+            "type": "string",
+            "description": "The ARN for an IAM Role which allows Comprehend to read the training and testing data.\n"
+        },
+        "inputDataConfig": {
+            "$ref": "#/types/aws:comprehend/DocumentClassifierInputDataConfig:DocumentClassifierInputDataConfig",
+            "description": "Configuration for the training and testing data.\nSee the `input_data_config` Configuration Block section below.\n"
+        },
+        "languageCode": {
+            "type": "string",
+            "description": "Two-letter language code for the language.\nOne of `en`, `es`, `fr`, `it`, `de`, or `pt`.\n"
+        },
+        "mode": {
+            "type": "string",
+            "description": "The document classification mode.\nOne of `MULTI_CLASS` or `MULTI_LABEL`.\n`MULTI_CLASS` is also known as \"Single Label\" in the AWS Console.\n"
+        },
+        "modelKmsKeyId": {
+            "type": "string",
+            "description": "KMS Key used to encrypt trained Document Classifiers.\nCan be a KMS Key ID or a KMS Key ARN.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name for the Document Classifier.\nHas a maximum length of 63 characters.\nCan contain upper- and lower-case letters, numbers, and hypen (`-`).\n\nThe following arguments are optional:\n"
+        },
+        "outputDataConfig": {
+            "$ref": "#/types/aws:comprehend/DocumentClassifierOutputDataConfig:DocumentClassifierOutputDataConfig",
+            "description": "Configuration for the output results of training.\nSee the `output_data_config` Configuration Block section below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "versionName": {
+            "type": "string",
+            "description": "Name for the version of the Document Classifier.\nEach version must have a unique name within the Document Classifier.\nIf omitted, the provider will assign a random, unique version name.\nIf explicitly set to `\"\"`, no version name will be set.\nHas a maximum length of 63 characters.\nCan contain upper- and lower-case letters, numbers, and hypen (`-`).\nConflicts with `version_name_prefix`.\n"
+        },
+        "versionNamePrefix": {
+            "type": "string",
+            "description": "Creates a unique version name beginning with the specified prefix.\nHas a maximum length of 37 characters.\nCan contain upper- and lower-case letters, numbers, and hypen (`-`).\nConflicts with `version_name`.\n"
+        },
+        "volumeKmsKeyId": {
+            "type": "string",
+            "description": "KMS Key used to encrypt storage volumes during job processing.\nCan be a KMS Key ID or a KMS Key ARN.\n"
+        },
+        "vpcConfig": {
+            "$ref": "#/types/aws:comprehend/DocumentClassifierVpcConfig:DocumentClassifierVpcConfig",
+            "description": "Configuration parameters for VPC to contain Document Classifier resources.\nSee the `vpc_config` Configuration Block section below.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "dataAccessRoleArn",
+        "inputDataConfig",
+        "languageCode",
+        "name",
+        "outputDataConfig",
+        "tagsAll",
+        "versionName",
+        "versionNamePrefix"
+    ],
+    "inputProperties": {
+        "dataAccessRoleArn": {
+            "type": "string",
+            "description": "The ARN for an IAM Role which allows Comprehend to read the training and testing data.\n"
+        },
+        "inputDataConfig": {
+            "$ref": "#/types/aws:comprehend/DocumentClassifierInputDataConfig:DocumentClassifierInputDataConfig",
+            "description": "Configuration for the training and testing data.\nSee the `input_data_config` Configuration Block section below.\n"
+        },
+        "languageCode": {
+            "type": "string",
+            "description": "Two-letter language code for the language.\nOne of `en`, `es`, `fr`, `it`, `de`, or `pt`.\n"
+        },
+        "mode": {
+            "type": "string",
+            "description": "The document classification mode.\nOne of `MULTI_CLASS` or `MULTI_LABEL`.\n`MULTI_CLASS` is also known as \"Single Label\" in the AWS Console.\n"
+        },
+        "modelKmsKeyId": {
+            "type": "string",
+            "description": "KMS Key used to encrypt trained Document Classifiers.\nCan be a KMS Key ID or a KMS Key ARN.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name for the Document Classifier.\nHas a maximum length of 63 characters.\nCan contain upper- and lower-case letters, numbers, and hypen (`-`).\n\nThe following arguments are optional:\n"
+        },
+        "outputDataConfig": {
+            "$ref": "#/types/aws:comprehend/DocumentClassifierOutputDataConfig:DocumentClassifierOutputDataConfig",
+            "description": "Configuration for the output results of training.\nSee the `output_data_config` Configuration Block section below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "versionName": {
+            "type": "string",
+            "description": "Name for the version of the Document Classifier.\nEach version must have a unique name within the Document Classifier.\nIf omitted, the provider will assign a random, unique version name.\nIf explicitly set to `\"\"`, no version name will be set.\nHas a maximum length of 63 characters.\nCan contain upper- and lower-case letters, numbers, and hypen (`-`).\nConflicts with `version_name_prefix`.\n"
+        },
+        "versionNamePrefix": {
+            "type": "string",
+            "description": "Creates a unique version name beginning with the specified prefix.\nHas a maximum length of 37 characters.\nCan contain upper- and lower-case letters, numbers, and hypen (`-`).\nConflicts with `version_name`.\n"
+        },
+        "volumeKmsKeyId": {
+            "type": "string",
+            "description": "KMS Key used to encrypt storage volumes during job processing.\nCan be a KMS Key ID or a KMS Key ARN.\n"
+        },
+        "vpcConfig": {
+            "$ref": "#/types/aws:comprehend/DocumentClassifierVpcConfig:DocumentClassifierVpcConfig",
+            "description": "Configuration parameters for VPC to contain Document Classifier resources.\nSee the `vpc_config` Configuration Block section below.\n"
+        }
+    },
+    "requiredInputs": [
+        "dataAccessRoleArn",
+        "inputDataConfig",
+        "languageCode"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering DocumentClassifier resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the Document Classifier version.\n"
+            },
+            "dataAccessRoleArn": {
+                "type": "string",
+                "description": "The ARN for an IAM Role which allows Comprehend to read the training and testing data.\n"
+            },
+            "inputDataConfig": {
+                "$ref": "#/types/aws:comprehend/DocumentClassifierInputDataConfig:DocumentClassifierInputDataConfig",
+                "description": "Configuration for the training and testing data.\nSee the `input_data_config` Configuration Block section below.\n"
+            },
+            "languageCode": {
+                "type": "string",
+                "description": "Two-letter language code for the language.\nOne of `en`, `es`, `fr`, `it`, `de`, or `pt`.\n"
+            },
+            "mode": {
+                "type": "string",
+                "description": "The document classification mode.\nOne of `MULTI_CLASS` or `MULTI_LABEL`.\n`MULTI_CLASS` is also known as \"Single Label\" in the AWS Console.\n"
+            },
+            "modelKmsKeyId": {
+                "type": "string",
+                "description": "KMS Key used to encrypt trained Document Classifiers.\nCan be a KMS Key ID or a KMS Key ARN.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name for the Document Classifier.\nHas a maximum length of 63 characters.\nCan contain upper- and lower-case letters, numbers, and hypen (`-`).\n\nThe following arguments are optional:\n"
+            },
+            "outputDataConfig": {
+                "$ref": "#/types/aws:comprehend/DocumentClassifierOutputDataConfig:DocumentClassifierOutputDataConfig",
+                "description": "Configuration for the output results of training.\nSee the `output_data_config` Configuration Block section below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "versionName": {
+                "type": "string",
+                "description": "Name for the version of the Document Classifier.\nEach version must have a unique name within the Document Classifier.\nIf omitted, the provider will assign a random, unique version name.\nIf explicitly set to `\"\"`, no version name will be set.\nHas a maximum length of 63 characters.\nCan contain upper- and lower-case letters, numbers, and hypen (`-`).\nConflicts with `version_name_prefix`.\n"
+            },
+            "versionNamePrefix": {
+                "type": "string",
+                "description": "Creates a unique version name beginning with the specified prefix.\nHas a maximum length of 37 characters.\nCan contain upper- and lower-case letters, numbers, and hypen (`-`).\nConflicts with `version_name`.\n"
+            },
+            "volumeKmsKeyId": {
+                "type": "string",
+                "description": "KMS Key used to encrypt storage volumes during job processing.\nCan be a KMS Key ID or a KMS Key ARN.\n"
+            },
+            "vpcConfig": {
+                "$ref": "#/types/aws:comprehend/DocumentClassifierVpcConfig:DocumentClassifierVpcConfig",
+                "description": "Configuration parameters for VPC to contain Document Classifier resources.\nSee the `vpc_config` Configuration Block section below.\n"
+            }
+        },
+        "type": "object"
+    }
+}

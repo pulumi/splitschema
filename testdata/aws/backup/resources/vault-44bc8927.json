@@ -1,0 +1,114 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the vault.\n"
+        },
+        "forceDestroy": {
+            "type": "boolean",
+            "description": "A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.\n"
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "The server-side encryption key that is used to protect your backups.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the backup vault to create.\n"
+        },
+        "recoveryPoints": {
+            "type": "integer",
+            "description": "The number of recovery points that are stored in a backup vault.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Metadata that you can assign to help organize the resources that you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "kmsKeyArn",
+        "name",
+        "recoveryPoints",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "forceDestroy": {
+            "type": "boolean",
+            "description": "A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.\n"
+        },
+        "kmsKeyArn": {
+            "type": "string",
+            "description": "The server-side encryption key that is used to protect your backups.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the backup vault to create.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Metadata that you can assign to help organize the resources that you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Vault resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the vault.\n"
+            },
+            "forceDestroy": {
+                "type": "boolean",
+                "description": "A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.\n"
+            },
+            "kmsKeyArn": {
+                "type": "string",
+                "description": "The server-side encryption key that is used to protect your backups.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the backup vault to create.\n",
+                "willReplaceOnChanges": true
+            },
+            "recoveryPoints": {
+                "type": "integer",
+                "description": "The number of recovery points that are stored in a backup vault.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Metadata that you can assign to help organize the resources that you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

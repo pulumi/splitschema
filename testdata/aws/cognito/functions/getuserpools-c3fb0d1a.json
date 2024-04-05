@@ -1,0 +1,48 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getUserPools.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "name"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getUserPools.\n",
+        "properties": {
+            "arns": {
+                "description": "Set of cognito user pool Amazon Resource Names (ARNs).\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "ids": {
+                "description": "Set of cognito user pool ids.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "name": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "arns",
+            "ids",
+            "name",
+            "id"
+        ],
+        "type": "object"
+    }
+}

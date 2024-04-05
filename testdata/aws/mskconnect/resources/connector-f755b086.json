@@ -1,0 +1,235 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the custom plugin.\n"
+        },
+        "capacity": {
+            "$ref": "#/types/aws:mskconnect/ConnectorCapacity:ConnectorCapacity",
+            "description": "Information about the capacity allocated to the connector. See below.\n"
+        },
+        "connectorConfiguration": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of keys to values that represent the configuration for the connector.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A summary description of the connector.\n"
+        },
+        "kafkaCluster": {
+            "$ref": "#/types/aws:mskconnect/ConnectorKafkaCluster:ConnectorKafkaCluster",
+            "description": "Specifies which Apache Kafka cluster to connect to. See below.\n"
+        },
+        "kafkaClusterClientAuthentication": {
+            "$ref": "#/types/aws:mskconnect/ConnectorKafkaClusterClientAuthentication:ConnectorKafkaClusterClientAuthentication",
+            "description": "Details of the client authentication used by the Apache Kafka cluster. See below.\n"
+        },
+        "kafkaClusterEncryptionInTransit": {
+            "$ref": "#/types/aws:mskconnect/ConnectorKafkaClusterEncryptionInTransit:ConnectorKafkaClusterEncryptionInTransit",
+            "description": "Details of encryption in transit to the Apache Kafka cluster. See below.\n"
+        },
+        "kafkaconnectVersion": {
+            "type": "string",
+            "description": "The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.\n"
+        },
+        "logDelivery": {
+            "$ref": "#/types/aws:mskconnect/ConnectorLogDelivery:ConnectorLogDelivery",
+            "description": "Details about log delivery. See below.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the connector.\n"
+        },
+        "plugins": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:mskconnect/ConnectorPlugin:ConnectorPlugin"
+            },
+            "description": "Specifies which plugins to use for the connector. See below.\n"
+        },
+        "serviceExecutionRoleArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.\n"
+        },
+        "version": {
+            "type": "string",
+            "description": "The current version of the connector.\n"
+        },
+        "workerConfiguration": {
+            "$ref": "#/types/aws:mskconnect/ConnectorWorkerConfiguration:ConnectorWorkerConfiguration",
+            "description": "Specifies which worker configuration to use with the connector. See below.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "capacity",
+        "connectorConfiguration",
+        "kafkaCluster",
+        "kafkaClusterClientAuthentication",
+        "kafkaClusterEncryptionInTransit",
+        "kafkaconnectVersion",
+        "name",
+        "plugins",
+        "serviceExecutionRoleArn",
+        "version"
+    ],
+    "inputProperties": {
+        "capacity": {
+            "$ref": "#/types/aws:mskconnect/ConnectorCapacity:ConnectorCapacity",
+            "description": "Information about the capacity allocated to the connector. See below.\n"
+        },
+        "connectorConfiguration": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of keys to values that represent the configuration for the connector.\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "A summary description of the connector.\n",
+            "willReplaceOnChanges": true
+        },
+        "kafkaCluster": {
+            "$ref": "#/types/aws:mskconnect/ConnectorKafkaCluster:ConnectorKafkaCluster",
+            "description": "Specifies which Apache Kafka cluster to connect to. See below.\n",
+            "willReplaceOnChanges": true
+        },
+        "kafkaClusterClientAuthentication": {
+            "$ref": "#/types/aws:mskconnect/ConnectorKafkaClusterClientAuthentication:ConnectorKafkaClusterClientAuthentication",
+            "description": "Details of the client authentication used by the Apache Kafka cluster. See below.\n",
+            "willReplaceOnChanges": true
+        },
+        "kafkaClusterEncryptionInTransit": {
+            "$ref": "#/types/aws:mskconnect/ConnectorKafkaClusterEncryptionInTransit:ConnectorKafkaClusterEncryptionInTransit",
+            "description": "Details of encryption in transit to the Apache Kafka cluster. See below.\n",
+            "willReplaceOnChanges": true
+        },
+        "kafkaconnectVersion": {
+            "type": "string",
+            "description": "The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.\n",
+            "willReplaceOnChanges": true
+        },
+        "logDelivery": {
+            "$ref": "#/types/aws:mskconnect/ConnectorLogDelivery:ConnectorLogDelivery",
+            "description": "Details about log delivery. See below.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the connector.\n",
+            "willReplaceOnChanges": true
+        },
+        "plugins": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:mskconnect/ConnectorPlugin:ConnectorPlugin"
+            },
+            "description": "Specifies which plugins to use for the connector. See below.\n",
+            "willReplaceOnChanges": true
+        },
+        "serviceExecutionRoleArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.\n",
+            "willReplaceOnChanges": true
+        },
+        "workerConfiguration": {
+            "$ref": "#/types/aws:mskconnect/ConnectorWorkerConfiguration:ConnectorWorkerConfiguration",
+            "description": "Specifies which worker configuration to use with the connector. See below.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "capacity",
+        "connectorConfiguration",
+        "kafkaCluster",
+        "kafkaClusterClientAuthentication",
+        "kafkaClusterEncryptionInTransit",
+        "kafkaconnectVersion",
+        "plugins",
+        "serviceExecutionRoleArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Connector resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the custom plugin.\n"
+            },
+            "capacity": {
+                "$ref": "#/types/aws:mskconnect/ConnectorCapacity:ConnectorCapacity",
+                "description": "Information about the capacity allocated to the connector. See below.\n"
+            },
+            "connectorConfiguration": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of keys to values that represent the configuration for the connector.\n",
+                "willReplaceOnChanges": true
+            },
+            "description": {
+                "type": "string",
+                "description": "A summary description of the connector.\n",
+                "willReplaceOnChanges": true
+            },
+            "kafkaCluster": {
+                "$ref": "#/types/aws:mskconnect/ConnectorKafkaCluster:ConnectorKafkaCluster",
+                "description": "Specifies which Apache Kafka cluster to connect to. See below.\n",
+                "willReplaceOnChanges": true
+            },
+            "kafkaClusterClientAuthentication": {
+                "$ref": "#/types/aws:mskconnect/ConnectorKafkaClusterClientAuthentication:ConnectorKafkaClusterClientAuthentication",
+                "description": "Details of the client authentication used by the Apache Kafka cluster. See below.\n",
+                "willReplaceOnChanges": true
+            },
+            "kafkaClusterEncryptionInTransit": {
+                "$ref": "#/types/aws:mskconnect/ConnectorKafkaClusterEncryptionInTransit:ConnectorKafkaClusterEncryptionInTransit",
+                "description": "Details of encryption in transit to the Apache Kafka cluster. See below.\n",
+                "willReplaceOnChanges": true
+            },
+            "kafkaconnectVersion": {
+                "type": "string",
+                "description": "The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.\n",
+                "willReplaceOnChanges": true
+            },
+            "logDelivery": {
+                "$ref": "#/types/aws:mskconnect/ConnectorLogDelivery:ConnectorLogDelivery",
+                "description": "Details about log delivery. See below.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the connector.\n",
+                "willReplaceOnChanges": true
+            },
+            "plugins": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:mskconnect/ConnectorPlugin:ConnectorPlugin"
+                },
+                "description": "Specifies which plugins to use for the connector. See below.\n",
+                "willReplaceOnChanges": true
+            },
+            "serviceExecutionRoleArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.\n",
+                "willReplaceOnChanges": true
+            },
+            "version": {
+                "type": "string",
+                "description": "The current version of the connector.\n"
+            },
+            "workerConfiguration": {
+                "$ref": "#/types/aws:mskconnect/ConnectorWorkerConfiguration:ConnectorWorkerConfiguration",
+                "description": "Specifies which worker configuration to use with the connector. See below.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

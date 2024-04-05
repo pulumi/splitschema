@@ -1,0 +1,40 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getOrganizationalUnitDescendantAccounts.\n",
+        "properties": {
+            "parentId": {
+                "type": "string",
+                "description": "The parent ID of the accounts.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "parentId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getOrganizationalUnitDescendantAccounts.\n",
+        "properties": {
+            "accounts": {
+                "description": "List of child accounts, which have the following attributes:\n",
+                "items": {
+                    "$ref": "#/types/aws:organizations/getOrganizationalUnitDescendantAccountsAccount:getOrganizationalUnitDescendantAccountsAccount"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "parentId": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "accounts",
+            "parentId",
+            "id"
+        ],
+        "type": "object"
+    }
+}

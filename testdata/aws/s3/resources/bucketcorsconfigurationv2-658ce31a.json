@@ -1,0 +1,69 @@
+{
+    "properties": {
+        "bucket": {
+            "type": "string",
+            "description": "Name of the bucket.\n"
+        },
+        "corsRules": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:s3/BucketCorsConfigurationV2CorsRule:BucketCorsConfigurationV2CorsRule"
+            },
+            "description": "Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.\n"
+        },
+        "expectedBucketOwner": {
+            "type": "string",
+            "description": "Account ID of the expected bucket owner.\n"
+        }
+    },
+    "required": [
+        "bucket",
+        "corsRules"
+    ],
+    "inputProperties": {
+        "bucket": {
+            "type": "string",
+            "description": "Name of the bucket.\n",
+            "willReplaceOnChanges": true
+        },
+        "corsRules": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:s3/BucketCorsConfigurationV2CorsRule:BucketCorsConfigurationV2CorsRule"
+            },
+            "description": "Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.\n"
+        },
+        "expectedBucketOwner": {
+            "type": "string",
+            "description": "Account ID of the expected bucket owner.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "bucket",
+        "corsRules"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering BucketCorsConfigurationV2 resources.\n",
+        "properties": {
+            "bucket": {
+                "type": "string",
+                "description": "Name of the bucket.\n",
+                "willReplaceOnChanges": true
+            },
+            "corsRules": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:s3/BucketCorsConfigurationV2CorsRule:BucketCorsConfigurationV2CorsRule"
+                },
+                "description": "Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.\n"
+            },
+            "expectedBucketOwner": {
+                "type": "string",
+                "description": "Account ID of the expected bucket owner.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "properties": {
+        "clusterId": {
+            "type": "string",
+            "description": "ID of the EMR cluster\n"
+        },
+        "computeLimits": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:emr/ManagedScalingPolicyComputeLimit:ManagedScalingPolicyComputeLimit"
+            },
+            "description": "Configuration block with compute limit settings. Described below.\n"
+        }
+    },
+    "required": [
+        "clusterId",
+        "computeLimits"
+    ],
+    "inputProperties": {
+        "clusterId": {
+            "type": "string",
+            "description": "ID of the EMR cluster\n",
+            "willReplaceOnChanges": true
+        },
+        "computeLimits": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:emr/ManagedScalingPolicyComputeLimit:ManagedScalingPolicyComputeLimit"
+            },
+            "description": "Configuration block with compute limit settings. Described below.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "clusterId",
+        "computeLimits"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ManagedScalingPolicy resources.\n",
+        "properties": {
+            "clusterId": {
+                "type": "string",
+                "description": "ID of the EMR cluster\n",
+                "willReplaceOnChanges": true
+            },
+            "computeLimits": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:emr/ManagedScalingPolicyComputeLimit:ManagedScalingPolicyComputeLimit"
+                },
+                "description": "Configuration block with compute limit settings. Described below.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

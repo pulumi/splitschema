@@ -1,0 +1,305 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the DAX cluster\n"
+        },
+        "availabilityZones": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of Availability Zones in which the\nnodes will be created\n"
+        },
+        "clusterAddress": {
+            "type": "string",
+            "description": "The DNS name of the DAX cluster without the port appended\n"
+        },
+        "clusterEndpointEncryptionType": {
+            "type": "string",
+            "description": "The type of encryption the\ncluster's endpoint should support. Valid values are: `NONE` and `TLS`.\nDefault value is `NONE`.\n"
+        },
+        "clusterName": {
+            "type": "string",
+            "description": "Group identifier. DAX converts this name to\nlowercase\n"
+        },
+        "configurationEndpoint": {
+            "type": "string",
+            "description": "The configuration endpoint for this DAX cluster,\nconsisting of a DNS name and a port number\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the cluster\n"
+        },
+        "iamRoleArn": {
+            "type": "string",
+            "description": "A valid Amazon Resource Name (ARN) that identifies\nan IAM role. At runtime, DAX will assume this role and use the role's\npermissions to access DynamoDB on your behalf\n"
+        },
+        "maintenanceWindow": {
+            "type": "string",
+            "description": "Specifies the weekly time range for when\nmaintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`\n(24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:\n`sun:05:00-sun:09:00`\n"
+        },
+        "nodeType": {
+            "type": "string",
+            "description": "The compute and memory capacity of the nodes. See\n[Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types\n"
+        },
+        "nodes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:dax/ClusterNode:ClusterNode"
+            },
+            "description": "List of node objects including `id`, `address`, `port` and\n`availability_zone`. Referenceable e.g., as\n`${aws_dax_cluster.test.nodes.0.address}`\n"
+        },
+        "notificationTopicArn": {
+            "type": "string",
+            "description": "An Amazon Resource Name (ARN) of an\nSNS topic to send DAX notifications to. Example:\n`arn:aws:sns:us-east-1:012345678999:my_sns_topic`\n"
+        },
+        "parameterGroupName": {
+            "type": "string",
+            "description": "Name of the parameter group to associate\nwith this DAX cluster\n"
+        },
+        "port": {
+            "type": "integer",
+            "description": "The port used by the configuration endpoint\n"
+        },
+        "replicationFactor": {
+            "type": "integer",
+            "description": "The number of nodes in the DAX cluster. A\nreplication factor of 1 will create a single-node cluster, without any read\nreplicas\n"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "One or more VPC security groups associated\nwith the cluster\n"
+        },
+        "serverSideEncryption": {
+            "$ref": "#/types/aws:dax/ClusterServerSideEncryption:ClusterServerSideEncryption",
+            "description": "Encrypt at rest options\n"
+        },
+        "subnetGroupName": {
+            "type": "string",
+            "description": "Name of the subnet group to be used for the\ncluster\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "clusterAddress",
+        "clusterName",
+        "configurationEndpoint",
+        "iamRoleArn",
+        "maintenanceWindow",
+        "nodeType",
+        "nodes",
+        "parameterGroupName",
+        "port",
+        "replicationFactor",
+        "securityGroupIds",
+        "subnetGroupName",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "availabilityZones": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of Availability Zones in which the\nnodes will be created\n",
+            "willReplaceOnChanges": true
+        },
+        "clusterEndpointEncryptionType": {
+            "type": "string",
+            "description": "The type of encryption the\ncluster's endpoint should support. Valid values are: `NONE` and `TLS`.\nDefault value is `NONE`.\n",
+            "willReplaceOnChanges": true
+        },
+        "clusterName": {
+            "type": "string",
+            "description": "Group identifier. DAX converts this name to\nlowercase\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the cluster\n"
+        },
+        "iamRoleArn": {
+            "type": "string",
+            "description": "A valid Amazon Resource Name (ARN) that identifies\nan IAM role. At runtime, DAX will assume this role and use the role's\npermissions to access DynamoDB on your behalf\n",
+            "willReplaceOnChanges": true
+        },
+        "maintenanceWindow": {
+            "type": "string",
+            "description": "Specifies the weekly time range for when\nmaintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`\n(24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:\n`sun:05:00-sun:09:00`\n"
+        },
+        "nodeType": {
+            "type": "string",
+            "description": "The compute and memory capacity of the nodes. See\n[Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types\n",
+            "willReplaceOnChanges": true
+        },
+        "notificationTopicArn": {
+            "type": "string",
+            "description": "An Amazon Resource Name (ARN) of an\nSNS topic to send DAX notifications to. Example:\n`arn:aws:sns:us-east-1:012345678999:my_sns_topic`\n"
+        },
+        "parameterGroupName": {
+            "type": "string",
+            "description": "Name of the parameter group to associate\nwith this DAX cluster\n"
+        },
+        "replicationFactor": {
+            "type": "integer",
+            "description": "The number of nodes in the DAX cluster. A\nreplication factor of 1 will create a single-node cluster, without any read\nreplicas\n"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "One or more VPC security groups associated\nwith the cluster\n"
+        },
+        "serverSideEncryption": {
+            "$ref": "#/types/aws:dax/ClusterServerSideEncryption:ClusterServerSideEncryption",
+            "description": "Encrypt at rest options\n"
+        },
+        "subnetGroupName": {
+            "type": "string",
+            "description": "Name of the subnet group to be used for the\ncluster\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "clusterName",
+        "iamRoleArn",
+        "nodeType",
+        "replicationFactor"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Cluster resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the DAX cluster\n"
+            },
+            "availabilityZones": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of Availability Zones in which the\nnodes will be created\n",
+                "willReplaceOnChanges": true
+            },
+            "clusterAddress": {
+                "type": "string",
+                "description": "The DNS name of the DAX cluster without the port appended\n"
+            },
+            "clusterEndpointEncryptionType": {
+                "type": "string",
+                "description": "The type of encryption the\ncluster's endpoint should support. Valid values are: `NONE` and `TLS`.\nDefault value is `NONE`.\n",
+                "willReplaceOnChanges": true
+            },
+            "clusterName": {
+                "type": "string",
+                "description": "Group identifier. DAX converts this name to\nlowercase\n",
+                "willReplaceOnChanges": true
+            },
+            "configurationEndpoint": {
+                "type": "string",
+                "description": "The configuration endpoint for this DAX cluster,\nconsisting of a DNS name and a port number\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description for the cluster\n"
+            },
+            "iamRoleArn": {
+                "type": "string",
+                "description": "A valid Amazon Resource Name (ARN) that identifies\nan IAM role. At runtime, DAX will assume this role and use the role's\npermissions to access DynamoDB on your behalf\n",
+                "willReplaceOnChanges": true
+            },
+            "maintenanceWindow": {
+                "type": "string",
+                "description": "Specifies the weekly time range for when\nmaintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`\n(24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:\n`sun:05:00-sun:09:00`\n"
+            },
+            "nodeType": {
+                "type": "string",
+                "description": "The compute and memory capacity of the nodes. See\n[Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types\n",
+                "willReplaceOnChanges": true
+            },
+            "nodes": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:dax/ClusterNode:ClusterNode"
+                },
+                "description": "List of node objects including `id`, `address`, `port` and\n`availability_zone`. Referenceable e.g., as\n`${aws_dax_cluster.test.nodes.0.address}`\n"
+            },
+            "notificationTopicArn": {
+                "type": "string",
+                "description": "An Amazon Resource Name (ARN) of an\nSNS topic to send DAX notifications to. Example:\n`arn:aws:sns:us-east-1:012345678999:my_sns_topic`\n"
+            },
+            "parameterGroupName": {
+                "type": "string",
+                "description": "Name of the parameter group to associate\nwith this DAX cluster\n"
+            },
+            "port": {
+                "type": "integer",
+                "description": "The port used by the configuration endpoint\n"
+            },
+            "replicationFactor": {
+                "type": "integer",
+                "description": "The number of nodes in the DAX cluster. A\nreplication factor of 1 will create a single-node cluster, without any read\nreplicas\n"
+            },
+            "securityGroupIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "One or more VPC security groups associated\nwith the cluster\n"
+            },
+            "serverSideEncryption": {
+                "$ref": "#/types/aws:dax/ClusterServerSideEncryption:ClusterServerSideEncryption",
+                "description": "Encrypt at rest options\n"
+            },
+            "subnetGroupName": {
+                "type": "string",
+                "description": "Name of the subnet group to be used for the\ncluster\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

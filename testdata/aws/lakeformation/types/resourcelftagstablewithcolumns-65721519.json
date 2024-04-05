@@ -1,0 +1,54 @@
+{
+    "properties": {
+        "catalogId": {
+            "type": "string",
+            "description": "Identifier for the Data Catalog. By default, it is the account ID of the caller.\n",
+            "willReplaceOnChanges": true
+        },
+        "columnNames": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of column names for the table.\n",
+            "willReplaceOnChanges": true
+        },
+        "databaseName": {
+            "type": "string",
+            "description": "Name of the database for the table with columns resource. Unique to the Data Catalog.\n",
+            "willReplaceOnChanges": true
+        },
+        "excludedColumnNames": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the table resource.\n",
+            "willReplaceOnChanges": true
+        },
+        "wildcard": {
+            "type": "boolean",
+            "description": "Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "databaseName",
+        "name"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "catalogId",
+                "databaseName",
+                "name"
+            ]
+        }
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getOrganizationalUnits.\n",
+        "properties": {
+            "parentId": {
+                "type": "string",
+                "description": "Parent ID of the organizational unit.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "parentId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getOrganizationalUnits.\n",
+        "properties": {
+            "children": {
+                "description": "List of child organizational units, which have the following attributes:\n",
+                "items": {
+                    "$ref": "#/types/aws:organizations/getOrganizationalUnitsChild:getOrganizationalUnitsChild"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "parentId": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "children",
+            "parentId",
+            "id"
+        ],
+        "type": "object"
+    }
+}

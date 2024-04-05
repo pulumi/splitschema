@@ -1,0 +1,58 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getPrefixList.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getPrefixListFilter:getPrefixListFilter"
+                },
+                "description": "Configuration block(s) for filtering. Detailed below.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the prefix list to select.\n"
+            },
+            "prefixListId": {
+                "type": "string",
+                "description": "ID of the prefix list to select.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getPrefixList.\n",
+        "properties": {
+            "cidrBlocks": {
+                "description": "List of CIDR blocks for the AWS service associated with the prefix list.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2/getPrefixListFilter:getPrefixListFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "name": {
+                "description": "Name of the selected prefix list.\n",
+                "type": "string"
+            },
+            "prefixListId": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "cidrBlocks",
+            "name",
+            "id"
+        ],
+        "type": "object"
+    }
+}

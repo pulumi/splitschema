@@ -1,0 +1,294 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) for the resource.\n"
+        },
+        "copyTagsToDataRepositoryAssociations": {
+            "type": "boolean",
+            "description": "A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.\n"
+        },
+        "dataRepositoryAssociationIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of IDs of data repository associations that are associated with this cache.\n"
+        },
+        "dataRepositoryAssociations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fsx/FileCacheDataRepositoryAssociation:FileCacheDataRepositoryAssociation"
+            },
+            "description": "See the `data_repository_association` configuration block. Max of 8.\nA list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.\n"
+        },
+        "dnsName": {
+            "type": "string",
+            "description": "The Domain Name System (DNS) name for the cache.\n"
+        },
+        "fileCacheId": {
+            "type": "string",
+            "description": "The system-generated, unique ID of the cache.\n"
+        },
+        "fileCacheType": {
+            "type": "string",
+            "description": "The type of cache that you're creating. The only supported value is `LUSTRE`.\n"
+        },
+        "fileCacheTypeVersion": {
+            "type": "string",
+            "description": "The version for the type of cache that you're creating. The only supported value is `2.12`.\n"
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.\n"
+        },
+        "lustreConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fsx/FileCacheLustreConfiguration:FileCacheLustreConfiguration"
+            },
+            "description": "See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.\n"
+        },
+        "networkInterfaceIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of network interface IDs.\n"
+        },
+        "ownerId": {
+            "type": "string"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.\n"
+        },
+        "storageCapacity": {
+            "type": "integer",
+            "description": "The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.\n"
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.\n\nThe following arguments are optional:\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "The ID of your virtual private cloud (VPC).\n"
+        }
+    },
+    "required": [
+        "arn",
+        "dataRepositoryAssociationIds",
+        "dnsName",
+        "fileCacheId",
+        "fileCacheType",
+        "fileCacheTypeVersion",
+        "kmsKeyId",
+        "networkInterfaceIds",
+        "ownerId",
+        "storageCapacity",
+        "subnetIds",
+        "tagsAll",
+        "vpcId"
+    ],
+    "inputProperties": {
+        "copyTagsToDataRepositoryAssociations": {
+            "type": "boolean",
+            "description": "A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.\n"
+        },
+        "dataRepositoryAssociations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fsx/FileCacheDataRepositoryAssociation:FileCacheDataRepositoryAssociation"
+            },
+            "description": "See the `data_repository_association` configuration block. Max of 8.\nA list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.\n",
+            "willReplaceOnChanges": true
+        },
+        "fileCacheType": {
+            "type": "string",
+            "description": "The type of cache that you're creating. The only supported value is `LUSTRE`.\n",
+            "willReplaceOnChanges": true
+        },
+        "fileCacheTypeVersion": {
+            "type": "string",
+            "description": "The version for the type of cache that you're creating. The only supported value is `2.12`.\n",
+            "willReplaceOnChanges": true
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.\n",
+            "willReplaceOnChanges": true
+        },
+        "lustreConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fsx/FileCacheLustreConfiguration:FileCacheLustreConfiguration"
+            },
+            "description": "See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.\n"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.\n",
+            "willReplaceOnChanges": true
+        },
+        "storageCapacity": {
+            "type": "integer",
+            "description": "The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "fileCacheType",
+        "fileCacheTypeVersion",
+        "storageCapacity",
+        "subnetIds"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering FileCache resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) for the resource.\n"
+            },
+            "copyTagsToDataRepositoryAssociations": {
+                "type": "boolean",
+                "description": "A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.\n"
+            },
+            "dataRepositoryAssociationIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of IDs of data repository associations that are associated with this cache.\n"
+            },
+            "dataRepositoryAssociations": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:fsx/FileCacheDataRepositoryAssociation:FileCacheDataRepositoryAssociation"
+                },
+                "description": "See the `data_repository_association` configuration block. Max of 8.\nA list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.\n",
+                "willReplaceOnChanges": true
+            },
+            "dnsName": {
+                "type": "string",
+                "description": "The Domain Name System (DNS) name for the cache.\n"
+            },
+            "fileCacheId": {
+                "type": "string",
+                "description": "The system-generated, unique ID of the cache.\n"
+            },
+            "fileCacheType": {
+                "type": "string",
+                "description": "The type of cache that you're creating. The only supported value is `LUSTRE`.\n",
+                "willReplaceOnChanges": true
+            },
+            "fileCacheTypeVersion": {
+                "type": "string",
+                "description": "The version for the type of cache that you're creating. The only supported value is `2.12`.\n",
+                "willReplaceOnChanges": true
+            },
+            "kmsKeyId": {
+                "type": "string",
+                "description": "Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.\n",
+                "willReplaceOnChanges": true
+            },
+            "lustreConfigurations": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:fsx/FileCacheLustreConfiguration:FileCacheLustreConfiguration"
+                },
+                "description": "See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.\n"
+            },
+            "networkInterfaceIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of network interface IDs.\n"
+            },
+            "ownerId": {
+                "type": "string"
+            },
+            "securityGroupIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.\n",
+                "willReplaceOnChanges": true
+            },
+            "storageCapacity": {
+                "type": "integer",
+                "description": "The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.\n",
+                "willReplaceOnChanges": true
+            },
+            "subnetIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "vpcId": {
+                "type": "string",
+                "description": "The ID of your virtual private cloud (VPC).\n"
+            }
+        },
+        "type": "object"
+    }
+}

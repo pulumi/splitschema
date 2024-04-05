@@ -1,0 +1,41 @@
+{
+    "properties": {
+        "events": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "[Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.\n"
+        },
+        "filterPrefix": {
+            "type": "string",
+            "description": "Object key name prefix.\n"
+        },
+        "filterSuffix": {
+            "type": "string",
+            "description": "Object key name suffix.\n"
+        },
+        "id": {
+            "type": "string",
+            "description": "Unique identifier for each of the notification configurations.\n"
+        },
+        "topicArn": {
+            "type": "string",
+            "description": "SNS topic ARN.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "events",
+        "topicArn"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "events",
+                "id",
+                "topicArn"
+            ]
+        }
+    }
+}

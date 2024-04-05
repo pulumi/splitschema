@@ -1,0 +1,201 @@
+{
+    "properties": {
+        "exportOnlies": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).\n"
+        },
+        "exportTaskIdentifier": {
+            "type": "string",
+            "description": "Unique identifier for the snapshot export task.\n"
+        },
+        "failureCause": {
+            "type": "string",
+            "description": "Reason the export failed, if it failed.\n"
+        },
+        "iamRoleArn": {
+            "type": "string",
+            "description": "ARN of the IAM role to use for writing to the Amazon S3 bucket.\n"
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "ID of the Amazon Web Services KMS key to use to encrypt the snapshot.\n"
+        },
+        "percentProgress": {
+            "type": "integer",
+            "description": "Progress of the snapshot export task as a percentage.\n"
+        },
+        "s3BucketName": {
+            "type": "string",
+            "description": "Name of the Amazon S3 bucket to export the snapshot to.\n"
+        },
+        "s3Prefix": {
+            "type": "string",
+            "description": "Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.\n"
+        },
+        "snapshotTime": {
+            "type": "string",
+            "description": "Time that the snapshot was created.\n"
+        },
+        "sourceArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the snapshot to export.\n\nThe following arguments are optional:\n"
+        },
+        "sourceType": {
+            "type": "string",
+            "description": "Type of source for the export.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Status of the export task.\n"
+        },
+        "taskEndTime": {
+            "type": "string",
+            "description": "Time that the snapshot export task completed.\n"
+        },
+        "taskStartTime": {
+            "type": "string",
+            "description": "Time that the snapshot export task started.\n"
+        },
+        "timeouts": {
+            "$ref": "#/types/aws:rds/ExportTaskTimeouts:ExportTaskTimeouts"
+        },
+        "warningMessage": {
+            "type": "string",
+            "description": "Warning about the snapshot export task, if any.\n"
+        }
+    },
+    "required": [
+        "exportTaskIdentifier",
+        "failureCause",
+        "iamRoleArn",
+        "kmsKeyId",
+        "percentProgress",
+        "s3BucketName",
+        "s3Prefix",
+        "snapshotTime",
+        "sourceArn",
+        "sourceType",
+        "status",
+        "taskEndTime",
+        "taskStartTime",
+        "warningMessage"
+    ],
+    "inputProperties": {
+        "exportOnlies": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).\n"
+        },
+        "exportTaskIdentifier": {
+            "type": "string",
+            "description": "Unique identifier for the snapshot export task.\n"
+        },
+        "iamRoleArn": {
+            "type": "string",
+            "description": "ARN of the IAM role to use for writing to the Amazon S3 bucket.\n"
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "ID of the Amazon Web Services KMS key to use to encrypt the snapshot.\n"
+        },
+        "s3BucketName": {
+            "type": "string",
+            "description": "Name of the Amazon S3 bucket to export the snapshot to.\n"
+        },
+        "s3Prefix": {
+            "type": "string",
+            "description": "Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.\n"
+        },
+        "sourceArn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the snapshot to export.\n\nThe following arguments are optional:\n"
+        },
+        "timeouts": {
+            "$ref": "#/types/aws:rds/ExportTaskTimeouts:ExportTaskTimeouts"
+        }
+    },
+    "requiredInputs": [
+        "exportTaskIdentifier",
+        "iamRoleArn",
+        "kmsKeyId",
+        "s3BucketName",
+        "sourceArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ExportTask resources.\n",
+        "properties": {
+            "exportOnlies": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).\n"
+            },
+            "exportTaskIdentifier": {
+                "type": "string",
+                "description": "Unique identifier for the snapshot export task.\n"
+            },
+            "failureCause": {
+                "type": "string",
+                "description": "Reason the export failed, if it failed.\n"
+            },
+            "iamRoleArn": {
+                "type": "string",
+                "description": "ARN of the IAM role to use for writing to the Amazon S3 bucket.\n"
+            },
+            "kmsKeyId": {
+                "type": "string",
+                "description": "ID of the Amazon Web Services KMS key to use to encrypt the snapshot.\n"
+            },
+            "percentProgress": {
+                "type": "integer",
+                "description": "Progress of the snapshot export task as a percentage.\n"
+            },
+            "s3BucketName": {
+                "type": "string",
+                "description": "Name of the Amazon S3 bucket to export the snapshot to.\n"
+            },
+            "s3Prefix": {
+                "type": "string",
+                "description": "Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.\n"
+            },
+            "snapshotTime": {
+                "type": "string",
+                "description": "Time that the snapshot was created.\n"
+            },
+            "sourceArn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the snapshot to export.\n\nThe following arguments are optional:\n"
+            },
+            "sourceType": {
+                "type": "string",
+                "description": "Type of source for the export.\n"
+            },
+            "status": {
+                "type": "string",
+                "description": "Status of the export task.\n"
+            },
+            "taskEndTime": {
+                "type": "string",
+                "description": "Time that the snapshot export task completed.\n"
+            },
+            "taskStartTime": {
+                "type": "string",
+                "description": "Time that the snapshot export task started.\n"
+            },
+            "timeouts": {
+                "$ref": "#/types/aws:rds/ExportTaskTimeouts:ExportTaskTimeouts"
+            },
+            "warningMessage": {
+                "type": "string",
+                "description": "Warning about the snapshot export task, if any.\n"
+            }
+        },
+        "type": "object"
+    }
+}

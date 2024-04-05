@@ -1,0 +1,33 @@
+{
+    "properties": {
+        "consoleAccess": {
+            "type": "boolean",
+            "description": "Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.\n"
+        },
+        "groups": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.\n"
+        },
+        "password": {
+            "type": "string",
+            "description": "Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.\n",
+            "secret": true
+        },
+        "replicationUser": {
+            "type": "boolean",
+            "description": "Whether to set set replication user. Defaults to `false`.\n"
+        },
+        "username": {
+            "type": "string",
+            "description": "Username of the user.\n\n\u003e **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "password",
+        "username"
+    ]
+}

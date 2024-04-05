@@ -1,0 +1,41 @@
+{
+    "properties": {
+        "dbSecurityGroupMemberships": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of DB Security Groups for which the option is enabled.\n"
+        },
+        "optionName": {
+            "type": "string",
+            "description": "Name of the option (e.g., MEMCACHED).\n"
+        },
+        "optionSettings": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:rds/OptionGroupOptionOptionSetting:OptionGroupOptionOptionSetting"
+            },
+            "description": "List of option settings to apply.\n"
+        },
+        "port": {
+            "type": "integer",
+            "description": "Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.\n"
+        },
+        "version": {
+            "type": "string",
+            "description": "Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.\n"
+        },
+        "vpcSecurityGroupMemberships": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of VPC Security Groups for which the option is enabled.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "optionName"
+    ]
+}

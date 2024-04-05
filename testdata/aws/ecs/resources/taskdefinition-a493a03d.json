@@ -1,0 +1,360 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Full ARN of the Task Definition (including both `family` and `revision`).\n"
+        },
+        "arnWithoutRevision": {
+            "type": "string",
+            "description": "ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.\n"
+        },
+        "containerDefinitions": {
+            "type": "string",
+            "description": "A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).\n"
+        },
+        "cpu": {
+            "type": "string",
+            "description": "Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.\n"
+        },
+        "ephemeralStorage": {
+            "$ref": "#/types/aws:ecs/TaskDefinitionEphemeralStorage:TaskDefinitionEphemeralStorage",
+            "description": "The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.\n"
+        },
+        "executionRoleArn": {
+            "type": "string",
+            "description": "ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.\n"
+        },
+        "family": {
+            "type": "string",
+            "description": "A unique name for your task definition.\n\nThe following arguments are optional:\n"
+        },
+        "inferenceAccelerators": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ecs/TaskDefinitionInferenceAccelerator:TaskDefinitionInferenceAccelerator"
+            },
+            "description": "Configuration block(s) with Inference Accelerators settings. Detailed below.\n"
+        },
+        "ipcMode": {
+            "type": "string",
+            "description": "IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.\n"
+        },
+        "memory": {
+            "type": "string",
+            "description": "Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.\n"
+        },
+        "networkMode": {
+            "type": "string",
+            "description": "Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.\n"
+        },
+        "pidMode": {
+            "type": "string",
+            "description": "Process namespace to use for the containers in the task. The valid values are `host` and `task`.\n"
+        },
+        "placementConstraints": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ecs/TaskDefinitionPlacementConstraint:TaskDefinitionPlacementConstraint"
+            },
+            "description": "Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.\n"
+        },
+        "proxyConfiguration": {
+            "$ref": "#/types/aws:ecs/TaskDefinitionProxyConfiguration:TaskDefinitionProxyConfiguration",
+            "description": "Configuration block for the App Mesh proxy. Detailed below.\n"
+        },
+        "requiresCompatibilities": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.\n"
+        },
+        "revision": {
+            "type": "integer",
+            "description": "Revision of the task in a particular family.\n"
+        },
+        "runtimePlatform": {
+            "$ref": "#/types/aws:ecs/TaskDefinitionRuntimePlatform:TaskDefinitionRuntimePlatform",
+            "description": "Configuration block for runtime_platform that containers in your task may use.\n"
+        },
+        "skipDestroy": {
+            "type": "boolean",
+            "description": "Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "taskRoleArn": {
+            "type": "string",
+            "description": "ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.\n"
+        },
+        "volumes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ecs/TaskDefinitionVolume:TaskDefinitionVolume"
+            },
+            "description": "Configuration block for volumes that containers in your task may use. Detailed below.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "arnWithoutRevision",
+        "containerDefinitions",
+        "family",
+        "networkMode",
+        "revision",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "containerDefinitions": {
+            "type": "string",
+            "description": "A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).\n",
+            "willReplaceOnChanges": true
+        },
+        "cpu": {
+            "type": "string",
+            "description": "Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.\n",
+            "willReplaceOnChanges": true
+        },
+        "ephemeralStorage": {
+            "$ref": "#/types/aws:ecs/TaskDefinitionEphemeralStorage:TaskDefinitionEphemeralStorage",
+            "description": "The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.\n",
+            "willReplaceOnChanges": true
+        },
+        "executionRoleArn": {
+            "type": "string",
+            "description": "ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.\n",
+            "willReplaceOnChanges": true
+        },
+        "family": {
+            "type": "string",
+            "description": "A unique name for your task definition.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "inferenceAccelerators": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ecs/TaskDefinitionInferenceAccelerator:TaskDefinitionInferenceAccelerator"
+            },
+            "description": "Configuration block(s) with Inference Accelerators settings. Detailed below.\n",
+            "willReplaceOnChanges": true
+        },
+        "ipcMode": {
+            "type": "string",
+            "description": "IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.\n",
+            "willReplaceOnChanges": true
+        },
+        "memory": {
+            "type": "string",
+            "description": "Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.\n",
+            "willReplaceOnChanges": true
+        },
+        "networkMode": {
+            "type": "string",
+            "description": "Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.\n",
+            "willReplaceOnChanges": true
+        },
+        "pidMode": {
+            "type": "string",
+            "description": "Process namespace to use for the containers in the task. The valid values are `host` and `task`.\n",
+            "willReplaceOnChanges": true
+        },
+        "placementConstraints": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ecs/TaskDefinitionPlacementConstraint:TaskDefinitionPlacementConstraint"
+            },
+            "description": "Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.\n",
+            "willReplaceOnChanges": true
+        },
+        "proxyConfiguration": {
+            "$ref": "#/types/aws:ecs/TaskDefinitionProxyConfiguration:TaskDefinitionProxyConfiguration",
+            "description": "Configuration block for the App Mesh proxy. Detailed below.\n",
+            "willReplaceOnChanges": true
+        },
+        "requiresCompatibilities": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.\n",
+            "willReplaceOnChanges": true
+        },
+        "runtimePlatform": {
+            "$ref": "#/types/aws:ecs/TaskDefinitionRuntimePlatform:TaskDefinitionRuntimePlatform",
+            "description": "Configuration block for runtime_platform that containers in your task may use.\n",
+            "willReplaceOnChanges": true
+        },
+        "skipDestroy": {
+            "type": "boolean",
+            "description": "Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "taskRoleArn": {
+            "type": "string",
+            "description": "ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.\n",
+            "willReplaceOnChanges": true
+        },
+        "volumes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ecs/TaskDefinitionVolume:TaskDefinitionVolume"
+            },
+            "description": "Configuration block for volumes that containers in your task may use. Detailed below.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "containerDefinitions",
+        "family"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering TaskDefinition resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Full ARN of the Task Definition (including both `family` and `revision`).\n"
+            },
+            "arnWithoutRevision": {
+                "type": "string",
+                "description": "ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.\n"
+            },
+            "containerDefinitions": {
+                "type": "string",
+                "description": "A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).\n",
+                "willReplaceOnChanges": true
+            },
+            "cpu": {
+                "type": "string",
+                "description": "Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.\n",
+                "willReplaceOnChanges": true
+            },
+            "ephemeralStorage": {
+                "$ref": "#/types/aws:ecs/TaskDefinitionEphemeralStorage:TaskDefinitionEphemeralStorage",
+                "description": "The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.\n",
+                "willReplaceOnChanges": true
+            },
+            "executionRoleArn": {
+                "type": "string",
+                "description": "ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.\n",
+                "willReplaceOnChanges": true
+            },
+            "family": {
+                "type": "string",
+                "description": "A unique name for your task definition.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "inferenceAccelerators": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ecs/TaskDefinitionInferenceAccelerator:TaskDefinitionInferenceAccelerator"
+                },
+                "description": "Configuration block(s) with Inference Accelerators settings. Detailed below.\n",
+                "willReplaceOnChanges": true
+            },
+            "ipcMode": {
+                "type": "string",
+                "description": "IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.\n",
+                "willReplaceOnChanges": true
+            },
+            "memory": {
+                "type": "string",
+                "description": "Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.\n",
+                "willReplaceOnChanges": true
+            },
+            "networkMode": {
+                "type": "string",
+                "description": "Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.\n",
+                "willReplaceOnChanges": true
+            },
+            "pidMode": {
+                "type": "string",
+                "description": "Process namespace to use for the containers in the task. The valid values are `host` and `task`.\n",
+                "willReplaceOnChanges": true
+            },
+            "placementConstraints": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ecs/TaskDefinitionPlacementConstraint:TaskDefinitionPlacementConstraint"
+                },
+                "description": "Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.\n",
+                "willReplaceOnChanges": true
+            },
+            "proxyConfiguration": {
+                "$ref": "#/types/aws:ecs/TaskDefinitionProxyConfiguration:TaskDefinitionProxyConfiguration",
+                "description": "Configuration block for the App Mesh proxy. Detailed below.\n",
+                "willReplaceOnChanges": true
+            },
+            "requiresCompatibilities": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.\n",
+                "willReplaceOnChanges": true
+            },
+            "revision": {
+                "type": "integer",
+                "description": "Revision of the task in a particular family.\n"
+            },
+            "runtimePlatform": {
+                "$ref": "#/types/aws:ecs/TaskDefinitionRuntimePlatform:TaskDefinitionRuntimePlatform",
+                "description": "Configuration block for runtime_platform that containers in your task may use.\n",
+                "willReplaceOnChanges": true
+            },
+            "skipDestroy": {
+                "type": "boolean",
+                "description": "Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "taskRoleArn": {
+                "type": "string",
+                "description": "ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.\n",
+                "willReplaceOnChanges": true
+            },
+            "volumes": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ecs/TaskDefinitionVolume:TaskDefinitionVolume"
+                },
+                "description": "Configuration block for volumes that containers in your task may use. Detailed below.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

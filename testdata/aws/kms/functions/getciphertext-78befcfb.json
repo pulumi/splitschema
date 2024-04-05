@@ -1,0 +1,61 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getCipherText.\n",
+        "properties": {
+            "context": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "An optional mapping that makes up the encryption context.\n"
+            },
+            "keyId": {
+                "type": "string",
+                "description": "Globally unique key ID for the customer master key.\n"
+            },
+            "plaintext": {
+                "type": "string",
+                "description": "Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.\n",
+                "secret": true
+            }
+        },
+        "type": "object",
+        "required": [
+            "keyId",
+            "plaintext"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getCipherText.\n",
+        "properties": {
+            "ciphertextBlob": {
+                "description": "Base64 encoded ciphertext\n",
+                "type": "string"
+            },
+            "context": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "keyId": {
+                "type": "string"
+            },
+            "plaintext": {
+                "secret": true,
+                "type": "string"
+            }
+        },
+        "required": [
+            "ciphertextBlob",
+            "keyId",
+            "plaintext",
+            "id"
+        ],
+        "type": "object"
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "properties": {
+        "accessPointArn": {
+            "type": "string",
+            "description": "The ARN of the access point that you want to associate with the specified policy.\n"
+        },
+        "hasPublicAccessPolicy": {
+            "type": "boolean",
+            "description": "Indicates whether this access point currently has a policy that allows public access.\n"
+        },
+        "policy": {
+            "type": "string",
+            "description": "The policy that you want to apply to the specified access point.\n"
+        }
+    },
+    "required": [
+        "accessPointArn",
+        "hasPublicAccessPolicy",
+        "policy"
+    ],
+    "inputProperties": {
+        "accessPointArn": {
+            "type": "string",
+            "description": "The ARN of the access point that you want to associate with the specified policy.\n",
+            "willReplaceOnChanges": true
+        },
+        "policy": {
+            "type": "string",
+            "description": "The policy that you want to apply to the specified access point.\n"
+        }
+    },
+    "requiredInputs": [
+        "accessPointArn",
+        "policy"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering AccessPointPolicy resources.\n",
+        "properties": {
+            "accessPointArn": {
+                "type": "string",
+                "description": "The ARN of the access point that you want to associate with the specified policy.\n",
+                "willReplaceOnChanges": true
+            },
+            "hasPublicAccessPolicy": {
+                "type": "boolean",
+                "description": "Indicates whether this access point currently has a policy that allows public access.\n"
+            },
+            "policy": {
+                "type": "string",
+                "description": "The policy that you want to apply to the specified access point.\n"
+            }
+        },
+        "type": "object"
+    }
+}

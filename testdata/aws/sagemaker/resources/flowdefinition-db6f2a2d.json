@@ -1,0 +1,157 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.\n"
+        },
+        "flowDefinitionName": {
+            "type": "string",
+            "description": "The name of your flow definition.\n"
+        },
+        "humanLoopActivationConfig": {
+            "$ref": "#/types/aws:sagemaker/FlowDefinitionHumanLoopActivationConfig:FlowDefinitionHumanLoopActivationConfig",
+            "description": "An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.\n"
+        },
+        "humanLoopConfig": {
+            "$ref": "#/types/aws:sagemaker/FlowDefinitionHumanLoopConfig:FlowDefinitionHumanLoopConfig",
+            "description": "An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.\n"
+        },
+        "humanLoopRequestSource": {
+            "$ref": "#/types/aws:sagemaker/FlowDefinitionHumanLoopRequestSource:FlowDefinitionHumanLoopRequestSource",
+            "description": "Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.\n"
+        },
+        "outputConfig": {
+            "$ref": "#/types/aws:sagemaker/FlowDefinitionOutputConfig:FlowDefinitionOutputConfig",
+            "description": "An object containing information about where the human review results will be uploaded. See Output Config details below.\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "flowDefinitionName",
+        "humanLoopConfig",
+        "outputConfig",
+        "roleArn",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "flowDefinitionName": {
+            "type": "string",
+            "description": "The name of your flow definition.\n",
+            "willReplaceOnChanges": true
+        },
+        "humanLoopActivationConfig": {
+            "$ref": "#/types/aws:sagemaker/FlowDefinitionHumanLoopActivationConfig:FlowDefinitionHumanLoopActivationConfig",
+            "description": "An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.\n",
+            "willReplaceOnChanges": true
+        },
+        "humanLoopConfig": {
+            "$ref": "#/types/aws:sagemaker/FlowDefinitionHumanLoopConfig:FlowDefinitionHumanLoopConfig",
+            "description": "An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.\n",
+            "willReplaceOnChanges": true
+        },
+        "humanLoopRequestSource": {
+            "$ref": "#/types/aws:sagemaker/FlowDefinitionHumanLoopRequestSource:FlowDefinitionHumanLoopRequestSource",
+            "description": "Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.\n",
+            "willReplaceOnChanges": true
+        },
+        "outputConfig": {
+            "$ref": "#/types/aws:sagemaker/FlowDefinitionOutputConfig:FlowDefinitionOutputConfig",
+            "description": "An object containing information about where the human review results will be uploaded. See Output Config details below.\n",
+            "willReplaceOnChanges": true
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "flowDefinitionName",
+        "humanLoopConfig",
+        "outputConfig",
+        "roleArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering FlowDefinition resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.\n"
+            },
+            "flowDefinitionName": {
+                "type": "string",
+                "description": "The name of your flow definition.\n",
+                "willReplaceOnChanges": true
+            },
+            "humanLoopActivationConfig": {
+                "$ref": "#/types/aws:sagemaker/FlowDefinitionHumanLoopActivationConfig:FlowDefinitionHumanLoopActivationConfig",
+                "description": "An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.\n",
+                "willReplaceOnChanges": true
+            },
+            "humanLoopConfig": {
+                "$ref": "#/types/aws:sagemaker/FlowDefinitionHumanLoopConfig:FlowDefinitionHumanLoopConfig",
+                "description": "An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.\n",
+                "willReplaceOnChanges": true
+            },
+            "humanLoopRequestSource": {
+                "$ref": "#/types/aws:sagemaker/FlowDefinitionHumanLoopRequestSource:FlowDefinitionHumanLoopRequestSource",
+                "description": "Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.\n",
+                "willReplaceOnChanges": true
+            },
+            "outputConfig": {
+                "$ref": "#/types/aws:sagemaker/FlowDefinitionOutputConfig:FlowDefinitionOutputConfig",
+                "description": "An object containing information about where the human review results will be uploaded. See Output Config details below.\n",
+                "willReplaceOnChanges": true
+            },
+            "roleArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

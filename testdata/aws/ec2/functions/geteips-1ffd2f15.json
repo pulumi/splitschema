@@ -1,0 +1,64 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getEips.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getEipsFilter:getEipsFilter"
+                },
+                "description": "Custom filter block as described below.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getEips.\n",
+        "properties": {
+            "allocationIds": {
+                "description": "List of all the allocation IDs for address for use with EC2-VPC.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2/getEipsFilter:getEipsFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "publicIps": {
+                "description": "List of all the Elastic IP addresses.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            }
+        },
+        "required": [
+            "allocationIds",
+            "publicIps",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

@@ -1,0 +1,202 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getDomain.\n",
+        "properties": {
+            "domainName": {
+                "type": "string",
+                "description": "Name of the domain.\n"
+            },
+            "offPeakWindowOptions": {
+                "$ref": "#/types/aws:opensearch/getDomainOffPeakWindowOptions:getDomainOffPeakWindowOptions",
+                "description": "Off Peak update options\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags assigned to the domain.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "domainName"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getDomain.\n",
+        "properties": {
+            "accessPolicies": {
+                "description": "Policy document attached to the domain.\n",
+                "type": "string"
+            },
+            "advancedOptions": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value string pairs to specify advanced configuration options.\n",
+                "type": "object"
+            },
+            "advancedSecurityOptions": {
+                "description": "Status of the OpenSearch domain's advanced security options. The block consists of the following attributes:\n",
+                "items": {
+                    "$ref": "#/types/aws:opensearch/getDomainAdvancedSecurityOption:getDomainAdvancedSecurityOption"
+                },
+                "type": "array"
+            },
+            "arn": {
+                "description": "ARN of the domain.\n",
+                "type": "string"
+            },
+            "autoTuneOptions": {
+                "description": "Configuration of the Auto-Tune options of the domain.\n",
+                "items": {
+                    "$ref": "#/types/aws:opensearch/getDomainAutoTuneOption:getDomainAutoTuneOption"
+                },
+                "type": "array"
+            },
+            "clusterConfigs": {
+                "description": "Cluster configuration of the domain.\n",
+                "items": {
+                    "$ref": "#/types/aws:opensearch/getDomainClusterConfig:getDomainClusterConfig"
+                },
+                "type": "array"
+            },
+            "cognitoOptions": {
+                "description": "Domain Amazon Cognito Authentication options for Dashboard.\n",
+                "items": {
+                    "$ref": "#/types/aws:opensearch/getDomainCognitoOption:getDomainCognitoOption"
+                },
+                "type": "array"
+            },
+            "created": {
+                "description": "Status of the creation of the domain.\n",
+                "type": "boolean"
+            },
+            "dashboardEndpoint": {
+                "description": "Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).\n",
+                "type": "string"
+            },
+            "deleted": {
+                "description": "Status of the deletion of the domain.\n",
+                "type": "boolean"
+            },
+            "domainId": {
+                "description": "Unique identifier for the domain.\n",
+                "type": "string"
+            },
+            "domainName": {
+                "type": "string"
+            },
+            "ebsOptions": {
+                "description": "EBS Options for the instances in the domain.\n",
+                "items": {
+                    "$ref": "#/types/aws:opensearch/getDomainEbsOption:getDomainEbsOption"
+                },
+                "type": "array"
+            },
+            "encryptionAtRests": {
+                "description": "Domain encryption at rest related options.\n",
+                "items": {
+                    "$ref": "#/types/aws:opensearch/getDomainEncryptionAtRest:getDomainEncryptionAtRest"
+                },
+                "type": "array"
+            },
+            "endpoint": {
+                "description": "Domain-specific endpoint used to submit index, search, and data upload requests.\n",
+                "type": "string"
+            },
+            "engineVersion": {
+                "description": "OpenSearch version for the domain.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "kibanaEndpoint": {
+                "deprecationMessage": "use 'dashboard_endpoint' attribute instead",
+                "description": "(**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.\n",
+                "type": "string"
+            },
+            "logPublishingOptions": {
+                "description": "Domain log publishing related options.\n",
+                "items": {
+                    "$ref": "#/types/aws:opensearch/getDomainLogPublishingOption:getDomainLogPublishingOption"
+                },
+                "type": "array"
+            },
+            "nodeToNodeEncryptions": {
+                "description": "Domain in transit encryption related options.\n",
+                "items": {
+                    "$ref": "#/types/aws:opensearch/getDomainNodeToNodeEncryption:getDomainNodeToNodeEncryption"
+                },
+                "type": "array"
+            },
+            "offPeakWindowOptions": {
+                "$ref": "#/types/aws:opensearch/getDomainOffPeakWindowOptions:getDomainOffPeakWindowOptions",
+                "description": "Off Peak update options\n"
+            },
+            "processing": {
+                "description": "Status of a configuration change in the domain.\n",
+                "type": "boolean"
+            },
+            "snapshotOptions": {
+                "description": "Domain snapshot related options.\n",
+                "items": {
+                    "$ref": "#/types/aws:opensearch/getDomainSnapshotOption:getDomainSnapshotOption"
+                },
+                "type": "array"
+            },
+            "softwareUpdateOptions": {
+                "description": "Software update options for the domain\n",
+                "items": {
+                    "$ref": "#/types/aws:opensearch/getDomainSoftwareUpdateOption:getDomainSoftwareUpdateOption"
+                },
+                "type": "array"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags assigned to the domain.\n",
+                "type": "object"
+            },
+            "vpcOptions": {
+                "description": "VPC Options for private OpenSearch domains.\n",
+                "items": {
+                    "$ref": "#/types/aws:opensearch/getDomainVpcOption:getDomainVpcOption"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "accessPolicies",
+            "advancedOptions",
+            "advancedSecurityOptions",
+            "arn",
+            "autoTuneOptions",
+            "clusterConfigs",
+            "cognitoOptions",
+            "created",
+            "dashboardEndpoint",
+            "deleted",
+            "domainId",
+            "domainName",
+            "ebsOptions",
+            "encryptionAtRests",
+            "endpoint",
+            "engineVersion",
+            "kibanaEndpoint",
+            "logPublishingOptions",
+            "nodeToNodeEncryptions",
+            "processing",
+            "snapshotOptions",
+            "softwareUpdateOptions",
+            "tags",
+            "vpcOptions",
+            "id"
+        ],
+        "type": "object"
+    }
+}

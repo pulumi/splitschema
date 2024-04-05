@@ -1,0 +1,53 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getSites.\n",
+        "properties": {
+            "globalNetworkId": {
+                "type": "string",
+                "description": "ID of the Global Network of the sites to retrieve.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Restricts the list to the sites with these tags.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "globalNetworkId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getSites.\n",
+        "properties": {
+            "globalNetworkId": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "ids": {
+                "description": "IDs of the sites.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            }
+        },
+        "required": [
+            "globalNetworkId",
+            "ids",
+            "id"
+        ],
+        "type": "object"
+    }
+}

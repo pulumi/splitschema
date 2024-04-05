@@ -1,0 +1,22 @@
+{
+    "properties": {
+        "fieldToMatch": {
+            "$ref": "#/types/aws:wafregional/RegexMatchSetRegexMatchTupleFieldToMatch:RegexMatchSetRegexMatchTupleFieldToMatch",
+            "description": "The part of a web request that you want to search, such as a specified header or a query string.\n"
+        },
+        "regexPatternSetId": {
+            "type": "string",
+            "description": "The ID of a Regex Pattern Set.\n"
+        },
+        "textTransformation": {
+            "type": "string",
+            "description": "Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.\ne.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.\nSee [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)\nfor all supported values.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "fieldToMatch",
+        "regexPatternSetId",
+        "textTransformation"
+    ]
+}

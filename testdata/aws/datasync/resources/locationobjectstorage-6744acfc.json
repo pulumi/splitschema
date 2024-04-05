@@ -1,0 +1,205 @@
+{
+    "properties": {
+        "accessKey": {
+            "type": "string",
+            "description": "The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.\n"
+        },
+        "agentArns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of DataSync Agent ARNs with which this location will be associated.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
+        },
+        "bucketName": {
+            "type": "string",
+            "description": "The bucket on the self-managed object storage server that is used to read data from.\n"
+        },
+        "secretKey": {
+            "type": "string",
+            "description": "The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.\n",
+            "secret": true
+        },
+        "serverCertificate": {
+            "type": "string",
+            "description": "Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).\n"
+        },
+        "serverHostname": {
+            "type": "string",
+            "description": "The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.\n"
+        },
+        "serverPort": {
+            "type": "integer",
+            "description": "The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.\n"
+        },
+        "serverProtocol": {
+            "type": "string",
+            "description": "The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.\n"
+        },
+        "subdirectory": {
+            "type": "string",
+            "description": "A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "uri": {
+            "type": "string",
+            "description": "The URL of the Object Storage location that was described.\n"
+        }
+    },
+    "required": [
+        "agentArns",
+        "arn",
+        "bucketName",
+        "serverHostname",
+        "subdirectory",
+        "tagsAll",
+        "uri"
+    ],
+    "inputProperties": {
+        "accessKey": {
+            "type": "string",
+            "description": "The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.\n"
+        },
+        "agentArns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of DataSync Agent ARNs with which this location will be associated.\n"
+        },
+        "bucketName": {
+            "type": "string",
+            "description": "The bucket on the self-managed object storage server that is used to read data from.\n",
+            "willReplaceOnChanges": true
+        },
+        "secretKey": {
+            "type": "string",
+            "description": "The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.\n",
+            "secret": true
+        },
+        "serverCertificate": {
+            "type": "string",
+            "description": "Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).\n"
+        },
+        "serverHostname": {
+            "type": "string",
+            "description": "The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.\n",
+            "willReplaceOnChanges": true
+        },
+        "serverPort": {
+            "type": "integer",
+            "description": "The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.\n"
+        },
+        "serverProtocol": {
+            "type": "string",
+            "description": "The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.\n"
+        },
+        "subdirectory": {
+            "type": "string",
+            "description": "A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "agentArns",
+        "bucketName",
+        "serverHostname"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering LocationObjectStorage resources.\n",
+        "properties": {
+            "accessKey": {
+                "type": "string",
+                "description": "The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.\n"
+            },
+            "agentArns": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of DataSync Agent ARNs with which this location will be associated.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the DataSync Location.\n"
+            },
+            "bucketName": {
+                "type": "string",
+                "description": "The bucket on the self-managed object storage server that is used to read data from.\n",
+                "willReplaceOnChanges": true
+            },
+            "secretKey": {
+                "type": "string",
+                "description": "The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.\n",
+                "secret": true
+            },
+            "serverCertificate": {
+                "type": "string",
+                "description": "Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).\n"
+            },
+            "serverHostname": {
+                "type": "string",
+                "description": "The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.\n",
+                "willReplaceOnChanges": true
+            },
+            "serverPort": {
+                "type": "integer",
+                "description": "The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.\n"
+            },
+            "serverProtocol": {
+                "type": "string",
+                "description": "The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.\n"
+            },
+            "subdirectory": {
+                "type": "string",
+                "description": "A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "uri": {
+                "type": "string",
+                "description": "The URL of the Object Storage location that was described.\n"
+            }
+        },
+        "type": "object"
+    }
+}

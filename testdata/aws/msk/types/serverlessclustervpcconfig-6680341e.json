@@ -1,0 +1,32 @@
+{
+    "properties": {
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of subnets in at least two different Availability Zones that host your client applications.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "subnetIds"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "securityGroupIds",
+                "subnetIds"
+            ]
+        }
+    }
+}

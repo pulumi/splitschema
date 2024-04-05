@@ -1,0 +1,152 @@
+{
+    "properties": {
+        "description": {
+            "type": "string",
+            "description": "A description for the AWS Verified Access trust provider.\n"
+        },
+        "deviceOptions": {
+            "$ref": "#/types/aws:verifiedaccess/TrustProviderDeviceOptions:TrustProviderDeviceOptions",
+            "description": "A block of options for device identity based trust providers.\n"
+        },
+        "deviceTrustProviderType": {
+            "type": "string",
+            "description": "The type of device-based trust provider.\n"
+        },
+        "oidcOptions": {
+            "$ref": "#/types/aws:verifiedaccess/TrustProviderOidcOptions:TrustProviderOidcOptions",
+            "description": "The OpenID Connect details for an oidc-type, user-identity based trust provider.\n"
+        },
+        "policyReferenceName": {
+            "type": "string",
+            "description": "The identifier to be used when working with policy rules.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "trustProviderType": {
+            "type": "string",
+            "description": "The type of trust provider can be either user or device-based.\n\nThe following arguments are optional:\n"
+        },
+        "userTrustProviderType": {
+            "type": "string",
+            "description": "The type of user-based trust provider.\n"
+        }
+    },
+    "required": [
+        "policyReferenceName",
+        "tagsAll",
+        "trustProviderType"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "A description for the AWS Verified Access trust provider.\n"
+        },
+        "deviceOptions": {
+            "$ref": "#/types/aws:verifiedaccess/TrustProviderDeviceOptions:TrustProviderDeviceOptions",
+            "description": "A block of options for device identity based trust providers.\n",
+            "willReplaceOnChanges": true
+        },
+        "deviceTrustProviderType": {
+            "type": "string",
+            "description": "The type of device-based trust provider.\n",
+            "willReplaceOnChanges": true
+        },
+        "oidcOptions": {
+            "$ref": "#/types/aws:verifiedaccess/TrustProviderOidcOptions:TrustProviderOidcOptions",
+            "description": "The OpenID Connect details for an oidc-type, user-identity based trust provider.\n"
+        },
+        "policyReferenceName": {
+            "type": "string",
+            "description": "The identifier to be used when working with policy rules.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "trustProviderType": {
+            "type": "string",
+            "description": "The type of trust provider can be either user or device-based.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "userTrustProviderType": {
+            "type": "string",
+            "description": "The type of user-based trust provider.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "policyReferenceName",
+        "trustProviderType"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering TrustProvider resources.\n",
+        "properties": {
+            "description": {
+                "type": "string",
+                "description": "A description for the AWS Verified Access trust provider.\n"
+            },
+            "deviceOptions": {
+                "$ref": "#/types/aws:verifiedaccess/TrustProviderDeviceOptions:TrustProviderDeviceOptions",
+                "description": "A block of options for device identity based trust providers.\n",
+                "willReplaceOnChanges": true
+            },
+            "deviceTrustProviderType": {
+                "type": "string",
+                "description": "The type of device-based trust provider.\n",
+                "willReplaceOnChanges": true
+            },
+            "oidcOptions": {
+                "$ref": "#/types/aws:verifiedaccess/TrustProviderOidcOptions:TrustProviderOidcOptions",
+                "description": "The OpenID Connect details for an oidc-type, user-identity based trust provider.\n"
+            },
+            "policyReferenceName": {
+                "type": "string",
+                "description": "The identifier to be used when working with policy rules.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "trustProviderType": {
+                "type": "string",
+                "description": "The type of trust provider can be either user or device-based.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "userTrustProviderType": {
+                "type": "string",
+                "description": "The type of user-based trust provider.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

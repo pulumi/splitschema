@@ -1,0 +1,152 @@
+{
+    "properties": {
+        "clusterIdentifier": {
+            "type": "string",
+            "description": "The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.\n"
+        },
+        "database": {
+            "type": "string",
+            "description": "The name of the database.\n"
+        },
+        "dbUser": {
+            "type": "string",
+            "description": "The database user name.\n"
+        },
+        "parameters": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:redshiftdata/StatementParameter:StatementParameter"
+            }
+        },
+        "secretArn": {
+            "type": "string",
+            "description": "The name or ARN of the secret that enables access to the database.\n"
+        },
+        "sql": {
+            "type": "string",
+            "description": "The SQL statement text to run.\n\nThe following arguments are optional:\n"
+        },
+        "statementName": {
+            "type": "string",
+            "description": "The name of the SQL statement. You can name the SQL statement when you create it to identify the query.\n"
+        },
+        "withEvent": {
+            "type": "boolean",
+            "description": "A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.\n"
+        },
+        "workgroupName": {
+            "type": "string",
+            "description": "The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.\n"
+        }
+    },
+    "required": [
+        "database",
+        "sql"
+    ],
+    "inputProperties": {
+        "clusterIdentifier": {
+            "type": "string",
+            "description": "The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.\n",
+            "willReplaceOnChanges": true
+        },
+        "database": {
+            "type": "string",
+            "description": "The name of the database.\n",
+            "willReplaceOnChanges": true
+        },
+        "dbUser": {
+            "type": "string",
+            "description": "The database user name.\n",
+            "willReplaceOnChanges": true
+        },
+        "parameters": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:redshiftdata/StatementParameter:StatementParameter"
+            },
+            "willReplaceOnChanges": true
+        },
+        "secretArn": {
+            "type": "string",
+            "description": "The name or ARN of the secret that enables access to the database.\n",
+            "willReplaceOnChanges": true
+        },
+        "sql": {
+            "type": "string",
+            "description": "The SQL statement text to run.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "statementName": {
+            "type": "string",
+            "description": "The name of the SQL statement. You can name the SQL statement when you create it to identify the query.\n",
+            "willReplaceOnChanges": true
+        },
+        "withEvent": {
+            "type": "boolean",
+            "description": "A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.\n",
+            "willReplaceOnChanges": true
+        },
+        "workgroupName": {
+            "type": "string",
+            "description": "The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "database",
+        "sql"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Statement resources.\n",
+        "properties": {
+            "clusterIdentifier": {
+                "type": "string",
+                "description": "The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.\n",
+                "willReplaceOnChanges": true
+            },
+            "database": {
+                "type": "string",
+                "description": "The name of the database.\n",
+                "willReplaceOnChanges": true
+            },
+            "dbUser": {
+                "type": "string",
+                "description": "The database user name.\n",
+                "willReplaceOnChanges": true
+            },
+            "parameters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:redshiftdata/StatementParameter:StatementParameter"
+                },
+                "willReplaceOnChanges": true
+            },
+            "secretArn": {
+                "type": "string",
+                "description": "The name or ARN of the secret that enables access to the database.\n",
+                "willReplaceOnChanges": true
+            },
+            "sql": {
+                "type": "string",
+                "description": "The SQL statement text to run.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "statementName": {
+                "type": "string",
+                "description": "The name of the SQL statement. You can name the SQL statement when you create it to identify the query.\n",
+                "willReplaceOnChanges": true
+            },
+            "withEvent": {
+                "type": "boolean",
+                "description": "A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.\n",
+                "willReplaceOnChanges": true
+            },
+            "workgroupName": {
+                "type": "string",
+                "description": "The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

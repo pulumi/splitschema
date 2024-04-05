@@ -1,0 +1,70 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getVpcLink.\n",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.\nIf multiple API Gateway VPC Links are found with this name, an error will be returned.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "name"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getVpcLink.\n",
+        "properties": {
+            "description": {
+                "description": "Description of the VPC link.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "Set to the ID of the found API Gateway VPC Link.\n",
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "status": {
+                "description": "Status of the VPC link.\n",
+                "type": "string"
+            },
+            "statusMessage": {
+                "description": "Status message of the VPC link.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags\n",
+                "type": "object"
+            },
+            "targetArns": {
+                "description": "List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "description",
+            "id",
+            "name",
+            "status",
+            "statusMessage",
+            "tags",
+            "targetArns"
+        ],
+        "type": "object"
+    }
+}

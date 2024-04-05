@@ -1,0 +1,150 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name of the job queue.\n"
+        },
+        "computeEnvironments": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of compute environment ARNs mapped to a job queue.\nThe position of the compute environments in the list will dictate the order.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Specifies the name of the job queue.\n"
+        },
+        "priority": {
+            "type": "integer",
+            "description": "The priority of the job queue. Job queues with a higher priority\nare evaluated first when associated with the same compute environment.\n"
+        },
+        "schedulingPolicyArn": {
+            "type": "string",
+            "description": "The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.\n"
+        },
+        "state": {
+            "type": "string",
+            "description": "The state of the job queue. Must be one of: `ENABLED` or `DISABLED`\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "timeouts": {
+            "$ref": "#/types/aws:batch/JobQueueTimeouts:JobQueueTimeouts"
+        }
+    },
+    "required": [
+        "arn",
+        "computeEnvironments",
+        "name",
+        "priority",
+        "state",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "computeEnvironments": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of compute environment ARNs mapped to a job queue.\nThe position of the compute environments in the list will dictate the order.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Specifies the name of the job queue.\n"
+        },
+        "priority": {
+            "type": "integer",
+            "description": "The priority of the job queue. Job queues with a higher priority\nare evaluated first when associated with the same compute environment.\n"
+        },
+        "schedulingPolicyArn": {
+            "type": "string",
+            "description": "The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.\n"
+        },
+        "state": {
+            "type": "string",
+            "description": "The state of the job queue. Must be one of: `ENABLED` or `DISABLED`\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "timeouts": {
+            "$ref": "#/types/aws:batch/JobQueueTimeouts:JobQueueTimeouts"
+        }
+    },
+    "requiredInputs": [
+        "computeEnvironments",
+        "priority",
+        "state"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering JobQueue resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name of the job queue.\n"
+            },
+            "computeEnvironments": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of compute environment ARNs mapped to a job queue.\nThe position of the compute environments in the list will dictate the order.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Specifies the name of the job queue.\n"
+            },
+            "priority": {
+                "type": "integer",
+                "description": "The priority of the job queue. Job queues with a higher priority\nare evaluated first when associated with the same compute environment.\n"
+            },
+            "schedulingPolicyArn": {
+                "type": "string",
+                "description": "The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.\n"
+            },
+            "state": {
+                "type": "string",
+                "description": "The state of the job queue. Must be one of: `ENABLED` or `DISABLED`\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "timeouts": {
+                "$ref": "#/types/aws:batch/JobQueueTimeouts:JobQueueTimeouts"
+            }
+        },
+        "type": "object"
+    }
+}

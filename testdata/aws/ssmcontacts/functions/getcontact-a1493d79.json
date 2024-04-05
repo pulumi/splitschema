@@ -1,0 +1,62 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getContact.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the contact or escalation plan.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the resource.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "arn"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getContact.\n",
+        "properties": {
+            "alias": {
+                "description": "A unique and identifiable alias of the contact or escalation plan.\n",
+                "type": "string"
+            },
+            "arn": {
+                "type": "string"
+            },
+            "displayName": {
+                "description": "Full friendly name of the contact or escalation plan.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the resource.\n",
+                "type": "object"
+            },
+            "type": {
+                "description": "The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "alias",
+            "arn",
+            "displayName",
+            "tags",
+            "type",
+            "id"
+        ],
+        "type": "object"
+    }
+}

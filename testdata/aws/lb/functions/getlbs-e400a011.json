@@ -1,0 +1,42 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getLbs.\n",
+        "properties": {
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags, each pair of which must exactly match\na pair on the desired Load Balancers.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getLbs.\n",
+        "properties": {
+            "arns": {
+                "description": "Set of Load Balancer ARNs.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            }
+        },
+        "required": [
+            "arns",
+            "id"
+        ],
+        "type": "object"
+    }
+}

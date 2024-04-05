@@ -1,0 +1,43 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getPullThroughCacheRule.\n",
+        "properties": {
+            "ecrRepositoryPrefix": {
+                "type": "string",
+                "description": "The repository name prefix to use when caching images from the source registry.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object",
+        "required": [
+            "ecrRepositoryPrefix"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getPullThroughCacheRule.\n",
+        "properties": {
+            "ecrRepositoryPrefix": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "registryId": {
+                "description": "The registry ID where the repository was created.\n",
+                "type": "string"
+            },
+            "upstreamRegistryUrl": {
+                "description": "The registry URL of the upstream public registry to use as the source.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "ecrRepositoryPrefix",
+            "registryId",
+            "upstreamRegistryUrl",
+            "id"
+        ],
+        "type": "object"
+    }
+}

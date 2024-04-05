@@ -1,0 +1,128 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the framework.\n* `control_sets[*].id` - Unique identifier for the framework control set.\n"
+        },
+        "complianceType": {
+            "type": "string",
+            "description": "Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.\n"
+        },
+        "controlSets": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:auditmanager/FrameworkControlSet:FrameworkControlSet"
+            },
+            "description": "Control sets that are associated with the framework. See `control_sets` below.\n\nThe following arguments are optional:\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the framework.\n"
+        },
+        "frameworkType": {
+            "type": "string",
+            "description": "Framework type, such as a custom framework or a standard framework.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the framework.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "frameworkType",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "complianceType": {
+            "type": "string",
+            "description": "Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.\n"
+        },
+        "controlSets": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:auditmanager/FrameworkControlSet:FrameworkControlSet"
+            },
+            "description": "Control sets that are associated with the framework. See `control_sets` below.\n\nThe following arguments are optional:\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the framework.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the framework.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Framework resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the framework.\n* `control_sets[*].id` - Unique identifier for the framework control set.\n"
+            },
+            "complianceType": {
+                "type": "string",
+                "description": "Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.\n"
+            },
+            "controlSets": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:auditmanager/FrameworkControlSet:FrameworkControlSet"
+                },
+                "description": "Control sets that are associated with the framework. See `control_sets` below.\n\nThe following arguments are optional:\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the framework.\n"
+            },
+            "frameworkType": {
+                "type": "string",
+                "description": "Framework type, such as a custom framework or a standard framework.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the framework.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

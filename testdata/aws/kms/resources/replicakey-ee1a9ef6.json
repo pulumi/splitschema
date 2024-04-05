@@ -1,0 +1,178 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.\n"
+        },
+        "bypassPolicyLockoutSafetyCheck": {
+            "type": "boolean",
+            "description": "A flag to indicate whether to bypass the key policy lockout safety check.\nSetting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.\nFor more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.\nThe default value is `false`.\n"
+        },
+        "deletionWindowInDays": {
+            "type": "integer",
+            "description": "The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.\nIf you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description of the KMS key.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.\n"
+        },
+        "keyId": {
+            "type": "string",
+            "description": "The key ID of the replica key. Related multi-Region keys have the same key ID.\n"
+        },
+        "keyRotationEnabled": {
+            "type": "boolean",
+            "description": "A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.\n"
+        },
+        "keySpec": {
+            "type": "string",
+            "description": "The type of key material in the KMS key. This is a shared property of multi-Region keys.\n"
+        },
+        "keyUsage": {
+            "type": "string",
+            "description": "The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.\n"
+        },
+        "policy": {
+            "type": "string",
+            "description": "The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.\n"
+        },
+        "primaryKeyArn": {
+            "type": "string",
+            "description": "The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "keyId",
+        "keyRotationEnabled",
+        "keySpec",
+        "keyUsage",
+        "policy",
+        "primaryKeyArn",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "bypassPolicyLockoutSafetyCheck": {
+            "type": "boolean",
+            "description": "A flag to indicate whether to bypass the key policy lockout safety check.\nSetting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.\nFor more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.\nThe default value is `false`.\n"
+        },
+        "deletionWindowInDays": {
+            "type": "integer",
+            "description": "The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.\nIf you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description of the KMS key.\n"
+        },
+        "enabled": {
+            "type": "boolean",
+            "description": "Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.\n"
+        },
+        "policy": {
+            "type": "string",
+            "description": "The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.\n"
+        },
+        "primaryKeyArn": {
+            "type": "string",
+            "description": "The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "primaryKeyArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ReplicaKey resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.\n"
+            },
+            "bypassPolicyLockoutSafetyCheck": {
+                "type": "boolean",
+                "description": "A flag to indicate whether to bypass the key policy lockout safety check.\nSetting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.\nFor more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.\nThe default value is `false`.\n"
+            },
+            "deletionWindowInDays": {
+                "type": "integer",
+                "description": "The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.\nIf you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A description of the KMS key.\n"
+            },
+            "enabled": {
+                "type": "boolean",
+                "description": "Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.\n"
+            },
+            "keyId": {
+                "type": "string",
+                "description": "The key ID of the replica key. Related multi-Region keys have the same key ID.\n"
+            },
+            "keyRotationEnabled": {
+                "type": "boolean",
+                "description": "A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.\n"
+            },
+            "keySpec": {
+                "type": "string",
+                "description": "The type of key material in the KMS key. This is a shared property of multi-Region keys.\n"
+            },
+            "keyUsage": {
+                "type": "string",
+                "description": "The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.\n"
+            },
+            "policy": {
+                "type": "string",
+                "description": "The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.\n"
+            },
+            "primaryKeyArn": {
+                "type": "string",
+                "description": "The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

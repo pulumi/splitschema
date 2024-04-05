@@ -1,0 +1,50 @@
+{
+    "properties": {
+        "availabilityZone": {
+            "type": "string",
+            "description": "The availability zone in which to place the request.\n",
+            "willReplaceOnChanges": true
+        },
+        "instanceRequirements": {
+            "$ref": "#/types/aws:ec2/SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements:SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements",
+            "description": "The instance requirements. See below.\n",
+            "willReplaceOnChanges": true
+        },
+        "instanceType": {
+            "type": "string",
+            "description": "The type of instance to request.\n",
+            "willReplaceOnChanges": true
+        },
+        "priority": {
+            "type": "number",
+            "description": "The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.\n",
+            "willReplaceOnChanges": true
+        },
+        "spotPrice": {
+            "type": "string",
+            "description": "The maximum spot bid for this override request.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetId": {
+            "type": "string",
+            "description": "The subnet in which to launch the requested instance.\n",
+            "willReplaceOnChanges": true
+        },
+        "weightedCapacity": {
+            "type": "number",
+            "description": "The capacity added to the fleet by a fulfilled request.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "priority",
+                "spotPrice",
+                "subnetId",
+                "weightedCapacity"
+            ]
+        }
+    }
+}

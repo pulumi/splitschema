@@ -1,0 +1,36 @@
+{
+    "properties": {
+        "ipAddressType": {
+            "type": "string",
+            "description": "IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.\n",
+            "willReplaceOnChanges": true
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.\n* `subnet_ids `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "willReplaceOnChanges": true
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "Identifier of the VPC endpoint\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "ipAddressType",
+        "securityGroupIds",
+        "subnetIds",
+        "vpcId"
+    ]
+}

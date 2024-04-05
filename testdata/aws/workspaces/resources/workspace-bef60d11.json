@@ -1,0 +1,186 @@
+{
+    "properties": {
+        "bundleId": {
+            "type": "string",
+            "description": "The ID of the bundle for the WorkSpace.\n"
+        },
+        "computerName": {
+            "type": "string",
+            "description": "The name of the WorkSpace, as seen by the operating system.\n"
+        },
+        "directoryId": {
+            "type": "string",
+            "description": "The ID of the directory for the WorkSpace.\n"
+        },
+        "ipAddress": {
+            "type": "string",
+            "description": "The IP address of the WorkSpace.\n"
+        },
+        "rootVolumeEncryptionEnabled": {
+            "type": "boolean",
+            "description": "Indicates whether the data stored on the root volume is encrypted.\n"
+        },
+        "state": {
+            "type": "string",
+            "description": "The operational state of the WorkSpace.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "userName": {
+            "type": "string",
+            "description": "The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.\n"
+        },
+        "userVolumeEncryptionEnabled": {
+            "type": "boolean",
+            "description": "Indicates whether the data stored on the user volume is encrypted.\n"
+        },
+        "volumeEncryptionKey": {
+            "type": "string",
+            "description": "The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.\n"
+        },
+        "workspaceProperties": {
+            "$ref": "#/types/aws:workspaces/WorkspaceWorkspaceProperties:WorkspaceWorkspaceProperties",
+            "description": "The WorkSpace properties.\n"
+        }
+    },
+    "required": [
+        "bundleId",
+        "computerName",
+        "directoryId",
+        "ipAddress",
+        "state",
+        "tagsAll",
+        "userName",
+        "workspaceProperties"
+    ],
+    "inputProperties": {
+        "bundleId": {
+            "type": "string",
+            "description": "The ID of the bundle for the WorkSpace.\n",
+            "willReplaceOnChanges": true
+        },
+        "directoryId": {
+            "type": "string",
+            "description": "The ID of the directory for the WorkSpace.\n",
+            "willReplaceOnChanges": true
+        },
+        "rootVolumeEncryptionEnabled": {
+            "type": "boolean",
+            "description": "Indicates whether the data stored on the root volume is encrypted.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "userName": {
+            "type": "string",
+            "description": "The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.\n",
+            "willReplaceOnChanges": true
+        },
+        "userVolumeEncryptionEnabled": {
+            "type": "boolean",
+            "description": "Indicates whether the data stored on the user volume is encrypted.\n",
+            "willReplaceOnChanges": true
+        },
+        "volumeEncryptionKey": {
+            "type": "string",
+            "description": "The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.\n",
+            "willReplaceOnChanges": true
+        },
+        "workspaceProperties": {
+            "$ref": "#/types/aws:workspaces/WorkspaceWorkspaceProperties:WorkspaceWorkspaceProperties",
+            "description": "The WorkSpace properties.\n"
+        }
+    },
+    "requiredInputs": [
+        "bundleId",
+        "directoryId",
+        "userName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Workspace resources.\n",
+        "properties": {
+            "bundleId": {
+                "type": "string",
+                "description": "The ID of the bundle for the WorkSpace.\n",
+                "willReplaceOnChanges": true
+            },
+            "computerName": {
+                "type": "string",
+                "description": "The name of the WorkSpace, as seen by the operating system.\n"
+            },
+            "directoryId": {
+                "type": "string",
+                "description": "The ID of the directory for the WorkSpace.\n",
+                "willReplaceOnChanges": true
+            },
+            "ipAddress": {
+                "type": "string",
+                "description": "The IP address of the WorkSpace.\n"
+            },
+            "rootVolumeEncryptionEnabled": {
+                "type": "boolean",
+                "description": "Indicates whether the data stored on the root volume is encrypted.\n",
+                "willReplaceOnChanges": true
+            },
+            "state": {
+                "type": "string",
+                "description": "The operational state of the WorkSpace.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "userName": {
+                "type": "string",
+                "description": "The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.\n",
+                "willReplaceOnChanges": true
+            },
+            "userVolumeEncryptionEnabled": {
+                "type": "boolean",
+                "description": "Indicates whether the data stored on the user volume is encrypted.\n",
+                "willReplaceOnChanges": true
+            },
+            "volumeEncryptionKey": {
+                "type": "string",
+                "description": "The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.\n",
+                "willReplaceOnChanges": true
+            },
+            "workspaceProperties": {
+                "$ref": "#/types/aws:workspaces/WorkspaceWorkspaceProperties:WorkspaceWorkspaceProperties",
+                "description": "The WorkSpace properties.\n"
+            }
+        },
+        "type": "object"
+    }
+}

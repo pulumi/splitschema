@@ -1,0 +1,24 @@
+{
+    "properties": {
+        "enableOnlineStore": {
+            "type": "boolean",
+            "description": "Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.\n",
+            "willReplaceOnChanges": true
+        },
+        "securityConfig": {
+            "$ref": "#/types/aws:sagemaker/FeatureGroupOnlineStoreConfigSecurityConfig:FeatureGroupOnlineStoreConfigSecurityConfig",
+            "description": "Security config for at-rest encryption of your OnlineStore. See Security Config Below.\n",
+            "willReplaceOnChanges": true
+        },
+        "storageType": {
+            "type": "string",
+            "description": "Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.\n",
+            "willReplaceOnChanges": true
+        },
+        "ttlDuration": {
+            "$ref": "#/types/aws:sagemaker/FeatureGroupOnlineStoreConfigTtlDuration:FeatureGroupOnlineStoreConfigTtlDuration",
+            "description": "Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.\n"
+        }
+    },
+    "type": "object"
+}

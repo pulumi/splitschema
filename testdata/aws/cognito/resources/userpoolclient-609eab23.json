@@ -1,0 +1,383 @@
+{
+    "properties": {
+        "accessTokenValidity": {
+            "type": "integer",
+            "description": "Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.\nBy default, the unit is hours.\nThe unit can be overridden by a value in `token_validity_units.access_token`.\n"
+        },
+        "allowedOauthFlows": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of allowed OAuth flows (code, implicit, client_credentials).\n"
+        },
+        "allowedOauthFlowsUserPoolClient": {
+            "type": "boolean",
+            "description": "Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.\n"
+        },
+        "allowedOauthScopes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).\n"
+        },
+        "analyticsConfiguration": {
+            "$ref": "#/types/aws:cognito/UserPoolClientAnalyticsConfiguration:UserPoolClientAnalyticsConfiguration",
+            "description": "Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.\n"
+        },
+        "authSessionValidity": {
+            "type": "integer",
+            "description": "Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.\n"
+        },
+        "callbackUrls": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of allowed callback URLs for the identity providers.\n"
+        },
+        "clientSecret": {
+            "type": "string",
+            "description": "Client secret of the user pool client.\n",
+            "secret": true
+        },
+        "defaultRedirectUri": {
+            "type": "string",
+            "description": "Default redirect URI. Must be in the list of callback URLs.\n"
+        },
+        "enablePropagateAdditionalUserContextData": {
+            "type": "boolean",
+            "description": "Activates the propagation of additional user context data.\n"
+        },
+        "enableTokenRevocation": {
+            "type": "boolean",
+            "description": "Enables or disables token revocation.\n"
+        },
+        "explicitAuthFlows": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).\n"
+        },
+        "generateSecret": {
+            "type": "boolean",
+            "description": "Should an application secret be generated.\n"
+        },
+        "idTokenValidity": {
+            "type": "integer",
+            "description": "Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.\nBy default, the unit is hours.\nThe unit can be overridden by a value in `token_validity_units.id_token`.\n"
+        },
+        "logoutUrls": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of allowed logout URLs for the identity providers.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the application client.\n"
+        },
+        "preventUserExistenceErrors": {
+            "type": "string",
+            "description": "Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.\n"
+        },
+        "readAttributes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of user pool attributes the application client can read from.\n"
+        },
+        "refreshTokenValidity": {
+            "type": "integer",
+            "description": "Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.\nBy default, the unit is days.\nThe unit can be overridden by a value in `token_validity_units.refresh_token`.\n"
+        },
+        "supportedIdentityProviders": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).\n"
+        },
+        "tokenValidityUnits": {
+            "$ref": "#/types/aws:cognito/UserPoolClientTokenValidityUnits:UserPoolClientTokenValidityUnits",
+            "description": "Configuration block for units in which the validity times are represented in. Detailed below.\n"
+        },
+        "userPoolId": {
+            "type": "string",
+            "description": "User pool the client belongs to.\n\nThe following arguments are optional:\n"
+        },
+        "writeAttributes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of user pool attributes the application client can write to.\n"
+        }
+    },
+    "required": [
+        "accessTokenValidity",
+        "allowedOauthFlows",
+        "allowedOauthFlowsUserPoolClient",
+        "allowedOauthScopes",
+        "authSessionValidity",
+        "callbackUrls",
+        "clientSecret",
+        "defaultRedirectUri",
+        "enablePropagateAdditionalUserContextData",
+        "enableTokenRevocation",
+        "explicitAuthFlows",
+        "idTokenValidity",
+        "logoutUrls",
+        "name",
+        "preventUserExistenceErrors",
+        "readAttributes",
+        "refreshTokenValidity",
+        "supportedIdentityProviders",
+        "userPoolId",
+        "writeAttributes"
+    ],
+    "inputProperties": {
+        "accessTokenValidity": {
+            "type": "integer",
+            "description": "Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.\nBy default, the unit is hours.\nThe unit can be overridden by a value in `token_validity_units.access_token`.\n"
+        },
+        "allowedOauthFlows": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of allowed OAuth flows (code, implicit, client_credentials).\n"
+        },
+        "allowedOauthFlowsUserPoolClient": {
+            "type": "boolean",
+            "description": "Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.\n"
+        },
+        "allowedOauthScopes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).\n"
+        },
+        "analyticsConfiguration": {
+            "$ref": "#/types/aws:cognito/UserPoolClientAnalyticsConfiguration:UserPoolClientAnalyticsConfiguration",
+            "description": "Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.\n"
+        },
+        "authSessionValidity": {
+            "type": "integer",
+            "description": "Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.\n"
+        },
+        "callbackUrls": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of allowed callback URLs for the identity providers.\n"
+        },
+        "defaultRedirectUri": {
+            "type": "string",
+            "description": "Default redirect URI. Must be in the list of callback URLs.\n"
+        },
+        "enablePropagateAdditionalUserContextData": {
+            "type": "boolean",
+            "description": "Activates the propagation of additional user context data.\n"
+        },
+        "enableTokenRevocation": {
+            "type": "boolean",
+            "description": "Enables or disables token revocation.\n"
+        },
+        "explicitAuthFlows": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).\n"
+        },
+        "generateSecret": {
+            "type": "boolean",
+            "description": "Should an application secret be generated.\n"
+        },
+        "idTokenValidity": {
+            "type": "integer",
+            "description": "Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.\nBy default, the unit is hours.\nThe unit can be overridden by a value in `token_validity_units.id_token`.\n"
+        },
+        "logoutUrls": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of allowed logout URLs for the identity providers.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the application client.\n"
+        },
+        "preventUserExistenceErrors": {
+            "type": "string",
+            "description": "Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.\n"
+        },
+        "readAttributes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of user pool attributes the application client can read from.\n"
+        },
+        "refreshTokenValidity": {
+            "type": "integer",
+            "description": "Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.\nBy default, the unit is days.\nThe unit can be overridden by a value in `token_validity_units.refresh_token`.\n"
+        },
+        "supportedIdentityProviders": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).\n"
+        },
+        "tokenValidityUnits": {
+            "$ref": "#/types/aws:cognito/UserPoolClientTokenValidityUnits:UserPoolClientTokenValidityUnits",
+            "description": "Configuration block for units in which the validity times are represented in. Detailed below.\n"
+        },
+        "userPoolId": {
+            "type": "string",
+            "description": "User pool the client belongs to.\n\nThe following arguments are optional:\n"
+        },
+        "writeAttributes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of user pool attributes the application client can write to.\n"
+        }
+    },
+    "requiredInputs": [
+        "userPoolId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering UserPoolClient resources.\n",
+        "properties": {
+            "accessTokenValidity": {
+                "type": "integer",
+                "description": "Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.\nBy default, the unit is hours.\nThe unit can be overridden by a value in `token_validity_units.access_token`.\n"
+            },
+            "allowedOauthFlows": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of allowed OAuth flows (code, implicit, client_credentials).\n"
+            },
+            "allowedOauthFlowsUserPoolClient": {
+                "type": "boolean",
+                "description": "Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.\n"
+            },
+            "allowedOauthScopes": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).\n"
+            },
+            "analyticsConfiguration": {
+                "$ref": "#/types/aws:cognito/UserPoolClientAnalyticsConfiguration:UserPoolClientAnalyticsConfiguration",
+                "description": "Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.\n"
+            },
+            "authSessionValidity": {
+                "type": "integer",
+                "description": "Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.\n"
+            },
+            "callbackUrls": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of allowed callback URLs for the identity providers.\n"
+            },
+            "clientSecret": {
+                "type": "string",
+                "description": "Client secret of the user pool client.\n",
+                "secret": true
+            },
+            "defaultRedirectUri": {
+                "type": "string",
+                "description": "Default redirect URI. Must be in the list of callback URLs.\n"
+            },
+            "enablePropagateAdditionalUserContextData": {
+                "type": "boolean",
+                "description": "Activates the propagation of additional user context data.\n"
+            },
+            "enableTokenRevocation": {
+                "type": "boolean",
+                "description": "Enables or disables token revocation.\n"
+            },
+            "explicitAuthFlows": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).\n"
+            },
+            "generateSecret": {
+                "type": "boolean",
+                "description": "Should an application secret be generated.\n"
+            },
+            "idTokenValidity": {
+                "type": "integer",
+                "description": "Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.\nBy default, the unit is hours.\nThe unit can be overridden by a value in `token_validity_units.id_token`.\n"
+            },
+            "logoutUrls": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of allowed logout URLs for the identity providers.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the application client.\n"
+            },
+            "preventUserExistenceErrors": {
+                "type": "string",
+                "description": "Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.\n"
+            },
+            "readAttributes": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of user pool attributes the application client can read from.\n"
+            },
+            "refreshTokenValidity": {
+                "type": "integer",
+                "description": "Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.\nBy default, the unit is days.\nThe unit can be overridden by a value in `token_validity_units.refresh_token`.\n"
+            },
+            "supportedIdentityProviders": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).\n"
+            },
+            "tokenValidityUnits": {
+                "$ref": "#/types/aws:cognito/UserPoolClientTokenValidityUnits:UserPoolClientTokenValidityUnits",
+                "description": "Configuration block for units in which the validity times are represented in. Detailed below.\n"
+            },
+            "userPoolId": {
+                "type": "string",
+                "description": "User pool the client belongs to.\n\nThe following arguments are optional:\n"
+            },
+            "writeAttributes": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of user pool attributes the application client can write to.\n"
+            }
+        },
+        "type": "object"
+    }
+}

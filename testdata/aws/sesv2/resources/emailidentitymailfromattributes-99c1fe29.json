@@ -1,0 +1,56 @@
+{
+    "properties": {
+        "behaviorOnMxFailure": {
+            "type": "string",
+            "description": "The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.\n"
+        },
+        "emailIdentity": {
+            "type": "string",
+            "description": "The verified email identity.\n"
+        },
+        "mailFromDomain": {
+            "type": "string",
+            "description": "The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.\n"
+        }
+    },
+    "required": [
+        "emailIdentity"
+    ],
+    "inputProperties": {
+        "behaviorOnMxFailure": {
+            "type": "string",
+            "description": "The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.\n"
+        },
+        "emailIdentity": {
+            "type": "string",
+            "description": "The verified email identity.\n",
+            "willReplaceOnChanges": true
+        },
+        "mailFromDomain": {
+            "type": "string",
+            "description": "The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.\n"
+        }
+    },
+    "requiredInputs": [
+        "emailIdentity"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering EmailIdentityMailFromAttributes resources.\n",
+        "properties": {
+            "behaviorOnMxFailure": {
+                "type": "string",
+                "description": "The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.\n"
+            },
+            "emailIdentity": {
+                "type": "string",
+                "description": "The verified email identity.\n",
+                "willReplaceOnChanges": true
+            },
+            "mailFromDomain": {
+                "type": "string",
+                "description": "The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.\n"
+            }
+        },
+        "type": "object"
+    }
+}

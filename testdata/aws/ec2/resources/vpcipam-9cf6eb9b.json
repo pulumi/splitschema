@@ -1,0 +1,157 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of IPAM\n"
+        },
+        "cascade": {
+            "type": "boolean",
+            "description": "Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.\n"
+        },
+        "defaultResourceDiscoveryAssociationId": {
+            "type": "string",
+            "description": "The IPAM's default resource discovery association ID.\n"
+        },
+        "defaultResourceDiscoveryId": {
+            "type": "string",
+            "description": "The IPAM's default resource discovery ID.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description for the IPAM.\n"
+        },
+        "operatingRegions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/VpcIpamOperatingRegion:VpcIpamOperatingRegion"
+            },
+            "description": "Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.\n"
+        },
+        "privateDefaultScopeId": {
+            "type": "string",
+            "description": "The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.\n"
+        },
+        "publicDefaultScopeId": {
+            "type": "string",
+            "description": "The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private\nIP space. The public scope is intended for all internet-routable IP space.\n"
+        },
+        "scopeCount": {
+            "type": "integer",
+            "description": "The number of scopes in the IPAM.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "defaultResourceDiscoveryAssociationId",
+        "defaultResourceDiscoveryId",
+        "operatingRegions",
+        "privateDefaultScopeId",
+        "publicDefaultScopeId",
+        "scopeCount",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "cascade": {
+            "type": "boolean",
+            "description": "Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description for the IPAM.\n"
+        },
+        "operatingRegions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:ec2/VpcIpamOperatingRegion:VpcIpamOperatingRegion"
+            },
+            "description": "Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "operatingRegions"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering VpcIpam resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of IPAM\n"
+            },
+            "cascade": {
+                "type": "boolean",
+                "description": "Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.\n"
+            },
+            "defaultResourceDiscoveryAssociationId": {
+                "type": "string",
+                "description": "The IPAM's default resource discovery association ID.\n"
+            },
+            "defaultResourceDiscoveryId": {
+                "type": "string",
+                "description": "The IPAM's default resource discovery ID.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "A description for the IPAM.\n"
+            },
+            "operatingRegions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/VpcIpamOperatingRegion:VpcIpamOperatingRegion"
+                },
+                "description": "Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.\n"
+            },
+            "privateDefaultScopeId": {
+                "type": "string",
+                "description": "The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.\n"
+            },
+            "publicDefaultScopeId": {
+                "type": "string",
+                "description": "The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private\nIP space. The public scope is intended for all internet-routable IP space.\n"
+            },
+            "scopeCount": {
+                "type": "integer",
+                "description": "The number of scopes in the IPAM.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

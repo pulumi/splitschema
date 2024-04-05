@@ -1,0 +1,134 @@
+{
+    "properties": {
+        "address": {
+            "type": "string",
+            "description": "The DNS address of the endpoint.\n"
+        },
+        "clusterIdentifier": {
+            "type": "string",
+            "description": "The cluster identifier of the cluster to access.\n"
+        },
+        "endpointName": {
+            "type": "string",
+            "description": "The Redshift-managed VPC endpoint name.\n"
+        },
+        "port": {
+            "type": "integer",
+            "description": "The port number on which the cluster accepts incoming connections.\n"
+        },
+        "resourceOwner": {
+            "type": "string",
+            "description": "The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.\n"
+        },
+        "subnetGroupName": {
+            "type": "string",
+            "description": "The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.\n"
+        },
+        "vpcEndpoints": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:redshift/EndpointAccessVpcEndpoint:EndpointAccessVpcEndpoint"
+            },
+            "description": "The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.\n"
+        },
+        "vpcSecurityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.\n"
+        }
+    },
+    "required": [
+        "address",
+        "clusterIdentifier",
+        "endpointName",
+        "port",
+        "resourceOwner",
+        "subnetGroupName",
+        "vpcEndpoints",
+        "vpcSecurityGroupIds"
+    ],
+    "inputProperties": {
+        "clusterIdentifier": {
+            "type": "string",
+            "description": "The cluster identifier of the cluster to access.\n",
+            "willReplaceOnChanges": true
+        },
+        "endpointName": {
+            "type": "string",
+            "description": "The Redshift-managed VPC endpoint name.\n",
+            "willReplaceOnChanges": true
+        },
+        "resourceOwner": {
+            "type": "string",
+            "description": "The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetGroupName": {
+            "type": "string",
+            "description": "The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.\n",
+            "willReplaceOnChanges": true
+        },
+        "vpcSecurityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.\n"
+        }
+    },
+    "requiredInputs": [
+        "clusterIdentifier",
+        "endpointName",
+        "subnetGroupName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering EndpointAccess resources.\n",
+        "properties": {
+            "address": {
+                "type": "string",
+                "description": "The DNS address of the endpoint.\n"
+            },
+            "clusterIdentifier": {
+                "type": "string",
+                "description": "The cluster identifier of the cluster to access.\n",
+                "willReplaceOnChanges": true
+            },
+            "endpointName": {
+                "type": "string",
+                "description": "The Redshift-managed VPC endpoint name.\n",
+                "willReplaceOnChanges": true
+            },
+            "port": {
+                "type": "integer",
+                "description": "The port number on which the cluster accepts incoming connections.\n"
+            },
+            "resourceOwner": {
+                "type": "string",
+                "description": "The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.\n",
+                "willReplaceOnChanges": true
+            },
+            "subnetGroupName": {
+                "type": "string",
+                "description": "The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.\n",
+                "willReplaceOnChanges": true
+            },
+            "vpcEndpoints": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:redshift/EndpointAccessVpcEndpoint:EndpointAccessVpcEndpoint"
+                },
+                "description": "The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.\n"
+            },
+            "vpcSecurityGroupIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.\n"
+            }
+        },
+        "type": "object"
+    }
+}

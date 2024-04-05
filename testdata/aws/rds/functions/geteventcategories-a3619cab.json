@@ -1,0 +1,36 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getEventCategories.\n",
+        "properties": {
+            "sourceType": {
+                "type": "string",
+                "description": "Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getEventCategories.\n",
+        "properties": {
+            "eventCategories": {
+                "description": "List of the event categories.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "sourceType": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "eventCategories",
+            "id"
+        ],
+        "type": "object"
+    }
+}

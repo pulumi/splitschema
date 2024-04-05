@@ -1,0 +1,78 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getNamespace.\n",
+        "properties": {
+            "namespaceName": {
+                "type": "string",
+                "description": "The name of the namespace.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "namespaceName"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getNamespace.\n",
+        "properties": {
+            "adminUsername": {
+                "description": "The username of the administrator for the first database created in the namespace.\n",
+                "type": "string"
+            },
+            "arn": {
+                "description": "Amazon Resource Name (ARN) of the Redshift Serverless Namespace.\n",
+                "type": "string"
+            },
+            "dbName": {
+                "description": "The name of the first database created in the namespace.\n",
+                "type": "string"
+            },
+            "defaultIamRoleArn": {
+                "description": "The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.\n",
+                "type": "string"
+            },
+            "iamRoles": {
+                "description": "A list of IAM roles to associate with the namespace.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "kmsKeyId": {
+                "description": "The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.\n",
+                "type": "string"
+            },
+            "logExports": {
+                "description": "The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "namespaceId": {
+                "description": "The Redshift Namespace ID.\n",
+                "type": "string"
+            },
+            "namespaceName": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "adminUsername",
+            "arn",
+            "dbName",
+            "defaultIamRoleArn",
+            "iamRoles",
+            "kmsKeyId",
+            "logExports",
+            "namespaceId",
+            "namespaceName",
+            "id"
+        ],
+        "type": "object"
+    }
+}

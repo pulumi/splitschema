@@ -1,0 +1,126 @@
+{
+    "properties": {
+        "protocol": {
+            "type": "string",
+            "description": "The tunnel protocol. Valid values: `gre`. Default is `gre`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "transitGatewayDefaultRouteTableAssociation": {
+            "type": "boolean",
+            "description": "Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.\n"
+        },
+        "transitGatewayDefaultRouteTablePropagation": {
+            "type": "boolean",
+            "description": "Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.\n"
+        },
+        "transitGatewayId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway.\n"
+        },
+        "transportAttachmentId": {
+            "type": "string",
+            "description": "The underlaying VPC attachment\n"
+        }
+    },
+    "required": [
+        "tagsAll",
+        "transitGatewayId",
+        "transportAttachmentId"
+    ],
+    "inputProperties": {
+        "protocol": {
+            "type": "string",
+            "description": "The tunnel protocol. Valid values: `gre`. Default is `gre`.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "transitGatewayDefaultRouteTableAssociation": {
+            "type": "boolean",
+            "description": "Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.\n"
+        },
+        "transitGatewayDefaultRouteTablePropagation": {
+            "type": "boolean",
+            "description": "Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.\n"
+        },
+        "transitGatewayId": {
+            "type": "string",
+            "description": "Identifier of EC2 Transit Gateway.\n",
+            "willReplaceOnChanges": true
+        },
+        "transportAttachmentId": {
+            "type": "string",
+            "description": "The underlaying VPC attachment\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "transitGatewayId",
+        "transportAttachmentId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Connect resources.\n",
+        "properties": {
+            "protocol": {
+                "type": "string",
+                "description": "The tunnel protocol. Valid values: `gre`. Default is `gre`.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "transitGatewayDefaultRouteTableAssociation": {
+                "type": "boolean",
+                "description": "Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.\n"
+            },
+            "transitGatewayDefaultRouteTablePropagation": {
+                "type": "boolean",
+                "description": "Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.\n"
+            },
+            "transitGatewayId": {
+                "type": "string",
+                "description": "Identifier of EC2 Transit Gateway.\n",
+                "willReplaceOnChanges": true
+            },
+            "transportAttachmentId": {
+                "type": "string",
+                "description": "The underlaying VPC attachment\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

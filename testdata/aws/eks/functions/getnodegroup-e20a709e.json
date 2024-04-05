@@ -1,0 +1,160 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getNodeGroup.\n",
+        "properties": {
+            "clusterName": {
+                "type": "string",
+                "description": "Name of the cluster.\n"
+            },
+            "nodeGroupName": {
+                "type": "string",
+                "description": "Name of the node group.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "clusterName",
+            "nodeGroupName"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getNodeGroup.\n",
+        "properties": {
+            "amiType": {
+                "description": "Type of Amazon Machine Image (AMI) associated with the EKS Node Group.\n",
+                "type": "string"
+            },
+            "arn": {
+                "description": "ARN of the EKS Node Group.\n",
+                "type": "string"
+            },
+            "capacityType": {
+                "description": "Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.\n",
+                "type": "string"
+            },
+            "clusterName": {
+                "type": "string"
+            },
+            "diskSize": {
+                "description": "Disk size in GiB for worker nodes.\n",
+                "type": "integer"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "instanceTypes": {
+                "description": "Set of instance types associated with the EKS Node Group.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "labels": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.\n",
+                "type": "object"
+            },
+            "launchTemplates": {
+                "description": "Nested attribute containing information about the launch template used to create the EKS Node Group.\n",
+                "items": {
+                    "$ref": "#/types/aws:eks/getNodeGroupLaunchTemplate:getNodeGroupLaunchTemplate"
+                },
+                "type": "array"
+            },
+            "nodeGroupName": {
+                "type": "string"
+            },
+            "nodeRoleArn": {
+                "description": "ARN of the IAM Role that provides permissions for the EKS Node Group.\n",
+                "type": "string"
+            },
+            "releaseVersion": {
+                "description": "AMI version of the EKS Node Group.\n",
+                "type": "string"
+            },
+            "remoteAccesses": {
+                "description": "Configuration block with remote access settings.\n",
+                "items": {
+                    "$ref": "#/types/aws:eks/getNodeGroupRemoteAccess:getNodeGroupRemoteAccess"
+                },
+                "type": "array"
+            },
+            "resources": {
+                "description": "List of objects containing information about underlying resources.\n",
+                "items": {
+                    "$ref": "#/types/aws:eks/getNodeGroupResource:getNodeGroupResource"
+                },
+                "type": "array"
+            },
+            "scalingConfigs": {
+                "description": "Configuration block with scaling settings.\n",
+                "items": {
+                    "$ref": "#/types/aws:eks/getNodeGroupScalingConfig:getNodeGroupScalingConfig"
+                },
+                "type": "array"
+            },
+            "status": {
+                "description": "Status of the EKS Node Group.\n",
+                "type": "string"
+            },
+            "subnetIds": {
+                "description": "Identifiers of EC2 Subnets to associate with the EKS Node Group.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags.\n",
+                "type": "object"
+            },
+            "taints": {
+                "description": "List of objects containing information about taints applied to the nodes in the EKS Node Group.\n",
+                "items": {
+                    "$ref": "#/types/aws:eks/getNodeGroupTaint:getNodeGroupTaint"
+                },
+                "type": "array"
+            },
+            "version": {
+                "description": "Kubernetes version.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "amiType",
+            "arn",
+            "capacityType",
+            "clusterName",
+            "diskSize",
+            "instanceTypes",
+            "labels",
+            "launchTemplates",
+            "nodeGroupName",
+            "nodeRoleArn",
+            "releaseVersion",
+            "remoteAccesses",
+            "resources",
+            "scalingConfigs",
+            "status",
+            "subnetIds",
+            "tags",
+            "taints",
+            "version",
+            "id"
+        ],
+        "type": "object"
+    }
+}

@@ -1,0 +1,160 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getSnapshot.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ebs/getSnapshotFilter:getSnapshotFilter"
+                },
+                "description": "One or more name/value pairs to filter off of. There are\nseveral valid keys, for a full reference, check out\n[describe-snapshots in the AWS CLI reference][1].\n"
+            },
+            "mostRecent": {
+                "type": "boolean",
+                "description": "If more than one result is returned, use the most recent snapshot.\n"
+            },
+            "owners": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Returns the snapshots owned by the specified owner id. Multiple owners can be specified.\n"
+            },
+            "restorableByUserIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "One or more AWS accounts IDs that can create volumes from the snapshot.\n"
+            },
+            "snapshotIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Returns information on a specific snapshot_id.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags for the resource.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getSnapshot.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the EBS Snapshot.\n",
+                "type": "string"
+            },
+            "dataEncryptionKeyId": {
+                "description": "The data encryption key identifier for the snapshot.\n",
+                "type": "string"
+            },
+            "description": {
+                "description": "Description for the snapshot\n",
+                "type": "string"
+            },
+            "encrypted": {
+                "description": "Whether the snapshot is encrypted.\n",
+                "type": "boolean"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ebs/getSnapshotFilter:getSnapshotFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "kmsKeyId": {
+                "description": "ARN for the KMS encryption key.\n",
+                "type": "string"
+            },
+            "mostRecent": {
+                "type": "boolean"
+            },
+            "outpostArn": {
+                "description": "ARN of the Outpost on which the snapshot is stored.\n",
+                "type": "string"
+            },
+            "ownerAlias": {
+                "description": "Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.\n",
+                "type": "string"
+            },
+            "ownerId": {
+                "description": "AWS account ID of the EBS snapshot owner.\n",
+                "type": "string"
+            },
+            "owners": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "restorableByUserIds": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "snapshotId": {
+                "description": "Snapshot ID (e.g., snap-59fcb34e).\n",
+                "type": "string"
+            },
+            "snapshotIds": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "state": {
+                "description": "Snapshot state.\n",
+                "type": "string"
+            },
+            "storageTier": {
+                "description": "Storage tier in which the snapshot is stored.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags for the resource.\n",
+                "type": "object"
+            },
+            "volumeId": {
+                "description": "Volume ID (e.g., vol-59fcb34e).\n",
+                "type": "string"
+            },
+            "volumeSize": {
+                "description": "Size of the drive in GiBs.\n",
+                "type": "integer"
+            }
+        },
+        "required": [
+            "arn",
+            "dataEncryptionKeyId",
+            "description",
+            "encrypted",
+            "kmsKeyId",
+            "outpostArn",
+            "ownerAlias",
+            "ownerId",
+            "snapshotId",
+            "state",
+            "storageTier",
+            "tags",
+            "volumeId",
+            "volumeSize",
+            "id"
+        ],
+        "type": "object"
+    }
+}

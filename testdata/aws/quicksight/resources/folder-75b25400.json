@@ -1,0 +1,189 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the folder.\n"
+        },
+        "awsAccountId": {
+            "type": "string",
+            "description": "AWS account ID.\n"
+        },
+        "createdTime": {
+            "type": "string",
+            "description": "The time that the folder was created.\n"
+        },
+        "folderId": {
+            "type": "string",
+            "description": "Identifier for the folder.\n"
+        },
+        "folderPaths": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "An array of ancestor ARN strings for the folder. Empty for root-level folders.\n"
+        },
+        "folderType": {
+            "type": "string",
+            "description": "The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.\n"
+        },
+        "lastUpdatedTime": {
+            "type": "string",
+            "description": "The time that the folder was last updated.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Display name for the folder.\n\nThe following arguments are optional:\n"
+        },
+        "parentFolderArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.\n"
+        },
+        "permissions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:quicksight/FolderPermission:FolderPermission"
+            },
+            "description": "A set of resource permissions on the folder. Maximum of 64 items. See permissions.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "awsAccountId",
+        "createdTime",
+        "folderId",
+        "folderPaths",
+        "lastUpdatedTime",
+        "name",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "awsAccountId": {
+            "type": "string",
+            "description": "AWS account ID.\n",
+            "willReplaceOnChanges": true
+        },
+        "folderId": {
+            "type": "string",
+            "description": "Identifier for the folder.\n",
+            "willReplaceOnChanges": true
+        },
+        "folderType": {
+            "type": "string",
+            "description": "The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Display name for the folder.\n\nThe following arguments are optional:\n"
+        },
+        "parentFolderArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.\n",
+            "willReplaceOnChanges": true
+        },
+        "permissions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:quicksight/FolderPermission:FolderPermission"
+            },
+            "description": "A set of resource permissions on the folder. Maximum of 64 items. See permissions.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "folderId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Folder resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the folder.\n"
+            },
+            "awsAccountId": {
+                "type": "string",
+                "description": "AWS account ID.\n",
+                "willReplaceOnChanges": true
+            },
+            "createdTime": {
+                "type": "string",
+                "description": "The time that the folder was created.\n"
+            },
+            "folderId": {
+                "type": "string",
+                "description": "Identifier for the folder.\n",
+                "willReplaceOnChanges": true
+            },
+            "folderPaths": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "An array of ancestor ARN strings for the folder. Empty for root-level folders.\n"
+            },
+            "folderType": {
+                "type": "string",
+                "description": "The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.\n"
+            },
+            "lastUpdatedTime": {
+                "type": "string",
+                "description": "The time that the folder was last updated.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Display name for the folder.\n\nThe following arguments are optional:\n"
+            },
+            "parentFolderArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.\n",
+                "willReplaceOnChanges": true
+            },
+            "permissions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:quicksight/FolderPermission:FolderPermission"
+                },
+                "description": "A set of resource permissions on the folder. Maximum of 64 items. See permissions.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

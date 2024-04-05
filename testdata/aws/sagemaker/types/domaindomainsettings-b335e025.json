@@ -1,0 +1,21 @@
+{
+    "properties": {
+        "executionRoleIdentityConfig": {
+            "type": "string",
+            "description": "The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.\n"
+        },
+        "rStudioServerProDomainSettings": {
+            "$ref": "#/types/aws:sagemaker/DomainDomainSettingsRStudioServerProDomainSettings:DomainDomainSettingsRStudioServerProDomainSettings",
+            "description": "A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.\n"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object"
+}

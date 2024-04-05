@@ -1,0 +1,119 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) identifying your CloudFront Function.\n"
+        },
+        "code": {
+            "type": "string",
+            "description": "Source code of the function\n"
+        },
+        "comment": {
+            "type": "string",
+            "description": "Comment.\n"
+        },
+        "etag": {
+            "type": "string",
+            "description": "ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.\n"
+        },
+        "liveStageEtag": {
+            "type": "string",
+            "description": "ETag hash of any `LIVE` stage of the function.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Unique name for your CloudFront Function.\n"
+        },
+        "publish": {
+            "type": "boolean",
+            "description": "Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.\n"
+        },
+        "runtime": {
+            "type": "string",
+            "description": "Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.\n\nThe following arguments are optional:\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "code",
+        "etag",
+        "liveStageEtag",
+        "name",
+        "runtime",
+        "status"
+    ],
+    "inputProperties": {
+        "code": {
+            "type": "string",
+            "description": "Source code of the function\n"
+        },
+        "comment": {
+            "type": "string",
+            "description": "Comment.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Unique name for your CloudFront Function.\n",
+            "willReplaceOnChanges": true
+        },
+        "publish": {
+            "type": "boolean",
+            "description": "Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.\n"
+        },
+        "runtime": {
+            "type": "string",
+            "description": "Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.\n\nThe following arguments are optional:\n"
+        }
+    },
+    "requiredInputs": [
+        "code",
+        "runtime"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Function resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) identifying your CloudFront Function.\n"
+            },
+            "code": {
+                "type": "string",
+                "description": "Source code of the function\n"
+            },
+            "comment": {
+                "type": "string",
+                "description": "Comment.\n"
+            },
+            "etag": {
+                "type": "string",
+                "description": "ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.\n"
+            },
+            "liveStageEtag": {
+                "type": "string",
+                "description": "ETag hash of any `LIVE` stage of the function.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Unique name for your CloudFront Function.\n",
+                "willReplaceOnChanges": true
+            },
+            "publish": {
+                "type": "boolean",
+                "description": "Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.\n"
+            },
+            "runtime": {
+                "type": "string",
+                "description": "Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.\n\nThe following arguments are optional:\n"
+            },
+            "status": {
+                "type": "string",
+                "description": "Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.\n"
+            }
+        },
+        "type": "object"
+    }
+}

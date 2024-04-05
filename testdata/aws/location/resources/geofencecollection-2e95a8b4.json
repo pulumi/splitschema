@@ -1,0 +1,123 @@
+{
+    "properties": {
+        "collectionArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.\n"
+        },
+        "collectionName": {
+            "type": "string",
+            "description": "The name of the geofence collection.\n\nThe following arguments are optional:\n"
+        },
+        "createTime": {
+            "type": "string",
+            "description": "The timestamp for when the geofence collection resource was created in ISO 8601 format.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The optional description for the geofence collection.\n"
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "updateTime": {
+            "type": "string",
+            "description": "The timestamp for when the geofence collection resource was last updated in ISO 8601 format.\n"
+        }
+    },
+    "required": [
+        "collectionArn",
+        "collectionName",
+        "createTime",
+        "tagsAll",
+        "updateTime"
+    ],
+    "inputProperties": {
+        "collectionName": {
+            "type": "string",
+            "description": "The name of the geofence collection.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "The optional description for the geofence collection.\n"
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "collectionName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering GeofenceCollection resources.\n",
+        "properties": {
+            "collectionArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.\n"
+            },
+            "collectionName": {
+                "type": "string",
+                "description": "The name of the geofence collection.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "createTime": {
+                "type": "string",
+                "description": "The timestamp for when the geofence collection resource was created in ISO 8601 format.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "The optional description for the geofence collection.\n"
+            },
+            "kmsKeyId": {
+                "type": "string",
+                "description": "A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "updateTime": {
+                "type": "string",
+                "description": "The timestamp for when the geofence collection resource was last updated in ISO 8601 format.\n"
+            }
+        },
+        "type": "object"
+    }
+}

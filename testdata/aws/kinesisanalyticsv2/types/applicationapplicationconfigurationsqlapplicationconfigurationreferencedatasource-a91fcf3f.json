@@ -1,0 +1,35 @@
+{
+    "properties": {
+        "referenceId": {
+            "type": "string"
+        },
+        "referenceSchema": {
+            "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema:ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema",
+            "description": "Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.\n"
+        },
+        "s3ReferenceDataSource": {
+            "$ref": "#/types/aws:kinesisanalyticsv2/ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource:ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource",
+            "description": "Identifies the S3 bucket and object that contains the reference data.\n"
+        },
+        "tableName": {
+            "type": "string",
+            "description": "The name of the in-application table to create.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "referenceSchema",
+        "s3ReferenceDataSource",
+        "tableName"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "referenceId",
+                "referenceSchema",
+                "s3ReferenceDataSource",
+                "tableName"
+            ]
+        }
+    }
+}

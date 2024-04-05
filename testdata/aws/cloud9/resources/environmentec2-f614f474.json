@@ -1,0 +1,186 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the environment.\n"
+        },
+        "automaticStopTimeMinutes": {
+            "type": "integer",
+            "description": "The number of minutes until the running instance is shut down after the environment has last been used.\n"
+        },
+        "connectionType": {
+            "type": "string",
+            "description": "The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the environment.\n"
+        },
+        "imageId": {
+            "type": "string",
+            "description": "The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are\n* `amazonlinux-1-x86_64`\n* `amazonlinux-2-x86_64`\n* `ubuntu-18.04-x86_64`\n* `ubuntu-22.04-x86_64`\n* `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`\n* `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`\n* `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`\n* `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`\n"
+        },
+        "instanceType": {
+            "type": "string",
+            "description": "The type of instance to connect to the environment, e.g., `t2.micro`.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the environment.\n"
+        },
+        "ownerArn": {
+            "type": "string",
+            "description": "The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.\n"
+        },
+        "subnetId": {
+            "type": "string",
+            "description": "The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "type": {
+            "type": "string",
+            "description": "The type of the environment (e.g., `ssh` or `ec2`)\n"
+        }
+    },
+    "required": [
+        "arn",
+        "instanceType",
+        "name",
+        "ownerArn",
+        "tagsAll",
+        "type"
+    ],
+    "inputProperties": {
+        "automaticStopTimeMinutes": {
+            "type": "integer",
+            "description": "The number of minutes until the running instance is shut down after the environment has last been used.\n",
+            "willReplaceOnChanges": true
+        },
+        "connectionType": {
+            "type": "string",
+            "description": "The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the environment.\n"
+        },
+        "imageId": {
+            "type": "string",
+            "description": "The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are\n* `amazonlinux-1-x86_64`\n* `amazonlinux-2-x86_64`\n* `ubuntu-18.04-x86_64`\n* `ubuntu-22.04-x86_64`\n* `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`\n* `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`\n* `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`\n* `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`\n",
+            "willReplaceOnChanges": true
+        },
+        "instanceType": {
+            "type": "string",
+            "description": "The type of instance to connect to the environment, e.g., `t2.micro`.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the environment.\n"
+        },
+        "ownerArn": {
+            "type": "string",
+            "description": "The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetId": {
+            "type": "string",
+            "description": "The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "instanceType"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering EnvironmentEC2 resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the environment.\n"
+            },
+            "automaticStopTimeMinutes": {
+                "type": "integer",
+                "description": "The number of minutes until the running instance is shut down after the environment has last been used.\n",
+                "willReplaceOnChanges": true
+            },
+            "connectionType": {
+                "type": "string",
+                "description": "The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).\n",
+                "willReplaceOnChanges": true
+            },
+            "description": {
+                "type": "string",
+                "description": "The description of the environment.\n"
+            },
+            "imageId": {
+                "type": "string",
+                "description": "The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are\n* `amazonlinux-1-x86_64`\n* `amazonlinux-2-x86_64`\n* `ubuntu-18.04-x86_64`\n* `ubuntu-22.04-x86_64`\n* `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`\n* `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`\n* `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`\n* `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`\n",
+                "willReplaceOnChanges": true
+            },
+            "instanceType": {
+                "type": "string",
+                "description": "The type of instance to connect to the environment, e.g., `t2.micro`.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the environment.\n"
+            },
+            "ownerArn": {
+                "type": "string",
+                "description": "The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.\n",
+                "willReplaceOnChanges": true
+            },
+            "subnetId": {
+                "type": "string",
+                "description": "The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "type": {
+                "type": "string",
+                "description": "The type of the environment (e.g., `ssh` or `ec2`)\n"
+            }
+        },
+        "type": "object"
+    }
+}

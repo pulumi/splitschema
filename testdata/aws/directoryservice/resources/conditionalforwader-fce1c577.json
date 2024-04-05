@@ -1,0 +1,71 @@
+{
+    "properties": {
+        "directoryId": {
+            "type": "string",
+            "description": "ID of directory.\n"
+        },
+        "dnsIps": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of forwarder IP addresses.\n"
+        },
+        "remoteDomainName": {
+            "type": "string",
+            "description": "The fully qualified domain name of the remote domain for which forwarders will be used.\n"
+        }
+    },
+    "required": [
+        "directoryId",
+        "dnsIps",
+        "remoteDomainName"
+    ],
+    "inputProperties": {
+        "directoryId": {
+            "type": "string",
+            "description": "ID of directory.\n",
+            "willReplaceOnChanges": true
+        },
+        "dnsIps": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of forwarder IP addresses.\n"
+        },
+        "remoteDomainName": {
+            "type": "string",
+            "description": "The fully qualified domain name of the remote domain for which forwarders will be used.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "directoryId",
+        "dnsIps",
+        "remoteDomainName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ConditionalForwader resources.\n",
+        "properties": {
+            "directoryId": {
+                "type": "string",
+                "description": "ID of directory.\n",
+                "willReplaceOnChanges": true
+            },
+            "dnsIps": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of forwarder IP addresses.\n"
+            },
+            "remoteDomainName": {
+                "type": "string",
+                "description": "The fully qualified domain name of the remote domain for which forwarders will be used.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

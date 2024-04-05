@@ -1,0 +1,52 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getSessionContext.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN for an assumed role.\n\n\u003e If `arn` is a non-role ARN, Pulumi gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "arn"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getSessionContext.\n",
+        "properties": {
+            "arn": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "issuerArn": {
+                "description": "IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuer_arn` is equal to `arn`.\n",
+                "type": "string"
+            },
+            "issuerId": {
+                "description": "Unique identifier of the IAM role that issues the STS assumed role.\n",
+                "type": "string"
+            },
+            "issuerName": {
+                "description": "Name of the source role. Only available if `arn` corresponds to an STS assumed role.\n",
+                "type": "string"
+            },
+            "sessionName": {
+                "description": "Name of the STS session. Only available if `arn` corresponds to an STS assumed role.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "issuerArn",
+            "issuerId",
+            "issuerName",
+            "sessionName",
+            "id"
+        ],
+        "type": "object"
+    }
+}

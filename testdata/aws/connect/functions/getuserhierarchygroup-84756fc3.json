@@ -1,0 +1,82 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getUserHierarchyGroup.\n",
+        "properties": {
+            "hierarchyGroupId": {
+                "type": "string",
+                "description": "Returns information on a specific hierarchy group by hierarchy group id\n"
+            },
+            "instanceId": {
+                "type": "string",
+                "description": "Reference to the hosting Amazon Connect Instance\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Returns information on a specific hierarchy group by name\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the hierarchy group.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "instanceId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getUserHierarchyGroup.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the hierarchy group.\n",
+                "type": "string"
+            },
+            "hierarchyGroupId": {
+                "type": "string"
+            },
+            "hierarchyPaths": {
+                "description": "Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.\n",
+                "items": {
+                    "$ref": "#/types/aws:connect/getUserHierarchyGroupHierarchyPath:getUserHierarchyGroupHierarchyPath"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "instanceId": {
+                "type": "string"
+            },
+            "levelId": {
+                "description": "Identifier of the level in the hierarchy group.\n",
+                "type": "string"
+            },
+            "name": {
+                "description": "Name of the hierarchy group.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the hierarchy group.\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "hierarchyGroupId",
+            "hierarchyPaths",
+            "instanceId",
+            "levelId",
+            "name",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

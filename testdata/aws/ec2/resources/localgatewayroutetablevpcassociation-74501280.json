@@ -1,0 +1,95 @@
+{
+    "properties": {
+        "localGatewayId": {
+            "type": "string"
+        },
+        "localGatewayRouteTableId": {
+            "type": "string",
+            "description": "Identifier of EC2 Local Gateway Route Table.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "Identifier of EC2 VPC.\n\nThe following arguments are optional:\n"
+        }
+    },
+    "required": [
+        "localGatewayId",
+        "localGatewayRouteTableId",
+        "tagsAll",
+        "vpcId"
+    ],
+    "inputProperties": {
+        "localGatewayRouteTableId": {
+            "type": "string",
+            "description": "Identifier of EC2 Local Gateway Route Table.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "Identifier of EC2 VPC.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "localGatewayRouteTableId",
+        "vpcId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering LocalGatewayRouteTableVpcAssociation resources.\n",
+        "properties": {
+            "localGatewayId": {
+                "type": "string"
+            },
+            "localGatewayRouteTableId": {
+                "type": "string",
+                "description": "Identifier of EC2 Local Gateway Route Table.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "vpcId": {
+                "type": "string",
+                "description": "Identifier of EC2 VPC.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

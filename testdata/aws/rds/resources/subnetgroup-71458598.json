@@ -1,0 +1,158 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the db subnet group.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the DB subnet group. Defaults to \"Managed by Pulumi\".\n",
+            "default": "Managed by Pulumi"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the DB subnet group. If omitted, the provider will assign a random, unique name.\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of VPC subnet IDs.\n"
+        },
+        "supportedNetworkTypes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The network type of the db subnet group.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "Provides the VPC ID of the DB subnet group.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "description",
+        "name",
+        "namePrefix",
+        "subnetIds",
+        "supportedNetworkTypes",
+        "tagsAll",
+        "vpcId"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "The description of the DB subnet group. Defaults to \"Managed by Pulumi\".\n",
+            "default": "Managed by Pulumi"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the DB subnet group. If omitted, the provider will assign a random, unique name.\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of VPC subnet IDs.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "subnetIds"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering SubnetGroup resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the db subnet group.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "The description of the DB subnet group. Defaults to \"Managed by Pulumi\".\n",
+                "default": "Managed by Pulumi"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the DB subnet group. If omitted, the provider will assign a random, unique name.\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                "willReplaceOnChanges": true
+            },
+            "subnetIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of VPC subnet IDs.\n"
+            },
+            "supportedNetworkTypes": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "The network type of the db subnet group.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "vpcId": {
+                "type": "string",
+                "description": "Provides the VPC ID of the DB subnet group.\n"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,164 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the vocabulary.\n"
+        },
+        "content": {
+            "type": "string",
+            "description": "The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.\n"
+        },
+        "failureReason": {
+            "type": "string",
+            "description": "The reason why the custom vocabulary was not created.\n"
+        },
+        "instanceId": {
+            "type": "string",
+            "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n"
+        },
+        "languageCode": {
+            "type": "string",
+            "description": "The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.\n"
+        },
+        "lastModifiedTime": {
+            "type": "string",
+            "description": "The timestamp when the custom vocabulary was last modified.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "A unique name of the custom vocabulary. Must not be more than 140 characters.\n"
+        },
+        "state": {
+            "type": "string",
+            "description": "The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Tags to apply to the vocabulary. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "vocabularyId": {
+            "type": "string",
+            "description": "The identifier of the custom vocabulary.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "content",
+        "failureReason",
+        "instanceId",
+        "languageCode",
+        "lastModifiedTime",
+        "name",
+        "state",
+        "tagsAll",
+        "vocabularyId"
+    ],
+    "inputProperties": {
+        "content": {
+            "type": "string",
+            "description": "The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.\n",
+            "willReplaceOnChanges": true
+        },
+        "instanceId": {
+            "type": "string",
+            "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n",
+            "willReplaceOnChanges": true
+        },
+        "languageCode": {
+            "type": "string",
+            "description": "The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "A unique name of the custom vocabulary. Must not be more than 140 characters.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Tags to apply to the vocabulary. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "content",
+        "instanceId",
+        "languageCode"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Vocabulary resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the vocabulary.\n"
+            },
+            "content": {
+                "type": "string",
+                "description": "The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.\n",
+                "willReplaceOnChanges": true
+            },
+            "failureReason": {
+                "type": "string",
+                "description": "The reason why the custom vocabulary was not created.\n"
+            },
+            "instanceId": {
+                "type": "string",
+                "description": "Specifies the identifier of the hosting Amazon Connect Instance.\n",
+                "willReplaceOnChanges": true
+            },
+            "languageCode": {
+                "type": "string",
+                "description": "The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.\n",
+                "willReplaceOnChanges": true
+            },
+            "lastModifiedTime": {
+                "type": "string",
+                "description": "The timestamp when the custom vocabulary was last modified.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "A unique name of the custom vocabulary. Must not be more than 140 characters.\n",
+                "willReplaceOnChanges": true
+            },
+            "state": {
+                "type": "string",
+                "description": "The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags to apply to the vocabulary. If configured with a provider\n`default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "vocabularyId": {
+                "type": "string",
+                "description": "The identifier of the custom vocabulary.\n"
+            }
+        },
+        "type": "object"
+    }
+}

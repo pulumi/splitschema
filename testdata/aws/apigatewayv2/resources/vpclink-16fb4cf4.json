@@ -1,0 +1,128 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "VPC Link ARN.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the VPC Link. Must be between 1 and 128 characters in length.\n"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Security group IDs for the VPC Link.\n"
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Subnet IDs for the VPC Link.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "securityGroupIds",
+        "subnetIds",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "Name of the VPC Link. Must be between 1 and 128 characters in length.\n"
+        },
+        "securityGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Security group IDs for the VPC Link.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Subnet IDs for the VPC Link.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "securityGroupIds",
+        "subnetIds"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering VpcLink resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "VPC Link ARN.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the VPC Link. Must be between 1 and 128 characters in length.\n"
+            },
+            "securityGroupIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Security group IDs for the VPC Link.\n",
+                "willReplaceOnChanges": true
+            },
+            "subnetIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Subnet IDs for the VPC Link.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

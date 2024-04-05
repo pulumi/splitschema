@@ -1,0 +1,94 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the Dedicated IP Pool.\n"
+        },
+        "poolName": {
+            "type": "string",
+            "description": "Name of the dedicated IP pool.\n\nThe following arguments are optional:\n"
+        },
+        "scalingMode": {
+            "type": "string",
+            "description": "IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "poolName",
+        "scalingMode",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "poolName": {
+            "type": "string",
+            "description": "Name of the dedicated IP pool.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "scalingMode": {
+            "type": "string",
+            "description": "IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "poolName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering DedicatedIpPool resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the Dedicated IP Pool.\n"
+            },
+            "poolName": {
+                "type": "string",
+                "description": "Name of the dedicated IP pool.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "scalingMode": {
+                "type": "string",
+                "description": "IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

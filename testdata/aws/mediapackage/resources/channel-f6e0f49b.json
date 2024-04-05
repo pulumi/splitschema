@@ -1,0 +1,112 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the channel\n"
+        },
+        "channelId": {
+            "type": "string",
+            "description": "A unique identifier describing the channel\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description of the channel\n",
+            "default": "Managed by Pulumi"
+        },
+        "hlsIngests": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:mediapackage/ChannelHlsIngest:ChannelHlsIngest"
+            },
+            "description": "A single item list of HLS ingest information\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "channelId",
+        "description",
+        "hlsIngests",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "channelId": {
+            "type": "string",
+            "description": "A unique identifier describing the channel\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "A description of the channel\n",
+            "default": "Managed by Pulumi"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "channelId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Channel resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the channel\n"
+            },
+            "channelId": {
+                "type": "string",
+                "description": "A unique identifier describing the channel\n",
+                "willReplaceOnChanges": true
+            },
+            "description": {
+                "type": "string",
+                "description": "A description of the channel\n",
+                "default": "Managed by Pulumi"
+            },
+            "hlsIngests": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:mediapackage/ChannelHlsIngest:ChannelHlsIngest"
+                },
+                "description": "A single item list of HLS ingest information\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

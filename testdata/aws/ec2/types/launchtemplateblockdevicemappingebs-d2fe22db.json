@@ -1,0 +1,47 @@
+{
+    "properties": {
+        "deleteOnTermination": {
+            "type": "string",
+            "description": "Whether the volume should be destroyed on instance termination.\nSee [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.\n"
+        },
+        "encrypted": {
+            "type": "string",
+            "description": "Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.\nCannot be used with `snapshot_id`.\n"
+        },
+        "iops": {
+            "type": "integer",
+            "description": "The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).\nThis must be set with a `volume_type` of `\"io1/io2/gp3\"`.\n"
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.\n`encrypted` must be set to `true` when this is set.\n"
+        },
+        "snapshotId": {
+            "type": "string",
+            "description": "The Snapshot ID to mount.\n"
+        },
+        "throughput": {
+            "type": "integer",
+            "description": "The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.\n"
+        },
+        "volumeSize": {
+            "type": "integer",
+            "description": "The size of the volume in gigabytes.\n"
+        },
+        "volumeType": {
+            "type": "string",
+            "description": "The volume type.\nCan be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.\n"
+        }
+    },
+    "type": "object",
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "iops",
+                "throughput",
+                "volumeSize",
+                "volumeType"
+            ]
+        }
+    }
+}

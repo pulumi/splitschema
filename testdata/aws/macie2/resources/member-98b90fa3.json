@@ -1,0 +1,191 @@
+{
+    "properties": {
+        "accountId": {
+            "type": "string",
+            "description": "The AWS account ID for the account.\n"
+        },
+        "administratorAccountId": {
+            "type": "string",
+            "description": "The AWS account ID for the administrator account.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the account.\n"
+        },
+        "email": {
+            "type": "string",
+            "description": "The email address for the account.\n"
+        },
+        "invitationDisableEmailNotification": {
+            "type": "boolean",
+            "description": "Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.\n"
+        },
+        "invitationMessage": {
+            "type": "string",
+            "description": "A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.\n"
+        },
+        "invite": {
+            "type": "boolean",
+            "description": "Send an invitation to a member\n"
+        },
+        "invitedAt": {
+            "type": "string",
+            "description": "The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.\n"
+        },
+        "masterAccountId": {
+            "type": "string"
+        },
+        "relationshipStatus": {
+            "type": "string",
+            "description": "The current status of the relationship between the account and the administrator account.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "updatedAt": {
+            "type": "string",
+            "description": "The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.\n"
+        }
+    },
+    "required": [
+        "accountId",
+        "administratorAccountId",
+        "arn",
+        "email",
+        "invite",
+        "invitedAt",
+        "masterAccountId",
+        "relationshipStatus",
+        "status",
+        "tagsAll",
+        "updatedAt"
+    ],
+    "inputProperties": {
+        "accountId": {
+            "type": "string",
+            "description": "The AWS account ID for the account.\n",
+            "willReplaceOnChanges": true
+        },
+        "email": {
+            "type": "string",
+            "description": "The email address for the account.\n",
+            "willReplaceOnChanges": true
+        },
+        "invitationDisableEmailNotification": {
+            "type": "boolean",
+            "description": "Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.\n"
+        },
+        "invitationMessage": {
+            "type": "string",
+            "description": "A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.\n"
+        },
+        "invite": {
+            "type": "boolean",
+            "description": "Send an invitation to a member\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "accountId",
+        "email"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Member resources.\n",
+        "properties": {
+            "accountId": {
+                "type": "string",
+                "description": "The AWS account ID for the account.\n",
+                "willReplaceOnChanges": true
+            },
+            "administratorAccountId": {
+                "type": "string",
+                "description": "The AWS account ID for the administrator account.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the account.\n"
+            },
+            "email": {
+                "type": "string",
+                "description": "The email address for the account.\n",
+                "willReplaceOnChanges": true
+            },
+            "invitationDisableEmailNotification": {
+                "type": "boolean",
+                "description": "Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.\n"
+            },
+            "invitationMessage": {
+                "type": "string",
+                "description": "A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.\n"
+            },
+            "invite": {
+                "type": "boolean",
+                "description": "Send an invitation to a member\n"
+            },
+            "invitedAt": {
+                "type": "string",
+                "description": "The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.\n"
+            },
+            "masterAccountId": {
+                "type": "string"
+            },
+            "relationshipStatus": {
+                "type": "string",
+                "description": "The current status of the relationship between the account and the administrator account.\n"
+            },
+            "status": {
+                "type": "string",
+                "description": "Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.\n",
+                "willReplaceOnChanges": true
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true,
+                "willReplaceOnChanges": true
+            },
+            "updatedAt": {
+                "type": "string",
+                "description": "The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.\n"
+            }
+        },
+        "type": "object"
+    }
+}

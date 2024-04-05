@@ -1,0 +1,28 @@
+{
+    "properties": {
+        "createdAt": {
+            "type": "string",
+            "description": "The Created At date of the MWAA Environment\n* `logging_configuration[0].\u003cLOG_CONFIGURATION_TYPE\u003e[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published\n"
+        },
+        "errors": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:mwaa/EnvironmentLastUpdatedError:EnvironmentLastUpdatedError"
+            }
+        },
+        "status": {
+            "type": "string",
+            "description": "The status of the Amazon MWAA Environment\n"
+        }
+    },
+    "type": "object",
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "createdAt",
+                "errors",
+                "status"
+            ]
+        }
+    }
+}

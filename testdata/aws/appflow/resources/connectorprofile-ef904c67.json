@@ -1,0 +1,119 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the connector profile.\n"
+        },
+        "connectionMode": {
+            "type": "string",
+            "description": "Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.\n"
+        },
+        "connectorLabel": {
+            "type": "string",
+            "description": "The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.\n"
+        },
+        "connectorProfileConfig": {
+            "$ref": "#/types/aws:appflow/ConnectorProfileConnectorProfileConfig:ConnectorProfileConnectorProfileConfig",
+            "description": "Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.\n"
+        },
+        "connectorType": {
+            "type": "string",
+            "description": "The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.\n"
+        },
+        "credentialsArn": {
+            "type": "string",
+            "description": "ARN of the connector profile credentials.\n"
+        },
+        "kmsArn": {
+            "type": "string",
+            "description": "ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.\n"
+        },
+        "name": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "arn",
+        "connectionMode",
+        "connectorProfileConfig",
+        "connectorType",
+        "credentialsArn",
+        "kmsArn",
+        "name"
+    ],
+    "inputProperties": {
+        "connectionMode": {
+            "type": "string",
+            "description": "Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.\n"
+        },
+        "connectorLabel": {
+            "type": "string",
+            "description": "The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.\n",
+            "willReplaceOnChanges": true
+        },
+        "connectorProfileConfig": {
+            "$ref": "#/types/aws:appflow/ConnectorProfileConnectorProfileConfig:ConnectorProfileConnectorProfileConfig",
+            "description": "Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.\n"
+        },
+        "connectorType": {
+            "type": "string",
+            "description": "The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.\n",
+            "willReplaceOnChanges": true
+        },
+        "kmsArn": {
+            "type": "string",
+            "description": "ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "connectionMode",
+        "connectorProfileConfig",
+        "connectorType"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ConnectorProfile resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the connector profile.\n"
+            },
+            "connectionMode": {
+                "type": "string",
+                "description": "Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.\n"
+            },
+            "connectorLabel": {
+                "type": "string",
+                "description": "The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.\n",
+                "willReplaceOnChanges": true
+            },
+            "connectorProfileConfig": {
+                "$ref": "#/types/aws:appflow/ConnectorProfileConnectorProfileConfig:ConnectorProfileConnectorProfileConfig",
+                "description": "Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.\n"
+            },
+            "connectorType": {
+                "type": "string",
+                "description": "The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.\n",
+                "willReplaceOnChanges": true
+            },
+            "credentialsArn": {
+                "type": "string",
+                "description": "ARN of the connector profile credentials.\n"
+            },
+            "kmsArn": {
+                "type": "string",
+                "description": "ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

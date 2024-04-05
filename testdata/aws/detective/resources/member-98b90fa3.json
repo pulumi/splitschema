@@ -1,0 +1,144 @@
+{
+    "properties": {
+        "accountId": {
+            "type": "string",
+            "description": "AWS account ID for the account.\n"
+        },
+        "administratorId": {
+            "type": "string",
+            "description": "AWS account ID for the administrator account.\n"
+        },
+        "disableEmailNotification": {
+            "type": "boolean",
+            "description": "If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.\n"
+        },
+        "disabledReason": {
+            "type": "string"
+        },
+        "emailAddress": {
+            "type": "string",
+            "description": "Email address for the account.\n"
+        },
+        "graphArn": {
+            "type": "string",
+            "description": "ARN of the behavior graph to invite the member accounts to contribute their data to.\n"
+        },
+        "invitedTime": {
+            "type": "string",
+            "description": "Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.\n"
+        },
+        "message": {
+            "type": "string",
+            "description": "A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Current membership status of the member account.\n"
+        },
+        "updatedTime": {
+            "type": "string",
+            "description": "Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.\n"
+        },
+        "volumeUsageInBytes": {
+            "type": "string",
+            "description": "Data volume in bytes per day for the member account.\n"
+        }
+    },
+    "required": [
+        "accountId",
+        "administratorId",
+        "disabledReason",
+        "emailAddress",
+        "graphArn",
+        "invitedTime",
+        "status",
+        "updatedTime",
+        "volumeUsageInBytes"
+    ],
+    "inputProperties": {
+        "accountId": {
+            "type": "string",
+            "description": "AWS account ID for the account.\n",
+            "willReplaceOnChanges": true
+        },
+        "disableEmailNotification": {
+            "type": "boolean",
+            "description": "If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.\n",
+            "willReplaceOnChanges": true
+        },
+        "emailAddress": {
+            "type": "string",
+            "description": "Email address for the account.\n",
+            "willReplaceOnChanges": true
+        },
+        "graphArn": {
+            "type": "string",
+            "description": "ARN of the behavior graph to invite the member accounts to contribute their data to.\n",
+            "willReplaceOnChanges": true
+        },
+        "message": {
+            "type": "string",
+            "description": "A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "accountId",
+        "emailAddress",
+        "graphArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Member resources.\n",
+        "properties": {
+            "accountId": {
+                "type": "string",
+                "description": "AWS account ID for the account.\n",
+                "willReplaceOnChanges": true
+            },
+            "administratorId": {
+                "type": "string",
+                "description": "AWS account ID for the administrator account.\n"
+            },
+            "disableEmailNotification": {
+                "type": "boolean",
+                "description": "If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.\n",
+                "willReplaceOnChanges": true
+            },
+            "disabledReason": {
+                "type": "string"
+            },
+            "emailAddress": {
+                "type": "string",
+                "description": "Email address for the account.\n",
+                "willReplaceOnChanges": true
+            },
+            "graphArn": {
+                "type": "string",
+                "description": "ARN of the behavior graph to invite the member accounts to contribute their data to.\n",
+                "willReplaceOnChanges": true
+            },
+            "invitedTime": {
+                "type": "string",
+                "description": "Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.\n"
+            },
+            "message": {
+                "type": "string",
+                "description": "A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.\n",
+                "willReplaceOnChanges": true
+            },
+            "status": {
+                "type": "string",
+                "description": "Current membership status of the member account.\n"
+            },
+            "updatedTime": {
+                "type": "string",
+                "description": "Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.\n"
+            },
+            "volumeUsageInBytes": {
+                "type": "string",
+                "description": "Data volume in bytes per day for the member account.\n"
+            }
+        },
+        "type": "object"
+    }
+}

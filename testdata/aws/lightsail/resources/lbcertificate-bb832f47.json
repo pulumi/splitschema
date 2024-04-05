@@ -1,0 +1,124 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the lightsail certificate.\n"
+        },
+        "createdAt": {
+            "type": "string",
+            "description": "The timestamp when the instance was created.\n"
+        },
+        "domainName": {
+            "type": "string",
+            "description": "The domain name (e.g., example.com) for your SSL/TLS certificate.\n"
+        },
+        "domainValidationRecords": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:lightsail/LbCertificateDomainValidationRecord:LbCertificateDomainValidationRecord"
+            }
+        },
+        "lbName": {
+            "type": "string",
+            "description": "The load balancer name where you want to create the SSL/TLS certificate.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The SSL/TLS certificate name.\n"
+        },
+        "subjectAlternativeNames": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.\n"
+        },
+        "supportCode": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "arn",
+        "createdAt",
+        "domainName",
+        "domainValidationRecords",
+        "lbName",
+        "name",
+        "subjectAlternativeNames",
+        "supportCode"
+    ],
+    "inputProperties": {
+        "domainName": {
+            "type": "string",
+            "description": "The domain name (e.g., example.com) for your SSL/TLS certificate.\n",
+            "willReplaceOnChanges": true
+        },
+        "lbName": {
+            "type": "string",
+            "description": "The load balancer name where you want to create the SSL/TLS certificate.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The SSL/TLS certificate name.\n",
+            "willReplaceOnChanges": true
+        },
+        "subjectAlternativeNames": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "lbName"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering LbCertificate resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the lightsail certificate.\n"
+            },
+            "createdAt": {
+                "type": "string",
+                "description": "The timestamp when the instance was created.\n"
+            },
+            "domainName": {
+                "type": "string",
+                "description": "The domain name (e.g., example.com) for your SSL/TLS certificate.\n",
+                "willReplaceOnChanges": true
+            },
+            "domainValidationRecords": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:lightsail/LbCertificateDomainValidationRecord:LbCertificateDomainValidationRecord"
+                }
+            },
+            "lbName": {
+                "type": "string",
+                "description": "The load balancer name where you want to create the SSL/TLS certificate.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The SSL/TLS certificate name.\n",
+                "willReplaceOnChanges": true
+            },
+            "subjectAlternativeNames": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.\n",
+                "willReplaceOnChanges": true
+            },
+            "supportCode": {
+                "type": "string"
+            }
+        },
+        "type": "object"
+    }
+}

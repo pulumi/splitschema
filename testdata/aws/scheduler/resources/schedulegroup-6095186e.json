@@ -1,0 +1,120 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "ARN of the schedule group.\n"
+        },
+        "creationDate": {
+            "type": "string",
+            "description": "Time at which the schedule group was created.\n"
+        },
+        "lastModificationDate": {
+            "type": "string",
+            "description": "Time at which the schedule group was last modified.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+        },
+        "state": {
+            "type": "string",
+            "description": "State of the schedule group. Can be `ACTIVE` or `DELETING`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "creationDate",
+        "lastModificationDate",
+        "name",
+        "namePrefix",
+        "state",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "name": {
+            "type": "string",
+            "description": "Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ScheduleGroup resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "ARN of the schedule group.\n"
+            },
+            "creationDate": {
+                "type": "string",
+                "description": "Time at which the schedule group was created.\n"
+            },
+            "lastModificationDate": {
+                "type": "string",
+                "description": "Time at which the schedule group was last modified.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                "willReplaceOnChanges": true
+            },
+            "state": {
+                "type": "string",
+                "description": "State of the schedule group. Can be `ACTIVE` or `DELETING`.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

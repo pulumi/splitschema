@@ -1,0 +1,172 @@
+{
+    "properties": {
+        "clusterCertificates": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:cloudhsmv2/ClusterClusterCertificate:ClusterClusterCertificate"
+            },
+            "description": "The list of cluster certificates.\n* `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.\n* `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.\n* `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.\n* `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.\n* `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.\n"
+        },
+        "clusterId": {
+            "type": "string",
+            "description": "The id of the CloudHSM cluster.\n"
+        },
+        "clusterState": {
+            "type": "string",
+            "description": "The state of the CloudHSM cluster.\n",
+            "language": {
+                "csharp": {
+                    "name": "State"
+                }
+            }
+        },
+        "hsmType": {
+            "type": "string",
+            "description": "The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.\n"
+        },
+        "securityGroupId": {
+            "type": "string",
+            "description": "The ID of the security group associated with the CloudHSM cluster.\n"
+        },
+        "sourceBackupIdentifier": {
+            "type": "string",
+            "description": "ID of Cloud HSM v2 cluster backup to be restored.\n"
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The IDs of subnets in which cluster will operate.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "vpcId": {
+            "type": "string",
+            "description": "The id of the VPC that the CloudHSM cluster resides in.\n"
+        }
+    },
+    "required": [
+        "clusterCertificates",
+        "clusterId",
+        "clusterState",
+        "hsmType",
+        "securityGroupId",
+        "subnetIds",
+        "tagsAll",
+        "vpcId"
+    ],
+    "inputProperties": {
+        "hsmType": {
+            "type": "string",
+            "description": "The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.\n",
+            "willReplaceOnChanges": true
+        },
+        "sourceBackupIdentifier": {
+            "type": "string",
+            "description": "ID of Cloud HSM v2 cluster backup to be restored.\n",
+            "willReplaceOnChanges": true
+        },
+        "subnetIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The IDs of subnets in which cluster will operate.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "hsmType",
+        "subnetIds"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Cluster resources.\n",
+        "properties": {
+            "clusterCertificates": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:cloudhsmv2/ClusterClusterCertificate:ClusterClusterCertificate"
+                },
+                "description": "The list of cluster certificates.\n* `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.\n* `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.\n* `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.\n* `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.\n* `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.\n"
+            },
+            "clusterId": {
+                "type": "string",
+                "description": "The id of the CloudHSM cluster.\n"
+            },
+            "clusterState": {
+                "type": "string",
+                "description": "The state of the CloudHSM cluster.\n",
+                "language": {
+                    "csharp": {
+                        "name": "State"
+                    }
+                }
+            },
+            "hsmType": {
+                "type": "string",
+                "description": "The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.\n",
+                "willReplaceOnChanges": true
+            },
+            "securityGroupId": {
+                "type": "string",
+                "description": "The ID of the security group associated with the CloudHSM cluster.\n"
+            },
+            "sourceBackupIdentifier": {
+                "type": "string",
+                "description": "ID of Cloud HSM v2 cluster backup to be restored.\n",
+                "willReplaceOnChanges": true
+            },
+            "subnetIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "The IDs of subnets in which cluster will operate.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "vpcId": {
+                "type": "string",
+                "description": "The id of the VPC that the CloudHSM cluster resides in.\n"
+            }
+        },
+        "type": "object"
+    }
+}

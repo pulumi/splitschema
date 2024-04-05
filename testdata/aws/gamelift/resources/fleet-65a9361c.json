@@ -1,0 +1,297 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Fleet ARN.\n"
+        },
+        "buildArn": {
+            "type": "string",
+            "description": "Build ARN.\n"
+        },
+        "buildId": {
+            "type": "string",
+            "description": "ID of the GameLift Build to be deployed on the fleet.\n"
+        },
+        "certificateConfiguration": {
+            "$ref": "#/types/aws:gamelift/FleetCertificateConfiguration:FleetCertificateConfiguration",
+            "description": "Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Human-readable description of the fleet.\n"
+        },
+        "ec2InboundPermissions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:gamelift/FleetEc2InboundPermission:FleetEc2InboundPermission"
+            },
+            "description": "Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.\n"
+        },
+        "ec2InstanceType": {
+            "type": "string",
+            "description": "Name of an EC2 instance typeE.g., `t2.micro`\n"
+        },
+        "fleetType": {
+            "type": "string",
+            "description": "Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.\n"
+        },
+        "instanceRoleArn": {
+            "type": "string",
+            "description": "ARN of an IAM role that instances in the fleet can assume.\n"
+        },
+        "logPaths": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "metricGroups": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the fleet.\n"
+        },
+        "newGameSessionProtectionPolicy": {
+            "type": "string",
+            "description": "Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.\n"
+        },
+        "operatingSystem": {
+            "type": "string",
+            "description": "Operating system of the fleet's computing resources.\n"
+        },
+        "resourceCreationLimitPolicy": {
+            "$ref": "#/types/aws:gamelift/FleetResourceCreationLimitPolicy:FleetResourceCreationLimitPolicy",
+            "description": "Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.\n"
+        },
+        "runtimeConfiguration": {
+            "$ref": "#/types/aws:gamelift/FleetRuntimeConfiguration:FleetRuntimeConfiguration",
+            "description": "Instructions for launching server processes on each instance in the fleet. See below.\n"
+        },
+        "scriptArn": {
+            "type": "string",
+            "description": "Script ARN.\n"
+        },
+        "scriptId": {
+            "type": "string",
+            "description": "ID of the GameLift Script to be deployed on the fleet.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "buildArn",
+        "certificateConfiguration",
+        "ec2InboundPermissions",
+        "ec2InstanceType",
+        "logPaths",
+        "metricGroups",
+        "name",
+        "operatingSystem",
+        "scriptArn",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "buildId": {
+            "type": "string",
+            "description": "ID of the GameLift Build to be deployed on the fleet.\n",
+            "willReplaceOnChanges": true
+        },
+        "certificateConfiguration": {
+            "$ref": "#/types/aws:gamelift/FleetCertificateConfiguration:FleetCertificateConfiguration",
+            "description": "Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "Human-readable description of the fleet.\n"
+        },
+        "ec2InboundPermissions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:gamelift/FleetEc2InboundPermission:FleetEc2InboundPermission"
+            },
+            "description": "Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.\n"
+        },
+        "ec2InstanceType": {
+            "type": "string",
+            "description": "Name of an EC2 instance typeE.g., `t2.micro`\n",
+            "willReplaceOnChanges": true
+        },
+        "fleetType": {
+            "type": "string",
+            "description": "Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.\n",
+            "willReplaceOnChanges": true
+        },
+        "instanceRoleArn": {
+            "type": "string",
+            "description": "ARN of an IAM role that instances in the fleet can assume.\n",
+            "willReplaceOnChanges": true
+        },
+        "metricGroups": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the fleet.\n"
+        },
+        "newGameSessionProtectionPolicy": {
+            "type": "string",
+            "description": "Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.\n"
+        },
+        "resourceCreationLimitPolicy": {
+            "$ref": "#/types/aws:gamelift/FleetResourceCreationLimitPolicy:FleetResourceCreationLimitPolicy",
+            "description": "Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.\n"
+        },
+        "runtimeConfiguration": {
+            "$ref": "#/types/aws:gamelift/FleetRuntimeConfiguration:FleetRuntimeConfiguration",
+            "description": "Instructions for launching server processes on each instance in the fleet. See below.\n"
+        },
+        "scriptId": {
+            "type": "string",
+            "description": "ID of the GameLift Script to be deployed on the fleet.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "ec2InstanceType"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Fleet resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Fleet ARN.\n"
+            },
+            "buildArn": {
+                "type": "string",
+                "description": "Build ARN.\n"
+            },
+            "buildId": {
+                "type": "string",
+                "description": "ID of the GameLift Build to be deployed on the fleet.\n",
+                "willReplaceOnChanges": true
+            },
+            "certificateConfiguration": {
+                "$ref": "#/types/aws:gamelift/FleetCertificateConfiguration:FleetCertificateConfiguration",
+                "description": "Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.\n",
+                "willReplaceOnChanges": true
+            },
+            "description": {
+                "type": "string",
+                "description": "Human-readable description of the fleet.\n"
+            },
+            "ec2InboundPermissions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:gamelift/FleetEc2InboundPermission:FleetEc2InboundPermission"
+                },
+                "description": "Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.\n"
+            },
+            "ec2InstanceType": {
+                "type": "string",
+                "description": "Name of an EC2 instance typeE.g., `t2.micro`\n",
+                "willReplaceOnChanges": true
+            },
+            "fleetType": {
+                "type": "string",
+                "description": "Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.\n",
+                "willReplaceOnChanges": true
+            },
+            "instanceRoleArn": {
+                "type": "string",
+                "description": "ARN of an IAM role that instances in the fleet can assume.\n",
+                "willReplaceOnChanges": true
+            },
+            "logPaths": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "metricGroups": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the fleet.\n"
+            },
+            "newGameSessionProtectionPolicy": {
+                "type": "string",
+                "description": "Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.\n"
+            },
+            "operatingSystem": {
+                "type": "string",
+                "description": "Operating system of the fleet's computing resources.\n"
+            },
+            "resourceCreationLimitPolicy": {
+                "$ref": "#/types/aws:gamelift/FleetResourceCreationLimitPolicy:FleetResourceCreationLimitPolicy",
+                "description": "Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.\n"
+            },
+            "runtimeConfiguration": {
+                "$ref": "#/types/aws:gamelift/FleetRuntimeConfiguration:FleetRuntimeConfiguration",
+                "description": "Instructions for launching server processes on each instance in the fleet. See below.\n"
+            },
+            "scriptArn": {
+                "type": "string",
+                "description": "Script ARN.\n"
+            },
+            "scriptId": {
+                "type": "string",
+                "description": "ID of the GameLift Script to be deployed on the fleet.\n",
+                "willReplaceOnChanges": true
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

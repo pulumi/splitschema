@@ -1,0 +1,53 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getInstanceTypeOfferings.\n",
+        "properties": {
+            "engineType": {
+                "type": "string",
+                "description": "Filter response by engine type.\n"
+            },
+            "hostInstanceType": {
+                "type": "string",
+                "description": "Filter response by host instance type.\n"
+            },
+            "storageType": {
+                "type": "string",
+                "description": "Filter response by storage type.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getInstanceTypeOfferings.\n",
+        "properties": {
+            "brokerInstanceOptions": {
+                "description": "Option for host instance type. See Broker Instance Options below.\n",
+                "items": {
+                    "$ref": "#/types/aws:mq/getInstanceTypeOfferingsBrokerInstanceOption:getInstanceTypeOfferingsBrokerInstanceOption"
+                },
+                "type": "array"
+            },
+            "engineType": {
+                "description": "Broker's engine type.\n",
+                "type": "string"
+            },
+            "hostInstanceType": {
+                "description": "Broker's instance type.\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "storageType": {
+                "description": "Broker's storage type.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "brokerInstanceOptions",
+            "id"
+        ],
+        "type": "object"
+    }
+}

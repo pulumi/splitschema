@@ -1,0 +1,99 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getResourceShare.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ram/getResourceShareFilter:getResourceShareFilter"
+                },
+                "description": "Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the tag key to filter on.\n"
+            },
+            "resourceOwner": {
+                "type": "string",
+                "description": "Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.\n"
+            },
+            "resourceShareStatus": {
+                "type": "string",
+                "description": "Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags attached to the resource share.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "name",
+            "resourceOwner"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getResourceShare.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the resource share.\n",
+                "type": "string"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ram/getResourceShareFilter:getResourceShareFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "owningAccountId": {
+                "description": "ID of the AWS account that owns the resource share.\n",
+                "type": "string"
+            },
+            "resourceArns": {
+                "description": "A list of resource ARNs associated with the resource share.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "resourceOwner": {
+                "type": "string"
+            },
+            "resourceShareStatus": {
+                "type": "string"
+            },
+            "status": {
+                "description": "Status of the resource share.\n",
+                "type": "string"
+            },
+            "tags": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Tags attached to the resource share.\n",
+                "type": "object"
+            }
+        },
+        "required": [
+            "arn",
+            "name",
+            "owningAccountId",
+            "resourceArns",
+            "resourceOwner",
+            "status",
+            "tags",
+            "id"
+        ],
+        "type": "object"
+    }
+}

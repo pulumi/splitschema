@@ -1,0 +1,44 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getSolutionStack.\n",
+        "properties": {
+            "mostRecent": {
+                "type": "boolean",
+                "description": "If more than one result is returned, use the most\nrecent solution stack.\n"
+            },
+            "nameRegex": {
+                "type": "string",
+                "description": "Regex string to apply to the solution stack list returned\nby AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from\nAWS documentation for reference solution stack names.\n\n\u003e **NOTE:** If more or less than a single match is returned by the search,\nthis call will fail. Ensure that your search is specific enough to return\na single solution stack, or use `most_recent` to choose the most recent one.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "nameRegex"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getSolutionStack.\n",
+        "properties": {
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "mostRecent": {
+                "type": "boolean"
+            },
+            "name": {
+                "description": "Name of the solution stack.\n",
+                "type": "string"
+            },
+            "nameRegex": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "name",
+            "nameRegex",
+            "id"
+        ],
+        "type": "object"
+    }
+}

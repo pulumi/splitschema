@@ -1,0 +1,164 @@
+{
+    "properties": {
+        "actions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fis/ExperimentTemplateAction:ExperimentTemplateAction"
+            },
+            "description": "Action to be performed during an experiment. See below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the experiment template.\n"
+        },
+        "logConfiguration": {
+            "$ref": "#/types/aws:fis/ExperimentTemplateLogConfiguration:ExperimentTemplateLogConfiguration",
+            "description": "The configuration for experiment logging. See below.\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.\n"
+        },
+        "stopConditions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fis/ExperimentTemplateStopCondition:ExperimentTemplateStopCondition"
+            },
+            "description": "When an ongoing experiment should be stopped. See below.\n\nThe following arguments are optional:\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "targets": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fis/ExperimentTemplateTarget:ExperimentTemplateTarget"
+            },
+            "description": "Target of an action. See below.\n"
+        }
+    },
+    "required": [
+        "actions",
+        "description",
+        "roleArn",
+        "stopConditions",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "actions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fis/ExperimentTemplateAction:ExperimentTemplateAction"
+            },
+            "description": "Action to be performed during an experiment. See below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the experiment template.\n"
+        },
+        "logConfiguration": {
+            "$ref": "#/types/aws:fis/ExperimentTemplateLogConfiguration:ExperimentTemplateLogConfiguration",
+            "description": "The configuration for experiment logging. See below.\n"
+        },
+        "roleArn": {
+            "type": "string",
+            "description": "ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.\n"
+        },
+        "stopConditions": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fis/ExperimentTemplateStopCondition:ExperimentTemplateStopCondition"
+            },
+            "description": "When an ongoing experiment should be stopped. See below.\n\nThe following arguments are optional:\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n",
+            "willReplaceOnChanges": true
+        },
+        "targets": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fis/ExperimentTemplateTarget:ExperimentTemplateTarget"
+            },
+            "description": "Target of an action. See below.\n"
+        }
+    },
+    "requiredInputs": [
+        "actions",
+        "description",
+        "roleArn",
+        "stopConditions"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering ExperimentTemplate resources.\n",
+        "properties": {
+            "actions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:fis/ExperimentTemplateAction:ExperimentTemplateAction"
+                },
+                "description": "Action to be performed during an experiment. See below.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description for the experiment template.\n"
+            },
+            "logConfiguration": {
+                "$ref": "#/types/aws:fis/ExperimentTemplateLogConfiguration:ExperimentTemplateLogConfiguration",
+                "description": "The configuration for experiment logging. See below.\n"
+            },
+            "roleArn": {
+                "type": "string",
+                "description": "ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.\n"
+            },
+            "stopConditions": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:fis/ExperimentTemplateStopCondition:ExperimentTemplateStopCondition"
+                },
+                "description": "When an ongoing experiment should be stopped. See below.\n\nThe following arguments are optional:\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n",
+                "willReplaceOnChanges": true
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true,
+                "willReplaceOnChanges": true
+            },
+            "targets": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:fis/ExperimentTemplateTarget:ExperimentTemplateTarget"
+                },
+                "description": "Target of an action. See below.\n"
+            }
+        },
+        "type": "object"
+    }
+}

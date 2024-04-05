@@ -1,0 +1,74 @@
+{
+    "properties": {
+        "authenticationRequestExtraParams": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "The query parameters to include in the redirect request to the authorization endpoint. Max: 10.\n"
+        },
+        "authorizationEndpoint": {
+            "type": "string",
+            "description": "The authorization endpoint of the IdP.\n"
+        },
+        "clientId": {
+            "type": "string",
+            "description": "The OAuth 2.0 client identifier.\n"
+        },
+        "clientSecret": {
+            "type": "string",
+            "description": "The OAuth 2.0 client secret.\n",
+            "secret": true
+        },
+        "issuer": {
+            "type": "string",
+            "description": "The OIDC issuer identifier of the IdP.\n"
+        },
+        "onUnauthenticatedRequest": {
+            "type": "string",
+            "description": "The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`\n"
+        },
+        "scope": {
+            "type": "string",
+            "description": "The set of user claims to be requested from the IdP.\n"
+        },
+        "sessionCookieName": {
+            "type": "string",
+            "description": "The name of the cookie used to maintain session information.\n"
+        },
+        "sessionTimeout": {
+            "type": "integer",
+            "description": "The maximum duration of the authentication session, in seconds.\n"
+        },
+        "tokenEndpoint": {
+            "type": "string",
+            "description": "The token endpoint of the IdP.\n"
+        },
+        "userInfoEndpoint": {
+            "type": "string",
+            "description": "The user info endpoint of the IdP.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "authorizationEndpoint",
+        "clientId",
+        "clientSecret",
+        "issuer",
+        "tokenEndpoint",
+        "userInfoEndpoint"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "authorizationEndpoint",
+                "clientId",
+                "clientSecret",
+                "issuer",
+                "onUnauthenticatedRequest",
+                "tokenEndpoint",
+                "userInfoEndpoint"
+            ]
+        }
+    }
+}

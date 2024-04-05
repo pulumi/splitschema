@@ -1,0 +1,164 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The codestar notification rule ARN.\n"
+        },
+        "detailType": {
+            "type": "string",
+            "description": "The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.\n"
+        },
+        "eventTypeIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of event types associated with this notification rule.\nFor list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of notification rule.\n"
+        },
+        "resource": {
+            "type": "string",
+            "description": "The ARN of the resource to associate with the notification rule.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "targets": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:codestarnotifications/NotificationRuleTarget:NotificationRuleTarget"
+            },
+            "description": "Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "detailType",
+        "eventTypeIds",
+        "name",
+        "resource",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "detailType": {
+            "type": "string",
+            "description": "The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.\n"
+        },
+        "eventTypeIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of event types associated with this notification rule.\nFor list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of notification rule.\n"
+        },
+        "resource": {
+            "type": "string",
+            "description": "The ARN of the resource to associate with the notification rule.\n",
+            "willReplaceOnChanges": true
+        },
+        "status": {
+            "type": "string",
+            "description": "The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "targets": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:codestarnotifications/NotificationRuleTarget:NotificationRuleTarget"
+            },
+            "description": "Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.\n"
+        }
+    },
+    "requiredInputs": [
+        "detailType",
+        "eventTypeIds",
+        "resource"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering NotificationRule resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The codestar notification rule ARN.\n"
+            },
+            "detailType": {
+                "type": "string",
+                "description": "The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.\n"
+            },
+            "eventTypeIds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of event types associated with this notification rule.\nFor list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of notification rule.\n"
+            },
+            "resource": {
+                "type": "string",
+                "description": "The ARN of the resource to associate with the notification rule.\n",
+                "willReplaceOnChanges": true
+            },
+            "status": {
+                "type": "string",
+                "description": "The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "targets": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:codestarnotifications/NotificationRuleTarget:NotificationRuleTarget"
+                },
+                "description": "Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.\n"
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "properties": {
+        "role": {
+            "type": "string",
+            "description": "The ARN of the IAM role for Amazon S3 to assume when replicating the objects.\n"
+        },
+        "rules": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:s3/BucketReplicationConfigurationRule:BucketReplicationConfigurationRule"
+            },
+            "description": "Specifies the rules managing the replication (documented below).\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "role",
+        "rules"
+    ]
+}

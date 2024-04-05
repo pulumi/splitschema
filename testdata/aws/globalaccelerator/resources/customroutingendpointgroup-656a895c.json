@@ -1,0 +1,104 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the custom routing endpoint group.\n"
+        },
+        "destinationConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:globalaccelerator/CustomRoutingEndpointGroupDestinationConfiguration:CustomRoutingEndpointGroupDestinationConfiguration"
+            },
+            "description": "The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.\n"
+        },
+        "endpointConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:globalaccelerator/CustomRoutingEndpointGroupEndpointConfiguration:CustomRoutingEndpointGroupEndpointConfiguration"
+            },
+            "description": "The list of endpoint objects. Fields documented below.\n"
+        },
+        "endpointGroupRegion": {
+            "type": "string",
+            "description": "The name of the AWS Region where the custom routing endpoint group is located.\n"
+        },
+        "listenerArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the custom routing listener.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "destinationConfigurations",
+        "endpointGroupRegion",
+        "listenerArn"
+    ],
+    "inputProperties": {
+        "destinationConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:globalaccelerator/CustomRoutingEndpointGroupDestinationConfiguration:CustomRoutingEndpointGroupDestinationConfiguration"
+            },
+            "description": "The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.\n",
+            "willReplaceOnChanges": true
+        },
+        "endpointConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:globalaccelerator/CustomRoutingEndpointGroupEndpointConfiguration:CustomRoutingEndpointGroupEndpointConfiguration"
+            },
+            "description": "The list of endpoint objects. Fields documented below.\n",
+            "willReplaceOnChanges": true
+        },
+        "endpointGroupRegion": {
+            "type": "string",
+            "description": "The name of the AWS Region where the custom routing endpoint group is located.\n",
+            "willReplaceOnChanges": true
+        },
+        "listenerArn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the custom routing listener.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "destinationConfigurations",
+        "listenerArn"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering CustomRoutingEndpointGroup resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the custom routing endpoint group.\n"
+            },
+            "destinationConfigurations": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:globalaccelerator/CustomRoutingEndpointGroupDestinationConfiguration:CustomRoutingEndpointGroupDestinationConfiguration"
+                },
+                "description": "The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.\n",
+                "willReplaceOnChanges": true
+            },
+            "endpointConfigurations": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:globalaccelerator/CustomRoutingEndpointGroupEndpointConfiguration:CustomRoutingEndpointGroupEndpointConfiguration"
+                },
+                "description": "The list of endpoint objects. Fields documented below.\n",
+                "willReplaceOnChanges": true
+            },
+            "endpointGroupRegion": {
+                "type": "string",
+                "description": "The name of the AWS Region where the custom routing endpoint group is located.\n",
+                "willReplaceOnChanges": true
+            },
+            "listenerArn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the custom routing listener.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

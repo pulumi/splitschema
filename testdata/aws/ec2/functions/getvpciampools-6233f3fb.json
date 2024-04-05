@@ -1,0 +1,43 @@
+{
+    "deprecationMessage": "aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools",
+    "inputs": {
+        "description": "A collection of arguments for invoking getVpcIamPools.\n",
+        "properties": {
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getVpcIamPoolsFilter:getVpcIamPoolsFilter"
+                },
+                "description": "Custom filter block as described below.\n"
+            }
+        },
+        "type": "object"
+    },
+    "outputs": {
+        "description": "A collection of values returned by getVpcIamPools.\n",
+        "properties": {
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:ec2/getVpcIamPoolsFilter:getVpcIamPoolsFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "ipamPools": {
+                "description": "List of IPAM pools and their attributes. See below for details\n",
+                "items": {
+                    "$ref": "#/types/aws:ec2/getVpcIamPoolsIpamPool:getVpcIamPoolsIpamPool"
+                },
+                "type": "array"
+            }
+        },
+        "required": [
+            "ipamPools",
+            "id"
+        ],
+        "type": "object"
+    }
+}

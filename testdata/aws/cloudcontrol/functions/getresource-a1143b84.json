@@ -1,0 +1,60 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getResource.\n",
+        "properties": {
+            "identifier": {
+                "type": "string",
+                "description": "Identifier of the CloudFormation resource type. For example, `vpc-12345678`.\n"
+            },
+            "roleArn": {
+                "type": "string",
+                "description": "ARN of the IAM Role to assume for operations.\n"
+            },
+            "typeName": {
+                "type": "string",
+                "description": "CloudFormation resource type name. For example, `AWS::EC2::VPC`.\n\nThe following arguments are optional:\n"
+            },
+            "typeVersionId": {
+                "type": "string",
+                "description": "Identifier of the CloudFormation resource type version.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "identifier",
+            "typeName"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getResource.\n",
+        "properties": {
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "identifier": {
+                "type": "string"
+            },
+            "properties": {
+                "description": "JSON string matching the CloudFormation resource type schema with current configuration.\n",
+                "type": "string"
+            },
+            "roleArn": {
+                "type": "string"
+            },
+            "typeName": {
+                "type": "string"
+            },
+            "typeVersionId": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "identifier",
+            "properties",
+            "typeName",
+            "id"
+        ],
+        "type": "object"
+    }
+}

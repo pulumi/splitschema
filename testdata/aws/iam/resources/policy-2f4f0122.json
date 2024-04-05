@@ -1,0 +1,179 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN assigned by AWS to this policy.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the IAM policy.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the policy. If omitted, the provider will assign a random, unique name.\n"
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n"
+        },
+        "path": {
+            "type": "string",
+            "description": "Path in which to create the policy.\nSee [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.\n"
+        },
+        "policy": {
+            "type": "string",
+            "description": "The policy document. This is a JSON formatted string.\n",
+            "language": {
+                "csharp": {
+                    "name": "PolicyDocument"
+                }
+            }
+        },
+        "policyId": {
+            "type": "string",
+            "description": "The policy's ID.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "name",
+        "namePrefix",
+        "policy",
+        "policyId",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "description": {
+            "type": "string",
+            "description": "Description of the IAM policy.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the policy. If omitted, the provider will assign a random, unique name.\n",
+            "willReplaceOnChanges": true
+        },
+        "namePrefix": {
+            "type": "string",
+            "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+            "willReplaceOnChanges": true
+        },
+        "path": {
+            "type": "string",
+            "description": "Path in which to create the policy.\nSee [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.\n",
+            "willReplaceOnChanges": true
+        },
+        "policy": {
+            "type": "string",
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "string",
+                    "$ref": "#/types/aws:iam/documents:PolicyDocument"
+                }
+            ],
+            "description": "The policy document. This is a JSON formatted string.\n",
+            "language": {
+                "csharp": {
+                    "name": "PolicyDocument"
+                }
+            }
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "policy"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Policy resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN assigned by AWS to this policy.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of the IAM policy.\n",
+                "willReplaceOnChanges": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the policy. If omitted, the provider will assign a random, unique name.\n",
+                "willReplaceOnChanges": true
+            },
+            "namePrefix": {
+                "type": "string",
+                "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`.\n",
+                "willReplaceOnChanges": true
+            },
+            "path": {
+                "type": "string",
+                "description": "Path in which to create the policy.\nSee [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.\n",
+                "willReplaceOnChanges": true
+            },
+            "policy": {
+                "type": "string",
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "string",
+                        "$ref": "#/types/aws:iam/documents:PolicyDocument"
+                    }
+                ],
+                "description": "The policy document. This is a JSON formatted string.\n",
+                "language": {
+                    "csharp": {
+                        "name": "PolicyDocument"
+                    }
+                }
+            },
+            "policyId": {
+                "type": "string",
+                "description": "The policy's ID.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

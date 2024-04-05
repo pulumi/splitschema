@@ -1,0 +1,130 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the Lightsail load balancer.\n"
+        },
+        "availabilityZone": {
+            "type": "string",
+            "description": "The Availability Zone in which to create your disk.\n"
+        },
+        "createdAt": {
+            "type": "string",
+            "description": "The timestamp when the load balancer was created.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the Lightsail load balancer.\n"
+        },
+        "sizeInGb": {
+            "type": "integer",
+            "description": "The instance port the load balancer will connect.\n"
+        },
+        "supportCode": {
+            "type": "string",
+            "description": "The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "availabilityZone",
+        "createdAt",
+        "name",
+        "sizeInGb",
+        "supportCode",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "availabilityZone": {
+            "type": "string",
+            "description": "The Availability Zone in which to create your disk.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of the Lightsail load balancer.\n",
+            "willReplaceOnChanges": true
+        },
+        "sizeInGb": {
+            "type": "integer",
+            "description": "The instance port the load balancer will connect.\n",
+            "willReplaceOnChanges": true
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "availabilityZone",
+        "sizeInGb"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Disk resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the Lightsail load balancer.\n"
+            },
+            "availabilityZone": {
+                "type": "string",
+                "description": "The Availability Zone in which to create your disk.\n",
+                "willReplaceOnChanges": true
+            },
+            "createdAt": {
+                "type": "string",
+                "description": "The timestamp when the load balancer was created.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the Lightsail load balancer.\n",
+                "willReplaceOnChanges": true
+            },
+            "sizeInGb": {
+                "type": "integer",
+                "description": "The instance port the load balancer will connect.\n",
+                "willReplaceOnChanges": true
+            },
+            "supportCode": {
+                "type": "string",
+                "description": "The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

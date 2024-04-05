@@ -1,0 +1,35 @@
+{
+    "properties": {
+        "accountId": {
+            "type": "string",
+            "description": "The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The Amazon Resource Name (ARN) of the Amazon Web Services organization.\n"
+        },
+        "encryption": {
+            "$ref": "#/types/aws:s3control/StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption:StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption",
+            "description": "Encryption of the metrics exports in this bucket. See Encryption below for more details.\n"
+        },
+        "format": {
+            "type": "string",
+            "description": "The export format. Valid values: `CSV`, `Parquet`.\n"
+        },
+        "outputSchemaVersion": {
+            "type": "string",
+            "description": "The schema version of the export file. Valid values: `V_1`.\n"
+        },
+        "prefix": {
+            "type": "string",
+            "description": "The prefix of the destination bucket where the metrics export will be delivered.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "accountId",
+        "arn",
+        "format",
+        "outputSchemaVersion"
+    ]
+}

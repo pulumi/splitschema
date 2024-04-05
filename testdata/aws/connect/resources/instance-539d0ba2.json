@@ -1,0 +1,184 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) of the instance.\n"
+        },
+        "autoResolveBestVoicesEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether auto resolve best voices is enabled. Defaults to `true`.\n"
+        },
+        "contactFlowLogsEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether contact flow logs are enabled. Defaults to `false`.\n"
+        },
+        "contactLensEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether contact lens is enabled. Defaults to `true`.\n"
+        },
+        "createdTime": {
+            "type": "string",
+            "description": "When the instance was created.\n"
+        },
+        "directoryId": {
+            "type": "string",
+            "description": "The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.\n"
+        },
+        "earlyMediaEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.\n"
+        },
+        "identityManagementType": {
+            "type": "string",
+            "description": "Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.\n"
+        },
+        "inboundCallsEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether inbound calls are enabled.\n"
+        },
+        "instanceAlias": {
+            "type": "string",
+            "description": "Specifies the name of the instance. Required if `directory_id` not specified.\n"
+        },
+        "multiPartyConferenceEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether multi-party calls/conference is enabled. Defaults to `false`.\n"
+        },
+        "outboundCallsEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether outbound calls are enabled.\n\u003c!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --\u003e\n"
+        },
+        "serviceRole": {
+            "type": "string",
+            "description": "The service role of the instance.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "The state of the instance.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "createdTime",
+        "identityManagementType",
+        "inboundCallsEnabled",
+        "outboundCallsEnabled",
+        "serviceRole",
+        "status"
+    ],
+    "inputProperties": {
+        "autoResolveBestVoicesEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether auto resolve best voices is enabled. Defaults to `true`.\n"
+        },
+        "contactFlowLogsEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether contact flow logs are enabled. Defaults to `false`.\n"
+        },
+        "contactLensEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether contact lens is enabled. Defaults to `true`.\n"
+        },
+        "directoryId": {
+            "type": "string",
+            "description": "The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.\n",
+            "willReplaceOnChanges": true
+        },
+        "earlyMediaEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.\n"
+        },
+        "identityManagementType": {
+            "type": "string",
+            "description": "Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.\n",
+            "willReplaceOnChanges": true
+        },
+        "inboundCallsEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether inbound calls are enabled.\n"
+        },
+        "instanceAlias": {
+            "type": "string",
+            "description": "Specifies the name of the instance. Required if `directory_id` not specified.\n",
+            "willReplaceOnChanges": true
+        },
+        "multiPartyConferenceEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether multi-party calls/conference is enabled. Defaults to `false`.\n"
+        },
+        "outboundCallsEnabled": {
+            "type": "boolean",
+            "description": "Specifies whether outbound calls are enabled.\n\u003c!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --\u003e\n"
+        }
+    },
+    "requiredInputs": [
+        "identityManagementType",
+        "inboundCallsEnabled",
+        "outboundCallsEnabled"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Instance resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) of the instance.\n"
+            },
+            "autoResolveBestVoicesEnabled": {
+                "type": "boolean",
+                "description": "Specifies whether auto resolve best voices is enabled. Defaults to `true`.\n"
+            },
+            "contactFlowLogsEnabled": {
+                "type": "boolean",
+                "description": "Specifies whether contact flow logs are enabled. Defaults to `false`.\n"
+            },
+            "contactLensEnabled": {
+                "type": "boolean",
+                "description": "Specifies whether contact lens is enabled. Defaults to `true`.\n"
+            },
+            "createdTime": {
+                "type": "string",
+                "description": "When the instance was created.\n"
+            },
+            "directoryId": {
+                "type": "string",
+                "description": "The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.\n",
+                "willReplaceOnChanges": true
+            },
+            "earlyMediaEnabled": {
+                "type": "boolean",
+                "description": "Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.\n"
+            },
+            "identityManagementType": {
+                "type": "string",
+                "description": "Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.\n",
+                "willReplaceOnChanges": true
+            },
+            "inboundCallsEnabled": {
+                "type": "boolean",
+                "description": "Specifies whether inbound calls are enabled.\n"
+            },
+            "instanceAlias": {
+                "type": "string",
+                "description": "Specifies the name of the instance. Required if `directory_id` not specified.\n",
+                "willReplaceOnChanges": true
+            },
+            "multiPartyConferenceEnabled": {
+                "type": "boolean",
+                "description": "Specifies whether multi-party calls/conference is enabled. Defaults to `false`.\n"
+            },
+            "outboundCallsEnabled": {
+                "type": "boolean",
+                "description": "Specifies whether outbound calls are enabled.\n\u003c!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --\u003e\n"
+            },
+            "serviceRole": {
+                "type": "string",
+                "description": "The service role of the instance.\n"
+            },
+            "status": {
+                "type": "string",
+                "description": "The state of the instance.\n"
+            }
+        },
+        "type": "object"
+    }
+}

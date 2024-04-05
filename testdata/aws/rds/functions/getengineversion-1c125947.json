@@ -1,0 +1,176 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getEngineVersion.\n",
+        "properties": {
+            "defaultOnly": {
+                "type": "boolean",
+                "description": "When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.\n"
+            },
+            "engine": {
+                "type": "string",
+                "description": "DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.\n"
+            },
+            "filters": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:rds/getEngineVersionFilter:getEngineVersionFilter"
+                },
+                "description": "One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).\n"
+            },
+            "includeAll": {
+                "type": "boolean",
+                "description": "When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.\n"
+            },
+            "parameterGroupFamily": {
+                "type": "string",
+                "description": "Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.\n"
+            },
+            "preferredVersions": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.\n"
+            },
+            "version": {
+                "type": "string",
+                "description": "Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "engine"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getEngineVersion.\n",
+        "properties": {
+            "defaultCharacterSet": {
+                "description": "The default character set for new instances of this engine version.\n",
+                "type": "string"
+            },
+            "defaultOnly": {
+                "type": "boolean"
+            },
+            "engine": {
+                "type": "string"
+            },
+            "engineDescription": {
+                "description": "Description of the database engine.\n",
+                "type": "string"
+            },
+            "exportableLogTypes": {
+                "description": "Set of log types that the database engine has available for export to CloudWatch Logs.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "filters": {
+                "items": {
+                    "$ref": "#/types/aws:rds/getEngineVersionFilter:getEngineVersionFilter"
+                },
+                "type": "array"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "includeAll": {
+                "type": "boolean"
+            },
+            "parameterGroupFamily": {
+                "type": "string"
+            },
+            "preferredVersions": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "status": {
+                "description": "Status of the DB engine version, either available or deprecated.\n",
+                "type": "string"
+            },
+            "supportedCharacterSets": {
+                "description": "Set of the character sets supported by this engine.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "supportedFeatureNames": {
+                "description": "Set of features supported by the DB engine.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "supportedModes": {
+                "description": "Set of the supported DB engine modes.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "supportedTimezones": {
+                "description": "Set of the time zones supported by this engine.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "supportsGlobalDatabases": {
+                "description": "Indicates whether you can use Aurora global databases with a specific DB engine version.\n",
+                "type": "boolean"
+            },
+            "supportsLogExportsToCloudwatch": {
+                "description": "Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.\n",
+                "type": "boolean"
+            },
+            "supportsParallelQuery": {
+                "description": "Indicates whether you can use Aurora parallel query with a specific DB engine version.\n",
+                "type": "boolean"
+            },
+            "supportsReadReplica": {
+                "description": "Indicates whether the database engine version supports read replicas.\n",
+                "type": "boolean"
+            },
+            "validUpgradeTargets": {
+                "description": "Set of engine versions that this database engine version can be upgraded to.\n",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "version": {
+                "type": "string"
+            },
+            "versionDescription": {
+                "description": "Description of the database engine version.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "defaultCharacterSet",
+            "engine",
+            "engineDescription",
+            "exportableLogTypes",
+            "parameterGroupFamily",
+            "status",
+            "supportedCharacterSets",
+            "supportedFeatureNames",
+            "supportedModes",
+            "supportedTimezones",
+            "supportsGlobalDatabases",
+            "supportsLogExportsToCloudwatch",
+            "supportsParallelQuery",
+            "supportsReadReplica",
+            "validUpgradeTargets",
+            "version",
+            "versionDescription",
+            "id"
+        ],
+        "type": "object"
+    }
+}

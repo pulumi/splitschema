@@ -1,0 +1,43 @@
+{
+    "properties": {
+        "iscsis": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fsx/OntapStorageVirtualMachineEndpointIscsi:OntapStorageVirtualMachineEndpointIscsi"
+            },
+            "description": "An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.\n"
+        },
+        "managements": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fsx/OntapStorageVirtualMachineEndpointManagement:OntapStorageVirtualMachineEndpointManagement"
+            },
+            "description": "An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.\n"
+        },
+        "nfs": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fsx/OntapStorageVirtualMachineEndpointNf:OntapStorageVirtualMachineEndpointNf"
+            },
+            "description": "An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.\n"
+        },
+        "smbs": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:fsx/OntapStorageVirtualMachineEndpointSmb:OntapStorageVirtualMachineEndpointSmb"
+            },
+            "description": "An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.\n"
+        }
+    },
+    "type": "object",
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "iscsis",
+                "managements",
+                "nfs",
+                "smbs"
+            ]
+        }
+    }
+}

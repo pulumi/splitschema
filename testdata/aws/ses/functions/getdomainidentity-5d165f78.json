@@ -1,0 +1,43 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getDomainIdentity.\n",
+        "properties": {
+            "domain": {
+                "type": "string",
+                "description": "Name of the domain\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "domain"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getDomainIdentity.\n",
+        "properties": {
+            "arn": {
+                "description": "ARN of the domain identity.\n",
+                "type": "string"
+            },
+            "domain": {
+                "description": "Name of the domain\n",
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "verificationToken": {
+                "description": "Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.\n",
+                "type": "string"
+            }
+        },
+        "required": [
+            "arn",
+            "domain",
+            "verificationToken",
+            "id"
+        ],
+        "type": "object"
+    }
+}

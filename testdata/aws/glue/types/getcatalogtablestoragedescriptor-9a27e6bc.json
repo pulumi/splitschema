@@ -1,0 +1,98 @@
+{
+    "properties": {
+        "bucketColumns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of reducer grouping columns, clustering columns, and bucketing columns in the table.\n"
+        },
+        "columns": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/getCatalogTableStorageDescriptorColumn:getCatalogTableStorageDescriptorColumn"
+            },
+            "description": "Configuration block for columns in the table. See `columns` below.\n"
+        },
+        "compressed": {
+            "type": "boolean",
+            "description": "Whether the data in the table is compressed.\n"
+        },
+        "inputFormat": {
+            "type": "string",
+            "description": "Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.\n"
+        },
+        "location": {
+            "type": "string",
+            "description": "Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.\n"
+        },
+        "numberOfBuckets": {
+            "type": "integer",
+            "description": "Is if the table contains any dimension columns.\n"
+        },
+        "outputFormat": {
+            "type": "string",
+            "description": "Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.\n"
+        },
+        "parameters": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of initialization parameters for the SerDe, in key-value form.\n"
+        },
+        "schemaReferences": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/getCatalogTableStorageDescriptorSchemaReference:getCatalogTableStorageDescriptorSchemaReference"
+            },
+            "description": "Object that references a schema stored in the AWS Glue Schema Registry. See `schema_reference` below.\n"
+        },
+        "serDeInfos": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/getCatalogTableStorageDescriptorSerDeInfo:getCatalogTableStorageDescriptorSerDeInfo"
+            },
+            "description": "Configuration block for serialization and deserialization (\"SerDe\") information. See `ser_de_info` below.\n"
+        },
+        "skewedInfos": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/getCatalogTableStorageDescriptorSkewedInfo:getCatalogTableStorageDescriptorSkewedInfo"
+            },
+            "description": "Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.\n"
+        },
+        "sortColumns": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:glue/getCatalogTableStorageDescriptorSortColumn:getCatalogTableStorageDescriptorSortColumn"
+            },
+            "description": "Configuration block for the sort order of each bucket in the table. See `sort_columns` below.\n"
+        },
+        "storedAsSubDirectories": {
+            "type": "boolean",
+            "description": "Whether the table data is stored in subdirectories.\n"
+        }
+    },
+    "type": "object",
+    "required": [
+        "bucketColumns",
+        "columns",
+        "compressed",
+        "inputFormat",
+        "location",
+        "numberOfBuckets",
+        "outputFormat",
+        "parameters",
+        "schemaReferences",
+        "serDeInfos",
+        "skewedInfos",
+        "sortColumns",
+        "storedAsSubDirectories"
+    ],
+    "language": {
+        "nodejs": {
+            "requiredInputs": []
+        }
+    }
+}

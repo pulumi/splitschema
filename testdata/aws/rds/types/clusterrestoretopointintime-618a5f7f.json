@@ -1,0 +1,28 @@
+{
+    "properties": {
+        "restoreToTime": {
+            "type": "string",
+            "description": "Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.\n",
+            "willReplaceOnChanges": true
+        },
+        "restoreType": {
+            "type": "string",
+            "description": "Type of restore to be performed.\nValid options are `full-copy` (default) and `copy-on-write`.\n",
+            "willReplaceOnChanges": true
+        },
+        "sourceClusterIdentifier": {
+            "type": "string",
+            "description": "Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.\n",
+            "willReplaceOnChanges": true
+        },
+        "useLatestRestorableTime": {
+            "type": "boolean",
+            "description": "Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "type": "object",
+    "required": [
+        "sourceClusterIdentifier"
+    ]
+}

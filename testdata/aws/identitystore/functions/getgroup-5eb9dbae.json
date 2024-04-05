@@ -1,0 +1,74 @@
+{
+    "inputs": {
+        "description": "A collection of arguments for invoking getGroup.\n",
+        "properties": {
+            "alternateIdentifier": {
+                "$ref": "#/types/aws:identitystore/getGroupAlternateIdentifier:getGroupAlternateIdentifier",
+                "description": "A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.\n"
+            },
+            "filter": {
+                "$ref": "#/types/aws:identitystore/getGroupFilter:getGroupFilter",
+                "description": "Configuration block for filtering by a unique attribute of the group. Detailed below.\n",
+                "deprecationMessage": "Use the alternate_identifier attribute instead."
+            },
+            "groupId": {
+                "type": "string",
+                "description": "The identifier for a group in the Identity Store.\n\n\u003e Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.\n"
+            },
+            "identityStoreId": {
+                "type": "string",
+                "description": "Identity Store ID associated with the Single Sign-On Instance.\n\nThe following arguments are optional:\n"
+            }
+        },
+        "type": "object",
+        "required": [
+            "identityStoreId"
+        ]
+    },
+    "outputs": {
+        "description": "A collection of values returned by getGroup.\n",
+        "properties": {
+            "alternateIdentifier": {
+                "$ref": "#/types/aws:identitystore/getGroupAlternateIdentifier:getGroupAlternateIdentifier"
+            },
+            "description": {
+                "description": "Description of the specified group.\n",
+                "type": "string"
+            },
+            "displayName": {
+                "description": "Group's display name value.\n",
+                "type": "string"
+            },
+            "externalIds": {
+                "description": "List of identifiers issued to this resource by an external identity provider.\n",
+                "items": {
+                    "$ref": "#/types/aws:identitystore/getGroupExternalId:getGroupExternalId"
+                },
+                "type": "array"
+            },
+            "filter": {
+                "$ref": "#/types/aws:identitystore/getGroupFilter:getGroupFilter",
+                "deprecationMessage": "Use the alternate_identifier attribute instead."
+            },
+            "groupId": {
+                "type": "string"
+            },
+            "id": {
+                "description": "The provider-assigned unique ID for this managed resource.\n",
+                "type": "string"
+            },
+            "identityStoreId": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "description",
+            "displayName",
+            "externalIds",
+            "groupId",
+            "identityStoreId",
+            "id"
+        ],
+        "type": "object"
+    }
+}

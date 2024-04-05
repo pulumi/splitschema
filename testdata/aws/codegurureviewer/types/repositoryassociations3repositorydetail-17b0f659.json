@@ -1,0 +1,23 @@
+{
+    "properties": {
+        "bucketName": {
+            "type": "string",
+            "description": "The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.\n"
+        },
+        "codeArtifacts": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:codegurureviewer/RepositoryAssociationS3RepositoryDetailCodeArtifact:RepositoryAssociationS3RepositoryDetailCodeArtifact"
+            }
+        }
+    },
+    "type": "object",
+    "language": {
+        "nodejs": {
+            "requiredOutputs": [
+                "bucketName",
+                "codeArtifacts"
+            ]
+        }
+    }
+}

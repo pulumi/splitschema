@@ -1,0 +1,183 @@
+{
+    "properties": {
+        "accountId": {
+            "type": "string",
+            "description": "The ID of the target account for budget. Will use current user's account_id by default if omitted.\n"
+        },
+        "actionId": {
+            "type": "string",
+            "description": "The id of the budget action.\n"
+        },
+        "actionThreshold": {
+            "$ref": "#/types/aws:budgets/BudgetActionActionThreshold:BudgetActionActionThreshold",
+            "description": "The trigger threshold of the action. See Action Threshold.\n"
+        },
+        "actionType": {
+            "type": "string",
+            "description": "The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.\n"
+        },
+        "approvalModel": {
+            "type": "string",
+            "description": "This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.\n"
+        },
+        "arn": {
+            "type": "string",
+            "description": "The ARN of the budget action.\n"
+        },
+        "budgetName": {
+            "type": "string",
+            "description": "The name of a budget.\n"
+        },
+        "definition": {
+            "$ref": "#/types/aws:budgets/BudgetActionDefinition:BudgetActionDefinition",
+            "description": "Specifies all of the type-specific parameters. See Definition.\n"
+        },
+        "executionRoleArn": {
+            "type": "string",
+            "description": "The role passed for action execution and reversion. Roles and actions must be in the same account.\n"
+        },
+        "notificationType": {
+            "type": "string",
+            "description": "The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "The status of the budget action.\n"
+        },
+        "subscribers": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:budgets/BudgetActionSubscriber:BudgetActionSubscriber"
+            },
+            "description": "A list of subscribers. See Subscriber.\n"
+        }
+    },
+    "required": [
+        "accountId",
+        "actionId",
+        "actionThreshold",
+        "actionType",
+        "approvalModel",
+        "arn",
+        "budgetName",
+        "definition",
+        "executionRoleArn",
+        "notificationType",
+        "status",
+        "subscribers"
+    ],
+    "inputProperties": {
+        "accountId": {
+            "type": "string",
+            "description": "The ID of the target account for budget. Will use current user's account_id by default if omitted.\n",
+            "willReplaceOnChanges": true
+        },
+        "actionThreshold": {
+            "$ref": "#/types/aws:budgets/BudgetActionActionThreshold:BudgetActionActionThreshold",
+            "description": "The trigger threshold of the action. See Action Threshold.\n"
+        },
+        "actionType": {
+            "type": "string",
+            "description": "The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.\n",
+            "willReplaceOnChanges": true
+        },
+        "approvalModel": {
+            "type": "string",
+            "description": "This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.\n"
+        },
+        "budgetName": {
+            "type": "string",
+            "description": "The name of a budget.\n",
+            "willReplaceOnChanges": true
+        },
+        "definition": {
+            "$ref": "#/types/aws:budgets/BudgetActionDefinition:BudgetActionDefinition",
+            "description": "Specifies all of the type-specific parameters. See Definition.\n"
+        },
+        "executionRoleArn": {
+            "type": "string",
+            "description": "The role passed for action execution and reversion. Roles and actions must be in the same account.\n"
+        },
+        "notificationType": {
+            "type": "string",
+            "description": "The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.\n"
+        },
+        "subscribers": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:budgets/BudgetActionSubscriber:BudgetActionSubscriber"
+            },
+            "description": "A list of subscribers. See Subscriber.\n"
+        }
+    },
+    "requiredInputs": [
+        "actionThreshold",
+        "actionType",
+        "approvalModel",
+        "budgetName",
+        "definition",
+        "executionRoleArn",
+        "notificationType",
+        "subscribers"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering BudgetAction resources.\n",
+        "properties": {
+            "accountId": {
+                "type": "string",
+                "description": "The ID of the target account for budget. Will use current user's account_id by default if omitted.\n",
+                "willReplaceOnChanges": true
+            },
+            "actionId": {
+                "type": "string",
+                "description": "The id of the budget action.\n"
+            },
+            "actionThreshold": {
+                "$ref": "#/types/aws:budgets/BudgetActionActionThreshold:BudgetActionActionThreshold",
+                "description": "The trigger threshold of the action. See Action Threshold.\n"
+            },
+            "actionType": {
+                "type": "string",
+                "description": "The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.\n",
+                "willReplaceOnChanges": true
+            },
+            "approvalModel": {
+                "type": "string",
+                "description": "This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.\n"
+            },
+            "arn": {
+                "type": "string",
+                "description": "The ARN of the budget action.\n"
+            },
+            "budgetName": {
+                "type": "string",
+                "description": "The name of a budget.\n",
+                "willReplaceOnChanges": true
+            },
+            "definition": {
+                "$ref": "#/types/aws:budgets/BudgetActionDefinition:BudgetActionDefinition",
+                "description": "Specifies all of the type-specific parameters. See Definition.\n"
+            },
+            "executionRoleArn": {
+                "type": "string",
+                "description": "The role passed for action execution and reversion. Roles and actions must be in the same account.\n"
+            },
+            "notificationType": {
+                "type": "string",
+                "description": "The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.\n"
+            },
+            "status": {
+                "type": "string",
+                "description": "The status of the budget action.\n"
+            },
+            "subscribers": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:budgets/BudgetActionSubscriber:BudgetActionSubscriber"
+                },
+                "description": "A list of subscribers. See Subscriber.\n"
+            }
+        },
+        "type": "object"
+    }
+}

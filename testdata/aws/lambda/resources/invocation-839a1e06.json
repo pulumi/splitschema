@@ -1,0 +1,113 @@
+{
+    "properties": {
+        "functionName": {
+            "type": "string",
+            "description": "Name of the lambda function.\n"
+        },
+        "input": {
+            "type": "string",
+            "description": "JSON payload to the lambda function.\n\nThe following arguments are optional:\n"
+        },
+        "lifecycleScope": {
+            "type": "string",
+            "description": "Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.\n"
+        },
+        "qualifier": {
+            "type": "string",
+            "description": "Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.\n"
+        },
+        "result": {
+            "type": "string",
+            "description": "String result of the lambda function invocation.\n"
+        },
+        "terraformKey": {
+            "type": "string"
+        },
+        "triggers": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of arbitrary keys and values that, when changed, will trigger a re-invocation.\n"
+        }
+    },
+    "required": [
+        "functionName",
+        "input",
+        "result"
+    ],
+    "inputProperties": {
+        "functionName": {
+            "type": "string",
+            "description": "Name of the lambda function.\n",
+            "willReplaceOnChanges": true
+        },
+        "input": {
+            "type": "string",
+            "description": "JSON payload to the lambda function.\n\nThe following arguments are optional:\n"
+        },
+        "lifecycleScope": {
+            "type": "string",
+            "description": "Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.\n"
+        },
+        "qualifier": {
+            "type": "string",
+            "description": "Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.\n",
+            "willReplaceOnChanges": true
+        },
+        "terraformKey": {
+            "type": "string"
+        },
+        "triggers": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of arbitrary keys and values that, when changed, will trigger a re-invocation.\n",
+            "willReplaceOnChanges": true
+        }
+    },
+    "requiredInputs": [
+        "functionName",
+        "input"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering Invocation resources.\n",
+        "properties": {
+            "functionName": {
+                "type": "string",
+                "description": "Name of the lambda function.\n",
+                "willReplaceOnChanges": true
+            },
+            "input": {
+                "type": "string",
+                "description": "JSON payload to the lambda function.\n\nThe following arguments are optional:\n"
+            },
+            "lifecycleScope": {
+                "type": "string",
+                "description": "Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.\n"
+            },
+            "qualifier": {
+                "type": "string",
+                "description": "Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.\n",
+                "willReplaceOnChanges": true
+            },
+            "result": {
+                "type": "string",
+                "description": "String result of the lambda function invocation.\n"
+            },
+            "terraformKey": {
+                "type": "string"
+            },
+            "triggers": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of arbitrary keys and values that, when changed, will trigger a re-invocation.\n",
+                "willReplaceOnChanges": true
+            }
+        },
+        "type": "object"
+    }
+}

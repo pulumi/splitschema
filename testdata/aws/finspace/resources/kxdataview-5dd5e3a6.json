@@ -1,0 +1,228 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) identifier of the KX dataview.\n"
+        },
+        "autoUpdate": {
+            "type": "boolean",
+            "description": "The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.\n"
+        },
+        "availabilityZoneId": {
+            "type": "string",
+            "description": "The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.\n"
+        },
+        "azMode": {
+            "type": "string",
+            "description": "The number of availability zones you want to assign per cluster. This can be one of the following:\n"
+        },
+        "changesetId": {
+            "type": "string",
+            "description": "A unique identifier of the changeset of the database that you want to use to ingest data.\n"
+        },
+        "createdTimestamp": {
+            "type": "string",
+            "description": "Timestamp at which the dataview was created in FinSpace. Value determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.\n"
+        },
+        "databaseName": {
+            "type": "string",
+            "description": "The name of the database where you want to create a dataview.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "A description for the dataview.\n"
+        },
+        "environmentId": {
+            "type": "string",
+            "description": "Unique identifier for the KX environment.\n"
+        },
+        "lastModifiedTimestamp": {
+            "type": "string",
+            "description": "The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "A unique identifier for the dataview.\n\nThe following arguments are optional:\n"
+        },
+        "segmentConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:finspace/KxDataviewSegmentConfiguration:KxDataviewSegmentConfiguration"
+            },
+            "description": "The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.\n"
+        },
+        "status": {
+            "type": "string"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        }
+    },
+    "required": [
+        "arn",
+        "autoUpdate",
+        "azMode",
+        "createdTimestamp",
+        "databaseName",
+        "environmentId",
+        "lastModifiedTimestamp",
+        "name",
+        "status",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "autoUpdate": {
+            "type": "boolean",
+            "description": "The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.\n",
+            "willReplaceOnChanges": true
+        },
+        "availabilityZoneId": {
+            "type": "string",
+            "description": "The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.\n",
+            "willReplaceOnChanges": true
+        },
+        "azMode": {
+            "type": "string",
+            "description": "The number of availability zones you want to assign per cluster. This can be one of the following:\n",
+            "willReplaceOnChanges": true
+        },
+        "changesetId": {
+            "type": "string",
+            "description": "A unique identifier of the changeset of the database that you want to use to ingest data.\n"
+        },
+        "databaseName": {
+            "type": "string",
+            "description": "The name of the database where you want to create a dataview.\n",
+            "willReplaceOnChanges": true
+        },
+        "description": {
+            "type": "string",
+            "description": "A description for the dataview.\n"
+        },
+        "environmentId": {
+            "type": "string",
+            "description": "Unique identifier for the KX environment.\n",
+            "willReplaceOnChanges": true
+        },
+        "name": {
+            "type": "string",
+            "description": "A unique identifier for the dataview.\n\nThe following arguments are optional:\n",
+            "willReplaceOnChanges": true
+        },
+        "segmentConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:finspace/KxDataviewSegmentConfiguration:KxDataviewSegmentConfiguration"
+            },
+            "description": "The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        }
+    },
+    "requiredInputs": [
+        "autoUpdate",
+        "azMode",
+        "databaseName",
+        "environmentId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering KxDataview resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) identifier of the KX dataview.\n"
+            },
+            "autoUpdate": {
+                "type": "boolean",
+                "description": "The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.\n",
+                "willReplaceOnChanges": true
+            },
+            "availabilityZoneId": {
+                "type": "string",
+                "description": "The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.\n",
+                "willReplaceOnChanges": true
+            },
+            "azMode": {
+                "type": "string",
+                "description": "The number of availability zones you want to assign per cluster. This can be one of the following:\n",
+                "willReplaceOnChanges": true
+            },
+            "changesetId": {
+                "type": "string",
+                "description": "A unique identifier of the changeset of the database that you want to use to ingest data.\n"
+            },
+            "createdTimestamp": {
+                "type": "string",
+                "description": "Timestamp at which the dataview was created in FinSpace. Value determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.\n"
+            },
+            "databaseName": {
+                "type": "string",
+                "description": "The name of the database where you want to create a dataview.\n",
+                "willReplaceOnChanges": true
+            },
+            "description": {
+                "type": "string",
+                "description": "A description for the dataview.\n"
+            },
+            "environmentId": {
+                "type": "string",
+                "description": "Unique identifier for the KX environment.\n",
+                "willReplaceOnChanges": true
+            },
+            "lastModifiedTimestamp": {
+                "type": "string",
+                "description": "The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "A unique identifier for the dataview.\n\nThe following arguments are optional:\n",
+                "willReplaceOnChanges": true
+            },
+            "segmentConfigurations": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:finspace/KxDataviewSegmentConfiguration:KxDataviewSegmentConfiguration"
+                },
+                "description": "The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.\n"
+            },
+            "status": {
+                "type": "string"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            }
+        },
+        "type": "object"
+    }
+}

@@ -1,0 +1,188 @@
+{
+    "properties": {
+        "arn": {
+            "type": "string",
+            "description": "Amazon Resource Name (ARN) identifier of the KX environment.\n"
+        },
+        "availabilityZones": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.\n"
+        },
+        "createdTimestamp": {
+            "type": "string",
+            "description": "Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
+        },
+        "customDnsConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:finspace/KxEnvironmentCustomDnsConfiguration:KxEnvironmentCustomDnsConfiguration"
+            },
+            "description": "List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the KX environment.\n"
+        },
+        "infrastructureAccountId": {
+            "type": "string",
+            "description": "Unique identifier for the AWS environment infrastructure account.\n"
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "KMS key ID to encrypt your data in the FinSpace environment.\n\nThe following arguments are optional:\n"
+        },
+        "lastModifiedTimestamp": {
+            "type": "string",
+            "description": "Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the KX environment that you want to create.\n"
+        },
+        "status": {
+            "type": "string",
+            "description": "Status of environment creation\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "tagsAll": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+            "deprecationMessage": "Please use `tags` instead.",
+            "secret": true
+        },
+        "transitGatewayConfiguration": {
+            "$ref": "#/types/aws:finspace/KxEnvironmentTransitGatewayConfiguration:KxEnvironmentTransitGatewayConfiguration",
+            "description": "Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.\n"
+        }
+    },
+    "required": [
+        "arn",
+        "availabilityZones",
+        "createdTimestamp",
+        "infrastructureAccountId",
+        "kmsKeyId",
+        "lastModifiedTimestamp",
+        "name",
+        "status",
+        "tagsAll"
+    ],
+    "inputProperties": {
+        "customDnsConfigurations": {
+            "type": "array",
+            "items": {
+                "$ref": "#/types/aws:finspace/KxEnvironmentCustomDnsConfiguration:KxEnvironmentCustomDnsConfiguration"
+            },
+            "description": "List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.\n"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description for the KX environment.\n"
+        },
+        "kmsKeyId": {
+            "type": "string",
+            "description": "KMS key ID to encrypt your data in the FinSpace environment.\n\nThe following arguments are optional:\n"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the KX environment that you want to create.\n"
+        },
+        "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+        },
+        "transitGatewayConfiguration": {
+            "$ref": "#/types/aws:finspace/KxEnvironmentTransitGatewayConfiguration:KxEnvironmentTransitGatewayConfiguration",
+            "description": "Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.\n"
+        }
+    },
+    "requiredInputs": [
+        "kmsKeyId"
+    ],
+    "stateInputs": {
+        "description": "Input properties used for looking up and filtering KxEnvironment resources.\n",
+        "properties": {
+            "arn": {
+                "type": "string",
+                "description": "Amazon Resource Name (ARN) identifier of the KX environment.\n"
+            },
+            "availabilityZones": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.\n"
+            },
+            "createdTimestamp": {
+                "type": "string",
+                "description": "Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
+            },
+            "customDnsConfigurations": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/types/aws:finspace/KxEnvironmentCustomDnsConfiguration:KxEnvironmentCustomDnsConfiguration"
+                },
+                "description": "List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.\n"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description for the KX environment.\n"
+            },
+            "infrastructureAccountId": {
+                "type": "string",
+                "description": "Unique identifier for the AWS environment infrastructure account.\n"
+            },
+            "kmsKeyId": {
+                "type": "string",
+                "description": "KMS key ID to encrypt your data in the FinSpace environment.\n\nThe following arguments are optional:\n"
+            },
+            "lastModifiedTimestamp": {
+                "type": "string",
+                "description": "Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.\n"
+            },
+            "name": {
+                "type": "string",
+                "description": "Name of the KX environment that you want to create.\n"
+            },
+            "status": {
+                "type": "string",
+                "description": "Status of environment creation\n"
+            },
+            "tags": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.\n"
+            },
+            "tagsAll": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "description": "Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.\n",
+                "deprecationMessage": "Please use `tags` instead.",
+                "secret": true
+            },
+            "transitGatewayConfiguration": {
+                "$ref": "#/types/aws:finspace/KxEnvironmentTransitGatewayConfiguration:KxEnvironmentTransitGatewayConfiguration",
+                "description": "Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.\n"
+            }
+        },
+        "type": "object"
+    }
+}
