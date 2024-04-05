@@ -41,18 +41,20 @@ pkgSpec, err := pkg.ReadPackageSpec()
 ### Example
 
 ```
-- core.json                                      core schema fields
-- functions.json                                 list of function tokens
-- resources.json                                 list of resource tokens
-- types.json                                     list of type tokens
+- core.json                                      Core schema fields
+- functions.json                                 List of function tokens
+- resources.json                                 List of resource tokens
+- types.json                                     List of type tokens
 - vpc/                                           vpc module
-  - functions/                                   functions in the vpc module
+  - functions/                                   Functions in the vpc module
     - getsecuritygrouprule-de68e9b0.json         getSecurityGroupRule function spec
     - getsecuritygrouprule-de68e9b0.md           getSecurityGroupRule description
-  - resources/                                   resources in the vpc module
+    - getsecuritygrouprule-de68e9b0.meta.json    Additional provider-specific metadata for the function
+  - resources/                                   Resources in the vpc module
     - securitygroupegressrule-d60ba7ae.json      SecurityGroupEgressRule resource spec
     - securitygroupegressrule-d60ba7ae.md        SecurityGroupEgressRule description
-  - types/                                       types in the vpc module
+    - securitygroupegressrule-d60ba7ae.meta.json Additional provider-specific metadata for the resource
+  - types/                                       Types in the vpc module
     - getsecuritygrouprulefilter-2c6dddd7.json   GetSecurityGroupRuleFilter type spec
 ```
 
@@ -62,6 +64,7 @@ pkgSpec, err := pkg.ReadPackageSpec()
 - **Thread safe**: Multiple goroutines can request different or the same elements at the same time. This uses lock-free strategies.
 - **Fast**: Batch loading is performed in parallel.
 - **Human Readable**: The structure of the filesystem is designed to be easily navigable & good for showing diffs.
+- **Custom Metadata**: Add extra, typed metadata for the provider's internal use (e.g. mappings to API endpoints)
 
 ## Potential Applications
 

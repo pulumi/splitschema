@@ -15,27 +15,16 @@ import (
 	yaml "gopkg.in/yaml.v3"
 )
 
-func NewLocalPartialPackage(basePath string) partialPackage[any, any, any] {
+func NewLocalPartialPackage(basePath string) partialPackage {
 	return NewPartialPackage(os.DirFS(basePath), ".")
 }
 
-func NewPartialPackage(fs fs.FS, basePath string) partialPackage[any, any, any] {
-	return NewPartialPackageWithMetadata[any, any, any](fs, basePath)
-}
-
-func NewLocalPartialPackageWithMetadata[ResourceMeta any, FunctionMeta any, TypeMeta any](basePath string) partialPackage[ResourceMeta, FunctionMeta, TypeMeta] {
-	return NewPartialPackageWithMetadata[ResourceMeta, FunctionMeta, TypeMeta](os.DirFS(basePath), ".")
-}
-
-func NewPartialPackageWithMetadata[ResourceMeta any, FunctionMeta any, TypeMeta any](fs fs.FS, basePath string) partialPackage[ResourceMeta, FunctionMeta, TypeMeta] {
-	return partialPackage[ResourceMeta, FunctionMeta, TypeMeta]{
-		reader:       newReader(fs, basePath, "json"),
-		resources:    ccmap.New[*schema.ResourceSpec](),
-		resourceMeta: ccmap.New[*ResourceMeta](),
-		functions:    ccmap.New[*schema.FunctionSpec](),
-		functionMeta: ccmap.New[*FunctionMeta](),
-		types:        ccmap.New[*schema.ComplexTypeSpec](),
-		typeMeta:     ccmap.New[*TypeMeta](),
+func NewPartialPackage(fs fs.FS, basePath string) partialPackage {
+	return partialPackage{
+		reader:    newReader(fs, basePath, "json"),
+		resources: ccmap.New[*schema.ResourceSpec](),
+		functions: ccmap.New[*schema.FunctionSpec](),
+		types:     ccmap.New[*schema.ComplexTypeSpec](),
 	}
 }
 
@@ -44,21 +33,38 @@ func ReadPackageSpec(path string) (*schema.PackageSpec, error) {
 	return partialPkg.ReadPackageSpec()
 }
 
-type partialPackage[ResourceMeta any, FunctionMeta any, TypeMeta any] struct {
+type partialPackage struct {
 	core *schema.PackageSpec
 
 	reader         reader
 	resourceTokens atomic.Pointer[tokenMappings]
 	resources      ccmap.ConcurrentMap[string, *schema.ResourceSpec]
-	resourceMeta   ccmap.ConcurrentMap[string, *ResourceMeta]
 
 	functionTokens atomic.Pointer[tokenMappings]
 	functions      ccmap.ConcurrentMap[string, *schema.FunctionSpec]
-	functionMeta   ccmap.ConcurrentMap[string, *FunctionMeta]
 
 	typeTokens atomic.Pointer[tokenMappings]
 	types      ccmap.ConcurrentMap[string, *schema.ComplexTypeSpec]
-	typeMeta   ccmap.ConcurrentMap[string, *TypeMeta]
+}
+
+func NewLocalPartialPackageWithMetadata[ResourceMeta any, FunctionMeta any, TypeMeta any](basePath string) partialPackageWithMetadata[ResourceMeta, FunctionMeta, TypeMeta] {
+	return NewPartialPackageWithMetadata[ResourceMeta, FunctionMeta, TypeMeta](os.DirFS(basePath), ".")
+}
+
+func NewPartialPackageWithMetadata[ResourceMeta any, FunctionMeta any, TypeMeta any](fs fs.FS, basePath string) partialPackageWithMetadata[ResourceMeta, FunctionMeta, TypeMeta] {
+	return partialPackageWithMetadata[ResourceMeta, FunctionMeta, TypeMeta]{
+		partialPackage: NewPartialPackage(fs, basePath),
+		resourceMeta:   ccmap.New[*ResourceMeta](),
+		functionMeta:   ccmap.New[*FunctionMeta](),
+		typeMeta:       ccmap.New[*TypeMeta](),
+	}
+}
+
+type partialPackageWithMetadata[ResourceMeta any, FunctionMeta any, TypeMeta any] struct {
+	partialPackage
+	resourceMeta ccmap.ConcurrentMap[string, *ResourceMeta]
+	functionMeta ccmap.ConcurrentMap[string, *FunctionMeta]
+	typeMeta     ccmap.ConcurrentMap[string, *TypeMeta]
 }
 
 type tokenMappings struct {
@@ -66,7 +72,7 @@ type tokenMappings struct {
 	list    []string
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) ReadPackageSpec() (*schema.PackageSpec, error) {
+func (p *partialPackage) ReadPackageSpec() (*schema.PackageSpec, error) {
 	core, err := p.getCore()
 	if err != nil {
 		return nil, err
@@ -107,7 +113,7 @@ func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) ReadPackageSpec()
 	return core, nil
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) getCore() (*schema.PackageSpec, error) {
+func (p *partialPackage) getCore() (*schema.PackageSpec, error) {
 	if p.core != nil {
 		return p.core, nil
 	}
@@ -119,7 +125,7 @@ func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) getCore() (*schem
 	return p.core, nil
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetResources() (map[string]schema.ResourceSpec, error) {
+func (p *partialPackage) GetResources() (map[string]schema.ResourceSpec, error) {
 	resourceTokens, err := p.GetResourceTokens()
 	if err != nil {
 		return nil, err
@@ -150,7 +156,7 @@ func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetResources() (m
 	return resourceMap, nil
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetResource(token string) (*schema.ResourceSpec, error) {
+func (p *partialPackage) GetResource(token string) (*schema.ResourceSpec, error) {
 	if spec, ok := p.resources.Get(token); ok {
 		return spec, nil
 	}
@@ -180,12 +186,12 @@ func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetResource(token
 }
 
 // GetResourceTokens returns the resource tokens for the package sorted alphabetically.
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetResourceTokens() ([]string, error) {
+func (p *partialPackage) GetResourceTokens() ([]string, error) {
 	mappings, err := p.getResourceTokenMappings()
 	return mappings.list, err
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetFunctions() (map[string]schema.FunctionSpec, error) {
+func (p *partialPackage) GetFunctions() (map[string]schema.FunctionSpec, error) {
 	functionTokens, err := p.GetFunctionTokens()
 	if err != nil {
 		return nil, err
@@ -216,7 +222,7 @@ func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetFunctions() (m
 	return functionMap, nil
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetFunction(token string) (*schema.FunctionSpec, error) {
+func (p *partialPackage) GetFunction(token string) (*schema.FunctionSpec, error) {
 	if spec, ok := p.functions.Get(token); ok {
 		return spec, nil
 	}
@@ -245,12 +251,12 @@ func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetFunction(token
 	return &spec, nil
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetFunctionTokens() ([]string, error) {
+func (p *partialPackage) GetFunctionTokens() ([]string, error) {
 	mappings, err := p.getFunctionTokenMappings()
 	return mappings.list, err
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetTypes() (map[string]schema.ComplexTypeSpec, error) {
+func (p *partialPackage) GetTypes() (map[string]schema.ComplexTypeSpec, error) {
 	typeTokens, err := p.GetTypeTokens()
 	if err != nil {
 		return nil, err
@@ -281,7 +287,7 @@ func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetTypes() (map[s
 	return typeMap, nil
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetType(token string) (*schema.ComplexTypeSpec, error) {
+func (p *partialPackage) GetType(token string) (*schema.ComplexTypeSpec, error) {
 	if spec, ok := p.types.Get(token); ok {
 		return spec, nil
 	}
@@ -310,17 +316,17 @@ func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetType(token str
 	return &spec, nil
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetTypeTokens() ([]string, error) {
+func (p *partialPackage) GetTypeTokens() ([]string, error) {
 	mappings, err := p.getTypeTokenMappings()
 	return mappings.list, err
 }
 
 // getResourceTokenMappings returns the resource token mappings and a sorted list of resource tokens.
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) getResourceTokenMappings() (*tokenMappings, error) {
+func (p *partialPackage) getResourceTokenMappings() (*tokenMappings, error) {
 	return p.getTokenMappings(&p.resourceTokens, "resources")
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) getTokenMappings(tokenMappingsPtr *atomic.Pointer[tokenMappings], pathExExt string) (*tokenMappings, error) {
+func (p *partialPackage) getTokenMappings(tokenMappingsPtr *atomic.Pointer[tokenMappings], pathExExt string) (*tokenMappings, error) {
 	if mappings := tokenMappingsPtr.Load(); mappings != nil {
 		return mappings, nil
 	}
@@ -343,23 +349,23 @@ func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) getTokenMappings(
 	return &mappings, nil
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) getTypeTokenMappings() (*tokenMappings, error) {
+func (p *partialPackage) getTypeTokenMappings() (*tokenMappings, error) {
 	return p.getTokenMappings(&p.typeTokens, "types")
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) getFunctionTokenMappings() (*tokenMappings, error) {
+func (p *partialPackage) getFunctionTokenMappings() (*tokenMappings, error) {
 	return p.getTokenMappings(&p.functionTokens, "functions")
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetResourceMeta(token string) (*ResourceMeta, error) {
+func (p *partialPackageWithMetadata[ResourceMeta, FunctionMeta, TypeMeta]) GetResourceMeta(token string) (*ResourceMeta, error) {
 	return getMetadata(&p.resourceMeta, &p.reader, "resources", token)
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetFunctionMeta(token string) (*FunctionMeta, error) {
+func (p *partialPackageWithMetadata[ResourceMeta, FunctionMeta, TypeMeta]) GetFunctionMeta(token string) (*FunctionMeta, error) {
 	return getMetadata(&p.functionMeta, &p.reader, "functions", token)
 }
 
-func (p *partialPackage[ResourceMeta, FunctionMeta, TypeMeta]) GetTypeMeta(token string) (*TypeMeta, error) {
+func (p *partialPackageWithMetadata[ResourceMeta, FunctionMeta, TypeMeta]) GetTypeMeta(token string) (*TypeMeta, error) {
 	return getMetadata(&p.typeMeta, &p.reader, "types", token)
 }
 
