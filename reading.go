@@ -1,4 +1,4 @@
-package bschema
+package splitschema
 
 import (
 	"encoding/json"

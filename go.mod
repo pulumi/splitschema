@@ -1,4 +1,4 @@
-module github.com/pulumi/bschema
+module github.com/pulumi/splitschema
 
 go 1.21.5
 
