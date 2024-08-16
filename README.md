@@ -14,7 +14,7 @@ Historically, schema and metadata has always been stored and embedded within pro
 Install:
 
 ```bash
-go install github.com/pulumi/splitschema/cmd/splitschema
+go install github.com/pulumi/splitschema/cmd/splitschema@v1
 ```
 
 Usage:
