@@ -9,6 +9,23 @@ Historically, schema and metadata has always been stored and embedded within pro
 
 ## Usage
 
+### CLI
+
+Install:
+
+```bash
+go install github.com/pulumi/splitschema/cmd/splitschema
+```
+
+Usage:
+
+```bash
+splitschema split -s schema.json -d schema-dir
+splitschema merge -s schema-dir -d schema.json
+```
+
+### In code
+
 Writing:
 
 ```go
@@ -84,5 +101,5 @@ Prior art: [github.com/pulumi/pulumi-schema-explode](https://github.com/pulumi/p
 
 ## Developing Locally
 
-1. Run `go generate` to populate the `./testdata/` folder so embedding will work.
+1. Run `go generate` to populate the `testdata` directory.
 2. Run `go test -bench .` to run tests including benchmarks.

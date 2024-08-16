@@ -1,10 +1,12 @@
+// Copyright 2024, Pulumi Corporation.
+
 // The following directive is necessary to make the package coherent:
 
 //go:build ignore
 // +build ignore
 
 // This program generates contributors.go. It can be invoked by running
-// go generate
+// go generate ./testdata from the parent directory.
 package main
 
 import (
@@ -20,9 +22,6 @@ import (
 )
 
 func main() {
-	if err := os.MkdirAll("testdata", 0755); err != nil {
-		panic(err)
-	}
 	if err := prepareProviderSchema("aws", "v6.29.0"); err != nil {
 		panic(err)
 	}

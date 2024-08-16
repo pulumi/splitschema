@@ -1,3 +1,5 @@
+// Copyright 2024, Pulumi Corporation.
+
 package splitschema
 
 import (
@@ -378,8 +380,11 @@ func (r *reader) readSpec(path string, data any) (description *string, err error
 		description = &descriptionStr
 	}
 	err = r.readData(path, data)
-	if err != nil {
+	if err != nil && !os.IsNotExist(err) {
 		return nil, err
+	}
+	if data == nil {
+		return nil, nil
 	}
 	return description, nil
 }
@@ -417,7 +422,7 @@ func getMetadata[T any](cache *ccmap.ConcurrentMap[string, *T], reader *reader, 
 
 	var spec T
 	err = reader.readData(path+".meta", &spec)
-	if err != nil {
+	if err != nil && !os.IsNotExist(err) {
 		return nil, err
 	}
 	if !cache.SetIfAbsent(token, &spec) {

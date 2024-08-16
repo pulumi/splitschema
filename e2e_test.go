@@ -1,4 +1,6 @@
-package splitschema
+// Copyright 2024, Pulumi Corporation.
+
+package splitschema_test
 
 import (
 	"embed"
@@ -8,11 +10,12 @@ import (
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/splitschema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
-//go:generate go run e2e_testdata.go
+//go:generate go run testdata/gen.go
 
 //go:embed testdata/aws/*
 var awsEmbeddedSplit embed.FS
@@ -21,7 +24,7 @@ var awsEmbeddedSplit embed.FS
 var awsEmbedded []byte
 
 func TestEmbedded(t *testing.T) {
-	pkg := NewPartialPackage(awsEmbeddedSplit, "testdata/aws")
+	pkg := splitschema.NewPartialPackage(awsEmbeddedSplit, "testdata/aws")
 	resources, err := pkg.GetResourceTokens()
 	require.NoError(t, err)
 	assert.NotEmpty(t, resources)
@@ -30,7 +33,7 @@ func TestEmbedded(t *testing.T) {
 func BenchmarkGetResource(b *testing.B) {
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		pkg := NewPartialPackage(awsEmbeddedSplit, "testdata/aws")
+		pkg := splitschema.NewPartialPackage(awsEmbeddedSplit, "testdata/aws")
 		_, err := pkg.GetResource("aws:ec2/instance:Instance")
 		require.NoError(b, err)
 		b.Log(i, b.Elapsed())
@@ -39,7 +42,7 @@ func BenchmarkGetResource(b *testing.B) {
 
 func BenchmarkReadResourcesEmbedded(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		pkg := NewPartialPackage(awsEmbeddedSplit, "testdata/aws")
+		pkg := splitschema.NewPartialPackage(awsEmbeddedSplit, "testdata/aws")
 		_, err := pkg.ReadPackageSpec()
 		if err != nil {
 			b.Fatal(err)
@@ -61,12 +64,12 @@ func TestWriteTo(t *testing.T) {
 	pkg, err := readPackage(filepath.Join("testdata", "aws.json"))
 	require.NoError(t, err)
 	dir := t.TempDir()
-	err = WritePackageSpec(dir, pkg)
+	err = splitschema.WritePackageSpec(dir, pkg)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	// actual, err := ReadPackageSpec(path)
+	// actual, err := splitschema.ReadPackageSpec(path)
 	// if err != nil {
 	// 	t.Fatal(err)
 	// }
@@ -80,7 +83,7 @@ func BenchmarkWriteTo(b *testing.B) {
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		dir := b.TempDir()
-		err := WritePackageSpec(dir, pkg)
+		err := splitschema.WritePackageSpec(dir, pkg)
 		if err != nil {
 			b.Fatal(err)
 		}
@@ -93,12 +96,12 @@ func BenchmarkReadFrom(b *testing.B) {
 	require.NoError(b, err)
 	b.Log("combined read", b.Elapsed())
 	dir := b.TempDir()
-	err = WritePackageSpec(dir, pkg)
+	err = splitschema.WritePackageSpec(dir, pkg)
 	require.NoError(b, err)
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		_, err := ReadPackageSpec(dir)
+		_, err := splitschema.ReadPackageSpec(dir)
 		if err != nil {
 			b.Fatal(err)
 		}
@@ -111,7 +114,7 @@ func TestAwsWrite(t *testing.T) {
 	pkg, err := readPackage(filepath.Join("testdata", "aws.json"))
 	require.NoError(t, err)
 	assert.NotNil(t, pkg)
-	err = WritePackageSpec(awsPath, pkg, WriteOptionCompact())
+	err = splitschema.WritePackageSpec(awsPath, pkg, splitschema.WriteOptionCompact())
 	require.NoError(t, err)
 }
 
@@ -121,10 +124,10 @@ func TestAwsRoundTrip(t *testing.T) {
 	assert.NotNil(t, pkg)
 
 	dir := t.TempDir()
-	err = WritePackageSpec(dir, pkg)
+	err = splitschema.WritePackageSpec(dir, pkg)
 	require.NoError(t, err)
 
-	readSpec, err := ReadPackageSpec(dir)
+	readSpec, err := splitschema.ReadPackageSpec(dir)
 	require.NoError(t, err)
 	require.NotNil(t, readSpec)
 	assert.Equal(t, len(pkg.Resources), len(readSpec.Resources))
@@ -194,7 +197,7 @@ func TestMetadataRoundTrip(t *testing.T) {
 			},
 		},
 	}
-	metadata := TypedPackageMetadata[map[string]any, any, any]{
+	metadata := splitschema.TypedPackageMetadata[map[string]any, any, any]{
 		Resources: map[string]map[string]any{
 			token: map[string]interface{}{
 				"metaKey": "metaValue",
@@ -202,9 +205,9 @@ func TestMetadataRoundTrip(t *testing.T) {
 		},
 	}
 	dir := t.TempDir()
-	require.NoError(t, WritePackageSpecWithTypedMetadata(dir, &pkg, &metadata))
+	require.NoError(t, splitschema.WritePackageSpecWithTypedMetadata(dir, &pkg, &metadata))
 
-	readSpec := NewLocalPartialPackageWithMetadata[map[string]interface{}, any, any](dir)
+	readSpec := splitschema.NewLocalPartialPackageWithMetadata[map[string]interface{}, any, any](dir)
 	actual, err := readSpec.GetResourceMeta(token)
 	require.NoError(t, err)
 	assert.Equal(t, metadata.Resources[token], *actual)
